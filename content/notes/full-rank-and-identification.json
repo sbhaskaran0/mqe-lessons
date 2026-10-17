@@ -1,0 +1,365 @@
+{
+ "slug": "full-rank-and-identification",
+ "notation": [
+  {
+   "tex": "$\\mathbf{X}$",
+   "meaning": "Regressor matrix",
+   "kind": "Data ($N\\times K$)",
+   "typical": "—",
+   "keys": [
+    "bold(X)"
+   ]
+  },
+  {
+   "tex": "$\\boldsymbol{\\beta}$, $\\boldsymbol{\\gamma}$",
+   "meaning": "Two candidate coefficient vectors",
+   "kind": "Parameters",
+   "typical": "—",
+   "keys": [
+    "bold(beta)",
+    "bold(gamma)"
+   ]
+  },
+  {
+   "tex": "$\\boldsymbol{\\delta} = \\boldsymbol{\\beta} - \\boldsymbol{\\gamma}$",
+   "meaning": "Their difference; full rank means $\\mathbf{X}\\boldsymbol{\\delta} = \\mathbf{0}$ only if $\\boldsymbol{\\delta} = \\mathbf{0}$",
+   "kind": "Vector",
+   "typical": "—",
+   "keys": [
+    "bold(delta)"
+   ]
+  },
+  {
+   "tex": "$N$, $K$",
+   "meaning": "Observations and regressors",
+   "kind": "Counts",
+   "typical": "Need $N \\geq K$",
+   "keys": [
+    "N",
+    "K"
+   ]
+  },
+  {
+   "tex": "$NI$, $S$, $T$",
+   "meaning": "Non-labor income, labor income and total income ($T = NI + S$) in the example",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "~NI",
+    "S",
+    "T"
+   ]
+  },
+  {
+   "tex": "$a$",
+   "meaning": "Any amount shifted between coefficients in the example",
+   "kind": "Number",
+   "typical": "—",
+   "keys": [
+    "a"
+   ]
+  },
+  {
+   "tex": "$\\boldsymbol{\\varepsilon}$, $y$",
+   "meaning": "Error and outcome",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(varepsilon)",
+    "y"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{y}$",
+   "meaning": "Column of $N$ outcomes",
+   "kind": "Data ($N\\times1$)",
+   "typical": "—",
+   "keys": [
+    "bold(y)"
+   ],
+   "from": "ols-in-matrix-form"
+  },
+  {
+   "tex": "$k$",
+   "meaning": "Number of vectors or columns",
+   "kind": "Count",
+   "typical": "—",
+   "keys": [
+    "k"
+   ],
+   "from": "linear-independence-and-rank"
+  },
+  {
+   "tex": "$\\mathbf{x}$",
+   "meaning": "Vector in the null space when $A\\mathbf{x} = \\mathbf{0}$",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(x)"
+   ],
+   "from": "linear-independence-and-rank"
+  },
+  {
+   "tex": "$\\beta_1$",
+   "meaning": "Mean outcome of the reference (zero) group",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ],
+   "from": "indicator-variables"
+  },
+  {
+   "tex": "$e$, $\\varepsilon$",
+   "meaning": "Error term",
+   "kind": "Unobserved",
+   "typical": "—",
+   "keys": [
+    "e",
+    "varepsilon"
+   ],
+   "from": "indicator-variables"
+  },
+  {
+   "tex": "$y_i$, $x_i$",
+   "meaning": "Outcome and regressor",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "y",
+    "x"
+   ],
+   "from": "sr-assumptions"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Identification asks whether the data can, even in principle, tell different explanations apart. In regression it fails when one explanatory variable is an exact combination of others — say total income alongside its two components, labor income and non-labor income. Then you can shift weight between the variables without changing any prediction, so infinitely many sets of coefficients fit equally well and the regression cannot pick one. Full rank is the condition that rules this out."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "Without it the computer either refuses to run the regression or silently drops a variable, and any coefficient you get has no meaning.",
+       "folded": false
+      }
+     ],
+     "words": 101,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The condition that makes $(\\mathbf{X}'\\mathbf{X})^{-1}$ exist, and therefore makes $\\boldsymbol{\\beta}$ estimable at all. The matrix generalisation of SR5, \"variation in $x$\"."
+      }
+     ],
+     "words": 18,
+     "symbols": [
+      "$\\mathbf{X}$",
+      "$\\boldsymbol{\\beta}$, $\\boldsymbol{\\gamma}$",
+      "$y_i$, $x_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "the-uniqueness-argument",
+   "heading": "The uniqueness argument",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-uniqueness-argument-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The conditional mean relationship must hold for all $N$ observations, so $E[\\mathbf{y}\\mid\\mathbf{X}] = \\mathbf{X}\\boldsymbol{\\beta}$. Suppose some $\\boldsymbol{\\gamma} \\neq \\boldsymbol{\\beta}$ produces the same expected value. Let $\\boldsymbol{\\delta} = \\boldsymbol{\\beta} - \\boldsymbol{\\gamma}$. Then"
+      },
+      {
+       "t": "math",
+       "tex": "\\mathbf{X}\\boldsymbol{\\delta} = \\mathbf{X}\\boldsymbol{\\beta} - \\mathbf{X}\\boldsymbol{\\gamma} = \\mathbf{0}"
+      },
+      {
+       "t": "prose",
+       "md": "for a **nonzero** $\\boldsymbol{\\delta}$ — meaning the columns of $\\mathbf{X}$ are linearly dependent. Ruling this out is the **full rank** assumption, which is an **identifiability** assumption, and it requires $N \\geq K$."
+      }
+     ],
+     "words": 45,
+     "symbols": [
+      "$\\mathbf{X}$",
+      "$\\boldsymbol{\\beta}$, $\\boldsymbol{\\gamma}$",
+      "$\\boldsymbol{\\delta} = \\boldsymbol{\\beta} - \\boldsymbol{\\gamma}$",
+      "$N$, $K$",
+      "$\\mathbf{y}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "identifiability-stated-generally",
+   "heading": "Identifiability, stated generally",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "identifiability-stated-generally-1",
+     "blocks": [
+      {
+       "t": "quote",
+       "md": "No variable $x_k$ may be written as a linear function of the other variables in the model."
+      },
+      {
+       "t": "prose",
+       "md": "Theory does not rule linear dependence out. It simply makes estimation impossible."
+      }
+     ],
+     "words": 28,
+     "symbols": [
+      "$y_i$, $x_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "the-textbook-example",
+   "heading": "The textbook example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-textbook-example-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "\\mathbf{x} = [1,\\; \\text{Nonlabor income},\\; \\text{Labor income},\\; \\text{Total income}]"
+      },
+      {
+       "t": "prose",
+       "md": "With $T = NI + S$, consider"
+      },
+      {
+       "t": "math",
+       "tex": "y = \\beta_1 + \\beta_2 NI + \\beta_3 S + \\beta_4 T + \\varepsilon"
+      },
+      {
+       "t": "prose",
+       "md": "For **any** $a$,"
+      },
+      {
+       "t": "math",
+       "tex": "y = \\beta_1 + (\\beta_2 + a)NI + (\\beta_3 + a)S + (\\beta_4 - a)T + \\varepsilon"
+      },
+      {
+       "t": "prose",
+       "md": "gives an identical fit. Infinitely many coefficient vectors, no unique answer. What does \"regressing $y$ on $(1, NI, S, T)$\" even estimate? Nothing identified."
+      }
+     ],
+     "words": 23,
+     "symbols": [
+      "$N$, $K$",
+      "$NI$, $S$, $T$",
+      "$a$",
+      "$\\boldsymbol{\\varepsilon}$, $y$",
+      "$\\mathbf{x}$",
+      "$\\beta_1$",
+      "$e$, $\\varepsilon$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "nonlinear-dependence-is-fine",
+   "heading": "Nonlinear dependence is fine",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "nonlinear-dependence-is-fine-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Having $x$ and $x^2$ in the same equation is **not** a problem — the columns are not *linearly* dependent. This is the same point as \"linear means linear in the parameters\" in [OLS in Matrix Form](note:ols-in-matrix-form)."
+      }
+     ],
+     "words": 33,
+     "symbols": [
+      "$y_i$, $x_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "the-dummy-variable-trap-is-this-condition",
+   "heading": "The dummy variable trap is this condition",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-dummy-variable-trap-is-this-condition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With all $k$ dummies plus an intercept, the dummy columns sum exactly to the column of ones. See [Indicator Variables](note:indicator-variables)."
+      }
+     ],
+     "words": 19,
+     "symbols": [
+      "$k$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "identifiability-in-general",
+   "heading": "Identifiability in general",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "identifiability-in-general-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The lecture's general statement: it is not possible, within the model, for two different parameter sets to produce the same $E[y\\mid\\mathbf{x}]$ **for all** $\\mathbf{x}$ vectors. (It is possible for *some* $\\mathbf{x}$.)"
+      }
+     ],
+     "words": 28,
+     "symbols": [
+      "$\\boldsymbol{\\varepsilon}$, $y$",
+      "$\\mathbf{x}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Math background: [Linear Independence and Rank](note:linear-independence-and-rank) · [Invertibility and Determinants](note:invertibility-and-determinants)\n- [OLS in Matrix Form](note:ols-in-matrix-form) — where the inverse appears\n- [Projection Matrix and Residual Maker](note:projection-matrix-and-residual-maker)\n- [SR Assumptions](note:sr-assumptions)"
+      }
+     ],
+     "words": 28,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

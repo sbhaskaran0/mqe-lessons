@@ -1,0 +1,580 @@
+{
+ "slug": "math-prep-l8-integration-for-probability",
+ "notation": [
+  {
+   "tex": "$u$, $v$",
+   "meaning": "The two parts of the integrand",
+   "kind": "Functions",
+   "typical": "—",
+   "keys": [
+    "u",
+    "v"
+   ],
+   "from": "integration-by-parts"
+  },
+  {
+   "tex": "$X$",
+   "meaning": "Non-negative random variable",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "X"
+   ],
+   "from": "integration-by-parts"
+  },
+  {
+   "tex": "$F$, $f$",
+   "meaning": "Its cumulative distribution and density",
+   "kind": "Functions",
+   "typical": "—",
+   "keys": [
+    "F",
+    "f"
+   ],
+   "from": "integration-by-parts"
+  },
+  {
+   "tex": "$E[X]$",
+   "meaning": "Expected value",
+   "kind": "Number",
+   "typical": "2 in the exponential example",
+   "keys": [
+    "~E[X]"
+   ],
+   "from": "integration-by-parts"
+  },
+  {
+   "tex": "$L(p)$",
+   "meaning": "Lorenz curve",
+   "kind": "Function",
+   "typical": "$p^2$ in the example",
+   "keys": [
+    "L"
+   ],
+   "from": "integration-by-parts"
+  },
+  {
+   "tex": "$G$",
+   "meaning": "Gini coefficient",
+   "kind": "Number",
+   "typical": "1/3 in the example",
+   "keys": [
+    "G"
+   ],
+   "from": "integration-by-parts"
+  },
+  {
+   "tex": "$y$, $\\mu$",
+   "meaning": "Income and mean income",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "y",
+    "mu"
+   ],
+   "from": "integration-by-parts"
+  },
+  {
+   "tex": "$w_R$",
+   "meaning": "Reservation wage",
+   "kind": "Number",
+   "typical": "—",
+   "keys": [
+    "w"
+   ],
+   "from": "integration-by-parts"
+  },
+  {
+   "tex": "$x$, $u$",
+   "meaning": "Original and new variable of integration",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "x",
+    "u"
+   ],
+   "from": "change-of-variables"
+  },
+  {
+   "tex": "$W$, $Z = \\ln W$",
+   "meaning": "Wage and log wage",
+   "kind": "Random variables",
+   "typical": "—",
+   "keys": [
+    "W",
+    "Z"
+   ],
+   "from": "change-of-variables"
+  },
+  {
+   "tex": "$\\mu$, $\\sigma$",
+   "meaning": "Mean and standard deviation of log wages",
+   "kind": "Parameters",
+   "typical": "3, 0.5 in the example",
+   "keys": [
+    "mu",
+    "sigma"
+   ],
+   "from": "change-of-variables"
+  },
+  {
+   "tex": "$q$",
+   "meaning": "Order quantity in the newsvendor example",
+   "kind": "Choice",
+   "typical": "Optimum 60",
+   "keys": [
+    "q"
+   ],
+   "from": "leibniz-integral-rule"
+  },
+  {
+   "tex": "$p$, $c$",
+   "meaning": "Selling price and unit cost",
+   "kind": "Parameters",
+   "typical": "10, 4",
+   "keys": [
+    "p",
+    "c"
+   ],
+   "from": "leibniz-integral-rule"
+  },
+  {
+   "tex": "$a, b, c, d$",
+   "meaning": "Integration limits",
+   "kind": "Numbers",
+   "typical": "—",
+   "keys": [
+    "a",
+    "b",
+    "c",
+    "d"
+   ],
+   "from": "double-integrals-and-fubinis-theorem"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Outside a calculus class, integrals in economics are almost always expectations or areas. Four techniques cover them: integration by parts, change of variables, differentiating an integral, and integrating over two variables.**"
+      }
+     ],
+     "words": 31,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "1-integration-by-parts",
+   "heading": "1. Integration by parts",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-integration-by-parts-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Integration by Parts](note:integration-by-parts): $\\int u\\,dv = uv - \\int v\\,du$. It turns $E[X]$ into the area under the survival function, and the same \"area\" logic gives the continuous Gini, $G = 1 - 2\\int_0^1L(p)\\,dp$, from [Econ 424 L1 Measuring Inequality](note:econ-424-l1-measuring-inequality)."
+      }
+     ],
+     "words": 27,
+     "symbols": [
+      "$u$, $v$",
+      "$X$",
+      "$E[X]$",
+      "$L(p)$",
+      "$G$",
+      "$p$, $c$",
+      "$a, b, c, d$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "2-change-of-variables",
+   "heading": "2. Change of variables",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-change-of-variables-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Change of Variables](note:change-of-variables): substitutions rescale by $|dx/dy|$ (a Jacobian determinant in many dimensions). It gives the density of a transformed variable — most usefully the **lognormal**: if log wages are normal, mean wages are $e^{\\mu + \\sigma^2/2}$, above the median $e^{\\mu}$, and more so the more unequal the distribution."
+      }
+     ],
+     "words": 43,
+     "symbols": [
+      "$y$, $\\mu$",
+      "$x$, $u$",
+      "$\\mu$, $\\sigma$",
+      "$a, b, c, d$"
+     ]
+    },
+    {
+     "id": "2-change-of-variables-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Log wages $Z = \\ln W$ have density $f_Z$. Which is the density of wages, $f_W(w)$?",
+       "options": [
+        {
+         "md": "$f_Z(\\ln w)$",
+         "correct": false,
+         "feedback": "This skips the rescaling. The log squeezes the wage axis, so the density has to be multiplied by $|dz/dw|$, or it no longer integrates to 1."
+        },
+        {
+         "md": "$\\frac{f_Z(\\ln w)}{w}$",
+         "correct": true
+        },
+        {
+         "md": "$f_Z(\\ln w) \\cdot w$",
+         "correct": false,
+         "feedback": "This multiplies by $|dw/dz| = e^z = w$, the derivative the wrong way round. The factor is $|dz/dw|$, for the variable you substitute out."
+        },
+        {
+         "md": "$f_Z(e^w)\\,e^w$",
+         "correct": false,
+         "feedback": "This treats $W$ as the log of $Z$. Here $z = \\ln w$, so the density of $Z$ is evaluated at $\\ln w$, not at $e^w$."
+        }
+       ],
+       "why": "Substituting $z = \\ln w$ rescales by $|dz/dw| = 1/w$, so $f_W(w) = f_Z(\\ln w) \\cdot \\frac{1}{w}$. With $f_Z$ normal, this is the lognormal density.",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 10,
+     "symbols": [
+      "$F$, $f$",
+      "$w_R$",
+      "$W$, $Z = \\ln W$",
+      "$a, b, c, d$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "3-differentiating-integrals",
+   "heading": "3. Differentiating integrals",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "3-differentiating-integrals-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Leibniz Integral Rule](note:leibniz-integral-rule): differentiate the limits and the integrand. Whenever a choice variable sets a cutoff — a reservation wage, an order quantity — this is how you get its first-order condition."
+      }
+     ],
+     "words": 30,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "4-two-variables-at-once",
+   "heading": "4. Two variables at once",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "4-two-variables-at-once-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Double Integrals and Fubini's Theorem](note:double-integrals-and-fubinis-theorem): integrate out one variable to get a marginal density; swap the order when convenient. It turns the law of iterated expectations into a two-line proof, which is the continuous-variable version of the composition and decomposition arguments in both Econ courses."
+      }
+     ],
+     "words": 45,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "self-check",
+   "heading": "Self-check",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "self-check-1",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "1. $X \\sim$ exponential with rate 0.5. Find $E[X]$ from the survival function.",
+       "answer": 2.0,
+       "tol": 0.01,
+       "wrong": [
+        {
+         "answer": 0.5,
+         "tol": 0.0,
+         "md": "that is the rate itself; the area under the survival function $e^{-0.5x}$ is $1/0.5$"
+        },
+        {
+         "answer": 4.0,
+         "tol": 0.0,
+         "md": "that is $1/0.5^2$; integrating $e^{-0.5x}$ divides by 0.5 once, not twice"
+        },
+        {
+         "answer": -2.0,
+         "tol": 0.0,
+         "md": "a sign slip: $\\left[-2e^{-0.5x}\\right]_0^\\infty = 0 - (-2) = 2$, and an expectation of $X \\geq 0$ can't be negative"
+        }
+       ],
+       "why": "The survival function is $1 - F(x) = e^{-0.5x}$, so $E[X] = \\int_0^\\infty e^{-0.5x}\\,dx = 2$. → [Integration by Parts](note:integration-by-parts)",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 11,
+     "symbols": [
+      "$X$",
+      "$F$, $f$",
+      "$E[X]$",
+      "$x$, $u$",
+      "$a, b, c, d$"
+     ]
+    },
+    {
+     "id": "self-check-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "2. A Lorenz curve is $L(p) = p^2$. What is the Gini?",
+       "answer": 0.3333333333333333,
+       "tol": 0.005,
+       "wrong": [
+        {
+         "answer": 0.6666666666666666,
+         "tol": 0.0,
+         "md": "that is $2\\int_0^1 p^2\\,dp$ (or $1 - \\int_0^1 p^2\\,dp$); the Gini is $1 - 2\\int_0^1 L(p)\\,dp$"
+        },
+        {
+         "answer": 0.0,
+         "tol": 0.0,
+         "md": "that integrates the equality line $L(p) = p$, not $p^2$"
+        }
+       ],
+       "why": "$1 - 2\\int_0^1p^2\\,dp = 1 - 2/3 = 1/3$. → [Integration by Parts](note:integration-by-parts)",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 9,
+     "symbols": [
+      "$L(p)$",
+      "$p$, $c$",
+      "$a, b, c, d$"
+     ]
+    },
+    {
+     "id": "self-check-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "3. $\\ln W \\sim N(\\mu, \\sigma^2)$ with $\\mu = 3$ and $\\sigma = 0.5$. What are the median and mean of $W$? Enter the mean.",
+       "answer": 22.76,
+       "tol": 0.11380000000000001,
+       "vary": [
+        {
+         "sym": "\\mu",
+         "lo": 2.0,
+         "hi": 4.0,
+         "step": 0.5
+        },
+        {
+         "sym": "\\sigma",
+         "lo": 0.3,
+         "hi": 0.7,
+         "step": 0.1
+        }
+       ],
+       "compute": "e^{\\mu + \\frac{\\sigma^2}{2}}",
+       "bindings": [
+        {
+         "sym": "\\mu",
+         "value": 3.0,
+         "span": "$\\mu = 3$"
+        },
+        {
+         "sym": "\\sigma",
+         "value": 0.5,
+         "span": "$\\sigma = 0.5$"
+        }
+       ],
+       "wrongCompute": [
+        {
+         "tex": "e^{\\mu}",
+         "md": "that is the median; the mean is pulled above it by the long right tail"
+        },
+        {
+         "tex": "e^{\\mu + \\sigma^2}",
+         "md": "the exponent adds half the log variance, $\\sigma^2/2$, not all of it"
+        },
+        {
+         "tex": "e^{\\mu - \\frac{\\sigma^2}{2}}",
+         "md": "a sign slip: the lognormal mean lies above the median $e^{\\mu}$, not below"
+        }
+       ],
+       "why": "The median is $e^{\\mu}$ and the mean is $e^{\\mu + \\sigma^2/2}$. For the numbers as written: median $e^3 = 20.09$; mean $e^{3 + 0.125} = 22.76$. → [Change of Variables](note:change-of-variables)",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 13,
+     "symbols": [
+      "$y$, $\\mu$",
+      "$W$, $Z = \\ln W$",
+      "$\\mu$, $\\sigma$"
+     ]
+    },
+    {
+     "id": "self-check-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "4. Newsvendor: price 10, cost 4, demand Uniform(0, 100). Optimal order?",
+       "answer": 60.0,
+       "tol": 0.5,
+       "wrong": [
+        {
+         "answer": 40.0,
+         "tol": 0.0,
+         "md": "that sets $F(q) = c/p = 0.4$; the first-order condition is $F(q) = (p - c)/p$"
+        },
+        {
+         "answer": 50.0,
+         "tol": 0.0,
+         "md": "that is mean demand; with a margin of 6 on a cost of 4, an unsold unit costs less than a lost sale, so order more"
+        },
+        {
+         "answer": 0.6,
+         "tol": 0.0,
+         "md": "that is $F(q^*)$, a probability; turn it into a quantity with the Uniform(0, 100) CDF"
+        },
+        {
+         "answer": 100.0,
+         "tol": 0.0,
+         "md": "ordering for the highest possible demand leaves the last units almost never sold, yet each costs 4"
+        }
+       ],
+       "why": "Differentiating expected profit with Leibniz's rule (the cutoff $q$ sits in the limits) gives the condition $F(q^*) = (10 - 4)/10 = 0.6$, so $q^* = 60$; expected profit 180. → [Leibniz Integral Rule](note:leibniz-integral-rule)",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 12,
+     "symbols": [
+      "$F$, $f$",
+      "$q$",
+      "$p$, $c$"
+     ]
+    },
+    {
+     "id": "self-check-5",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "5. $f(x,y) = x + y$ on the unit square. Find $f_X(x)$ and $E[X]$. Enter $E[X]$.",
+       "answer": 0.5833333333333334,
+       "tol": 0.005,
+       "wrong": [
+        {
+         "answer": 0.5,
+         "tol": 0.0,
+         "md": "that is the midpoint of $[0, 1]$, the mean only if $X$ were uniform; here $f_X(x) = x + \\tfrac12$ puts more weight on large $x$"
+        },
+        {
+         "answer": 0.3333333333333333,
+         "tol": 0.0,
+         "md": "that is $\\int_0^1 x \\cdot x\\,dx$; integrating $y$ out of $x + y$ also leaves $\\int_0^1 y\\,dy = \\tfrac12$"
+        },
+        {
+         "answer": 0.25,
+         "tol": 0.0,
+         "md": "that keeps only the $\\tfrac12$ in $f_X(x)$; the $x$ term adds $\\int_0^1 x^2\\,dx = 1/3$"
+        },
+        {
+         "answer": 1.0,
+         "tol": 0.0,
+         "md": "that is $\\int_0^1 f_X(x)\\,dx$, the total probability; $E[X]$ weights by $x$"
+        }
+       ],
+       "why": "Integrating $y$ out over $[0, 1]$ gives $f_X(x) = x + \\tfrac12$; then $E[X] = \\int_0^1 x\\left(x + \\tfrac12\\right)dx = 1/3 + 1/4 = 7/12 \\approx 0.583$. → [Double Integrals and Fubini's Theorem](note:double-integrals-and-fubinis-theorem)",
+       "objectives": [
+        4
+       ]
+      }
+     ],
+     "words": 8,
+     "symbols": [
+      "$X$",
+      "$F$, $f$",
+      "$E[X]$",
+      "$y$, $\\mu$",
+      "$x$, $u$",
+      "$a, b, c, d$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Compute expectations by parts, including via the survival function.\n2. Derive the density of a transformed variable; know the lognormal mean.\n3. Differentiate an integral whose limits depend on a choice variable.\n4. Get marginal densities and expectations from a joint density; prove the LIE for continuous variables."
+      }
+     ],
+     "words": 49,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "integration-by-parts",
+        "change-of-variables",
+        "leibniz-integral-rule",
+        "double-integrals-and-fubinis-theorem"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

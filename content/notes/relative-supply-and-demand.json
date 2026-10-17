@@ -1,0 +1,194 @@
+{
+ "slug": "relative-supply-and-demand",
+ "notation": [
+  {
+   "tex": "$w_H$, $w_L$",
+   "meaning": "Wages of the high-skill (college) and low-skill (non-college) groups",
+   "kind": "Prices, endogenous",
+   "typical": "—",
+   "keys": [
+    "w"
+   ]
+  },
+  {
+   "tex": "$w_H/w_L$",
+   "meaning": "Relative wage: the skill premium as a ratio",
+   "kind": "Endogenous",
+   "typical": "US college/high-school ≈ 1.48 (1963) to ≈ 1.95 (2008), from log gaps 0.39 and 0.67",
+   "keys": [
+    "~w_H/w_L"
+   ]
+  },
+  {
+   "tex": "$L_H$, $L_L$",
+   "meaning": "Quantities of high-skill and low-skill labor",
+   "kind": "Endogenous, or exogenous when supply is inelastic",
+   "typical": "—",
+   "keys": [
+    "L"
+   ]
+  },
+  {
+   "tex": "$L_H/L_L$",
+   "meaning": "Relative quantity (relative supply) of high-skill labor",
+   "kind": "Endogenous, or exogenous when supply is inelastic",
+   "typical": "US relative college supply rose ≈ 1.5 log points, 1963–2017",
+   "keys": [
+    "~L_H/L_L"
+   ]
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The pay gap between two groups of workers is a price, and like any price it is set by supply and demand — here, the relative supply of skilled versus unskilled workers and employers' relative demand for them. If more people graduate, graduates become less scarce and their premium tends to fall. If technology makes graduates more useful, demand rises and the premium tends to climb. Seeing both supply and the premium rise tells you demand must have grown faster."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "This simple framework is the starting point for explaining almost every long-run change in wage gaps.",
+       "folded": false
+      }
+     ],
+     "words": 98,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Plot the relative wage $w_H/w_L$ against relative quantity $L_H/L_L$. Relative demand slopes down; relative supply slopes up (or is vertical). Their intersection sets the [Skill Premium](note:skill-premium)."
+      }
+     ],
+     "words": 24,
+     "symbols": [
+      "$w_H$, $w_L$",
+      "$w_H/w_L$",
+      "$L_H$, $L_L$",
+      "$L_H/L_L$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "shocks",
+   "heading": "Shocks",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "shocks-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Shock | Effect on $w_H/w_L$ | Effect on $L_H/L_L$ |\n| --- | --- | --- |\n| Relative supply shifts **out** (more graduates) | ↓ | ↑ |\n| Relative demand shifts **out** (e.g. skill-biased technology) | ↑ | ↑ |"
+      }
+     ],
+     "words": 22,
+     "symbols": [
+      "$w_H$, $w_L$",
+      "$w_H/w_L$",
+      "$L_H$, $L_L$",
+      "$L_H/L_L$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "the-identification-logic-of-the-lecture",
+   "heading": "The identification logic of the lecture",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-identification-logic-of-the-lecture-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "US data since 1963: relative supply of college labour rose **and** the skill premium rose. A supply increase alone would have *lowered* the premium. So relative **demand must have shifted out by more than supply**. That inference needs only the supply-demand diagram, before any model is estimated."
+      }
+     ],
+     "words": 47,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "inelastic-supply",
+   "heading": "Inelastic supply",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "inelastic-supply-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The canonical model assumes relative supply **does not respond to prices** in the short run: the stock of college-educated workers is fixed by past education decisions. The supply curve is vertical, so"
+      },
+      {
+       "t": "prose",
+       "md": "- the quantity is pinned down by supply, and\n- the price is read off the demand curve at that quantity."
+      },
+      {
+       "t": "prose",
+       "md": "This is what makes the regression in the [Canonical Model of the Skill Premium](note:canonical-model-of-the-skill-premium) trace out the **demand** curve."
+      }
+     ],
+     "words": 72,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "prices-are-also-institutional",
+   "heading": "Prices are also institutional",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "prices-are-also-institutional-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Wages can also be set by labour-market institutions, and reality combines both. The lecture deliberately starts from the pure market case."
+      }
+     ],
+     "words": 21,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Math background: [Implicit Function Theorem](note:implicit-function-theorem)\n- [Elasticity of Substitution](note:elasticity-of-substitution) — the slope of the relative demand curve\n- [Factor-Augmenting Technology](note:factor-augmenting-technology) — what shifts relative demand"
+      }
+     ],
+     "words": 24,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

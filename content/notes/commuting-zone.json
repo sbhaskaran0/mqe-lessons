@@ -1,0 +1,128 @@
+{
+ "slug": "commuting-zone",
+ "notation": [],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A commuting zone is an area where people both live and work — a local job market. It is built by grouping counties so that most people who live in the zone also work in it. A big city and its suburbs form one zone; a cluster of rural counties around a market town forms another. Because workers rarely commute across zone boundaries, a shock that closes factories in one zone hits that zone's workers and barely touches the next. That makes commuting zones a natural unit for studying how local shocks, such as import competition, affect jobs and wages."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "Regional studies need units that match real labor markets; states are too big and cities leave out the countryside.",
+       "folded": false
+      }
+     ],
+     "words": 121,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A commuting zone (CZ) is a set of counties grouped by the strength of county-to-county commuting ties, so that commuting within the zone is common and commuting across zones rare. Together, the zones cover the entire territory."
+      }
+     ],
+     "words": 37,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "properties",
+   "heading": "Properties",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "properties-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| | Commuting zone | Metropolitan area | State |\n| --- | --- | --- | --- |\n| Based on | Commuting flows | Urban core and its commuting ring | Political boundaries |\n| Covers rural areas | Yes — the whole mainland | No | Yes |\n| Matches a labor market | Closely | For urban areas only | Poorly (several markets per state) |\n| Number (US) | 722 in the standard scheme | ≈ 380 metro areas | 48 mainland + DC |"
+      },
+      {
+       "t": "callout",
+       "kind": "note",
+       "title": "Beyond the lecture",
+       "md": "The standard 722 zones were defined from 1990 commuting data (Tolbert and Sizer) and harmonized over decades so that census data from 1970 onward can be mapped consistently.",
+       "folded": false
+      }
+     ],
+     "words": 88,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Treating a commuting zone as a city: many are rural.\n- Assuming no mobility: workers can migrate across zones over time; a regional analysis assumes this is slow or costly."
+      }
+     ],
+     "words": 31,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Labor and trade: local labor-market effects of import competition, automation and immigration ([Shift-Share Exposure](note:shift-share-exposure), [Shift-Share Instrument](note:shift-share-instrument)).\n- Urban: how skills, occupations and wages differ with city size and density."
+      }
+     ],
+     "words": 30,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Shift-Share Exposure](note:shift-share-exposure) · [Shift-Share Instrument](note:shift-share-instrument)"
+      }
+     ],
+     "words": 5,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

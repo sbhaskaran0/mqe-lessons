@@ -1,0 +1,151 @@
+{
+ "slug": "denmark-firm-level-effects-of-offshoring-1995-2006",
+ "notation": [
+  {
+   "tex": "$s_{ri,0}$",
+   "meaning": "Base-period (lagged) share of $r$ in sector $i$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "s"
+   ],
+   "from": "shift-share-instrument"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**When Danish firms offshore more — import more materials, for reasons driven by world supply — they employ fewer workers and shift toward high-skilled ones. When they export more, driven by world demand, they grow on every margin.**"
+      }
+     ],
+     "words": 36,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "questions-and-data",
+   "heading": "Questions and data",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "questions-and-data-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Effects of firm-level offshoring (imports of materials) and exporting on workers' wages, employment and firm outcomes.\n- Population of Danish workers matched to the universe of private-sector Danish firms, plus product-level trade flows by origin and destination country ([Danish Matched Worker-Firm Data](note:danish-matched-worker-firm-data))."
+      }
+     ],
+     "words": 43,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "specification-and-endogeneity",
+   "heading": "Specification and endogeneity",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "specification-and-endogeneity-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Firm-time outcomes are regressed on $\\log X_{ft}$ (exports) and $\\log M_{ft}$ (offshoring/imports). OLS is biased because firm-time productivity sits in the residual and productive firms both import and export more. Firm fixed effects remove permanent productivity ([Fixed Effects Regression](note:fixed-effects-regression)); time-varying productivity needs instruments:"
+      },
+      {
+       "t": "prose",
+       "md": "- **Imports**: world export supply, $WES_{jt} = \\sum_{ck} s_{jck}\\,WES_{ckt}$ — each country $c$'s supply of product $k$ to the world (excluding Denmark), weighted by the firm's initial share of $ck$ in its materials imports.\n- **Exports**: world import demand, $WIS_{jt} = \\sum_{ck} s_{jck}\\,WID_{ckt}$ — each country's imports of product $k$ from the world (excluding Denmark), weighted by the firm's initial export shares."
+      },
+      {
+       "t": "prose",
+       "md": "Both are firm-level [Shift-Share Instrument](note:shift-share-instrument)s."
+      }
+     ],
+     "words": 94,
+     "symbols": [
+      "$s_{ri,0}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "results-table-3",
+   "heading": "Results (Table 3)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "results-table-3-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Firm-level effects of offshoring and exporting, Denmark.png",
+       "alt": "Table - Firm-level effects of offshoring and exporting, Denmark"
+      },
+      {
+       "t": "table",
+       "md": "| Outcome | (1) OLS: offshorer dummy | (2) Firm FE: log offshoring | (3) Firm FE, IV: log offshoring | (4) IV both: log offshoring | (5) IV both: log exports |\n| --- | --- | --- | --- | --- | --- |\n| log employment | 0.681*** | 0.044*** | **−0.106\\*\\*** | −0.205*** | **0.374\\*\\*\\*** |\n| log gross output | 0.958*** | 0.082*** | 0.394*** | 0.143** | 0.511*** |\n| log accounting profits | 0.953*** | 0.066*** | 0.506*** | 0.001 | 0.908*** |\n| log wage bill per worker | 0.040** | 0.014*** | 0.224*** | 0.131*** | 0.113*** |\n| Share of high-skilled workers | −0.007 | 0.002* | **0.091\\*\\*\\*** | 0.053*** | 0.055** |"
+      }
+     ],
+     "words": 99,
+     "symbols": []
+    },
+    {
+     "id": "results-table-3-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Columns: (1) all firm-years; (2)–(3) firms that offshore at some point; (4)–(5) firms that both offshore and export, using predicted values of both."
+      }
+     ],
+     "words": 25,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "reading-it-correctly",
+   "heading": "Reading it correctly",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "reading-it-correctly-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **OLS vs IV**: OLS says offshorers are bigger in every way — selection on productivity. Instrumented, offshoring *reduces* employment.\n- **Skill composition**: instrumented offshoring raises the high-skilled share, i.e. reduces the low-skilled share — offshoring substitutes for low-skill work.\n- **Exports are different**: all outcomes rise with instrumented exports."
+      }
+     ],
+     "words": 49,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Shift-Share Instrument](note:shift-share-instrument) · [Fixed Effects Regression](note:fixed-effects-regression) · [Danish Matched Worker-Firm Data](note:danish-matched-worker-firm-data)\n- Paper: [Hummels, Jørgensen, Munch and Xiang 2014 - The Wage Effects of Offshoring](note:hummels-jorgensen-munch-and-xiang-2014-the-wage-effects-of-offshoring)"
+      }
+     ],
+     "words": 25,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

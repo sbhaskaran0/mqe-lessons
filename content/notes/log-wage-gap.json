@@ -1,0 +1,176 @@
+{
+ "slug": "log-wage-gap",
+ "notation": [
+  {
+   "tex": "$\\bar{w}_A$, $\\bar{w}_B$",
+   "meaning": "Average wages of groups A and B",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "bar(w)"
+   ]
+  },
+  {
+   "tex": "gap",
+   "meaning": "$\\ln\\bar{w}_A - \\ln\\bar{w}_B$",
+   "kind": "Statistic",
+   "typical": "College gap ≈ 0.67 in 2008",
+   "keys": [
+    "~gap"
+   ]
+  },
+  {
+   "tex": "$e$",
+   "meaning": "Error term in the quadratic example",
+   "kind": "Unobserved",
+   "typical": "—",
+   "keys": [
+    "e"
+   ],
+   "from": "functional-forms-and-elasticities"
+  },
+  {
+   "tex": "$w_{Ht}$, $w_{Lt}$",
+   "meaning": "Wage per efficiency unit of college and non-college labor",
+   "kind": "Prices, endogenous",
+   "typical": "—",
+   "keys": [
+    "w"
+   ],
+   "from": "canonical-model-of-the-skill-premium"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The log wage gap is the standard way to say how much more one group earns than another. Rather than subtracting dollar amounts, you take the difference in the logs of the two groups' average wages. Small gaps read directly as percentages: a gap of 0.05 means about five percent more. Larger gaps need converting — a gap of 0.67 means about ninety-five percent more, not sixty-seven."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is unit-free, unaffected by inflation, and fits neatly into economic models, so almost every study of pay gaps reports it.",
+       "folded": false
+      }
+     ],
+     "words": 92,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The standard measure of **between-group** inequality."
+      },
+      {
+       "t": "math",
+       "tex": "\\text{gap} = \\ln\\bar{w}_A - \\ln\\bar{w}_B = \\ln\\frac{\\bar{w}_A}{\\bar{w}_B}"
+      }
+     ],
+     "words": 6,
+     "symbols": [
+      "$\\bar{w}_A$, $\\bar{w}_B$",
+      "gap"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "interpretation",
+   "heading": "Interpretation",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "interpretation-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "For small gaps, $100 \\times$ the log gap ≈ the percentage difference. For larger gaps use the exact form ([Logarithms and Growth Rates](note:logarithms-and-growth-rates)): group A earns $100(e^{\\text{gap}} - 1)\\%$ more. A gap of 0.67 means college workers earn about 95% more, not 67%."
+      },
+      {
+       "t": "prose",
+       "md": "Same approximation as the log-linear row in [Functional Forms and Elasticities](note:functional-forms-and-elasticities)."
+      }
+     ],
+     "words": 49,
+     "symbols": [
+      "gap",
+      "$e$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "why-logs",
+   "heading": "Why logs?",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "why-logs-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Scale invariant**: unaffected by inflation or currency units.\n- **Changes are growth-rate differences**: a rising log gap means group A's wages grew faster.\n- **Plays well with models**: the [Canonical Model of the Skill Premium](note:canonical-model-of-the-skill-premium) is linear in log relative wages and log relative supplies."
+      }
+     ],
+     "words": 46,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "where-it-shows-up",
+   "heading": "Where it shows up",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-shows-up-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Skill Premium](note:skill-premium) — college vs non-college\n- Gender and racial gaps\n- Regression: the coefficient on a group dummy in a regression of $\\ln w$ is a conditional log wage gap ([Indicator Variables](note:indicator-variables))"
+      }
+     ],
+     "words": 31,
+     "symbols": [
+      "$w_{Ht}$, $w_{Lt}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Math background: [Logarithms and Growth Rates](note:logarithms-and-growth-rates) · [Change of Variables](note:change-of-variables)\n- [Composition Adjustment](note:composition-adjustment) — why the averages need care\n- [Within- and Between-Group Inequality](note:within-and-between-group-inequality)\n- [Percentile Ratios](note:percentile-ratios) — the same log-gap idea across the distribution"
+      }
+     ],
+     "words": 33,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

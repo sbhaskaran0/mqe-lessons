@@ -1,0 +1,196 @@
+{
+ "slug": "law-of-total-variance",
+ "notation": [
+  {
+   "tex": "$Y$, $X$",
+   "meaning": "Outcome and grouping variable",
+   "kind": "Random variables",
+   "typical": "—",
+   "keys": [
+    "Y",
+    "X"
+   ]
+  },
+  {
+   "tex": "$\\mathrm{Var}(Y\\mid X)$",
+   "meaning": "Variance of $Y$ within a group",
+   "kind": "Random variable",
+   "typical": "—",
+   "keys": []
+  },
+  {
+   "tex": "$E[\\mathrm{Var}(Y\\mid X)]$",
+   "meaning": "Average within-group variance",
+   "kind": "Number",
+   "typical": "—",
+   "keys": [
+    "~E[\\mathrmVar(Y\\midX)]"
+   ]
+  },
+  {
+   "tex": "$\\mathrm{Var}(E[Y\\mid X])$",
+   "meaning": "Variance of the group means: between-group part",
+   "kind": "Number",
+   "typical": "—",
+   "keys": []
+  },
+  {
+   "tex": "$\\sigma^2$, $\\boldsymbol{\\varepsilon}$, $\\mathbf{X}$, $\\mathbf{I}$",
+   "meaning": "Error variance, errors, regressors and identity matrix in the econometrics application",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "sigma",
+    "bold(varepsilon)",
+    "bold(X)",
+    "bold(I)"
+   ]
+  },
+  {
+   "tex": "$E[Y\\mid X]$",
+   "meaning": "Average of $Y$ for a given value of $X$",
+   "kind": "Random variable (a function of $X$)",
+   "typical": "—",
+   "keys": [
+    "~E[Y\\midX]"
+   ],
+   "from": "law-of-iterated-expectations"
+  },
+  {
+   "tex": "$R$",
+   "meaning": "Region of integration",
+   "kind": "Set",
+   "typical": "—",
+   "keys": [
+    "R"
+   ],
+   "from": "double-integrals-and-fubinis-theorem"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The law of total variance splits how spread out an outcome is into two sources: spread within groups, and spread between the group averages. Wages vary partly because people with the same education earn different amounts, and partly because average wages differ across education levels. The total variance is exactly the average of the within-group variances plus the variance of the group averages."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the basis for saying how much inequality is between groups versus within them, and for the R-squared of a regression on group dummies.",
+       "folded": false
+      }
+     ],
+     "words": 91,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "\\mathrm{Var}(Y) = \\underbrace{E\\big[\\mathrm{Var}(Y \\mid X)\\big]}_{\\text{within}} + \\underbrace{\\mathrm{Var}\\big(E[Y \\mid X]\\big)}_{\\text{between}}"
+      },
+      {
+       "t": "prose",
+       "md": "Total variance = average variance within groups + variance of the group means."
+      }
+     ],
+     "words": 11,
+     "symbols": [
+      "$Y$, $X$",
+      "$E[\\mathrm{Var}(Y\\mid X)]$",
+      "$E[Y\\mid X]$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "proof",
+   "heading": "Proof",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "proof-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Write $\\mathrm{Var}(Y) = E[Y^2] - (E[Y])^2$, use the [Law of Iterated Expectations](note:law-of-iterated-expectations) on each term, and add and subtract $E\\big[(E[Y\\mid X])^2\\big]$:"
+      },
+      {
+       "t": "math",
+       "tex": "E[Y^2] = E\\big[E[Y^2\\mid X]\\big] = E\\big[\\mathrm{Var}(Y\\mid X) + (E[Y\\mid X])^2\\big]"
+      },
+      {
+       "t": "math",
+       "tex": "(E[Y])^2 = \\big(E[E[Y\\mid X]]\\big)^2"
+      },
+      {
+       "t": "prose",
+       "md": "Subtracting gives $E[\\mathrm{Var}(Y\\mid X)] + \\mathrm{Var}(E[Y\\mid X])$."
+      }
+     ],
+     "words": 16,
+     "symbols": [
+      "$Y$, $X$",
+      "$E[\\mathrm{Var}(Y\\mid X)]$",
+      "$E[Y\\mid X]$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Course | Use |\n| --- | --- |\n| Inequality | Splits the [Variance of Log Income](note:variance-of-log-income) into [Within- and Between-Group Inequality](note:within-and-between-group-inequality) |\n| Econometrics | Shows $\\mathrm{Var}[\\varepsilon\\mid\\mathbf{X}] = \\sigma^2\\mathbf{I}$ implies $\\mathrm{Var}[\\varepsilon] = \\sigma^2\\mathbf{I}$ ([Homoskedasticity](note:homoskedasticity)) |\n| Econometrics | $R^2$ from a regression on group dummies = between-group share |"
+      }
+     ],
+     "words": 29,
+     "symbols": [
+      "$\\sigma^2$, $\\boldsymbol{\\varepsilon}$, $\\mathbf{X}$, $\\mathbf{I}$",
+      "$R$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Math background: [Double Integrals and Fubini's Theorem](note:double-integrals-and-fubinis-theorem)\n- [Law of Iterated Expectations](note:law-of-iterated-expectations)"
+      }
+     ],
+     "words": 13,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

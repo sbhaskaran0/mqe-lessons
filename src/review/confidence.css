@@ -1,0 +1,11 @@
+/* The "How sure are you?" control (Confidence.tsx), shared by the review page and the exam. */
+.confidence { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-4); font-family: var(--font-ui); }
+.confidence-label { font-size: var(--text-sm); font-weight: 600; color: var(--text-2); }
+.confidence-options { display: inline-flex; flex-wrap: wrap; gap: var(--space-2); }
+.confidence-option {
+  min-height: var(--touch); padding: 0 var(--space-4); border-radius: 999px; border: 1.5px solid var(--border);
+  background: var(--surface); color: var(--text); font: inherit; font-size: var(--text-sm); font-weight: 600; cursor: pointer;
+}
+.confidence-option:hover { border-color: var(--accent); }
+.confidence-option[aria-pressed="true"] { border-color: var(--accent); background: var(--accent-soft); color: var(--accent); }
+.confidence-option:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }

@@ -1,0 +1,220 @@
+{
+ "slug": "autor-dorn-hanson-and-song-2014-trade-adjustment",
+ "notation": [],
+ "sections": [
+  {
+   "id": "key-takeaways",
+   "heading": "Key takeaways",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "key-takeaways-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. **Follow the worker, not the place.** Fixing each worker's industry in 1991 avoids the selection problem of studying whoever is still in a region or industry later.\n2. **Exposure costs workers a lot.** The 2SLS coefficient on cumulative 1992–2007 earnings is −6.86. With exposure of 7.30 pp at the 75th percentile and 0.62 pp at the 25th, the more exposed worker loses about 46% of an initial annual wage.\n3. **The losses build up through churning and lower pay per year.** Workers switch employers and move in and out of nonemployment more often. Earnings per year fall, and years on disability (SSDI) rise."
+      }
+     ],
+     "words": 108,
+     "symbols": []
+    },
+    {
+     "id": "key-takeaways-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "4. **Low-wage workers lose most.** Cumulative losses are −18.3 for the bottom initial-wage tercile and −9.9 for the middle, and about zero for the top. High-wage workers leave exposed employers and recoup their losses elsewhere."
+      }
+     ],
+     "words": 37,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "research-question",
+   "heading": "Research question",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "research-question-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "How do workers who were initially employed in industries hit by Chinese import competition fare over the following 16 years — earnings, employment, mobility and benefits?"
+      }
+     ],
+     "words": 25,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "data-and-setting",
+   "heading": "Data and setting",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "data-and-setting-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- A 1% random sample of US workers from the Social Security Administration's [SSA Master Earnings File](note:ssa-master-earnings-file) (Annual Employee-Employer file): annual earnings, employer ID and industry, linked benefit and self-employment income.\n- Sample: workers born 1943–1970 with high labor-force attachment in 1988–91 (earnings of at least 1,600 hours at the real 1989 federal minimum wage)."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Trade exposure and production-worker intensity by US industry.png",
+       "alt": "Trade exposure and production-worker intensity by US industry"
+      }
+     ],
+     "words": 58,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "empirical-strategy",
+   "heading": "Empirical strategy",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "empirical-strategy-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Exposure**: the change in [import penetration](note:import-penetration) from China, 1991–2007, in the worker's 1991 industry.\n- **Instrument**: other high-income countries' imports from China over absorption lagged three years — a [Shift-Share Instrument](note:shift-share-instrument).\n- **Outcome**: cumulative earnings 1992–2007 in multiples of average 1988–91 annual earnings.\n- **Controls and errors**: demographic, firm and industry controls; standard errors [clustered](note:clustered-standard-errors) by 3-digit industry, since closely related industries share shocks."
+      }
+     ],
+     "words": 67,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "results",
+   "heading": "Results",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "results-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Chinese imports and cumulative worker earnings 1992-2007.png",
+       "alt": "Table - Chinese imports and cumulative worker earnings 1992-2007"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    },
+    {
+     "id": "results-2",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Chinese imports, earnings, years worked and pre-period test.png",
+       "alt": "Table - Chinese imports, earnings, years worked and pre-period test"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    },
+    {
+     "id": "results-3",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Cumulative earnings and job churning of trade-exposed US workers.png",
+       "alt": "Cumulative earnings and job churning of trade-exposed US workers"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    },
+    {
+     "id": "results-4",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Chinese imports and non-wage income of US workers.png",
+       "alt": "Table - Chinese imports and non-wage income of US workers"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    },
+    {
+     "id": "results-5",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Chinese imports and worker earnings by initial wage tercile.png",
+       "alt": "Table - Chinese imports and worker earnings by initial wage tercile"
+      },
+      {
+       "t": "prose",
+       "md": "Full numbers in [US Worker Earnings Effects of Chinese Imports 1992-2007](note:us-worker-earnings-effects-of-chinese-imports-1992-2007). A placebo using future exposure in 1976–91 shows no effect, which supports the design."
+      }
+     ],
+     "words": 26,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "caveats",
+   "heading": "Caveats",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "caveats-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Uses the same instrument family as ADH, so it inherits the shift-share concerns ([Shift-Share Instrument](note:shift-share-instrument)).\n- Effects are relative to less-exposed workers; displaced demand may hurt or help unexposed workers too.\n- Earnings, not hourly wages: hours and employment changes are mixed in."
+      }
+     ],
+     "words": 44,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "in-econ-424-l5-international-trade-empirics",
+   "heading": "In Econ 424 L5 International Trade Empirics",
+   "role": "paper-in-lesson",
+   "steps": [
+    {
+     "id": "in-econ-424-l5-international-trade-empirics-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The bridge from industries to individuals. The lecture motivates it with the selection problem in region or industry averages, then uses it to show \"clear evidence of negative effects at the worker level\", strongest outside the top of the distribution. It ties trade back to the course's theme: trade shocks *widen* inequality because the losses fall on lower-wage workers. Be able to compute the 46% magnitude and explain the tercile pattern."
+      }
+     ],
+     "words": 71,
+     "symbols": []
+    }
+   ],
+   "lesson": "econ-424-l5-international-trade-empirics"
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Shift-Share Instrument](note:shift-share-instrument) · [Import Penetration](note:import-penetration) · [SSA Master Earnings File](note:ssa-master-earnings-file) · [Autor, Dorn and Hanson 2013 - The China Syndrome](note:autor-dorn-and-hanson-2013-the-china-syndrome)"
+      }
+     ],
+     "words": 18,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,471 @@
+{
+ "slug": "shift-share-exposure",
+ "notation": [
+  {
+   "tex": "$r$",
+   "meaning": "Region (e.g. Los Angeles, Rome GA) or factor (e.g. skilled, unskilled)",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "r"
+   ]
+  },
+  {
+   "tex": "$j$",
+   "meaning": "Industry or good",
+   "kind": "Index",
+   "typical": "A (airplanes), T (textiles)",
+   "keys": [
+    "j"
+   ]
+  },
+  {
+   "tex": "$s_{rj}$",
+   "meaning": "Share of $r$'s workers employed in $j$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "s"
+   ]
+  },
+  {
+   "tex": "$w_{rj}$",
+   "meaning": "Wage in industry $j$ for $r$'s workers",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "w"
+   ]
+  },
+  {
+   "tex": "$w_r$",
+   "meaning": "Average wage in $r$, $\\sum_j s_{rj}w_{rj}$",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "w"
+   ]
+  },
+  {
+   "tex": "$\\lambda_{rj}$",
+   "meaning": "Share of $r$'s income earned in $j$ (the exposure weight)",
+   "kind": "Data",
+   "typical": "0.6 and 0.2 in the example",
+   "keys": [
+    "lambda"
+   ]
+  },
+  {
+   "tex": "$p_j$",
+   "meaning": "Price of good $j$",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "p"
+   ]
+  },
+  {
+   "tex": "$a_r$",
+   "meaning": "Factor-specific productivity change (extension)",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "a"
+   ]
+  },
+  {
+   "tex": "$L_{ri}$, $L_r$",
+   "meaning": "Employment of region $r$ in industry $i$, and in total",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "L"
+   ]
+  },
+  {
+   "tex": "$\\Delta M_i$, $L_i$",
+   "meaning": "Change in imports in industry $i$ from the shock's source, and national employment in $i$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "~\\DeltaM_i",
+    "L"
+   ]
+  },
+  {
+   "tex": "$\\gamma$",
+   "meaning": "Response of regional employment to the exposure index",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "gamma"
+   ]
+  },
+  {
+   "tex": "$\\tau_i$",
+   "meaning": "Tariff on industry $i$",
+   "kind": "Exogenous (policy)",
+   "typical": "—",
+   "keys": [
+    "tau"
+   ]
+  },
+  {
+   "tex": "$\\theta_i$",
+   "meaning": "One minus industry $i$'s national labor share",
+   "kind": "Parameter in (0, 1)",
+   "typical": "0.4 and 0.8 in the example",
+   "keys": [
+    "theta"
+   ]
+  },
+  {
+   "tex": "$\\beta_{ri}$",
+   "meaning": "Tariff-measure weight for region $r$, industry $i$",
+   "kind": "Data",
+   "typical": "0.67 and 0.33 in the example",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$\\alpha_L$, $\\varepsilon_r$",
+   "meaning": "Common intercept and regional error in the employment equation",
+   "kind": "Parameter / exogenous",
+   "typical": "—",
+   "keys": [
+    "alpha",
+    "varepsilon"
+   ]
+  },
+  {
+   "tex": "$g$, $g_X$, $g_Y$",
+   "meaning": "Growth rates",
+   "kind": "Rates",
+   "typical": "e.g. 0.02",
+   "keys": [
+    "g"
+   ],
+   "from": "logarithms-and-growth-rates"
+  },
+  {
+   "tex": "$j$, $i$",
+   "meaning": "Industries (goods)",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "j",
+    "i"
+   ],
+   "from": "specific-factors-model"
+  },
+  {
+   "tex": "$f$, $g$",
+   "meaning": "Factor and good, in the many-goods extension",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "f",
+    "g"
+   ],
+   "from": "specific-factors-model"
+  },
+  {
+   "tex": "$\\Delta$",
+   "meaning": "Change between the two periods",
+   "kind": "Operator",
+   "typical": "—",
+   "keys": [
+    "Delta"
+   ],
+   "from": "shift-share-decomposition"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A city, a worker group or a firm is usually involved in many industries at once. When a trade shock raises some industries' prices and lowers others', how hard is each place hit? The answer is a weighted average: take each industry's shock and weight it by how much of the place's income comes from that industry. A city earning most of its income from aircraft benefits when aircraft prices rise; a town built on textiles suffers when textile prices fall. The same arithmetic works for skilled versus unskilled workers, who are spread across industries in different proportions."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It turns industry-level shocks into a predicted effect for each region or factor, which is how theory is taken to data on trade and local labor markets.",
+       "folded": false
+      }
+     ],
+     "words": 128,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "For a unit $r$ (region or factor) with income shares $\\lambda_{rj}$ across industries $j$, exposure is the share-weighted sum of industry shocks. With immobile factors the shock to income in $j$ is the price change, so"
+      },
+      {
+       "t": "math",
+       "tex": "d\\log w_r = \\sum_j \\lambda_{rj}\\,d\\log p_j, \\qquad \\lambda_{rj} = \\frac{s_{rj}\\,w_{rj}}{w_r}"
+      }
+     ],
+     "words": 32,
+     "symbols": [
+      "$r$",
+      "$j$",
+      "$s_{rj}$",
+      "$w_{rj}$",
+      "$w_r$",
+      "$\\lambda_{rj}$",
+      "$p_j$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "derivation",
+   "heading": "Derivation",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "derivation-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Start from the average wage with two industries, $w_r = s_{rA}w_{rA} + s_{rT}w_{rT}$, holding employment shares fixed (factors are immobile). Differentiate and divide by $w_r$:"
+      },
+      {
+       "t": "math",
+       "tex": "\\frac{dw_r}{w_r} = \\frac{s_{rA}w_{rA}}{w_r}\\frac{dw_{rA}}{w_{rA}} + \\frac{s_{rT}w_{rT}}{w_r}\\frac{dw_{rT}}{w_{rT}} = \\lambda_{rA}\\,d\\log w_{rA} + \\lambda_{rT}\\,d\\log w_{rT}"
+      },
+      {
+       "t": "prose",
+       "md": "The weights are **income** shares, not employment shares. With immobile factors $d\\log w_{rj} = d\\log p_j$ ([Specific-Factors Model](note:specific-factors-model)), which gives the formula above. With many factors $f$ and goods $g$: $d\\ln w_f = \\sum_g \\lambda_{fg}\\,d\\ln p_g$."
+      }
+     ],
+     "words": 42,
+     "symbols": [
+      "$s_{rj}$",
+      "$w_{rj}$",
+      "$w_r$",
+      "$\\lambda_{rj}$",
+      "$p_j$",
+      "$g$, $g_X$, $g_Y$",
+      "$f$, $g$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Airplane prices rise 10% and textile prices fall 5% (log changes 0.10 and −0.05). Los Angeles earns 60% of its income in airplanes, Rome GA 20%."
+      },
+      {
+       "t": "table",
+       "md": "| | $\\lambda_{rA}$ | $\\lambda_{rT}$ | $d\\log w_r$ (first order) | Exact log change |\n| --- | --- | --- | --- | --- |\n| Los Angeles | 0.6 | 0.4 | +0.040 | +0.043 |\n| Rome GA | 0.2 | 0.8 | −0.020 | −0.018 |"
+      },
+      {
+       "t": "prose",
+       "md": "Relative gain for LA: $(\\lambda_{LA,A} - \\lambda_{Rome,A})(d\\log p_A - d\\log p_T) = 0.4 \\times 0.15 = 0.06$. A unit gains relatively if it earns a larger share in goods hit by export shocks, or a smaller share in goods hit by import shocks."
+      }
+     ],
+     "words": 88,
+     "symbols": [
+      "$w_{rj}$",
+      "$w_r$",
+      "$\\lambda_{rj}$",
+      "$p_j$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "extensions",
+   "heading": "Extensions",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "extensions-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Productivity shocks**: $d\\ln w_f = a_f + \\sum_g\\lambda_{fg}\\,d\\ln p_g$ adds factor-specific productivity change (skill-biased technical change; [Factor-Augmenting Technology](note:factor-augmenting-technology)).\n- **Mobile factors**: if workers can switch jobs optimally, the first-order effect of small price changes is unchanged — [Envelope Theorem](note:envelope-theorem)."
+      }
+     ],
+     "words": 32,
+     "symbols": [
+      "$w_{rj}$",
+      "$w_r$",
+      "$\\lambda_{rj}$",
+      "$p_j$",
+      "$a_r$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "taking-it-to-data",
+   "heading": "Taking it to data",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "taking-it-to-data-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Which unit to use depends on what you believe about mobility: limited mobility across firms → firm-level exposure; limited mobility across regions → regional exposure."
+      },
+      {
+       "t": "callout",
+       "kind": "note",
+       "title": "Beyond the lecture",
+       "md": "Empirical work builds exposure from base-period shares and industry-level shocks — e.g. local exposure to Chinese import competition (Autor, Dorn and Hanson). The same structure, used as an instrument, is the Bartik or shift-share instrument ([Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls)); its validity rests on the shocks, the shares, or both being as good as random.",
+       "folded": false
+      }
+     ],
+     "words": 80,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "empirical-versions",
+   "heading": "Empirical versions",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "empirical-versions-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Price changes are rarely observed, so applied work replaces them with an observable shock, and income shares with whatever shares are available. If workers move into unemployment or out of the labor force when wages fall, regional employment responds the same way: $d\\log L_r = \\alpha_L + \\gamma\\sum_i \\lambda_{ri}\\,d\\log p_i + \\varepsilon_r$, where $\\alpha_L$ is a common intercept."
+      },
+      {
+       "t": "table",
+       "md": "| Measure | Shock used for $d\\log p_i$ | Weights |\n| --- | --- | --- |\n| Import exposure per worker | Change in imports per worker in industry $i$, $\\Delta M_i / L_i$ | Employment shares $L_{ri}/L_r$ (\"bodies\" instead of income shares) |\n| Regional tariff change | Tariff change $d\\ln(1+\\tau_i)$ | $\\beta_{ri} = \\dfrac{\\lambda_{ri}/\\theta_i}{\\sum_{i' \\in \\text{traded}} \\lambda_{ri'}/\\theta_{i'}}$, traded industries only |"
+      },
+      {
+       "t": "prose",
+       "md": "The tariff weights come from a specific-factors model with labor mobile across industries within a region: industries where labor's share is small (large $\\theta_i$) get less weight, and non-traded industries, whose prices are not set by tariffs, drop out."
+      }
+     ],
+     "words": 119,
+     "symbols": [
+      "$\\lambda_{rj}$",
+      "$p_j$",
+      "$L_{ri}$, $L_r$",
+      "$\\Delta M_i$, $L_i$",
+      "$\\gamma$",
+      "$\\tau_i$",
+      "$\\theta_i$",
+      "$\\beta_{ri}$",
+      "$\\alpha_L$, $\\varepsilon_r$",
+      "$j$, $i$",
+      "$\\Delta$"
+     ]
+    },
+    {
+     "id": "empirical-versions-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Worked example**: a region has half its traded-sector workers in industry A ($\\theta_A = 0.4$) and half in B ($\\theta_B = 0.8$). The weights are 0.67 and 0.33. With tariff cuts of −0.10 in A and −0.02 in B, the regional tariff change is −0.073, against −0.060 with plain employment weights."
+      }
+     ],
+     "words": 51,
+     "symbols": [
+      "$\\theta_i$"
+     ]
+    },
+    {
+     "id": "empirical-versions-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Why control for the manufacturing share**: when shocks exist only for manufacturing industries, the exposure index sums over manufacturing alone, so regions with more manufacturing mechanically score higher. They were also exposed to the secular decline of manufacturing, so without the control the index partly measures \"how much manufacturing\", not \"which manufacturing\". Beyond the lecture this is called the incomplete-shares problem. The instrument for these measures is the [Shift-Share Instrument](note:shift-share-instrument)."
+      }
+     ],
+     "words": 70,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Using employment shares as weights when the exact first-order result uses income shares (they coincide only if wages are equal across industries).\n- Confusing this with the [Shift-Share Decomposition](note:shift-share-decomposition), which splits a change in an aggregate share into between and within parts — same name, different object.\n- Reading exposure as a long-run effect: it is a first-order, short-run result for small price changes."
+      }
+     ],
+     "words": 64,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Trade and labor: regional and factor-level effects of trade shocks.\n- Econometrics: shift-share (Bartik) research designs."
+      }
+     ],
+     "words": 17,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Specific-Factors Model](note:specific-factors-model) · [Shift-Share Decomposition](note:shift-share-decomposition) · [Envelope Theorem](note:envelope-theorem) · [Within- and Between-Group Inequality](note:within-and-between-group-inequality)"
+      }
+     ],
+     "words": 11,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

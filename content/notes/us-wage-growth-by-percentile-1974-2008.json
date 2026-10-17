@@ -1,0 +1,118 @@
+{
+ "slug": "us-wage-growth-by-percentile-1974-2008",
+ "notation": [
+  {
+   "tex": "$p$, $y$",
+   "meaning": "Percentile and year",
+   "kind": "Indices",
+   "typical": "—",
+   "keys": [
+    "p",
+    "y"
+   ],
+   "from": "percentile-ratios"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Including part-time and part-year workers, US hourly wages spread out at every percentile from 1974 to 1988. Afterwards the top and the bottom both gained relative to the middle: the 90th percentile ended ≈0.38 log points above 1974, while the 10th, which had fallen behind the median in the 1980s, caught up.**"
+      },
+      {
+       "t": "prose",
+       "md": "All values read off the lecture charts, approximate."
+      }
+     ],
+     "words": 61,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "cumulative-log-change-since-1974-males-and-females",
+   "heading": "Cumulative log change since 1974 (males and females)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "cumulative-log-change-since-1974-males-and-females-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Percentile | Late 1980s | 2008 |\n| --- | --- | --- |\n| 90th | ≈ +0.10 | ≈ +0.38 |\n| 50th | ≈ 0 | ≈ +0.12 to +0.17 |\n| 10th | ≈ −0.07 (below the median) | ≈ +0.12 to +0.17 (level with the median) |"
+      }
+     ],
+     "words": 34,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "growth-at-each-percentile-relative-to-the-median",
+   "heading": "Growth at each percentile relative to the median",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "growth-at-each-percentile-relative-to-the-median-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Log change at percentile $p$ minus log change at the median (three-year moving averages; self-employed and military excluded)."
+      },
+      {
+       "t": "table",
+       "md": "| Group | 1974–1988 | 1988–2008 |\n| --- | --- | --- |\n| Males | Rising line: ≈ −0.15 to −0.2 at the 5th percentile up to ≈ +0.15 at the 95th | U shape: bottom roughly level with the median, slight dip around the 20th–30th, rising to ≈ +0.15 at the 95th |\n| Females | Rising line: ≈ −0.2 at the 5th up to ≈ +0.15 at the 95th | Bottom roughly unchanged relative to the median, rising to ≈ +0.15 at the top |"
+      }
+     ],
+     "words": 94,
+     "symbols": [
+      "$p$, $y$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "reading-it-correctly",
+   "heading": "Reading it correctly",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "reading-it-correctly-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Sample matters**: full-time, full-year samples (the usual March CPS cut) miss many low-wage workers; this sample includes them, which is why the lower tail looks different from [US Wage Percentiles 1963-2008](note:us-wage-percentiles-1963-2008).\n- **Hourly vs weekly**: these are hourly wages, so changes in hours do not show up as wage changes.\n- The pattern matches the within-group facts: falling variance in low-education groups, rising in college groups ([US Within-Education Wage Variance 1973-2009](note:us-within-education-wage-variance-1973-2009))."
+      }
+     ],
+     "words": 72,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Wage Polarization](note:wage-polarization) · [Percentile Ratios](note:percentile-ratios) · [Current Population Survey (CPS)](note:current-population-survey-cps)\n- Paper: [Acemoglu and Autor 2011 - Skills, Tasks and Technologies](note:acemoglu-and-autor-2011-skills-tasks-and-technologies)"
+      }
+     ],
+     "words": 20,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

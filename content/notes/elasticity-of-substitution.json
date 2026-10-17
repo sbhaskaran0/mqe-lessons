@@ -1,0 +1,200 @@
+{
+ "slug": "elasticity-of-substitution",
+ "notation": [
+  {
+   "tex": "$H$, $L$",
+   "meaning": "Quantities of the two inputs (skilled and unskilled labor)",
+   "kind": "Inputs",
+   "typical": "—",
+   "keys": [
+    "H",
+    "L"
+   ]
+  },
+  {
+   "tex": "$w_H$, $w_L$",
+   "meaning": "Their prices (wages)",
+   "kind": "Prices",
+   "typical": "—",
+   "keys": [
+    "w"
+   ]
+  },
+  {
+   "tex": "$\\sigma$",
+   "meaning": "Elasticity of substitution",
+   "kind": "Parameter > 0",
+   "typical": "≈ 2.3 for college vs non-college (one estimate)",
+   "keys": [
+    "sigma"
+   ]
+  },
+  {
+   "tex": "$\\beta = -1/\\sigma$",
+   "meaning": "Slope of the log relative wage on log relative supply",
+   "kind": "Estimated coefficient",
+   "typical": "−0.44 (OLS example)",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$w_H/w_L$",
+   "meaning": "Relative wage: the skill premium as a ratio",
+   "kind": "Endogenous",
+   "typical": "US college/high-school ≈ 1.48 (1963) to ≈ 1.95 (2008), from log gaps 0.39 and 0.67",
+   "keys": [
+    "~w_H/w_L"
+   ],
+   "from": "relative-supply-and-demand"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The elasticity of substitution measures how readily a producer swaps one input for another when their relative price changes. If skilled workers become 10% more expensive relative to unskilled ones and firms respond by cutting their relative use of skilled workers by 20%, the elasticity is 2: the two are easy to swap. If firms barely change their mix, the elasticity is small and the inputs are complements that have to be used together."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It determines how far a group's wages fall when that group becomes more plentiful, and whether new technology helps or hurts the skill premium.",
+       "folded": false
+      }
+     ],
+     "words": 101,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The percentage change in relative input use for a 1% change in relative input prices:"
+      },
+      {
+       "t": "math",
+       "tex": "\\sigma = -\\frac{\\partial \\ln(H/L)}{\\partial \\ln(w_H/w_L)}"
+      },
+      {
+       "t": "prose",
+       "md": "Equivalently, the inverse governs how the relative wage responds to relative supply:"
+      },
+      {
+       "t": "math",
+       "tex": "\\frac{\\partial \\ln(w_H/w_L)}{\\partial \\ln(H/L)} = -\\frac{1}{\\sigma}"
+      }
+     ],
+     "words": 27,
+     "symbols": [
+      "$H$, $L$",
+      "$w_H$, $w_L$",
+      "$\\sigma$",
+      "$w_H/w_L$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "intuition",
+   "heading": "Intuition",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "intuition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **High $\\sigma$**: skilled and unskilled workers are close substitutes. Firms switch easily, so a large increase in college graduates barely dents the premium.\n- **Low $\\sigma$**: they are complements. Extra college graduates sharply lower their own relative wage."
+      }
+     ],
+     "words": 37,
+     "symbols": [
+      "$\\sigma$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "why-it-matters-so-much",
+   "heading": "Why it matters so much",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "why-it-matters-so-much-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "It governs (1) how much a supply increase lowers the [Skill Premium](note:skill-premium) and (2) whether skill-augmenting technology *raises* the premium at all — that requires $\\sigma > 1$ ([Factor-Augmenting Technology](note:factor-augmenting-technology))."
+      }
+     ],
+     "words": 26,
+     "symbols": [
+      "$\\sigma$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "estimating-it",
+   "heading": "Estimating it",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "estimating-it-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "In the [Canonical Model of the Skill Premium](note:canonical-model-of-the-skill-premium), $\\sigma$ is recovered from the coefficient on $\\ln(H/L)$: $\\beta = -1/\\sigma$. This is a log-log coefficient, read as an elasticity exactly as in [Functional Forms and Elasticities](note:functional-forms-and-elasticities)."
+      },
+      {
+       "t": "prose",
+       "md": "See [Elasticity of Substitution Between College and Non-College Labor](note:elasticity-of-substitution-between-college-and-non-college-labor) for estimates."
+      }
+     ],
+     "words": 41,
+     "symbols": [
+      "$H$, $L$",
+      "$\\sigma$",
+      "$\\beta = -1/\\sigma$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Math background: [Logarithms and Growth Rates](note:logarithms-and-growth-rates)\n- [CES Production Function](note:ces-production-function)\n- [Relative Supply and Demand](note:relative-supply-and-demand) — $-1/\\sigma$ is the slope of the relative demand curve in logs"
+      }
+     ],
+     "words": 26,
+     "symbols": [
+      "$\\sigma$"
+     ]
+    }
+   ]
+  }
+ ]
+}

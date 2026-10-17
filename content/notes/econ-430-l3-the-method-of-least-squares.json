@@ -1,0 +1,2208 @@
+{
+ "slug": "econ-430-l3-the-method-of-least-squares",
+ "notation": [
+  {
+   "tex": "$y_i$",
+   "meaning": "Outcome for observation $i$ (e.g. food spending)",
+   "kind": "Random variable",
+   "typical": "—",
+   "keys": [
+    "y"
+   ],
+   "from": "simple-linear-regression-model"
+  },
+  {
+   "tex": "$x_i$",
+   "meaning": "Explanatory variable (e.g. income)",
+   "kind": "Observed",
+   "typical": "—",
+   "keys": [
+    "x"
+   ],
+   "from": "simple-linear-regression-model"
+  },
+  {
+   "tex": "$\\beta_1$",
+   "meaning": "Intercept: average $y$ when $x = 0$",
+   "kind": "Parameter",
+   "typical": "80 in the food example",
+   "keys": [
+    "beta"
+   ],
+   "from": "simple-linear-regression-model"
+  },
+  {
+   "tex": "$e_i$",
+   "meaning": "Error: everything else affecting $y_i$",
+   "kind": "Unobserved",
+   "typical": "Mean zero",
+   "keys": [
+    "e"
+   ],
+   "from": "simple-linear-regression-model"
+  },
+  {
+   "tex": "$E[y\\mid x]$, $\\mu_{y\\mid x}$",
+   "meaning": "Average of $y$ at a given $x$ (the regression function)",
+   "kind": "Population quantity",
+   "typical": "—",
+   "keys": [
+    "~E[y\\midx]",
+    "mu"
+   ],
+   "from": "simple-linear-regression-model"
+  },
+  {
+   "tex": "$\\sigma^2$",
+   "meaning": "Variance of $y$ around its conditional mean",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "sigma"
+   ],
+   "from": "simple-linear-regression-model"
+  },
+  {
+   "tex": "$\\Delta x$",
+   "meaning": "A change in $x$",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "~\\Deltax"
+   ],
+   "from": "simple-linear-regression-model"
+  },
+  {
+   "tex": "$b_2$",
+   "meaning": "OLS slope estimate",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "b"
+   ],
+   "from": "sr-assumptions"
+  },
+  {
+   "tex": "$\\mathbf{X}$",
+   "meaning": "All regressors for all observations",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "bold(X)"
+   ],
+   "from": "strict-exogeneity"
+  },
+  {
+   "tex": "$\\widehat{\\sigma}^2$",
+   "meaning": "Estimate of $\\sigma^2$ from the residuals",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "hat(sigma)"
+   ],
+   "from": "homoskedasticity"
+  },
+  {
+   "tex": "$JB$",
+   "meaning": "Jarque-Bera test statistic",
+   "kind": "Statistic",
+   "typical": "0 under perfect normality",
+   "keys": [
+    "~JB"
+   ],
+   "from": "error-normality-and-jarque-bera"
+  },
+  {
+   "tex": "$N$",
+   "meaning": "Sample size",
+   "kind": "Count",
+   "typical": "—",
+   "keys": [
+    "N"
+   ],
+   "from": "error-normality-and-jarque-bera"
+  },
+  {
+   "tex": "$S$",
+   "meaning": "Skewness of the residuals (lopsidedness)",
+   "kind": "Statistic",
+   "typical": "0 for a normal",
+   "keys": [
+    "S"
+   ],
+   "from": "error-normality-and-jarque-bera"
+  },
+  {
+   "tex": "$K$",
+   "meaning": "Kurtosis of the residuals (tail thickness)",
+   "kind": "Statistic",
+   "typical": "3 for a normal",
+   "keys": [
+    "K"
+   ],
+   "from": "error-normality-and-jarque-bera"
+  },
+  {
+   "tex": "$\\chi^2_2$",
+   "meaning": "Chi-square distribution with 2 degrees of freedom — the null distribution of $JB$",
+   "kind": "Distribution",
+   "typical": "5% critical value ≈ 5.99",
+   "keys": [
+    "chi"
+   ],
+   "from": "error-normality-and-jarque-bera"
+  },
+  {
+   "tex": "$\\hat{e}_i$",
+   "meaning": "Residual: $y_i - b_1 - b_2x_i$",
+   "kind": "Computed",
+   "typical": "Sum to zero",
+   "keys": [
+    "hat(e)"
+   ],
+   "from": "ols-estimator"
+  },
+  {
+   "tex": "$\\bar{x}$, $\\bar{y}$",
+   "meaning": "Sample means",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "bar(x)",
+    "bar(y)"
+   ],
+   "from": "ols-estimator"
+  },
+  {
+   "tex": "$w_i$",
+   "meaning": "OLS weight on $y_i$ in $b_2$",
+   "kind": "Depends only on $x$",
+   "typical": "Sum to zero",
+   "keys": [
+    "w"
+   ],
+   "from": "ols-estimator"
+  },
+  {
+   "tex": "$SSR$",
+   "meaning": "Sum of squared residuals",
+   "kind": "Objective being minimised",
+   "typical": "—",
+   "keys": [
+    "~SSR"
+   ],
+   "from": "ols-estimator"
+  },
+  {
+   "tex": "$\\tilde{\\beta}_2 = \\sum a_iy_i$",
+   "meaning": "Any competing linear estimator",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "tilde(beta)"
+   ],
+   "from": "gauss-markov-theorem"
+  },
+  {
+   "tex": "$a_i$",
+   "meaning": "Weights of the competing estimator",
+   "kind": "Depend only on $x$",
+   "typical": "—",
+   "keys": [
+    "a"
+   ],
+   "from": "gauss-markov-theorem"
+  },
+  {
+   "tex": "$d_i = a_i - w_i$",
+   "meaning": "How far the competitor's weights differ from OLS",
+   "kind": "—",
+   "typical": "All zero for OLS",
+   "keys": [
+    "d"
+   ],
+   "from": "gauss-markov-theorem"
+  },
+  {
+   "tex": "$\\hat{e}_i$, $\\mathbf{e}$",
+   "meaning": "Residuals",
+   "kind": "Computed",
+   "typical": "—",
+   "keys": [
+    "hat(e)",
+    "bold(e)"
+   ],
+   "from": "sampling-distribution-of-ols"
+  },
+  {
+   "tex": "$t$",
+   "meaning": "Test statistic $(b_k - \\beta_k)/se(b_k)$",
+   "kind": "Statistic",
+   "typical": "≈ ±2 is the 5% threshold in large samples",
+   "keys": [
+    "t"
+   ],
+   "from": "sampling-distribution-of-ols"
+  },
+  {
+   "tex": "$Z$, $V$",
+   "meaning": "A standard normal and an independent chi-square variable",
+   "kind": "Random variables",
+   "typical": "—",
+   "keys": [
+    "Z",
+    "V"
+   ],
+   "from": "sampling-distribution-of-ols"
+  },
+  {
+   "tex": "$\\mathbf{M}$, $\\mathbf{P}$, $\\mathbf{X}$",
+   "meaning": "Residual maker, projection matrix, regressor matrix",
+   "kind": "Matrices",
+   "typical": "—",
+   "keys": [
+    "bold(M)",
+    "bold(P)",
+    "bold(X)"
+   ],
+   "from": "sampling-distribution-of-ols"
+  },
+  {
+   "tex": "$c$",
+   "meaning": "Value claimed by the null",
+   "kind": "Constant",
+   "typical": "0 by default",
+   "keys": [
+    "c"
+   ],
+   "from": "hypothesis-tests-on-regression-coefficients"
+  },
+  {
+   "tex": "$T$",
+   "meaning": "A random variable with the $t_{N-K}$ distribution",
+   "kind": "Random variable",
+   "typical": "—",
+   "keys": [
+    "T"
+   ],
+   "from": "hypothesis-tests-on-regression-coefficients"
+  },
+  {
+   "tex": "$H_0$, $H_1$",
+   "meaning": "Null and alternative hypotheses",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "H"
+   ],
+   "from": "hypothesis-tests-on-regression-coefficients"
+  },
+  {
+   "tex": "$y_i$, $\\hat{y}_i$",
+   "meaning": "Actual and fitted outcome",
+   "kind": "Data / computed",
+   "typical": "—",
+   "keys": [
+    "y",
+    "hat(y)"
+   ],
+   "from": "coefficient-of-determination"
+  },
+  {
+   "tex": "$TSS$",
+   "meaning": "Total sum of squares: variation of $y$ around $\\bar{y}$",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "~TSS"
+   ],
+   "from": "coefficient-of-determination"
+  },
+  {
+   "tex": "$ESS$",
+   "meaning": "Explained sum of squares: variation of $\\hat{y}$ around $\\bar{y}$",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "~ESS"
+   ],
+   "from": "coefficient-of-determination"
+  },
+  {
+   "tex": "$R^2$",
+   "meaning": "Coefficient of determination",
+   "kind": "Statistic",
+   "typical": "0.385 for the food regression",
+   "keys": [
+    "R"
+   ],
+   "from": "coefficient-of-determination"
+  },
+  {
+   "tex": "$t$, $F$",
+   "meaning": "The slope's $t$ statistic and the regression $F$ statistic",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "t",
+    "F"
+   ],
+   "from": "coefficient-of-determination"
+  },
+  {
+   "tex": "$f = y_0 - \\hat{y}_0$",
+   "meaning": "Forecast error",
+   "kind": "Random variable",
+   "typical": "Mean zero",
+   "keys": [
+    "f"
+   ],
+   "from": "confidence-vs-prediction-intervals"
+  },
+  {
+   "tex": "$se(f)$",
+   "meaning": "Standard error of the forecast",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "~se(f)"
+   ],
+   "from": "confidence-vs-prediction-intervals"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**A regression models the average of $y$ at each $x$ as a line, $E[y \\mid x] = \\beta_1 + \\beta_2x$, and OLS chooses the line that minimizes the sum of squared residuals. Its slope is a weighted sum of the $y_i$, which is why it is unbiased under linearity, zero conditional mean and variation in $x$, and the best linear unbiased estimator once the errors also have constant variance and no correlation. On the lecture's 40 households, an extra \\$100 of weekly income goes with \\$10.21 more food spending, with a standard error of 2.09 and $R^2 = 0.385$.**"
+      }
+     ],
+     "words": 87,
+     "symbols": [
+      "$y_i$",
+      "$x_i$",
+      "$\\beta_1$",
+      "$E[y\\mid x]$, $\\mu_{y\\mid x}$",
+      "$R^2$"
+     ]
+    },
+    {
+     "id": "intro-2",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "info",
+       "title": "Source",
+       "md": "Section 3 of `Regression_Lecture1_Adv.ipynb` (see [Econ 430 L1 Univariate Characterizations](note:econ-430-l1-univariate-characterizations) for how the notebook maps to lectures). The matrix version of the same results is [Econ 430 L7 The Classical Linear Regression Model](note:econ-430-l7-the-classical-linear-regression-model).",
+       "folded": false
+      },
+      {
+       "t": "callout",
+       "kind": "warning",
+       "title": "Notation clash",
+       "md": "The applied sections write $y = \\beta_1 + \\beta_2 x + e$, so **$\\beta_2$ is the slope**.\nThe derivation cells and the appendix write $y = \\beta_0 + \\beta_1 x + \\varepsilon$, so **$\\beta_1$ is the slope**.\nRead every question's subscript before answering.",
+       "folded": false
+      }
+     ],
+     "words": 64,
+     "symbols": [
+      "$y_i$",
+      "$x_i$",
+      "$\\beta_1$",
+      "$e_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1-the-econometric-model",
+   "heading": "1. The econometric model",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-the-econometric-model-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Economic theory says food spending rises with income; the econometric model adds everything else as an error, $y = \\beta_1 + \\beta_2x + e$ ([Simple Linear Regression Model](note:simple-linear-regression-model)). Households with the same income spend different amounts, so the model describes the conditional distribution of $y$ given $x$: its mean $E[y \\mid x] = \\beta_1 + \\beta_2x$, the regression function, and its variance $\\sigma^2$. The lecture's histograms split the food data at an income of \\$2,000 a week: the richer households' spending sits further right."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Food expenditure and income - histograms and conditional distributions.png",
+       "alt": "Food expenditure and income - histograms and conditional distributions"
+      }
+     ],
+     "words": 68,
+     "symbols": [
+      "$y_i$",
+      "$x_i$",
+      "$\\beta_1$",
+      "$e_i$",
+      "$E[y\\mid x]$, $\\mu_{y\\mid x}$",
+      "$\\sigma^2$"
+     ]
+    },
+    {
+     "id": "1-the-econometric-model-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The six [SR Assumptions](note:sr-assumptions) say what the model takes for granted: (1) $y$ is linear in the parameters; (2) $E[e_i \\mid x_i] = 0$, which implies $E[e_i] = 0$ and $\\mathrm{cov}(e_i, x_i) = 0$ ([Strict Exogeneity](note:strict-exogeneity)); (3) constant error variance ([Homoskedasticity](note:homoskedasticity)); (4) no correlation between errors; (5) $x$ takes at least two different values; (6), optionally, normal errors. The data split into a systematic part and noise: data = model + uncertainty. The slope measures association, not causation: a change in $x$ goes with a change of $\\beta_2\\Delta x$ in the average of $y$."
+      }
+     ],
+     "words": 74,
+     "symbols": [
+      "$y_i$",
+      "$x_i$",
+      "$\\beta_1$",
+      "$e_i$",
+      "$\\Delta x$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "2-least-squares",
+   "heading": "2. Least squares",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-least-squares-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The fitted line is $\\hat{y}_i = b_1 + b_2x_i$ and the residuals are $\\hat{e}_i = y_i - b_1 - b_2x_i$. OLS chooses $b_1$ and $b_2$ to minimize the sum of squared residuals,"
+      },
+      {
+       "t": "math",
+       "tex": "\\text{SSR}(b_1, b_2) = \\sum_{i=1}^N (y_i - b_1 - b_2x_i)^2"
+      },
+      {
+       "t": "prose",
+       "md": "and the solution is the [OLS Estimator](note:ols-estimator): $b_2 = \\sum(x_i - \\bar{x})(y_i - \\bar{y})/\\sum(x_i - \\bar{x})^2$ and $b_1 = \\bar{y} - b_2\\bar{x}$."
+      },
+      {
+       "t": "interactive",
+       "widget": "ols-line-fitter",
+       "state": {
+        "b1": 250,
+        "b2": 2
+       },
+       "show": [
+        "points",
+        "line",
+        "residuals",
+        "squares",
+        "ssr"
+       ],
+       "highlight": "squares",
+       "prompt": "Forty simulated households: weekly food expenditure $y$ in dollars against weekly income $x$ in hundreds of dollars. Drag the line, or the $b_1$ and $b_2$ sliders, until $\\text{SSR}$, the total area of the squares, is as small as you can make it.",
+       "goal": {
+        "when": "ssr <= 1.01*ssr_min",
+        "success": "Within 1% of the minimum. The exact minimizer for this simulated sample is the OLS line, $b_1 = 82.89$ and $b_2 = 10.21$: each extra \\$100 of weekly income goes with about \\$10.21 more food spending, the same slope as the food-expenditure regression of the practice questions (the intercepts differ, since these households are simulated).",
+        "hint": "Get the tilt ($b_2$) right first, then shift the line up or down ($b_1$). Big squares at one end of the data mean the slope is off."
+       },
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 63,
+     "symbols": [
+      "$y_i$",
+      "$x_i$",
+      "$b_2$",
+      "$N$",
+      "$\\hat{e}_i$",
+      "$\\bar{x}$, $\\bar{y}$",
+      "$SSR$",
+      "$y_i$, $\\hat{y}_i$"
+     ]
+    },
+    {
+     "id": "2-least-squares-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Setting the derivatives of $\\text{SSR}(b_1, b_2)$ to zero gives two conditions on the residuals $\\hat{e}_i$. Which?",
+       "options": [
+        {
+         "md": "$E[e_i \\mid x_i] = 0$ and $\\mathrm{Var}(e_i \\mid x_i) = \\sigma^2$",
+         "correct": false,
+         "feedback": "Those are assumptions SR2 and SR3 about the unobserved errors $e_i$. The first-order conditions are facts about the residuals $\\hat{e}_i$ that hold in every sample."
+        },
+        {
+         "md": "$\\sum \\hat{e}_i^{\\,2} = 0$ and $\\sum x_i\\hat{e}_i = 0$",
+         "correct": false,
+         "feedback": "$\\sum \\hat{e}_i^{\\,2} = 0$ would mean every point lies on the line. The conditions set the *derivatives* of SSR to zero, not SSR itself."
+        },
+        {
+         "md": "$\\sum \\hat{e}_i = 0$ and $\\sum x_i\\hat{e}_i = 0$: the residuals sum to zero and are orthogonal to $x$",
+         "correct": true
+        }
+       ],
+       "why": "$\\partial \\text{SSR}/\\partial b_1 = -2\\sum(y_i - b_1 - b_2x_i) = 0$ gives $\\sum\\hat{e}_i = 0$, and $\\partial \\text{SSR}/\\partial b_2 = -2\\sum x_i(y_i - b_1 - b_2x_i) = 0$ gives $\\sum x_i\\hat{e}_i = 0$. The option with $E[e_i \\mid x_i]$ lists assumptions (SR2 and SR3) about the unobserved errors $e_i$, not facts about the residuals; $\\sum \\hat{e}_i^{\\,2} = 0$ would mean a perfect fit.",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 25,
+     "symbols": [
+      "$y_i$",
+      "$x_i$",
+      "$e_i$",
+      "$\\sigma^2$",
+      "$b_2$",
+      "$\\hat{e}_i$",
+      "$SSR$"
+     ]
+    },
+    {
+     "id": "2-least-squares-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Two conditions on the residuals hold at the minimum, and only there. Each sum on its own describes a whole line of candidate fits; the minimum is where the two lines cross."
+      },
+      {
+       "t": "interactive",
+       "widget": "ols-line-fitter",
+       "state": {
+        "b1": 250,
+        "b2": 2
+       },
+       "show": [
+        "points",
+        "line",
+        "residuals",
+        "ssr_bowl",
+        "here",
+        "resid_sum",
+        "xresid_sum"
+       ],
+       "highlight": "here",
+       "prompt": "Walk to the bottom of the SSR bowl and watch both first-order conditions reach zero there",
+       "goal": {
+        "when": "abs(resid_sum) <= 40 and abs(xresid_sum) <= 800",
+        "success": "Both sums are close to zero, and the point sits in the innermost ring of the bowl: at the minimum of $\\text{SSR}(b_1, b_2)$ the two first-order conditions hold together, $\\sum\\hat{e}_i = 0$ and $\\sum x_i\\hat{e}_i = 0$, which is the OLS line $b_1 = 82.89$, $b_2 = 10.21$. Either sum alone is not enough: at $b_2 = 12$, $b_1 = 48$ the residuals sum to about zero, yet $\\sum x_i\\hat{e}_i = -5{,}430$ and the line is too steep.",
+        "hint": "$\\sum\\hat{e}_i = 0$ whenever the line passes through $(\\bar{x}, \\bar{y})$. Get there with $b_1$, then tilt about that point (raise $b_2$, lower $b_1$ by $\\bar{x}$ times as much), which moves only $\\sum x_i\\hat{e}_i$. In the bowl, slide along the long valley toward the centre."
+       },
+       "objectives": [
+        1
+       ]
+      },
+      {
+       "t": "prose",
+       "md": "Solving the two first-order conditions gives the formulas; the second derivatives confirm a minimum."
+      }
+     ],
+     "words": 62,
+     "symbols": [
+      "$y_i$",
+      "$x_i$",
+      "$b_2$",
+      "$\\hat{e}_i$",
+      "$\\bar{x}$, $\\bar{y}$"
+     ]
+    },
+    {
+     "id": "2-least-squares-4",
+     "blocks": [
+      {
+       "t": "derive",
+       "title": "From the first-order conditions to $b_1$ and $b_2$",
+       "objectives": [
+        1
+       ],
+       "symbols": [],
+       "inherited": [
+        {
+         "tex": "$y_i$, $x_i$",
+         "typical": "—",
+         "from": "ols-estimator"
+        },
+        {
+         "tex": "$b_1$, $b_2$",
+         "typical": "—",
+         "from": "ols-estimator"
+        },
+        {
+         "tex": "$\\bar{x}$, $\\bar{y}$",
+         "typical": "—",
+         "from": "ols-estimator"
+        },
+        {
+         "tex": "$N$",
+         "typical": "—",
+         "from": "ols-estimator"
+        }
+       ],
+       "unknowns": [
+        "$b_1$ real",
+        "$b_2$ real"
+       ],
+       "dims": [
+        "$N$"
+       ],
+       "data": [
+        "$x_i$",
+        "$y_i$"
+       ],
+       "matrices": [],
+       "define": [],
+       "given": [
+        "\\sum_{i=1}^N (y_i - b_1 - b_2 x_i) = 0",
+        "\\sum_{i=1}^N x_i (y_i - b_1 - b_2 x_i) = 0"
+       ],
+       "steps": [
+        {
+         "md": "Divide the first condition by $N$: $b_1 = \\bar{y} - b_2\\bar{x}$",
+         "tex": "b_1 = \\bar{y} - b_2\\bar{x}",
+         "hint": "$\\sum y_i = N\\bar{y}$ and $\\sum x_i = N\\bar{x}$, so the first condition reads $N\\bar{y} = Nb_1 + Nb_2\\bar{x}$."
+        },
+        {
+         "md": "Substitute into the second condition, collect in deviation form and solve (dividing is possible because $x$ varies, SR5): $b_2 = \\frac{\\sum_{i=1}^N (x_i - \\bar{x})(y_i - \\bar{y})}{\\sum_{i=1}^N (x_i - \\bar{x})^2}$",
+         "tex": "b_2 = \\frac{\\sum_{i=1}^N (x_i - \\bar{x})(y_i - \\bar{y})}{\\sum_{i=1}^N (x_i - \\bar{x})^2}",
+         "hint": "With $b_1 = \\bar{y} - b_2\\bar{x}$ the second condition becomes $\\sum x_i(y_i - \\bar{y}) = b_2\\sum x_i(x_i - \\bar{x})$; and $\\sum x_i(y_i - \\bar{y}) = \\sum (x_i - \\bar{x})(y_i - \\bar{y})$, because $\\bar{x}\\sum (y_i - \\bar{y}) = 0$."
+        }
+       ],
+       "accept": [
+        "\\sum_{i=1}^N (x_i - \\bar{x})(y_i - \\bar{y}) = b_2\\sum_{i=1}^N (x_i - \\bar{x})^2"
+       ],
+       "reject": [
+        {
+         "tex": "b_2 = \\frac{\\sum x_i y_i}{\\sum x_i^2}",
+         "md": "that is the slope of a line through the origin; the model still has an intercept $b_1$"
+        },
+        {
+         "tex": "b_2 = \\frac{\\sum (x_i-\\bar{x})(y_i-\\bar{y})}{\\sum (y_i-\\bar{y})^2}",
+         "md": "the denominator is the spread of $x$, not $y$: $b_2$ is the sample covariance over the sample variance of $x$"
+        },
+        {
+         "tex": "b_1 = \\bar{y} + b_2\\bar{x}",
+         "md": "sign: the first condition says $\\bar{y} = b_1 + b_2\\bar{x}$, so $b_1 = \\bar{y} - b_2\\bar{x}$"
+        }
+       ]
+      }
+     ],
+     "words": 28,
+     "symbols": [
+      "$y_i$",
+      "$x_i$",
+      "$b_2$",
+      "$N$",
+      "$\\bar{x}$, $\\bar{y}$"
+     ]
+    },
+    {
+     "id": "2-least-squares-5",
+     "blocks": [
+      {
+       "t": "derive",
+       "title": "Second-order condition: the solution minimizes SSR",
+       "objectives": [
+        1
+       ],
+       "symbols": [],
+       "inherited": [
+        {
+         "tex": "$y_i$, $x_i$",
+         "typical": "—",
+         "from": "ols-estimator"
+        },
+        {
+         "tex": "$\\bar{x}$, $\\bar{y}$",
+         "typical": "—",
+         "from": "ols-estimator"
+        },
+        {
+         "tex": "$N$",
+         "typical": "—",
+         "from": "ols-estimator"
+        }
+       ],
+       "unknowns": [],
+       "dims": [
+        "$N$"
+       ],
+       "data": [
+        "$x_i$"
+       ],
+       "matrices": [],
+       "define": [
+        "\\bar{x} = \\frac{1}{N}\\sum_{i=1}^N x_i",
+        "D = (2N)\\left(2\\sum_{i=1}^N x_i^2\\right) - \\left(2\\sum_{i=1}^N x_i\\right)^2"
+       ],
+       "given": [],
+       "steps": [
+        {
+         "md": "The second derivatives of SSR form the Hessian $\\begin{pmatrix} 2N & 2\\sum x_i \\\\ 2\\sum x_i & 2\\sum x_i^2 \\end{pmatrix}$, whose determinant is $D = (2N)\\left(2\\sum_{i=1}^N x_i^2\\right) - \\left(2\\sum_{i=1}^N x_i\\right)^2$",
+         "tex": "D = (2N)\\left(2\\sum_{i=1}^N x_i^2\\right) - \\left(2\\sum_{i=1}^N x_i\\right)^2",
+         "justify": {
+          "prompt": "Where does the top-left entry $2N$ come from?",
+          "options": [
+           {
+            "md": "$\\partial^2 SSR/\\partial b_1^2 = 2\\sum x_i^2$",
+            "correct": false
+           },
+           {
+            "md": "$\\partial^2 SSR/\\partial b_1^2 = \\sum 2 = 2N$: each of the $N$ squared residuals contributes 2",
+            "correct": true
+           },
+           {
+            "md": "$\\partial^2 SSR/\\partial b_1^2 = 2\\sum x_i$, the same as the cross derivative $\\partial^2 SSR/\\partial b_1\\partial b_2$",
+            "correct": false
+           }
+          ]
+         }
+        },
+        {
+         "md": "Multiply out: $D = 4N\\sum_{i=1}^N x_i^2 - 4\\left(\\sum_{i=1}^N x_i\\right)^2$",
+         "tex": "D = 4N\\sum_{i=1}^N x_i^2 - 4\\left(\\sum_{i=1}^N x_i\\right)^2"
+        },
+        {
+         "md": "Use $\\sum x_i = N\\bar{x}$: $D = 4N\\left(\\sum_{i=1}^N x_i^2 - N\\bar{x}^2\\right)$",
+         "tex": "D = 4N\\left(\\sum_{i=1}^N x_i^2 - N\\bar{x}^2\\right)"
+        },
+        {
+         "md": "Recognise the sum of squared deviations: $D = 4N\\sum_{i=1}^N (x_i - \\bar{x})^2$",
+         "tex": "D = 4N\\sum_{i=1}^N (x_i - \\bar{x})^2",
+         "hint": "$\\sum (x_i - \\bar{x})^2 = \\sum x_i^2 - 2\\bar{x}\\sum x_i + N\\bar{x}^2 = \\sum x_i^2 - N\\bar{x}^2$."
+        },
+        {
+         "md": "Conclude (for $K = 2$ this is $\\mathbf{X}'\\mathbf{X}$ positive definite): $4N\\sum (x_i - \\bar{x})^2 > 0$",
+         "tex": "4N\\sum (x_i - \\bar{x})^2 > 0",
+         "justify": {
+          "prompt": "The top-left entry $2N$ is positive. What does $D > 0$ add?",
+          "options": [
+           {
+            "md": "$D > 0$ means SSR is concave, so the critical point is a maximum",
+            "correct": false
+           },
+           {
+            "md": "$D > 0$ with $2N > 0$ makes the Hessian indefinite, so the critical point is a saddle",
+            "correct": false
+           },
+           {
+            "md": "Both leading principal minors are positive, so the Hessian is positive definite, SSR is strictly convex, and the first-order conditions give its unique minimum; $D > 0$ needs the $x_i$ to vary (SR5)",
+            "correct": true
+           }
+          ]
+         }
+        }
+       ],
+       "accept": [],
+       "reject": [
+        {
+         "tex": "D = 4\\sum (x_i - \\bar{x})^2",
+         "md": "$\\left(\\sum x_i\\right)^2 = N^2\\bar{x}^2$, so factoring out $4N$ leaves $\\sum x_i^2 - N\\bar{x}^2$: the $N$ stays in front"
+        },
+        {
+         "tex": "D = 4N\\sum x_i^2 - 4\\sum x_i^2",
+         "md": "the square of a sum is not the sum of squares: $\\left(\\sum x_i\\right)^2 = N^2\\bar{x}^2$"
+        },
+        {
+         "tex": "D = 4N\\sum x_i^2 + 4\\left(\\sum x_i\\right)^2",
+         "md": "a $2 \\times 2$ determinant is $ad - bc$: the product of the off-diagonal entries is subtracted"
+        }
+       ]
+      }
+     ],
+     "words": 32,
+     "symbols": [
+      "$x_i$",
+      "$b_2$",
+      "$\\mathbf{X}$",
+      "$N$",
+      "$S$",
+      "$K$",
+      "$\\bar{x}$, $\\bar{y}$",
+      "$SSR$",
+      "$a_i$",
+      "$d_i = a_i - w_i$",
+      "$c$",
+      "$R^2$"
+     ]
+    },
+    {
+     "id": "2-least-squares-6",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Suppose all 40 households had the same income, $x_i = 20$. Then the second-order condition's determinant is $D = 4N\\sum(x_i - \\bar{x})^2 = 0$. Reading this with Math Prep L3 and L6, what happens to the minimization of SSR?",
+       "options": [
+        {
+         "md": "The Hessian becomes negative definite, so the first-order conditions now give a maximum",
+         "correct": false,
+         "feedback": "The top-left entry $2N$ is still positive, which rules out negative definite. And the Hessian $2\\mathbf{X}'\\mathbf{X}$ is always positive semidefinite (Math Prep L3), so SSR never curves downward."
+        },
+        {
+         "md": "Nothing changes: the top-left entry $2N > 0$ already makes the Hessian positive definite",
+         "correct": false,
+         "feedback": "Positive definite needs every leading principal minor positive (Math Prep L3). The second one is $D = 0$, so the test fails."
+        },
+        {
+         "md": "The Hessian is positive semidefinite but not definite: SSR has many minimizers, and $b_2$ is not identified",
+         "correct": true
+        },
+        {
+         "md": "The Hessian is indefinite, so the critical point is a saddle",
+         "correct": false,
+         "feedback": "Indefinite with a positive top-left entry would need $D < 0$, but $D = 4N\\sum(x_i - \\bar{x})^2$ can never be negative."
+        }
+       ],
+       "why": "With $x_i = 20$ the column $x$ is 20 times the column of ones, so $\\mathbf{X}$ has rank 1 (Math Prep L2), and $\\mathbf{X}'\\mathbf{X}$ is positive semidefinite but not positive definite (Math Prep L3: PD needs full column rank). A positive definite Hessian is what makes the critical point a unique minimum (this lecture's second-order condition; Math Prep L6). Here many $(b_1, b_2)$ give the same fitted values and the same smallest SSR. This is the variation-in-$x$ assumption, SR5, that this lecture's second-order condition needs.",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 80,
+     "symbols": [
+      "$x_i$",
+      "$b_2$",
+      "$\\mathbf{X}$",
+      "$N$",
+      "$\\bar{x}$, $\\bar{y}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "3-unbiasedness-and-variance",
+   "heading": "3. Unbiasedness and variance",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "3-unbiasedness-and-variance-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The slope can be written as a weighted sum of the outcomes, $b_2 = \\sum w_iy_i$ with $w_i = (x_i - \\bar{x})/\\sum(x_i - \\bar{x})^2$, and substituting the model gives $b_2 = \\beta_2 + \\sum w_ie_i$. Taking expectations conditional on $x$ shows that $b_2$ is unbiased. Its variance, $\\sigma^2/\\sum(x_i - \\bar{x})^2$, is small when the errors are quiet, the sample is large and $x$ is spread out."
+      }
+     ],
+     "words": 43,
+     "symbols": [
+      "$y_i$",
+      "$x_i$",
+      "$\\beta_1$",
+      "$e_i$",
+      "$\\sigma^2$",
+      "$b_2$",
+      "$\\bar{x}$, $\\bar{y}$",
+      "$w_i$"
+     ]
+    },
+    {
+     "id": "3-unbiasedness-and-variance-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Which assumptions does the proof that $E[b_2 \\mid x] = \\beta_2$ use?",
+       "options": [
+        {
+         "md": "SR1 and SR2 only: linearity and $E[e_i \\mid x_i] = 0$ are all it takes",
+         "correct": false,
+         "feedback": "$b_2$ has to exist first: its denominator $\\sum(x_i - \\bar{x})^2$ is zero unless $x$ varies (SR5)."
+        },
+        {
+         "md": "SR1 to SR4: unbiasedness also needs constant error variance and no error correlation",
+         "correct": false,
+         "feedback": "Constant variance and no correlation affect $\\mathrm{Var}(b_2 \\mid x)$, not $E[b_2 \\mid x]$: the proof only takes the expectation of $\\sum w_ie_i$."
+        },
+        {
+         "md": "SR1, SR2 and SR5: the model is linear, $E[e_i \\mid x_i] = 0$, and $x$ varies so that $b_2$ exists",
+         "correct": true
+        },
+        {
+         "md": "SR1 to SR6: it also needs normal errors",
+         "correct": false,
+         "feedback": "Normality is never used for unbiasedness; it only makes the finite-sample distribution of $b_2$ exactly normal."
+        }
+       ],
+       "why": "$b_2 = \\sum w_iy_i$ is defined only if $\\sum(x_i-\\bar{x})^2 > 0$ (SR5). Substituting $y_i = \\beta_1 + \\beta_2x_i + e_i$ (SR1), with $\\sum w_i = 0$ and $\\sum w_ix_i = 1$, gives $b_2 = \\beta_2 + \\sum w_ie_i$. Then $E[b_2 \\mid x] = \\beta_2 + \\sum w_iE[e_i \\mid x] = \\beta_2$ by SR2, where $x$ is the whole sample $x_1,\\dots,x_N$: random sampling turns $E[e_i \\mid x_i] = 0$ into $E[e_i \\mid x_1,\\dots,x_N] = 0$. SR3 and SR4 enter only for the variance, $\\mathrm{Var}(b_2 \\mid x) = \\sigma^2/\\sum(x_i-\\bar{x})^2$.",
+       "objectives": [
+        2,
+        3
+       ]
+      }
+     ],
+     "words": 51,
+     "symbols": [
+      "$y_i$",
+      "$x_i$",
+      "$\\beta_1$",
+      "$e_i$",
+      "$\\sigma^2$",
+      "$b_2$",
+      "$\\bar{x}$, $\\bar{y}$",
+      "$w_i$"
+     ]
+    },
+    {
+     "id": "3-unbiasedness-and-variance-3",
+     "blocks": [
+      {
+       "t": "derive",
+       "title": "Show that $b_2 = \\beta_2 + \\sum w_i e_i$, then that $E[b_2 \\mid x] = \\beta_2$",
+       "objectives": [
+        3
+       ],
+       "symbols": [
+        "\\beta_1",
+        "\\beta_2"
+       ],
+       "inherited": [
+        {
+         "tex": "$y_i$, $x_i$",
+         "typical": "—",
+         "from": "sr-assumptions"
+        },
+        {
+         "tex": "$\\beta_1$, $\\beta_2$",
+         "typical": "—",
+         "from": "sr-assumptions"
+        },
+        {
+         "tex": "$e_i$",
+         "typical": "—",
+         "from": "sr-assumptions"
+        },
+        {
+         "tex": "$b_2$",
+         "typical": "—",
+         "from": "sr-assumptions"
+        }
+       ],
+       "unknowns": [],
+       "dims": [
+        "$N$"
+       ],
+       "data": [
+        "$x_i$",
+        "$e_i$ real"
+       ],
+       "matrices": [],
+       "define": [
+        "\\bar{x} = \\frac{1}{N}\\sum_{i=1}^N x_i",
+        "b_2 = \\frac{\\sum_{i=1}^N (x_i - \\bar{x})(\\beta_1 + \\beta_2 x_i + e_i)}{\\sum_{i=1}^N (x_i - \\bar{x})^2}"
+       ],
+       "given": [],
+       "steps": [
+        {
+         "md": "Start from $b_2 = \\sum w_iy_i$ with $w_i = \\frac{x_i - \\bar{x}}{\\sum (x_i - \\bar{x})^2}$ (SR5 makes $\\sum (x_i - \\bar{x})^2 > 0$, so the $w_i$ exist), substitute the model and multiply out: $b_2 = \\beta_1\\sum w_i + \\beta_2\\sum w_ix_i + \\sum w_ie_i$",
+         "tex": "b_2 = \\beta_1\\sum w_i + \\beta_2\\sum w_ix_i + \\sum w_ie_i",
+         "justify": {
+          "prompt": "Which assumption lets us replace $y_i$ by $\\beta_1 + \\beta_2x_i + e_i$?",
+          "options": [
+           {
+            "md": "SR2: $E[e_i \\mid x] = 0$",
+            "correct": false
+           },
+           {
+            "md": "SR1: the model is linear in the parameters",
+            "correct": true
+           },
+           {
+            "md": "SR5: $x$ takes at least two different values",
+            "correct": false
+           }
+          ]
+         }
+        },
+        {
+         "md": "The weights sum to zero, $\\sum w_i = 0$, because $\\sum_{i=1}^N (x_i - \\bar{x}) = 0$",
+         "tex": "\\sum_{i=1}^N (x_i - \\bar{x}) = 0",
+         "hint": "$\\sum x_i = N\\bar{x}$."
+        },
+        {
+         "md": "And $\\sum w_ix_i = 1$, because $\\sum_{i=1}^N (x_i - \\bar{x})x_i = \\sum_{i=1}^N (x_i - \\bar{x})^2$",
+         "tex": "\\sum_{i=1}^N (x_i - \\bar{x})x_i = \\sum_{i=1}^N (x_i - \\bar{x})^2",
+         "hint": "$\\sum (x_i - \\bar{x})^2 = \\sum (x_i - \\bar{x})x_i - \\bar{x}\\sum (x_i - \\bar{x})$, and the last sum is zero."
+        },
+        {
+         "md": "So $\\beta_1$ drops out and $\\beta_2$ is multiplied by 1. With $\\sum w_ie_i$ written out: $b_2 = \\beta_2 + \\frac{\\sum_{i=1}^N (x_i - \\bar{x})e_i}{\\sum_{i=1}^N (x_i - \\bar{x})^2}$",
+         "tex": "b_2 = \\beta_2 + \\frac{\\sum_{i=1}^N (x_i - \\bar{x})e_i}{\\sum_{i=1}^N (x_i - \\bar{x})^2}",
+         "hint": "$w_i$ isn't a symbol you can type here, so write $\\sum w_ie_i$ in full: `sum((x - xbar) e)/sum((x - xbar)^2)`."
+        },
+        {
+         "md": "Take expectations conditional on $x$: $E[b_2 \\mid x] = \\beta_2 + \\sum w_iE[e_i \\mid x]$",
+         "tex": "E[b_2 \\mid x] = \\beta_2 + \\sum w_iE[e_i \\mid x]",
+         "justify": {
+          "prompt": "Why can each $w_i$ come outside the expectation?",
+          "options": [
+           {
+            "md": "Because $\\sum w_i = 0$",
+            "correct": false
+           },
+           {
+            "md": "Because the errors are homoskedastic (SR3)",
+            "correct": false
+           },
+           {
+            "md": "$w_i$ depends only on the $x$ values, which are held fixed when we condition on $x$",
+            "correct": true
+           }
+          ]
+         }
+        },
+        {
+         "md": "So $b_2$ is unbiased: $E[b_2 \\mid x] = \\beta_2$",
+         "tex": "E[b_2 \\mid x] = \\beta_2",
+         "justify": {
+          "prompt": "Which assumption sets $E[e_i \\mid x] = 0$?",
+          "options": [
+           {
+            "md": "SR3, homoskedasticity",
+            "correct": false
+           },
+           {
+            "md": "SR2, zero conditional mean (random sampling lets us condition on the whole sample $x$)",
+            "correct": true
+           },
+           {
+            "md": "SR6, normal errors",
+            "correct": false
+           }
+          ]
+         }
+        }
+       ],
+       "accept": [
+        "b_2 - \\beta_2 = \\frac{\\sum_{i=1}^N (x_i - \\bar{x})e_i}{\\sum_{i=1}^N (x_i - \\bar{x})^2}"
+       ],
+       "reject": [
+        {
+         "tex": "b_2 = \\beta_2",
+         "md": "in any one sample the errors don't cancel: $\\sum w_ie_i$ is zero only on average, which is what the expectation step shows"
+        },
+        {
+         "tex": "b_2 = \\beta_1 + \\beta_2 + \\frac{\\sum (x_i - \\bar{x})e_i}{\\sum (x_i - \\bar{x})^2}",
+         "md": "$\\beta_1$ is multiplied by $\\sum w_i = 0$, so it drops out"
+        },
+        {
+         "tex": "\\sum (x_i - \\bar{x})x_i = \\sum x_i^2",
+         "md": "$\\sum (x_i - \\bar{x})x_i = \\sum x_i^2 - N\\bar{x}^2$: the mean term doesn't vanish"
+        }
+       ]
+      }
+     ],
+     "words": 44,
+     "symbols": [
+      "$y_i$",
+      "$x_i$",
+      "$\\beta_1$",
+      "$e_i$",
+      "$b_2$",
+      "$N$",
+      "$\\bar{x}$, $\\bar{y}$",
+      "$w_i$"
+     ]
+    },
+    {
+     "id": "3-unbiasedness-and-variance-4",
+     "blocks": [
+      {
+       "t": "derive",
+       "title": "Show that $\\mathrm{Var}(b_2 \\mid x) = \\sigma^2/\\sum (x_i - \\bar{x})^2$",
+       "objectives": [
+        4
+       ],
+       "symbols": [
+        "\\sigma"
+       ],
+       "inherited": [
+        {
+         "tex": "$y_i$, $x_i$",
+         "typical": "—",
+         "from": "sr-assumptions"
+        },
+        {
+         "tex": "$\\beta_1$, $\\beta_2$",
+         "typical": "—",
+         "from": "sr-assumptions"
+        },
+        {
+         "tex": "$e_i$",
+         "typical": "—",
+         "from": "sr-assumptions"
+        },
+        {
+         "tex": "$\\sigma^2$",
+         "typical": "Constant under SR3",
+         "from": "sr-assumptions"
+        },
+        {
+         "tex": "$b_2$",
+         "typical": "—",
+         "from": "sr-assumptions"
+        }
+       ],
+       "unknowns": [
+        "$V$"
+       ],
+       "dims": [
+        "$N$"
+       ],
+       "data": [
+        "$x_i$"
+       ],
+       "matrices": [],
+       "define": [],
+       "given": [],
+       "steps": [
+        {
+         "md": "Start from $b_2 = \\beta_2 + \\sum w_ie_i$. Given $x$, $\\beta_2$ and every $w_i$ are constants: $\\mathrm{Var}(b_2 \\mid x) = \\mathrm{Var}\\left(\\sum w_ie_i \\mid x\\right)$",
+         "tex": "\\mathrm{Var}(b_2 \\mid x) = \\mathrm{Var}\\left(\\sum w_ie_i \\mid x\\right)",
+         "justify": {
+          "prompt": "Why does $\\beta_2$ drop out of the variance?",
+          "options": [
+           {
+            "md": "Because $E[b_2 \\mid x] = \\beta_2$",
+            "correct": false
+           },
+           {
+            "md": "Because $\\beta_2$ is multiplied by $\\sum w_i = 0$",
+            "correct": false
+           },
+           {
+            "md": "Adding a constant shifts $b_2$ without changing its spread",
+            "correct": true
+           }
+          ]
+         }
+        },
+        {
+         "md": "Expand the variance of the sum; the covariance terms vanish: $\\mathrm{Var}(b_2 \\mid x) = \\sum w_i^2\\,\\mathrm{Var}(e_i \\mid x) = \\sigma^2\\sum w_i^2$",
+         "tex": "\\mathrm{Var}(b_2 \\mid x) = \\sum w_i^2\\,\\mathrm{Var}(e_i \\mid x) = \\sigma^2\\sum w_i^2",
+         "justify": {
+          "prompt": "Which assumptions turn $\\mathrm{Var}\\left(\\sum w_ie_i \\mid x\\right)$ into $\\sigma^2\\sum w_i^2$?",
+          "options": [
+           {
+            "md": "SR2 alone: zero conditional mean makes the errors independent",
+            "correct": false
+           },
+           {
+            "md": "SR4 (no correlation between errors) removes the covariance terms, and SR3 (homoskedasticity) makes every $\\mathrm{Var}(e_i \\mid x) = \\sigma^2$",
+            "correct": true
+           },
+           {
+            "md": "SR6: the errors are normal",
+            "correct": false
+           }
+          ]
+         }
+        },
+        {
+         "md": "Write $V$ for $\\mathrm{Var}(b_2 \\mid x)$. Square the weights $w_i = \\frac{x_i - \\bar{x}}{\\sum (x_i - \\bar{x})^2}$, add them up and simplify: $V = \\frac{\\sigma^2}{\\sum_{i=1}^N (x_i - \\bar{x})^2}$",
+         "tex": "V = \\frac{\\sigma^2}{\\sum_{i=1}^N (x_i - \\bar{x})^2}",
+         "hint": "$\\sum w_i^2 = \\frac{\\sum (x_i - \\bar{x})^2}{\\left(\\sum (x_i - \\bar{x})^2\\right)^2}$: one copy of the sum cancels."
+        },
+        {
+         "md": "Read the result: $V = \\frac{\\sigma^2}{\\sum (x_i - \\bar{x})^2}$",
+         "tex": "V = \\frac{\\sigma^2}{\\sum (x_i - \\bar{x})^2}",
+         "justify": {
+          "prompt": "Holding $\\sigma^2$ fixed, which sample gives the smallest $\\mathrm{Var}(b_2 \\mid x)$?",
+          "options": [
+           {
+            "md": "One whose $x$ values sit close to $\\bar{x}$",
+            "correct": false
+           },
+           {
+            "md": "One with a larger $\\bar{x}$",
+            "correct": false
+           },
+           {
+            "md": "One whose $x$ values are more spread out: a larger $\\sum (x_i - \\bar{x})^2$",
+            "correct": true
+           }
+          ]
+         }
+        }
+       ],
+       "accept": [
+        "V\\sum_{i=1}^N (x_i - \\bar{x})^2 = \\sigma^2"
+       ],
+       "reject": [
+        {
+         "tex": "V = \\sigma^2\\sum (x_i - \\bar{x})^2",
+         "md": "each weight has the sum in its denominator, so $w_i^2$ has it squared: $\\sum w_i^2 = 1/\\sum (x_i - \\bar{x})^2$"
+        },
+        {
+         "tex": "V = \\frac{\\sigma}{\\sqrt{\\sum (x_i - \\bar{x})^2}}",
+         "md": "that is the standard deviation of $b_2$ (its standard error once $\\sigma$ is estimated), the square root of the variance"
+        },
+        {
+         "tex": "V = \\frac{\\sigma^2}{\\sum x_i^2}",
+         "md": "the weights use deviations from the mean, $x_i - \\bar{x}$; $\\sigma^2/\\sum x_i^2$ belongs to a line through the origin"
+        }
+       ]
+      }
+     ],
+     "words": 32,
+     "symbols": [
+      "$x_i$",
+      "$\\beta_1$",
+      "$e_i$",
+      "$\\sigma^2$",
+      "$b_2$",
+      "$N$",
+      "$\\bar{x}$, $\\bar{y}$",
+      "$w_i$",
+      "$Z$, $V$"
+     ]
+    },
+    {
+     "id": "3-unbiasedness-and-variance-5",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The lecture checks the assumptions on the food data. The residuals average zero and are uncorrelated with income by construction, but their spread grows with income: heteroskedasticity."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Food expenditure regression - residuals against income.png",
+       "alt": "Food expenditure regression - residuals against income"
+      }
+     ],
+     "words": 27,
+     "symbols": []
+    },
+    {
+     "id": "3-unbiasedness-and-variance-6",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Heteroskedasticity is present. Which statements about OLS are true? Tick all that apply.",
+       "options": [
+        {
+         "md": "The usual standard-error formula is still valid",
+         "correct": false,
+         "feedback": "The usual formula, $\\mathrm{Var}(b_2 \\mid x) = \\sigma^2/\\sum(x_i - \\bar{x})^2$, assumes SR3. With heteroskedasticity it is wrong, so use robust (White) standard errors."
+        },
+        {
+         "md": "$b_2$ is still unbiased",
+         "correct": true
+        },
+        {
+         "md": "Switching to robust (White) standard errors removes a bias in $b_2$",
+         "correct": false,
+         "feedback": "Robust standard errors change only the standard error, and with it $t$, the p-value and the interval. The estimate $b_2$ is the same number, and it was not biased in the first place: unbiasedness does not use SR3."
+        },
+        {
+         "md": "OLS is no longer BLUE",
+         "correct": true
+        },
+        {
+         "md": "$b_2$ is still consistent",
+         "correct": true
+        }
+       ],
+       "why": "Unbiasedness needs only SR1, SR2 and SR5 — not SR3 — and consistency is unaffected. The usual standard-error formula assumes SR3, so t statistics, p-values and intervals built on it are invalid: use White robust standard errors. Gauss-Markov needs SR3 too, so OLS is no longer BLUE; GLS or WLS is efficient. ([Homoskedasticity](note:homoskedasticity))",
+       "objectives": [
+        5
+       ]
+      }
+     ],
+     "words": 41,
+     "symbols": [
+      "$x_i$",
+      "$\\sigma^2$",
+      "$b_2$",
+      "$\\bar{x}$, $\\bar{y}$",
+      "$t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "4-normality-and-error-correlation",
+   "heading": "4. Normality and error correlation",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "4-normality-and-error-correlation-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Normal errors are helpful but not required: they make the small-sample distributions of $b_1$ and $b_2$ exactly normal, and the central limit theorem gives approximate normality in large samples anyway. The lecture tests the food residuals with the Jarque-Bera statistic, $JB = \\frac{N}{6}\\left(S^2 + \\frac{(K-3)^2}{4}\\right)$, which is $\\chi^2_2$ under the null of normality ([Error Normality and Jarque-Bera](note:error-normality-and-jarque-bera)). Errors may also be correlated, for example across spatially connected households; the starting point is to assume they are not."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Food expenditure regression - histogram of residuals.png",
+       "alt": "Food expenditure regression - histogram of residuals"
+      }
+     ],
+     "words": 69,
+     "symbols": [
+      "$b_2$",
+      "$JB$",
+      "$N$",
+      "$S$",
+      "$K$",
+      "$\\chi^2_2$"
+     ]
+    },
+    {
+     "id": "4-normality-and-error-correlation-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "For the food regression's residuals the lecture reports skewness −0.097, kurtosis 2.989, $JB = 0.063$ and a p-value of 0.969. What do you conclude, and what does it matter for?",
+       "options": [
+        {
+         "md": "Normality is not rejected; with only 40 households that supports using the exact $t$ distribution for tests and intervals",
+         "correct": true
+        },
+        {
+         "md": "Reject normality: $JB$ is far below its critical value",
+         "correct": false,
+         "feedback": "Large values of $JB$ are evidence against normality. $JB = 0.063$ is tiny compared with the 5% critical value of $\\chi^2_2$, 5.99, so normality is not rejected."
+        },
+        {
+         "md": "Normality is not rejected, which is what makes $b_2$ unbiased",
+         "correct": false,
+         "feedback": "Unbiasedness rests on SR1, SR2 and SR5 and holds without normal errors."
+        }
+       ],
+       "why": "The skewness is near 0 and the kurtosis near 3, so $JB = \\frac{40}{6}(0.097^2 + 0.011^2/4) = 0.063$, with $p = 0.969$ from a $\\chi^2$ with 2 degrees of freedom (one for skewness, one for kurtosis). Normality (SR6) is only needed for exact small-sample inference; it plays no role in unbiasedness or in the Gauss-Markov theorem.",
+       "objectives": [
+        6
+       ]
+      }
+     ],
+     "words": 65,
+     "symbols": [
+      "$b_2$",
+      "$JB$",
+      "$\\chi^2_2$",
+      "$t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "5-estimating-the-food-regression",
+   "heading": "5. Estimating the food regression",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "5-estimating-the-food-regression-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "On the 40 households the estimates are $b_1 = 83.42$ and $b_2 = 10.21$: each extra \\$100 of weekly income goes with \\$10.21 more weekly food spending, about 10 cents per dollar. The regression table also reports the standard errors (43.41 and 2.093), $t$ statistics, p-values, 95% intervals, $R^2 = 0.385$ and $F = 23.79$."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Food expenditure regression - fitted line.png",
+       "alt": "Food expenditure regression - fitted line"
+      },
+      {
+       "t": "prose",
+       "md": "The [Coefficient of Determination](note:coefficient-of-determination) measures fit: $R^2 = ESS/TSS = 1 - SSR/TSS$, the share of the variation in food spending around its mean that the fitted line accounts for."
+      }
+     ],
+     "words": 68,
+     "symbols": [
+      "$b_2$",
+      "$S$",
+      "$SSR$",
+      "$t$",
+      "$T$",
+      "$TSS$",
+      "$ESS$",
+      "$R^2$",
+      "$t$, $F$"
+     ]
+    },
+    {
+     "id": "5-estimating-the-food-regression-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "For the food regression, the sum of squared residuals is $SSR = 304{,}505$ and the explained sum of squares is $ESS = 190{,}627$. What is $R^2$? Give three decimal places.",
+       "answer": 0.385,
+       "tol": 0.001,
+       "wrong": [
+        {
+         "answer": 0.615,
+         "tol": 0.001,
+         "md": "that is $SSR/TSS = 1 - R^2$, the share left unexplained"
+        },
+        {
+         "answer": 0.626,
+         "tol": 0.001,
+         "md": "that divides $ESS$ by $SSR$; $R^2$ divides by the total, $TSS = ESS + SSR = 495{,}132$"
+        },
+        {
+         "answer": 0.369,
+         "tol": 0.001,
+         "md": "that is the adjusted $R^2$ printed next to it, which penalizes the degrees of freedom"
+        }
+       ],
+       "why": "$TSS = ESS + SSR = 190{,}627 + 304{,}505 = 495{,}132$, so $R^2 = 190{,}627/495{,}132 = 0.385$, matching the table. Equivalently $1 - 304{,}505/495{,}132 = 0.385$.",
+       "objectives": [
+        8
+       ]
+      }
+     ],
+     "words": 23,
+     "symbols": [
+      "$S$",
+      "$SSR$",
+      "$T$",
+      "$TSS$",
+      "$ESS$",
+      "$R^2$"
+     ]
+    },
+    {
+     "id": "5-estimating-the-food-regression-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "In your own words, what does $R^2 = 0.385$ in the food regression say?",
+       "options": [
+        {
+         "md": "Income causes 38.5% of a household's food spending",
+         "correct": false,
+         "feedback": "$R^2$ is a measure of fit from correlations in the sample. It says nothing about causation, and nothing about a share of any one household's spending."
+        },
+        {
+         "md": "The predicted food spending is correct for 38.5% of the households",
+         "correct": false,
+         "feedback": "No prediction is exactly correct; $R^2$ compares squared deviations, not hits and misses."
+        },
+        {
+         "md": "The slope is significant at the 38.5% level",
+         "correct": false,
+         "feedback": "Significance comes from the $t$ statistic (4.88) and its p-value, not from $R^2$."
+        },
+        {
+         "md": "The fitted line accounts for 38.5% of the sample variation in food spending around its mean; the other 61.5% is left in the residuals",
+         "correct": true
+        }
+       ],
+       "why": "$R^2 = 1 - SSR/TSS$ compares the squared residuals around the fitted line with the squared deviations around the mean, $\\bar{y}$. A value of 0.385 means the line cuts that total by 38.5%. In simple regression it is also the squared correlation between food spending and income.",
+       "objectives": [
+        8
+       ]
+      }
+     ],
+     "words": 67,
+     "symbols": [
+      "$S$",
+      "$\\bar{x}$, $\\bar{y}$",
+      "$SSR$",
+      "$t$",
+      "$T$",
+      "$TSS$",
+      "$R^2$"
+     ]
+    },
+    {
+     "id": "5-estimating-the-food-regression-4",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The table supports inference with $t = (b_2 - \\beta_2)/se(b_2)$, which follows a $t$ distribution with $N - 2 = 38$ degrees of freedom ([Hypothesis Tests on Regression Coefficients](note:hypothesis-tests-on-regression-coefficients))."
+      }
+     ],
+     "words": 18,
+     "symbols": [
+      "$\\beta_1$",
+      "$e_i$",
+      "$b_2$",
+      "$N$",
+      "$t$"
+     ]
+    },
+    {
+     "id": "5-estimating-the-food-regression-5",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "The lecture's food-expenditure regression ($N = 40$) reports $b_2 = 10.21$ with standard error 2.093, and $b_1 = 83.42$ with standard error 43.41. The 0.975 quantile of the $t$ distribution with 38 degrees of freedom is 2.024. What is the upper limit of the 95% confidence interval for $\\beta_2$?",
+       "answer": 14.446,
+       "tol": 0.02,
+       "wrong": [
+        {
+         "answer": 14.31,
+         "tol": 0.01,
+         "md": "that uses the normal critical value 1.96; with $\\widehat{\\sigma}^2$ estimated, use $t_{0.975,\\,38} = 2.024$"
+        },
+        {
+         "answer": 98.07,
+         "tol": 0.1,
+         "md": "43.41 is the standard error of the intercept $b_1$; the interval for $\\beta_2$ uses $se(b_2) = 2.093$"
+        },
+        {
+         "answer": 13.14,
+         "tol": 0.01,
+         "md": "that multiplies by $\\sqrt{2.093}$; the standard error is already a standard deviation, so it enters as it is"
+        },
+        {
+         "answer": 4.236,
+         "tol": 0.005,
+         "md": "that is only the margin $2.024 \\times 2.093$; the interval is $b_2$ plus or minus it"
+        }
+       ],
+       "why": "$b_2 \\pm t_{0.975,\\,38}\\,se(b_2) = 10.21 \\pm 2.024 \\times 2.093 = 10.21 \\pm 4.236$, so the interval runs from 5.97 to 14.45 (the lecture's table prints [5.972, 14.447] from the unrounded $b_2 = 10.2096$). The degrees of freedom are $N - 2 = 38$ because $\\widehat{\\sigma}^2$ divides by $N - 2$. An extra \\$100 of weekly income goes with between about \\$6 and \\$14 more weekly food spending.",
+       "objectives": [
+        7
+       ]
+      }
+     ],
+     "words": 42,
+     "symbols": [
+      "$\\beta_1$",
+      "$e_i$",
+      "$b_2$",
+      "$\\widehat{\\sigma}^2$",
+      "$N$",
+      "$t$"
+     ]
+    },
+    {
+     "id": "5-estimating-the-food-regression-6",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "In the same regression, test $H_0: \\beta_2 = 0$ against $H_1: \\beta_2 \\neq 0$ at the 5% level, with critical value $t_{0.975,\\,38} = 2.024$. The table also reports a p-value of 0.062 on the intercept row. What do you conclude?",
+       "options": [
+        {
+         "md": "Do not reject $H_0$: the p-value 0.062 is above 0.05",
+         "correct": false,
+         "feedback": "0.062 is on the intercept row: it tests $\\beta_1 = 0$. The test on the slope uses $b_2$ and its own standard error."
+        },
+        {
+         "md": "Do not reject $H_0$: $t = 10.21/43.41 = 0.24$ is below 2.024",
+         "correct": false,
+         "feedback": "43.41 is the standard error of the intercept. Dividing the slope by it mixes up the two rows of the table."
+        },
+        {
+         "md": "Reject $H_0$: $t = 10.21/2.093 = 4.88$ is above 2.024",
+         "correct": true
+        },
+        {
+         "md": "The test needs $\\sigma$, which the table does not report",
+         "correct": false,
+         "feedback": "$se(b_2) = \\widehat{\\sigma}/\\sqrt{\\sum(x_i - \\bar{x})^2}$ already uses the estimate $\\widehat{\\sigma}$. That is why the statistic follows a $t$ distribution with $N - 2$ degrees of freedom rather than a normal."
+        }
+       ],
+       "why": "$t = (b_2 - 0)/se(b_2) = 10.21/2.093 = 4.88$, and $|4.88| > 2.024$, so reject $H_0$ at 5%: income is related to food expenditure in this sample. The table prints $t = 4.877$ and $p < 0.001$ on the income row. The same conclusion follows from the 95% interval for $\\beta_2$, [5.97, 14.45], which excludes 0.",
+       "objectives": [
+        7
+       ]
+      }
+     ],
+     "words": 62,
+     "symbols": [
+      "$x_i$",
+      "$\\beta_1$",
+      "$e_i$",
+      "$\\sigma^2$",
+      "$b_2$",
+      "$\\widehat{\\sigma}^2$",
+      "$N$",
+      "$\\bar{x}$, $\\bar{y}$",
+      "$t$",
+      "$H_0$, $H_1$"
+     ]
+    },
+    {
+     "id": "5-estimating-the-food-regression-7",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "In the same regression ($b_2 = 10.21$, $se(b_2) = 2.093$), test $H_0: \\beta_2 = 7$ against $H_1: \\beta_2 > 7$. What is the $t$ statistic? Give two decimal places.",
+       "answer": 1.53,
+       "tol": 0.01,
+       "wrong": [
+        {
+         "answer": 4.88,
+         "tol": 0.01,
+         "md": "that tests $\\beta_2 = 0$; subtract the hypothesized value, 7, from $b_2$ first"
+        },
+        {
+         "answer": 0.07,
+         "tol": 0.01,
+         "md": "that divides by 43.41, the intercept's standard error; use $se(b_2) = 2.093$"
+        },
+        {
+         "answer": 2.22,
+         "tol": 0.01,
+         "md": "that divides by $\\sqrt{2.093}$; the standard error already is a standard deviation"
+        }
+       ],
+       "why": "$t = (b_2 - 7)/se(b_2) = (10.21 - 7)/2.093 = 3.21/2.093 = 1.53$. Under $H_0$ it follows a $t$ distribution with 38 degrees of freedom.",
+       "objectives": [
+        7
+       ]
+      }
+     ],
+     "words": 14,
+     "symbols": [
+      "$\\beta_1$",
+      "$e_i$",
+      "$b_2$",
+      "$t$",
+      "$H_0$, $H_1$"
+     ]
+    },
+    {
+     "id": "5-estimating-the-food-regression-8",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "With $t = 1.53$ for $H_0: \\beta_2 = 7$ against $H_1: \\beta_2 > 7$, and $t_{0.95,\\,38} = 1.686$, $t_{0.975,\\,38} = 2.024$, what do you conclude at the 5% level?",
+       "options": [
+        {
+         "md": "Reject $H_0$: the estimate 10.21 is above 7",
+         "correct": false,
+         "feedback": "An estimate above 7 is what $H_1$ predicts, but it has to be far enough above, in standard errors, to rule out chance. 1.53 standard errors is not enough here."
+        },
+        {
+         "md": "Do not reject $H_0$: $t = 1.53$ is below the one-sided critical value 1.686",
+         "correct": true
+        },
+        {
+         "md": "Do not reject $H_0$, because $t = 1.53$ is below 2.024",
+         "correct": false,
+         "feedback": "The conclusion is right but the critical value is not: a one-sided test at 5% puts the whole 5% in the right tail, so it uses $t_{0.95,\\,38} = 1.686$."
+        },
+        {
+         "md": "Accept $H_0$: the true slope is 7",
+         "correct": false,
+         "feedback": "Failing to reject does not show $H_0$ is true; many other values, from about 6 to 14, are also consistent with the data."
+        }
+       ],
+       "why": "For a right-tail test, reject if $t > t_{0.95,\\,38} = 1.686$. Here $1.53 < 1.686$, so do not reject (the right-tail p-value is 0.067). The data cannot rule out that 7 cents of each extra dollar goes to food, even though the point estimate is 10.",
+       "objectives": [
+        7
+       ]
+      }
+     ],
+     "words": 45,
+     "symbols": [
+      "$\\beta_1$",
+      "$t$",
+      "$H_0$, $H_1$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "6-the-gauss-markov-theorem",
+   "heading": "6. The Gauss-Markov theorem",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "6-the-gauss-markov-theorem-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Under SR1 to SR5, $b_1$ and $b_2$ have the smallest variance among all linear unbiased estimators: they are BLUE ([Gauss-Markov Theorem](note:gauss-markov-theorem)). The proof compares any competitor $\\sum a_iy_i$ with OLS and shows its variance is larger by $\\sigma^2\\sum d_i^2$. Homoskedasticity is needed; normality is not."
+      }
+     ],
+     "words": 39,
+     "symbols": [
+      "$y_i$",
+      "$\\sigma^2$",
+      "$b_2$",
+      "$a_i$",
+      "$d_i = a_i - w_i$"
+     ]
+    },
+    {
+     "id": "6-the-gauss-markov-theorem-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "The Gauss-Markov theorem says OLS is BLUE. Which assumptions does it need?",
+       "options": [
+        {
+         "md": "SR1 to SR6: the errors must also be normal",
+         "correct": false,
+         "feedback": "The proof uses only the means and variances of the errors, never their distribution. Normality matters for exact $t$ and $F$ distributions in small samples."
+        },
+        {
+         "md": "SR1 and SR2 only",
+         "correct": false,
+         "feedback": "With SR5, those give unbiasedness. Minimum variance also needs SR3 and SR4, which enter at $\\mathrm{Var}(\\sum a_iy_i) = \\sigma^2\\sum a_i^2$."
+        },
+        {
+         "md": "SR1 to SR5: homoskedasticity is needed, normality is not",
+         "correct": true
+        }
+       ],
+       "why": "The proof compares any linear unbiased estimator $\\tilde{\\beta}_2 = \\sum a_iy_i$ with $b_2$: $\\mathrm{Var}(\\tilde{\\beta}_2) = \\sigma^2\\sum a_i^2 = \\mathrm{Var}(b_2) + \\sigma^2\\sum d_i^2 \\geq \\mathrm{Var}(b_2)$. Homoskedasticity (SR3) and no error correlation (SR4) enter at $\\mathrm{Var}(\\sum a_iy_i) = \\sigma^2\\sum a_i^2$. Only first and second moments are used, so normality never is. SR1, SR2 and SR5 alone give unbiasedness, not minimum variance.",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 34,
+     "symbols": [
+      "$y_i$",
+      "$\\sigma^2$",
+      "$b_2$",
+      "$\\tilde{\\beta}_2 = \\sum a_iy_i$",
+      "$a_i$",
+      "$d_i = a_i - w_i$",
+      "$t$",
+      "$t$, $F$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "7-the-distribution-of-the-estimators",
+   "heading": "7. The distribution of the estimators",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "7-the-distribution-of-the-estimators-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With normal errors, $b_2 \\mid x \\sim N(\\beta_2, \\sigma^2/\\sum(x_i - \\bar{x})^2)$, and by the central limit theorem this holds approximately in large samples without normality ([Sampling Distribution of OLS](note:sampling-distribution-of-ols)). The unknown $\\sigma^2$ is estimated by $\\widehat{\\sigma}^2 = \\sum\\hat{e}_i^2/(N - 2)$, which is unbiased; for the food data $\\widehat{\\sigma} = 89.5$."
+      }
+     ],
+     "words": 33,
+     "symbols": [
+      "$x_i$",
+      "$\\beta_1$",
+      "$\\sigma^2$",
+      "$b_2$",
+      "$\\widehat{\\sigma}^2$",
+      "$N$",
+      "$\\hat{e}_i$",
+      "$\\bar{x}$, $\\bar{y}$"
+     ]
+    },
+    {
+     "id": "7-the-distribution-of-the-estimators-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Why is $\\widehat{\\sigma}^2$ divided by $N-2$ rather than $N$?",
+       "options": [
+        {
+         "md": "Dividing by $N-2$ makes the estimate larger, which is the conservative choice",
+         "correct": false,
+         "feedback": "Being larger is a side effect, not the reason: $N-2$ is the divisor that makes $E[\\widehat{\\sigma}^2] = \\sigma^2$ exactly."
+        },
+        {
+         "md": "The two normal equations impose two exact linear restrictions on the $N$ residuals, so only $N-2$ of them are free",
+         "correct": true
+        },
+        {
+         "md": "Two observations are used up computing $\\bar{x}$ and $\\bar{y}$",
+         "correct": false,
+         "feedback": "No observations are dropped. Estimating $b_1$ and $b_2$ imposes two restrictions on the residuals, $\\sum\\hat{e}_i = 0$ and $\\sum x_i\\hat{e}_i = 0$, and that removes two degrees of freedom."
+        }
+       ],
+       "why": "The residuals satisfy $\\sum\\hat{e}_i = 0$ and $\\sum x_i\\hat{e}_i = 0$, so only $N-2$ of them can vary freely. In matrix form $E[\\mathbf{e}'\\mathbf{e}] = \\sigma^2\\,\\mathrm{trace}(\\mathbf{M}) = \\sigma^2(N-K)$ with $K = 2$, so dividing by $N-2$ makes $\\widehat{\\sigma}^2$ unbiased; dividing by $N$ would understate $\\sigma^2$.",
+       "objectives": [
+        4
+       ]
+      }
+     ],
+     "words": 42,
+     "symbols": [
+      "$x_i$",
+      "$\\sigma^2$",
+      "$b_2$",
+      "$\\widehat{\\sigma}^2$",
+      "$N$",
+      "$K$",
+      "$\\hat{e}_i$",
+      "$\\bar{x}$, $\\bar{y}$",
+      "$\\hat{e}_i$, $\\mathbf{e}$",
+      "$\\mathbf{M}$, $\\mathbf{P}$, $\\mathbf{X}$"
+     ]
+    },
+    {
+     "id": "7-the-distribution-of-the-estimators-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Unbiasedness and the standard error are statements about repeated samples: across many samples of 40 households, where do the slopes centre, and how widely do they spread?"
+      },
+      {
+       "t": "interactive",
+       "widget": "ols-sampling-distribution",
+       "state": {
+        "N": 40,
+        "sd": 89.5,
+        "het": 1,
+        "gamma": 0,
+        "R": 2000
+       },
+       "prompt": "Draw 2,000 samples of 40 households: where does $b_2$ centre, and how widely does it spread?",
+       "goal": {
+        "when": "het == 0 and gamma == 0 and abs(sd - 89.5) < 0.01 and R == 2000 and b2_sd <= 0.84",
+        "success": "The spread of $b_2$ is now about half its value at $N = 40$ (1.67). Its standard deviation is $\\sigma/\\sqrt{\\sum(x_i - \\bar{x})^2}$, and $\\sum(x_i - \\bar{x})^2$ grows in proportion to $N$, so about four times the households ($N \\approx 160$) halves it. With constant variance again, the average textbook standard error follows it down.",
+        "hint": "Switch heteroskedasticity off and keep $\\sigma = 89.5$, the correlation of $x$ with the error at 0 and 2,000 samples, so that $N$ is the only change. The spread falls like $1/\\sqrt{N}$: to halve it, multiply $N$ by four."
+       },
+       "predict": {
+        "hide": [
+         "b2_hist",
+         "b2_mean_out"
+        ],
+        "ask": "Heteroskedasticity is on: the spread of the errors grows with income. Across 2,000 samples of 40 households, where does the histogram of $b_2$ centre?",
+        "options": [
+         "Above 10: the noisier high-income households pull the slope up",
+         "On $\\beta_2 = 10$: unbiasedness needs only SR1, SR2 and SR5",
+         "Below 10: heteroskedasticity biases OLS toward zero"
+        ],
+        "answer": 1,
+        "why": "Unbiasedness uses SR1, SR2 and SR5, and heteroskedasticity breaks only SR3, so the 2,000 slopes still centre on $\\beta_2 = 10$. What breaks is the textbook standard error, which assumes one $\\sigma^2$ for every household: in the population it averages about 1.81 while $b_2$ actually spreads about 1.95, so it understates the uncertainty. The robust (HC1) standard error, about 1.87 on average, is closer to the true spread.",
+        "feedback": [
+         "Noisier errors at high incomes make each $b_2$ less precise, not biased: they are still mean zero at every income, $E[e_i \\mid x_i] = 0$, so $E[b_2 \\mid x] = \\beta_2$ still holds. A shifted centre needs SR2 to fail: an error whose mean moves with income.",
+         null,
+         "The proof of $E[b_2 \\mid x] = \\beta_2$ never uses constant variance (SR3): it takes the expectation of $\\sum w_ie_i$, which is zero whenever $E[e_i \\mid x] = 0$. Heteroskedasticity changes the spread of $b_2$, not its centre."
+        ]
+       },
+       "purpose": "See unbiasedness and the standard error as statements about many samples: the histogram of b2 centres on β2 when SR2 holds, its spread is σ/sqrt(Σ(x − x̄)²), heteroskedasticity leaves the centre alone but breaks the textbook standard error, and x correlated with the error (SR2 fails) moves the centre",
+       "objectives": [
+        4,
+        5
+       ]
+      }
+     ],
+     "words": 43,
+     "symbols": [
+      "$x_i$",
+      "$\\beta_1$",
+      "$e_i$",
+      "$\\sigma^2$",
+      "$b_2$",
+      "$N$",
+      "$w_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "8-confidence-and-prediction-intervals",
+   "heading": "8. Confidence and prediction intervals",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "8-confidence-and-prediction-intervals-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A prediction at $x_0$, $\\hat{y}_0 = b_1 + b_2x_0$, can answer two questions ([Confidence vs Prediction Intervals](note:confidence-vs-prediction-intervals)). A confidence interval covers the average spending of all households with income $x_0$; a prediction interval covers one household's spending, so it also carries that household's own error. The forecast error $f = y_0 - \\hat{y}_0$ has"
+      },
+      {
+       "t": "math",
+       "tex": "\\mathrm{Var}(f) = \\sigma^2\\left(1 + \\frac{1}{N} + \\frac{(x_0 - \\bar{x})^2}{\\sum(x_i - \\bar{x})^2}\\right)"
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Food expenditure regression - confidence and prediction bands.png",
+       "alt": "Food expenditure regression - confidence and prediction bands"
+      }
+     ],
+     "words": 42,
+     "symbols": [
+      "$y_i$",
+      "$x_i$",
+      "$\\sigma^2$",
+      "$b_2$",
+      "$N$",
+      "$\\bar{x}$, $\\bar{y}$",
+      "$y_i$, $\\hat{y}_i$",
+      "$f = y_0 - \\hat{y}_0$"
+     ]
+    },
+    {
+     "id": "8-confidence-and-prediction-intervals-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "In the same regression, $b_1 = 83.42$ and $b_2 = 10.21$, with income in \\$100 a week. What is the predicted weekly food expenditure, in dollars, for a household with income $x_0 = 20$?",
+       "answer": 287.62,
+       "tol": 0.05,
+       "vary": [
+        {
+         "sym": "x_0",
+         "lo": 5.0,
+         "hi": 30.0,
+         "step": 1.0
+        }
+       ],
+       "compute": "b_1 + b_2 x_0",
+       "bindings": [
+        {
+         "sym": "b_1",
+         "value": 83.42,
+         "span": "$b_1 = 83.42$"
+        },
+        {
+         "sym": "b_2",
+         "value": 10.21,
+         "span": "$b_2 = 10.21$"
+        },
+        {
+         "sym": "x_0",
+         "value": 20.0,
+         "span": "$x_0 = 20$"
+        }
+       ],
+       "wrongCompute": [
+        {
+         "tex": "b_2 x_0",
+         "md": "that leaves out the intercept: $\\hat{y}_0 = b_1 + b_2x_0$"
+        },
+        {
+         "tex": "b_2 + b_1 x_0",
+         "md": "the coefficients are swapped: $b_1 = 83.42$ is the intercept and $b_2 = 10.21$ multiplies income"
+        }
+       ],
+       "why": "$\\hat{y}_0 = b_1 + b_2x_0$: start from the intercept and add \\$10.21 for each \\$100 of weekly income. This is the centre of both the confidence interval for $E[y \\mid x_0]$ and the wider prediction interval for one household's $y_0$.",
+       "objectives": [
+        7
+       ]
+      }
+     ],
+     "words": 25,
+     "symbols": [
+      "$y_i$",
+      "$x_i$",
+      "$b_2$",
+      "$y_i$, $\\hat{y}_i$"
+     ]
+    },
+    {
+     "id": "8-confidence-and-prediction-intervals-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "For the food data, $\\widehat{\\sigma}^2 = 8{,}013.3$ (so $\\widehat{\\sigma} = 89.52$), $N = 40$ and mean income is $\\bar{x} = 19.60$. What is the standard error of the forecast, $se(f)$, for a household with income exactly $x_0 = 19.60$? Give two decimal places.",
+       "answer": 90.63,
+       "tol": 0.02,
+       "wrong": [
+        {
+         "answer": 89.52,
+         "tol": 0.02,
+         "md": "that is $\\widehat{\\sigma}$ alone; the forecast also carries the estimation error in the line, the $1/N$ term"
+        },
+        {
+         "answer": 14.15,
+         "tol": 0.02,
+         "md": "that is $\\sqrt{\\widehat{\\sigma}^2/N}$, the standard error of the estimated mean response, which a confidence interval uses"
+        },
+        {
+         "answer": 8213.63,
+         "tol": 0.5,
+         "md": "that is $\\widehat{\\mathrm{Var}}(f)$; the standard error is its square root"
+        }
+       ],
+       "why": "At $x_0 = \\bar{x}$ the last term vanishes, so $\\widehat{\\mathrm{Var}}(f) = \\widehat{\\sigma}^2(1 + 1/N) = 8{,}013.3 \\times 1.025 = 8{,}213.6$ and $se(f) = 90.63$. This is the smallest $se(f)$ can be: any other $x_0$ adds $(x_0 - \\bar{x})^2/\\sum(x_i - \\bar{x})^2$.",
+       "objectives": [
+        9
+       ]
+      }
+     ],
+     "words": 27,
+     "symbols": [
+      "$x_i$",
+      "$e_i$",
+      "$\\widehat{\\sigma}^2$",
+      "$N$",
+      "$\\bar{x}$, $\\bar{y}$",
+      "$f = y_0 - \\hat{y}_0$",
+      "$se(f)$"
+     ]
+    },
+    {
+     "id": "8-confidence-and-prediction-intervals-4",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The wage example (1,000 workers, wage on years of education) shows the two intervals at a large $N$: the confidence band hugs the line, while the prediction band stays wide."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Wage on education - confidence and prediction bands.png",
+       "alt": "Wage on education - confidence and prediction bands"
+      }
+     ],
+     "words": 30,
+     "symbols": [
+      "$N$"
+     ]
+    },
+    {
+     "id": "8-confidence-and-prediction-intervals-5",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "$\\mathrm{Var}(f) = \\sigma^2\\left(1 + \\frac{1}{N} + \\frac{(x_0 - \\bar{x})^2}{\\sum(x_i - \\bar{x})^2}\\right)$ has three terms inside the brackets. Which one can no change to the sample (more households, incomes more spread out, or predicting nearer $\\bar{x}$) reduce?",
+       "options": [
+        {
+         "md": "$1/N$",
+         "correct": false,
+         "feedback": "More households shrink $1/N$ directly: it is the uncertainty in the height of the estimated line at $\\bar{x}$."
+        },
+        {
+         "md": "$(x_0 - \\bar{x})^2/\\sum(x_i - \\bar{x})^2$",
+         "correct": false,
+         "feedback": "Predicting at $x_0 = \\bar{x}$ removes it, and more households or more spread in income raise $\\sum(x_i - \\bar{x})^2$ and shrink it."
+        },
+        {
+         "md": "The 1: the new household's own error variance",
+         "correct": true
+        },
+        {
+         "md": "None: with enough data all three terms go to zero",
+         "correct": false,
+         "feedback": "The two estimation terms do go to zero, but the 1 does not, which is why a prediction interval never shrinks to zero width while a confidence interval does."
+        }
+       ],
+       "why": "The 1 is $\\mathrm{Var}(e_0)/\\sigma^2$, the new observation's own error, which is in the forecast however well the line is estimated. The other two terms come from estimating $b_1$ and $b_2$: more data and more spread in $x$ shrink them, and $x_0 = \\bar{x}$ removes the last one, which is why $\\mathrm{Var}(f)$ is smallest at the mean. Only a better model, with a smaller $\\sigma^2$, narrows the floor.",
+       "objectives": [
+        9
+       ]
+      }
+     ],
+     "words": 42,
+     "symbols": [
+      "$x_i$",
+      "$e_i$",
+      "$\\sigma^2$",
+      "$b_2$",
+      "$N$",
+      "$\\bar{x}$, $\\bar{y}$",
+      "$f = y_0 - \\hat{y}_0$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "math-refresher",
+   "heading": "Math refresher",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "math-refresher-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Math Prep L6 Optimization](note:math-prep-l6-optimization) — first- and second-order conditions\n- [Math Prep L3 Eigenvalues and Quadratic Forms](note:math-prep-l3-eigenvalues-and-quadratic-forms) — why the SSR Hessian is positive definite\n- [Math Prep L1 Matrix Algebra Essentials](note:math-prep-l1-matrix-algebra-essentials) — the $2\\times2$ inverse behind the variance formulas\n- [Math Prep L8 Integration for Probability](note:math-prep-l8-integration-for-probability) — expectations and variances of sums"
+      }
+     ],
+     "words": 49,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Derive the OLS estimators $b_1$ and $b_2$ by minimizing $\\text{SSR}$: state the two first-order conditions on the residuals and show that the second-order condition gives a minimum.\n2. State SR1–SR6 and say which results each group delivers: unbiasedness (SR1, SR2, SR5), BLUE by Gauss-Markov (SR1–SR5), exact finite-sample inference (adding SR6).\n3. Show that $b_2 = \\beta_2 + \\sum w_ie_i$ and that $E[b_2 \\mid x] = \\beta_2$, naming the assumption used at each step.\n4. Derive $\\mathrm{Var}(b_2 \\mid x) = \\sigma^2/\\sum(x_i - \\bar{x})^2$, say what makes it small, and explain why $\\widehat{\\sigma}^2$ divides by $N-2$.\n5. Say what heteroskedasticity leaves intact (unbiasedness) and what it breaks (the usual standard errors and BLUE).\n6. State what the Jarque-Bera test checks, its null and degrees of freedom, and why normality is optional."
+      }
+     ],
+     "words": 109,
+     "symbols": [
+      "$x_i$",
+      "$\\beta_1$",
+      "$e_i$",
+      "$\\sigma^2$",
+      "$b_2$",
+      "$\\widehat{\\sigma}^2$",
+      "$N$",
+      "$\\bar{x}$, $\\bar{y}$",
+      "$w_i$",
+      "$SSR$"
+     ]
+    },
+    {
+     "id": "what-to-be-able-to-do-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "7. From a regression table, build a confidence interval for $\\beta_2$, run two-sided and one-sided $t$ tests with $N-2$ degrees of freedom, and compute a prediction at a given $x$.\n8. Explain what $R^2$ measures and compute it from the sums of squares.\n9. Distinguish a confidence interval for the mean response from a prediction interval, say where $\\mathrm{Var}(f)$ is smallest, and say which changes can and cannot narrow a prediction interval."
+      }
+     ],
+     "words": 66,
+     "symbols": [
+      "$x_i$",
+      "$\\beta_1$",
+      "$N$",
+      "$t$",
+      "$R^2$",
+      "$f = y_0 - \\hat{y}_0$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "simple-linear-regression-model",
+        "sr-assumptions",
+        "strict-exogeneity",
+        "homoskedasticity",
+        "error-normality-and-jarque-bera",
+        "ols-estimator",
+        "gauss-markov-theorem",
+        "sampling-distribution-of-ols",
+        "hypothesis-tests-on-regression-coefficients",
+        "coefficient-of-determination",
+        "confidence-vs-prediction-intervals"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

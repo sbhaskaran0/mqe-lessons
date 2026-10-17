@@ -1,0 +1,267 @@
+{
+ "slug": "sr-assumptions",
+ "notation": [
+  {
+   "tex": "$y_i$, $x_i$",
+   "meaning": "Outcome and regressor",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "y",
+    "x"
+   ]
+  },
+  {
+   "tex": "$\\beta_1$, $\\beta_2$",
+   "meaning": "Intercept and slope",
+   "kind": "Parameters",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$e_i$",
+   "meaning": "Error term",
+   "kind": "Unobserved",
+   "typical": "—",
+   "keys": [
+    "e"
+   ]
+  },
+  {
+   "tex": "$\\sigma^2$",
+   "meaning": "Error variance",
+   "kind": "Parameter",
+   "typical": "Constant under SR3",
+   "keys": [
+    "sigma"
+   ]
+  },
+  {
+   "tex": "$b_2$",
+   "meaning": "OLS slope estimate",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "b"
+   ]
+  },
+  {
+   "tex": "$\\Delta E[y_i\\mid x_i]/\\Delta x$",
+   "meaning": "Change in average $y$ per unit of $x$ — what $\\beta_2$ measures",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "~\\DeltaE[y_i\\midx_i]/\\Deltax"
+   ]
+  },
+  {
+   "tex": "$E[y\\mid x]$, $\\mu_{y\\mid x}$",
+   "meaning": "Average of $y$ at a given $x$ (the regression function)",
+   "kind": "Population quantity",
+   "typical": "—",
+   "keys": [
+    "~E[y\\midx]",
+    "mu"
+   ],
+   "from": "simple-linear-regression-model"
+  },
+  {
+   "tex": "$\\Delta x$",
+   "meaning": "A change in $x$",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "~\\Deltax"
+   ],
+   "from": "simple-linear-regression-model"
+  },
+  {
+   "tex": "$N$",
+   "meaning": "Sample size",
+   "kind": "Count",
+   "typical": "—",
+   "keys": [
+    "N"
+   ],
+   "from": "error-normality-and-jarque-bera"
+  },
+  {
+   "tex": "$t_i$",
+   "meaning": "Studentised residual: how badly observation $i$ is fitted",
+   "kind": "Statistic",
+   "typical": "Flag if $\\lvert t_i\\rvert > 2$",
+   "keys": [
+    "t"
+   ],
+   "from": "regression-diagnostics"
+  },
+  {
+   "tex": "$p$, $n$",
+   "meaning": "Number of parameters and of observations",
+   "kind": "Counts",
+   "typical": "—",
+   "keys": [
+    "p",
+    "n"
+   ],
+   "from": "regression-diagnostics"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The simple regression assumptions are the conditions under which the least-squares line tells you what you want it to. Some are about the shape of the relationship, some about the unseen error term, and one about the data having enough variation to learn from. The useful skill is not reciting them but knowing which one does which job: one guarantees the estimate is right on average, others guarantee the usual standard errors and tests are valid, and one is only needed for small samples."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "When something goes wrong in a regression, the first diagnostic question is which assumption failed, because that tells you what is broken and how to fix it.",
+       "folded": false
+      }
+     ],
+     "words": 114,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The six assumptions of the [Simple Linear Regression Model](note:simple-linear-regression-model). The exam skill is not reciting them — it is knowing **which assumption does which job**."
+      },
+      {
+       "t": "table",
+       "md": "| # | Name | Statement | What breaks without it |\n| --- | --- | --- | --- |\n| SR1 | Linearity | $y = \\beta_1 + \\beta_2 x + e$ for each $x$ | Model misspecified; $\\beta_2$ has no interpretation |\n| SR2 | [Strict Exogeneity](note:strict-exogeneity) | $E[e_i \\mid x_i] = 0$, so $E[y \\mid x] = \\beta_1 + \\beta_2 x$ | **Bias** — OLS no longer estimates $\\beta_2$ |\n| SR3 | [Homoskedasticity](note:homoskedasticity) | $\\mathrm{Var}[e_i \\mid x_i] = \\sigma^2$ | Still unbiased, but standard errors wrong and OLS not BLUE |\n| SR4 | No error correlation | $\\mathrm{cov}(e_i, e_j \\mid x) = 0$ | Same as SR3: inference invalid, efficiency lost |\n| SR5 | Variation in $x$ | $x$ takes at least two distinct values | $\\beta_2$ not identified — denominator $\\sum(x_i-\\bar{x})^2 = 0$ |\n| SR6 | [Error Normality and Jarque-Bera](note:error-normality-and-jarque-bera) (optional) | $e_i \\mid x_i \\sim N(0,\\sigma^2)$ | Only exact finite-sample $t$ and $F$ inference lost; CLT rescues large $n$ |"
+      }
+     ],
+     "words": 102,
+     "symbols": [
+      "$y_i$, $x_i$",
+      "$\\beta_1$, $\\beta_2$",
+      "$e_i$",
+      "$\\sigma^2$",
+      "$E[y\\mid x]$, $\\mu_{y\\mid x}$",
+      "$N$",
+      "$t_i$",
+      "$p$, $n$"
+     ]
+    },
+    {
+     "id": "definition-2",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "tip",
+       "title": "The standard trap",
+       "md": "\"What does heteroskedasticity do to unbiasedness?\" — **nothing**. Bias comes only from failure of SR2 (or SR1).",
+       "folded": false
+      }
+     ],
+     "words": 19,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "which-assumption-each-result-needs",
+   "heading": "Which assumption each result needs",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "which-assumption-each-result-needs-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Result | Needs |\n| --- | --- |\n| $E[b_2] = \\beta_2$ (unbiasedness) | SR1, SR2, SR5 only (SR5 so that $b_2$ exists; the proof conditions on all of $x$, which random sampling allows) |\n| $\\mathrm{Var}(b_2) = \\sigma^2/\\sum(x_i-\\bar{x})^2$ | + SR3, SR4 |\n| [Gauss-Markov Theorem](note:gauss-markov-theorem) (BLUE) | SR1–SR5, **not** SR6 |\n| Exact $t_{N-2}$ inference | + SR6 |\n| Asymptotic normality | SR1–SR5 + CLT |"
+      }
+     ],
+     "words": 40,
+     "symbols": [
+      "$y_i$, $x_i$",
+      "$\\beta_1$, $\\beta_2$",
+      "$\\sigma^2$",
+      "$b_2$",
+      "$t_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "variation-in-x",
+   "heading": "Variation in x",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "variation-in-x-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "One objective is to estimate $\\beta_2 = \\Delta E[y_i\\mid x_i] / \\Delta x$. To learn the effect of changes in $x$ you must observe different values of $x$. The minimum is two. In the matrix case this generalises to [Full Rank and Identification](note:full-rank-and-identification)."
+      }
+     ],
+     "words": 33,
+     "symbols": [
+      "$y_i$, $x_i$",
+      "$\\beta_1$, $\\beta_2$",
+      "$\\Delta E[y_i\\mid x_i]/\\Delta x$",
+      "$\\Delta x$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "error-correlation",
+   "heading": "Error correlation",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "error-correlation-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The starting point is to assume none. With cross-sectional data, spatial proximity or cluster structure can induce correlation between errors of nearby units; with time-series data autocorrelation is the norm."
+      }
+     ],
+     "words": 30,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Regression Diagnostics](note:regression-diagnostics) — how each violation shows up in a plot\n- [Box-Cox and Power Transformations](note:box-cox-and-power-transformations) — the lecture's first remedy for SR3 failure\n- [Bootstrapping OLS](note:bootstrapping-ols) — inference when SR3 or SR6 fail"
+      }
+     ],
+     "words": 32,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

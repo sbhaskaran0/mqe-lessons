@@ -1,0 +1,85 @@
+{
+ "slug": "longitudinal-business-database-lbd",
+ "notation": [],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "An establishment-level panel built by the US Census Bureau from its business register."
+      }
+     ],
+     "words": 13,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "coverage",
+   "heading": "Coverage",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "coverage-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Virtually every establishment with paid employees in the US nonfarm private economy.\n- Annual employment, payroll and major industry, with establishments linked over time and to their parent firms."
+      },
+      {
+       "t": "callout",
+       "kind": "note",
+       "title": "Beyond the lecture",
+       "md": "The LBD starts in 1976 and is available only to approved projects in Federal Statistical Research Data Centers; published results are rounded for disclosure avoidance (e.g. observation counts rounded to the nearest thousand).",
+       "folded": false
+      }
+     ],
+     "words": 67,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "strengths-and-weaknesses",
+   "heading": "Strengths and weaknesses",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "strengths-and-weaknesses-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Good for | Weak for |\n| --- | --- |\n| Industry and firm employment, near-universal coverage | Worker characteristics (none) |\n| Entry, exit and job reallocation | Output, prices and trade (needs linking to other files) |\n| Long consistent annual panel | Open access |"
+      }
+     ],
+     "words": 35,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Current Population Survey (CPS)](note:current-population-survey-cps) · [SSA Master Earnings File](note:ssa-master-earnings-file)"
+      }
+     ],
+     "words": 9,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

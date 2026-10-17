@@ -1,0 +1,1074 @@
+{
+ "slug": "econ-402a-l1-solow-revision-lesson",
+ "notation": [
+  {
+   "tex": "$Y$",
+   "meaning": "Output — also total income",
+   "kind": "Endogenous (flow)",
+   "typical": "—",
+   "keys": [
+    "Y"
+   ],
+   "from": "solow-growth-model"
+  },
+  {
+   "tex": "$K$",
+   "meaning": "Capital stock: machines, structures",
+   "kind": "Endogenous (stock, state variable)",
+   "typical": "—",
+   "keys": [
+    "K"
+   ],
+   "from": "solow-growth-model"
+  },
+  {
+   "tex": "$L$",
+   "meaning": "Labor (all of the population works)",
+   "kind": "Exogenous; constant in the basic model",
+   "typical": "—",
+   "keys": [
+    "L"
+   ],
+   "from": "solow-growth-model"
+  },
+  {
+   "tex": "$A$",
+   "meaning": "Total factor productivity (technology)",
+   "kind": "Exogenous; constant in the basic model",
+   "typical": "1 in the example",
+   "keys": [
+    "A"
+   ],
+   "from": "solow-growth-model"
+  },
+  {
+   "tex": "$C$, $S$, $I$",
+   "meaning": "Consumption, saving, investment: $C = (1-s)Y$, $S = sY$, $S = I$",
+   "kind": "Endogenous (flows)",
+   "typical": "—",
+   "keys": [
+    "C",
+    "S",
+    "I"
+   ],
+   "from": "solow-growth-model"
+  },
+  {
+   "tex": "$y = Y/L$, $k = K/L$, $c = C/L$",
+   "meaning": "Output, capital and consumption per worker",
+   "kind": "Endogenous; $k$ is the state variable",
+   "typical": "—",
+   "keys": [
+    "y",
+    "k",
+    "c"
+   ],
+   "from": "solow-growth-model"
+  },
+  {
+   "tex": "$s$",
+   "meaning": "Saving rate — assumed, not chosen optimally",
+   "kind": "Parameter in (0, 1)",
+   "typical": "0.5 in the example (≈ 0.2 in data)",
+   "keys": [
+    "s"
+   ],
+   "from": "solow-growth-model"
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "Capital share: exponent on $K$",
+   "kind": "Parameter in (0, 1)",
+   "typical": "0.5 in the example (≈ 1/3 in data)",
+   "keys": [
+    "alpha"
+   ],
+   "from": "solow-growth-model"
+  },
+  {
+   "tex": "$\\delta$",
+   "meaning": "Depreciation rate: share of capital worn out each period",
+   "kind": "Parameter",
+   "typical": "0.1 in the example (≈ 0.05 in data)",
+   "keys": [
+    "delta"
+   ],
+   "from": "solow-growth-model"
+  },
+  {
+   "tex": "$f(k) = Ak^{\\alpha}$",
+   "meaning": "Output per worker as a function of capital per worker",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "f"
+   ],
+   "from": "solow-growth-model"
+  },
+  {
+   "tex": "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$",
+   "meaning": "Steady-state values (an overbar always means steady state)",
+   "kind": "Endogenous",
+   "typical": "25, 5, 2.5 in the example",
+   "keys": [
+    "bar(k)",
+    "bar(y)",
+    "bar(c)"
+   ],
+   "from": "solow-growth-model"
+  },
+  {
+   "tex": "$t$",
+   "meaning": "Time period",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "t"
+   ],
+   "from": "solow-growth-model"
+  },
+  {
+   "tex": "$\\eta$, $\\gamma$",
+   "meaning": "Growth rates of labor and of TFP in the extended model",
+   "kind": "Parameter",
+   "typical": "≈ 0.01, ≈ 0.02",
+   "keys": [
+    "eta",
+    "gamma"
+   ],
+   "from": "solow-growth-model"
+  },
+  {
+   "tex": "$\\tilde{\\gamma}$, $\\tilde{k}$",
+   "meaning": "Growth rate of labor-augmenting technology; capital per effective worker (extended model)",
+   "kind": "Parameter / endogenous",
+   "typical": "≈ 0.03",
+   "keys": [
+    "tilde(gamma)",
+    "tilde(k)"
+   ],
+   "from": "solow-growth-model"
+  },
+  {
+   "tex": "$sf(k)$",
+   "meaning": "Actual investment per worker: the share of output saved",
+   "kind": "Function (concave curve)",
+   "typical": "—",
+   "keys": [
+    "~sf(k)"
+   ],
+   "from": "solow-diagram"
+  },
+  {
+   "tex": "$\\delta k$",
+   "meaning": "Depreciation per worker: capital worn out each period",
+   "kind": "Function (straight line)",
+   "typical": "—",
+   "keys": [
+    "~\\deltak"
+   ],
+   "from": "solow-diagram"
+  },
+  {
+   "tex": "$\\tilde{A} = A^{1/(1-\\alpha)}$",
+   "meaning": "TFP rewritten as labor-augmenting productivity",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "tilde(A)"
+   ],
+   "from": "cobb-douglas-production-function"
+  },
+  {
+   "tex": "$\\tilde{k}, \\tilde{y}, \\tilde{c}$",
+   "meaning": "Capital, output and consumption per effective worker (divided by $\\tilde{A}L$)",
+   "kind": "Endogenous; $\\tilde{k}$ is the state variable",
+   "typical": "—",
+   "keys": [
+    "tilde(k)",
+    "tilde(y)",
+    "tilde(c)"
+   ],
+   "from": "solow-model-with-technological-progress"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Each part follows the same pattern: **the idea in words → the math → what every symbol means**. If an equation looks scary, read the words first; the equation only ever restates them. Answers to the practice questions are in [Econ 402A L1 Solow Revision Answers](note:econ-402a-l1-solow-revision-answers) — try them first."
+      }
+     ],
+     "words": 47,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "part-0-symbol-cheat-sheet",
+   "heading": "Part 0 — Symbol cheat sheet",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "part-0-symbol-cheat-sheet-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Keep this open while you read. \"Say it\" is how to read the symbol aloud."
+      },
+      {
+       "t": "table",
+       "md": "| Symbol | Say it | What it means | Can it change? |\n| --- | --- | --- | --- |\n| $Y$ | \"Y\" | Total output = total income of the economy | Determined by the model |\n| $K$ | \"K\" | Total capital: machines, buildings | Determined by the model, but only slowly (a stock) |\n| $L$ | \"L\" | Number of workers | Given from outside |\n| $A$ | \"A\" | Technology (TFP): how much output you squeeze from given $K$ and $L$ | Given from outside |\n| $s$ | \"s\" | Saving rate: share of income saved (e.g. 0.2 = 20%) | A fixed parameter |\n| $\\delta$ | \"delta\" | Depreciation rate: share of capital that wears out each year (e.g. 0.05) | A fixed parameter |\n| $\\alpha$ | \"alpha\" | Capital's share: how much output responds to capital (≈ 1/3) | A fixed parameter |\n| $k = K/L$ | \"little k\" | Capital **per worker** | Determined by the model |\n| $y = Y/L$ | \"little y\" | Output **per worker** — living standards | Determined by the model |\n| $c$ | \"c\" | Consumption per worker | Determined by the model |\n| $f(k)$ | \"f of k\" | Output per worker produced with $k$ capital per worker | A function |\n| $f'(k)$ | \"f prime of k\" | **MPK**: extra output from one more unit of capital | Falls as $k$ rises |\n| $t$, $t+1$ | \"t\", \"t plus one\" | This period, next period | — |\n| $\\bar{k}$ | \"k bar\" | **Steady-state** value — the bar always means \"steady state\" | — |\n| $\\Delta k$ | \"delta k\" (capital D) | Change in $k$ from one period to the next | — |\n| $\\eta$ | \"eta\" (looks like a 3 in the notes) | Population growth rate | Given |\n| $\\gamma$ | \"gamma\" | Technology (TFP) growth rate | Given |\n| $\\tilde{A}$, $\\tilde{\\gamma}$ | \"A tilde\", \"gamma tilde\" | Technology rewritten to multiply workers, and its growth rate $\\gamma/(1-\\alpha)$ | Given |\n| $\\tilde{k}$, $\\tilde{y}$, $\\tilde{c}$ | \"k tilde\" etc. | Per **effective** worker — the tilde means \"divided by $\\tilde{A}L$\" | Determined by the model |\n| $\\ln$ | \"log\" | Natural log; slopes of log graphs are growth rates | — |"
+      }
+     ],
+     "words": 266,
+     "symbols": [
+      "$Y$",
+      "$K$",
+      "$L$",
+      "$A$",
+      "$y = Y/L$, $k = K/L$, $c = C/L$",
+      "$s$",
+      "$\\alpha$",
+      "$\\delta$",
+      "$f(k) = Ak^{\\alpha}$",
+      "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$",
+      "$t$",
+      "$\\eta$, $\\gamma$",
+      "$\\tilde{\\gamma}$, $\\tilde{k}$",
+      "$\\tilde{A} = A^{1/(1-\\alpha)}$",
+      "$\\tilde{k}, \\tilde{y}, \\tilde{c}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "part-1-the-whole-story-in-one-paragraph",
+   "heading": "Part 1 — The whole story in one paragraph",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "part-1-the-whole-story-in-one-paragraph-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "An economy makes output from technology, machines and workers. People save a fixed share of their income, and the savings become new machines. Machines wear out. Each extra machine adds less output than the one before. So when machines are scarce, saving adds machines faster than they wear out and the economy grows; when machines are plentiful, wear and tear catches up with saving. The economy settles where new machines exactly replace worn-out ones — the **steady state**. Saving more moves that resting point up, but cannot keep growth going forever. Only better technology can."
+      },
+      {
+       "t": "callout",
+       "kind": "tip",
+       "title": "One picture to remember",
+       "md": "A bathtub: the tap is saving (investment), the drain is depreciation. The water level is capital. The level settles where inflow = outflow.",
+       "folded": false
+      }
+     ],
+     "words": 120,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "part-2-the-building-blocks",
+   "heading": "Part 2 — The building blocks",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "part-2-the-building-blocks-1",
+     "heading": "2a. Production",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**In words.** Output depends on technology, capital and labor. Doubling *both* machines and workers doubles output, but adding machines alone runs into diminishing returns."
+      },
+      {
+       "t": "prose",
+       "md": "**In math.**"
+      },
+      {
+       "t": "math",
+       "tex": "Y = A K^{\\alpha} L^{1-\\alpha}"
+      },
+      {
+       "t": "prose",
+       "md": "**Per worker** (divide both sides by $L$):"
+      },
+      {
+       "t": "math",
+       "tex": "y = A k^{\\alpha}"
+      },
+      {
+       "t": "prose",
+       "md": "**Symbols:** $Y$ output; $A$ technology; $K$ capital; $L$ workers; $\\alpha$ capital's share, between 0 and 1 (so $k^{\\alpha}$ grows ever more slowly — diminishing returns); $y$, $k$ per worker. See [Cobb-Douglas Production Function](note:cobb-douglas-production-function)."
+      }
+     ],
+     "words": 56,
+     "symbols": [
+      "$Y$",
+      "$K$",
+      "$L$",
+      "$A$",
+      "$y = Y/L$, $k = K/L$, $c = C/L$",
+      "$\\alpha$"
+     ]
+    },
+    {
+     "id": "part-2-the-building-blocks-2",
+     "heading": "2b. Saving, investment and depreciation",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**In words.** A share $s$ of output is saved; saving equals investment; a share $\\delta$ of capital wears out."
+      },
+      {
+       "t": "prose",
+       "md": "**In math.**"
+      },
+      {
+       "t": "math",
+       "tex": "K_{t+1} = sY_t + (1-\\delta)K_t"
+      },
+      {
+       "t": "prose",
+       "md": "Read it left to right: *next year's capital* = *new machines bought out of saving* + *the part of this year's machines that did not wear out*. See [Capital Accumulation Equation](note:capital-accumulation-equation) and [Saving-Investment Identity](note:saving-investment-identity)."
+      }
+     ],
+     "words": 51,
+     "symbols": [
+      "$Y$",
+      "$K$",
+      "$s$",
+      "$\\delta$"
+     ]
+    },
+    {
+     "id": "part-2-the-building-blocks-3",
+     "heading": "2c. The law of motion (per worker)",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**In words.** Same equation, divided by the (constant) number of workers."
+      },
+      {
+       "t": "prose",
+       "md": "**In math.**"
+      },
+      {
+       "t": "math",
+       "tex": "k_{t+1} = s A k_t^{\\alpha} + (1-\\delta)k_t \\qquad\\Longleftrightarrow\\qquad \\Delta k = \\underbrace{s f(k)}_{\\text{new machines}} - \\underbrace{\\delta k}_{\\text{worn out}}"
+      },
+      {
+       "t": "prose",
+       "md": "**Symbols:** $k_{t+1}$ next year's capital per worker; $sf(k) = sAk^{\\alpha}$ investment per worker; $\\delta k$ depreciation per worker; $\\Delta k$ the change."
+      },
+      {
+       "t": "prose",
+       "md": "**Worked example** (the professor's): $\\alpha = \\tfrac12$, $s = \\tfrac12$, $\\delta = 0.1$, $A = 1$, start at $k = 100$. Investment $= 0.5 \\times \\sqrt{100} = 5$. Depreciation $= 0.1 \\times 100 = 10$. So $k$ falls by 5, to 95."
+      }
+     ],
+     "words": 41,
+     "symbols": [
+      "$A$",
+      "$y = Y/L$, $k = K/L$, $c = C/L$",
+      "$s$",
+      "$\\alpha$",
+      "$\\delta$",
+      "$f(k) = Ak^{\\alpha}$",
+      "$sf(k)$",
+      "$\\delta k$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "part-3-the-solow-diagram-and-the-steady-state",
+   "heading": "Part 3 — The Solow diagram and the steady state",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "part-3-the-solow-diagram-and-the-steady-state-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**In words.** Plot investment and depreciation against capital. Where investment is higher, capital grows; where depreciation is higher, it shrinks; where they cross, capital stops changing."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Solow diagram - investment vs depreciation.png",
+       "alt": "Solow diagram - investment vs depreciation",
+       "caption": "The curve $sf(k)$ bends over (diminishing returns); the line $\\delta k$ is straight. They cross at $\\bar{k}$."
+      }
+     ],
+     "words": 39,
+     "symbols": [
+      "$y = Y/L$, $k = K/L$, $c = C/L$",
+      "$s$",
+      "$\\delta$",
+      "$f(k) = Ak^{\\alpha}$",
+      "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$",
+      "$sf(k)$",
+      "$\\delta k$"
+     ]
+    },
+    {
+     "id": "part-3-the-solow-diagram-and-the-steady-state-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**In math.** Steady state means \"no change\": $\\Delta k = 0$, so"
+      },
+      {
+       "t": "math",
+       "tex": "s A \\bar{k}^{\\alpha} = \\delta \\bar{k} \\quad\\Longrightarrow\\quad \\bar{k} = \\left(\\frac{sA}{\\delta}\\right)^{\\frac{1}{1-\\alpha}}"
+      },
+      {
+       "t": "prose",
+       "md": "**How to read the formula:** top = what flows in ($s$ and $A$); bottom = what leaks out ($\\delta$); the power $\\frac{1}{1-\\alpha}$ is bigger than 1, so it magnifies the ratio. In the example: $\\bar{k} = (0.5/0.1)^2 = 25$, $\\bar{y} = \\sqrt{25} = 5$."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Solow transition path - capital converging to steady state.png",
+       "alt": "Solow transition path - capital converging to steady state"
+      },
+      {
+       "t": "prose",
+       "md": "*Starting at 100, capital falls toward 25 — fast at first, slower as the gap closes (95, 90.4, 86.1, …).* See [Steady State](note:steady-state) and [Solow Diagram](note:solow-diagram)."
+      }
+     ],
+     "words": 62,
+     "symbols": [
+      "$A$",
+      "$y = Y/L$, $k = K/L$, $c = C/L$",
+      "$s$",
+      "$\\alpha$",
+      "$\\delta$",
+      "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "part-4-shocks-shift-read-trace",
+   "heading": "Part 4 — Shocks: shift, read, trace",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "part-4-shocks-shift-read-trace-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**In words.** Every shock question is the same three steps: (1) which thing moves — the curve ($s$ or $A$) or the line ($\\delta$)? (2) where is the new crossing? (3) draw the time path: flat, then a smooth bend to the new level. Capital **never jumps**."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Solow diagram - rise in depreciation.png",
+       "alt": "Solow diagram - rise in depreciation",
+       "caption": "Depreciation up → the line rotates up → new crossing to the left → $k$ falls gradually."
+      }
+     ],
+     "words": 56,
+     "symbols": [
+      "$A$",
+      "$y = Y/L$, $k = K/L$, $c = C/L$",
+      "$s$",
+      "$\\delta$"
+     ]
+    },
+    {
+     "id": "part-4-shocks-shift-read-trace-2",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Solow diagram - rise in saving rate.png",
+       "alt": "Solow diagram - rise in saving rate",
+       "caption": "Saving up → the curve shifts up → new crossing to the right → $k$ rises gradually."
+      },
+      {
+       "t": "table",
+       "md": "| Shock | What moves | $\\bar{k}$ |\n| --- | --- | --- |\n| $s$ ↑ | Curve up | ↑ |\n| $\\delta$ ↑ | Line steeper | ↓ |\n| $A$ ↑ | Curve up | ↑ |\n| Earthquake destroys capital | Nothing moves; $k$ jumps left | Same — rebuilds |"
+      }
+     ],
+     "words": 34,
+     "symbols": [
+      "$A$",
+      "$y = Y/L$, $k = K/L$, $c = C/L$",
+      "$s$",
+      "$\\delta$",
+      "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "part-5-consumption-and-the-golden-rule",
+   "heading": "Part 5 — Consumption and the golden rule",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "part-5-consumption-and-the-golden-rule-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**In words.** Saving more gives more machines and more output *later*, but you consume a smaller share *now*. Save everything ($s = 1$) and you consume nothing; save nothing ($s = 0$) and there is no output. Somewhere in between, steady-state consumption is as large as possible — the **golden rule**."
+      },
+      {
+       "t": "prose",
+       "md": "**In math.** Consumption is what is not saved: $c = (1-s)y$. In steady state, investment just covers depreciation, so"
+      },
+      {
+       "t": "math",
+       "tex": "\\bar{c} = f(\\bar{k}) - \\delta\\bar{k}"
+      },
+      {
+       "t": "prose",
+       "md": "Maximize it: one more unit of capital adds $f'(\\bar{k})$ (the MPK) of output but costs $\\delta$ to maintain. Keep adding capital while that is profitable:"
+      },
+      {
+       "t": "math",
+       "tex": "\\text{Golden rule: } f'(\\bar{k}) = \\delta \\quad\\Longrightarrow\\quad s = \\alpha \\text{ (with Cobb-Douglas)}"
+      },
+      {
+       "t": "prose",
+       "md": "**The MPK rule:** if $f'(\\bar{k}) > \\delta$, saving more **raises** steady-state consumption; if $f'(\\bar{k}) < \\delta$, saving more **lowers** it."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Solow diagram - consumption at different saving rates.png",
+       "alt": "Solow diagram - consumption at different saving rates",
+       "caption": "Consumption is the gap between $f(k)$ and the $\\delta k$ line; it is widest where the slope of $f$ equals $\\delta$ (the dashed tangent)."
+      }
+     ],
+     "words": 116,
+     "symbols": [
+      "$y = Y/L$, $k = K/L$, $c = C/L$",
+      "$s$",
+      "$\\alpha$",
+      "$\\delta$",
+      "$f(k) = Ak^{\\alpha}$",
+      "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$",
+      "$\\delta k$"
+     ]
+    },
+    {
+     "id": "part-5-consumption-and-the-golden-rule-2",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Golden rule - consumption path after a rise in saving.png",
+       "alt": "Golden rule - consumption path after a rise in saving"
+      },
+      {
+       "t": "prose",
+       "md": "*After saving rises, consumption drops at once, then recovers. Below the golden rule ($s < \\alpha$) it ends higher; above it, lower.* See [Golden Rule Saving Rate](note:golden-rule-saving-rate)."
+      }
+     ],
+     "words": 24,
+     "symbols": [
+      "$s$",
+      "$\\alpha$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "part-6-adding-growth-effective-workers",
+   "heading": "Part 6 — Adding growth: effective workers",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "part-6-adding-growth-effective-workers-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**In words.** With more workers every year and better technology, capital per worker keeps rising — there is no resting point. The fix is to measure capital per **effective** worker: count each worker in \"efficiency units\" (a worker with twice the technology counts as two). Measured that way, capital settles down again."
+      },
+      {
+       "t": "prose",
+       "md": "**In math.** Labor grows at $\\eta$ and technology at $\\gamma$. Rewrite technology so it multiplies workers: $\\tilde{A} = A^{1/(1-\\alpha)}$, growing at $\\tilde{\\gamma} = \\gamma/(1-\\alpha)$. Divide by effective workers $\\tilde{A}L$:"
+      },
+      {
+       "t": "math",
+       "tex": "\\tilde{y} = \\tilde{k}^{\\alpha}, \\qquad \\tilde{k}_{t+1}(1 + \\tilde{\\gamma} + \\eta) = s\\tilde{k}_t^{\\alpha} + (1-\\delta)\\tilde{k}_t"
+      },
+      {
+       "t": "math",
+       "tex": "\\text{Steady state: } (\\delta + \\eta + \\tilde{\\gamma})\\,\\bar{k} = s\\bar{k}^{\\alpha}"
+      },
+      {
+       "t": "prose",
+       "md": "**Symbols:** the tilde (~) means \"per effective worker\"; $\\delta + \\eta + \\tilde{\\gamma}$ is **break-even investment** — what it takes to keep $\\tilde{k}$ constant: replace worn-out machines ($\\delta$), equip new workers ($\\eta$), keep up with technology ($\\tilde{\\gamma}$). The Solow diagram is unchanged except that the straight line becomes $(\\delta + \\eta + \\tilde{\\gamma})\\tilde{k}$, and the golden rule becomes $f'(\\bar{k}) = \\delta + \\eta + \\tilde{\\gamma}$ (still $s = \\alpha$)."
+      }
+     ],
+     "words": 114,
+     "symbols": [
+      "$L$",
+      "$A$",
+      "$s$",
+      "$\\alpha$",
+      "$\\delta$",
+      "$f(k) = Ak^{\\alpha}$",
+      "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$",
+      "$\\eta$, $\\gamma$",
+      "$\\tilde{\\gamma}$, $\\tilde{k}$",
+      "$\\tilde{A} = A^{1/(1-\\alpha)}$",
+      "$\\tilde{k}, \\tilde{y}, \\tilde{c}$"
+     ]
+    },
+    {
+     "id": "part-6-adding-growth-effective-workers-2",
+     "heading": "Three kinds of variables",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Kind | Example | Long-run growth rate | Why |\n| --- | --- | --- | --- |\n| Per effective worker | $\\tilde{k}$ | **0** | That is what \"steady state\" means |\n| Per worker | $k = \\tilde{k}\\tilde{A}$ | $\\tilde{\\gamma}$ | Adds technology growth |\n| Aggregate | $K = \\tilde{k}\\tilde{A}L$ | $\\tilde{\\gamma} + \\eta$ | Adds population growth too |"
+      },
+      {
+       "t": "prose",
+       "md": "In logs, products become sums: $\\ln k = \\ln\\tilde{k} + \\ln\\tilde{A}$. Draw each piece and add them."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Solow diagram - rise in population growth with technological progress.png",
+       "alt": "Solow diagram - rise in population growth with technological progress"
+      }
+     ],
+     "words": 41,
+     "symbols": [
+      "$K$",
+      "$L$",
+      "$y = Y/L$, $k = K/L$, $c = C/L$",
+      "$\\eta$, $\\gamma$",
+      "$\\tilde{\\gamma}$, $\\tilde{k}$",
+      "$\\tilde{A} = A^{1/(1-\\alpha)}$"
+     ]
+    },
+    {
+     "id": "part-6-adding-growth-effective-workers-3",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Log growth paths - rise in population growth, capital per worker.png",
+       "alt": "Log growth paths - rise in population growth, capital per worker",
+       "caption": "Population growth ↑: $\\tilde{k}$ falls to a lower level, so the per-worker path ends **parallel but lower** — a level effect. Aggregate growth rises to $\\tilde{\\gamma} + \\eta_2$."
+      }
+     ],
+     "words": 22,
+     "symbols": [
+      "$\\eta$, $\\gamma$",
+      "$\\tilde{\\gamma}$, $\\tilde{k}$"
+     ]
+    },
+    {
+     "id": "part-6-adding-growth-effective-workers-4",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Solow diagram - fall in technology growth with log growth paths.png",
+       "alt": "Solow diagram - fall in technology growth with log growth paths"
+      },
+      {
+       "t": "prose",
+       "md": "*Technology growth ↓: $\\tilde{k}$ rises, but the per-worker path bends to a **flatter slope** — a growth effect.* See [Solow Model with Technological Progress](note:solow-model-with-technological-progress) and [Balanced Growth Path](note:balanced-growth-path)."
+      },
+      {
+       "t": "callout",
+       "kind": "important",
+       "title": "The one sentence to remember",
+       "md": "Saving, depreciation and population growth change the **level** of living standards; only technology growth changes their long-run **growth rate**.",
+       "folded": false
+      }
+     ],
+     "words": 49,
+     "symbols": [
+      "$\\tilde{\\gamma}$, $\\tilde{k}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "part-7-practice-questions",
+   "heading": "Part 7 — Practice questions",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "part-7-practice-questions-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**A. Concepts**"
+      },
+      {
+       "t": "prose",
+       "md": "1. In the model with growth, classify each as exogenous, endogenous or a parameter: $\\eta$, $\\tilde{A}$, $\\alpha$, $\\tilde{k}$, $C$, $L$.\n2. True or false, and why: \"A permanent rise in TFP growth $\\gamma$ permanently raises the growth rate of output per worker.\"\n3. The depreciation rate $\\delta$ rises. In the period of the rise, which of $k$, $y$ and $c$ change? Why does consumption not jump here, when it does after a change in $s$?"
+      },
+      {
+       "t": "prose",
+       "md": "**B. Calculations** (basic model, $A = 1$)"
+      }
+     ],
+     "words": 69,
+     "symbols": [
+      "$L$",
+      "$A$",
+      "$C$, $S$, $I$",
+      "$y = Y/L$, $k = K/L$, $c = C/L$",
+      "$s$",
+      "$\\alpha$",
+      "$\\delta$",
+      "$\\eta$, $\\gamma$",
+      "$\\tilde{\\gamma}$, $\\tilde{k}$",
+      "$\\tilde{A} = A^{1/(1-\\alpha)}$"
+     ]
+    },
+    {
+     "id": "part-7-practice-questions-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "4. $\\alpha = 0.5$, $s = 0.36$, $\\delta = 0.08$, $k = 9$. Compute investment, depreciation and next period's $k$. Is the economy above or below its steady state? Find $\\bar{k}$, and the saving rate that would make $k = 9$ the steady state.\n5. $\\alpha = 0.5$ and $\\delta = 0.05$. What saving rate gives a steady state of $\\bar{k} = 16$? Find $\\bar{y}$ and $\\bar{c}$ at that saving rate.\n6. For the economy in question 5, compute the MPK at the steady state directly from $f'(k) = \\alpha k^{\\alpha-1}$. Should it save more or less to raise steady-state consumption? What is the golden-rule saving rate, and what consumption does it deliver?\n7. Same economy: $s$ rises from 0.2 to 0.6. What happens to consumption immediately, and what is the new steady-state consumption? Compare it with the old $\\bar{c}$ and with the golden-rule $\\bar{c}$."
+      }
+     ],
+     "words": 112,
+     "symbols": [
+      "$y = Y/L$, $k = K/L$, $c = C/L$",
+      "$s$",
+      "$\\alpha$",
+      "$\\delta$",
+      "$f(k) = Ak^{\\alpha}$",
+      "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$"
+     ]
+    },
+    {
+     "id": "part-7-practice-questions-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**C. Diagrams** (describe in words, or sketch on paper)"
+      },
+      {
+       "t": "prose",
+       "md": "8. Technology $A$ **falls** once and stays lower. Show the Solow diagram and the time path of $k$ and $y$.\n9. An economy saves more than the golden rule ($s > \\alpha$). Its saving rate falls a little, staying above $\\alpha$. Describe consumption on impact, during the transition and in the new steady state, and compare it with the path of output."
+      },
+      {
+       "t": "prose",
+       "md": "**D. Growth version**"
+      }
+     ],
+     "words": 67,
+     "symbols": [
+      "$A$",
+      "$y = Y/L$, $k = K/L$, $c = C/L$",
+      "$s$",
+      "$\\alpha$"
+     ]
+    },
+    {
+     "id": "part-7-practice-questions-4",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "10. $\\alpha = 0.5$, $\\eta = 0.015$, and output per worker grows at 4% a year in the long run. Find $\\tilde{\\gamma}$ and $\\gamma$, and the long-run growth rates of $\\tilde{k}$, $k$, $K$, $y$ and $Y$.\n11. $s = 0.24$, $\\delta = 0.04$, $\\eta = 0.02$, $\\gamma = 0.01$, $\\alpha = 0.5$. Find $\\tilde{\\gamma}$, break-even investment, $\\bar{k}$, $\\tilde{y}$ and $\\tilde{c}$ in steady state. Is MPK above or below break-even investment?\n12. Multiple choice — in the model with growth, the depreciation rate $\\delta$ rises. In the long run:\n    a) $\\tilde{k}$ falls and per-worker growth falls\n    b) $\\tilde{k}$ rises and per-worker growth is unchanged\n    c) $\\tilde{k}$ falls and per-worker growth is unchanged\n    d) $\\tilde{k}$ is unchanged; only the speed of convergence changes\n13. Population growth rises. Sketch $\\ln\\tilde{k}$, $\\ln\\tilde{A}$ and $\\ln k$ against time, and say whether the change in $\\ln k$ is a level or a growth effect.\n14. Explain in two sentences why the model is \"stationarized\" — what goes wrong without it?"
+      }
+     ],
+     "words": 119,
+     "symbols": [
+      "$Y$",
+      "$K$",
+      "$y = Y/L$, $k = K/L$, $c = C/L$",
+      "$s$",
+      "$\\alpha$",
+      "$\\delta$",
+      "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$",
+      "$\\eta$, $\\gamma$",
+      "$\\tilde{\\gamma}$, $\\tilde{k}$",
+      "$\\tilde{A} = A^{1/(1-\\alpha)}$",
+      "$\\tilde{k}, \\tilde{y}, \\tilde{c}$"
+     ]
+    },
+    {
+     "id": "part-7-practice-questions-5",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**E. Derivations** (show each step, using only results from this lesson)"
+      },
+      {
+       "t": "prose",
+       "md": "15. Start from $K_{t+1} = sY_t + (1-\\delta)K_t$ with $Y_t = AK_t^{\\alpha}L^{1-\\alpha}$ and a constant number of workers $L$. Derive the steady state $\\bar{k}$, and write $\\bar{y}$ in terms of $s$, $A$, $\\delta$ and $\\alpha$ only.\n16. Using your $\\bar{y}$ from question 15 and $c = (1-s)y$, write steady-state consumption as a function of the saving rate, $\\bar{c}(s)$, and show that it is highest at $s = \\alpha$.\n17. From $\\Delta k = sAk^{\\alpha} - \\delta k$, derive the growth rate of capital per worker, $\\Delta k/k$, and write it in terms of $\\bar{k}$. Use it to explain why capital grows below the steady state, shrinks above it, and moves fastest when it is far away.\n18. In the model with growth, steady-state investment just covers break-even investment, $s\\bar{k}^{\\alpha} = (\\delta + \\eta + \\tilde{\\gamma})\\bar{k}$. Derive the golden rule $f'(\\bar{k}) = \\delta + \\eta + \\tilde{\\gamma}$ for consumption per effective worker, and show that it still gives $s = \\alpha$."
+      }
+     ],
+     "words": 121,
+     "symbols": [
+      "$Y$",
+      "$K$",
+      "$L$",
+      "$A$",
+      "$y = Y/L$, $k = K/L$, $c = C/L$",
+      "$s$",
+      "$\\alpha$",
+      "$\\delta$",
+      "$f(k) = Ak^{\\alpha}$",
+      "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$",
+      "$\\eta$, $\\gamma$",
+      "$\\tilde{\\gamma}$, $\\tilde{k}$",
+      "$\\delta k$"
+     ]
+    }
+   ]
+  }
+ ],
+ "practice": {
+  "answers": "econ-402a-l1-solow-revision-answers",
+  "items": [
+   {
+    "id": "q1",
+    "number": "1",
+    "group": "A. Concepts",
+    "prompt": "In the model with growth, classify each as exogenous, endogenous or a parameter: $\\eta$, $\\tilde{A}$, $\\alpha$, $\\tilde{k}$, $C$, $L$.",
+    "answer": "Exogenous (given from outside): $\\tilde{A}$ and $L$ — both grow over time, at rates the model takes as given. Endogenous (solved by the model): $\\tilde{k}$ and $C$. Parameters (fixed constants): $\\eta$, the growth rate of $L$, and $\\alpha$. See [Endogenous and Exogenous Variables](note:endogenous-and-exogenous-variables).",
+    "rubric": [
+     "Classify $\\tilde{A}$ and $L$ as exogenous: given from outside, though they grow over time",
+     "Classify $\\tilde{k}$ and $C$ as endogenous (solved by the model)",
+     "Classify $\\eta$ and $\\alpha$ as parameters: the growth *rate* of $L$ is a fixed constant even though $L$ itself changes"
+    ],
+    "links": [
+     "endogenous-and-exogenous-variables"
+    ]
+   },
+   {
+    "id": "q2",
+    "number": "2",
+    "group": "A. Concepts",
+    "prompt": "True or false, and why: \"A permanent rise in TFP growth $\\gamma$ permanently raises the growth rate of output per worker.\"",
+    "answer": "**True.** In the long run output per worker grows at $\\tilde{\\gamma} \\approx \\gamma/(1-\\alpha)$, so a higher $\\gamma$ raises it permanently — a **growth effect**, which changes the slope of $\\ln y$. (Along the way $\\tilde{k}$ falls, because the break-even line $(\\delta + \\eta + \\tilde{\\gamma})\\tilde{k}$ gets steeper.) Contrast a rise in $s$, which only raises the level.",
+    "rubric": [
+     "State that the claim is **True**",
+     "Long-run per-worker growth equals $\\tilde{\\gamma} \\approx \\gamma/(1-\\alpha)$, so it rises with $\\gamma$",
+     "Call it a **growth effect** (the slope of $\\ln y$ changes), unlike the level effect of a rise in $s$"
+    ],
+    "links": []
+   },
+   {
+    "id": "q3",
+    "number": "3",
+    "group": "A. Concepts",
+    "prompt": "The depreciation rate $\\delta$ rises. In the period of the rise, which of $k$, $y$ and $c$ change? Why does consumption not jump here, when it does after a change in $s$?",
+    "answer": "None of them changes in that period. Capital is a **stock**: $k_t$ was built in earlier periods, and the new $\\delta$ only affects how much of it survives into $t+1$. Output $y = Ak^{\\alpha}$ depends only on $A$ and $k$, so it is unchanged, and consumption $c = (1-s)y$ is unchanged because neither $s$ nor $y$ moved. A change in $s$ is different: it changes the *share* of this period's output that is consumed, so $c$ jumps at once. After the rise in $\\delta$, $k$ falls gradually toward a lower $\\bar{k}$, and $y$ and $c$ fall with it.",
+    "rubric": [
+     "$k$ cannot change: it is a stock, and $\\delta$ only affects next period's capital",
+     "$y = Ak^{\\alpha}$ and $c = (1-s)y$ are unchanged, because $A$, $k$ and $s$ have not moved",
+     "A change in $s$ moves $c$ at once because it changes the share consumed; here only the later path falls, gradually"
+    ],
+    "links": []
+   },
+   {
+    "id": "q4",
+    "number": "4",
+    "group": "B. Calculations (basic model, $A = 1$)",
+    "prompt": "$\\alpha = 0.5$, $s = 0.36$, $\\delta = 0.08$, $k = 9$. Compute investment, depreciation and next period's $k$. Is the economy above or below its steady state? Find $\\bar{k}$, and the saving rate that would make $k = 9$ the steady state.",
+    "answer": "Investment $= 0.36 \\times \\sqrt{9} = 1.08$. Depreciation $= 0.08 \\times 9 = 0.72$. Next period $k = 9 + 1.08 - 0.72 = 9.36$. Investment exceeds depreciation, so the economy is **below** its steady state: $\\bar{k} = (0.36/0.08)^{1/(1-0.5)} = 4.5^2 = 20.25$. For $k = 9$ to be the steady state, investment must equal depreciation there: $s\\sqrt{9} = 0.08 \\times 9$, so $s = 0.72/3 = 0.24$.",
+    "rubric": [
+     "Investment $= 0.36 \\times \\sqrt{9} = 1.08$ and depreciation $= 0.08 \\times 9 = 0.72$",
+     "Next period $k = 9 + 1.08 - 0.72 = 9.36$; investment exceeds depreciation, so the economy is **below** its steady state",
+     "$\\bar{k} = (0.36/0.08)^{2} = 20.25$",
+     "Set $s\\sqrt{9} = 0.08 \\times 9$ to get $s = 0.24$"
+    ],
+    "links": []
+   },
+   {
+    "id": "q5",
+    "number": "5",
+    "group": "B. Calculations (basic model, $A = 1$)",
+    "prompt": "$\\alpha = 0.5$ and $\\delta = 0.05$. What saving rate gives a steady state of $\\bar{k} = 16$? Find $\\bar{y}$ and $\\bar{c}$ at that saving rate.",
+    "answer": "The steady state satisfies $s\\bar{k}^{\\alpha} = \\delta\\bar{k}$, so $s = \\delta\\bar{k}^{1-\\alpha} = 0.05 \\times \\sqrt{16} = 0.2$. Check: $(0.2/0.05)^2 = 16$. ✓ Then $\\bar{y} = \\sqrt{16} = 4$ and $\\bar{c} = (1 - 0.2) \\times 4 = 3.2$.",
+    "rubric": [
+     "Rearrange $s\\bar{k}^{\\alpha} = \\delta\\bar{k}$ to $s = \\delta\\bar{k}^{1-\\alpha}$",
+     "$s = 0.05 \\times \\sqrt{16} = 0.2$",
+     "$\\bar{y} = \\sqrt{16} = 4$ and $\\bar{c} = (1 - 0.2) \\times 4 = 3.2$"
+    ],
+    "links": []
+   },
+   {
+    "id": "q6",
+    "number": "6",
+    "group": "B. Calculations (basic model, $A = 1$)",
+    "prompt": "For the economy in question 5, compute the MPK at the steady state directly from $f'(k) = \\alpha k^{\\alpha-1}$. Should it save more or less to raise steady-state consumption? What is the golden-rule saving rate, and what consumption does it deliver?",
+    "answer": "MPK $= \\alpha\\bar{k}^{\\alpha-1} = 0.5 \\times 16^{-0.5} = 0.5/4 = 0.125$ (the shortcut $\\alpha\\delta/s = 0.5 \\times 0.05/0.2$ gives the same). That is **above** $\\delta = 0.05$, so the economy saves too little — saving more raises steady-state consumption. Golden rule: $s = \\alpha = 0.5$, giving $\\bar{k} = (0.5/0.05)^2 = 100$, $\\bar{y} = 10$, $\\bar{c} = 0.5 \\times 10 = 5$ — higher than 3.2. ✓",
+    "rubric": [
+     "MPK $= 0.5 \\times 16^{-0.5} = 0.125$",
+     "Compare MPK with $\\delta = 0.05$: it is above, so the economy saves too little",
+     "Golden rule $s = \\alpha = 0.5$, giving $\\bar{k} = 100$ and $\\bar{y} = 10$",
+     "$\\bar{c} = 0.5 \\times 10 = 5$, higher than 3.2"
+    ],
+    "links": []
+   },
+   {
+    "id": "q7",
+    "number": "7",
+    "group": "B. Calculations (basic model, $A = 1$)",
+    "prompt": "Same economy: $s$ rises from 0.2 to 0.6. What happens to consumption immediately, and what is the new steady-state consumption? Compare it with the old $\\bar{c}$ and with the golden-rule $\\bar{c}$.",
+    "answer": "Immediately: output is unchanged at 4 (capital cannot jump), but the consumed share falls from 0.8 to 0.4: $c = 0.4 \\times 4 = 1.6$ (down from 3.2). In the new steady state: $\\bar{k} = (0.6/0.05)^2 = 144$, $\\bar{y} = 12$, $\\bar{c} = 0.4 \\times 12 = 4.8$. That is **higher** than the old 3.2 but **below** the golden-rule 5: $s$ overshot $\\alpha = 0.5$, and the MPK is now $0.5/12 = 0.042 < \\delta$, so the economy saves too much. (With $\\alpha = 0.5$, $s = 0.4$ would give the same 4.8 with a smaller drop on impact.)",
+    "rubric": [
+     "On impact $y$ is unchanged ($k$ cannot jump) but $c = 0.4 \\times 4 = 1.6$, down from 3.2",
+     "New steady state: $\\bar{k} = (0.6/0.05)^2 = 144$ and $\\bar{y} = 12$",
+     "$\\bar{c} = 0.4 \\times 12 = 4.8$: above the old 3.2 but below the golden-rule 5, because $s$ overshot $\\alpha$"
+    ],
+    "links": []
+   },
+   {
+    "id": "q8",
+    "number": "8",
+    "group": "C. Diagrams (describe in words, or sketch on paper)",
+    "prompt": "Technology $A$ **falls** once and stays lower. Show the Solow diagram and the time path of $k$ and $y$.",
+    "answer": "A lower $A$ shifts the investment curve $sf(k) = sAk^{\\alpha}$ **down**; the depreciation line does not move. At the old $\\bar{k}$ depreciation now exceeds investment, so the new crossing is to the left: $\\bar{k}$ falls. Time path: $k$ is flat until the shock, then falls smoothly (fastest at first) to the new level — it never jumps. Output $y = Ak^{\\alpha}$ **drops at once** with $A$, even though $k$ has not moved, and then keeps falling gradually as $k$ declines.",
+    "rubric": [
+     "The investment curve shifts **down**; the depreciation line stays put",
+     "The crossing moves left: $\\bar{k}$ falls, and $k$ declines smoothly with no jump",
+     "$y = Ak^{\\alpha}$ drops at once with $A$, then falls further as $k$ declines"
+    ],
+    "links": []
+   },
+   {
+    "id": "q9",
+    "number": "9",
+    "group": "C. Diagrams (describe in words, or sketch on paper)",
+    "prompt": "An economy saves more than the golden rule ($s > \\alpha$). Its saving rate falls a little, staying above $\\alpha$. Describe consumption on impact, during the transition and in the new steady state, and compare it with the path of output.",
+    "answer": "On impact, output is unchanged (capital has not moved), but the consumed share $1-s$ rises, so $c = (1-s)y$ **jumps up**. During the transition, investment is below depreciation at the old $\\bar{k}$, so $k$ — and with it $y$ and $c$ — falls gradually toward a lower steady state. In the new steady state $c$ ends **above** its old level, because $s$ moved toward $\\alpha$ without crossing it; output ends **lower**. So consumption jumps up then drifts down part of the way, while output never jumps and only falls.",
+    "rubric": [
+     "On impact $y$ is unchanged but $c = (1-s)y$ jumps up, because the share consumed rises",
+     "During the transition $k$, $y$ and $c$ fall gradually toward a lower $\\bar{k}$",
+     "$c$ ends above its old level because $s$ moved toward $\\alpha$ without crossing it; $y$ ends lower"
+    ],
+    "links": []
+   },
+   {
+    "id": "q10",
+    "number": "10",
+    "group": "D. Growth version",
+    "prompt": "$\\alpha = 0.5$, $\\eta = 0.015$, and output per worker grows at 4% a year in the long run. Find $\\tilde{\\gamma}$ and $\\gamma$, and the long-run growth rates of $\\tilde{k}$, $k$, $K$, $y$ and $Y$.",
+    "answer": "Output per worker grows at $\\tilde{\\gamma}$ in the long run, so $\\tilde{\\gamma} = 0.04$. From $\\tilde{\\gamma} \\approx \\gamma/(1-\\alpha)$: $\\gamma \\approx 0.04 \\times 0.5 = 0.02$. Long run: $\\tilde{k}$: 0; $k$: 4%; $y$: 4%; $K$: 4% + 1.5% ≈ 5.5%; $Y$: ≈ 5.5% (exactly $1.04 \\times 1.015 - 1 = 5.56\\%$). (With the exact formula $(1+\\gamma)^{1/(1-\\alpha)} = 1 + \\tilde{\\gamma}$, $\\gamma = 1.04^{0.5} - 1 = 0.0198$.)",
+    "rubric": [
+     "Long-run per-worker growth is $\\tilde{\\gamma}$, so $\\tilde{\\gamma} = 0.04$",
+     "$\\gamma \\approx \\tilde{\\gamma}(1-\\alpha) = 0.02$",
+     "$\\tilde{k}$ grows at 0, $k$ and $y$ at 4%, and $K$ and $Y$ at $\\tilde{\\gamma} + \\eta$ = 5.5%"
+    ],
+    "links": []
+   },
+   {
+    "id": "q11",
+    "number": "11",
+    "group": "D. Growth version",
+    "prompt": "$s = 0.24$, $\\delta = 0.04$, $\\eta = 0.02$, $\\gamma = 0.01$, $\\alpha = 0.5$. Find $\\tilde{\\gamma}$, break-even investment, $\\bar{k}$, $\\tilde{y}$ and $\\tilde{c}$ in steady state. Is MPK above or below break-even investment?",
+    "answer": "$\\tilde{\\gamma} \\approx 0.01/0.5 = 0.02$ (exactly $1.01^2 - 1 = 0.0201$). Break-even rate $\\approx 0.04 + 0.02 + 0.02 = 0.08$, dropping the small $\\eta\\tilde{\\gamma}$ term as the lecture does (exactly $(1.02)(1.0201) - 0.96 = 0.0805$). $\\bar{k} = (0.24/0.08)^{1/(1-0.5)} = 3^2 = 9$; $\\tilde{y} = \\sqrt{9} = 3$; $\\tilde{c} = (1 - 0.24) \\times 3 = 2.28$. MPK $= \\alpha\\bar{k}^{\\alpha-1} = 0.5/3 = 0.167 > 0.08$ — above break-even, so saving more would raise steady-state consumption ($s = 0.24 < \\alpha = 0.5$).",
+    "rubric": [
+     "$\\tilde{\\gamma} \\approx 0.01/0.5 = 0.02$, so break-even rate $\\approx 0.04 + 0.02 + 0.02 = 0.08$",
+     "$\\bar{k} = (0.24/0.08)^{2} = 9$, $\\tilde{y} = 3$ and $\\tilde{c} = 0.76 \\times 3 = 2.28$",
+     "MPK $= 0.5 \\times 9^{-0.5} = 0.167$",
+     "$0.167 > 0.08$, so saving more would raise steady-state consumption ($s < \\alpha$)"
+    ],
+    "links": []
+   },
+   {
+    "id": "q12",
+    "number": "12",
+    "group": "D. Growth version",
+    "prompt": "Multiple choice — in the model with growth, the depreciation rate $\\delta$ rises. In the long run:\na) $\\tilde{k}$ falls and per-worker growth falls\nb) $\\tilde{k}$ rises and per-worker growth is unchanged\nc) $\\tilde{k}$ falls and per-worker growth is unchanged\nd) $\\tilde{k}$ is unchanged; only the speed of convergence changes",
+    "answer": "**(c).** A higher $\\delta$ makes the break-even line $(\\delta + \\eta + \\tilde{\\gamma})\\tilde{k}$ steeper, so it meets the investment curve further left: $\\bar{k}$ **falls**. But long-run per-worker growth equals $\\tilde{\\gamma}$, which $\\delta$ does not touch, so it is **unchanged**. A level effect.",
+    "rubric": [
+     "Choose (c)",
+     "Higher $\\delta$ makes the break-even line steeper, so $\\bar{k}$ **falls**",
+     "Long-run per-worker growth is still $\\tilde{\\gamma}$: a level effect, not a growth effect"
+    ],
+    "links": []
+   },
+   {
+    "id": "q13",
+    "number": "13",
+    "group": "D. Growth version",
+    "prompt": "Population growth rises. Sketch $\\ln\\tilde{k}$, $\\ln\\tilde{A}$ and $\\ln k$ against time, and say whether the change in $\\ln k$ is a level or a growth effect.",
+    "answer": "$\\ln\\tilde{k}$: flat, then declines smoothly to a lower flat level. $\\ln\\tilde{A}$: a straight line with slope $\\tilde{\\gamma}$, unchanged. $\\ln k$ = their sum: a line of slope $\\tilde{\\gamma}$, then a stretch of slower growth while $\\tilde{k}$ falls, ending on a **parallel but lower** line. A **level effect** — long-run growth is still $\\tilde{\\gamma}$.",
+    "rubric": [
+     "$\\ln\\tilde{k}$: flat, then declines smoothly to a lower flat level",
+     "$\\ln\\tilde{A}$: a straight line with slope $\\tilde{\\gamma}$, unchanged",
+     "$\\ln k$ is their sum: slower growth while $\\tilde{k}$ falls, ending on a **parallel but lower** line",
+     "Call it a **level effect**: long-run growth is still $\\tilde{\\gamma}$"
+    ],
+    "links": []
+   },
+   {
+    "id": "q14",
+    "number": "14",
+    "group": "D. Growth version",
+    "prompt": "Explain in two sentences why the model is \"stationarized\" — what goes wrong without it?",
+    "answer": "With growing technology and population, capital per worker grows forever, so there is no constant value to solve for — no steady state. Dividing by effective workers $\\tilde{A}L$ (stationarizing) creates a variable, $\\tilde{k}$, that does settle down, so we can find its steady state and then read growth rates back out.",
+    "rubric": [
+     "With growing technology and population, $k$ grows forever, so there is no constant value to solve for",
+     "Divide by effective workers $\\tilde{A}L$ to create $\\tilde{k}$, which does settle down",
+     "Find the steady state of $\\tilde{k}$, then read growth rates back out"
+    ],
+    "links": []
+   },
+   {
+    "id": "q15",
+    "number": "15",
+    "group": "E. Derivations (show each step, using only results from this lesson)",
+    "prompt": "Start from $K_{t+1} = sY_t + (1-\\delta)K_t$ with $Y_t = AK_t^{\\alpha}L^{1-\\alpha}$ and a constant number of workers $L$. Derive the steady state $\\bar{k}$, and write $\\bar{y}$ in terms of $s$, $A$, $\\delta$ and $\\alpha$ only.",
+    "answer": "Divide production by $L$: $y_t = AK_t^{\\alpha}L^{-\\alpha} = Ak_t^{\\alpha}$. Divide the law of motion by the constant $L$:\n\n$$k_{t+1} = sAk_t^{\\alpha} + (1-\\delta)k_t$$\n\nIn the steady state $k_{t+1} = k_t = \\bar{k}$. Subtract $(1-\\delta)\\bar{k}$: $sA\\bar{k}^{\\alpha} = \\delta\\bar{k}$. Divide by $\\delta\\bar{k}^{\\alpha}$: $\\bar{k}^{1-\\alpha} = sA/\\delta$, so\n\n$$\\bar{k} = \\left(\\frac{sA}{\\delta}\\right)^{\\frac{1}{1-\\alpha}}, \\qquad \\bar{y} = A\\bar{k}^{\\alpha} = A\\left(\\frac{sA}{\\delta}\\right)^{\\frac{\\alpha}{1-\\alpha}} = A^{\\frac{1}{1-\\alpha}}\\left(\\frac{s}{\\delta}\\right)^{\\frac{\\alpha}{1-\\alpha}}$$\n\nCheck with the lesson's example ($s = 0.5$, $\\delta = 0.1$, $A = 1$, $\\alpha = 0.5$): $\\bar{k} = 25$ and $\\bar{y} = 5$.",
+    "rubric": [
+     "Divide by $L$ to get $k_{t+1} = sAk_t^{\\alpha} + (1-\\delta)k_t$",
+     "Set $k_{t+1} = k_t = \\bar{k}$ to get $sA\\bar{k}^{\\alpha} = \\delta\\bar{k}$",
+     "Divide by $\\delta\\bar{k}^{\\alpha}$: $\\bar{k}^{1-\\alpha} = sA/\\delta$, so $\\bar{k} = (sA/\\delta)^{1/(1-\\alpha)}$",
+     "$\\bar{y} = A\\bar{k}^{\\alpha} = A^{1/(1-\\alpha)}(s/\\delta)^{\\alpha/(1-\\alpha)}$"
+    ],
+    "links": []
+   },
+   {
+    "id": "q16",
+    "number": "16",
+    "group": "E. Derivations (show each step, using only results from this lesson)",
+    "prompt": "Using your $\\bar{y}$ from question 15 and $c = (1-s)y$, write steady-state consumption as a function of the saving rate, $\\bar{c}(s)$, and show that it is highest at $s = \\alpha$.",
+    "answer": "Steady-state consumption is the unsaved share of steady-state output:\n\n$$\\bar{c}(s) = (1-s)\\,A^{\\frac{1}{1-\\alpha}}\\left(\\frac{s}{\\delta}\\right)^{\\frac{\\alpha}{1-\\alpha}}$$\n\nTake logs, so the product becomes a sum: $\\ln\\bar{c} = \\ln(1-s) + \\frac{\\alpha}{1-\\alpha}\\ln s + {}$ terms without $s$. Set the derivative with respect to $s$ to zero:\n\n$$-\\frac{1}{1-s} + \\frac{\\alpha}{(1-\\alpha)s} = 0 \\quad\\Longrightarrow\\quad \\alpha(1-s) = (1-\\alpha)s \\quad\\Longrightarrow\\quad s = \\alpha$$\n\nBoth $\\ln(1-s)$ and $\\ln s$ are concave, so this is a maximum. The two forces are the ones in Part 5: a higher $s$ cuts the share consumed, $1-s$, but raises $\\bar{y}$; at $s = \\alpha$ they balance.",
+    "rubric": [
+     "Write $\\bar{c}(s) = (1-s)A^{1/(1-\\alpha)}(s/\\delta)^{\\alpha/(1-\\alpha)}$",
+     "Take logs: $\\ln\\bar{c} = \\ln(1-s) + \\frac{\\alpha}{1-\\alpha}\\ln s$ plus a constant",
+     "Set the derivative $-\\frac{1}{1-s} + \\frac{\\alpha}{(1-\\alpha)s}$ to zero and solve: $s = \\alpha$",
+     "Note it is a maximum (both log terms are concave)"
+    ],
+    "links": []
+   },
+   {
+    "id": "q17",
+    "number": "17",
+    "group": "E. Derivations (show each step, using only results from this lesson)",
+    "prompt": "From $\\Delta k = sAk^{\\alpha} - \\delta k$, derive the growth rate of capital per worker, $\\Delta k/k$, and write it in terms of $\\bar{k}$. Use it to explain why capital grows below the steady state, shrinks above it, and moves fastest when it is far away.",
+    "answer": "Divide $\\Delta k = sAk^{\\alpha} - \\delta k$ by $k$:\n\n$$\\frac{\\Delta k}{k} = sAk^{\\alpha-1} - \\delta$$\n\nThe steady state gives $sA\\bar{k}^{\\alpha} = \\delta\\bar{k}$, i.e. $sA = \\delta\\bar{k}^{1-\\alpha}$. Substitute:\n\n$$\\frac{\\Delta k}{k} = \\delta\\left[\\left(\\frac{\\bar{k}}{k}\\right)^{1-\\alpha} - 1\\right]$$\n\nBelow the steady state $\\bar{k}/k > 1$, so the growth rate is positive; at $\\bar{k}$ it is zero; above it, negative. Because $1 - \\alpha > 0$, the further $k$ is from $\\bar{k}$, the larger the growth rate in absolute value, and it shrinks as the gap closes: diminishing returns ($k^{\\alpha-1}$ falls as $k$ rises) are what slow convergence down. Check with the lesson's example ($\\bar{k} = 25$, $\\delta = 0.1$, $\\alpha = 0.5$): at $k = 100$, $\\Delta k/k = 0.1 \\times (0.5 - 1) = -0.05$, the fall from 100 to 95.",
+    "rubric": [
+     "Divide by $k$: $\\Delta k/k = sAk^{\\alpha-1} - \\delta$",
+     "Substitute $sA = \\delta\\bar{k}^{1-\\alpha}$ to get $\\Delta k/k = \\delta[(\\bar{k}/k)^{1-\\alpha} - 1]$",
+     "Read the sign: positive below $\\bar{k}$, zero at it, negative above it",
+     "Its size shrinks as $k$ nears $\\bar{k}$, so convergence is fastest far away (diminishing returns)"
+    ],
+    "links": []
+   },
+   {
+    "id": "q18",
+    "number": "18",
+    "group": "E. Derivations (show each step, using only results from this lesson)",
+    "prompt": "In the model with growth, steady-state investment just covers break-even investment, $s\\bar{k}^{\\alpha} = (\\delta + \\eta + \\tilde{\\gamma})\\bar{k}$. Derive the golden rule $f'(\\bar{k}) = \\delta + \\eta + \\tilde{\\gamma}$ for consumption per effective worker, and show that it still gives $s = \\alpha$.",
+    "answer": "Consumption per effective worker is output minus investment, $\\tilde{c} = \\tilde{y} - s\\tilde{y}$. In the steady state investment equals break-even investment, $s\\bar{k}^{\\alpha} = (\\delta + \\eta + \\tilde{\\gamma})\\bar{k}$, so\n\n$$\\tilde{c} = \\bar{k}^{\\alpha} - (\\delta + \\eta + \\tilde{\\gamma})\\bar{k}$$\n\nChoose $\\bar{k}$ to maximize it. The first-order condition is $f'(\\bar{k}) = \\alpha\\bar{k}^{\\alpha-1} = \\delta + \\eta + \\tilde{\\gamma}$, which gives the golden-rule capital stock $k^{*} = \\left(\\frac{\\alpha}{\\delta + \\eta + \\tilde{\\gamma}}\\right)^{\\frac{1}{1-\\alpha}}$. The steady state is $\\bar{k} = \\left(\\frac{s}{\\delta + \\eta + \\tilde{\\gamma}}\\right)^{\\frac{1}{1-\\alpha}}$, and the two match exactly when $s = \\alpha$. Same logic as before: one more unit of capital adds $f'(\\bar{k})$ of output, but now costs $\\delta + \\eta + \\tilde{\\gamma}$ to keep per effective worker.",
+    "rubric": [
+     "Use the steady-state condition to write $\\tilde{c} = \\bar{k}^{\\alpha} - (\\delta + \\eta + \\tilde{\\gamma})\\bar{k}$",
+     "First-order condition: $\\alpha\\bar{k}^{\\alpha-1} = \\delta + \\eta + \\tilde{\\gamma}$, so $k^{*} = (\\alpha/(\\delta + \\eta + \\tilde{\\gamma}))^{1/(1-\\alpha)}$",
+     "Match $k^{*}$ to $\\bar{k} = (s/(\\delta + \\eta + \\tilde{\\gamma}))^{1/(1-\\alpha)}$: $s = \\alpha$"
+    ],
+    "links": []
+   }
+  ]
+ }
+}

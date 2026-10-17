@@ -1,0 +1,149 @@
+{
+ "slug": "solow-model-per-effective-worker",
+ "notation": [
+  {
+   "tex": "$s$",
+   "meaning": "Saving rate",
+   "kind": "Parameter in (0, 1)",
+   "typical": "≈ 0.2",
+   "keys": [
+    "s"
+   ],
+   "from": "solow-model-with-technological-progress"
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "Capital share",
+   "kind": "Parameter in (0, 1)",
+   "typical": "≈ 1/3",
+   "keys": [
+    "alpha"
+   ],
+   "from": "solow-model-with-technological-progress"
+  },
+  {
+   "tex": "$\\delta$",
+   "meaning": "Depreciation rate",
+   "kind": "Parameter",
+   "typical": "≈ 0.05",
+   "keys": [
+    "delta"
+   ],
+   "from": "solow-model-with-technological-progress"
+  },
+  {
+   "tex": "$\\eta$",
+   "meaning": "Population (labor) growth rate; often written $n$",
+   "kind": "Parameter",
+   "typical": "≈ 0.01",
+   "keys": [
+    "eta"
+   ],
+   "from": "solow-model-with-technological-progress"
+  },
+  {
+   "tex": "$\\gamma$",
+   "meaning": "Growth rate of TFP $A$",
+   "kind": "Parameter",
+   "typical": "≈ 0.02",
+   "keys": [
+    "gamma"
+   ],
+   "from": "solow-model-with-technological-progress"
+  },
+  {
+   "tex": "$\\tilde{\\gamma} = \\gamma/(1-\\alpha)$",
+   "meaning": "Growth rate of $\\tilde{A}$",
+   "kind": "Parameter",
+   "typical": "≈ 0.03",
+   "keys": [
+    "tilde(gamma)"
+   ],
+   "from": "solow-model-with-technological-progress"
+  },
+  {
+   "tex": "$\\tilde{k}, \\tilde{y}, \\tilde{c}$",
+   "meaning": "Capital, output and consumption per effective worker (divided by $\\tilde{A}L$)",
+   "kind": "Endogenous; $\\tilde{k}$ is the state variable",
+   "typical": "—",
+   "keys": [
+    "tilde(k)",
+    "tilde(y)",
+    "tilde(c)"
+   ],
+   "from": "solow-model-with-technological-progress"
+  },
+  {
+   "tex": "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$",
+   "meaning": "Steady-state values per effective worker",
+   "kind": "Endogenous",
+   "typical": "3.31, 1.49, 1.19 in the example",
+   "keys": [
+    "bar(k)",
+    "bar(y)",
+    "bar(c)"
+   ],
+   "from": "solow-model-with-technological-progress"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "solow-model-per-effective-worker"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$s$",
+      "$\\alpha$",
+      "$\\delta$",
+      "$\\eta$",
+      "$\\gamma$",
+      "$\\tilde{\\gamma} = \\gamma/(1-\\alpha)$",
+      "$\\tilde{k}, \\tilde{y}, \\tilde{c}$",
+      "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The model behind [Solow Level and Growth Effects](note:solow-level-and-growth-effects), which names this note and adds its own shocks and panels. Its own model, not the basic [Solow Model Per Worker](note:solow-model-per-worker) with extra parameters: here $\\bar{k}$ is the steady state of capital per **effective** worker $\\tilde{k}$, as in [Solow Model with Technological Progress](note:solow-model-with-technological-progress)."
+      },
+      {
+       "t": "prose",
+       "md": "- **Model.** $\\tilde{\\gamma} = \\gamma/(1-\\alpha)$, steady state $\\bar{k} = (s/(\\delta + \\eta + \\tilde{\\gamma}))^{1/(1-\\alpha)}$, and the law of motion $\\tilde{k}_{t+1}(1 + \\tilde{\\gamma} + \\eta) = s\\tilde{k}_t^{\\alpha} + (1-\\delta)\\tilde{k}_t$; see [Balanced Growth Path](note:balanced-growth-path).\n- **Tests.** The notes' example ($\\tilde{\\gamma} = 0.03$, $\\bar{k} = 3.31$, $\\bar{y} = 1.49$, $\\bar{c} = 1.19$; the steady state maps to itself) and the two shocked steady states, computed independently in Python."
+      }
+     ],
+     "words": 83,
+     "symbols": [
+      "$s$",
+      "$\\alpha$",
+      "$\\delta$",
+      "$\\eta$",
+      "$\\gamma$",
+      "$\\tilde{\\gamma} = \\gamma/(1-\\alpha)$",
+      "$\\tilde{k}, \\tilde{y}, \\tilde{c}$",
+      "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$"
+     ]
+    }
+   ]
+  }
+ ]
+}

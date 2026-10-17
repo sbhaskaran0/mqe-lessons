@@ -1,0 +1,263 @@
+{
+ "slug": "lowess-smoother",
+ "notation": [
+  {
+   "tex": "$x_i$, $y_i$",
+   "meaning": "Regressor and outcome for observation $i$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "x",
+    "y"
+   ]
+  },
+  {
+   "tex": "$x_0$",
+   "meaning": "Point where the curve is evaluated",
+   "kind": "Argument",
+   "typical": "—",
+   "keys": [
+    "x"
+   ]
+  },
+  {
+   "tex": "$f$",
+   "meaning": "Span: share of the data in each local window",
+   "kind": "Choice",
+   "typical": "2/3 in statsmodels (seaborn's default)",
+   "keys": [
+    "f"
+   ]
+  },
+  {
+   "tex": "$d$",
+   "meaning": "Distance from $x_0$ to the farthest point in the window",
+   "kind": "Number",
+   "typical": "—",
+   "keys": [
+    "d"
+   ]
+  },
+  {
+   "tex": "$w_i$",
+   "meaning": "Tricube weight of observation $i$",
+   "kind": "Weight in [0, 1]",
+   "typical": "1 at $x_0$, 0 at the window's edge",
+   "keys": [
+    "w"
+   ]
+  },
+  {
+   "tex": "$a$, $b$",
+   "meaning": "Intercept and slope of a local line",
+   "kind": "Parameters",
+   "typical": "—",
+   "keys": [
+    "a",
+    "b"
+   ]
+  },
+  {
+   "tex": "$\\widehat{a}(x_0)$, $\\widehat{b}(x_0)$",
+   "meaning": "Their weighted least-squares estimates at $x_0$",
+   "kind": "Estimators",
+   "typical": "—",
+   "keys": [
+    "hat(a)",
+    "hat(b)"
+   ]
+  },
+  {
+   "tex": "$\\widehat{m}(x_0)$",
+   "meaning": "Lowess estimate of $E[y \\mid x = x_0]$",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "hat(m)"
+   ]
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A straight regression line forces one slope on the whole cloud of points. A lowess curve lets the data speak: to draw the curve at any income level, it looks only at the occupations with incomes nearby, gives the closest ones the most weight, fits a short line through them and keeps the height of that line. Sliding the window across the range and joining the heights gives a smooth curve that bends wherever the data bend. Drawn next to the straight line, it shows at a glance whether a straight line is a fair summary or misses a curve."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the quickest check of the linearity assumption, on the raw scatterplot before fitting and on the residual plot after.",
+       "folded": false
+      }
+     ],
+     "words": 124,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "For each target value $x_0$:"
+      },
+      {
+       "t": "prose",
+       "md": "1. Take the fraction $f$ of observations whose $x_i$ are nearest to $x_0$.\n2. Weight them by distance, $w_i = \\left(1 - \\left|\\frac{x_i - x_0}{d}\\right|^3\\right)^3$, where $d$ is the largest distance in the window (the tricube weight).\n3. Fit a line by weighted least squares and record its height at $x_0$:"
+      },
+      {
+       "t": "math",
+       "tex": "\\widehat{m}(x_0) = \\widehat{a}(x_0) + \\widehat{b}(x_0)\\,x_0, \\qquad (\\widehat{a}, \\widehat{b}) = \\arg\\min_{a,b} \\sum_i w_i\\,(y_i - a - b x_i)^2"
+      },
+      {
+       "t": "prose",
+       "md": "The curve joins the $\\widehat{m}(x_0)$ values. (The steps are the standard algorithm, beyond the lecture, which uses it through seaborn's `lowess=True`.)"
+      }
+     ],
+     "words": 64,
+     "symbols": [
+      "$x_i$, $y_i$",
+      "$x_0$",
+      "$f$",
+      "$d$",
+      "$w_i$",
+      "$a$, $b$",
+      "$\\widehat{a}(x_0)$, $\\widehat{b}(x_0)$",
+      "$\\widehat{m}(x_0)$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "reading-it-against-the-ols-line",
+   "heading": "Reading it against the OLS line",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "reading-it-against-the-ols-line-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "On the Prestige data the lowess curve (dashed) follows the OLS line up to incomes of about 10,000, then bends below it: prestige rises more slowly at high incomes. A straight line over-predicts prestige for the highest-paid occupations, which suggests a log of income."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Scatterplot with OLS line and lowess - prestige on income.png",
+       "alt": "Scatterplot with OLS line and lowess - prestige on income"
+      }
+     ],
+     "words": 45,
+     "symbols": []
+    },
+    {
+     "id": "reading-it-against-the-ols-line-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With many tied, discrete values (education and vocabulary scores) lowess and OLS nearly coincide: the relationship is close to linear."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Vocabulary on education - jittered with OLS line and lowess.png",
+       "alt": "Vocabulary on education - jittered with OLS line and lowess"
+      }
+     ],
+     "words": 20,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "the-span-trade-off",
+   "heading": "The span trade-off",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-span-trade-off-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Span $f$ | Curve | Risk |\n| --- | --- | --- |\n| Large (towards 1) | Smooth, close to a single line | Misses real bends (bias) |\n| Small | Follows local detail | Chases noise (variance) |"
+      },
+      {
+       "t": "prose",
+       "md": "It is the same trade-off as the bandwidth in [Kernel Density Estimation](note:kernel-density-estimation)."
+      }
+     ],
+     "words": 38,
+     "symbols": [
+      "$f$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Reading the ends.** With few points near the edges, the curve is driven by a handful of observations.\n- **Treating it as a model.** Lowess gives no coefficients to interpret; it is a diagnostic for choosing the functional form."
+      }
+     ],
+     "words": 40,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Econometrics: residual-against-regressor plots (a flat lowess near zero supports linearity) in [Regression Diagnostics](note:regression-diagnostics).\n- Statistics: exploratory scatterplots in [EDA for Regression](note:eda-for-regression)."
+      }
+     ],
+     "words": 22,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [OLS Estimator](note:ols-estimator) · [Functional Forms and Elasticities](note:functional-forms-and-elasticities) · [Kernel Density Estimation](note:kernel-density-estimation)"
+      }
+     ],
+     "words": 10,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

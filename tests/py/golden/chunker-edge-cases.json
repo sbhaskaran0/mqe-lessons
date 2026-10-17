@@ -1,0 +1,349 @@
+{
+ "slug": "chunker-edge-cases",
+ "notation": [
+  {
+   "tex": "$y$",
+   "meaning": "Output per worker",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "y"
+   ]
+  },
+  {
+   "tex": "$k$",
+   "meaning": "Capital per worker",
+   "kind": "State variable",
+   "typical": "—",
+   "keys": [
+    "k"
+   ]
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "Capital share",
+   "kind": "Parameter",
+   "typical": "1/3",
+   "keys": [
+    "alpha"
+   ]
+  },
+  {
+   "tex": "$sf(k)$",
+   "meaning": "Investment per worker",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "~sf(k)"
+   ]
+  },
+  {
+   "tex": "$A$",
+   "meaning": "Total factor productivity (technology)",
+   "kind": "Exogenous; constant in the basic model",
+   "typical": "1 in the example",
+   "keys": [
+    "A"
+   ],
+   "from": "solow-growth-model"
+  },
+  {
+   "tex": "$s$",
+   "meaning": "Saving rate — assumed, not chosen optimally",
+   "kind": "Parameter in (0, 1)",
+   "typical": "0.5 in the example (≈ 0.2 in data)",
+   "keys": [
+    "s"
+   ],
+   "from": "solow-growth-model"
+  },
+  {
+   "tex": "$f(k) = Ak^{\\alpha}$",
+   "meaning": "Output per worker as a function of capital per worker",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "f"
+   ],
+   "from": "solow-growth-model"
+  }
+ ],
+ "notationIntro": "Prose above the table goes to the notation drawer.",
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**A bold lead paragraph before any section.**"
+      }
+     ],
+     "words": 7,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "This section is always exactly one step, however long it runs. It explains the idea without any symbols at all, using an everyday example about a bathtub: water flows in through the tap and drains out through the plughole, and the level settles where the two flows match. Everything after this sentence is filler to push the section well past the usual step length so that the test can prove the section is never split into more than one step, no matter how many words it holds, because the intuition is meant to be read as a single unit before anything else appears on the screen for the reader to study and think about."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "The intuition comes first and stays whole.",
+       "folded": false
+      }
+     ],
+     "words": 124,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The lead-in ends with a colon:"
+      },
+      {
+       "t": "math",
+       "tex": "y = Ak^{\\alpha}"
+      },
+      {
+       "t": "prose",
+       "md": "where $y$ is output and $k$ is capital per worker."
+      }
+     ],
+     "words": 14,
+     "symbols": [
+      "$y$",
+      "$k$",
+      "$\\alpha$",
+      "$A$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "visuals",
+   "heading": "Visuals",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "visuals-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Text that introduces the first figure and mentions $k$."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/First figure.png",
+       "alt": "First figure",
+       "caption": "Caption for the first figure."
+      }
+     ],
+     "words": 13,
+     "symbols": [
+      "$k$"
+     ]
+    },
+    {
+     "id": "visuals-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Text that introduces the second figure, mentioning $sf(k)$."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Second figure.png",
+       "alt": "Second figure"
+      },
+      {
+       "t": "prose",
+       "md": "Text after the second figure that closes the run."
+      }
+     ],
+     "words": 16,
+     "symbols": [
+      "$k$",
+      "$sf(k)$",
+      "$s$",
+      "$f(k) = Ak^{\\alpha}$"
+     ]
+    },
+    {
+     "id": "visuals-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "After a manual break."
+      },
+      {
+       "t": "interactive",
+       "widget": "chunker-widget",
+       "state": {
+        "s": 0.4
+       },
+       "lock": [
+        "A"
+       ],
+       "show": [
+        "saving"
+       ],
+       "prompt": "Raise $s$ and watch the [Solow Diagram](note:solow-diagram)."
+      },
+      {
+       "t": "prose",
+       "md": "Words after the widget."
+      }
+     ],
+     "words": 14,
+     "symbols": [
+      "$k$",
+      "$sf(k)$",
+      "$A$",
+      "$s$",
+      "$f(k) = Ak^{\\alpha}$"
+     ]
+    },
+    {
+     "id": "visuals-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Which option is right?",
+       "options": [
+        {
+         "md": "Wrong",
+         "correct": false
+        },
+        {
+         "md": "Right",
+         "correct": true
+        }
+       ],
+       "why": "Because it is."
+      }
+     ],
+     "words": 6,
+     "symbols": []
+    },
+    {
+     "id": "visuals-5",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "What is 2/3 to two decimals?",
+       "answer": 0.6666666666666666,
+       "tol": 0.005,
+       "why": "$2/3 \\approx 0.67$."
+      }
+     ],
+     "words": 7,
+     "symbols": []
+    },
+    {
+     "id": "visuals-6",
+     "heading": "A subheading",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Text under the subheading."
+      }
+     ],
+     "words": 4,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "long-list",
+   "heading": "Long list",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "long-list-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The items follow:"
+      },
+      {
+       "t": "prose",
+       "md": "- **One.** The first item carries enough words to matter for the step budget, so the list as a whole runs far past it and has to be cut between items. It keeps going with another clause, adding words for no reason other than length.\n- **Two.** The second item also carries a good number of words, describing nothing in particular at considerable length for the purposes of the test. It keeps going with another clause, adding words for no reason other than length."
+      }
+     ],
+     "words": 87,
+     "symbols": []
+    },
+    {
+     "id": "long-list-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Three.** The third item is here to push the list well beyond one step, with yet more words that mean nothing but count toward the total. It keeps going with another clause, adding words for no reason other than length.\n- **Four.** The fourth item closes the list with a final run of words, long enough that the last item lands in a later step than the first. It keeps going with another clause, adding words for no reason other than length."
+      }
+     ],
+     "words": 83,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "quotes-and-callouts",
+   "heading": "Quotes and callouts",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "quotes-and-callouts-1",
+     "blocks": [
+      {
+       "t": "quote",
+       "md": "Paper summary: [Katz and Murphy 1992 - Changes in Relative Wages](note:katz-and-murphy-1992-changes-in-relative-wages) · [Not A Paper](note:not-a-paper)",
+       "papers": [
+        "katz-and-murphy-1992-changes-in-relative-wages"
+       ]
+      },
+      {
+       "t": "quote",
+       "md": "A plain blockquote."
+      },
+      {
+       "t": "callout",
+       "kind": "note",
+       "title": "A folded note",
+       "md": "Folded body with a link to [the Solow model](note:solow-growth-model).",
+       "folded": true
+      }
+     ],
+     "words": 29,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

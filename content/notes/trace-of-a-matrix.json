@@ -1,0 +1,279 @@
+{
+ "slug": "trace-of-a-matrix",
+ "notation": [
+  {
+   "tex": "$A$, $B$, $C$",
+   "meaning": "Square (or conformable) matrices",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "A",
+    "B",
+    "C"
+   ]
+  },
+  {
+   "tex": "$\\mathrm{tr}(A)$",
+   "meaning": "Trace: sum of diagonal elements",
+   "kind": "Number",
+   "typical": "—",
+   "keys": []
+  },
+  {
+   "tex": "$\\lambda_i$",
+   "meaning": "Eigenvalues",
+   "kind": "Numbers",
+   "typical": "Sum to the trace",
+   "keys": [
+    "lambda"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{x}$",
+   "meaning": "Vector",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(x)"
+   ]
+  },
+  {
+   "tex": "$\\boldsymbol{\\varepsilon}$",
+   "meaning": "Random error vector",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(varepsilon)"
+   ]
+  },
+  {
+   "tex": "$\\sigma^2$",
+   "meaning": "Error variance",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "sigma"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{M}$",
+   "meaning": "Residual maker",
+   "kind": "Matrix",
+   "typical": "Trace $n - K$",
+   "keys": [
+    "bold(M)"
+   ]
+  },
+  {
+   "tex": "$n$, $K$",
+   "meaning": "Observations and regressors",
+   "kind": "Counts",
+   "typical": "—",
+   "keys": [
+    "n",
+    "K"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{e}$",
+   "meaning": "Residuals",
+   "kind": "Computed",
+   "typical": "—",
+   "keys": [
+    "bold(e)"
+   ],
+   "from": "projection-matrix-and-residual-maker"
+  },
+  {
+   "tex": "$\\widehat{\\sigma}^2$",
+   "meaning": "Estimate of $\\sigma^2$: residual sum of squares over $N - K$",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "hat(sigma)"
+   ],
+   "from": "sampling-distribution-of-ols"
+  },
+  {
+   "tex": "$c_1, \\ldots, c_k$",
+   "meaning": "Weights in a linear combination",
+   "kind": "Numbers",
+   "typical": "—",
+   "keys": [
+    "c"
+   ],
+   "from": "linear-independence-and-rank"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The trace of a square matrix is just the sum of the numbers on its main diagonal. It sounds trivial, but it has two powerful properties: you can rotate the order of a product inside it without changing the answer, and for the special matrices used in regression it counts dimensions. That makes it the standard trick for computing averages of squared errors."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is where the N minus K degrees of freedom in the estimated error variance come from.",
+       "folded": false
+      }
+     ],
+     "words": 83,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "\\mathrm{tr}(A) = \\sum_{i=1}^n a_{ii}"
+      },
+      {
+       "t": "prose",
+       "md": "defined for square matrices."
+      }
+     ],
+     "words": 4,
+     "symbols": [
+      "$A$, $B$, $C$",
+      "$n$, $K$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "properties",
+   "heading": "Properties",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "properties-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Property | Statement |\n| --- | --- |\n| Linear | $\\mathrm{tr}(A + B) = \\mathrm{tr}(A) + \\mathrm{tr}(B)$, $\\mathrm{tr}(cA) = c\\,\\mathrm{tr}(A)$ |\n| Transpose | $\\mathrm{tr}(A') = \\mathrm{tr}(A)$ |\n| **Cyclic** | $\\mathrm{tr}(ABC) = \\mathrm{tr}(BCA) = \\mathrm{tr}(CAB)$ — but **not** $\\mathrm{tr}(ACB)$ in general |\n| Scalar trick | A scalar is its own trace: $\\mathbf{x}'A\\mathbf{x} = \\mathrm{tr}(\\mathbf{x}'A\\mathbf{x}) = \\mathrm{tr}(A\\mathbf{x}\\mathbf{x}')$ |\n| Eigenvalues | $\\mathrm{tr}(A) = \\sum_i\\lambda_i$ |\n| Idempotent | If $AA = A$, $\\mathrm{tr}(A) = \\mathrm{rank}(A)$ |"
+      },
+      {
+       "t": "prose",
+       "md": "**Example**: $\\mathrm{tr}\\begin{pmatrix}1&2\\\\3&4\\end{pmatrix} = 5$, and its eigenvalues are $5.372$ and $-0.372$, which sum to 5."
+      }
+     ],
+     "words": 32,
+     "symbols": [
+      "$A$, $B$, $C$",
+      "$\\lambda_i$",
+      "$\\mathbf{x}$",
+      "$c_1, \\ldots, c_k$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "the-expectation-of-a-quadratic-form-trick",
+   "heading": "The expectation-of-a-quadratic-form trick",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-expectation-of-a-quadratic-form-trick-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "For a random vector $\\boldsymbol{\\varepsilon}$ with $E[\\boldsymbol{\\varepsilon}\\boldsymbol{\\varepsilon}'] = \\sigma^2\\mathbf{I}$ and a fixed matrix $\\mathbf{M}$:"
+      },
+      {
+       "t": "math",
+       "tex": "E[\\boldsymbol{\\varepsilon}'\\mathbf{M}\\boldsymbol{\\varepsilon}] = E[\\mathrm{tr}(\\mathbf{M}\\boldsymbol{\\varepsilon}\\boldsymbol{\\varepsilon}')] = \\mathrm{tr}(\\mathbf{M}\\,E[\\boldsymbol{\\varepsilon}\\boldsymbol{\\varepsilon}']) = \\sigma^2\\,\\mathrm{tr}(\\mathbf{M})"
+      },
+      {
+       "t": "prose",
+       "md": "Three moves: scalar = its trace, cyclic property, trace and expectation commute (both linear)."
+      }
+     ],
+     "words": 22,
+     "symbols": [
+      "$\\boldsymbol{\\varepsilon}$",
+      "$\\sigma^2$",
+      "$\\mathbf{M}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Using the cyclic property to swap two inner factors: $\\mathrm{tr}(ABC)\\neq\\mathrm{tr}(ACB)$.\n- $\\mathrm{tr}(AB) \\neq \\mathrm{tr}(A)\\,\\mathrm{tr}(B)$."
+      }
+     ],
+     "words": 11,
+     "symbols": [
+      "$A$, $B$, $C$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Econometrics**: $\\mathrm{tr}(\\mathbf{M}) = n - K$ gives $E[\\mathbf{e}'\\mathbf{e}] = (n-K)\\sigma^2$ and the unbiased $\\widehat{\\sigma}^2$ ([Projection Matrix and Residual Maker](note:projection-matrix-and-residual-maker), [Sampling Distribution of OLS](note:sampling-distribution-of-ols)); leverages sum to $K$ ([Regression Diagnostics](note:regression-diagnostics))."
+      }
+     ],
+     "words": 20,
+     "symbols": [
+      "$\\sigma^2$",
+      "$\\mathbf{M}$",
+      "$n$, $K$",
+      "$\\mathbf{e}$",
+      "$\\widehat{\\sigma}^2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Eigenvalues and Eigenvectors](note:eigenvalues-and-eigenvectors)\n- [Linear Independence and Rank](note:linear-independence-and-rank)"
+      }
+     ],
+     "words": 9,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

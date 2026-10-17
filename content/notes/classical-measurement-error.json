@@ -1,0 +1,323 @@
+{
+ "slug": "classical-measurement-error",
+ "notation": [
+  {
+   "tex": "$x^{*}$",
+   "meaning": "True value (e.g. true log wage)",
+   "kind": "Data (unobserved)",
+   "typical": "—",
+   "keys": [
+    "x*"
+   ]
+  },
+  {
+   "tex": "$u$",
+   "meaning": "Measurement error",
+   "kind": "Exogenous noise",
+   "typical": "Mean 0",
+   "keys": [
+    "u"
+   ]
+  },
+  {
+   "tex": "$x$",
+   "meaning": "Observed value",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "x"
+   ]
+  },
+  {
+   "tex": "$\\sigma_u^2$",
+   "meaning": "Variance of the measurement error",
+   "kind": "Parameter",
+   "typical": "0.05 in the example",
+   "keys": [
+    "sigma"
+   ]
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "Intercept of the regression on $x^{*}$",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "alpha"
+   ]
+  },
+  {
+   "tex": "$\\beta$",
+   "meaning": "True slope on $x^{*}$",
+   "kind": "Parameter",
+   "typical": "0.10 in the example",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$e$",
+   "meaning": "Regression error",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "e"
+   ]
+  },
+  {
+   "tex": "$\\hat\\beta$",
+   "meaning": "OLS slope using the observed $x$",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "hat(beta)"
+   ]
+  },
+  {
+   "tex": "$\\lambda$",
+   "meaning": "Reliability ratio: share of observed variance that is signal",
+   "kind": "Parameter in (0, 1]",
+   "typical": "0.8 in the example",
+   "keys": [
+    "lambda"
+   ]
+  },
+  {
+   "tex": "$n$",
+   "meaning": "Sample size",
+   "kind": "Data",
+   "typical": "10,000 in the example",
+   "keys": [
+    "n"
+   ]
+  },
+  {
+   "tex": "$y_i$, $x_i$",
+   "meaning": "Outcome and explanatory variable for observation $i$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "y",
+    "x"
+   ],
+   "from": "ols-estimator"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Suppose every wage in a survey is recorded with a random slip: some too high, some too low, with no pattern. Averaged over thousands of people the slips cancel, so the average wage comes out about right. But the slips do not cancel when you measure spread. Random errors make people look more different from each other than they really are, so measured inequality is too high. And if you use the mismeasured number to explain something else in a regression, its estimated effect is pulled toward zero, because part of what you feed in is pure noise."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It explains why a dataset can be fine for average wages yet misleading for wage inequality, and why noisy regressors understate effects.",
+       "folded": false
+      }
+     ],
+     "words": 123,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A variable has classical measurement error when the observed value is the true value plus noise that has mean zero and is independent of the true value:"
+      },
+      {
+       "t": "math",
+       "tex": "x = x^{*} + u,\\qquad E[u] = 0,\\qquad u \\perp x^{*}"
+      },
+      {
+       "t": "prose",
+       "md": "Then"
+      },
+      {
+       "t": "math",
+       "tex": "E[x] = E[x^{*}],\\qquad \\mathrm{Var}(x) = \\mathrm{Var}(x^{*}) + \\sigma_u^2,\\qquad \\operatorname{plim}\\hat\\beta = \\lambda\\beta,\\quad \\lambda = \\frac{\\mathrm{Var}(x^{*})}{\\mathrm{Var}(x^{*}) + \\sigma_u^2}"
+      }
+     ],
+     "words": 28,
+     "symbols": [
+      "$x^{*}$",
+      "$u$",
+      "$x$",
+      "$\\sigma_u^2$",
+      "$\\beta$",
+      "$\\hat\\beta$",
+      "$\\lambda$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "derivation",
+   "heading": "Derivation",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "derivation-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. **Means**: $E[x] = E[x^*] + E[u] = E[x^*]$. The sample mean of the noise has variance $\\sigma_u^2/n$, which vanishes as $n$ grows (law of large numbers).\n2. **Variances**: independence removes the covariance term, so $\\mathrm{Var}(x^* + u) = \\mathrm{Var}(x^*) + \\sigma_u^2$.\n3. **Regression on a noisy regressor**: if $y = \\alpha + \\beta x^* + e$, with the regression error uncorrelated with both the true value and the noise — $\\mathrm{Cov}(x^*, e) = \\mathrm{Cov}(u, e) = 0$, alongside $\\mathrm{Cov}(x^*, u) = 0$ — the OLS slope on $x$ converges to $\\mathrm{Cov}(x, y)/\\mathrm{Var}(x) = \\beta\\,\\mathrm{Var}(x^*)/(\\mathrm{Var}(x^*) + \\sigma_u^2) = \\lambda\\beta$."
+      }
+     ],
+     "words": 53,
+     "symbols": [
+      "$x^{*}$",
+      "$u$",
+      "$x$",
+      "$\\sigma_u^2$",
+      "$\\alpha$",
+      "$\\beta$",
+      "$e$",
+      "$\\lambda$",
+      "$n$",
+      "$y_i$, $x_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "True variance of log wages 0.20, noise variance 0.05:"
+      },
+      {
+       "t": "prose",
+       "md": "- Measured variance = 0.25 — inequality overstated by 25%.\n- With $n = 10{,}000$ workers the noise moves the sample mean by about $\\sqrt{0.05/10{,}000} \\approx 0.0022$ log points — negligible.\n- As a regressor: $\\lambda = 0.20/0.25 = 0.8$, so a true slope of 0.10 is estimated as about 0.08."
+      }
+     ],
+     "words": 51,
+     "symbols": [
+      "$\\lambda$",
+      "$n$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "properties",
+   "heading": "Properties",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "properties-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Statistic | Effect of classical error |\n| --- | --- |\n| Mean | Unbiased |\n| Variance, percentile gaps | Inflated |\n| Within-group variance | Inflated — the noise is all within groups |\n| Between-group means | Unbiased |\n| OLS slope, error in the regressor | Biased toward zero by $\\lambda$ |\n| OLS slope, error in the dependent variable | Unbiased, but larger standard errors |"
+      }
+     ],
+     "words": 47,
+     "symbols": [
+      "$\\lambda$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "when-it-fails",
+   "heading": "When it fails",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "when-it-fails-1",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "note",
+       "title": "Beyond the lecture",
+       "md": "Earnings errors are often *non-classical*: people with high true earnings tend to under-report and those with low earnings to over-report (mean-reverting error), which can **understate** dispersion. Imputation for non-respondents and rounding of hours also create non-classical error.",
+       "folded": false
+      }
+     ],
+     "words": 40,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- \"The noise averages out\" is true for means, not for variances.\n- Confusing error in $y$ (harmless for the slope) with error in $x$ (attenuation).\n- Constructed variables compound errors: an hourly wage computed as annual earnings divided by weeks times hours inherits the noise of all three."
+      }
+     ],
+     "words": 47,
+     "symbols": [
+      "$x$",
+      "$y_i$, $x_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Inequality: why data quality matters far more for dispersion than for average wages.\n- Econometrics: attenuation bias; [Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls) with a second noisy measure as the instrument removes it."
+      }
+     ],
+     "words": 32,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [OLS Estimator](note:ols-estimator) · [Variance of Log Income](note:variance-of-log-income) · [Within- and Between-Group Inequality](note:within-and-between-group-inequality) · [Strict Exogeneity](note:strict-exogeneity)"
+      }
+     ],
+     "words": 13,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

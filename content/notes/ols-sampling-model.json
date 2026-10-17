@@ -1,0 +1,120 @@
+{
+ "slug": "ols-sampling-model",
+ "notation": [
+  {
+   "tex": "$b_k$",
+   "meaning": "OLS estimate of coefficient $k$",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "b"
+   ],
+   "from": "sampling-distribution-of-ols"
+  },
+  {
+   "tex": "$\\beta_k$",
+   "meaning": "True coefficient",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ],
+   "from": "sampling-distribution-of-ols"
+  },
+  {
+   "tex": "$\\sigma^2$",
+   "meaning": "Error variance",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "sigma"
+   ],
+   "from": "sampling-distribution-of-ols"
+  },
+  {
+   "tex": "$N$, $K$",
+   "meaning": "Observations and number of coefficients",
+   "kind": "Counts",
+   "typical": "$K = 2$ in simple regression",
+   "keys": [
+    "N",
+    "K"
+   ],
+   "from": "sampling-distribution-of-ols"
+  },
+  {
+   "tex": "$y_i$, $x_i$",
+   "meaning": "Outcome and regressor",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "y",
+    "x"
+   ],
+   "from": "sr-assumptions"
+  },
+  {
+   "tex": "$e_i$",
+   "meaning": "Error term",
+   "kind": "Unobserved",
+   "typical": "—",
+   "keys": [
+    "e"
+   ],
+   "from": "sr-assumptions"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "ols-sampling-model"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$\\beta_k$",
+      "$\\sigma^2$",
+      "$N$, $K$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The population behind [OLS Sampling Distribution](note:ols-sampling-distribution): the same food-expenditure line as [OLS Line Fitter](note:ols-line-fitter) ($\\beta_1 = 80$, $\\beta_2 = 10$, income in hundreds of dollars a week, error standard deviation 89.5), set up for drawing many samples rather than one. Place the view, not this note."
+      },
+      {
+       "t": "prose",
+       "md": "- **Model.** $y_i = \\beta_1 + \\beta_2x_i + \\gamma z_i + e_i$, $x_i \\sim U(4, 34)$, $e_i \\sim N(0, \\sigma^2)$, or $N(0, (\\sigma x_i/19)^2)$ when `het` is 1 (the error variance then grows with income: SR3 fails). With $z_i = x_i - 19 + N(0, 1)$ and $\\gamma > 0$, the error the regression sees, $\\gamma z_i + e_i$, moves with $x$ and has $E[\\,\\cdot \\mid x_i] = \\gamma(x_i - 19) \\neq 0$: SR2 fails and $b_2$ centres on $\\beta_2 + \\gamma$.\n- **Derived.** `sd_b2` $= \\sigma/\\sqrt{(N-1)\\cdot 75}$, the textbook spread of $b_2$ when SR1 to SR5 hold ($\\mathrm{Var}(x) = 30^2/12 = 75$).\n- **Tests.** The two values of `sd_b2` are exact arithmetic; the Monte Carlo numbers are the view's tests."
+      }
+     ],
+     "words": 105,
+     "symbols": [
+      "$b_k$",
+      "$\\beta_k$",
+      "$\\sigma^2$",
+      "$N$, $K$",
+      "$y_i$, $x_i$",
+      "$e_i$"
+     ]
+    }
+   ]
+  }
+ ]
+}

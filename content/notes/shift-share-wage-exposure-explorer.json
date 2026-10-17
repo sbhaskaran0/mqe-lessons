@@ -1,0 +1,92 @@
+{
+ "slug": "shift-share-wage-exposure-explorer",
+ "notation": [
+  {
+   "tex": "$w_{rj}$",
+   "meaning": "Wage in industry $j$ for $r$'s workers",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "w"
+   ],
+   "from": "shift-share-exposure"
+  },
+  {
+   "tex": "$\\lambda_{rj}$",
+   "meaning": "Share of $r$'s income earned in $j$ (the exposure weight)",
+   "kind": "Data",
+   "typical": "0.6 and 0.2 in the example",
+   "keys": [
+    "lambda"
+   ],
+   "from": "shift-share-exposure"
+  },
+  {
+   "tex": "$p_j$",
+   "meaning": "Price of good $j$",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "p"
+   ],
+   "from": "shift-share-exposure"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "shift-share-wage-exposure-explorer"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$w_{rj}$",
+      "$\\lambda_{rj}$",
+      "$p_j$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Purpose.** Make $d\\log w_r = \\lambda_{rA}\\,d\\log p_A + (1-\\lambda_{rA})\\,d\\log p_T$ visible as a straight line. It runs from the textile price change at a share of 0 to the airplane price change at a share of 1, so every region's wage change lies between the two. Dragging a region shows that its exposure is set by its income share. Moving the prices tilts the line, which shows that relative wages move only when relative prices do.\n- **Model.** Two goods with immobile factors, so $d\\log w_j = d\\log p_j$ ([Specific-Factors Model](note:specific-factors-model)), aggregated with income shares ([Shift-Share Exposure](note:shift-share-exposure)). The gap between two regions is $(\\lambda_{LA,A} - \\lambda_{Rome,A})(d\\log p_A - d\\log p_T)$."
+      }
+     ],
+     "words": 91,
+     "symbols": [
+      "$w_{rj}$",
+      "$\\lambda_{rj}$",
+      "$p_j$"
+     ]
+    },
+    {
+     "id": "notes-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Elements.** Curve `exposure`; points `pT`, `pA` (the line's endpoints), `la` and `rome` (draggable, bound to the two shares); lines `zero` and `rel_gap` (vertical at LA's share, from Rome's wage change to LA's); readouts `wL_out`, `wR_out`, `rel_out`.\n- **Defaults.** The worked example in [Shift-Share Exposure](note:shift-share-exposure): price changes of +0.10 and −0.05 and shares of 0.6 and 0.2, giving +0.04, −0.02 and a relative gain of 0.06.\n- **Tests.** Computed in Python: the worked example, the break-even share $0.05/0.15 = 1/3$, equal price changes, and textile prices falling by 0.15 ($0.4 \\times 0.25 = 0.10$)."
+      }
+     ],
+     "words": 98,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

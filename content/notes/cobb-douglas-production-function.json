@@ -1,0 +1,367 @@
+{
+ "slug": "cobb-douglas-production-function",
+ "notation": [
+  {
+   "tex": "$Y$",
+   "meaning": "Output: GDP for an economy, production for a firm",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "Y"
+   ]
+  },
+  {
+   "tex": "$K$",
+   "meaning": "Capital stock: machines, structures, equipment",
+   "kind": "Input (state variable in growth models)",
+   "typical": "—",
+   "keys": [
+    "K"
+   ]
+  },
+  {
+   "tex": "$L$",
+   "meaning": "Labor: workers or hours",
+   "kind": "Input",
+   "typical": "—",
+   "keys": [
+    "L"
+   ]
+  },
+  {
+   "tex": "$A$",
+   "meaning": "Total factor productivity (TFP): output per unit of combined inputs",
+   "kind": "Exogenous",
+   "typical": "Normalised to 1 in examples",
+   "keys": [
+    "A"
+   ]
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "Capital's share of income; elasticity of output with respect to capital",
+   "kind": "Parameter in (0, 1)",
+   "typical": "≈ 1/3",
+   "keys": [
+    "alpha"
+   ]
+  },
+  {
+   "tex": "$y = Y/L$, $k = K/L$",
+   "meaning": "Output and capital per worker",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "y",
+    "k"
+   ]
+  },
+  {
+   "tex": "$\\tilde{A} = A^{1/(1-\\alpha)}$",
+   "meaning": "TFP rewritten as labor-augmenting productivity",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "tilde(A)"
+   ]
+  },
+  {
+   "tex": "$\\gamma$",
+   "meaning": "Growth rate of TFP",
+   "kind": "Parameter",
+   "typical": "≈ 0.02",
+   "keys": [
+    "gamma"
+   ]
+  },
+  {
+   "tex": "$\\sigma$",
+   "meaning": "Elasticity of substitution between capital and labor",
+   "kind": "Fixed at 1 for Cobb-Douglas",
+   "typical": "1",
+   "keys": [
+    "sigma"
+   ]
+  },
+  {
+   "tex": "$f(\\mathbf{x})$",
+   "meaning": "Function of several inputs",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "f"
+   ],
+   "from": "partial-derivatives-and-the-gradient"
+  },
+  {
+   "tex": "$MPK$, $MPL$",
+   "meaning": "Marginal products of capital and labor",
+   "kind": "Partial derivatives",
+   "typical": "0.703, 0.486 in the example",
+   "keys": [
+    "~MPK",
+    "~MPL"
+   ],
+   "from": "partial-derivatives-and-the-gradient"
+  },
+  {
+   "tex": "$t$",
+   "meaning": "Scaling factor applied to every input",
+   "kind": "Number > 0",
+   "typical": "—",
+   "keys": [
+    "t"
+   ],
+   "from": "homogeneous-functions-and-eulers-theorem"
+  },
+  {
+   "tex": "$F(\\cdot)$",
+   "meaning": "General production function",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "F"
+   ],
+   "from": "factor-augmenting-technology"
+  },
+  {
+   "tex": "$s$",
+   "meaning": "Saving rate — assumed, not chosen optimally",
+   "kind": "Parameter in (0, 1)",
+   "typical": "0.5 in the example (≈ 0.2 in data)",
+   "keys": [
+    "s"
+   ],
+   "from": "solow-growth-model"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Cobb-Douglas is a recipe for how much an economy, or a firm, can produce from two ingredients: capital (machines, buildings, computers) and workers. It builds in three common-sense features. Double both ingredients and you double output. Each extra machine adds a little less than the one before, because there are only so many workers to run them. And capital always ends up earning the same fixed slice of total income — about a third in the US — however much of it there is. A separate productivity term stands for everything else that makes the ingredients productive: technology, know-how, how well the economy is organised."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is simple enough to solve by hand, yet it matches a real pattern — income shares that barely move over decades — so the Solow model, growth accounting and most textbook micro use it as the default.",
+       "folded": false
+      }
+     ],
+     "words": 142,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "Y = AK^{\\alpha}L^{1-\\alpha}, \\qquad 0 < \\alpha < 1"
+      },
+      {
+       "t": "prose",
+       "md": "$A$ is total factor productivity (TFP); $\\alpha$ is the capital share. It is the $\\sigma = 1$ member of the [CES Production Function](note:ces-production-function) family, but it is used so widely, and has so many convenient properties of its own, that it is worth knowing separately."
+      }
+     ],
+     "words": 40,
+     "symbols": [
+      "$Y$",
+      "$K$",
+      "$L$",
+      "$A$",
+      "$\\alpha$",
+      "$\\sigma$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "properties",
+   "heading": "Properties",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "properties-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Property | Statement | Why it matters |\n| --- | --- | --- |\n| Constant returns | $F(tK, tL) = tF(K,L)$ | Lets you write output per worker as a function of capital per worker ([Homogeneous Functions and Euler's Theorem](note:homogeneous-functions-and-eulers-theorem)) |\n| Marginal products | $MPK = \\alpha Y/K$, $MPL = (1-\\alpha)Y/L$ | Competitive factor prices |\n| **Constant factor shares** | $\\frac{MPK\\cdot K}{Y} = \\alpha$, $\\frac{MPL\\cdot L}{Y} = 1-\\alpha$ | The capital share can be read off national accounts (≈ 1/3) |\n| Diminishing returns | $\\partial MPK/\\partial K < 0$ | Drives convergence in growth models ([Convexity and Concavity](note:convexity-and-concavity)) |\n| Inada conditions | $MPK\\to\\infty$ as $K\\to0$, $\\to 0$ as $K\\to\\infty$ | Guarantees an interior steady state |\n| Elasticity of substitution | $\\sigma = 1$ | Factor shares do not move when relative prices change |"
+      }
+     ],
+     "words": 78,
+     "symbols": [
+      "$Y$",
+      "$K$",
+      "$L$",
+      "$\\alpha$",
+      "$\\sigma$",
+      "$MPK$, $MPL$",
+      "$t$",
+      "$F(\\cdot)$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "intensive-form",
+   "heading": "Intensive form",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "intensive-form-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Divide by $L$: with $y = Y/L$ and $k = K/L$,"
+      },
+      {
+       "t": "math",
+       "tex": "y = Ak^{\\alpha}, \\qquad f'(k) = \\alpha Ak^{\\alpha-1}"
+      },
+      {
+       "t": "prose",
+       "md": "Output per worker depends only on capital per worker — a direct consequence of constant returns."
+      }
+     ],
+     "words": 19,
+     "symbols": [
+      "$Y$",
+      "$K$",
+      "$L$",
+      "$A$",
+      "$\\alpha$",
+      "$y = Y/L$, $k = K/L$",
+      "$f(\\mathbf{x})$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "any-technology-term-is-labor-augmenting",
+   "heading": "Any technology term is labor-augmenting",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "any-technology-term-is-labor-augmenting-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "AK^{\\alpha}L^{1-\\alpha} = K^{\\alpha}\\big(A^{\\frac{1}{1-\\alpha}}L\\big)^{1-\\alpha} = K^{\\alpha}(\\tilde{A}L)^{1-\\alpha}, \\qquad \\tilde{A} = A^{\\frac{1}{1-\\alpha}}"
+      },
+      {
+       "t": "prose",
+       "md": "So with Cobb-Douglas, Hicks-neutral, capital-augmenting and labor-augmenting technology are observationally equivalent ([Factor-Augmenting Technology](note:factor-augmenting-technology)). If $A$ grows at $\\gamma$, $\\tilde{A}$ grows at $\\gamma/(1-\\alpha)$ ([Logarithms and Growth Rates](note:logarithms-and-growth-rates))."
+      }
+     ],
+     "words": 22,
+     "symbols": [
+      "$K$",
+      "$L$",
+      "$A$",
+      "$\\alpha$",
+      "$\\tilde{A} = A^{1/(1-\\alpha)}$",
+      "$\\gamma$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$\\alpha = 1/3$, $A = 1$, $k = 8$: $y = 8^{1/3} = 2$, $f'(k) = \\tfrac13\\cdot8^{-2/3} = 1/12 \\approx 0.083$, and $f'(k)\\cdot k/y = (8/12)/2 = 1/3 = \\alpha$."
+      }
+     ],
+     "words": 1,
+     "symbols": [
+      "$A$",
+      "$\\alpha$",
+      "$y = Y/L$, $k = K/L$",
+      "$f(\\mathbf{x})$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Treating $\\alpha$ as a free parameter: under competition it equals capital's share of income.\n- Forgetting the $1/(1-\\alpha)$ when converting TFP growth into labor-augmenting growth."
+      }
+     ],
+     "words": 24,
+     "symbols": [
+      "$\\alpha$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Macro / growth**: the [Solow Growth Model](note:solow-growth-model), growth accounting ([Multivariable Chain Rule](note:multivariable-chain-rule)), the [Golden Rule Saving Rate](note:golden-rule-saving-rate) ($s = \\alpha$).\n- **Labor**: the $\\sigma = 1$ benchmark against which the [Elasticity of Substitution](note:elasticity-of-substitution) between skill groups is tested.\n- **Micro**: the workhorse utility and production function."
+      }
+     ],
+     "words": 40,
+     "symbols": [
+      "$\\alpha$",
+      "$\\sigma$",
+      "$s$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [CES Production Function](note:ces-production-function)\n- [Partial Derivatives and the Gradient](note:partial-derivatives-and-the-gradient)"
+      }
+     ],
+     "words": 10,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

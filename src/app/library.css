@@ -1,0 +1,27 @@
+/* Library facets. The page chrome, chips and cards come from app.css; this file only lays the facets out. */
+
+.lib-layout { display: grid; grid-template-columns: 270px minmax(0, 1fr); gap: var(--space-6); align-items: start; margin-top: var(--space-5); }
+.lib-filters { position: sticky; top: calc(var(--header-h) + var(--space-4)); max-height: calc(100dvh - var(--header-h) - var(--space-6)); overflow: auto; padding-right: var(--space-2); }
+.lib-filter-groups { display: grid; gap: var(--space-4); }
+.lib-filter-groups[hidden] { display: none; }
+.lib-group { margin: 0; padding: 0; border: 0; min-width: 0; }
+.lib-group legend { padding: 0; margin-bottom: var(--space-2); font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-3); }
+.lib-chips { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.lib-chips .chip { min-height: 34px; padding: 0 var(--space-3); }
+.chip:disabled { opacity: 0.45; cursor: not-allowed; border-style: dashed; }
+.chip:disabled:hover { border-color: var(--border); color: var(--text-2); }
+
+.lib-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-3); }
+.lib-bar .results-count { margin: 0; }
+.lib-bar-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); }
+.select-inline { display: flex; align-items: center; gap: var(--space-2); }
+.select-inline select { min-width: 150px; }
+.lib-results .library-group:first-of-type { margin-top: var(--space-4) !important; }
+.lib-flat { margin-top: var(--space-4); }
+.lib-empty { display: grid; gap: var(--space-3); justify-items: start; padding: var(--space-6) 0; }
+
+@media (max-width: 900px) {
+  .lib-layout { grid-template-columns: minmax(0, 1fr); gap: var(--space-4); }
+  .lib-filters { position: static; max-height: none; overflow: visible; padding-right: 0; }
+  .lib-filters-toggle { margin-bottom: var(--space-3); }
+}

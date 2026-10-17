@@ -1,0 +1,216 @@
+{
+ "slug": "cullen-frey-graph",
+ "notation": [
+  {
+   "tex": "$S$, $S^2$",
+   "meaning": "Sample skewness and its square (the horizontal axis)",
+   "kind": "Statistic",
+   "typical": "0 for symmetric data",
+   "keys": [
+    "S"
+   ]
+  },
+  {
+   "tex": "$K$",
+   "meaning": "Sample kurtosis, not excess (the vertical axis)",
+   "kind": "Statistic",
+   "typical": "3 for a normal",
+   "keys": [
+    "K"
+   ]
+  },
+  {
+   "tex": "$B$",
+   "meaning": "Number of bootstrap resamples drawn to show uncertainty",
+   "kind": "Choice",
+   "typical": "1,000 in the lecture",
+   "keys": [
+    "B"
+   ]
+  },
+  {
+   "tex": "$\\ln L$",
+   "meaning": "Maximized log-likelihood of a fitted family",
+   "kind": "Statistic",
+   "typical": "Higher is better",
+   "keys": [
+    "L"
+   ]
+  },
+  {
+   "tex": "$k$",
+   "meaning": "Number of estimated parameters of a family",
+   "kind": "Count",
+   "typical": "2 for gamma, Weibull, lognormal",
+   "keys": [
+    "k"
+   ]
+  },
+  {
+   "tex": "$AIC$",
+   "meaning": "Akaike information criterion, $2k - 2\\ln L$",
+   "kind": "Statistic",
+   "typical": "Lower is better",
+   "keys": [
+    "~AIC"
+   ]
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "When you need a distribution for a variable, say the size of beef servings, the Cullen-Frey graph narrows the choice. It reduces the sample to two shape numbers, how lopsided it is and how heavy its tails are, and plots that single point on a map where each standard distribution has its own territory: the bell curve is one spot, the gamma family is a line, the beta family fills a whole region. Families whose territory lies near your point are candidates. Resampling the data many times shows a cloud of possible positions, which reminds you how uncertain the shape numbers are."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It turns \"which distribution fits?\" into a short list to test, instead of trying dozens of families blindly.",
+       "folded": false
+      }
+     ],
+     "words": 123,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Plot the sample's squared skewness against its kurtosis, $(S^2, K)$, on axes where each family occupies a known set. The kurtosis axis is drawn upside down in the usual version."
+      },
+      {
+       "t": "table",
+       "md": "| Family | Location on the graph |\n| --- | --- |\n| Normal | Point $(0, 3)$ |\n| Uniform | Point $(0, 1.8)$ |\n| Logistic | Point $(0, 4.2)$ |\n| Exponential | Point $(4, 9)$ |\n| Gamma | Line $K = 3 + 1.5S^2$ |\n| Lognormal | A curve above the gamma line |\n| Beta | Region between the impossible area ($K < 1 + S^2$) and the gamma line |"
+      }
+     ],
+     "words": 62,
+     "symbols": [
+      "$S$, $S^2$",
+      "$K$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example-serving-sizes",
+   "heading": "Worked example: serving sizes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-serving-sizes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The lecture's `groundbeef` data (serving sizes in grams) have skewness 0.735 and kurtosis 3.55, so the observation sits at $S^2 = 0.541$, $K = 3.55$."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Groundbeef serving sizes - empirical density and CDF.png",
+       "alt": "Groundbeef serving sizes - empirical density and CDF"
+      }
+     ],
+     "words": 21,
+     "symbols": [
+      "$S$, $S^2$",
+      "$K$"
+     ]
+    },
+    {
+     "id": "worked-example-serving-sizes-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "At $S^2 = 0.541$ the gamma line is at $K = 3 + 1.5 \\times 0.541 = 3.81$ and the lognormal curve at about 3.98, so the observation lies just inside the beta region, close to the gamma line. The bootstrap cloud straddles the gamma line, so gamma, Weibull and lognormal are all worth fitting."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Cullen-Frey graph - groundbeef serving sizes.png",
+       "alt": "Cullen-Frey graph - groundbeef serving sizes"
+      }
+     ],
+     "words": 44,
+     "symbols": [
+      "$S$, $S^2$",
+      "$K$"
+     ]
+    },
+    {
+     "id": "worked-example-serving-sizes-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Maximum-likelihood fits then rank the candidates:"
+      },
+      {
+       "t": "table",
+       "md": "| Family | Log-likelihood | AIC |\n| --- | --- | --- |\n| Gamma | −1,253.63 | 2,511.25 |\n| Weibull | −1,255.22 | 2,514.45 |\n| Lognormal | −1,261.32 | 2,526.64 |"
+      },
+      {
+       "t": "prose",
+       "md": "Gamma fits best by both criteria (each family has two parameters, so AIC ranks them exactly as the log-likelihood does). The four comparison panels (densities, Q-Q, CDFs and P-P plots) show the lognormal over-predicting the upper tail."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Weibull lognormal and gamma fits - groundbeef serving sizes.png",
+       "alt": "Weibull lognormal and gamma fits - groundbeef serving sizes"
+      }
+     ],
+     "words": 70,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "properties-and-when-it-fails",
+   "heading": "Properties and when it fails",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "properties-and-when-it-fails-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **It suggests; it does not test.** Skewness and kurtosis are high-variance statistics, which is why the bootstrap cloud is so wide.\n- **Different software, different rankings.** The `fitter` package's table ranks `weibull_min` first (AIC 2,510.92) because scipy's fit also estimates a location shift, an extra parameter the `fitdist` fits above do not have (beyond the lecture).\n- It ignores everything about the distribution except two moments; check the finalists with a [Q-Q Plot](note:q-q-plot)."
+      }
+     ],
+     "words": 77,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Skewness and Kurtosis](note:skewness-and-kurtosis) · [Q-Q Plot](note:q-q-plot) · [EDA for Regression](note:eda-for-regression)"
+      }
+     ],
+     "words": 9,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

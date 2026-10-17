@@ -1,0 +1,439 @@
+{
+ "slug": "ols-in-matrix-form",
+ "notation": [
+  {
+   "tex": "$\\mathbf{y}$",
+   "meaning": "Column of $N$ outcomes",
+   "kind": "Data ($N\\times1$)",
+   "typical": "—",
+   "keys": [
+    "bold(y)"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{X}$",
+   "meaning": "Table of regressors, one column per variable, including a column of ones",
+   "kind": "Data ($N\\times K$)",
+   "typical": "—",
+   "keys": [
+    "bold(X)"
+   ]
+  },
+  {
+   "tex": "$\\boldsymbol{\\beta}$",
+   "meaning": "True coefficients",
+   "kind": "Unknown parameters ($K\\times1$)",
+   "typical": "—",
+   "keys": [
+    "bold(beta)"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{b}$",
+   "meaning": "OLS estimates, $(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{y}$",
+   "kind": "Estimator ($K\\times1$)",
+   "typical": "—",
+   "keys": [
+    "bold(b)"
+   ]
+  },
+  {
+   "tex": "$\\boldsymbol{\\varepsilon}$",
+   "meaning": "True errors (disturbances)",
+   "kind": "Unobserved ($N\\times1$)",
+   "typical": "—",
+   "keys": [
+    "bold(varepsilon)"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{e}$",
+   "meaning": "Residuals, $\\mathbf{y} - \\mathbf{X}\\mathbf{b}$",
+   "kind": "Computed ($N\\times1$)",
+   "typical": "Orthogonal to $\\mathbf{X}$",
+   "keys": [
+    "bold(e)"
+   ]
+  },
+  {
+   "tex": "$N$, $K$",
+   "meaning": "Number of observations and of regressors",
+   "kind": "Counts",
+   "typical": "$N \\geq K$",
+   "keys": [
+    "N",
+    "K"
+   ]
+  },
+  {
+   "tex": "$\\sigma^2$",
+   "meaning": "Error variance",
+   "kind": "Unknown parameter",
+   "typical": "—",
+   "keys": [
+    "sigma"
+   ]
+  },
+  {
+   "tex": "$f_k(\\cdot)$",
+   "meaning": "Any function of the data used as a regressor (log, square, dummy)",
+   "kind": "Transformation",
+   "typical": "—",
+   "keys": [
+    "f"
+   ]
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "Intercept in the illustrative quadratic and loglinear forms",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "alpha"
+   ]
+  },
+  {
+   "tex": "$y_i$, $x_i$",
+   "meaning": "Outcome and explanatory variable for observation $i$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "y",
+    "x"
+   ],
+   "from": "ols-estimator"
+  },
+  {
+   "tex": "$\\beta_1$, $\\beta_2$",
+   "meaning": "True intercept and slope",
+   "kind": "Unknown parameters",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ],
+   "from": "ols-estimator"
+  },
+  {
+   "tex": "$e_i$",
+   "meaning": "True error: everything else affecting $y_i$",
+   "kind": "Unobserved",
+   "typical": "—",
+   "keys": [
+    "e"
+   ],
+   "from": "ols-estimator"
+  },
+  {
+   "tex": "$\\bar{x}$, $\\bar{y}$",
+   "meaning": "Sample means",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "bar(x)",
+    "bar(y)"
+   ],
+   "from": "ols-estimator"
+  },
+  {
+   "tex": "$\\mathbf{x}$, $\\mathbf{a}$",
+   "meaning": "Column vectors",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(x)",
+    "bold(a)"
+   ],
+   "from": "matrix-calculus"
+  },
+  {
+   "tex": "$\\varepsilon$",
+   "meaning": "Projection error: $y - \\alpha - \\beta x$",
+   "kind": "Random variable",
+   "typical": "Uncorrelated with $x$ by construction",
+   "keys": [
+    "varepsilon"
+   ],
+   "from": "conditional-mean-vs-linear-projection"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The matrix form of least squares does exactly what simple regression does, but for any number of explanatory variables at once. All the observations are stacked into one column of outcomes and one table of explanatory variables, and the whole problem of finding the best-fitting coefficients becomes a single equation that can be solved in one line. Nothing new is assumed; the notation just lets you handle ten variables as easily as one, and makes the geometry of regression visible."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "Every real regression has several variables, and every result in econometrics from standard errors to instrumental variables is stated in this form.",
+       "folded": false
+      }
+     ],
+     "words": 105,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The Classical Linear Regression Model with $N$ observations and $K$ columns in $\\mathbf{X}$, including a column of ones."
+      },
+      {
+       "t": "math",
+       "tex": "\\mathbf{y} = \\mathbf{X}\\boldsymbol{\\beta} + \\boldsymbol{\\varepsilon}"
+      },
+      {
+       "t": "math",
+       "tex": "E[\\boldsymbol{\\varepsilon}\\mid\\mathbf{X}] = \\mathbf{0}, \\qquad \\mathrm{Var}[\\boldsymbol{\\varepsilon}\\mid\\mathbf{X}] = \\sigma^2\\mathbf{I}"
+      }
+     ],
+     "words": 15,
+     "symbols": [
+      "$\\mathbf{y}$",
+      "$\\mathbf{X}$",
+      "$\\boldsymbol{\\beta}$",
+      "$\\boldsymbol{\\varepsilon}$",
+      "$N$, $K$",
+      "$\\sigma^2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "linearity-means-linear-in-the-parameters",
+   "heading": "Linearity means linear in the parameters",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "linearity-means-linear-in-the-parameters-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "E[y \\mid \\mathbf{x}] = \\beta_1 f_1(\\cdot) + \\beta_2 f_2(\\cdot) + \\dots + \\beta_K f_K(\\cdot)"
+      },
+      {
+       "t": "prose",
+       "md": "where each $f_k$ is **any** function of the data. So all of these are linear models: quadratic $\\alpha + \\beta_1 x + \\beta_2 x^2$, loglinear, semilog, translog, time trends, dummies, interactions. An infinite number of variations."
+      },
+      {
+       "t": "callout",
+       "kind": "note",
+       "title": "Lecture wisdom",
+       "md": "Models should have a constant term unless theory says they should not.",
+       "folded": false
+      }
+     ],
+     "words": 42,
+     "symbols": [
+      "$f_k(\\cdot)$",
+      "$\\alpha$",
+      "$y_i$, $x_i$",
+      "$\\beta_1$, $\\beta_2$",
+      "$\\mathbf{x}$, $\\mathbf{a}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fitting-criteria",
+   "heading": "Fitting criteria",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "fitting-criteria-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The lecture lists four and picks one: $\\sum e_i$, $\\sum e_i^2$, $\\sum|e_i|$, $|\\sum e_i|$. Least squares takes $\\sum e_i^2$; $\\sum|e_i|$ (quantile/LAD regression) comes later in the course."
+      }
+     ],
+     "words": 18,
+     "symbols": [
+      "$e_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "the-derivation",
+   "heading": "The derivation",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-derivation-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Each step below is one rule from [Matrix Calculus](note:matrix-calculus)."
+      },
+      {
+       "t": "math",
+       "tex": "\\mathbf{e}'\\mathbf{e} = (\\mathbf{y} - \\mathbf{X}\\mathbf{b})'(\\mathbf{y} - \\mathbf{X}\\mathbf{b}) = \\mathbf{y}'\\mathbf{y} - 2\\mathbf{b}'\\mathbf{X}'\\mathbf{y} + \\mathbf{b}'\\mathbf{X}'\\mathbf{X}\\mathbf{b}"
+      },
+      {
+       "t": "math",
+       "tex": "\\frac{\\partial\\, \\mathbf{e}'\\mathbf{e}}{\\partial \\mathbf{b}} = -2\\mathbf{X}'(\\mathbf{y} - \\mathbf{X}\\mathbf{b}) = \\mathbf{0}"
+      },
+      {
+       "t": "prose",
+       "md": "**Normal equations**, then the solution:"
+      },
+      {
+       "t": "math",
+       "tex": "\\mathbf{X}'\\mathbf{X}\\mathbf{b} = \\mathbf{X}'\\mathbf{y} \\qquad \\Longrightarrow \\qquad \\mathbf{b} = (\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{y}"
+      },
+      {
+       "t": "prose",
+       "md": "Dimension check: $\\mathbf{X}'\\mathbf{X}$ is $K\\times K$, $\\mathbf{X}'\\mathbf{y}$ is $K\\times1$, $\\mathbf{b}$ is $K\\times1$. The derivative of a $1\\times1$ scalar with respect to a $K\\times1$ vector is $K\\times1$."
+      },
+      {
+       "t": "prose",
+       "md": "**Second-order condition**: $\\mathbf{X}'\\mathbf{X}$ is positive definite under [Full Rank and Identification](note:full-rank-and-identification), so the critical point is the unique minimum ([Quadratic Forms and Definiteness](note:quadratic-forms-and-definiteness)). The lecture states the FOCs and never checks this; an exam might ask."
+      }
+     ],
+     "words": 65,
+     "symbols": [
+      "$\\mathbf{y}$",
+      "$\\mathbf{X}$",
+      "$\\mathbf{b}$",
+      "$\\mathbf{e}$",
+      "$N$, $K$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "the-analogy-worth-noticing",
+   "heading": "The analogy worth noticing",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-analogy-worth-noticing-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "\\boldsymbol{\\beta} = \\{\\mathrm{Var}[\\mathbf{x}]\\}^{-1}\\{\\mathrm{Cov}[\\mathbf{x},y]\\} \\qquad \\text{vs} \\qquad \\mathbf{b} = \\left(\\tfrac{1}{N}\\mathbf{X}'\\mathbf{X}\\right)^{-1}\\left(\\tfrac{1}{N}\\mathbf{X}'\\mathbf{y}\\right)"
+      },
+      {
+       "t": "prose",
+       "md": "OLS is the sample analogue of the population linear projection. See [Conditional Mean vs Linear Projection](note:conditional-mean-vs-linear-projection)."
+      }
+     ],
+     "words": 16,
+     "symbols": [
+      "$\\mathbf{y}$",
+      "$\\mathbf{X}$",
+      "$\\boldsymbol{\\beta}$",
+      "$\\mathbf{b}$",
+      "$N$, $K$",
+      "$y_i$, $x_i$",
+      "$\\mathbf{x}$, $\\mathbf{a}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "three-implications-of-the-solution",
+   "heading": "Three implications of the solution",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "three-implications-of-the-solution-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "All consequences of $\\mathbf{X}'\\mathbf{e} = \\mathbf{0}$ **when $\\mathbf{X}$ contains a constant**:"
+      },
+      {
+       "t": "prose",
+       "md": "1. The LS residuals sum to zero.\n2. The regression hyperplane passes through the point of means: $\\bar{y} = \\bar{\\mathbf{x}}'\\mathbf{b}$.\n3. The mean of the fitted values equals the mean of the actual values."
+      },
+      {
+       "t": "prose",
+       "md": "None of the three holds without a constant term."
+      }
+     ],
+     "words": 47,
+     "symbols": [
+      "$\\mathbf{X}$",
+      "$\\mathbf{b}$",
+      "$\\mathbf{e}$",
+      "$\\bar{x}$, $\\bar{y}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "residuals-vs-disturbances",
+   "heading": "Residuals vs disturbances",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "residuals-vs-disturbances-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Keep these separate. It is the most common conceptual error in this material."
+      },
+      {
+       "t": "table",
+       "md": "| Population | Sample |\n| --- | --- |\n| $\\varepsilon_i = y_i - \\mathbf{x}_i'\\boldsymbol{\\beta}$ (disturbance, **unobservable**) | $e_i = y_i - \\mathbf{x}_i'\\mathbf{b}$ (residual, **computed**) |\n| $\\mathbf{y} = E[\\mathbf{y}\\mid\\mathbf{X}] + \\boldsymbol{\\varepsilon}$ = conditional mean + disturbance | $\\mathbf{y} = \\mathbf{X}\\mathbf{b} + \\mathbf{e}$ = projection + residual |\n| $E[\\mathbf{X}'\\boldsymbol{\\varepsilon}] = \\mathbf{0}$ — an **assumption** | $\\tfrac{1}{N}\\sum \\mathbf{x}_i e_i = \\mathbf{0}$ — an **algebraic identity**, true in every sample |"
+      },
+      {
+       "t": "prose",
+       "md": "The right-hand column holds by construction whether or not the model is correct."
+      }
+     ],
+     "words": 48,
+     "symbols": [
+      "$\\mathbf{y}$",
+      "$\\mathbf{X}$",
+      "$\\boldsymbol{\\beta}$",
+      "$\\mathbf{b}$",
+      "$\\boldsymbol{\\varepsilon}$",
+      "$\\mathbf{e}$",
+      "$N$, $K$",
+      "$y_i$, $x_i$",
+      "$e_i$",
+      "$\\mathbf{x}$, $\\mathbf{a}$",
+      "$\\varepsilon$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Math background: [Matrix Calculus](note:matrix-calculus) · [Matrix Algebra Identities](note:matrix-algebra-identities) · [Invertibility and Determinants](note:invertibility-and-determinants) · [Quadratic Forms and Definiteness](note:quadratic-forms-and-definiteness)\n- [Projection Matrix and Residual Maker](note:projection-matrix-and-residual-maker) — the geometry\n- [Full Rank and Identification](note:full-rank-and-identification) — when the inverse exists\n- [OLS Estimator](note:ols-estimator) — the scalar special case"
+      }
+     ],
+     "words": 39,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

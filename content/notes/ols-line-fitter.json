@@ -1,0 +1,197 @@
+{
+ "slug": "ols-line-fitter",
+ "notation": [
+  {
+   "tex": "$y_i$, $x_i$",
+   "meaning": "Outcome and explanatory variable for observation $i$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "y",
+    "x"
+   ],
+   "from": "ols-estimator"
+  },
+  {
+   "tex": "$\\beta_1$, $\\beta_2$",
+   "meaning": "True intercept and slope",
+   "kind": "Unknown parameters",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ],
+   "from": "ols-estimator"
+  },
+  {
+   "tex": "$b_1$, $b_2$",
+   "meaning": "OLS estimates of the intercept and slope",
+   "kind": "Estimators",
+   "typical": "—",
+   "keys": [
+    "b"
+   ],
+   "from": "ols-estimator"
+  },
+  {
+   "tex": "$e_i$",
+   "meaning": "True error: everything else affecting $y_i$",
+   "kind": "Unobserved",
+   "typical": "—",
+   "keys": [
+    "e"
+   ],
+   "from": "ols-estimator"
+  },
+  {
+   "tex": "$\\hat{e}_i$",
+   "meaning": "Residual: $y_i - b_1 - b_2x_i$",
+   "kind": "Computed",
+   "typical": "Sum to zero",
+   "keys": [
+    "hat(e)"
+   ],
+   "from": "ols-estimator"
+  },
+  {
+   "tex": "$\\bar{x}$, $\\bar{y}$",
+   "meaning": "Sample means",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "bar(x)",
+    "bar(y)"
+   ],
+   "from": "ols-estimator"
+  },
+  {
+   "tex": "$N$",
+   "meaning": "Number of observations",
+   "kind": "Count",
+   "typical": "—",
+   "keys": [
+    "N"
+   ],
+   "from": "ols-estimator"
+  },
+  {
+   "tex": "$SSR$",
+   "meaning": "Sum of squared residuals",
+   "kind": "Objective being minimised",
+   "typical": "—",
+   "keys": [
+    "~SSR"
+   ],
+   "from": "ols-estimator"
+  },
+  {
+   "tex": "$E[y\\mid x]$, $\\mu_{y\\mid x}$",
+   "meaning": "Average of $y$ at a given $x$ (the regression function)",
+   "kind": "Population quantity",
+   "typical": "—",
+   "keys": [
+    "~E[y\\midx]",
+    "mu"
+   ],
+   "from": "simple-linear-regression-model"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "ols-line-fitter"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$y_i$, $x_i$",
+      "$b_1$, $b_2$",
+      "$\\hat{e}_i$",
+      "$\\bar{x}$, $\\bar{y}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The food-expenditure regression, made draggable. There is no lecture figure to compare with: the original data are not in the vault, so the points are **simulated**. They are drawn from the population line of [Simple Linear Regression Model](note:simple-linear-regression-model), $E[y \\mid x] = 80 + 10x$ with income in hundreds of dollars a week (10 cents of each extra dollar goes on food), plus a normal error with standard deviation 89.5. The seed was picked so that this sample's estimates match the regression the practice questions quote: $b_2 = 10.21$ and an elasticity at the means of 0.71 (here $\\bar{x} = 19.59$, $\\bar{y} = 283.00$, $b_1 = 82.89$, $R^2 = 0.50$)."
+      }
+     ],
+     "words": 90,
+     "symbols": [
+      "$y_i$, $x_i$",
+      "$b_1$, $b_2$",
+      "$\\bar{x}$, $\\bar{y}$",
+      "$E[y\\mid x]$, $\\mu_{y\\mid x}$"
+     ]
+    },
+    {
+     "id": "notes-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Purpose.** See what \"least squares\" minimizes. Each residual $\\hat{e}_i = y_i - b_1 - b_2x_i$ is a vertical stick; its square is a square on the plot; $SSR(b_1, b_2)$ is their total area. Dragging the line changes $b_1$ and $b_2$; the minimum is the OLS line of [OLS Estimator](note:ols-estimator), $b_2 = \\sum(x_i - \\bar{x})(y_i - \\bar{y})/\\sum(x_i - \\bar{x})^2$ and $b_1 = \\bar{y} - b_2\\bar{x}$.\n- **Notation.** The draggable line is a candidate $(b_1, b_2)$, as in the objective $SSR(b_1, b_2)$; it becomes the OLS estimate only at the minimum. The population values that generated the data are $\\beta_1 = 80$ and $\\beta_2 = 10$: setting $b_1 = 80$, $b_2 = 10$ draws the population line, whose sticks are the errors $e_i$ rather than the residuals.\n- **Goal it supports.** `ssr <= 1.01*ssr_min` (within 1% of the minimum), reachable on the slider grid: the best grid point, $b_1 = 83$, $b_2 = 10.2$, is 0.0005% above the minimum."
+      }
+     ],
+     "words": 113,
+     "symbols": [
+      "$y_i$, $x_i$",
+      "$\\beta_1$, $\\beta_2$",
+      "$b_1$, $b_2$",
+      "$e_i$",
+      "$\\hat{e}_i$",
+      "$\\bar{x}$, $\\bar{y}$",
+      "$SSR$"
+     ]
+    },
+    {
+     "id": "notes-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Built-ins.** Elements `points`, `line`, `residuals`, `squares`, `ols`, `ssr`, `r2`; scalars `ssr`, `ssr_min`, `r2`, `slope_ols`, `intercept_ols`, `n`, `xbar`, `ybar`. Readouts `ssr_excess`, `elasticity` and `resid_mean`, the average vertical gap $\\bar{y} - b_1 - b_2\\bar{x}$: +7.07 from the population line (the sample mean of the 40 errors) and 0 from the OLS line (the first normal equation, $\\sum \\hat{e}_i = 0$). The data sums `sum_x`, `sum_y`, `sum_xx`, `sum_xy` and `sum_yy` are scalars too."
+      }
+     ],
+     "words": 73,
+     "symbols": [
+      "$b_1$, $b_2$",
+      "$\\hat{e}_i$",
+      "$\\bar{x}$, $\\bar{y}$"
+     ]
+    },
+    {
+     "id": "notes-4",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **First-order conditions.** Readouts `resid_sum` ($\\sum \\hat{e}_i$, which is $N$ times `resid_mean`) and `xresid_sum` ($\\sum x_i\\hat{e}_i$) are both zero at the OLS line and nowhere else. Panel `ssr_bowl` draws $SSR(b_1, b_2)$ as level sets at 1.02 to 7 times the minimum, with the current line as the point `here`, which drags $b_1$ and $b_2$ together. The bowl shows where the minimum is, so a placement whose goal is finding the minimum leaves it out of `show`.\n- **Tests.** The generator is the player's seeded one (mulberry32 with Box-Muller); the Python verification replicates it draw for draw and recomputes every statistic."
+      }
+     ],
+     "words": 96,
+     "symbols": [
+      "$y_i$, $x_i$",
+      "$b_1$, $b_2$",
+      "$\\hat{e}_i$",
+      "$N$",
+      "$SSR$"
+     ]
+    }
+   ]
+  }
+ ]
+}

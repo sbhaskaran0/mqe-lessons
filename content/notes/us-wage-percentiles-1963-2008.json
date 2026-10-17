@@ -1,0 +1,111 @@
+{
+ "slug": "us-wage-percentiles-1963-2008",
+ "notation": [
+  {
+   "tex": "$w_{90}$, $w_{50}$, $w_{10}$",
+   "meaning": "Wage at the 90th, 50th (median) and 10th percentiles",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "w"
+   ],
+   "from": "percentile-ratios"
+  },
+  {
+   "tex": "$p$, $y$",
+   "meaning": "Percentile and year",
+   "kind": "Indices",
+   "typical": "—",
+   "keys": [
+    "p",
+    "y"
+   ],
+   "from": "percentile-ratios"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Real weekly wages at the 10th, 50th and 90th percentiles rose together until the 1970s, then fanned out. By 2008 the 90th percentile was up about 0.58 log points on 1963, the median about 0.27, the 10th about 0.13.**"
+      },
+      {
+       "t": "prose",
+       "md": "Measured as $\\ln(w_{p,y}/w_{p,1963})$ for each percentile $p$. Values read off the chart, approximate."
+      },
+      {
+       "t": "table",
+       "md": "| | 10th | 50th | 90th |\n| --- | --- | --- | --- |\n| 1963–early 1970s | Rise together to ≈ 0.2 | Rise together to ≈ 0.25 | Rise together to ≈ 0.25 |\n| 1980s–mid 1990s | **Falls** to ≈ 0.07–0.10 | Roughly flat ≈ 0.2 | Climbs steadily |\n| 2008 | ≈ 0.13 | ≈ 0.27 | ≈ 0.58 |"
+      }
+     ],
+     "words": 100,
+     "symbols": [
+      "$w_{90}$, $w_{50}$, $w_{10}$",
+      "$p$, $y$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "reading-it",
+   "heading": "Reading it",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "reading-it-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- The 90-50 gap (upper tail) widens **continuously** from about 1980.\n- The 50-10 gap (lower tail) widens in the 1980s, then stops — this split is what labour economists call **polarization** ([Wage Polarization](note:wage-polarization))."
+      }
+     ],
+     "words": 33,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "males-and-females-pooled",
+   "heading": "Males and females pooled",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "males-and-females-pooled-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The same March-CPS full-time, full-year series for males and females together (values read off the lecture chart, approximate): by 2008 the 90th percentile is up ≈0.58 log points on 1963, the median ≈0.33 and the 10th ≈0.25. Treat the 50-10 gap with caution: full-time, full-year samples leave out many low-wage part-time and part-year workers. Including them, with hourly wages, see [US Wage Growth by Percentile 1974-2008](note:us-wage-growth-by-percentile-1974-2008)."
+      }
+     ],
+     "words": 69,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Percentile Ratios](note:percentile-ratios)\n- [Current Population Survey (CPS)](note:current-population-survey-cps)\n- [Wage Polarization](note:wage-polarization) · [US Wage Growth by Percentile 1974-2008](note:us-wage-growth-by-percentile-1974-2008)\n- Paper: [Acemoglu and Autor 2011 - Skills, Tasks and Technologies](note:acemoglu-and-autor-2011-skills-tasks-and-technologies)"
+      }
+     ],
+     "words": 28,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

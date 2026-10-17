@@ -1,0 +1,85 @@
+{
+ "slug": "danish-matched-worker-firm-data",
+ "notation": [],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Administrative data from Statistics Denmark that follow every worker and every private-sector firm over time."
+      }
+     ],
+     "words": 15,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "coverage",
+   "heading": "Coverage",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "coverage-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- The population of Danish workers matched to the universe of private-sector Danish firms.\n- Firm-level imports and exports by product and by origin or destination country."
+      },
+      {
+       "t": "callout",
+       "kind": "note",
+       "title": "Beyond the lecture",
+       "md": "The worker registers are commonly called IDA (Integrated Database for Labour Market Research). Access is through Statistics Denmark's research services.",
+       "folded": false
+      }
+     ],
+     "words": 50,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "strengths-and-weaknesses",
+   "heading": "Strengths and weaknesses",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "strengths-and-weaknesses-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Good for | Weak for |\n| --- | --- |\n| Linking firm trade shocks to the wages and careers of specific workers | External validity: a small, open, high-wage economy |\n| Firm-specific trade instruments (country × product shares) | Open access |\n| Full population — no sampling error, no top coding | — |"
+      }
+     ],
+     "words": 41,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [SSA Master Earnings File](note:ssa-master-earnings-file) · [Longitudinal Business Database (LBD)](note:longitudinal-business-database-lbd)"
+      }
+     ],
+     "words": 9,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

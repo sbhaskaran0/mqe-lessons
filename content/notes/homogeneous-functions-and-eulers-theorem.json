@@ -1,0 +1,266 @@
+{
+ "slug": "homogeneous-functions-and-eulers-theorem",
+ "notation": [
+  {
+   "tex": "$f(\\mathbf{x})$",
+   "meaning": "Function (e.g. production)",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "f"
+   ]
+  },
+  {
+   "tex": "$t$",
+   "meaning": "Scaling factor applied to every input",
+   "kind": "Number > 0",
+   "typical": "—",
+   "keys": [
+    "t"
+   ]
+  },
+  {
+   "tex": "$k$",
+   "meaning": "Degree of homogeneity",
+   "kind": "Number",
+   "typical": "1 = constant returns",
+   "keys": [
+    "k"
+   ]
+  },
+  {
+   "tex": "$f_i$",
+   "meaning": "Partial derivative (marginal product) of input $i$",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "f"
+   ]
+  },
+  {
+   "tex": "$w_i$, $p$",
+   "meaning": "Price of input $i$ and of output",
+   "kind": "Prices",
+   "typical": "—",
+   "keys": [
+    "w",
+    "p"
+   ]
+  },
+  {
+   "tex": "$Y$, $K$, $L$",
+   "meaning": "Output, capital, labor in the example",
+   "kind": "—",
+   "typical": "$K = 8$, $L = 27$",
+   "keys": [
+    "Y",
+    "K",
+    "L"
+   ]
+  },
+  {
+   "tex": "$MPK$, $MPL$",
+   "meaning": "Marginal products",
+   "kind": "—",
+   "typical": "0.703, 0.486",
+   "keys": [
+    "~MPK",
+    "~MPL"
+   ]
+  },
+  {
+   "tex": "$w_L$, $w_H$, $L$, $H$",
+   "meaning": "Wages and quantities of two labor types",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "w",
+    "L",
+    "H"
+   ]
+  },
+  {
+   "tex": "$x_i$",
+   "meaning": "Input $i$",
+   "kind": "Variable",
+   "typical": "—",
+   "keys": [
+    "x"
+   ],
+   "from": "partial-derivatives-and-the-gradient"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A function is homogeneous if scaling all its inputs by some factor scales the output in a predictable way. Constant returns to scale is the leading case: double every input and output doubles exactly. Euler's theorem then says that if each input is paid what it adds at the margin, the payments add up to exactly the total output — nothing left over, nothing missing. And each input's marginal product depends only on the mix of inputs, not the scale of production."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It explains why factor shares add up, and why relative wages depend only on relative supplies in the skill-premium and growth models.",
+       "folded": false
+      }
+     ],
+     "words": 106,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$f$ is **homogeneous of degree $k$** if scaling every input by $t > 0$ scales output by $t^k$:"
+      },
+      {
+       "t": "math",
+       "tex": "f(t\\mathbf{x}) = t^k f(\\mathbf{x})"
+      },
+      {
+       "t": "prose",
+       "md": "$k = 1$ is **constant returns to scale** (CRS); $k > 1$ increasing, $k < 1$ decreasing."
+      }
+     ],
+     "words": 20,
+     "symbols": [
+      "$f(\\mathbf{x})$",
+      "$t$",
+      "$k$",
+      "$f_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "eulers-theorem",
+   "heading": "Euler's theorem",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "eulers-theorem-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "\\sum_i x_i\\frac{\\partial f}{\\partial x_i} = k\\,f(\\mathbf{x})"
+      },
+      {
+       "t": "prose",
+       "md": "**Proof**: differentiate $f(t\\mathbf{x}) = t^kf(\\mathbf{x})$ with respect to $t$ ([Multivariable Chain Rule](note:multivariable-chain-rule)): $\\sum_i x_if_i(t\\mathbf{x}) = kt^{k-1}f(\\mathbf{x})$, then set $t = 1$."
+      }
+     ],
+     "words": 10,
+     "symbols": [
+      "$f(\\mathbf{x})$",
+      "$t$",
+      "$k$",
+      "$f_i$",
+      "$x_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "two-consequences-economists-use-constantly",
+   "heading": "Two consequences economists use constantly",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "two-consequences-economists-use-constantly-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. **Product exhaustion.** With CRS and competitive factor prices ($w_i = p f_i$): $\\sum_i w_ix_i = pf(\\mathbf{x})$. Paying every factor its marginal product uses up exactly the value of output — factor shares sum to one.\n2. **Marginal products depend only on ratios.** If $f$ is degree $k$, each $f_i$ is degree $k - 1$. With CRS they are degree 0, so $f_i(\\mathbf{x})$ depends only on input **ratios**. That is why relative wages depend only on relative supplies."
+      }
+     ],
+     "words": 62,
+     "symbols": [
+      "$f(\\mathbf{x})$",
+      "$k$",
+      "$f_i$",
+      "$w_i$, $p$",
+      "$w_L$, $w_H$, $L$, $H$",
+      "$x_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$Y = K^{0.3}L^{0.7}$ (CRS) at $K = 8$, $L = 27$: $MPK\\cdot K + MPL\\cdot L = 0.703\\times8 + 0.486\\times27 = 18.74 = Y$. ✓ And $MPK = 0.3(L/K)^{0.7}$ depends only on $L/K$."
+      }
+     ],
+     "words": 6,
+     "symbols": [
+      "$Y$, $K$, $L$",
+      "$MPK$, $MPL$",
+      "$w_L$, $w_H$, $L$, $H$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Labor**: in the [CES Production Function](note:ces-production-function) (degree 1), wages $w_L$, $w_H$ depend only on $H/L$, so the skill premium is a function of relative supply — the core of the [Canonical Model of the Skill Premium](note:canonical-model-of-the-skill-premium); and $w_LL + w_HH = pY$, so the wage bill splits exactly into the two groups' shares.\n- **Macro**: factor shares and growth accounting ([Multivariable Chain Rule](note:multivariable-chain-rule)).\n- **Micro**: homothetic preferences, where demand shares do not depend on income."
+      }
+     ],
+     "words": 67,
+     "symbols": [
+      "$w_i$, $p$",
+      "$Y$, $K$, $L$",
+      "$w_L$, $w_H$, $L$, $H$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Partial Derivatives and the Gradient](note:partial-derivatives-and-the-gradient)"
+      }
+     ],
+     "words": 6,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

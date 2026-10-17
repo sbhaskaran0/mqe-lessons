@@ -1,0 +1,309 @@
+{
+ "slug": "linear-independence-and-rank",
+ "notation": [
+  {
+   "tex": "$\\mathbf{a}_1, \\ldots, \\mathbf{a}_k$",
+   "meaning": "Vectors (e.g. columns of a data matrix)",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(a)"
+   ]
+  },
+  {
+   "tex": "$c_1, \\ldots, c_k$",
+   "meaning": "Weights in a linear combination",
+   "kind": "Numbers",
+   "typical": "—",
+   "keys": [
+    "c"
+   ]
+  },
+  {
+   "tex": "$k$",
+   "meaning": "Number of vectors or columns",
+   "kind": "Count",
+   "typical": "—",
+   "keys": [
+    "k"
+   ]
+  },
+  {
+   "tex": "$A$",
+   "meaning": "Matrix",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "A"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{x}$",
+   "meaning": "Vector in the null space when $A\\mathbf{x} = \\mathbf{0}$",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(x)"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{X}$",
+   "meaning": "Regressor matrix",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "bold(X)"
+   ]
+  },
+  {
+   "tex": "$N$, $K$",
+   "meaning": "Observations and regressors",
+   "kind": "Counts",
+   "typical": "$N > K$ usually",
+   "keys": [
+    "N",
+    "K"
+   ],
+   "from": "column-space"
+  },
+  {
+   "tex": "$A$, $B$, $C$",
+   "meaning": "Square (or conformable) matrices",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "A",
+    "B",
+    "C"
+   ],
+   "from": "trace-of-a-matrix"
+  },
+  {
+   "tex": "$\\mathbf{M}$",
+   "meaning": "Residual maker",
+   "kind": "Matrix",
+   "typical": "Trace $n - K$",
+   "keys": [
+    "bold(M)"
+   ],
+   "from": "trace-of-a-matrix"
+  },
+  {
+   "tex": "$n$, $K$",
+   "meaning": "Observations and regressors",
+   "kind": "Counts",
+   "typical": "—",
+   "keys": [
+    "n",
+    "K"
+   ],
+   "from": "trace-of-a-matrix"
+  },
+  {
+   "tex": "$NI$, $S$, $T$",
+   "meaning": "Non-labor income, labor income and total income ($T = NI + S$) in the example",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "~NI",
+    "S",
+    "T"
+   ],
+   "from": "full-rank-and-identification"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A set of variables is linearly independent if none of them can be built by mixing the others. If one is just a combination of the rest — total income equal to labor plus non-labor income — it adds no new information. Rank counts how many genuinely independent columns a matrix has. When the rank falls short of the number of columns, different coefficient combinations give identical predictions, so a regression cannot tell them apart."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the precise condition behind identification and the dummy variable trap.",
+       "folded": false
+      }
+     ],
+     "words": 88,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Vectors $\\mathbf{a}_1,\\dots,\\mathbf{a}_k$ are **linearly independent** if"
+      },
+      {
+       "t": "math",
+       "tex": "c_1\\mathbf{a}_1 + \\dots + c_k\\mathbf{a}_k = \\mathbf{0} \\;\\Longrightarrow\\; c_1 = \\dots = c_k = 0"
+      },
+      {
+       "t": "prose",
+       "md": "— no vector can be written as a combination of the others."
+      },
+      {
+       "t": "prose",
+       "md": "The **rank** of $A$ is the number of linearly independent columns (equivalently rows), which is the dimension of its [Column Space](note:column-space)."
+      }
+     ],
+     "words": 36,
+     "symbols": [
+      "$\\mathbf{a}_1, \\ldots, \\mathbf{a}_k$",
+      "$c_1, \\ldots, c_k$",
+      "$A$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "rank-nullity",
+   "heading": "Rank–nullity",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "rank-nullity-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The **null space** is $\\{\\mathbf{x}: A\\mathbf{x} = \\mathbf{0}\\}$; its dimension is the nullity. For $A$ with $k$ columns:"
+      },
+      {
+       "t": "math",
+       "tex": "\\mathrm{rank}(A) + \\mathrm{nullity}(A) = k"
+      },
+      {
+       "t": "prose",
+       "md": "Full column rank ($\\mathrm{rank} = k$) means the null space is just $\\{\\mathbf{0}\\}$: different coefficient vectors always produce different $A\\mathbf{x}$. That is precisely identification."
+      }
+     ],
+     "words": 31,
+     "symbols": [
+      "$k$",
+      "$A$",
+      "$\\mathbf{x}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "useful-facts",
+   "heading": "Useful facts",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "useful-facts-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Fact | Why it matters |\n| --- | --- |\n| $\\mathrm{rank}(A) \\leq \\min(\\text{rows}, \\text{cols})$ | Need $N \\geq K$ to have full column rank |\n| $\\mathrm{rank}(\\mathbf{X}'\\mathbf{X}) = \\mathrm{rank}(\\mathbf{X})$ | $\\mathbf{X}'\\mathbf{X}$ invertible iff $\\mathbf{X}$ has full column rank |\n| $\\mathrm{rank}(AB) \\leq \\min(\\mathrm{rank}A, \\mathrm{rank}B)$ | Products can only lose rank |\n| Idempotent $A$: $\\mathrm{rank}(A) = \\mathrm{trace}(A)$ | Degrees of freedom ([Trace of a Matrix](note:trace-of-a-matrix)) |"
+      }
+     ],
+     "words": 31,
+     "symbols": [
+      "$A$",
+      "$\\mathbf{X}$",
+      "$N$, $K$",
+      "$A$, $B$, $C$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Columns $[\\mathbf{1},\\ NI,\\ S,\\ NI + S]$ with four observations: the fourth column equals the second plus the third, so the rank is **3**, not 4. $\\mathbf{x} = (0, 1, 1, -1)'$ is in the null space."
+      }
+     ],
+     "words": 25,
+     "symbols": [
+      "$\\mathbf{x}$",
+      "$N$, $K$",
+      "$NI$, $S$, $T$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Nonlinear** dependence does not reduce rank: $x$ and $x^2$ are fine together.\n- High correlation between columns is *near*-dependence (multicollinearity): rank is still full, but estimates become imprecise."
+      }
+     ],
+     "words": 28,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Econometrics**: [Full Rank and Identification](note:full-rank-and-identification); the dummy variable trap in [Indicator Variables](note:indicator-variables); $\\mathrm{rank}(\\mathbf{M}) = n - K$ in [Projection Matrix and Residual Maker](note:projection-matrix-and-residual-maker)."
+      }
+     ],
+     "words": 19,
+     "symbols": [
+      "$N$, $K$",
+      "$\\mathbf{M}$",
+      "$n$, $K$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Invertibility and Determinants](note:invertibility-and-determinants)"
+      }
+     ],
+     "words": 4,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

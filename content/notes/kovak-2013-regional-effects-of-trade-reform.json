@@ -1,0 +1,223 @@
+{
+ "slug": "kovak-2013-regional-effects-of-trade-reform",
+ "notation": [
+  {
+   "tex": "$w_{rj}$",
+   "meaning": "Wage in industry $j$ for $r$'s workers",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "w"
+   ],
+   "from": "shift-share-exposure"
+  },
+  {
+   "tex": "$\\tau_i$",
+   "meaning": "Tariff on industry $i$",
+   "kind": "Exogenous (policy)",
+   "typical": "—",
+   "keys": [
+    "tau"
+   ],
+   "from": "shift-share-exposure"
+  },
+  {
+   "tex": "$\\beta_{ri}$",
+   "meaning": "Tariff-measure weight for region $r$, industry $i$",
+   "kind": "Data",
+   "typical": "0.67 and 0.33 in the example",
+   "keys": [
+    "beta"
+   ],
+   "from": "shift-share-exposure"
+  }
+ ],
+ "sections": [
+  {
+   "id": "key-takeaways",
+   "heading": "Key takeaways",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "key-takeaways-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. **Theory tells you how to measure regional exposure.** In a specific-factors model with labor mobile across industries within a region, the regional wage change is a weighted average of traded-goods price changes. The weights are each industry's labor share divided by one minus its national labor share. **Non-traded industries get zero weight.**\n2. **Liberalization hurt the regions most exposed.** Brazil's early-1990s tariff cuts lowered wages most where cuts were largest: elasticity ≈ 0.44, so a 10% larger regional cut means about 4.4% lower relative wages.\n3. **The wrong measure gives the wrong answer.** Treating non-traded industries as having zero price change — what a naive employment-weighted average does — inflates the estimate to about 2."
+      }
+     ],
+     "words": 115,
+     "symbols": []
+    },
+    {
+     "id": "key-takeaways-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "4. **The shock spreads within regions.** Workers in non-traded sectors lose about as much as traded-sector workers, consistent with labor moving across sectors inside a region."
+      }
+     ],
+     "words": 26,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "research-question",
+   "heading": "Research question",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "research-question-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "What is the correct regional measure of trade liberalization, and how did Brazil's liberalization affect local wages?"
+      }
+     ],
+     "words": 17,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "data-and-setting",
+   "heading": "Data and setting",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "data-and-setting-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "493 Brazilian micro-regions (Manaus omitted). The 1990s reform cut tariffs sharply and unevenly across industries, while industrial structure varied widely across regions. The reform aimed to lower and **equalize** tariffs, so cuts were set by pre-reform tariff levels and were unrelated to pre-reform industry growth."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Brazil regional tariff changes 1990s.png",
+       "alt": "Brazil regional tariff changes 1990s"
+      }
+     ],
+     "words": 45,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "empirical-strategy",
+   "heading": "Empirical strategy",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "empirical-strategy-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "RTC_r = \\sum_{i \\in \\text{traded}} \\beta_{ri}\\,d\\ln(1+\\tau_i), \\qquad d\\ln w_r = \\xi_0 + \\xi_1 RTC_r + [\\text{state effects}] + \\epsilon_r"
+      },
+      {
+       "t": "prose",
+       "md": "The weights $\\beta_{ri}$ come from the model ([Shift-Share Exposure](note:shift-share-exposure), [Specific-Factors Model](note:specific-factors-model)); standard errors are clustered by state (27 states; [Clustered Standard Errors](note:clustered-standard-errors))."
+      }
+     ],
+     "words": 21,
+     "symbols": [
+      "$w_{rj}$",
+      "$\\tau_i$",
+      "$\\beta_{ri}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "results",
+   "heading": "Results",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "results-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Brazil regional wage changes 1990s.png",
+       "alt": "Brazil regional wage changes 1990s"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    },
+    {
+     "id": "results-2",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Brazil liberalization and local wages.png",
+       "alt": "Table - Brazil liberalization and local wages"
+      },
+      {
+       "t": "prose",
+       "md": "Main estimate with state indicators: 0.439 (SE 0.146). Without the labor-share adjustment: 0.439. Setting non-traded price changes to zero: 1.965. Non-traded-sector workers' wages: 0.482. Full table in [Brazil Regional Wage Effects of 1990s Tariff Cuts](note:brazil-regional-wage-effects-of-1990s-tariff-cuts)."
+      }
+     ],
+     "words": 40,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "caveats",
+   "heading": "Caveats",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "caveats-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Effects are relative across regions; they do not measure the national gains or losses from liberalization.\n- The weights assume labor is mobile within a region but not across regions, and a specific factor in each industry.\n- Without state indicators the estimate is imprecise (0.404, SE 0.502)."
+      }
+     ],
+     "words": 51,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "in-econ-424-l5-international-trade-empirics",
+   "heading": "In Econ 424 L5 International Trade Empirics",
+   "role": "paper-in-lesson",
+   "steps": [
+    {
+     "id": "in-econ-424-l5-international-trade-empirics-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The second regional example. It is \"very similar to ADH, with two differences\": tariff cuts instead of import growth, and theory-based weights over traded industries only. Together with ADH it delivers the regional summary: regions hit by negative demand shocks are harmed relative to others — in a rich and a middle-income country, for foreign shocks and domestic policy shocks."
+      }
+     ],
+     "words": 59,
+     "symbols": []
+    }
+   ],
+   "lesson": "econ-424-l5-international-trade-empirics"
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Shift-Share Exposure](note:shift-share-exposure) · [Specific-Factors Model](note:specific-factors-model) · [Small Open Economy](note:small-open-economy) · [Autor, Dorn and Hanson 2013 - The China Syndrome](note:autor-dorn-and-hanson-2013-the-china-syndrome)"
+      }
+     ],
+     "words": 17,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

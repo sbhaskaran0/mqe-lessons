@@ -1,0 +1,238 @@
+{
+ "slug": "wage-polarization",
+ "notation": [
+  {
+   "tex": "$w_p$",
+   "meaning": "Wage at the $p$-th percentile of the wage distribution",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "w"
+   ]
+  },
+  {
+   "tex": "$\\Delta$",
+   "meaning": "Change between the start and end of a period",
+   "kind": "Operator",
+   "typical": "—",
+   "keys": [
+    "Delta"
+   ]
+  },
+  {
+   "tex": "$\\ln(w_{90}/w_{50})$, $\\ln(w_{50}/w_{10})$",
+   "meaning": "Upper-tail and lower-tail log wage gaps",
+   "kind": "Statistic",
+   "typical": "≈ 0.6–0.8 each for US hourly wages",
+   "keys": []
+  },
+  {
+   "tex": "$g(p)$",
+   "meaning": "Growth of $\\ln w_p$ minus growth of the median log wage",
+   "kind": "Statistic",
+   "typical": "0 at $p = 50$ by construction",
+   "keys": [
+    "g"
+   ]
+  },
+  {
+   "tex": "$p$, $y$",
+   "meaning": "Percentile and year",
+   "kind": "Indices",
+   "typical": "—",
+   "keys": [
+    "p",
+    "y"
+   ],
+   "from": "percentile-ratios"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Line up every worker from lowest to highest paid and check how much the pay at each spot in the line grew over twenty years. If pay grew faster the higher up the line you go, inequality is simply widening everywhere. Polarization is a different shape: the top pulls away from the middle, but the bottom keeps up with or gains on the middle. Plotted against position in the line, growth looks like a U or a tilted J instead of a straight rising line, so the middle is squeezed from both sides. In the US this replaced the across-the-board widening of the 1980s."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "One summary number such as the variance can rise for very different reasons; polarization says the action is in the top half, which points to different explanations than falling low wages.",
+       "folded": false
+      }
+     ],
+     "words": 138,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A period shows wage polarization when wages at upper and lower percentiles both grow at least as fast as the median, so the upper-tail gap widens while the lower-tail gap is flat or narrows:"
+      },
+      {
+       "t": "math",
+       "tex": "\\Delta \\ln\\frac{w_{90}}{w_{50}} > 0 \\qquad\\text{and}\\qquad \\Delta \\ln\\frac{w_{50}}{w_{10}} \\le 0"
+      }
+     ],
+     "words": 34,
+     "symbols": [
+      "$w_p$",
+      "$\\Delta$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "how-it-is-shown",
+   "heading": "How it is shown",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "how-it-is-shown-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Plot relative growth against the percentile:"
+      },
+      {
+       "t": "math",
+       "tex": "g(p) = \\Delta \\ln w_p - \\Delta \\ln w_{50}"
+      },
+      {
+       "t": "table",
+       "md": "| Shape of $g(p)$ | Upper tail (90-50) | Lower tail (50-10) | Reading |\n| --- | --- | --- | --- |\n| Rising straight line | Widens | Widens | Inequality widening everywhere |\n| U or tilted J | Widens | Flat or narrows | **Polarization** |\n| Flat at 0 | Unchanged | Unchanged | All percentiles grow alike |"
+      },
+      {
+       "t": "callout",
+       "kind": "note",
+       "title": "Beyond the lecture",
+       "md": "Without subtracting the median, the same plot is called a *growth incidence curve* in development economics.",
+       "folded": false
+      }
+     ],
+     "words": 64,
+     "symbols": [
+      "$w_p$",
+      "$\\Delta$",
+      "$g(p)$",
+      "$p$, $y$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Log wage changes over two periods:"
+      },
+      {
+       "t": "table",
+       "md": "| Period | 10th | 50th | 90th | Δ ln(w90/w50) | Δ ln(w50/w10) | Pattern |\n| --- | --- | --- | --- | --- | --- | --- |\n| A | −0.05 | 0.00 | +0.10 | +0.10 | +0.05 | Widening everywhere |\n| B | +0.06 | +0.04 | +0.12 | +0.08 | −0.02 | Polarization |"
+      },
+      {
+       "t": "prose",
+       "md": "In period B every percentile gains and inequality at the top still rises, yet the bottom gains on the middle."
+      }
+     ],
+     "words": 69,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "connection-to-within-group-inequality",
+   "heading": "Connection to within-group inequality",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "connection-to-within-group-inequality-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Less-educated workers are concentrated in the bottom half and college workers in the top half. If dispersion *within* low-education groups falls while dispersion *within* college groups rises, the overall distribution compresses below the median and stretches above it — the polarization shape. See [Within- and Between-Group Inequality](note:within-and-between-group-inequality)."
+      }
+     ],
+     "words": 46,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Polarization is **not** falling inequality: the variance of log wages can still rise, driven by the top half.\n- Sample choice changes the bottom: full-time, full-year samples drop many low-wage part-time workers and can hide or distort lower-tail changes.\n- [Top Coding](note:top-coding) hides changes in the very top tail, so survey data understate how far the top pulls away."
+      }
+     ],
+     "words": 60,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Labor: explaining post-1990 wage changes (beyond the lecture: task-based or \"routine-biased\" technical change, minimum-wage changes).\n- Inequality measurement: deciding which tail drives a rise in a summary measure."
+      }
+     ],
+     "words": 29,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Percentile Ratios](note:percentile-ratios) · [Variance of Log Income](note:variance-of-log-income) · [Within- and Between-Group Inequality](note:within-and-between-group-inequality)\n- [US Skill and Occupation Shifts by City Density 1970-2015](note:us-skill-and-occupation-shifts-by-city-density-1970-2015) — the spatial dimension"
+      }
+     ],
+     "words": 24,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

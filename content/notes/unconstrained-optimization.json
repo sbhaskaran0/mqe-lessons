@@ -1,0 +1,241 @@
+{
+ "slug": "unconstrained-optimization",
+ "notation": [
+  {
+   "tex": "$f(\\mathbf{x})$",
+   "meaning": "Objective function",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "f"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{x}^*$",
+   "meaning": "Optimal choice",
+   "kind": "Endogenous",
+   "typical": "(2, 1) in the example",
+   "keys": [
+    "bold(x)*"
+   ]
+  },
+  {
+   "tex": "$\\nabla f$",
+   "meaning": "Gradient",
+   "kind": "Vector",
+   "typical": "Zero at an interior optimum",
+   "keys": [
+    "f"
+   ]
+  },
+  {
+   "tex": "$H$",
+   "meaning": "Hessian matrix",
+   "kind": "Matrix",
+   "typical": "Negative definite for a max",
+   "keys": [
+    "H"
+   ]
+  },
+  {
+   "tex": "$x$, $y$",
+   "meaning": "Choice variables in the example",
+   "kind": "Variables",
+   "typical": "—",
+   "keys": [
+    "x",
+    "y"
+   ]
+  },
+  {
+   "tex": "$\\lambda$",
+   "meaning": "Box-Cox power estimated by maximum likelihood (in the uses list)",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "lambda"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{x}$, $\\mathbf{v}$",
+   "meaning": "Vectors",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(x)",
+    "bold(v)"
+   ],
+   "from": "quadratic-forms-and-definiteness"
+  },
+  {
+   "tex": "$\\boldsymbol{\\varepsilon}$, $\\mathbf{M}$, $\\mathbf{e}$",
+   "meaning": "Errors, residual maker, residuals",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(varepsilon)",
+    "bold(M)",
+    "bold(e)"
+   ],
+   "from": "quadratic-forms-and-definiteness"
+  },
+  {
+   "tex": "$x$, $x^*(p)$",
+   "meaning": "Job choice in the application, and the optimal choice at prices $p$",
+   "kind": "Choice / endogenous",
+   "typical": "2 in the example",
+   "keys": [
+    "x",
+    "x*"
+   ],
+   "from": "envelope-theorem"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "To find the best value of something with no restrictions on the choices — maximum profit, minimum error — you look for the flat spots where every slope is zero, then check the curvature to see whether each is a peak, a valley or a saddle. If the function curves the same way everywhere, like a single dome, a flat spot is guaranteed to be the overall best, not just a local one."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "Least squares, maximum likelihood and most economic choice problems are solved this way.",
+       "folded": false
+      }
+     ],
+     "words": 87,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "To maximize or minimize $f(\\mathbf{x})$ over an open set:"
+      },
+      {
+       "t": "prose",
+       "md": "1. **First-order condition (FOC)**: $\\nabla f(\\mathbf{x}^*) = \\mathbf{0}$ — necessary for an interior optimum.\n2. **Second-order condition (SOC)**: at $\\mathbf{x}^*$, a negative definite [Hessian Matrix](note:hessian-matrix) gives a strict local **max**; positive definite gives a strict local **min**.\n3. **Global**: if $f$ is concave everywhere, any critical point is a global max; convex, a global min ([Convexity and Concavity](note:convexity-and-concavity))."
+      }
+     ],
+     "words": 59,
+     "symbols": [
+      "$f(\\mathbf{x})$",
+      "$\\mathbf{x}^*$",
+      "$\\nabla f$",
+      "$\\mathbf{x}$, $\\mathbf{v}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Maximize $f(x,y) = -x^2 - y^2 + xy + 3x$."
+      },
+      {
+       "t": "prose",
+       "md": "FOCs: $-2x + y + 3 = 0$ and $x - 2y = 0$, giving $(x^*,y^*) = (2, 1)$ and $f^* = 3$."
+      },
+      {
+       "t": "prose",
+       "md": "SOC: $H = \\begin{pmatrix}-2&1\\\\1&-2\\end{pmatrix}$ has eigenvalues $-1, -3$: negative definite, and constant, so $f$ is concave and $(2,1)$ is the global max."
+      }
+     ],
+     "words": 20,
+     "symbols": [
+      "$f(\\mathbf{x})$",
+      "$\\nabla f$",
+      "$H$",
+      "$x$, $y$",
+      "$x$, $x^*(p)$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Stopping at the FOC: a critical point can be a min, max or saddle.\n- Corner solutions: if the optimum is at a boundary (e.g. $x \\geq 0$ binds), $\\nabla f\\neq\\mathbf{0}$ there. Use [Constrained Optimization and Lagrange Multipliers](note:constrained-optimization-and-lagrange-multipliers)."
+      }
+     ],
+     "words": 35,
+     "symbols": [
+      "$f(\\mathbf{x})$",
+      "$\\nabla f$",
+      "$x$, $y$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Econometrics**: least squares is minimization of $\\mathbf{e}'\\mathbf{e}$ ([OLS Estimator](note:ols-estimator), [OLS in Matrix Form](note:ols-in-matrix-form)); maximum likelihood (the $\\lambda$ in [Box-Cox and Power Transformations](note:box-cox-and-power-transformations)).\n- **Micro / labor**: profit maximization, where FOCs set wages equal to marginal products ([CES Production Function](note:ces-production-function))."
+      }
+     ],
+     "words": 37,
+     "symbols": [
+      "$\\lambda$",
+      "$\\boldsymbol{\\varepsilon}$, $\\mathbf{M}$, $\\mathbf{e}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Matrix Calculus](note:matrix-calculus)\n- [Envelope Theorem](note:envelope-theorem)"
+      }
+     ],
+     "words": 6,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

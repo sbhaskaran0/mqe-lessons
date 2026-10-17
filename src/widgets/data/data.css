@@ -1,0 +1,120 @@
+/* Styles for the dataset widgets (data-chart, distribution). Tokens only. */
+
+.w-data-loading {
+  min-height: 180px;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(100deg, var(--surface) 30%, var(--surface-2) 50%, var(--surface) 70%) 0 0 / 200% 100%;
+  animation: w-shimmer 1.4s linear infinite;
+}
+
+/* legend: one toggle per series */
+.w-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+.w-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 32px;
+  padding: 0 var(--space-3);
+  font: inherit;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: opacity var(--dur) var(--ease), border-color var(--dur) var(--ease), background var(--dur) var(--ease);
+}
+.w-legend-item:hover:not(:disabled) {
+  border-color: var(--text-3);
+}
+.w-legend-item:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+.w-legend-item[aria-pressed="false"] {
+  color: var(--text-3);
+  background: transparent;
+  border-style: dashed;
+}
+.w-legend-item[aria-pressed="false"] .w-swatch {
+  background: transparent !important;
+  box-shadow: inset 0 0 0 1.5px var(--text-3);
+}
+.w-legend-item:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.w-legend-item.w-hl {
+  box-shadow: 0 0 0 2px var(--chart-highlight);
+}
+.w-legend-item .w-swatch {
+  width: 10px;
+  height: 10px;
+}
+@media (pointer: coarse) {
+  .w-legend-item {
+    min-height: var(--touch);
+  }
+}
+
+/* what the numbers are, and where they came from */
+.w-data-note {
+  margin: var(--space-2) 0 0;
+  font-size: var(--text-xs);
+  line-height: 1.45;
+  color: var(--text-3);
+}
+.w-data-note strong {
+  font-weight: 600;
+  color: var(--text-2);
+}
+
+/* distribution: view tabs */
+.w-tabs {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 2px;
+  margin-bottom: var(--space-2);
+  background: var(--surface-2);
+  border-radius: var(--radius-sm);
+}
+.w-tab {
+  min-height: 30px;
+  padding: 0 var(--space-3);
+  white-space: nowrap;
+  font: inherit;
+  font-size: var(--text-xs);
+  font-weight: 500;
+  color: var(--text-2);
+  background: transparent;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.w-tab[aria-selected="true"] {
+  color: var(--text);
+  background: var(--surface);
+  box-shadow: 0 1px 2px var(--w-shadow);
+}
+.w-tab:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 1px;
+}
+.w-tab.w-hl {
+  box-shadow: 0 0 0 2px var(--chart-highlight);
+}
+@media (pointer: coarse) {
+  .w-tab {
+    min-height: var(--touch);
+  }
+}
+
+.w-square {
+  max-width: 440px;
+  margin: 0 auto;
+}

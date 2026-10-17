@@ -1,0 +1,120 @@
+{
+ "slug": "two-period-consumer-model",
+ "notation": [
+  {
+   "tex": "$y_1$, $y_2$",
+   "meaning": "Income in periods 1 and 2",
+   "kind": "Exogenous",
+   "typical": "180, 216",
+   "keys": [
+    "y"
+   ],
+   "from": "two-period-consumption-saving-model"
+  },
+  {
+   "tex": "$c_1$, $c_2$",
+   "meaning": "Consumption in periods 1 and 2",
+   "kind": "Choice",
+   "typical": "200, 192",
+   "keys": [
+    "c"
+   ],
+   "from": "two-period-consumption-saving-model"
+  },
+  {
+   "tex": "$s = y_1 - c_1$",
+   "meaning": "Saving *amount* (negative = borrowing) — not the saving *rate* $s$ of the Solow model",
+   "kind": "Choice",
+   "typical": "−20",
+   "keys": [
+    "s"
+   ],
+   "from": "two-period-consumption-saving-model"
+  },
+  {
+   "tex": "$r$",
+   "meaning": "Interest rate",
+   "kind": "Exogenous to the consumer; endogenous in equilibrium",
+   "typical": "0.2",
+   "keys": [
+    "r"
+   ],
+   "from": "two-period-consumption-saving-model"
+  },
+  {
+   "tex": "$\\beta$",
+   "meaning": "Discount factor",
+   "kind": "Parameter in (0, 1]",
+   "typical": "0.8",
+   "keys": [
+    "beta"
+   ],
+   "from": "two-period-consumption-saving-model"
+  },
+  {
+   "tex": "$u'(c)$",
+   "meaning": "Marginal utility of consumption",
+   "kind": "Function",
+   "typical": "$1/c$ with log utility",
+   "keys": [
+    "u"
+   ],
+   "from": "consumption-euler-equation"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "two-period-consumer-model"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$y_1$, $y_2$",
+      "$c_1$, $c_2$",
+      "$s = y_1 - c_1$",
+      "$r$",
+      "$\\beta$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The model behind [Two-Period Consumption Choice](note:two-period-consumption-choice), which names this note and adds the panel. Place that view, not this note."
+      },
+      {
+       "t": "prose",
+       "md": "- **Model.** The consumer of [Two-Period Consumption-Saving Model](note:two-period-consumption-saving-model): income $y_1$, $y_2$, lifetime budget $c_1 + c_2/(1+r) = y_1 + y_2/(1+r)$, utility $\\ln c_1 + \\beta\\ln c_2$. The condition MRS $= c_2/(\\beta c_1) = 1 + r$ and the budget give $c_1 = y_1/(1+\\beta) + y_2/((1+\\beta)(1+r))$, $c_2 = \\beta(1+r)c_1$ and saving $s = y_1 - c_1$ (an amount, negative when borrowing).\n- **Curves over $c_1$.** The budget line $c_2 = y_2 + (1+r)(y_1 - c_1)$; an indifference curve at utility $u$, $c_2 = e^{(u - \\ln c_1)/\\beta}$, drawn at the optimum's utility (`ic_opt`) and at the endowment's (`ic_end`).\n- **Saver or borrower.** `mrs_end` $= y_2/(\\beta y_1)$ is the MRS at the endowment: below $1 + r$ the consumer saves, above it borrows, and equal means $s = 0$.\n- **Tests.** The lecture's numbers (the typed-notes example $c_1 = 200$, $c_2 = 192$, $s = -20$; perfect smoothing 600 and 600) and two computed cases, checked independently in Python."
+      }
+     ],
+     "words": 113,
+     "symbols": [
+      "$y_1$, $y_2$",
+      "$c_1$, $c_2$",
+      "$s = y_1 - c_1$",
+      "$r$",
+      "$\\beta$",
+      "$u'(c)$"
+     ]
+    }
+   ]
+  }
+ ]
+}

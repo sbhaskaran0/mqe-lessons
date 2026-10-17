@@ -1,0 +1,368 @@
+{
+ "slug": "envelope-theorem",
+ "notation": [
+  {
+   "tex": "$V(\\theta)$",
+   "meaning": "Maximised value as a function of a parameter",
+   "kind": "Value function",
+   "typical": "—",
+   "keys": [
+    "V"
+   ]
+  },
+  {
+   "tex": "$\\theta$",
+   "meaning": "Parameter (price, income, …)",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "theta"
+   ]
+  },
+  {
+   "tex": "$\\mathcal{L}$",
+   "meaning": "Lagrangian",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "cal(L)"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{x}^*$, $\\lambda^*$",
+   "meaning": "Optimal choices and multiplier",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "bold(x)*",
+    "lambda*"
+   ]
+  },
+  {
+   "tex": "$m$, $p_x$, $p_y$",
+   "meaning": "Income and prices in the example",
+   "kind": "Parameters",
+   "typical": "100, 2, 5",
+   "keys": [
+    "m",
+    "p"
+   ]
+  },
+  {
+   "tex": "$\\pi$",
+   "meaning": "Profit function (Hotelling's lemma)",
+   "kind": "Value function",
+   "typical": "—",
+   "keys": [
+    "pi"
+   ]
+  },
+  {
+   "tex": "$C$, $w$",
+   "meaning": "Cost function and input price (Shephard's lemma)",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "C",
+    "w"
+   ]
+  },
+  {
+   "tex": "$p$",
+   "meaning": "Output price",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "p"
+   ]
+  },
+  {
+   "tex": "$x$, $x^*(p)$",
+   "meaning": "Job choice in the application, and the optimal choice at prices $p$",
+   "kind": "Choice / endogenous",
+   "typical": "2 in the example",
+   "keys": [
+    "x",
+    "x*"
+   ]
+  },
+  {
+   "tex": "$f(x, p)$",
+   "meaning": "Income from job $x$ at price $p$",
+   "kind": "Function",
+   "typical": "$px - x^2/2$ in the example",
+   "keys": [
+    "f"
+   ]
+  },
+  {
+   "tex": "$g(\\mathbf{x}) = c$",
+   "meaning": "Constraint (e.g. budget)",
+   "kind": "Function / limit",
+   "typical": "—",
+   "keys": [
+    "g"
+   ],
+   "from": "constrained-optimization-and-lagrange-multipliers"
+  },
+  {
+   "tex": "$\\lambda$",
+   "meaning": "Lagrange multiplier: shadow price of the constraint",
+   "kind": "Endogenous",
+   "typical": "0.02 in the example",
+   "keys": [
+    "lambda"
+   ],
+   "from": "constrained-optimization-and-lagrange-multipliers"
+  },
+  {
+   "tex": "$x$, $y$",
+   "meaning": "Quantities chosen",
+   "kind": "Endogenous",
+   "typical": "25, 10",
+   "keys": [
+    "x",
+    "y"
+   ],
+   "from": "constrained-optimization-and-lagrange-multipliers"
+  },
+  {
+   "tex": "$dz$, $dx_i$",
+   "meaning": "Small changes (total differential)",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "~dz",
+    "~dx_i"
+   ],
+   "from": "multivariable-chain-rule"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "When a parameter changes — a price, an income, a tax — someone who is already choosing optimally will adjust their choices. The envelope theorem says that, for small changes, you can ignore those adjustments when working out how much better or worse off they are: only the direct effect of the parameter matters, because at the optimum small re-optimisations make no first-order difference. That shortcut turns hard derivatives into easy ones."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It delivers demand and supply functions from value functions in one step, and is used constantly in micro and macro.",
+       "folded": false
+      }
+     ],
+     "words": 93,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Let $V(\\theta) = \\max_{\\mathbf{x}} f(\\mathbf{x},\\theta)$ subject to $g(\\mathbf{x},\\theta) = c$. Then"
+      },
+      {
+       "t": "math",
+       "tex": "\\frac{dV}{d\\theta} = \\left.\\frac{\\partial\\mathcal{L}}{\\partial\\theta}\\right|_{\\mathbf{x}^*,\\lambda^*}"
+      }
+     ],
+     "words": 4,
+     "symbols": [
+      "$V(\\theta)$",
+      "$\\theta$",
+      "$\\mathcal{L}$",
+      "$f(x, p)$",
+      "$g(\\mathbf{x}) = c$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "why-the-indirect-effect-vanishes",
+   "heading": "Why the indirect effect vanishes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "why-the-indirect-effect-vanishes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "By the [Multivariable Chain Rule](note:multivariable-chain-rule), $dV/d\\theta$ has a direct effect plus terms $\\partial f/\\partial x_i \\cdot dx_i^*/d\\theta$. At the optimum the FOCs make those first factors zero (or exactly offset by the constraint). So small re-optimizations of $\\mathbf{x}$ have no first-order effect on the value — only the direct effect of $\\theta$ remains."
+      }
+     ],
+     "words": 44,
+     "symbols": [
+      "$V(\\theta)$",
+      "$\\theta$",
+      "$x$, $x^*(p)$",
+      "$f(x, p)$",
+      "$dz$, $dx_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "From the example in [Constrained Optimization and Lagrange Multipliers](note:constrained-optimization-and-lagrange-multipliers) ($\\max \\ln x + \\ln y$ s.t. $p_xx + p_yy = m$, at $m = 100$, $p_x = 2$, $p_y = 5$):"
+      },
+      {
+       "t": "prose",
+       "md": "- $dV/dm = \\partial\\mathcal{L}/\\partial m = \\lambda = 0.02$\n- $dV/dp_x = \\partial\\mathcal{L}/\\partial p_x = -\\lambda x = -0.02 \\times 25 = -0.5$"
+      },
+      {
+       "t": "prose",
+       "md": "**Roy's identity**: $x^* = -\\dfrac{\\partial V/\\partial p_x}{\\partial V/\\partial m} = 0.5/0.02 = 25$. ✓ Numerical derivatives of $V$ match both."
+      }
+     ],
+     "words": 21,
+     "symbols": [
+      "$V(\\theta)$",
+      "$\\mathcal{L}$",
+      "$m$, $p_x$, $p_y$",
+      "$p$",
+      "$x$, $x^*(p)$",
+      "$\\lambda$",
+      "$x$, $y$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "famous-special-cases",
+   "heading": "Famous special cases",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "famous-special-cases-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Result | Statement |\n| --- | --- |\n| Roy's identity | Demand = $-V_p/V_m$ |\n| Shephard's lemma | Conditional factor demand = $\\partial C/\\partial w$ |\n| Hotelling's lemma | Supply = $\\partial\\pi/\\partial p$ |"
+      }
+     ],
+     "words": 15,
+     "symbols": [
+      "$V(\\theta)$",
+      "$m$, $p_x$, $p_y$",
+      "$\\pi$",
+      "$C$, $w$",
+      "$p$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "application-price-changes-and-job-choice",
+   "heading": "Application: price changes and job choice",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "application-price-changes-and-job-choice-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A worker picks a job $x$ to maximize income $f(x, p)$ given prices $p$. At the optimum $f_x = 0$, so"
+      },
+      {
+       "t": "math",
+       "tex": "\\frac{df(x^*(p), p)}{dp} = \\underbrace{f_x\\big|_{x^*}}_{=0}\\frac{dx^*}{dp} + f_p\\big|_{x^*} = f_p\\big|_{x^*}"
+      },
+      {
+       "t": "prose",
+       "md": "The income gain from a small price change is the same whether or not the worker switches jobs. That is why results derived with immobile factors (income moves with the price of what you produce) still hold, to first order, when factors are mobile and allocated optimally — see [Specific-Factors Model](note:specific-factors-model)."
+      },
+      {
+       "t": "prose",
+       "md": "**Worked example**: $f(x, p) = px - x^2/2$, so $x^* = p$ and $V(p) = p^2/2$. At $p = 2$, $V = 2$. Raise $p$ to 2.1: staying in the old job ($x = 2$) gives a gain of 0.200; re-optimizing ($x = 2.1$) gives 0.205. Switching adds only 0.005 — second order in the price change."
+      }
+     ],
+     "words": 99,
+     "symbols": [
+      "$V(\\theta)$",
+      "$m$, $p_x$, $p_y$",
+      "$p$",
+      "$x$, $x^*(p)$",
+      "$f(x, p)$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Applying it to a non-optimal $\\mathbf{x}$: it only holds at the optimum.\n- It is a first-order (local) result; large parameter changes need re-solving."
+      }
+     ],
+     "words": 24,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Micro / labor**: deriving demands from value functions; welfare effects of price and wage changes.\n- **Macro**: value-function derivatives in dynamic programming.\n- **Trade / labor**: first-order income effects of price shocks do not depend on whether workers can switch jobs."
+      }
+     ],
+     "words": 40,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Constrained Optimization and Lagrange Multipliers](note:constrained-optimization-and-lagrange-multipliers)"
+      }
+     ],
+     "words": 6,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

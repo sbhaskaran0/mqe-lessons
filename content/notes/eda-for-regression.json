@@ -1,0 +1,378 @@
+{
+ "slug": "eda-for-regression",
+ "notation": [
+  {
+   "tex": "$n$",
+   "meaning": "Number of observations",
+   "kind": "Count",
+   "typical": "—",
+   "keys": [
+    "n"
+   ]
+  },
+  {
+   "tex": "$k$",
+   "meaning": "Number of histogram bins",
+   "kind": "Choice",
+   "typical": "Sturges: $1 + \\log_2 n$",
+   "keys": [
+    "k"
+   ]
+  },
+  {
+   "tex": "$Q_1$, $Q_3$",
+   "meaning": "First and third quartiles; $Q_3 - Q_1$ is the interquartile range",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "Q"
+   ]
+  },
+  {
+   "tex": "$\\hat{p}(x)$",
+   "meaning": "Kernel density estimate at $x$",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "hat(p)"
+   ]
+  },
+  {
+   "tex": "$K(\\cdot)$",
+   "meaning": "Kernel function (usually the normal density)",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "K"
+   ]
+  },
+  {
+   "tex": "$h$",
+   "meaning": "Bandwidth: how much the density is smoothed",
+   "kind": "Choice",
+   "typical": "Larger = smoother",
+   "keys": [
+    "h"
+   ]
+  },
+  {
+   "tex": "$x_i$",
+   "meaning": "Observation $i$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "x"
+   ]
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Exploratory data analysis means looking at your data before fitting anything. Histograms show the shape of each variable, density plots smooth that shape, boxplots compare groups, QQ plots check whether a variable looks like a bell curve, and scatterplots show how two variables move together. The aim is to catch problems — outliers, skew, values spanning huge ranges, clusters — that would distort a regression or suggest transforming a variable first."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "Most regression problems are visible in a plot long before they show up as a strange coefficient.",
+       "folded": false
+      }
+     ],
+     "words": 89,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Look before you fit. Outliers, skew, range spanning orders of magnitude, and clustering all change how a regression behaves."
+      }
+     ],
+     "words": 19,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "what-to-look-for-in-a-histogram",
+   "heading": "What to look for in a histogram",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-look-for-in-a-histogram-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Outliers** — these influence the regression fit in several ways\n- **Shape** — symmetric, skewed?\n- **Range** — several orders of magnitude? (a reason to reach for logs, [Box-Cox and Power Transformations](note:box-cox-and-power-transformations))\n- **Density and clustering** — in high-density regions the fit may be robust and then become unstable in sparse ones"
+      }
+     ],
+     "words": 49,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "bin-count-rules",
+   "heading": "Bin count rules",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "bin-count-rules-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "k = 1 + \\log_2(n) \\qquad \\text{(Sturges)}"
+      },
+      {
+       "t": "math",
+       "tex": "k_{FD} = \\frac{n^{1/3}(\\max - \\min)}{2(Q_3 - Q_1)} \\qquad \\text{(Freedman-Diaconis)}"
+      },
+      {
+       "t": "prose",
+       "md": "Sturges depends only on $n$; FD uses the IQR, so it adapts to spread and resists outliers. FD gives more bins for heavy-tailed data."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Histogram bin rules - Sturges vs Freedman-Diaconis.png",
+       "alt": "Histogram bin rules - Sturges vs Freedman-Diaconis"
+      },
+      {
+       "t": "prose",
+       "md": "The lecture's comparison with 1,000 draws: Sturges gives 11 bins whatever the data look like, while FD adapts to the spread and gives both samples more bins, which shows the sharp peak of the exponential sample near zero in more detail."
+      }
+     ],
+     "words": 65,
+     "symbols": [
+      "$n$",
+      "$k$",
+      "$Q_1$, $Q_3$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "kernel-density-estimation",
+   "heading": "Kernel density estimation",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "kernel-density-estimation-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "\\widehat{p}(x) = \\frac{1}{nh}\\sum_{i=1}^{n} K\\!\\left(\\frac{x - x_i}{h}\\right)"
+      },
+      {
+       "t": "prose",
+       "md": "$K$ is the kernel (usually the standard normal pdf), $h$ the bandwidth. Larger $h$ → smoother, more biased. Smaller $h$ → noisier, higher variance. That bias-variance trade-off in $h$ is a standard short-answer question."
+      },
+      {
+       "t": "prose",
+       "md": "Depth, the bandwidth trade-off and the lecture's figure: [Kernel Density Estimation](note:kernel-density-estimation)."
+      }
+     ],
+     "words": 38,
+     "symbols": [
+      "$n$",
+      "$\\hat{p}(x)$",
+      "$K(\\cdot)$",
+      "$h$",
+      "$x_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "qq-plots",
+   "heading": "QQ plots",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "qq-plots-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Sample quantiles against theoretical quantiles of a reference distribution (normal by default in `statsmodels.qqplot`, but any distribution can be supplied). Straight line → the reference fits. Convexity, concavity and S-shapes map to skew; both ends bending away means heavy tails. Used in [Regression Diagnostics](note:regression-diagnostics) to check [Error Normality and Jarque-Bera](note:error-normality-and-jarque-bera)."
+      },
+      {
+       "t": "prose",
+       "md": "How to read each bend, with the lecture's Prestige examples: [Q-Q Plot](note:q-q-plot)."
+      }
+     ],
+     "words": 62,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "boxplots",
+   "heading": "Boxplots",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "boxplots-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The five-number summary (min, Q1, median, Q3, max) plus the IQR. Their real value is side-by-side comparison of a distribution **conditioned** on a categorical variable — which is how the spread-level analysis in [Box-Cox and Power Transformations](note:box-cox-and-power-transformations) spots unequal spread across groups."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Boxplot - Prestige income.png",
+       "alt": "Boxplot - Prestige income"
+      }
+     ],
+     "words": 41,
+     "symbols": []
+    },
+    {
+     "id": "boxplots-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The Prestige income boxplot shows the right skew directly: a long upper whisker and several outliers above about 15,000."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Parallel boxplots - Ornstein interlocks by nation.png",
+       "alt": "Parallel boxplots - Ornstein interlocks by nation"
+      }
+     ],
+     "words": 20,
+     "symbols": []
+    },
+    {
+     "id": "boxplots-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Parallel boxplots of interlocking directorships in 248 Canadian firms, by nation of control: Canadian-controlled firms have the widest spread and the most outliers, US-controlled firms the lowest median. Groups with higher medians also have wider spreads, the pattern a spread-level plot turns into a suggested transformation."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Means and standard deviations - Ornstein interlocks by nation.png",
+       "alt": "Means and standard deviations - Ornstein interlocks by nation"
+      },
+      {
+       "t": "prose",
+       "md": "The same data summarized by means plus or minus one standard deviation: the bars run below zero for a count that cannot be negative, which is why boxplots are the better summary for skewed data."
+      }
+     ],
+     "words": 81,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "cullen-frey-graph",
+   "heading": "Cullen-Frey graph",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "cullen-frey-graph-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Places the sample on the (squared skewness, kurtosis) plane against the locations of standard families: **normal and uniform are single points, gamma and lognormal are lines, beta is a region**. Bootstrapped replicates (orange) show how unstable that placement is."
+      },
+      {
+       "t": "prose",
+       "md": "It is a **suggestion** tool, not a test — skewness and kurtosis are themselves high-variance statistics. Python equivalent of R's `fitdistrplus::descdist`; the `fitter` package fits a shortlist of distributions and ranks them by MSE."
+      },
+      {
+       "t": "prose",
+       "md": "Full treatment, with the serving-size example and the fitted families: [Cullen-Frey Graph](note:cullen-frey-graph). The two shape statistics it plots: [Skewness and Kurtosis](note:skewness-and-kurtosis)."
+      }
+     ],
+     "words": 94,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "scatterplots",
+   "heading": "Scatterplots",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "scatterplots-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Add a **LOWESS smoother** alongside the OLS line: if the two diverge systematically, the linear specification is wrong."
+      },
+      {
+       "t": "prose",
+       "md": "**Jittering** adds small random noise to separate overplotted (often discrete) observations. It changes the picture, not the fit."
+      },
+      {
+       "t": "prose",
+       "md": "How lowess works: [Lowess Smoother](note:lowess-smoother)."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Scatterplot matrix - Prestige data.png",
+       "alt": "Scatterplot matrix - Prestige data"
+      }
+     ],
+     "words": 41,
+     "symbols": []
+    },
+    {
+     "id": "scatterplots-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A scatterplot matrix shows every pair at once, here coloured by occupation type: prestige rises with both education and income, but the slopes differ by type."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Vocabulary on education - without jitter.png",
+       "alt": "Vocabulary on education - without jitter"
+      },
+      {
+       "t": "prose",
+       "md": "Without jitter the vocabulary scores collapse onto a grid of integer points, so a cell with one person looks the same as a cell with hundreds; the jittered version, with both lines, is in [Lowess Smoother](note:lowess-smoother)."
+      }
+     ],
+     "words": 62,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Regression Diagnostics](note:regression-diagnostics)\n\n- [Skewness and Kurtosis](note:skewness-and-kurtosis) · [Kernel Density Estimation](note:kernel-density-estimation) · [Q-Q Plot](note:q-q-plot) · [Cullen-Frey Graph](note:cullen-frey-graph) · [Lowess Smoother](note:lowess-smoother)"
+      }
+     ],
+     "words": 16,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

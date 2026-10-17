@@ -1,0 +1,271 @@
+{
+ "slug": "homoskedasticity",
+ "notation": [
+  {
+   "tex": "$e_i$, $\\boldsymbol{\\varepsilon}$",
+   "meaning": "Error for one observation; all errors stacked",
+   "kind": "Unobserved",
+   "typical": "—",
+   "keys": [
+    "e",
+    "bold(varepsilon)"
+   ]
+  },
+  {
+   "tex": "$x_i$, $\\mathbf{X}$",
+   "meaning": "Regressor(s)",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "x",
+    "bold(X)"
+   ]
+  },
+  {
+   "tex": "$\\sigma^2$",
+   "meaning": "Common error variance",
+   "kind": "Parameter",
+   "typical": "Constant under homoskedasticity",
+   "keys": [
+    "sigma"
+   ]
+  },
+  {
+   "tex": "$\\widehat{\\sigma}^2$",
+   "meaning": "Estimate of $\\sigma^2$ from the residuals",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "hat(sigma)"
+   ]
+  },
+  {
+   "tex": "$\\beta_1$, $\\beta_2$",
+   "meaning": "Intercept and slope",
+   "kind": "Parameters",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{I}$",
+   "meaning": "Identity matrix",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(I)"
+   ]
+  },
+  {
+   "tex": "$y_i$",
+   "meaning": "Outcome for observation $i$ (e.g. food spending)",
+   "kind": "Random variable",
+   "typical": "—",
+   "keys": [
+    "y"
+   ],
+   "from": "simple-linear-regression-model"
+  },
+  {
+   "tex": "$b_2$",
+   "meaning": "OLS slope",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "b"
+   ],
+   "from": "gauss-markov-theorem"
+  },
+  {
+   "tex": "$t_i$",
+   "meaning": "Studentised residual: how badly observation $i$ is fitted",
+   "kind": "Statistic",
+   "typical": "Flag if $\\lvert t_i\\rvert > 2$",
+   "keys": [
+    "t"
+   ],
+   "from": "regression-diagnostics"
+  },
+  {
+   "tex": "$p$, $n$",
+   "meaning": "Number of parameters and of observations",
+   "kind": "Counts",
+   "typical": "—",
+   "keys": [
+    "p",
+    "n"
+   ],
+   "from": "regression-diagnostics"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Homoskedasticity means the scatter of the data around the regression line is about the same everywhere. If you regress food spending on income, the unexplained ups and downs should be as large for low-income households as for high-income ones. Often they are not — richer households vary much more — and that is called heteroskedasticity. It does not move the fitted line on average, but it makes the usual measure of how precise the line is unreliable."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "Getting this wrong produces confidence intervals and test results that look trustworthy but are not, so it decides which standard errors you should report.",
+       "folded": false
+      }
+     ],
+     "words": 102,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**SR3.** Constant conditional error variance."
+      },
+      {
+       "t": "math",
+       "tex": "\\mathrm{Var}[e_i \\mid x_i] = \\sigma^2"
+      },
+      {
+       "t": "prose",
+       "md": "Because $\\beta_1 + \\beta_2 x_i$ is non-random given $x_i$:"
+      },
+      {
+       "t": "math",
+       "tex": "\\mathrm{Var}[y_i \\mid x_i] = \\mathrm{Var}[\\beta_1 + \\beta_2 x_i + e_i \\mid x_i] = \\mathrm{Var}[e_i \\mid x_i] = \\sigma^2"
+      },
+      {
+       "t": "prose",
+       "md": "If $\\mathrm{Var}[e_i\\mid x_i]$ depends on $x_i$, the errors are **heteroskedastic**."
+      }
+     ],
+     "words": 16,
+     "symbols": [
+      "$e_i$, $\\boldsymbol{\\varepsilon}$",
+      "$x_i$, $\\mathbf{X}$",
+      "$\\sigma^2$",
+      "$\\beta_1$, $\\beta_2$",
+      "$y_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "what-heteroskedasticity-does-and-does-not-do",
+   "heading": "What heteroskedasticity does and does not do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-heteroskedasticity-does-and-does-not-do-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "|                                                            | Effect                                                  |\n| ---------------------------------------------------------- | ------------------------------------------------------- |\n| Unbiasedness of $b_2$                                      | **Unaffected** — needs only SR1, SR2 ([Strict Exogeneity](note:strict-exogeneity)) and SR5, with random sampling, not SR3 |\n| Consistency                                                | Unaffected                                              |\n| The usual $\\widehat{\\sigma}^2/\\sum(x_i-\\bar{x})^2$ formula | **Wrong** — $t$ stats, $p$ values and intervals invalid |\n| [Gauss-Markov Theorem](note:gauss-markov-theorem) / BLUE                            | **Lost** — GLS/WLS is efficient                         |"
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Food expenditure regression - residuals against income.png",
+       "alt": "Food expenditure regression - residuals against income"
+      },
+      {
+       "t": "prose",
+       "md": "The lecture's food regression: the residuals spread out as income rises, because richer households have more room to vary their food spending. That fan shape is the usual visual sign of heteroskedasticity; the formal check is the Breusch-Pagan test in [Regression Diagnostics](note:regression-diagnostics)."
+      }
+     ],
+     "words": 80,
+     "symbols": [
+      "$x_i$, $\\mathbf{X}$",
+      "$\\widehat{\\sigma}^2$",
+      "$b_2$",
+      "$t_i$",
+      "$p$, $n$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "remedies",
+   "heading": "Remedies",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "remedies-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Heteroskedasticity-robust (White) standard errors — keeps OLS, fixes inference\n2. Transform the response — [Box-Cox and Power Transformations](note:box-cox-and-power-transformations), logs in particular, when the error scales with the level of $y$\n3. Tukey's spread-level plot to find a variance-stabilising power across groups\n4. [Bootstrapping OLS](note:bootstrapping-ols) for standard errors without the constant-variance assumption\n5. Weighted least squares if the variance function is known"
+      }
+     ],
+     "words": 59,
+     "symbols": [
+      "$y_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "the-matrix-form",
+   "heading": "The matrix form",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-matrix-form-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "\\mathrm{Var}[\\boldsymbol{\\varepsilon} \\mid \\mathbf{X}] = \\sigma^2 \\mathbf{I}"
+      },
+      {
+       "t": "prose",
+       "md": "$\\sigma^2\\mathbf{I}$ packs both homoskedasticity (constant diagonal) and nonautocorrelation (zero off-diagonal) into one statement. The appendix shows the unconditional version follows via the law of total variance:"
+      },
+      {
+       "t": "math",
+       "tex": "\\mathrm{Var}[\\varepsilon] = E\\big[\\mathrm{Var}[\\varepsilon\\mid\\mathbf{X}]\\big] + \\mathrm{Var}\\big[E[\\varepsilon\\mid\\mathbf{X}]\\big] = \\sigma^2\\mathbf{I} + \\mathbf{0}"
+      }
+     ],
+     "words": 25,
+     "symbols": [
+      "$e_i$, $\\boldsymbol{\\varepsilon}$",
+      "$x_i$, $\\mathbf{X}$",
+      "$\\sigma^2$",
+      "$\\mathbf{I}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Math background: [Spectral Decomposition](note:spectral-decomposition)\n- [SR Assumptions](note:sr-assumptions)\n- [Regression Diagnostics](note:regression-diagnostics) — fanning in the residual-vs-fitted plot is the signature"
+      }
+     ],
+     "words": 19,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

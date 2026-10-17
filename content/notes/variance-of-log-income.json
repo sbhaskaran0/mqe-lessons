@@ -1,0 +1,228 @@
+{
+ "slug": "variance-of-log-income",
+ "notation": [
+  {
+   "tex": "$V$",
+   "meaning": "Variance of log income",
+   "kind": "Statistic",
+   "typical": "0.0857 in the example",
+   "keys": [
+    "V"
+   ]
+  },
+  {
+   "tex": "$y$",
+   "meaning": "Income or wage",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "y"
+   ]
+  },
+  {
+   "tex": "$\\lambda$",
+   "meaning": "Any positive scaling factor applied to all incomes",
+   "kind": "Number",
+   "typical": "—",
+   "keys": [
+    "lambda"
+   ]
+  },
+  {
+   "tex": "$g$, $s_g$",
+   "meaning": "Group and its population share",
+   "kind": "Index / weight",
+   "typical": "—",
+   "keys": [
+    "g",
+    "s"
+   ]
+  },
+  {
+   "tex": "$\\overline{\\ln y}_g$, $\\overline{\\ln y}$",
+   "meaning": "Group and overall mean of log income",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "bar(y)"
+   ]
+  },
+  {
+   "tex": "$w_h$, $w_\\ell$",
+   "meaning": "Wages of high- and low-ability workers",
+   "kind": "Exogenous price",
+   "typical": "—",
+   "keys": [
+    "w"
+   ],
+   "from": "within-and-between-group-inequality"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The variance of log income measures how spread out incomes are in percentage terms rather than in dollars. Taking logs before computing the variance means doubling everyone's income changes nothing, which is what an inequality measure should do. Its most useful property is that it splits exactly into inequality within groups and inequality between group averages, which is why labor economists use it to ask how much of wage inequality is explained by education or experience."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the workhorse measure for decomposing wage inequality into explained and unexplained parts.",
+       "folded": false
+      }
+     ],
+     "words": 93,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "V = \\mathrm{Var}(\\ln y)"
+      },
+      {
+       "t": "prose",
+       "md": "The workhorse measure in labour economics, for two reasons."
+      }
+     ],
+     "words": 9,
+     "symbols": [
+      "$V$",
+      "$y$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1-scale-invariant-for-free",
+   "heading": "1. Scale invariant, for free",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-scale-invariant-for-free-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$\\ln(\\lambda y) = \\ln\\lambda + \\ln y$, and adding a constant does not change a variance. Doubling every income leaves $V$ unchanged."
+      }
+     ],
+     "words": 14,
+     "symbols": [
+      "$V$",
+      "$y$",
+      "$\\lambda$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "2-decomposable",
+   "heading": "2. Decomposable",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-decomposable-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "By the [Law of Total Variance](note:law-of-total-variance), it splits exactly into within-group and between-group parts:"
+      },
+      {
+       "t": "math",
+       "tex": "\\mathrm{Var}(\\ln y) = \\sum_g s_g\\,\\mathrm{Var}(\\ln y\\mid g) + \\sum_g s_g\\big(\\overline{\\ln y}_g - \\overline{\\ln y}\\big)^2"
+      },
+      {
+       "t": "prose",
+       "md": "This is what lets you say \"X% of the rise in inequality was between education groups.\" See [Within- and Between-Group Inequality](note:within-and-between-group-inequality) for a worked example."
+      },
+      {
+       "t": "prose",
+       "md": "It also lines up with regression: in a regression of $\\ln w$ on group dummies, the $R^2$ is the between-group share and the residual variance is the within-group part."
+      }
+     ],
+     "words": 65,
+     "symbols": [
+      "$y$",
+      "$g$, $s_g$",
+      "$\\overline{\\ln y}_g$, $\\overline{\\ln y}$",
+      "$w_h$, $w_\\ell$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "caveat-beyond-the-lecture-standard-result",
+   "heading": "Caveat (beyond the lecture — standard result)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "caveat-beyond-the-lecture-standard-result-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "It can **violate the transfer principle** at high incomes: a transfer from a very rich person to a moderately rich person can *raise* it. Usually harmless for wages, but it matters for top-heavy income distributions."
+      }
+     ],
+     "words": 35,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "data-pitfalls",
+   "heading": "Data pitfalls",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "data-pitfalls-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Because it measures spread, it is far more sensitive to data quality than a mean:"
+      },
+      {
+       "t": "table",
+       "md": "| Problem | Effect on the variance |\n| --- | --- |\n| Random reporting error ([Classical Measurement Error](note:classical-measurement-error)) | Inflated by the error variance |\n| Constructed wages (annual earnings ÷ weeks × hours) | Inflated — errors in all three compound |\n| [Top Coding](note:top-coding) of high incomes | Understated, and changes at the top are invisible |\n| Changing composition of the workforce | Moves even with no change in wages — see [Composition Adjustment](note:composition-adjustment) |"
+      }
+     ],
+     "words": 73,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Math background: [Logarithms and Growth Rates](note:logarithms-and-growth-rates) · [Convexity and Concavity](note:convexity-and-concavity)\n- [Log Wage Gap](note:log-wage-gap)\n- [Properties of Inequality Measures](note:properties-of-inequality-measures)"
+      }
+     ],
+     "words": 19,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,347 @@
+{
+ "slug": "within-and-between-group-inequality",
+ "notation": [
+  {
+   "tex": "$y$",
+   "meaning": "Income or wage",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "y"
+   ]
+  },
+  {
+   "tex": "$g$",
+   "meaning": "Group (e.g. education level)",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "g"
+   ]
+  },
+  {
+   "tex": "$s_g$",
+   "meaning": "Population share of group $g$",
+   "kind": "Weight",
+   "typical": "Sums to 1",
+   "keys": [
+    "s"
+   ]
+  },
+  {
+   "tex": "$\\mathrm{Var}(\\ln y)$",
+   "meaning": "Total variance of log income",
+   "kind": "Statistic",
+   "typical": "0.0857 in the example",
+   "keys": []
+  },
+  {
+   "tex": "$\\mathrm{Var}(\\ln y\\mid g)$",
+   "meaning": "Variance of log income inside group $g$",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": []
+  },
+  {
+   "tex": "$\\overline{\\ln y}_g$, $\\overline{\\ln y}$",
+   "meaning": "Group mean and overall mean of log income",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "bar(y)"
+   ]
+  },
+  {
+   "tex": "$h$, $\\ell$",
+   "meaning": "High- and low-ability worker types (unobserved)",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "h",
+    "ell"
+   ]
+  },
+  {
+   "tex": "$w_h$, $w_\\ell$",
+   "meaning": "Wages of high- and low-ability workers",
+   "kind": "Exogenous price",
+   "typical": "—",
+   "keys": [
+    "w"
+   ]
+  },
+  {
+   "tex": "$\\zeta$",
+   "meaning": "Ability premium $w_h/w_\\ell$",
+   "kind": "Exogenous price",
+   "typical": "2 → 3 in the example",
+   "keys": [
+    "zeta"
+   ]
+  },
+  {
+   "tex": "$C$, $N$",
+   "meaning": "College and non-college groups (observed)",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "C",
+    "N"
+   ]
+  },
+  {
+   "tex": "$a_C$, $a_N$",
+   "meaning": "Share of high-ability workers in each education group",
+   "kind": "Parameter, $a_C > a_N$",
+   "typical": "0.6 and 0.2 in the example",
+   "keys": [
+    "a"
+   ]
+  },
+  {
+   "tex": "$\\kappa$",
+   "meaning": "College premium: ratio of mean wages, college over non-college",
+   "kind": "Statistic",
+   "typical": "1.33 → 1.57 in the example",
+   "keys": [
+    "kappa"
+   ]
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Total inequality can be split into two parts. Within-group inequality is how much people who look alike — same education, same experience — still differ in pay. Between-group inequality is how much the averages of different groups differ, like the gap between graduates and non-graduates. Some measures split exactly into these two parts; others do not. Knowing which part is driving a change tells you very different stories about the labor market."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "Policy and research questions usually hinge on whether rising inequality comes from gaps between groups or from widening differences inside them.",
+       "folded": false
+      }
+     ],
+     "words": 94,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Total inequality across a population splits into two sources: dispersion **within** groups and differences **between** group averages."
+      },
+      {
+       "t": "prose",
+       "md": "- **Within-group**: workers with the same observable characteristics (education, experience, gender) still earn different amounts. Often called *residual* inequality, because it is what is left after conditioning on observables.\n- **Between-group**: differences in average outcomes across groups — the [Skill Premium](note:skill-premium), the gender gap, the racial gap. Usually measured with a [Log Wage Gap](note:log-wage-gap)."
+      }
+     ],
+     "words": 70,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "the-exact-decomposition",
+   "heading": "The exact decomposition",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-exact-decomposition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Only some measures split cleanly. The [Variance of Log Income](note:variance-of-log-income) does, by the [Law of Total Variance](note:law-of-total-variance):"
+      },
+      {
+       "t": "math",
+       "tex": "\\underbrace{\\mathrm{Var}(\\ln y)}_{\\text{total}} = \\underbrace{\\sum_g s_g\\,\\mathrm{Var}(\\ln y \\mid g)}_{\\text{within}} + \\underbrace{\\sum_g s_g\\,\\big(\\overline{\\ln y}_g - \\overline{\\ln y}\\big)^2}_{\\text{between}}"
+      },
+      {
+       "t": "prose",
+       "md": "where $s_g$ is group $g$'s population share."
+      },
+      {
+       "t": "prose",
+       "md": "**Worked example** (nine-worker data from [Defining Inequality](note:defining-inequality), grouped by education): total $\\mathrm{Var}(\\ln w) = 0.0857$, of which within = 0.0820 and between = 0.0037. About 96% of inequality in this toy data is within education groups."
+      },
+      {
+       "t": "prose",
+       "md": "The [Gini Coefficient](note:gini-coefficient) does **not** decompose this way unless group income ranges do not overlap — there is a residual overlap term."
+      }
+     ],
+     "words": 76,
+     "symbols": [
+      "$y$",
+      "$g$",
+      "$s_g$",
+      "$\\overline{\\ln y}_g$, $\\overline{\\ln y}$",
+      "$w_h$, $w_\\ell$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "a-different-between-within-split",
+   "heading": "A different between-within split",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "a-different-between-within-split-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The [Shift-Share Decomposition](note:shift-share-decomposition) uses the same logic on wage-bill shares: changes *between* industries vs changes *within* industries. Same word, different object — be precise about what is being decomposed."
+      }
+     ],
+     "words": 28,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "regression-connection",
+   "heading": "Regression connection",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "regression-connection-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A regression of $\\ln w$ on group dummies estimates the between-group component directly: coefficients are differences in group means ([Indicator Variables](note:indicator-variables)). The residual variance is the within-group component."
+      }
+     ],
+     "words": 26,
+     "symbols": [
+      "$w_h$, $w_\\ell$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "why-the-two-can-move-together-unobserved-skill",
+   "heading": "Why the two can move together: unobserved skill",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "why-the-two-can-move-together-unobserved-skill-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Between- and within-group inequality need not move together — but they do when the observed groups are a **noisy measure of the skill that is actually paid**. Suppose wages depend only on unobserved ability ($w_h$ or $w_\\ell$), and education is correlated with ability: a share $a_C$ of college workers and a smaller share $a_N$ of non-college workers are high ability. The college premium is a ratio of mixtures:"
+      },
+      {
+       "t": "math",
+       "tex": "\\kappa = \\frac{a_C\\zeta + (1 - a_C)}{a_N\\zeta + (1 - a_N)}, \\qquad \\frac{d\\kappa}{d\\zeta} = \\frac{a_C - a_N}{\\big(a_N\\zeta + 1 - a_N\\big)^2} > 0"
+      },
+      {
+       "t": "prose",
+       "md": "In logs the same model gives a between-group gap of $(a_C - a_N)\\ln\\zeta$ and a within-group variance of $a_g(1 - a_g)(\\ln\\zeta)^2$ in group $g$: **both** grow with the ability premium."
+      }
+     ],
+     "words": 86,
+     "symbols": [
+      "$g$",
+      "$w_h$, $w_\\ell$",
+      "$\\zeta$",
+      "$a_C$, $a_N$",
+      "$\\kappa$"
+     ]
+    },
+    {
+     "id": "why-the-two-can-move-together-unobserved-skill-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Worked example** ($a_C = 0.6$, $a_N = 0.2$, ability premium rising from 2 to 3):"
+      },
+      {
+       "t": "table",
+       "md": "| | $\\zeta = 2$ | $\\zeta = 3$ |\n| --- | --- | --- |\n| College premium $\\kappa$ (ratio of means) | 1.333 | 1.571 |\n| Log gap between groups | 0.277 | 0.439 |\n| Within-group variance of log wages, college | 0.115 | 0.290 |\n| Within-group variance of log wages, non-college | 0.077 | 0.193 |"
+      },
+      {
+       "t": "prose",
+       "md": "If education measured ability perfectly ($a_C = 1$, $a_N = 0$), within-group variance would be zero and all inequality would be between groups. The co-movement comes from the *measurement error* in the grouping — and it is an assumption, not a law: other forces (composition, institutions, noise in wages) can move the two parts in opposite directions."
+      }
+     ],
+     "words": 99,
+     "symbols": [
+      "$\\zeta$",
+      "$a_C$, $a_N$",
+      "$\\kappa$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "the-within-share-depends-on-the-groups",
+   "heading": "The within share depends on the groups",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-within-share-depends-on-the-groups-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Splitting groups more finely can only move variance from the within part to the between part (the between part of a finer partition is never smaller). A claim like \"two-thirds of inequality is within groups\" is always relative to the characteristics used to form the cells."
+      }
+     ],
+     "words": 46,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "measurement-error-lands-within",
+   "heading": "Measurement error lands within",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "measurement-error-lands-within-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Random reporting error in wages leaves group means unchanged but adds its variance to every group's dispersion, so it inflates the within part one-for-one — see [Classical Measurement Error](note:classical-measurement-error). Survey [Top Coding](note:top-coding) works the other way, compressing the top of high-wage groups."
+      }
+     ],
+     "words": 41,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Defining Inequality](note:defining-inequality)\n- [Law of Total Variance](note:law-of-total-variance)\n- [Classical Measurement Error](note:classical-measurement-error) · [Wage Polarization](note:wage-polarization)"
+      }
+     ],
+     "words": 14,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

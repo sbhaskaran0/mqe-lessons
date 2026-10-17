@@ -1,0 +1,280 @@
+{
+ "slug": "shift-share-instrument",
+ "notation": [
+  {
+   "tex": "$r$",
+   "meaning": "Unit: region, industry or firm",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "r"
+   ]
+  },
+  {
+   "tex": "$i$",
+   "meaning": "Sector (industry, or country × product)",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "i"
+   ]
+  },
+  {
+   "tex": "$s_{ri,0}$",
+   "meaning": "Base-period (lagged) share of $r$ in sector $i$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "s"
+   ]
+  },
+  {
+   "tex": "$g_i$",
+   "meaning": "Sector shock measured elsewhere (e.g. other high-income countries' import growth from China)",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "g"
+   ]
+  },
+  {
+   "tex": "$Z_r$",
+   "meaning": "Shift-share instrument",
+   "kind": "Instrument",
+   "typical": "3.2 and 0.8 in the example",
+   "keys": [
+    "Z"
+   ]
+  },
+  {
+   "tex": "$x_r$",
+   "meaning": "Actual (endogenous) exposure",
+   "kind": "Endogenous regressor",
+   "typical": "—",
+   "keys": [
+    "x"
+   ]
+  },
+  {
+   "tex": "$y_r$",
+   "meaning": "Outcome",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "y"
+   ]
+  },
+  {
+   "tex": "$\\beta$",
+   "meaning": "Causal effect of exposure on the outcome",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ]
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Suppose you want to know whether imports from China hurt American workers. Imports into an industry rise for two very different reasons: China got better at making the good, or American producers stumbled and buyers looked abroad. Only the first is the shock you want; the second would make imports look harmful even if they were not. The shift-share instrument isolates the first. It measures how fast other rich countries' imports of each good from China grew — something driven by China, not by American problems — and gives each region or firm a weighted average of that growth, using the industry mix it had before the shock."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the standard way to get causal effects of trade, migration and demand shocks on local labor markets, and its assumptions are where most debates about those results happen.",
+       "folded": false
+      }
+     ],
+     "words": 139,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "For unit $r$ with base-period shares $s_{ri,0}$ across sectors $i$, and sector shocks $g_i$ measured outside the economy studied:"
+      },
+      {
+       "t": "math",
+       "tex": "Z_r = \\sum_i s_{ri,0}\\,g_i"
+      },
+      {
+       "t": "prose",
+       "md": "$Z_r$ instruments the actual exposure $x_r$ in a 2SLS regression of an outcome $y_r$ on $x_r$ ([Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls))."
+      }
+     ],
+     "words": 31,
+     "symbols": [
+      "$r$",
+      "$i$",
+      "$s_{ri,0}$",
+      "$g_i$",
+      "$Z_r$",
+      "$x_r$",
+      "$y_r$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "why-it-is-needed",
+   "heading": "Why it is needed",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "why-it-is-needed-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The domestic exposure measure is endogenous: imports rise after **negative domestic supply shocks** (which also cut employment directly) and after **positive domestic demand shocks** (which raise employment directly). Shocks measured in other countries capture the component common to all destinations — the exporter's own growth — and exclude domestic supply and demand conditions."
+      }
+     ],
+     "words": 51,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "examples",
+   "heading": "Examples",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "examples-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Level | Exposure | Instrument |\n| --- | --- | --- |\n| Region | Change in US imports from China per worker, weighted by regional industry employment shares | Same, using other high-income countries' imports from China and lagged employment shares |\n| Industry | Change in US imports from China over initial absorption ([Import Penetration](note:import-penetration)) | Other high-income countries' imports from China over absorption lagged three years |\n| Firm (imports) | Firm's offshoring | World export supply of each country–product, weighted by the firm's initial import shares |\n| Firm (exports) | Firm's exports | World import demand of each country–product, weighted by the firm's initial export shares |"
+      }
+     ],
+     "words": 92,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Other-country import growth per worker is 10 in industry 1 and 2 in industry 2. Region A has lagged shares 0.3 and 0.1; region B has 0.05 and 0.15. Then $Z_A = 0.3 \\times 10 + 0.1 \\times 2 = 3.2$ and $Z_B = 0.05 \\times 10 + 0.15 \\times 2 = 0.8$: region A is predicted to be four times as exposed."
+      }
+     ],
+     "words": 45,
+     "symbols": [
+      "$Z_r$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "assumptions",
+   "heading": "Assumptions",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "assumptions-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. **Relevance**: foreign shocks predict domestic exposure (check the first stage).\n2. **Exclusion**: the instrument affects outcomes only through domestic exposure. This fails if demand shocks are correlated across rich countries (a global boom in demand for a good raises imports everywhere and employment at home).\n3. **Lagged shares**: base-period shares avoid shares that already respond to the shock or its anticipation."
+      }
+     ],
+     "words": 62,
+     "symbols": []
+    },
+    {
+     "id": "assumptions-2",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "note",
+       "title": "Beyond the lecture",
+       "md": "Modern work shows identification can come either from many as-good-as-random **shocks** or from exogenous **shares**, with different diagnostics for each. Commonly raised concerns about well-known applications include pre-trends in exposed regions, shocks correlated with other trends, \"incomplete\" shares (exposure summed only over manufacturing, so it partly proxies the manufacturing share — hence the standard manufacturing-share control), and standard errors that are too small because regions with similar industry mixes have correlated residuals ([Clustered Standard Errors](note:clustered-standard-errors)).",
+       "folded": false
+      }
+     ],
+     "words": 77,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Treating the instrument as exogenous because the shocks are \"foreign\": correlated demand shocks across countries break the exclusion restriction.\n- Using current shares instead of base-period shares.\n- Forgetting that the effect is identified relative to less-exposed units, not in aggregate."
+      }
+     ],
+     "words": 42,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Trade: import competition and export demand effects on regions, industries, firms and workers.\n- Labor and urban: immigration (enclave instruments), local demand shocks (the original Bartik application)."
+      }
+     ],
+     "words": 28,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Shift-Share Exposure](note:shift-share-exposure) · [Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls) · [Import Penetration](note:import-penetration) · [Commuting Zone](note:commuting-zone)"
+      }
+     ],
+     "words": 11,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

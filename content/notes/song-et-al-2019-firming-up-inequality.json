@@ -1,0 +1,149 @@
+{
+ "slug": "song-et-al-2019-firming-up-inequality",
+ "notation": [],
+ "sections": [
+  {
+   "id": "key-takeaways",
+   "heading": "Key takeaways",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "key-takeaways-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. **Without top coding, the top pulls away.** Administrative earnings for every US wage earner show growth since 1982 rising with the percentile: about +0.52 log points at the 99th, +0.35 at the 90th, +0.17 at the median and +0.13 at the 25th by 2012.\n2. **Most of the rise is between firms** (beyond the lecture). Roughly two-thirds of the increase in earnings inequality reflects growing differences in average pay *across* firms; about one-third is within firms."
+      }
+     ],
+     "words": 81,
+     "symbols": []
+    },
+    {
+     "id": "key-takeaways-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "3. **It is mostly who works where** (beyond the lecture). Between-firm inequality rose mainly because high-wage workers increasingly work at high-paying firms (sorting) and alongside other high-wage workers (segregation), not because the same worker's pay premium at different firms diverged.\n4. **Within-firm inequality rose mainly in very large firms** (beyond the lecture)."
+      }
+     ],
+     "words": 52,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "research-question",
+   "heading": "Research question",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "research-question-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "How much of the rise in US earnings inequality happened within firms versus between firms, and why?"
+      }
+     ],
+     "words": 17,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "data-and-setting",
+   "heading": "Data and setting",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "data-and-setting-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The [SSA Master Earnings File](note:ssa-master-earnings-file): W-2 earnings for all US workers, linked to employers, with no top coding — the only source that sees the very top and links workers to firms at scale."
+      }
+     ],
+     "words": 33,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "results",
+   "heading": "Results",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "results-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/US earnings growth by percentile SSA 1982-2012.png",
+       "alt": "US earnings growth by percentile SSA 1982-2012"
+      },
+      {
+       "t": "prose",
+       "md": "Cumulative change in log earnings since 1982 by percentile ([US Earnings Growth by Percentile 1982-2012](note:us-earnings-growth-by-percentile-1982-2012)). The 99th percentile line spikes around 1988 and climbs fastest; the 25th and 50th move together after the late 1990s."
+      }
+     ],
+     "words": 35,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "caveats",
+   "heading": "Caveats",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "caveats-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Annual earnings combine wages and hours; there is no hours information, so earnings growth is not wage growth.\n- Firm effects are estimated from workers moving between firms; the sorting-versus-premium split depends on that method's assumptions (beyond the lecture).\n- Self-employment and non-labor income are outside the data."
+      }
+     ],
+     "words": 49,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "in-econ-424-l3-total-and-within-group-inequality",
+   "heading": "In Econ 424 L3 Total and Within-Group Inequality",
+   "role": "paper-in-lesson",
+   "steps": [
+    {
+     "id": "in-econ-424-l3-total-and-within-group-inequality-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The lecture ends its \"full distribution\" section with this paper's figure because survey data are top-coded ([Top Coding](note:top-coding)) and cannot show the very top. It confirms that the top keeps pulling away, while below the median the percentiles move together — consistent with the polarization summary. The firm decomposition itself is not covered in the lecture."
+      }
+     ],
+     "words": 55,
+     "symbols": []
+    }
+   ],
+   "lesson": "econ-424-l3-total-and-within-group-inequality"
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [SSA Master Earnings File](note:ssa-master-earnings-file) · [Top Coding](note:top-coding) · [Wage Polarization](note:wage-polarization) · [Within- and Between-Group Inequality](note:within-and-between-group-inequality)"
+      }
+     ],
+     "words": 13,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

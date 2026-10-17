@@ -1,0 +1,276 @@
+{
+ "slug": "matrix-algebra-identities",
+ "notation": [
+  {
+   "tex": "$A$, $B$, $C$",
+   "meaning": "Matrices of conformable sizes",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "A",
+    "B",
+    "C"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{a}$, $\\mathbf{b}$",
+   "meaning": "Column vectors",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(a)",
+    "bold(b)"
+   ]
+  },
+  {
+   "tex": "$A'$",
+   "meaning": "Transpose: rows become columns",
+   "kind": "Operation",
+   "typical": "—",
+   "keys": [
+    "A"
+   ]
+  },
+  {
+   "tex": "$A^{-1}$",
+   "meaning": "Inverse: $AA^{-1} = I$ (square, invertible $A$ only)",
+   "kind": "Operation",
+   "typical": "—",
+   "keys": [
+    "A"
+   ]
+  },
+  {
+   "tex": "$m$, $n$, $p$",
+   "meaning": "Matrix dimensions",
+   "kind": "Counts",
+   "typical": "—",
+   "keys": [
+    "m",
+    "n",
+    "p"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{X}$, $\\mathbf{y}$, $\\mathbf{b}$",
+   "meaning": "Regressors, outcome and OLS coefficients in the examples",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(X)",
+    "bold(y)",
+    "bold(b)"
+   ]
+  },
+  {
+   "tex": "$N$, $K$",
+   "meaning": "Observations and regressors",
+   "kind": "Counts",
+   "typical": "—",
+   "keys": [
+    "N",
+    "K"
+   ]
+  },
+  {
+   "tex": "$\\sigma^2$",
+   "meaning": "Error variance",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "sigma"
+   ]
+  },
+  {
+   "tex": "$b_k$",
+   "meaning": "OLS estimate of coefficient $k$",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "b"
+   ],
+   "from": "sampling-distribution-of-ols"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "These are the handful of rules for working with matrices that every econometrics derivation leans on. The two that trip people up most: the order of multiplication matters, so A times B is generally not B times A; and flipping or inverting a product reverses the order of its pieces, the way taking off socks and shoes happens in the opposite order to putting them on. Writing the dimensions under every term catches most mistakes."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "Almost every algebra error in deriving regression results comes from breaking one of these rules.",
+       "folded": false
+      }
+     ],
+     "words": 93,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The handful of rules that every matrix derivation in econometrics leans on. Most mistakes come from forgetting that **order matters** and that transposes and inverses **reverse** a product."
+      }
+     ],
+     "words": 28,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "the-rules",
+   "heading": "The rules",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-rules-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Rule | Statement | Note |\n| --- | --- | --- |\n| Associative | $(AB)C = A(BC)$ | Lets you regroup, e.g. $X(X'X)^{-1}X'$ |\n| **Not** commutative | $AB \\neq BA$ in general | Even when both products exist |\n| Distributive | $A(B + C) = AB + AC$ | |\n| Transpose of product | $(AB)' = B'A'$ | Order reverses |\n| Inverse of product | $(AB)^{-1} = B^{-1}A^{-1}$ | Both square and invertible |\n| Transpose of inverse | $(A')^{-1} = (A^{-1})'$ | So the inverse of a symmetric matrix is symmetric |\n| Scalar | $a'b = b'a$ | A $1\\times1$ matrix equals its transpose |\n| Symmetric product | $X'X$ and $XX'$ are symmetric | $(X'X)' = X'X$ |"
+      }
+     ],
+     "words": 57,
+     "symbols": [
+      "$A$, $B$, $C$",
+      "$A'$",
+      "$A^{-1}$",
+      "$b_k$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "the-2-2-inverse",
+   "heading": "The 2×2 inverse",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-2-2-inverse-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "\\begin{pmatrix} a & b \\\\ c & d\\end{pmatrix}^{-1} = \\frac{1}{ad - bc}\\begin{pmatrix} d & -b \\\\ -c & a\\end{pmatrix}"
+      },
+      {
+       "t": "prose",
+       "md": "**Worked example.** $A = \\begin{pmatrix}1&2\\\\3&4\\end{pmatrix}$ has $ad - bc = -2$, so $A^{-1} = \\begin{pmatrix}-2&1\\\\1.5&-0.5\\end{pmatrix}$. Check: $AA^{-1} = I$."
+      }
+     ],
+     "words": 5,
+     "symbols": [
+      "$A$, $B$, $C$",
+      "$A'$",
+      "$A^{-1}$",
+      "$b_k$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "dimension-checking",
+   "heading": "Dimension checking",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "dimension-checking-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "An $m\\times n$ matrix times an $n\\times p$ matrix is $m\\times p$. Writing dimensions under every term catches most algebra errors — e.g. in $\\mathbf{b} = (\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{y}$: $(K\\times K)(K\\times N)(N\\times 1) = K\\times 1$."
+      }
+     ],
+     "words": 18,
+     "symbols": [
+      "$\\mathbf{a}$, $\\mathbf{b}$",
+      "$m$, $n$, $p$",
+      "$\\mathbf{X}$, $\\mathbf{y}$, $\\mathbf{b}$",
+      "$N$, $K$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Writing $(AB)^{-1} = A^{-1}B^{-1}$ — the order must reverse.\n- \"Cancelling\" $X$ in $(X'X)^{-1}X'$ to get $X^{-1}$: $X$ is $N\\times K$ and has no inverse unless square.\n- Treating $a'b$ and $ab'$ alike: the first is a scalar, the second an $N\\times N$ matrix."
+      }
+     ],
+     "words": 31,
+     "symbols": [
+      "$A$, $B$, $C$",
+      "$A'$",
+      "$A^{-1}$",
+      "$N$, $K$",
+      "$b_k$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Econometrics**: every step of [OLS in Matrix Form](note:ols-in-matrix-form); symmetry of [Projection Matrix and Residual Maker](note:projection-matrix-and-residual-maker); the variance $\\sigma^2(\\mathbf{X}'\\mathbf{X})^{-1}$ in [Sampling Distribution of OLS](note:sampling-distribution-of-ols)."
+      }
+     ],
+     "words": 23,
+     "symbols": [
+      "$\\mathbf{X}$, $\\mathbf{y}$, $\\mathbf{b}$",
+      "$\\sigma^2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Invertibility and Determinants](note:invertibility-and-determinants)\n- [Trace of a Matrix](note:trace-of-a-matrix)"
+      }
+     ],
+     "words": 9,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

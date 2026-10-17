@@ -1,0 +1,166 @@
+{
+ "slug": "current-population-survey-cps",
+ "notation": [],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The monthly US household survey run by the Bureau of Labor Statistics (with the Census Bureau) to measure labour-force participation and employment. About 50,000–60,000 households a month."
+      }
+     ],
+     "words": 30,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "the-march-cps",
+   "heading": "The March CPS",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-march-cps-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The **March Annual Demographic Files** (now the ASEC) are the standard source for long-run wage inequality:"
+      },
+      {
+       "t": "prose",
+       "md": "- The longest high-frequency series on participation and earnings in the US\n- Reasonably comparable measures of the **prior year's** annual earnings, weeks worked and hours per week since 1964 — so earnings data start in **1963**"
+      }
+     ],
+     "words": 52,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "comparability-problems",
+   "heading": "Comparability problems",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "comparability-problems-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Processing changes over time affect, among other things:"
+      },
+      {
+       "t": "prose",
+       "md": "- **top-coding** of high earnings\n- flagging of **imputed** earnings\n- algorithms for **allocating earnings** to non-respondents\n- coding of **hours** worked per week"
+      },
+      {
+       "t": "prose",
+       "md": "Any long-run series has to handle these breaks explicitly."
+      }
+     ],
+     "words": 41,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "strengths-and-weaknesses",
+   "heading": "Strengths and weaknesses",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "strengths-and-weaknesses-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Good for | Weak for |\n| --- | --- |\n| Wages by education, experience, gender | The very top — top-coding and under-sampling |\n| Long annual series | Small cells, detailed geography |\n| [Percentile Ratios](note:percentile-ratios), [Skill Premium](note:skill-premium) | [Top Income Shares](note:top-income-shares) → use [IRS Individual Tax Data](note:irs-individual-tax-data) |"
+      }
+     ],
+     "words": 36,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "may-and-outgoing-rotation-group-files-morg",
+   "heading": "May and Outgoing Rotation Group files (MORG)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "may-and-outgoing-rotation-group-files-morg-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **May CPS** supplements for 1973–1978, then the **Merged Outgoing Rotation Group** files from 1979: each month, households leaving the survey rotation are asked about earnings in their current job.\n- They record **usual hourly or weekly earnings at a point in time**, rather than last year's annual earnings.\n- A widely used cleaned version (May + MORG) is distributed by Acemoglu and Autor; the raw files are at the NBER (MORG) and IPUMS (May)."
+      }
+     ],
+     "words": 75,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "hourly-wages-march-vs-may-morg",
+   "heading": "Hourly wages: March vs May/MORG",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "hourly-wages-march-vs-may-morg-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| | March CPS | May/MORG CPS |\n| --- | --- | --- |\n| Earnings concept | Last year's annual earnings | Usual hourly or weekly earnings now |\n| Hourly wage | Constructed: annual earnings ÷ (weeks worked × usual weekly hours) | Reported directly for hourly workers |\n| Hours data | Usual hours last year missing before 1976; noisy throughout | Point-in-time |\n| Period | From 1963 | From 1973 |\n| Best for | Long series, annual earnings, averages | The **distribution** of hourly wages |"
+      },
+      {
+       "t": "prose",
+       "md": "For **average** wages both give very similar answers — measurement error averages out in large samples. For **dispersion** it does not ([Classical Measurement Error](note:classical-measurement-error)), so the choice of file matters for inequality."
+      }
+     ],
+     "words": 95,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "samples-and-top-coding",
+   "heading": "Samples and top coding",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "samples-and-top-coding-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Full-time, full-year** (FTFY) samples are common with March data but exclude many low-wage part-time and part-year workers, so they can mislead about the bottom of the distribution.\n- The CPS — like the Census and the ACS — **top-codes** income ([Top Coding](note:top-coding)): measured variance is below the true variance and changes at the very top are invisible. For the top, use [IRS Individual Tax Data](note:irs-individual-tax-data) or the [SSA Master Earnings File](note:ssa-master-earnings-file)."
+      }
+     ],
+     "words": 70,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Composition Adjustment](note:composition-adjustment)"
+      }
+     ],
+     "words": 3,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

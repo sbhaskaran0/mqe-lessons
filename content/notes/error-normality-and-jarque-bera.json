@@ -1,0 +1,290 @@
+{
+ "slug": "error-normality-and-jarque-bera",
+ "notation": [
+  {
+   "tex": "$JB$",
+   "meaning": "Jarque-Bera test statistic",
+   "kind": "Statistic",
+   "typical": "0 under perfect normality",
+   "keys": [
+    "~JB"
+   ]
+  },
+  {
+   "tex": "$N$",
+   "meaning": "Sample size",
+   "kind": "Count",
+   "typical": "—",
+   "keys": [
+    "N"
+   ]
+  },
+  {
+   "tex": "$S$",
+   "meaning": "Skewness of the residuals (lopsidedness)",
+   "kind": "Statistic",
+   "typical": "0 for a normal",
+   "keys": [
+    "S"
+   ]
+  },
+  {
+   "tex": "$K$",
+   "meaning": "Kurtosis of the residuals (tail thickness)",
+   "kind": "Statistic",
+   "typical": "3 for a normal",
+   "keys": [
+    "K"
+   ]
+  },
+  {
+   "tex": "$\\chi^2_2$",
+   "meaning": "Chi-square distribution with 2 degrees of freedom — the null distribution of $JB$",
+   "kind": "Distribution",
+   "typical": "5% critical value ≈ 5.99",
+   "keys": [
+    "chi"
+   ]
+  },
+  {
+   "tex": "$y_i$, $x_i$",
+   "meaning": "Outcome and regressor",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "y",
+    "x"
+   ],
+   "from": "sr-assumptions"
+  },
+  {
+   "tex": "$b_2$",
+   "meaning": "OLS slope estimate",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "b"
+   ],
+   "from": "sr-assumptions"
+  },
+  {
+   "tex": "$B$",
+   "meaning": "Number of bootstrap repetitions",
+   "kind": "Choice",
+   "typical": "1,000 or more",
+   "keys": [
+    "B"
+   ],
+   "from": "bootstrapping-ols"
+  },
+  {
+   "tex": "$p_i$",
+   "meaning": "Plotting position: the share of the sample at or below rank $i$",
+   "kind": "Number in (0, 1)",
+   "typical": "$(i - 0.5)/n$",
+   "keys": [
+    "p"
+   ],
+   "from": "q-q-plot"
+  },
+  {
+   "tex": "$F^{-1}(\\cdot)$",
+   "meaning": "Quantile function of the reference distribution",
+   "kind": "Function",
+   "typical": "Standard normal by default",
+   "keys": [
+    "F"
+   ],
+   "from": "q-q-plot"
+  },
+  {
+   "tex": "$t$",
+   "meaning": "Test statistic $(b_k - \\beta_k)/se(b_k)$",
+   "kind": "Statistic",
+   "typical": "≈ ±2 is the 5% threshold in large samples",
+   "keys": [
+    "t"
+   ],
+   "from": "sampling-distribution-of-ols"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "This concept is about whether the unexplained part of a regression follows the familiar bell curve. If it does, the standard tests and confidence intervals are exactly right even in small samples. If it does not, they are only approximately right, and the approximation is good once the sample is large. The Jarque-Bera test checks the bell-curve assumption by asking two questions of the residuals: are they lopsided, and do they have unusually fat tails?"
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It tells you whether you can trust textbook p-values in a small sample, or should switch to a method like the bootstrap.",
+       "folded": false
+      }
+     ],
+     "words": 100,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**SR6, the optional assumption.** Helpful but not required."
+      }
+     ],
+     "words": 8,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "what-normality-buys",
+   "heading": "What normality buys",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-normality-buys-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Exact finite-sample distributions: $b_k \\mid x$ is exactly normal, so the $t$ statistic is exactly $t_{N-2}$\n- Nothing for unbiasedness, and nothing for [Gauss-Markov Theorem](note:gauss-markov-theorem) — BLUE holds without it"
+      },
+      {
+       "t": "prose",
+       "md": "Without SR6, the Central Limit Theorem makes the normal sampling distributions approximately correct for large $N$. That is the whole reason normality is called optional. When samples are small, normality of the errors is genuinely advantageous for inference."
+      }
+     ],
+     "words": 62,
+     "symbols": [
+      "$N$",
+      "$y_i$, $x_i$",
+      "$b_2$",
+      "$t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "the-jarque-bera-test",
+   "heading": "The Jarque-Bera test",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-jarque-bera-test-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "JB = \\frac{N}{6}\\left(S^2 + \\frac{(K-3)^2}{4}\\right) \\;\\sim\\; \\chi^2_{2}"
+      },
+      {
+       "t": "prose",
+       "md": "where $S$ is skewness and $K$ is kurtosis. Under normality $S=0$ and $K=3$, so $JB=0$."
+      },
+      {
+       "t": "prose",
+       "md": "- **Two degrees of freedom** because two restrictions are tested jointly: $S = 0$ and $K - 3 = 0$.\n- $H_0$ is **normality**, so a *small* $p$-value **rejects** normality.\n- Consequence of rejection: exact small-sample $t$ and $F$ inference is unreliable. With large $N$ the CLT still justifies asymptotic inference; with small $N$, [Bootstrapping OLS](note:bootstrapping-ols) is the honest answer."
+      },
+      {
+       "t": "prose",
+       "md": "**Two contrasting lecture examples.** The food regression's residuals have skewness −0.097 and kurtosis 2.989, so $JB = 0.063$ with $p = 0.969$: no evidence against normality."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Food expenditure regression - histogram of residuals.png",
+       "alt": "Food expenditure regression - histogram of residuals"
+      }
+     ],
+     "words": 79,
+     "symbols": [
+      "$JB$",
+      "$N$",
+      "$S$",
+      "$K$",
+      "$\\chi^2_2$",
+      "$B$",
+      "$p_i$",
+      "$F^{-1}(\\cdot)$",
+      "$t$"
+     ]
+    },
+    {
+     "id": "the-jarque-bera-test-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The house-price quadratic's residuals have skewness 1.28 and kurtosis 39.8 (a sharp peak with very long tails), so $JB = 61{,}385$ and $p \\approx 0$, even though the histogram looks roughly bell-shaped at a glance."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/House price quadratic fit - histogram of residuals.png",
+       "alt": "House price quadratic fit - histogram of residuals"
+      },
+      {
+       "t": "prose",
+       "md": "The shape statistics are covered in [Skewness and Kurtosis](note:skewness-and-kurtosis), and the graphical check in [Q-Q Plot](note:q-q-plot)."
+      }
+     ],
+     "words": 47,
+     "symbols": [
+      "$JB$",
+      "$B$",
+      "$p_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "visual-check",
+   "heading": "Visual check",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "visual-check-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A QQ plot of the residuals against the normal — see [EDA for Regression](note:eda-for-regression). Straight line means the reference fits; both ends bending away means heavy tails; an S-shape means skew."
+      }
+     ],
+     "words": 30,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [SR Assumptions](note:sr-assumptions)\n- [Sampling Distribution of OLS](note:sampling-distribution-of-ols)\n- [Box-Cox and Power Transformations](note:box-cox-and-power-transformations) — a transformation of $y$ is often the better fix than patching the inference"
+      }
+     ],
+     "words": 25,
+     "symbols": [
+      "$y_i$, $x_i$"
+     ]
+    }
+   ]
+  }
+ ]
+}

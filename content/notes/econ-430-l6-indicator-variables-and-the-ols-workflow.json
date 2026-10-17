@@ -1,0 +1,832 @@
+{
+ "slug": "econ-430-l6-indicator-variables-and-the-ols-workflow",
+ "notation": [
+  {
+   "tex": "$D_i$ (e.g. $UTOWN$, $FEMALE$)",
+   "meaning": "Indicator: 1 if observation $i$ is in the group, 0 otherwise",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "D",
+    "~UTOWN",
+    "~FEMALE"
+   ],
+   "from": "indicator-variables"
+  },
+  {
+   "tex": "$\\beta_1$",
+   "meaning": "Mean outcome of the reference (zero) group",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ],
+   "from": "indicator-variables"
+  },
+  {
+   "tex": "$\\bar{y}_0$, $\\bar{y}_1$",
+   "meaning": "Sample means of the two groups",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "bar(y)"
+   ],
+   "from": "indicator-variables"
+  },
+  {
+   "tex": "$b_1$, $b_2$",
+   "meaning": "OLS estimates, equal to $\\bar{y}_0$ and $\\bar{y}_1 - \\bar{y}_0$",
+   "kind": "Estimators",
+   "typical": "—",
+   "keys": [
+    "b"
+   ],
+   "from": "indicator-variables"
+  },
+  {
+   "tex": "$k$",
+   "meaning": "Number of categories",
+   "kind": "Count",
+   "typical": "Use $k - 1$ dummies",
+   "keys": [
+    "k"
+   ],
+   "from": "indicator-variables"
+  },
+  {
+   "tex": "$\\boldsymbol{\\delta}$",
+   "meaning": "A nonzero vector with $\\mathbf{X}\\boldsymbol{\\delta} = \\mathbf{0}$ — the dummy trap",
+   "kind": "Vector",
+   "typical": "—",
+   "keys": [
+    "bold(delta)"
+   ],
+   "from": "indicator-variables"
+  },
+  {
+   "tex": "$\\mathbf{X}$",
+   "meaning": "Regressor matrix",
+   "kind": "Data ($N\\times K$)",
+   "typical": "—",
+   "keys": [
+    "bold(X)"
+   ],
+   "from": "full-rank-and-identification"
+  },
+  {
+   "tex": "$N$, $K$",
+   "meaning": "Observations and regressors",
+   "kind": "Counts",
+   "typical": "Need $N \\geq K$",
+   "keys": [
+    "N",
+    "K"
+   ],
+   "from": "full-rank-and-identification"
+  },
+  {
+   "tex": "$NI$, $S$, $T$",
+   "meaning": "Non-labor income, labor income and total income ($T = NI + S$) in the example",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "~NI",
+    "S",
+    "T"
+   ],
+   "from": "full-rank-and-identification"
+  },
+  {
+   "tex": "$\\boldsymbol{\\varepsilon}$, $y$",
+   "meaning": "Error and outcome",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(varepsilon)",
+    "y"
+   ],
+   "from": "full-rank-and-identification"
+  },
+  {
+   "tex": "$h_i$",
+   "meaning": "Leverage of observation $i$: how unusual its regressors are",
+   "kind": "Statistic",
+   "typical": "Flag if $> 2p/n$",
+   "keys": [
+    "h"
+   ],
+   "from": "regression-diagnostics"
+  },
+  {
+   "tex": "$t_i$",
+   "meaning": "Studentised residual: how badly observation $i$ is fitted",
+   "kind": "Statistic",
+   "typical": "Flag if $\\lvert t_i\\rvert > 2$",
+   "keys": [
+    "t"
+   ],
+   "from": "regression-diagnostics"
+  },
+  {
+   "tex": "$p$, $n$",
+   "meaning": "Number of parameters and of observations",
+   "kind": "Counts",
+   "typical": "—",
+   "keys": [
+    "p",
+    "n"
+   ],
+   "from": "regression-diagnostics"
+  },
+  {
+   "tex": "$LM$",
+   "meaning": "Breusch-Pagan statistic, $n$ times the $R^2$ of the squared residuals on the regressors",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "~LM"
+   ],
+   "from": "regression-diagnostics"
+  },
+  {
+   "tex": "$R^2$",
+   "meaning": "Coefficient of determination of that auxiliary regression",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "R"
+   ],
+   "from": "regression-diagnostics"
+  },
+  {
+   "tex": "$JB$",
+   "meaning": "Jarque-Bera statistic",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "~JB"
+   ],
+   "from": "regression-diagnostics"
+  },
+  {
+   "tex": "$x_{(i)}$",
+   "meaning": "The $i$-th smallest observation (order statistic)",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "x"
+   ],
+   "from": "q-q-plot"
+  },
+  {
+   "tex": "$F^{-1}(\\cdot)$",
+   "meaning": "Quantile function of the reference distribution",
+   "kind": "Function",
+   "typical": "Standard normal by default",
+   "keys": [
+    "F"
+   ],
+   "from": "q-q-plot"
+  },
+  {
+   "tex": "$B$",
+   "meaning": "Number of bootstrap repetitions",
+   "kind": "Choice",
+   "typical": "1,000 or more",
+   "keys": [
+    "B"
+   ],
+   "from": "bootstrapping-ols"
+  },
+  {
+   "tex": "$L_0$, $\\hat{L}$",
+   "meaning": "Log-likelihoods at those values",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "L",
+    "hat(L)"
+   ],
+   "from": "box-cox-and-power-transformations"
+  },
+  {
+   "tex": "$Y$, $X$, $p$, $q$, $a$, $b$",
+   "meaning": "Variables and powers in the bulging-rule regression",
+   "kind": "Data / parameters",
+   "typical": "—",
+   "keys": [
+    "Y",
+    "X",
+    "p",
+    "q",
+    "a",
+    "b"
+   ],
+   "from": "box-cox-and-power-transformations"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Categorical characteristics enter a regression as indicator (dummy) variables. With one 0/1 indicator, OLS reproduces the two group means: the intercept is the reference group's mean and the slope is the gap, so women in the lecture's data earn \\$2.66 an hour less than men on average. The lecture then runs a full seven-step workflow on wage and experience, in which a statistically significant slope ($t = 2.60$) coexists with an $R^2$ of 0.013, failed linearity, normality and constant-variance tests, and cross-validated errors no better than predicting the mean.**"
+      }
+     ],
+     "words": 88,
+     "symbols": [
+      "$t_i$",
+      "$R^2$"
+     ]
+    },
+    {
+     "id": "intro-2",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "info",
+       "title": "Source",
+       "md": "Section 6 of `Regression_Lecture1_Adv.ipynb` and the \"Ordinary Least Squares (Detailed Example - 7 Steps)\" that follows it (see [Econ 430 L1 Univariate Characterizations](note:econ-430-l1-univariate-characterizations) for how the notebook maps to lectures).",
+       "folded": false
+      }
+     ],
+     "words": 34,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "1-a-single-indicator",
+   "heading": "1. A single indicator",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-a-single-indicator-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "An [indicator variable](note:indicator-variables) takes the value 1 for one category and 0 for the other, for example $UTOWN = 1$ for a house in University Town and 0 for Golden Oaks. Writing the regression function for each value shows what the coefficients mean: $E[PRICE] = \\beta_1 + \\beta_2$ when $UTOWN = 1$ and $\\beta_1$ when $UTOWN = 0$. So OLS gives $b_1 = \\bar{y}_0$, the reference group's mean, and $b_2 = \\bar{y}_1 - \\bar{y}_0$, the difference in means, and the $t$ test on $b_2$ is the familiar two-sample test with pooled variance."
+      }
+     ],
+     "words": 67,
+     "symbols": [
+      "$D_i$ (e.g. $UTOWN$, $FEMALE$)",
+      "$\\beta_1$",
+      "$\\bar{y}_0$, $\\bar{y}_1$",
+      "$b_1$, $b_2$",
+      "$N$, $K$",
+      "$NI$, $S$, $T$",
+      "$t_i$",
+      "$R^2$"
+     ]
+    },
+    {
+     "id": "1-a-single-indicator-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The lecture's example regresses hourly wages on a female indicator for 1,000 workers (`cps_small`). Both wage distributions are right-skewed, and the men's sits to the right. The estimate is $\\widehat{WAGE} = 11.53 - 2.66\\,FEMALE$: men average \\$11.53 an hour and women \\$8.87, a gap with $t = -6.88$. With no other controls it is a raw difference in means."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Wage histograms by gender.png",
+       "alt": "Wage histograms by gender"
+      }
+     ],
+     "words": 55,
+     "symbols": [
+      "$D_i$ (e.g. $UTOWN$, $FEMALE$)",
+      "$t_i$",
+      "$F^{-1}(\\cdot)$",
+      "$L_0$, $\\hat{L}$"
+     ]
+    },
+    {
+     "id": "1-a-single-indicator-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "Estimated: $\\text{wage} = 21.03 - 4.29\\,\\text{female}$. What is the mean hourly wage for women, in dollars?",
+       "answer": 16.74,
+       "tol": 0.005,
+       "wrong": [
+        {
+         "answer": 21.03,
+         "tol": 0.0,
+         "md": "that is men's mean wage: men are the reference group ($\\text{female} = 0$), so their mean is the intercept"
+        },
+        {
+         "answer": 4.29,
+         "tol": 0.0,
+         "md": "that is the gap between men's and women's mean wages, not women's mean wage"
+        },
+        {
+         "answer": 25.32,
+         "tol": 0.0,
+         "md": "the coefficient is $-4.29$: women's mean is below the intercept, $21.03 - 4.29$"
+        }
+       ],
+       "why": "Men are the reference group, so their mean wage is the intercept, \\$21.03 an hour, and women's is $21.03 - 4.29 = 16.74$. The $t$ test on the female coefficient tests whether the two population means are equal. It is a raw gap with no controls, not an estimate of discrimination. ([Indicator Variables](note:indicator-variables))",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 11,
+     "symbols": [
+      "$t_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "2-several-categories-and-the-dummy-variable-trap",
+   "heading": "2. Several categories and the dummy-variable trap",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-several-categories-and-the-dummy-variable-trap-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A variable with $k$ categories needs $k - 1$ indicators; the omitted category is the reference group, and each coefficient is a gap relative to it. Including all $k$ alongside the intercept makes the indicators add up to the column of ones, so the regressors are perfectly collinear ([Full Rank and Identification](note:full-rank-and-identification)). Before fitting, check how many observations fall in each category: the lecture's summary shows, for example, that only 8.8% of the workers are black, so estimates for that group rest on few observations."
+      }
+     ],
+     "words": 81,
+     "symbols": [
+      "$k$"
+     ]
+    },
+    {
+     "id": "2-several-categories-and-the-dummy-variable-trap-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "The `cps_small` data have indicators for living in the Midwest, South and West; workers in the Northeast have all three equal to 0. A researcher also creates a Northeast indicator and regresses wage on a constant and all four regional indicators. What happens?",
+       "options": [
+        {
+         "md": "The Northeast coefficient becomes the reference group's mean wage",
+         "correct": false,
+         "feedback": "The reference group's mean is the intercept, and only when its own indicator is left out. With all four included there is no reference group at all."
+        },
+        {
+         "md": "The four indicators sum to the column of ones, so $\\mathbf{X}$ is not of full rank and OLS cannot separate the intercept from the regional coefficients",
+         "correct": true
+        },
+        {
+         "md": "Nothing goes wrong, but the standard errors become larger",
+         "correct": false,
+         "feedback": "This is not a matter of degree: with exact collinearity $\\mathbf{X}'\\mathbf{X}$ cannot be inverted at all, so there are no unique estimates to have standard errors."
+        },
+        {
+         "md": "OLS automatically drops the constant, and the four coefficients become the regional mean wages",
+         "correct": false,
+         "feedback": "That is a valid alternative model (four indicators and no constant), but it is a different specification the researcher would have to choose. With the constant included the model is not identified."
+        }
+       ],
+       "why": "For every worker, Midwest + South + West + Northeast $= 1$, which is exactly the constant column. Then one column of $\\mathbf{X}$ is a linear combination of the others, $\\mathbf{X}\\boldsymbol{\\delta} = \\mathbf{0}$ for a nonzero $\\boldsymbol{\\delta}$, and $\\mathbf{X}'\\mathbf{X}$ is singular: adding any number to the intercept and subtracting it from all four regional coefficients gives the same fit. Drop one indicator (or the constant).",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 101,
+     "symbols": [
+      "$\\boldsymbol{\\delta}$",
+      "$\\mathbf{X}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "3-the-seven-step-workflow",
+   "heading": "3. The seven-step workflow",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "3-the-seven-step-workflow-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The lecture's detailed example applies a complete workflow to the `wage1` data (526 workers), regressing hourly wage on years of experience ([Regression Diagnostics](note:regression-diagnostics)):"
+      },
+      {
+       "t": "prose",
+       "md": "1. Inspect the data: types, ranges and missing values (there are none).\n2. Look at the distributions, here by gender: wages are strongly right-skewed.\n3. Fit the model: $\\widehat{WAGE} = 5.373 + 0.0307\\,EXPER$.\n4. Evaluate it, with formal tests of linearity, normality and constant variance.\n5. Look at the diagnostic plots.\n6. Bootstrap the estimates.\n7. Evaluate predictive performance by cross-validation."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Wage and experience by gender - pair plot.png",
+       "alt": "Wage and experience by gender - pair plot"
+      },
+      {
+       "t": "prose",
+       "md": "The fitted slope says each extra year of experience goes with 3 cents more an hour. Its standard error is 0.012, so $t = 2.60$ and $p = 0.010$; but $R^2 = 0.013$."
+      }
+     ],
+     "words": 104,
+     "symbols": [
+      "$t_i$",
+      "$p$, $n$",
+      "$R^2$",
+      "$Y$, $X$, $p$, $q$, $a$, $b$"
+     ]
+    },
+    {
+     "id": "3-the-seven-step-workflow-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "In the wage-on-experience regression the slope is 0.0307 with $t = 2.60$ ($p = 0.010$), and $R^2 = 0.013$. Which reading is right?",
+       "options": [
+        {
+         "md": "The low $R^2$ means the slope estimate must be wrong or insignificant",
+         "correct": false,
+         "feedback": "Significance and fit answer different questions. With 526 workers even a small slope can be estimated precisely enough to reject zero."
+        },
+        {
+         "md": "The significant slope means experience explains most of the variation in wages",
+         "correct": false,
+         "feedback": "A small p-value says the slope is distinguishable from zero, not that it accounts for much: experience explains 1.3% of the variation here."
+        },
+        {
+         "md": "Wages are related to experience on average, but experience alone accounts for only 1.3% of the variation in wages, so individual wages are predicted poorly",
+         "correct": true
+        }
+       ],
+       "why": "$t = 0.0307/0.0118 = 2.60$ rejects $\\beta_2 = 0$ at 5%, so wages rise with experience on average, by about 3 cents an hour per year. But $R^2 = 0.013$ means 98.7% of the variation in wages is left in the residuals ([Coefficient of Determination](note:coefficient-of-determination)). Statistical significance is not the same as explanatory power, or as an economically large effect.",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 64,
+     "symbols": [
+      "$\\beta_1$",
+      "$t_i$",
+      "$p$, $n$",
+      "$R^2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "4-formal-tests",
+   "heading": "4. Formal tests",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "4-formal-tests-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Step 4 backs the regression table with three tests, each with \"the assumption holds\" as its null hypothesis."
+      },
+      {
+       "t": "table",
+       "md": "| Test | Null hypothesis | Result |\n| --- | --- | --- |\n| Harvey-Collier | The relationship is linear | $t = -3.25$, $p = 0.0012$ |\n| Jarque-Bera | The residuals are normal | $JB = 851.5$, $p \\approx 0$; skewness 1.96, kurtosis 7.84 |\n| Breusch-Pagan | The error variance is constant | $LM = 5.74$, $p = 0.017$ |"
+      }
+     ],
+     "words": 47,
+     "symbols": [
+      "$t_i$",
+      "$p$, $n$",
+      "$LM$",
+      "$JB$",
+      "$B$",
+      "$L_0$, $\\hat{L}$"
+     ]
+    },
+    {
+     "id": "4-formal-tests-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Using the table of test results and a 5% level, which conclusions follow? Tick all that apply.",
+       "options": [
+        {
+         "md": "The linear form is rejected: wages do not rise in a straight line with experience",
+         "correct": true
+        },
+        {
+         "md": "The residuals are consistent with normality, because the Jarque-Bera p-value is tiny",
+         "correct": false,
+         "feedback": "A tiny p-value is evidence *against* the null, and the Jarque-Bera null is normality. With skewness 1.96 and kurtosis 7.84 the residuals are far from normal."
+        },
+        {
+         "md": "Constant variance is rejected, so the usual standard errors are unreliable and robust standard errors should be used",
+         "correct": true
+        },
+        {
+         "md": "Because the Breusch-Pagan test rejects, the OLS slope 0.0307 is biased",
+         "correct": false,
+         "feedback": "Heteroskedasticity breaks the standard errors and the BLUE property, not unbiasedness, which rests on SR1, SR2 and SR5."
+        }
+       ],
+       "why": "All three p-values are below 0.05, so all three nulls are rejected. Harvey-Collier ($p = 0.0012$): curvature, as the bending residual plot shows. Jarque-Bera ($p \\approx 0$): right-skewed, heavy-tailed residuals. Breusch-Pagan ($p = 0.017$): heteroskedasticity, which calls for robust standard errors but leaves the slope unbiased ([Homoskedasticity](note:homoskedasticity)).",
+       "objectives": [
+        4
+       ]
+      }
+     ],
+     "words": 74,
+     "symbols": [
+      "$p$, $n$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "5-diagnostic-plots",
+   "heading": "5. Diagnostic plots",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "5-diagnostic-plots-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The residuals plotted against the predicted values show a lowess curve that rises and then bends down at high predicted wages, the curvature the Harvey-Collier test detected. The normal probability plot shows the skew the Jarque-Bera test detected."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Wage on experience - normal probability plot of residuals.png",
+       "alt": "Wage on experience - normal probability plot of residuals"
+      }
+     ],
+     "words": 38,
+     "symbols": []
+    },
+    {
+     "id": "5-diagnostic-plots-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "In the normal probability plot of the wage residuals, the points at the left end lie above the reference line and those at the right end lie far above it. What does this show?",
+       "options": [
+        {
+         "md": "Light tails: fewer extreme residuals than a normal",
+         "correct": false,
+         "feedback": "Light tails bend the two ends in opposite directions: above the line on the left, below on the right. Here both ends are above."
+        },
+        {
+         "md": "Right skew: a short left tail and a long right tail, consistent with skewness 1.96",
+         "correct": true
+        },
+        {
+         "md": "Heavy tails on both sides, but no skew",
+         "correct": false,
+         "feedback": "Symmetric heavy tails bend the left end below the line and the right end above. Both ends above means the distribution is lopsided."
+        }
+       ],
+       "why": "Above the line means larger than a normal predicts at that rank. The smallest residuals are not as negative as a normal's (wages cannot fall far below the line, because they are bounded below), while the largest are far larger: a long right tail ([Q-Q Plot](note:q-q-plot)). That matches the skewness of 1.96 and suggests a log of wage.",
+       "objectives": [
+        5
+       ]
+      }
+     ],
+     "words": 66,
+     "symbols": []
+    },
+    {
+     "id": "5-diagnostic-plots-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Leverage measures how unusual an observation's $x$ is: the $i$-th diagonal $h_i$ of the projection matrix, flagged when $h_i > 2p/n$. Outliers are observations with studentized residuals beyond $\\pm 2$. The lecture's residual-leverage plot colours high-leverage points blue, outliers red and points that are both purple; its influence plots scale each point by Cook's distance or DFFITS."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Wage on experience - outlier and leverage diagnostics.png",
+       "alt": "Wage on experience - outlier and leverage diagnostics"
+      }
+     ],
+     "words": 50,
+     "symbols": [
+      "$h_i$",
+      "$p$, $n$",
+      "$x_{(i)}$"
+     ]
+    },
+    {
+     "id": "5-diagnostic-plots-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "The wage-on-experience regression has $p = 2$ parameters and $n = 526$ observations. Above what leverage $h_i$ does the lecture's rule flag an observation as high-leverage? Give four decimal places.",
+       "answer": 0.0076,
+       "tol": 5e-05,
+       "wrong": [
+        {
+         "answer": 0.0038,
+         "tol": 5e-05,
+         "md": "that is $p/n$, the average leverage; the rule flags twice the average, $2p/n$"
+        },
+        {
+         "answer": 0.0114,
+         "tol": 5e-05,
+         "md": "that is $3p/n$, a stricter rule some texts use; the lecture's is $2p/n$"
+        },
+        {
+         "answer": 2.0,
+         "tol": 0.0,
+         "md": "that is the cut-off for studentized residuals, which flags outliers in $y$, not leverage"
+        }
+       ],
+       "why": "The leverages are the diagonal of $\\mathbf{P}$, whose trace is $p$, so they average $p/n = 2/526 = 0.0038$. The rule flags twice that, $2p/n = 4/526 = 0.0076$. In the plot the flagged points are the workers with the most experience, more than about 40 years.",
+       "objectives": [
+        5
+       ]
+      }
+     ],
+     "words": 23,
+     "symbols": [
+      "$\\boldsymbol{\\varepsilon}$, $y$",
+      "$h_i$",
+      "$p$, $n$"
+     ]
+    },
+    {
+     "id": "5-diagnostic-plots-5",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "High leverage alone is harmless: a point far out in $x$ that sits on the line is fitted well and moves nothing. An observation is influential when it is unusual in $x$ and badly fitted at the same time, so that dropping it would visibly move the line."
+      },
+      {
+       "t": "interactive",
+       "widget": "leverage-and-influence-explorer",
+       "prompt": "Drag one observation and see how leverage, its residual and its influence move the line",
+       "status": "planned",
+       "purpose": "Separate the three ideas: leverage (unusual x), outlier (badly fitted y) and influence (moves the fit), and see the 2p/n and |t| > 2 cut-offs at work",
+       "objectives": [
+        5
+       ]
+      }
+     ],
+     "words": 61,
+     "symbols": [
+      "$x_{(i)}$"
+     ]
+    },
+    {
+     "id": "5-diagnostic-plots-6",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Step 5 ends with a Box-Cox check on each variable ([Box-Cox and Power Transformations](note:box-cox-and-power-transformations)): the estimated power is −0.21 for wage and 0.30 for experience. Transformed, the wage histogram loses most of its long right tail, another pointer towards modelling the log of wage."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Wage histogram - before and after Box-Cox.png",
+       "alt": "Wage histogram - before and after Box-Cox"
+      }
+     ],
+     "words": 46,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "6-bootstrap-and-cross-validation",
+   "heading": "6. Bootstrap and cross-validation",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "6-bootstrap-and-cross-validation-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The bootstrap (100 resamples) shows the slope's sampling distribution: centred near the estimate of 0.031 and almost entirely above zero, consistent with the $t$ test ([Bootstrapping OLS](note:bootstrapping-ols)). Cross-validation measures predictive accuracy: a 70/30 split gives a test RMSE of 3.47 dollars an hour, and 5-fold CV a mean RMSE of 3.68 ([Cross-Validation](note:cross-validation))."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Wage on experience - bootstrap distribution of the slope.png",
+       "alt": "Wage on experience - bootstrap distribution of the slope"
+      }
+     ],
+     "words": 55,
+     "symbols": [
+      "$t_i$"
+     ]
+    },
+    {
+     "id": "6-bootstrap-and-cross-validation-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "The 5-fold cross-validated RMSE of the wage-on-experience model is 3.68 dollars an hour. The standard deviation of wages in the sample is 3.69. What does the comparison say?",
+       "options": [
+        {
+         "md": "The model predicts a new worker's wage barely better than simply predicting the average wage for everyone",
+         "correct": true
+        },
+        {
+         "md": "The model predicts well, because an error of 3.68 dollars is small",
+         "correct": false,
+         "feedback": "Whether an error is small depends on the benchmark. Predicting the mean wage for everyone already misses by about 3.69 dollars."
+        },
+        {
+         "md": "The model overfits, because its error is close to the standard deviation",
+         "correct": false,
+         "feedback": "Overfitting shows up as out-of-sample error far above in-sample error. Here both are poor: the model is too simple, not too flexible."
+        }
+       ],
+       "why": "Predicting the sample mean for everyone gives an RMSE equal to the standard deviation of wages, 3.69. The model's held-out RMSE, 3.68, is almost the same, which is what $R^2 = 0.013$ implies: experience alone carries almost no predictive information about an individual's wage. A model with education, gender and a log wage would be the natural next step.",
+       "objectives": [
+        6
+       ]
+      }
+     ],
+     "words": 72,
+     "symbols": [
+      "$R^2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "math-refresher",
+   "heading": "Math refresher",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "math-refresher-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Math Prep L2 Vector Spaces Rank and Projection](note:math-prep-l2-vector-spaces-rank-and-projection) — rank, collinear columns and the dummy trap\n- [Math Prep L3 Eigenvalues and Quadratic Forms](note:math-prep-l3-eigenvalues-and-quadratic-forms) — why a singular $\\mathbf{X}'\\mathbf{X}$ has no inverse"
+      }
+     ],
+     "words": 30,
+     "symbols": [
+      "$\\mathbf{X}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Write the regression function for each value of an indicator, and read $b_1$ and $b_2$ as the reference group's mean and the difference in means.\n2. Represent a categorical variable with $k$ categories by $k - 1$ indicators, and explain the dummy-variable trap.\n3. Run the seven-step OLS workflow, say what each step checks, and keep statistical significance and fit apart.\n4. State the null hypotheses of the Harvey-Collier, Jarque-Bera and Breusch-Pagan tests and interpret their p-values.\n5. Read the diagnostic plots: residuals against predicted values, the normal probability plot, and the leverage and influence plots with their cut-offs.\n6. Use bootstrap and cross-validation output to judge a model's robustness and predictive accuracy."
+      }
+     ],
+     "words": 108,
+     "symbols": [
+      "$b_1$, $b_2$",
+      "$k$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "indicator-variables",
+        "full-rank-and-identification",
+        "regression-diagnostics",
+        "q-q-plot",
+        "coefficient-of-determination",
+        "hypothesis-tests-on-regression-coefficients",
+        "bootstrapping-ols",
+        "cross-validation",
+        "box-cox-and-power-transformations"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

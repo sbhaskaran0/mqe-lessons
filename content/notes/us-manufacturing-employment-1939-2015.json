@@ -1,0 +1,89 @@
+{
+ "slug": "us-manufacturing-employment-1939-2015",
+ "notation": [],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Manufacturing's share of US nonfarm jobs has fallen steadily since World War II, from about 39% in 1944 to about 9% by 2010. The number of manufacturing jobs, by contrast, stayed roughly flat at 17–19 million from the late 1960s to 2000 and then collapsed to about 11.5 million by 2010 — while real manufacturing value added kept rising.**"
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/US manufacturing share of nonfarm employment 1939-2015.png",
+       "alt": "US manufacturing share of nonfarm employment 1939-2015"
+      }
+     ],
+     "words": 60,
+     "symbols": []
+    },
+    {
+     "id": "intro-2",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Year | Share of nonfarm employment (≈) |\n| --- | --- |\n| 1944 (peak) | 0.39 |\n| 1955 | 0.31 |\n| 1975 | 0.23 |\n| 1990 | 0.16 |\n| 2000 | 0.13 |\n| 2010–2015 | 0.09 |"
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/US manufacturing employment vs real value added 1948-2010.png",
+       "alt": "US manufacturing employment vs real value added 1948-2010"
+      },
+      {
+       "t": "table",
+       "md": "| Period | Manufacturing employment (≈, millions) | Real value added |\n| --- | --- | --- |\n| 1948 | 14 | ≈ $250 billion |\n| 1979 (peak) | 19.4 | Rising |\n| Late 1990s | 17–17.5 | Rising |\n| 2010 | 11.5 | ≈ $1.6–1.8 trillion |"
+      },
+      {
+       "t": "prose",
+       "md": "All values read off the lecture charts, approximate."
+      }
+     ],
+     "words": 68,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "reading-it-correctly",
+   "heading": "Reading it correctly",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "reading-it-correctly-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Share vs level**: the falling share since the 1940s reflects structural change toward services — the denominator grew. The *level* only fell sharply after 2000, the period of rapid import growth from China.\n- **Output did not fall**: real value added kept rising, so the job decline is about labor per unit of output (productivity, automation, offshoring) as well as competition.\n- It is hard to attribute the long decline to China, but plausible that without China's growth the post-2000 contraction would have been slower."
+      }
+     ],
+     "words": 85,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [US Imports from China 1991-2007](note:us-imports-from-china-1991-2007) · [US Manufacturing Employment Effects of PNTR 1990-2007](note:us-manufacturing-employment-effects-of-pntr-1990-2007)"
+      }
+     ],
+     "words": 13,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

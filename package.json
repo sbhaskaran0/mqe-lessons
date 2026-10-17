@@ -1,0 +1,53 @@
+{
+  "name": "mqe-lessons",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Brilliant-style lesson player compiled from the MQE Obsidian vault",
+  "type": "module",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "check": "node scripts/vault.mjs check",
+    "sync": "node scripts/vault.mjs sync",
+    "export": "node scripts/vault.mjs export",
+    "dev": "node scripts/dev.mjs",
+    "validate": "tsx scripts/validate.ts",
+    "test": "vitest run && node scripts/pytest.mjs",
+    "test:js": "vitest run",
+    "test:py": "node scripts/pytest.mjs",
+    "typecheck": "tsc --noEmit",
+    "build": "node scripts/build.mjs",
+    "preview": "vite preview",
+    "e2e": "playwright test",
+    "screens": "playwright test --project=screens",
+    "lesson": "node scripts/lesson.mjs"
+  },
+  "dependencies": {
+    "@dagrejs/dagre": "3.1.1",
+    "@observablehq/plot": "0.6.17",
+    "katex": "0.18.9",
+    "mafs": "0.21.0",
+    "markdown-it": "14.3.2",
+    "mathjs": "15.2.0",
+    "minisearch": "7.2.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "zod": "4.6.5"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "@testing-library/react": "16.3.3",
+    "@types/markdown-it": "14.2.0",
+    "@types/node": "24.19.0",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.1",
+    "chokidar": "5.0.0",
+    "happy-dom": "20.14.5",
+    "tsx": "4.23.15",
+    "typescript": "7.0.2",
+    "vite": "8.3.1",
+    "vitest": "5.0.2"
+  }
+}

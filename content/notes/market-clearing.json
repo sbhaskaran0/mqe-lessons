@@ -1,0 +1,274 @@
+{
+ "slug": "market-clearing",
+ "notation": [
+  {
+   "tex": "$c_t^i$",
+   "meaning": "Consumption of consumer $i$ in period $t$",
+   "kind": "Choice",
+   "typical": "—",
+   "keys": [
+    "~c_t^i"
+   ]
+  },
+  {
+   "tex": "$y_t^i$",
+   "meaning": "Income of consumer $i$ in period $t$",
+   "kind": "Exogenous",
+   "typical": "200, 100",
+   "keys": [
+    "~y_t^i"
+   ]
+  },
+  {
+   "tex": "$s^i$",
+   "meaning": "Saving of consumer $i$ in period 1 (negative = borrowing)",
+   "kind": "Choice",
+   "typical": "50, −50",
+   "keys": [
+    "~s^i"
+   ]
+  },
+  {
+   "tex": "$r$",
+   "meaning": "Interest rate",
+   "kind": "Endogenous in equilibrium",
+   "typical": "0 in the example",
+   "keys": [
+    "r"
+   ]
+  },
+  {
+   "tex": "$\\beta$",
+   "meaning": "Discount factor",
+   "kind": "Parameter",
+   "typical": "1",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$y_1$, $y_2$",
+   "meaning": "Income in periods 1 and 2",
+   "kind": "Exogenous",
+   "typical": "180, 216",
+   "keys": [
+    "y"
+   ],
+   "from": "two-period-consumption-saving-model"
+  },
+  {
+   "tex": "$c_1$, $c_2$",
+   "meaning": "Consumption in periods 1 and 2",
+   "kind": "Choice",
+   "typical": "200, 192",
+   "keys": [
+    "c"
+   ],
+   "from": "two-period-consumption-saving-model"
+  },
+  {
+   "tex": "$s = y_1 - c_1$",
+   "meaning": "Saving *amount* (negative = borrowing) — not the saving *rate* $s$ of the Solow model",
+   "kind": "Choice",
+   "typical": "−20",
+   "keys": [
+    "s"
+   ],
+   "from": "two-period-consumption-saving-model"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A single person can save or borrow as much as they like at a given interest rate — but an economy as a whole cannot consume more than it produces. If one person saves, someone else must be borrowing that money. Market clearing is the requirement that these plans fit together: total desired saving equals total desired borrowing. If savers want to lend more than borrowers want to take, the interest rate is too high and must fall; if borrowers want more than savers offer, it must rise. The interest rate that makes the plans match is the equilibrium rate."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It turns the interest rate from something a consumer takes as given into something the economy determines — which is how preferences and incomes end up setting prices.",
+       "folded": false
+      }
+     ],
+     "words": 129,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With consumers $A$ and $B$ in a two-period endowment economy, markets clear when"
+      },
+      {
+       "t": "math",
+       "tex": "c_1^A + c_1^B = y_1^A + y_1^B \\quad\\Longleftrightarrow\\quad s^A + s^B = 0"
+      },
+      {
+       "t": "prose",
+       "md": "(and the same holds in period 2). The interest rate $r$ adjusts until the condition holds."
+      }
+     ],
+     "words": 26,
+     "symbols": [
+      "$r$",
+      "$y_1$, $y_2$",
+      "$c_1$, $c_2$",
+      "$s = y_1 - c_1$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Log utility, $\\beta = 1$. A has income (200, 100), B has (100, 200). Each chooses $c_1 = \\frac{y_1}{2} + \\frac{y_2}{2(1+r)}$."
+      },
+      {
+       "t": "table",
+       "md": "| Interest rate | A saves | B saves | Market |\n| --- | --- | --- | --- |\n| 25% | 60 | −30 | Excess saving: $r$ too high, falls |\n| 0% | 50 | −50 | **Clears** |"
+      },
+      {
+       "t": "prose",
+       "md": "**General formula** with log utility: summing first-period consumption and setting it equal to total income gives"
+      },
+      {
+       "t": "math",
+       "tex": "1 + r = \\frac{y_2^A + y_2^B}{\\beta\\,(y_1^A + y_1^B)}"
+      },
+      {
+       "t": "prose",
+       "md": "The interest rate is high when future income is plentiful relative to current income, or when people are impatient (low $\\beta$)."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Two-period saving model - solving for the equilibrium interest rate.png",
+       "alt": "Two-period saving model - solving for the equilibrium interest rate"
+      }
+     ],
+     "words": 72,
+     "symbols": [
+      "$r$",
+      "$\\beta$",
+      "$y_1$, $y_2$",
+      "$c_1$, $c_2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "comparative-statics",
+   "heading": "Comparative statics",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "comparative-statics-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Change | Effect on desired saving/borrowing | Interest rate |\n| --- | --- | --- |\n| Future income $y_2$ ↑ | More desire to borrow, less to save | ↑ |\n| Current income $y_1$ ↑ | More desire to save | ↓ |\n| Patience $\\beta$ ↑ | Save more, borrow less | ↓ |"
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Two-period saving model - income shocks and the interest rate.png",
+       "alt": "Two-period saving model - income shocks and the interest rate"
+      }
+     ],
+     "words": 31,
+     "symbols": [
+      "$\\beta$",
+      "$y_1$, $y_2$"
+     ]
+    },
+    {
+     "id": "comparative-statics-2",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Two-period saving model - patience and the interest rate.png",
+       "alt": "Two-period saving model - patience and the interest rate"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Thinking aggregate saving can be positive in an endowment economy: with no storage or capital, one person's saving is another's borrowing.\n- Checking only one period: if period 1 clears, period 2 clears automatically here (Walras's law, beyond the lecture)."
+      }
+     ],
+     "words": 41,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Macro and micro: general equilibrium, the determination of interest rates and prices."
+      }
+     ],
+     "words": 13,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Two-Period Consumption-Saving Model](note:two-period-consumption-saving-model) · [Discount Factor](note:discount-factor) · [Consumption Euler Equation](note:consumption-euler-equation)"
+      }
+     ],
+     "words": 9,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

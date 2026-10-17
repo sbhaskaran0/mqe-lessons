@@ -1,0 +1,197 @@
+{
+ "slug": "us-local-labor-market-effects-of-chinese-imports-1990-2007",
+ "notation": [],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Commuting zones more exposed to rising Chinese imports saw larger falls in manufacturing employment, more unemployment and non-participation, more disability receipt and lower wages — with no offsetting migration. Moving from the 25th to the 75th percentile of exposure growth (a 1.06 difference in $1,000 of imports per worker) implies a 4.5% larger fall in manufacturing employment and a 0.8% larger fall in weekly earnings.**"
+      },
+      {
+       "t": "callout",
+       "kind": "warning",
+       "title": "Lecture caveat",
+       "md": "These are the paper's own results. The lecture notes that they are now considered problematic and leaves the critique to the first assignment — see [Shift-Share Instrument](note:shift-share-instrument) for the issues commonly raised.",
+       "folded": false
+      }
+     ],
+     "words": 101,
+     "symbols": []
+    },
+    {
+     "id": "intro-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Design: change in imports from China per worker, built from regional industry employment shares ([Shift-Share Exposure](note:shift-share-exposure)), instrumented with other high-income countries' imports from China and lagged shares. 722 CZs × two periods (1990–2000, 2000–2007), ten-year-equivalent changes, controls for the start-of-period manufacturing share and other regional characteristics, standard errors clustered by state."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/US commuting zone exposure to Chinese imports 1990-2007.png",
+       "alt": "US commuting zone exposure to Chinese imports 1990-2007"
+      }
+     ],
+     "words": 52,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "manufacturing-employment-table-3",
+   "heading": "Manufacturing employment (Table 3)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "manufacturing-employment-table-3-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - China shock and manufacturing employment by commuting zone.png",
+       "alt": "Table - China shock and manufacturing employment by commuting zone"
+      },
+      {
+       "t": "prose",
+       "md": "Coefficient on Δ imports from China per worker, for 10 × annual change in manufacturing employment/working-age population (pp): −0.746 (0.068) with no controls, falling to −0.596 (0.099) with full controls. First stage ≈ 0.63–0.79, R² ≈ 0.54–0.58."
+      }
+     ],
+     "words": 44,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "population-table-4",
+   "heading": "Population (Table 4)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "population-table-4-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - China shock and working-age population by commuting zone.png",
+       "alt": "Table - China shock and working-age population by commuting zone"
+      },
+      {
+       "t": "prose",
+       "md": "With census-division dummies or full controls, population responses are small and insignificant (all: −0.050 (0.746) with full controls) — workers did not move away."
+      }
+     ],
+     "words": 25,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "employment-status-table-5",
+   "heading": "Employment status (Table 5)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "employment-status-table-5-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - China shock and employment status by commuting zone.png",
+       "alt": "Table - China shock and employment status by commuting zone"
+      },
+      {
+       "t": "table",
+       "md": "| Effect per $1,000 per worker | Mfg emp | Non-mfg emp | Unemployed | Not in labor force | SSDI receipt |\n| --- | --- | --- | --- | --- | --- |\n| 100 × log change in counts | −4.231*** | −0.274 | 4.921*** | 2.058* | 1.466*** |\n| Change in population shares (pp), all | −0.596*** | −0.178 | 0.221*** | 0.553*** | 0.076*** |\n| College | −0.592*** | 0.168 | 0.119*** | 0.304*** | — |\n| Non-college | −0.581*** | −0.531*** | 0.282*** | 0.831*** | — |"
+      }
+     ],
+     "words": 72,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "wages-table-6",
+   "heading": "Wages (Table 6)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "wages-table-6-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - China shock and wages by commuting zone.png",
+       "alt": "Table - China shock and wages by commuting zone"
+      },
+      {
+       "t": "table",
+       "md": "| Ten-year change in average log weekly wage (log pts) | All | Males | Females |\n| --- | --- | --- | --- |\n| All education levels | −0.759*** | −0.892*** | −0.614*** |\n| College | −0.757** | −0.991*** | −0.525* |\n| No college | −0.814*** | −0.703*** | −1.116*** |"
+      }
+     ],
+     "words": 40,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "magnitudes-75th-vs-25th-percentile-cz-2000-2007",
+   "heading": "Magnitudes: 75th vs 25th percentile CZ, 2000–2007",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "magnitudes-75th-vs-25th-percentile-cz-2000-2007-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The difference in exposure growth is 1.06. Multiplying:"
+      },
+      {
+       "t": "table",
+       "md": "| Outcome | Calculation | Differential |\n| --- | --- | --- |\n| Manufacturing employees | 1.06 × (−4.231) | −4.5% |\n| Manufacturing emp/pop | 1.06 × (−0.596) | −0.63 pp |\n| Employment/pop | 1.06 × (−0.596 − 0.178) | −0.82 pp |\n| Number unemployed | 1.06 × 4.921 | +5.2% |\n| Unemployed/pop | 1.06 × 0.221 | +0.23 pp |\n| Mean weekly earnings | 1.06 × (−0.759) | −0.8% |"
+      }
+     ],
+     "words": 70,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "reading-it-correctly",
+   "heading": "Reading it correctly",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "reading-it-correctly-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Relative, not aggregate**: effects compare more- to less-exposed regions; anything common to all regions is absorbed.\n- **Non-college workers lose outside manufacturing too** (non-manufacturing employment −0.531 pp) and leave the labor force (+0.831 pp): local spillovers.\n- **No migration response** means the losses stay local — consistent with a regional, immobile-factor view."
+      }
+     ],
+     "words": 54,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Shift-Share Instrument](note:shift-share-instrument) · [Shift-Share Exposure](note:shift-share-exposure) · [Commuting Zone](note:commuting-zone) · [US Imports from China 1991-2007](note:us-imports-from-china-1991-2007)\n- Paper: [Autor, Dorn and Hanson 2013 - The China Syndrome](note:autor-dorn-and-hanson-2013-the-china-syndrome)"
+      }
+     ],
+     "words": 23,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

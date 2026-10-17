@@ -1,0 +1,948 @@
+{
+ "slug": "econ-430-simple-linear-regression-practice-questions",
+ "notation": [
+  {
+   "tex": "$y_i$",
+   "meaning": "Outcome for observation $i$ (e.g. food spending)",
+   "kind": "Random variable",
+   "typical": "—",
+   "keys": [
+    "y"
+   ],
+   "from": "simple-linear-regression-model"
+  },
+  {
+   "tex": "$x_i$",
+   "meaning": "Explanatory variable (e.g. income)",
+   "kind": "Observed",
+   "typical": "—",
+   "keys": [
+    "x"
+   ],
+   "from": "simple-linear-regression-model"
+  },
+  {
+   "tex": "$\\beta_1$",
+   "meaning": "Intercept: average $y$ when $x = 0$",
+   "kind": "Parameter",
+   "typical": "80 in the food example",
+   "keys": [
+    "beta"
+   ],
+   "from": "simple-linear-regression-model"
+  },
+  {
+   "tex": "$e_i$",
+   "meaning": "Error: everything else affecting $y_i$",
+   "kind": "Unobserved",
+   "typical": "Mean zero",
+   "keys": [
+    "e"
+   ],
+   "from": "simple-linear-regression-model"
+  },
+  {
+   "tex": "$E[y\\mid x]$, $\\mu_{y\\mid x}$",
+   "meaning": "Average of $y$ at a given $x$ (the regression function)",
+   "kind": "Population quantity",
+   "typical": "—",
+   "keys": [
+    "~E[y\\midx]",
+    "mu"
+   ],
+   "from": "simple-linear-regression-model"
+  },
+  {
+   "tex": "$\\sigma^2$",
+   "meaning": "Variance of $y$ around its conditional mean",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "sigma"
+   ],
+   "from": "simple-linear-regression-model"
+  },
+  {
+   "tex": "$b_2$",
+   "meaning": "OLS slope estimate",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "b"
+   ],
+   "from": "sr-assumptions"
+  },
+  {
+   "tex": "$\\boldsymbol{\\varepsilon}$",
+   "meaning": "Stacked errors",
+   "kind": "Unobserved",
+   "typical": "—",
+   "keys": [
+    "bold(varepsilon)"
+   ],
+   "from": "strict-exogeneity"
+  },
+  {
+   "tex": "$\\mathbf{X}$",
+   "meaning": "All regressors for all observations",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "bold(X)"
+   ],
+   "from": "strict-exogeneity"
+  },
+  {
+   "tex": "$\\widehat{\\sigma}^2$",
+   "meaning": "Estimate of $\\sigma^2$ from the residuals",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "hat(sigma)"
+   ],
+   "from": "homoskedasticity"
+  },
+  {
+   "tex": "$\\mathbf{I}$",
+   "meaning": "Identity matrix",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(I)"
+   ],
+   "from": "homoskedasticity"
+  },
+  {
+   "tex": "$N$",
+   "meaning": "Sample size",
+   "kind": "Count",
+   "typical": "—",
+   "keys": [
+    "N"
+   ],
+   "from": "error-normality-and-jarque-bera"
+  },
+  {
+   "tex": "$S$",
+   "meaning": "Skewness of the residuals (lopsidedness)",
+   "kind": "Statistic",
+   "typical": "0 for a normal",
+   "keys": [
+    "S"
+   ],
+   "from": "error-normality-and-jarque-bera"
+  },
+  {
+   "tex": "$K$",
+   "meaning": "Kurtosis of the residuals (tail thickness)",
+   "kind": "Statistic",
+   "typical": "3 for a normal",
+   "keys": [
+    "K"
+   ],
+   "from": "error-normality-and-jarque-bera"
+  },
+  {
+   "tex": "$\\bar{x}$, $\\bar{y}$",
+   "meaning": "Sample means",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "bar(x)",
+    "bar(y)"
+   ],
+   "from": "ols-estimator"
+  },
+  {
+   "tex": "$w_i$",
+   "meaning": "OLS weight on $y_i$ in $b_2$",
+   "kind": "Depends only on $x$",
+   "typical": "Sum to zero",
+   "keys": [
+    "w"
+   ],
+   "from": "ols-estimator"
+  },
+  {
+   "tex": "$SSR$",
+   "meaning": "Sum of squared residuals",
+   "kind": "Objective being minimised",
+   "typical": "—",
+   "keys": [
+    "~SSR"
+   ],
+   "from": "ols-estimator"
+  },
+  {
+   "tex": "$a_i$",
+   "meaning": "Weights of the competing estimator",
+   "kind": "Depend only on $x$",
+   "typical": "—",
+   "keys": [
+    "a"
+   ],
+   "from": "gauss-markov-theorem"
+  },
+  {
+   "tex": "$d_i = a_i - w_i$",
+   "meaning": "How far the competitor's weights differ from OLS",
+   "kind": "—",
+   "typical": "All zero for OLS",
+   "keys": [
+    "d"
+   ],
+   "from": "gauss-markov-theorem"
+  },
+  {
+   "tex": "$\\hat{e}_i$, $\\mathbf{e}$",
+   "meaning": "Residuals",
+   "kind": "Computed",
+   "typical": "—",
+   "keys": [
+    "hat(e)",
+    "bold(e)"
+   ],
+   "from": "sampling-distribution-of-ols"
+  },
+  {
+   "tex": "$t$",
+   "meaning": "Test statistic $(b_k - \\beta_k)/se(b_k)$",
+   "kind": "Statistic",
+   "typical": "≈ ±2 is the 5% threshold in large samples",
+   "keys": [
+    "t"
+   ],
+   "from": "sampling-distribution-of-ols"
+  },
+  {
+   "tex": "$\\mathbf{M}$, $\\mathbf{P}$, $\\mathbf{X}$",
+   "meaning": "Residual maker, projection matrix, regressor matrix",
+   "kind": "Matrices",
+   "typical": "—",
+   "keys": [
+    "bold(M)",
+    "bold(P)",
+    "bold(X)"
+   ],
+   "from": "sampling-distribution-of-ols"
+  },
+  {
+   "tex": "$c$",
+   "meaning": "Value claimed by the null",
+   "kind": "Constant",
+   "typical": "0 by default",
+   "keys": [
+    "c"
+   ],
+   "from": "hypothesis-tests-on-regression-coefficients"
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "Significance level (not an intercept here)",
+   "kind": "Choice",
+   "typical": "0.05",
+   "keys": [
+    "alpha"
+   ],
+   "from": "hypothesis-tests-on-regression-coefficients"
+  },
+  {
+   "tex": "$H_0$, $H_1$",
+   "meaning": "Null and alternative hypotheses",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "H"
+   ],
+   "from": "hypothesis-tests-on-regression-coefficients"
+  },
+  {
+   "tex": "$R^2$",
+   "meaning": "Coefficient of determination",
+   "kind": "Statistic",
+   "typical": "0.385 for the food regression",
+   "keys": [
+    "R"
+   ],
+   "from": "coefficient-of-determination"
+  },
+  {
+   "tex": "$r_{xy}$",
+   "meaning": "Sample correlation between $x$ and $y$",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "r"
+   ],
+   "from": "coefficient-of-determination"
+  },
+  {
+   "tex": "$f = y_0 - \\hat{y}_0$",
+   "meaning": "Forecast error",
+   "kind": "Random variable",
+   "typical": "Mean zero",
+   "keys": [
+    "f"
+   ],
+   "from": "confidence-vs-prediction-intervals"
+  },
+  {
+   "tex": "$\\mathbf{y}$",
+   "meaning": "Column of $N$ outcomes",
+   "kind": "Data ($N\\times1$)",
+   "typical": "—",
+   "keys": [
+    "bold(y)"
+   ],
+   "from": "ols-in-matrix-form"
+  },
+  {
+   "tex": "$\\mathbf{b}$",
+   "meaning": "OLS estimates, $(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{y}$",
+   "kind": "Estimator ($K\\times1$)",
+   "typical": "—",
+   "keys": [
+    "bold(b)"
+   ],
+   "from": "ols-in-matrix-form"
+  },
+  {
+   "tex": "$n$, $K$",
+   "meaning": "Observations and regressors",
+   "kind": "Counts",
+   "typical": "—",
+   "keys": [
+    "n",
+    "K"
+   ],
+   "from": "projection-matrix-and-residual-maker"
+  },
+  {
+   "tex": "$h_i$",
+   "meaning": "Leverage: $i$-th diagonal element of $\\mathbf{P}$",
+   "kind": "Statistic",
+   "typical": "Average $K/n$",
+   "keys": [
+    "h"
+   ],
+   "from": "projection-matrix-and-residual-maker"
+  },
+  {
+   "tex": "$h(x)$, $g(x)$, $E[y\\mid x]$",
+   "meaning": "Conditional mean: true average $y$ at each $x$",
+   "kind": "Population function",
+   "typical": "Any shape",
+   "keys": [
+    "h",
+    "g",
+    "~E[y\\midx]"
+   ],
+   "from": "conditional-mean-vs-linear-projection"
+  },
+  {
+   "tex": "$\\varepsilon$",
+   "meaning": "Projection error: $y - \\alpha - \\beta x$",
+   "kind": "Random variable",
+   "typical": "Uncorrelated with $x$ by construction",
+   "keys": [
+    "varepsilon"
+   ],
+   "from": "conditional-mean-vs-linear-projection"
+  },
+  {
+   "tex": "$v$",
+   "meaning": "Error relative to the conditional mean: $y - h(x)$",
+   "kind": "Random variable",
+   "typical": "Mean zero given $x$",
+   "keys": [
+    "v"
+   ],
+   "from": "conditional-mean-vs-linear-projection"
+  },
+  {
+   "tex": "$\\gamma_0$, $\\boldsymbol{\\gamma}$",
+   "meaning": "Intercept and coefficients of the multivariate projection",
+   "kind": "Population parameters",
+   "typical": "—",
+   "keys": [
+    "gamma",
+    "bold(gamma)"
+   ],
+   "from": "conditional-mean-vs-linear-projection"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "26 questions on the simple-regression notebook, which this course splits into L1 to L7. Most draw on [Econ 430 L3 The Method of Least Squares](note:econ-430-l3-the-method-of-least-squares) (OLS, assumptions, inference) and [Econ 430 L7 The Classical Linear Regression Model](note:econ-430-l7-the-classical-linear-regression-model) (matrix form); the rest on [Econ 430 L4 Cross-Validation and the Bootstrap](note:econ-430-l4-cross-validation-and-the-bootstrap), [Econ 430 L5 Estimating Nonlinear Relationships](note:econ-430-l5-estimating-nonlinear-relationships) and [Econ 430 L6 Indicator Variables and the OLS Workflow](note:econ-430-l6-indicator-variables-and-the-ols-workflow). Attempt closed-book, then check [Econ 430 Simple Linear Regression Practice Answers](note:econ-430-simple-linear-regression-practice-answers)."
+      }
+     ],
+     "words": 76,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "a-derivations",
+   "heading": "A. Derivations",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "a-derivations-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Starting from $SSR = \\sum(y_i - b_1 - b_2 x_i)^2$, derive both normal equations and solve for $b_1$ and $b_2$. State the two orthogonality conditions your FOCs imply. → [OLS Estimator](note:ols-estimator)\n2. Show that $b_2 = \\beta_2 + \\sum w_i e_i$ with $w_i = (x_i-\\bar{x})/\\sum(x_i-\\bar{x})^2$, and use it to prove $E[b_2\\mid x] = \\beta_2$ and $\\mathrm{Var}(b_2\\mid x) = \\sigma^2/\\sum(x_i-\\bar{x})^2$. State which assumption each step uses.\n3. Derive $\\mathbf{b} = (\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{y}$ from $\\mathbf{e}'\\mathbf{e}$. Verify dimensions at each step and state the condition under which the inverse exists. → [OLS in Matrix Form](note:ols-in-matrix-form)\n4. Prove that $\\mathbf{M} = \\mathbf{I} - \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$ is symmetric and idempotent, and that $\\mathbf{M}\\mathbf{X} = \\mathbf{0}$. Then show $\\mathbf{M}\\mathbf{y} = \\mathbf{M}\\boldsymbol{\\varepsilon}$. → [Projection Matrix and Residual Maker](note:projection-matrix-and-residual-maker)\n5. Show $\\mathrm{Var}(f) = \\sigma^2[1 + 1/N + (x_0-\\bar{x})^2/\\sum(x_i-\\bar{x})^2]$ for the forecast error. Identify which term comes from which source of uncertainty. → [Confidence vs Prediction Intervals](note:confidence-vs-prediction-intervals)\n6. Starting from $y = \\alpha + \\beta x + \\varepsilon$ with $\\mathrm{Cov}(x,\\varepsilon) = 0$, derive $\\beta = \\mathrm{Cov}(x,y)/\\mathrm{Var}(x)$ and $\\alpha = E[y] - \\beta E[x]$. → [Conditional Mean vs Linear Projection](note:conditional-mean-vs-linear-projection)\n7. Show that when $x$ is a binary indicator, $b_1 = \\bar{y}_0$ and $b_2 = \\bar{y}_1 - \\bar{y}_0$. → [Indicator Variables](note:indicator-variables)"
+      }
+     ],
+     "words": 115,
+     "symbols": [
+      "$y_i$",
+      "$x_i$",
+      "$\\beta_1$",
+      "$e_i$",
+      "$\\sigma^2$",
+      "$b_2$",
+      "$\\boldsymbol{\\varepsilon}$",
+      "$\\mathbf{X}$",
+      "$\\mathbf{I}$",
+      "$N$",
+      "$S$",
+      "$\\bar{x}$, $\\bar{y}$",
+      "$w_i$",
+      "$SSR$",
+      "$\\hat{e}_i$, $\\mathbf{e}$",
+      "$\\mathbf{M}$, $\\mathbf{P}$, $\\mathbf{X}$",
+      "$\\alpha$",
+      "$R^2$",
+      "$f = y_0 - \\hat{y}_0$",
+      "$\\mathbf{y}$",
+      "$\\mathbf{b}$",
+      "$\\varepsilon$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "b-short-conceptual",
+   "heading": "B. Short conceptual",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "b-short-conceptual-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "8. Heteroskedasticity is present. State precisely what happens to (a) unbiasedness of $b_2$, (b) the standard error formula, (c) the BLUE property, (d) consistency.\n9. Why is $\\widehat{\\sigma}^2$ divided by $N-2$ rather than $N$? Give the algebraic reason, not just \"degrees of freedom.\"\n10. A colleague reports the log-linear model has $R^2 = 0.61$ and the linear model $R^2 = 0.54$, and concludes the log-linear model is better. What is wrong with this?\n11. Explain why the prediction interval does not shrink to zero as $N\\to\\infty$, while the confidence interval does.\n12. A researcher writes $y = \\alpha + \\beta x + \\varepsilon$ and claims this requires $E[y\\mid x]$ to be linear in $x$. Is the claim correct?\n13. An observation has leverage $h_i = 0.4$ with $n = 50$ and $p = 2$, but a studentised residual of 0.3. Is it a problem?"
+      }
+     ],
+     "words": 114,
+     "symbols": [
+      "$y_i$",
+      "$x_i$",
+      "$\\beta_1$",
+      "$E[y\\mid x]$, $\\mu_{y\\mid x}$",
+      "$b_2$",
+      "$\\widehat{\\sigma}^2$",
+      "$N$",
+      "$\\alpha$",
+      "$R^2$",
+      "$n$, $K$",
+      "$h_i$",
+      "$\\varepsilon$"
+     ]
+    },
+    {
+     "id": "b-short-conceptual-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "14. Why does the Jarque-Bera statistic have 2 degrees of freedom? What is the null, and what does $p = 0.002$ tell you?\n15. Distinguish what cross-validation and the bootstrap are each used for. Why can't the bootstrap tell you whether your model overfits?\n16. The dummy variable trap: state what goes wrong in terms of $\\mathbf{X}'\\mathbf{X}$, and connect it to the full-rank assumption."
+      }
+     ],
+     "words": 60,
+     "symbols": [
+      "$\\mathbf{X}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "c-interpretation",
+   "heading": "C. Interpretation",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "c-interpretation-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "17. Estimated: $\\ln(wage) = 1.62 + 0.094\\,educ$. Interpret the slope. Give both the approximate and the exact percentage effect of one more year of education.\n18. Estimated: $food\\_exp = 83.45 + 10.21\\,income$, with mean income 19.60 and mean food_exp 283.57 (income in \\$100/week, expenditure in \\$/week). Interpret the slope and compute the elasticity at the means.\n19. Estimated: $\\ln(price) = 4.17 + 0.84\\ln(sqft)$. What is the elasticity? If square footage rises 10%, what happens to price?\n20. Estimated: $price = \\alpha_1 + \\alpha_2\\,sqft^2$ with $\\hat\\alpha_2 = 0.0154$. Compute the marginal effect and elasticity at $sqft = 2000$, predicted price 117,462. Why can you not report a single slope?\n21. Estimated: $wage = 21.03 - 4.29\\,female$. State the mean wage for men, the mean for women, and what the $t$ test on the female coefficient is testing."
+      }
+     ],
+     "words": 109,
+     "symbols": [
+      "$x_i$",
+      "$e_i$",
+      "$w_i$",
+      "$a_i$",
+      "$d_i = a_i - w_i$",
+      "$t$",
+      "$c$",
+      "$\\alpha$",
+      "$r_{xy}$",
+      "$f = y_0 - \\hat{y}_0$",
+      "$n$, $K$",
+      "$h(x)$, $g(x)$, $E[y\\mid x]$"
+     ]
+    },
+    {
+     "id": "c-interpretation-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "22. A Box-Cox procedure returns $\\hat\\lambda = 0.0013$ with an LR test of $H_0: \\lambda = 0$ giving $p = 0.78$. What do you do and why?"
+      }
+     ],
+     "words": 17,
+     "symbols": [
+      "$H_0$, $H_1$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "d-harder-synthesis",
+   "heading": "D. Harder / synthesis",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "d-harder-synthesis-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "23. Prove the Gauss-Markov theorem for $b_2$ in the simple regression case. Where exactly does homoskedasticity enter, and where does normality fail to be needed?\n24. Explain why $\\mathrm{trace}(\\mathbf{M}) = n - K$, and show how this delivers $E[\\widehat{\\sigma}^2] = \\sigma^2$.\n25. Suppose the true model is $y = \\beta_1 + \\beta_2 x + \\beta_3 x^2 + e$ but you estimate $y = \\gamma_1 + \\gamma_2 x + v$. What does OLS estimate? Which assumption is violated, and what does the residual-vs-fitted plot look like?\n26. You have $N = 30$, residuals failing Jarque-Bera at $p = 0.001$, and a bootstrap distribution of $b_2$ that is visibly skewed. Which inference would you report, and why?"
+      }
+     ],
+     "words": 80,
+     "symbols": [
+      "$y_i$",
+      "$x_i$",
+      "$\\beta_1$",
+      "$e_i$",
+      "$\\sigma^2$",
+      "$b_2$",
+      "$\\widehat{\\sigma}^2$",
+      "$N$",
+      "$K$",
+      "$\\mathbf{M}$, $\\mathbf{P}$, $\\mathbf{X}$",
+      "$n$, $K$",
+      "$v$",
+      "$\\gamma_0$, $\\boldsymbol{\\gamma}$"
+     ]
+    }
+   ]
+  }
+ ],
+ "practice": {
+  "answers": "econ-430-simple-linear-regression-practice-answers",
+  "items": [
+   {
+    "id": "q1",
+    "number": "1",
+    "group": "A. Derivations",
+    "prompt": "Starting from $SSR = \\sum(y_i - b_1 - b_2 x_i)^2$, derive both normal equations and solve for $b_1$ and $b_2$. State the two orthogonality conditions your FOCs imply. → [OLS Estimator](note:ols-estimator)",
+    "answer": "$\\partial SSR/\\partial b_1 = -2\\sum(y_i - b_1 - b_2x_i) = 0$ gives $\\sum\\hat{e}_i = 0$. $\\partial SSR/\\partial b_2 = -2\\sum x_i(y_i - b_1 - b_2x_i) = 0$ gives $\\sum x_i\\hat{e}_i = 0$. The first yields $N\\bar{y} = Nb_1 + b_2\\sum x_i$, hence $b_1 = \\bar{y} - b_2\\bar{x}$. Substituting into the second and collecting in deviation form gives $\\sum(x_i-\\bar{x})(y_i-\\bar{y}) = b_2\\sum(x_i-\\bar{x})^2$. The two conditions: residuals sum to zero, and residuals are orthogonal to $x$.",
+    "rubric": [
+     "Differentiate SSR w.r.t. $b_1$: $-2\\sum(y_i - b_1 - b_2x_i) = 0$, so $\\sum\\hat{e}_i = 0$",
+     "Differentiate w.r.t. $b_2$: $-2\\sum x_i(y_i - b_1 - b_2x_i) = 0$, so $\\sum x_i\\hat{e}_i = 0$",
+     "From the first condition, $b_1 = \\bar{y} - b_2\\bar{x}$",
+     "Substitute into the second and collect in deviation form: $\\sum(x_i-\\bar{x})(y_i-\\bar{y}) = b_2\\sum(x_i-\\bar{x})^2$",
+     "State the two conditions: residuals sum to zero and are orthogonal to $x$"
+    ],
+    "links": [
+     "ols-estimator"
+    ]
+   },
+   {
+    "id": "q2",
+    "number": "2",
+    "group": "A. Derivations",
+    "prompt": "Show that $b_2 = \\beta_2 + \\sum w_i e_i$ with $w_i = (x_i-\\bar{x})/\\sum(x_i-\\bar{x})^2$, and use it to prove $E[b_2\\mid x] = \\beta_2$ and $\\mathrm{Var}(b_2\\mid x) = \\sigma^2/\\sum(x_i-\\bar{x})^2$. State which assumption each step uses.",
+    "answer": "With $\\sum w_i = 0$ and $\\sum w_i x_i = 1$, substituting $y_i = \\beta_1 + \\beta_2 x_i + e_i$ gives $b_2 = \\beta_2 + \\sum w_i e_i$. Then $E[b_2\\mid x] = \\beta_2 + \\sum w_i E[e_i\\mid x] = \\beta_2$ by **SR2**. For the variance: **SR4** kills the cross terms, **SR3** replaces $\\mathrm{Var}(e_i\\mid x)$ with $\\sigma^2$, giving $\\sigma^2\\sum w_i^2 = \\sigma^2/\\sum(x_i-\\bar{x})^2$. Unbiasedness used **only SR1, SR2 and SR5** (SR1 for the substitution, SR5 so that the $w_i$ exist, SR2 conditioning on the whole sample $x$, which random sampling allows) — SR3 and SR4 enter only for the variance.",
+    "rubric": [
+     "Use $\\sum w_i = 0$ and $\\sum w_i x_i = 1$ and substitute $y_i = \\beta_1 + \\beta_2 x_i + e_i$ to get $b_2 = \\beta_2 + \\sum w_i e_i$",
+     "Take $E[\\cdot \\mid x]$ and apply **SR2**: $E[b_2\\mid x] = \\beta_2$",
+     "Variance: **SR4** kills the cross terms and **SR3** gives $\\sigma^2\\sum w_i^2 = \\sigma^2/\\sum(x_i-\\bar{x})^2$",
+     "Unbiasedness uses only SR1, SR2 and SR5; SR3 and SR4 enter only for the variance"
+    ],
+    "links": []
+   },
+   {
+    "id": "q3",
+    "number": "3",
+    "group": "A. Derivations",
+    "prompt": "Derive $\\mathbf{b} = (\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{y}$ from $\\mathbf{e}'\\mathbf{e}$. Verify dimensions at each step and state the condition under which the inverse exists. → [OLS in Matrix Form](note:ols-in-matrix-form)",
+    "answer": "$\\mathbf{e}'\\mathbf{e} = \\mathbf{y}'\\mathbf{y} - 2\\mathbf{b}'\\mathbf{X}'\\mathbf{y} + \\mathbf{b}'\\mathbf{X}'\\mathbf{X}\\mathbf{b}$. Differentiating: $-2\\mathbf{X}'\\mathbf{y} + 2\\mathbf{X}'\\mathbf{X}\\mathbf{b} = \\mathbf{0}$, so $\\mathbf{b} = (\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{y}$. Dimensions: $\\mathbf{X}'\\mathbf{X}$ is $K\\times K$, $\\mathbf{X}'\\mathbf{y}$ is $K\\times1$; derivative of a $1\\times1$ w.r.t. $K\\times1$ is $K\\times1$. The inverse exists iff $\\mathbf{X}$ has full column rank $K$, requiring $N\\geq K$ and no linear dependence. SOC: $\\mathbf{X}'\\mathbf{X}$ positive definite, so the critical point is the unique minimum.",
+    "rubric": [
+     "Expand $\\mathbf{e}'\\mathbf{e} = \\mathbf{y}'\\mathbf{y} - 2\\mathbf{b}'\\mathbf{X}'\\mathbf{y} + \\mathbf{b}'\\mathbf{X}'\\mathbf{X}\\mathbf{b}$",
+     "Differentiate and set to zero: $-2\\mathbf{X}'\\mathbf{y} + 2\\mathbf{X}'\\mathbf{X}\\mathbf{b} = \\mathbf{0}$",
+     "Solve: $\\mathbf{b} = (\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{y}$",
+     "The inverse exists iff $\\mathbf{X}$ has full column rank $K$ ($N \\geq K$, no linear dependence)",
+     "SOC: $\\mathbf{X}'\\mathbf{X}$ positive definite, so the critical point is the unique minimum"
+    ],
+    "links": [
+     "ols-in-matrix-form"
+    ]
+   },
+   {
+    "id": "q4",
+    "number": "4",
+    "group": "A. Derivations",
+    "prompt": "Prove that $\\mathbf{M} = \\mathbf{I} - \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$ is symmetric and idempotent, and that $\\mathbf{M}\\mathbf{X} = \\mathbf{0}$. Then show $\\mathbf{M}\\mathbf{y} = \\mathbf{M}\\boldsymbol{\\varepsilon}$. → [Projection Matrix and Residual Maker](note:projection-matrix-and-residual-maker)",
+    "answer": "Symmetry: $(\\mathbf{X}'\\mathbf{X})^{-1}$ is symmetric, so $\\mathbf{M}' = \\mathbf{M}$. Idempotency: $\\mathbf{P}\\mathbf{P} = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}' = \\mathbf{P}$, so $\\mathbf{M}\\mathbf{M} = \\mathbf{I} - 2\\mathbf{P} + \\mathbf{P} = \\mathbf{M}$. Annihilation: $\\mathbf{M}\\mathbf{X} = \\mathbf{X} - \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{X} = \\mathbf{0}$. Hence $\\mathbf{M}\\mathbf{y} = \\mathbf{M}\\mathbf{X}\\boldsymbol{\\beta} + \\mathbf{M}\\boldsymbol{\\varepsilon} = \\mathbf{M}\\boldsymbol{\\varepsilon}$.",
+    "rubric": [
+     "Symmetry: $(\\mathbf{X}'\\mathbf{X})^{-1}$ is symmetric, so $\\mathbf{M}' = \\mathbf{M}$",
+     "Idempotency: $\\mathbf{P}\\mathbf{P} = \\mathbf{P}$, so $\\mathbf{M}\\mathbf{M} = \\mathbf{I} - 2\\mathbf{P} + \\mathbf{P} = \\mathbf{M}$",
+     "Annihilation: $\\mathbf{M}\\mathbf{X} = \\mathbf{0}$",
+     "Conclude $\\mathbf{M}\\mathbf{y} = \\mathbf{M}\\mathbf{X}\\boldsymbol{\\beta} + \\mathbf{M}\\boldsymbol{\\varepsilon} = \\mathbf{M}\\boldsymbol{\\varepsilon}$"
+    ],
+    "links": [
+     "projection-matrix-and-residual-maker"
+    ]
+   },
+   {
+    "id": "q5",
+    "number": "5",
+    "group": "A. Derivations",
+    "prompt": "Show $\\mathrm{Var}(f) = \\sigma^2[1 + 1/N + (x_0-\\bar{x})^2/\\sum(x_i-\\bar{x})^2]$ for the forecast error. Identify which term comes from which source of uncertainty. → [Confidence vs Prediction Intervals](note:confidence-vs-prediction-intervals)",
+    "answer": "$f = (\\beta_1 + \\beta_2 x_0 + e_0) - (b_1 + b_2 x_0)$. Since $e_0$ is independent of the sample, $\\mathrm{Var}(f) = \\mathrm{Var}(e_0) + \\mathrm{Var}(b_1 + b_2x_0)$, and the second term collapses to $\\sigma^2[1/N + (x_0-\\bar{x})^2/\\sum(x_i-\\bar{x})^2]$. The **1** is the new observation's own error; the **1/N** is uncertainty about the level of the line; the **$(x_0-\\bar{x})^2$** term is uncertainty about the slope, which costs more the further from $\\bar{x}$.",
+    "rubric": [
+     "Write the forecast error $f = (\\beta_1 + \\beta_2 x_0 + e_0) - (b_1 + b_2 x_0)$",
+     "Since $e_0$ is independent of the sample, $\\mathrm{Var}(f) = \\mathrm{Var}(e_0) + \\mathrm{Var}(b_1 + b_2x_0)$",
+     "Second term collapses to $\\sigma^2[1/N + (x_0-\\bar{x})^2/\\sum(x_i-\\bar{x})^2]$",
+     "Interpret the terms: **1** is the new error, **1/N** the level of the line, $(x_0-\\bar{x})^2$ the slope (costlier far from $\\bar{x}$)"
+    ],
+    "links": [
+     "confidence-vs-prediction-intervals"
+    ]
+   },
+   {
+    "id": "q6",
+    "number": "6",
+    "group": "A. Derivations",
+    "prompt": "Starting from $y = \\alpha + \\beta x + \\varepsilon$ with $\\mathrm{Cov}(x,\\varepsilon) = 0$, derive $\\beta = \\mathrm{Cov}(x,y)/\\mathrm{Var}(x)$ and $\\alpha = E[y] - \\beta E[x]$. → [Conditional Mean vs Linear Projection](note:conditional-mean-vs-linear-projection)",
+    "answer": "Take $\\mathrm{Cov}(x,\\cdot)$ through: $\\mathrm{Cov}(x,y) = 0 + \\beta\\mathrm{Var}(x) + 0$. Take expectations: $E[y] = \\alpha + \\beta E[x]$.",
+    "rubric": [
+     "Take $\\mathrm{Cov}(x,\\cdot)$ through: $\\mathrm{Cov}(x,y) = 0 + \\beta\\mathrm{Var}(x) + 0$",
+     "Take expectations: $E[y] = \\alpha + \\beta E[x]$"
+    ],
+    "links": [
+     "conditional-mean-vs-linear-projection"
+    ]
+   },
+   {
+    "id": "q7",
+    "number": "7",
+    "group": "A. Derivations",
+    "prompt": "Show that when $x$ is a binary indicator, $b_1 = \\bar{y}_0$ and $b_2 = \\bar{y}_1 - \\bar{y}_0$. → [Indicator Variables](note:indicator-variables)",
+    "answer": "With $x_i\\in\\{0,1\\}$, $\\bar{x} = n_1/n$. The denominator of $b_2$ is $n_1n_0/n$; the numerator simplifies to $(n_1n_0/n)(\\bar{y}_1 - \\bar{y}_0)$. So $b_2 = \\bar{y}_1 - \\bar{y}_0$ and $b_1 = \\bar{y} - b_2\\bar{x} = \\bar{y}_0$.",
+    "rubric": [
+     "With $x_i\\in\\{0,1\\}$, $\\bar{x} = n_1/n$ and the denominator of $b_2$ is $n_1n_0/n$",
+     "The numerator simplifies to $(n_1n_0/n)(\\bar{y}_1 - \\bar{y}_0)$",
+     "So $b_2 = \\bar{y}_1 - \\bar{y}_0$",
+     "$b_1 = \\bar{y} - b_2\\bar{x} = \\bar{y}_0$"
+    ],
+    "links": [
+     "indicator-variables"
+    ]
+   },
+   {
+    "id": "q8",
+    "number": "8",
+    "group": "B. Short conceptual",
+    "prompt": "Heteroskedasticity is present. State precisely what happens to (a) unbiasedness of $b_2$, (b) the standard error formula, (c) the BLUE property, (d) consistency.",
+    "answer": "(a) **Unaffected** — unbiasedness needs only SR1, SR2 and SR5, not SR3. (b) The usual formula is **wrong**, so $t$ stats, $p$ values and intervals are invalid; use White robust SEs. (c) **No longer BLUE** — GLS/WLS is efficient. (d) Consistency unaffected. → [Homoskedasticity](note:homoskedasticity)",
+    "rubric": [
+     "(a) Unbiasedness is **unaffected**: it needs only SR1, SR2 and SR5",
+     "(b) The usual variance formula is **wrong**, so $t$ stats, $p$ values and intervals are invalid; use White robust SEs",
+     "(c) OLS is **no longer BLUE**; GLS/WLS is efficient",
+     "(d) Consistency is unaffected"
+    ],
+    "links": [
+     "homoskedasticity"
+    ]
+   },
+   {
+    "id": "q9",
+    "number": "9",
+    "group": "B. Short conceptual",
+    "prompt": "Why is $\\widehat{\\sigma}^2$ divided by $N-2$ rather than $N$? Give the algebraic reason, not just \"degrees of freedom.\"",
+    "answer": "The two normal equations impose two exact linear restrictions on the $N$ residuals, so only $N-2$ are free. In matrix terms $\\mathbf{e} = \\mathbf{M}\\boldsymbol{\\varepsilon}$ and $E[\\mathbf{e}'\\mathbf{e}] = \\sigma^2\\mathrm{trace}(\\mathbf{M}) = \\sigma^2(N-K)$; dividing by $N-K$ gives unbiasedness. Dividing by $N$ would understate $\\sigma^2$.",
+    "rubric": [
+     "The two normal equations impose two exact linear restrictions on the $N$ residuals, so only $N-2$ are free",
+     "Matrix form: $\\mathbf{e} = \\mathbf{M}\\boldsymbol{\\varepsilon}$ and $E[\\mathbf{e}'\\mathbf{e}] = \\sigma^2\\mathrm{trace}(\\mathbf{M}) = \\sigma^2(N-K)$",
+     "Dividing by $N-K$ gives unbiasedness; dividing by $N$ would understate $\\sigma^2$"
+    ],
+    "links": []
+   },
+   {
+    "id": "q10",
+    "number": "10",
+    "group": "B. Short conceptual",
+    "prompt": "A colleague reports the log-linear model has $R^2 = 0.61$ and the linear model $R^2 = 0.54$, and concludes the log-linear model is better. What is wrong with this?",
+    "answer": "$R^2$ measures the fraction of variation in the **dependent variable** explained, and the two models have different dependent variables ($\\ln y$ vs $y$). The total sums of squares are not comparable, so the comparison is meaningless. Compare on predictive error (CV RMSE after back-transforming to common units), on residual diagnostics, or on theoretical grounds.",
+    "rubric": [
+     "$R^2$ measures the fraction of variation in the **dependent variable** explained",
+     "The dependent variables differ ($\\ln y$ vs $y$), so the total sums of squares are not comparable",
+     "Compare on CV RMSE after back-transforming, on residual diagnostics, or on theory"
+    ],
+    "links": []
+   },
+   {
+    "id": "q11",
+    "number": "11",
+    "group": "B. Short conceptual",
+    "prompt": "Explain why the prediction interval does not shrink to zero as $N\\to\\infty$, while the confidence interval does.",
+    "answer": "The CI covers $E[y\\mid x_0]$, a fixed quantity whose only uncertainty is in estimating $\\beta_1,\\beta_2$; as $N$ grows those are pinned down and the interval collapses. The PI must also cover $e_0$, whose variance $\\sigma^2$ does not depend on $N$. The PI half-width tends to $t\\cdot\\sigma$, not zero.",
+    "rubric": [
+     "The CI covers $E[y\\mid x_0]$, whose only uncertainty is in estimating $\\beta_1,\\beta_2$; this vanishes as $N$ grows",
+     "The PI must also cover $e_0$, whose variance $\\sigma^2$ does not depend on $N$",
+     "So the PI half-width tends to $t\\cdot\\sigma$, not zero"
+    ],
+    "links": []
+   },
+   {
+    "id": "q12",
+    "number": "12",
+    "group": "B. Short conceptual",
+    "prompt": "A researcher writes $y = \\alpha + \\beta x + \\varepsilon$ and claims this requires $E[y\\mid x]$ to be linear in $x$. Is the claim correct?",
+    "answer": "**Incorrect.** Any bivariate distribution admits $y = \\alpha + \\beta x + \\varepsilon$ with $\\mathrm{Cov}(x,\\varepsilon) = 0$, where $\\alpha,\\beta$ are the linear projection coefficients — this holds whether or not $E[y\\mid x]$ is linear. What linearity of $E[y\\mid x]$ buys is that the projection *coincides* with the conditional mean. The stronger condition $E[\\varepsilon\\mid x] = 0$ is what the regression model assumes, and that **is** equivalent to $E[y\\mid x]$ being linear. → [Conditional Mean vs Linear Projection](note:conditional-mean-vs-linear-projection)",
+    "rubric": [
+     "State that the claim is **incorrect**",
+     "Any bivariate distribution admits $y = \\alpha + \\beta x + \\varepsilon$ with $\\mathrm{Cov}(x,\\varepsilon) = 0$ (linear projection), whether or not $E[y\\mid x]$ is linear",
+     "Linearity of $E[y\\mid x]$ makes the projection *coincide* with the conditional mean",
+     "The regression model assumes the stronger $E[\\varepsilon\\mid x] = 0$, which **is** equivalent to $E[y\\mid x]$ linear"
+    ],
+    "links": [
+     "conditional-mean-vs-linear-projection"
+    ]
+   },
+   {
+    "id": "q13",
+    "number": "13",
+    "group": "B. Short conceptual",
+    "prompt": "An observation has leverage $h_i = 0.4$ with $n = 50$ and $p = 2$, but a studentised residual of 0.3. Is it a problem?",
+    "answer": "The cut-off is $2p/n = 4/50 = 0.08$, so $h_i = 0.4$ is **very** high leverage. But $|t_i| = 0.3$ is well inside 2, so the point is fitted well. It is **not influential**: far from $\\bar{x}$ but on the line. Worth reporting — it has the power to become influential — but it is not distorting the current estimates. → [Regression Diagnostics](note:regression-diagnostics)",
+    "rubric": [
+     "Cut-off $2p/n = 4/50 = 0.08$, so $h_i = 0.4$ is **very** high leverage",
+     "$|t_i| = 0.3$ is well inside 2, so the point is fitted well",
+     "Conclude **not influential**: far from $\\bar{x}$ but on the line; worth reporting but not distorting the estimates"
+    ],
+    "links": [
+     "regression-diagnostics"
+    ]
+   },
+   {
+    "id": "q14",
+    "number": "14",
+    "group": "B. Short conceptual",
+    "prompt": "Why does the Jarque-Bera statistic have 2 degrees of freedom? What is the null, and what does $p = 0.002$ tell you?",
+    "answer": "Two restrictions tested jointly: $S = 0$ and $K - 3 = 0$. $H_0$ is **normality**. $p = 0.002$ **rejects** normality, so exact small-sample $t$ and $F$ inference is unreliable; with large $N$ the CLT still justifies asymptotic inference, with small $N$ bootstrap.",
+    "rubric": [
+     "Two restrictions tested jointly, $S = 0$ and $K - 3 = 0$; $H_0$ is **normality**",
+     "$p = 0.002$ **rejects** normality",
+     "Consequence: exact small-sample $t$ and $F$ inference is unreliable; with large $N$ the CLT justifies asymptotic inference, with small $N$ use the bootstrap"
+    ],
+    "links": []
+   },
+   {
+    "id": "q15",
+    "number": "15",
+    "group": "B. Short conceptual",
+    "prompt": "Distinguish what cross-validation and the bootstrap are each used for. Why can't the bootstrap tell you whether your model overfits?",
+    "answer": "CV estimates **out-of-sample prediction error** by holding data back. The bootstrap estimates the **sampling distribution of an estimator** by resampling the data you have. The bootstrap cannot detect overfitting because every resample comes from the same data the model was fitted on — no held-out information. Complements, not substitutes.",
+    "rubric": [
+     "CV estimates **out-of-sample prediction error** by holding data back",
+     "The bootstrap estimates the **sampling distribution of an estimator** by resampling the data you have",
+     "The bootstrap cannot detect overfitting: every resample comes from the data the model was fitted on, with no held-out information",
+     "They are complements, not substitutes"
+    ],
+    "links": []
+   },
+   {
+    "id": "q16",
+    "number": "16",
+    "group": "B. Short conceptual",
+    "prompt": "The dummy variable trap: state what goes wrong in terms of $\\mathbf{X}'\\mathbf{X}$, and connect it to the full-rank assumption.",
+    "answer": "With all $k$ dummies plus an intercept, the dummy columns sum exactly to the column of ones, so the columns of $\\mathbf{X}$ are linearly dependent, $\\mathbf{X}'\\mathbf{X}$ is singular, and the inverse does not exist — infinitely many $\\mathbf{b}$ give the same fit. Precisely the failure of full rank: there exists $\\boldsymbol{\\delta}\\neq\\mathbf{0}$ with $\\mathbf{X}\\boldsymbol{\\delta} = \\mathbf{0}$. Fix: drop one dummy, which becomes the reference group. → [Full Rank and Identification](note:full-rank-and-identification)",
+    "rubric": [
+     "The dummy columns sum to the column of ones, so the columns of $\\mathbf{X}$ are linearly dependent",
+     "$\\mathbf{X}'\\mathbf{X}$ is singular, so there is no inverse and infinitely many $\\mathbf{b}$ give the same fit",
+     "Name it as failure of full rank: there exists $\\boldsymbol{\\delta}\\neq\\mathbf{0}$ with $\\mathbf{X}\\boldsymbol{\\delta} = \\mathbf{0}$",
+     "Fix: drop one dummy, which becomes the reference group"
+    ],
+    "links": [
+     "full-rank-and-identification"
+    ]
+   },
+   {
+    "id": "q17",
+    "number": "17",
+    "group": "C. Interpretation",
+    "prompt": "Estimated: $\\ln(wage) = 1.62 + 0.094\\,educ$. Interpret the slope. Give both the approximate and the exact percentage effect of one more year of education.",
+    "answer": "Log-linear. Roughly $100\\times0.094 = $ **9.4%** higher wage per extra year. Exactly $100(e^{0.094}-1) = $ **9.86%**. The approximation understates, and the gap grows with the coefficient.",
+    "rubric": [
+     "Identify the model as log-linear",
+     "Approximation: $100\\times0.094 = 9.4\\%$ higher wage per extra year",
+     "Exact: $100(e^{0.094}-1) = 9.86\\%$",
+     "The approximation understates, and the gap grows with the coefficient"
+    ],
+    "links": []
+   },
+   {
+    "id": "q18",
+    "number": "18",
+    "group": "C. Interpretation",
+    "prompt": "Estimated: $food\\_exp = 83.45 + 10.21\\,income$, with mean income 19.60 and mean food_exp 283.57 (income in \\$100/week, expenditure in \\$/week). Interpret the slope and compute the elasticity at the means.",
+    "answer": "Linear. Income is in \\$100 units, so a \\$100 rise in weekly income is associated with a **\\$10.21** rise in weekly food expenditure — about 10 cents per extra dollar, matching the lecture's motivating example. Elasticity at the means: $10.21\\times(19.60/283.57) = $ **0.71**. Food is a necessity: expenditure rises less than proportionately. The intercept, $b_1 = \\bar{y} - b_2\\bar{x} = 283.57 - 10.21\\times19.60 = $ **\\$83.45**, is predicted spending at zero income — an extrapolation outside the data, so not to be read literally.",
+    "rubric": [
+     "Identify the model as linear: a \\$100 rise in weekly income is associated with a **\\$10.21** rise in weekly food expenditure",
+     "Elasticity at the means: $10.21\\times(19.60/283.57) = 0.71$, so food is a necessity",
+     "Intercept $b_1 = \\bar{y} - b_2\\bar{x} = 283.57 - 10.21\\times19.60 = 83.45$ dollars",
+     "Treat the intercept as an extrapolation outside the data, not to be read literally"
+    ],
+    "links": []
+   },
+   {
+    "id": "q19",
+    "number": "19",
+    "group": "C. Interpretation",
+    "prompt": "Estimated: $\\ln(price) = 4.17 + 0.84\\ln(sqft)$. What is the elasticity? If square footage rises 10%, what happens to price?",
+    "answer": "Log-log, so the coefficient **is** the elasticity: **0.84**. A 10% rise in square footage → roughly 8.4% higher price; exactly $1.1^{0.84} - 1 = $ **8.34%**. Price rises less than proportionately with size.",
+    "rubric": [
+     "Identify log-log, so the coefficient **is** the elasticity: **0.84**",
+     "A 10% rise in square footage gives roughly 8.4% higher price; exactly $1.1^{0.84} - 1 = 8.34\\%$",
+     "Price rises less than proportionately with size"
+    ],
+    "links": []
+   },
+   {
+    "id": "q20",
+    "number": "20",
+    "group": "C. Interpretation",
+    "prompt": "Estimated: $price = \\alpha_1 + \\alpha_2\\,sqft^2$ with $\\hat\\alpha_2 = 0.0154$. Compute the marginal effect and elasticity at $sqft = 2000$, predicted price 117,462. Why can you not report a single slope?",
+    "answer": "Marginal effect $= 2(0.0154)(2000) = $ **\\$61.60 per additional square foot** at $sqft = 2000$. Elasticity $= 61.6\\times(2000/117{,}462) = $ **1.05**. No single slope exists because the model is nonlinear in $sqft$ — the marginal effect is a linear function of $sqft$, so at $sqft = 4000$ it would be \\$123.20.",
+    "rubric": [
+     "Marginal effect $= 2(0.0154)(2000) = 61.60$ dollars per additional square foot",
+     "Elasticity $= 61.6\\times(2000/117{,}462) = 1.05$",
+     "No single slope exists because the model is nonlinear in $sqft$: the marginal effect is linear in $sqft$ (\\$123.20 at $sqft = 4000$)"
+    ],
+    "links": []
+   },
+   {
+    "id": "q21",
+    "number": "21",
+    "group": "C. Interpretation",
+    "prompt": "Estimated: $wage = 21.03 - 4.29\\,female$. State the mean wage for men, the mean for women, and what the $t$ test on the female coefficient is testing.",
+    "answer": "Reference group is men: mean male wage $= b_1 = $ **\\$21.03/hour**; mean female wage $= 21.03 - 4.29 = $ **\\$16.74/hour**. The $t$ test tests $H_0$: the two population means are equal — algebraically identical to a pooled-variance two-sample $t$ test. This is a **raw gap** with no controls, so not an estimate of discrimination. → [Indicator Variables](note:indicator-variables)",
+    "rubric": [
+     "Reference group is men: mean male wage $= b_1 = $ **\\$21.03/hour**",
+     "Mean female wage $= 21.03 - 4.29 = $ **\\$16.74/hour**",
+     "The $t$ test tests $H_0$: equal population means (identical to a pooled-variance two-sample $t$ test)",
+     "It is a **raw gap** with no controls, so not an estimate of discrimination"
+    ],
+    "links": [
+     "indicator-variables"
+    ]
+   },
+   {
+    "id": "q22",
+    "number": "22",
+    "group": "C. Interpretation",
+    "prompt": "A Box-Cox procedure returns $\\hat\\lambda = 0.0013$ with an LR test of $H_0: \\lambda = 0$ giving $p = 0.78$. What do you do and why?",
+    "answer": "$\\hat\\lambda = 0.0013$ is statistically indistinguishable from 0 ($p = 0.78$ fails to reject), so **use the log**. Two reasons: the log is interpretable as a proportional change, and rounding to a natural value avoids overfitting the transformation to sample noise. → [Box-Cox and Power Transformations](note:box-cox-and-power-transformations)",
+    "rubric": [
+     "$\\hat\\lambda = 0.0013$ is indistinguishable from 0 ($p = 0.78$ fails to reject), so **use the log**",
+     "Reason 1: the log is interpretable as a proportional change",
+     "Reason 2: rounding to a natural value avoids overfitting the transformation to sample noise"
+    ],
+    "links": [
+     "box-cox-and-power-transformations"
+    ]
+   },
+   {
+    "id": "q23",
+    "number": "23",
+    "group": "D. Harder / synthesis",
+    "prompt": "Prove the Gauss-Markov theorem for $b_2$ in the simple regression case. Where exactly does homoskedasticity enter, and where does normality fail to be needed?",
+    "answer": "Let $\\tilde\\beta_2 = \\sum a_i y_i$. Unbiasedness for all $\\beta_1,\\beta_2$ requires $\\sum a_i = 0$ and $\\sum a_i x_i = 1$ — exactly the conditions the OLS weights satisfy. Write $a_i = w_i + d_i$; the restrictions force $\\sum d_i = 0$ and $\\sum d_i x_i = 0$, hence $\\sum w_i d_i = 0$. Then $\\mathrm{Var}(\\tilde\\beta_2) = \\sigma^2\\sum a_i^2 = \\mathrm{Var}(b_2) + \\sigma^2\\sum d_i^2 \\geq \\mathrm{Var}(b_2)$, equality only if all $d_i = 0$. **Homoskedasticity (with SR4, no error correlation) enters at $\\mathrm{Var}(\\sum a_i y_i) = \\sigma^2\\sum a_i^2$** — without homoskedasticity you get $\\sum a_i^2\\sigma_i^2$ and the OLS weights are not optimal. Normality is never used: first and second moments only. → [Gauss-Markov Theorem](note:gauss-markov-theorem)",
+    "rubric": [
+     "Unbiasedness for all $\\beta_1,\\beta_2$ requires $\\sum a_i = 0$ and $\\sum a_i x_i = 1$",
+     "Write $a_i = w_i + d_i$; the restrictions force $\\sum d_i = 0$, $\\sum d_i x_i = 0$, hence $\\sum w_i d_i = 0$",
+     "$\\mathrm{Var}(\\tilde\\beta_2) = \\sigma^2\\sum a_i^2 = \\mathrm{Var}(b_2) + \\sigma^2\\sum d_i^2 \\geq \\mathrm{Var}(b_2)$, with equality only if all $d_i = 0$",
+     "Homoskedasticity (with SR4) enters at $\\mathrm{Var}(\\sum a_i y_i) = \\sigma^2\\sum a_i^2$; normality is never used"
+    ],
+    "links": [
+     "gauss-markov-theorem"
+    ]
+   },
+   {
+    "id": "q24",
+    "number": "24",
+    "group": "D. Harder / synthesis",
+    "prompt": "Explain why $\\mathrm{trace}(\\mathbf{M}) = n - K$, and show how this delivers $E[\\widehat{\\sigma}^2] = \\sigma^2$.",
+    "answer": "$\\mathbf{M}$ is idempotent and symmetric, so rank = trace. $\\mathrm{trace}(\\mathbf{M}) = n - \\mathrm{trace}((\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{X}) = n - K$, using $\\mathrm{trace}(\\mathbf{AB}) = \\mathrm{trace}(\\mathbf{BA})$. Then $E[\\mathbf{e}'\\mathbf{e}] = E[\\boldsymbol{\\varepsilon}'\\mathbf{M}\\boldsymbol{\\varepsilon}] = \\sigma^2\\mathrm{trace}(\\mathbf{M}) = \\sigma^2(n-K)$, so dividing by $n-K$ gives $E[\\widehat{\\sigma}^2] = \\sigma^2$. → [Projection Matrix and Residual Maker](note:projection-matrix-and-residual-maker)",
+    "rubric": [
+     "$\\mathbf{M}$ is idempotent and symmetric, so rank = trace",
+     "$\\mathrm{trace}(\\mathbf{M}) = n - K$, using $\\mathrm{trace}(\\mathbf{AB}) = \\mathrm{trace}(\\mathbf{BA})$",
+     "$E[\\mathbf{e}'\\mathbf{e}] = E[\\boldsymbol{\\varepsilon}'\\mathbf{M}\\boldsymbol{\\varepsilon}] = \\sigma^2(n-K)$",
+     "Divide by $n-K$ to get $E[\\widehat{\\sigma}^2] = \\sigma^2$"
+    ],
+    "links": [
+     "projection-matrix-and-residual-maker"
+    ]
+   },
+   {
+    "id": "q25",
+    "number": "25",
+    "group": "D. Harder / synthesis",
+    "prompt": "Suppose the true model is $y = \\beta_1 + \\beta_2 x + \\beta_3 x^2 + e$ but you estimate $y = \\gamma_1 + \\gamma_2 x + v$. What does OLS estimate? Which assumption is violated, and what does the residual-vs-fitted plot look like?",
+    "answer": "The omitted $x^2$ is absorbed into $v = \\beta_3 x^2 + e$, and since $E[x^2\\mid x]\\neq0$, **SR2 fails**: $E[v\\mid x]\\neq0$ and $\\mathrm{Cov}(x,v)\\neq0$. OLS therefore estimates the **linear projection** of $y$ on $x$, not $\\beta_2$ — biased by $\\beta_3\\,\\mathrm{Cov}(x,x^2)/\\mathrm{Var}(x)$, the classic omitted-variable bias formula. The residual-vs-fitted plot shows systematic **curvature** (U or inverted-U), and a LOWESS smoother would diverge from the OLS line. Fix: add $x^2$, or transform. → [Strict Exogeneity](note:strict-exogeneity)",
+    "rubric": [
+     "The omitted $x^2$ is absorbed into $v = \\beta_3 x^2 + e$, and $E[x^2\\mid x]\\neq0$ so **SR2 fails**",
+     "OLS estimates the **linear projection**, biased by $\\beta_3\\,\\mathrm{Cov}(x,x^2)/\\mathrm{Var}(x)$ (omitted-variable bias)",
+     "The residual-vs-fitted plot shows systematic **curvature**",
+     "Fix: add $x^2$, or transform"
+    ],
+    "links": [
+     "strict-exogeneity"
+    ]
+   },
+   {
+    "id": "q26",
+    "number": "26",
+    "group": "D. Harder / synthesis",
+    "prompt": "You have $N = 30$, residuals failing Jarque-Bera at $p = 0.001$, and a bootstrap distribution of $b_2$ that is visibly skewed. Which inference would you report, and why?",
+    "answer": "With $N = 30$, normality is rejected and $N$ is too small to lean on the CLT, so exact $t$-based intervals are untrustworthy. **Report the bootstrap**: percentile or bias-corrected intervals for $b_2$, plus bootstrap standard errors, and say so explicitly. The visible skew is itself evidence against the symmetric $t$ interval. Also check whether a Box-Cox transformation of $y$ makes the residuals better behaved — that would be the preferable fix rather than a patch on inference. → [Bootstrapping OLS](note:bootstrapping-ols)",
+    "rubric": [
+     "$N = 30$ with normality rejected is too small to lean on the CLT, so exact $t$ intervals are untrustworthy",
+     "**Report the bootstrap**: percentile or bias-corrected intervals for $b_2$ plus bootstrap standard errors, and say so",
+     "The visible skew is evidence against the symmetric $t$ interval",
+     "Check whether a Box-Cox transformation of $y$ makes the residuals better behaved; if it does, that is the better fix rather than a patch on inference"
+    ],
+    "links": [
+     "bootstrapping-ols"
+    ]
+   }
+  ]
+ }
+}

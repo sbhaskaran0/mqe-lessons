@@ -1,0 +1,240 @@
+{
+ "slug": "hessian-matrix",
+ "notation": [
+  {
+   "tex": "$H(\\mathbf{x})$",
+   "meaning": "Hessian matrix at $\\mathbf{x}$",
+   "kind": "Symmetric matrix",
+   "typical": "—",
+   "keys": [
+    "H"
+   ]
+  },
+  {
+   "tex": "$f_{ij}$",
+   "meaning": "Second derivative: change in the slope in direction $i$ as $x_j$ changes",
+   "kind": "Number",
+   "typical": "$f_{ij} = f_{ji}$",
+   "keys": [
+    "f"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{d}$",
+   "meaning": "Small step away from a point",
+   "kind": "Vector",
+   "typical": "—",
+   "keys": [
+    "bold(d)"
+   ]
+  },
+  {
+   "tex": "$x$, $y$",
+   "meaning": "Inputs in the two-variable example",
+   "kind": "Variables",
+   "typical": "—",
+   "keys": [
+    "x",
+    "y"
+   ]
+  },
+  {
+   "tex": "$a$, $\\mathbf{x}$",
+   "meaning": "Point the approximation is built around",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "a",
+    "bold(x)"
+   ],
+   "from": "taylor-series-approximation"
+  },
+  {
+   "tex": "$\\mathbf{X}$",
+   "meaning": "Regressor matrix",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "bold(X)"
+   ],
+   "from": "quadratic-forms-and-definiteness"
+  },
+  {
+   "tex": "$\\boldsymbol{\\varepsilon}$, $\\mathbf{M}$, $\\mathbf{e}$",
+   "meaning": "Errors, residual maker, residuals",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(varepsilon)",
+    "bold(M)",
+    "bold(e)"
+   ],
+   "from": "quadratic-forms-and-definiteness"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The Hessian collects all the second derivatives of a function into a table: how fast each slope is itself changing, in every direction and combination of directions. It describes the curvature of the surface. At a flat spot, curvature tells you what you are standing on — the bottom of a bowl, the top of a dome, or a saddle that curves up one way and down another. Its off-diagonal entries say whether two inputs reinforce each other."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the tool for checking that a solution is really a maximum or minimum, and for measuring complementarity between inputs.",
+       "folded": false
+      }
+     ],
+     "words": 101,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "H(\\mathbf{x}) = \\begin{pmatrix} f_{11} & f_{12} & \\cdots\\\\ f_{21} & f_{22} & \\cdots\\\\ \\vdots & & \\ddots\\end{pmatrix}, \\qquad f_{ij} = \\frac{\\partial^2 f}{\\partial x_i\\,\\partial x_j}"
+      },
+      {
+       "t": "prose",
+       "md": "**Young's theorem**: if the second partials are continuous, $f_{ij} = f_{ji}$, so $H$ is symmetric."
+      }
+     ],
+     "words": 11,
+     "symbols": [
+      "$H(\\mathbf{x})$",
+      "$f_{ij}$",
+      "$x$, $y$",
+      "$a$, $\\mathbf{x}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "what-it-tells-you",
+   "heading": "What it tells you",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-it-tells-you-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "At a critical point ($\\nabla f = \\mathbf{0}$), the second-order Taylor term $\\tfrac12\\mathbf{d}'H\\mathbf{d}$ decides the shape ([Taylor Series Approximation](note:taylor-series-approximation)):"
+      },
+      {
+       "t": "table",
+       "md": "| $H$ at the critical point | Point is |\n| --- | --- |\n| Positive definite | Local minimum |\n| Negative definite | Local maximum |\n| Indefinite | Saddle point |\n| Semidefinite | Test inconclusive |"
+      },
+      {
+       "t": "prose",
+       "md": "Definiteness tests: [Quadratic Forms and Definiteness](note:quadratic-forms-and-definiteness)."
+      }
+     ],
+     "words": 42,
+     "symbols": [
+      "$H(\\mathbf{x})$",
+      "$f_{ij}$",
+      "$\\mathbf{d}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$f(x,y) = x^2 + xy + y^2$: $H = \\begin{pmatrix}2&1\\\\1&2\\end{pmatrix}$, eigenvalues 3 and 1 → PD, so $(0,0)$ is a minimum."
+      }
+     ],
+     "words": 9,
+     "symbols": [
+      "$H(\\mathbf{x})$",
+      "$f_{ij}$",
+      "$x$, $y$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cross-partials-have-meaning",
+   "heading": "Cross-partials have meaning",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "cross-partials-have-meaning-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$f_{12} > 0$ means the inputs are **complements**: more of one raises the marginal product of the other. In production, skill-capital complementarity is a statement about a cross-partial."
+      }
+     ],
+     "words": 25,
+     "symbols": [
+      "$f_{ij}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Econometrics**: the Hessian of $\\mathbf{e}'\\mathbf{e}$ is $2\\mathbf{X}'\\mathbf{X}$, which is PD under full rank — so OLS is a minimum ([OLS in Matrix Form](note:ols-in-matrix-form)); in MLE, the negative inverse Hessian estimates the variance.\n- **Optimization**: [Unconstrained Optimization](note:unconstrained-optimization), [Convexity and Concavity](note:convexity-and-concavity)."
+      }
+     ],
+     "words": 37,
+     "symbols": [
+      "$\\mathbf{X}$",
+      "$\\boldsymbol{\\varepsilon}$, $\\mathbf{M}$, $\\mathbf{e}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Partial Derivatives and the Gradient](note:partial-derivatives-and-the-gradient)"
+      }
+     ],
+     "words": 6,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

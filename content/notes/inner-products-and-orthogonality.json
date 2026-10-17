@@ -1,0 +1,1123 @@
+{
+ "slug": "inner-products-and-orthogonality",
+ "notation": [
+  {
+   "tex": "$\\mathbf{a}$, $\\mathbf{b}$",
+   "meaning": "Vectors",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(a)",
+    "bold(b)"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{a}'\\mathbf{b}$",
+   "meaning": "Inner (dot) product",
+   "kind": "Number",
+   "typical": "0 means orthogonal",
+   "keys": [
+    "~\\mathbfa'\\mathbfb"
+   ]
+  },
+  {
+   "tex": "$\\lVert\\mathbf{a}\\rVert$",
+   "meaning": "Length (norm) of $\\mathbf{a}$",
+   "kind": "Number",
+   "typical": "—",
+   "keys": [
+    "bold(a)"
+   ]
+  },
+  {
+   "tex": "$\\theta$",
+   "meaning": "Angle between two vectors; also a generic parameter vector in the GMM row",
+   "kind": "Angle / parameter",
+   "typical": "—",
+   "keys": [
+    "theta"
+   ]
+  },
+  {
+   "tex": "$V$, $V^\\perp$",
+   "meaning": "A subspace and its orthogonal complement",
+   "kind": "Sets",
+   "typical": "—",
+   "keys": [
+    "V"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{q}_j$, $c_j$",
+   "meaning": "Orthonormal basis vectors and coordinates",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(q)",
+    "c"
+   ]
+  },
+  {
+   "tex": "$\\tilde{\\mathbf{x}}$, $\\tilde{\\mathbf{y}}$",
+   "meaning": "Demeaned data vectors",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "tilde(bold(x))",
+    "tilde(bold(y))"
+   ]
+  },
+  {
+   "tex": "$X$, $Y$",
+   "meaning": "Random variables",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "X",
+    "Y"
+   ]
+  },
+  {
+   "tex": "$\\sigma_X$, $\\sigma_Y$, $\\rho$",
+   "meaning": "Standard deviations and correlation",
+   "kind": "Statistics",
+   "typical": "$\\lvert\\rho\\rvert \\leq 1$",
+   "keys": [
+    "sigma",
+    "rho"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{X}$, $\\mathbf{e}$, $\\mathbf{z}$",
+   "meaning": "Regressors, residuals, instruments",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "bold(X)",
+    "bold(e)",
+    "bold(z)"
+   ]
+  },
+  {
+   "tex": "$\\varepsilon$",
+   "meaning": "Population error term",
+   "kind": "Unobserved",
+   "typical": "—",
+   "keys": [
+    "varepsilon"
+   ]
+  },
+  {
+   "tex": "$\\Omega$",
+   "meaning": "Error covariance matrix used by GLS",
+   "kind": "Matrix",
+   "typical": "—",
+   "keys": [
+    "Omega"
+   ]
+  },
+  {
+   "tex": "$E[\\mathrm{Var}(Y\\mid X)]$",
+   "meaning": "Average within-group variance",
+   "kind": "Number",
+   "typical": "—",
+   "keys": [
+    "~E[\\mathrmVar(Y\\midX)]"
+   ],
+   "from": "law-of-total-variance"
+  },
+  {
+   "tex": "$\\mathbf{y}$, $\\hat{\\mathbf{y}}$",
+   "meaning": "Outcome and fitted values",
+   "kind": "Data / computed",
+   "typical": "—",
+   "keys": [
+    "bold(y)",
+    "hat(bold(y))"
+   ],
+   "from": "projection-matrix-and-residual-maker"
+  },
+  {
+   "tex": "$\\mathbf{P} = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$",
+   "meaning": "Projection (hat) matrix: turns $\\mathbf{y}$ into fitted values",
+   "kind": "Matrix ($n\\times n$)",
+   "typical": "Trace $K$",
+   "keys": [
+    "bold(P)"
+   ],
+   "from": "projection-matrix-and-residual-maker"
+  },
+  {
+   "tex": "$\\mathbf{M} = \\mathbf{I} - \\mathbf{P}$",
+   "meaning": "Residual maker: turns $\\mathbf{y}$ into residuals",
+   "kind": "Matrix ($n\\times n$)",
+   "typical": "Trace $n - K$",
+   "keys": [
+    "bold(M)"
+   ],
+   "from": "projection-matrix-and-residual-maker"
+  },
+  {
+   "tex": "$n$, $K$",
+   "meaning": "Observations and regressors",
+   "kind": "Counts",
+   "typical": "—",
+   "keys": [
+    "n",
+    "K"
+   ],
+   "from": "projection-matrix-and-residual-maker"
+  },
+  {
+   "tex": "$\\mathbf{1}$, $\\bar{y}$",
+   "meaning": "Column of ones and the sample mean",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bar(y)"
+   ],
+   "from": "projection-matrix-and-residual-maker"
+  },
+  {
+   "tex": "$A$",
+   "meaning": "Matrix with columns $\\mathbf{a}_1, \\ldots, \\mathbf{a}_k$",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "A"
+   ],
+   "from": "column-space"
+  },
+  {
+   "tex": "$\\mathbf{x}$",
+   "meaning": "Vector of weights on the columns",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(x)"
+   ],
+   "from": "column-space"
+  },
+  {
+   "tex": "$k$",
+   "meaning": "Number of columns",
+   "kind": "Count",
+   "typical": "—",
+   "keys": [
+    "k"
+   ],
+   "from": "column-space"
+  },
+  {
+   "tex": "$t$",
+   "meaning": "Time trend",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "t"
+   ],
+   "from": "frisch-waugh-lovell-theorem"
+  },
+  {
+   "tex": "$Q$",
+   "meaning": "Matrix whose columns are orthonormal eigenvectors",
+   "kind": "Matrix",
+   "typical": "$Q'Q = I$",
+   "keys": [
+    "Q"
+   ],
+   "from": "spectral-decomposition"
+  },
+  {
+   "tex": "$h(x)$, $g(x)$, $E[y\\mid x]$",
+   "meaning": "Conditional mean: true average $y$ at each $x$",
+   "kind": "Population function",
+   "typical": "Any shape",
+   "keys": [
+    "h",
+    "g",
+    "~E[y\\midx]"
+   ],
+   "from": "conditional-mean-vs-linear-projection"
+  },
+  {
+   "tex": "$a$",
+   "meaning": "Any amount shifted between coefficients in the example",
+   "kind": "Number",
+   "typical": "—",
+   "keys": [
+    "a"
+   ],
+   "from": "full-rank-and-identification"
+  },
+  {
+   "tex": "$e_i$",
+   "meaning": "Error for observation $i$",
+   "kind": "Unobserved",
+   "typical": "—",
+   "keys": [
+    "e"
+   ],
+   "from": "strict-exogeneity"
+  },
+  {
+   "tex": "$x_i$, $\\mathbf{x}_i$",
+   "meaning": "Regressor(s) for observation $i$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "x",
+    "bold(x)"
+   ],
+   "from": "strict-exogeneity"
+  },
+  {
+   "tex": "$z$",
+   "meaning": "Instrument: correlated with $x$, uncorrelated with the error",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "z"
+   ],
+   "from": "instrumental-variables-and-2sls"
+  },
+  {
+   "tex": "$\\hat{\\sigma}$",
+   "meaning": "Estimated elasticity of substitution in the example",
+   "kind": "Statistic",
+   "typical": "2.28 (OLS), 2.58 (2SLS)",
+   "keys": [
+    "hat(sigma)"
+   ],
+   "from": "instrumental-variables-and-2sls"
+  },
+  {
+   "tex": "$b_2$",
+   "meaning": "OLS slope",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "b"
+   ],
+   "from": "gauss-markov-theorem"
+  },
+  {
+   "tex": "$w_i$",
+   "meaning": "OLS weights",
+   "kind": "Depend only on $x$",
+   "typical": "—",
+   "keys": [
+    "w"
+   ],
+   "from": "gauss-markov-theorem"
+  },
+  {
+   "tex": "$d_i = a_i - w_i$",
+   "meaning": "How far the competitor's weights differ from OLS",
+   "kind": "—",
+   "typical": "All zero for OLS",
+   "keys": [
+    "d"
+   ],
+   "from": "gauss-markov-theorem"
+  },
+  {
+   "tex": "$\\mathbf{x}$, $\\mathbf{v}$",
+   "meaning": "Vectors",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(x)",
+    "bold(v)"
+   ],
+   "from": "quadratic-forms-and-definiteness"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The inner product of two lists of numbers — multiply them pairwise and add up — measures how much they point in the same direction. If it is zero, the two are orthogonal: perpendicular, sharing nothing, so knowing one tells you nothing about the other along its direction. Statistics turns out to be this geometry in disguise: covariance is an inner product of centred data, and correlation is the cosine of the angle between them."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "Orthogonality is the idea behind least squares, uncorrelated errors, and why a correlation can never exceed one in size.",
+       "folded": false
+      }
+     ],
+     "words": 95,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "\\mathbf{a}'\\mathbf{b} = \\sum_i a_i b_i = \\|\\mathbf{a}\\|\\,\\|\\mathbf{b}\\|\\cos\\theta, \\qquad \\|\\mathbf{a}\\| = \\sqrt{\\mathbf{a}'\\mathbf{a}}"
+      },
+      {
+       "t": "prose",
+       "md": "- **Orthogonal**: $\\mathbf{a}'\\mathbf{b} = 0$ — perpendicular.\n- **Orthogonal complement** of a subspace $V$: every vector orthogonal to all of $V$."
+      }
+     ],
+     "words": 15,
+     "symbols": [
+      "$\\mathbf{a}$, $\\mathbf{b}$",
+      "$\\mathbf{a}'\\mathbf{b}$",
+      "$\\lVert\\mathbf{a}\\rVert$",
+      "$\\theta$",
+      "$V$, $V^\\perp$",
+      "$a$",
+      "$b_2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "one-sentence",
+   "heading": "One sentence",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "one-sentence-1",
+     "blocks": [
+      {
+       "t": "quote",
+       "md": "$\\mathbf{a}$ and $\\mathbf{b}$ are orthogonal when **$\\mathbf{b}$ contains none of $\\mathbf{a}$** — knowing where you sit along $\\mathbf{a}$ tells you nothing about where you sit along $\\mathbf{b}$."
+      },
+      {
+       "t": "prose",
+       "md": "Everything below restates that sentence in a different language: geometric, algebraic, statistical, econometric. The reason orthogonality is *everywhere* in econometrics is that \"contains none of\" is exactly what a decomposition needs to be clean — for pieces to add up without double-counting."
+      }
+     ],
+     "words": 61,
+     "symbols": [
+      "$\\mathbf{a}$, $\\mathbf{b}$",
+      "$\\lVert\\mathbf{a}\\rVert$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-the-cosine-formula-comes-from",
+   "heading": "Where the cosine formula comes from",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-the-cosine-formula-comes-from-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The algebraic definition $\\mathbf{a}'\\mathbf{b} = \\sum_i a_i b_i$ looks like it has nothing to do with angles. The bridge is the **law of cosines**. For the triangle with sides $\\mathbf{a}$, $\\mathbf{b}$ and $\\mathbf{a} - \\mathbf{b}$:"
+      },
+      {
+       "t": "math",
+       "tex": "\\|\\mathbf{a}-\\mathbf{b}\\|^2 = \\|\\mathbf{a}\\|^2 + \\|\\mathbf{b}\\|^2 - 2\\|\\mathbf{a}\\|\\|\\mathbf{b}\\|\\cos\\theta"
+      },
+      {
+       "t": "prose",
+       "md": "But expanding the left side algebraically,"
+      },
+      {
+       "t": "math",
+       "tex": "\\|\\mathbf{a}-\\mathbf{b}\\|^2 = (\\mathbf{a}-\\mathbf{b})'(\\mathbf{a}-\\mathbf{b}) = \\mathbf{a}'\\mathbf{a} - 2\\,\\mathbf{a}'\\mathbf{b} + \\mathbf{b}'\\mathbf{b} = \\|\\mathbf{a}\\|^2 + \\|\\mathbf{b}\\|^2 - 2\\,\\mathbf{a}'\\mathbf{b}"
+      },
+      {
+       "t": "prose",
+       "md": "Comparing the two gives $\\mathbf{a}'\\mathbf{b} = \\|\\mathbf{a}\\|\\|\\mathbf{b}\\|\\cos\\theta$. **The sum of products and the angle are the same object.** That identity is the entire link between algebra you can compute and geometry you can picture — and in $\\mathbb{R}^n$ for large $n$, where you cannot picture anything, the algebra is what \"angle\" now *means*."
+      },
+      {
+       "t": "prose",
+       "md": "Note the special case $\\theta = 90°$: $\\cos 90° = 0$, so orthogonal $\\iff$ zero inner product. And note what the formula says about scale: $\\mathbf{a}'\\mathbf{b}$ mixes *alignment* together with *magnitude*. Dividing magnitude out,"
+      },
+      {
+       "t": "math",
+       "tex": "\\cos\\theta = \\frac{\\mathbf{a}'\\mathbf{b}}{\\|\\mathbf{a}\\|\\,\\|\\mathbf{b}\\|}"
+      },
+      {
+       "t": "prose",
+       "md": "is pure alignment — scale-free, always in $[-1,1]$. Hold onto that: it is the correlation coefficient."
+      }
+     ],
+     "words": 117,
+     "symbols": [
+      "$\\mathbf{a}$, $\\mathbf{b}$",
+      "$\\mathbf{a}'\\mathbf{b}$",
+      "$\\lVert\\mathbf{a}\\rVert$",
+      "$\\theta$",
+      "$n$, $K$",
+      "$a$",
+      "$b_2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "three-readings-of-ab-0",
+   "heading": "Three readings of a'b = 0",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "three-readings-of-ab-0-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Reading | Statement | Shows up as |\n| --- | --- | --- |\n| **Geometric** | The vectors meet at a right angle; neither casts a shadow on the other | Projection pictures |\n| **Algebraic** | The sum of cross-products is zero: positive and negative terms exactly cancel | Normal equations, moment conditions |\n| **Statistical** | Zero covariance after demeaning — no *linear* co-movement | Correlation, uncorrelatedness |"
+      },
+      {
+       "t": "prose",
+       "md": "They are literally the same equation. Fluency in orthogonality is mostly the ability to switch readings mid-problem: to see $\\mathbf{X}'\\mathbf{e} = \\mathbf{0}$ as \"the residual is at right angles to every regressor\" and *also* as \"$\\sum_i x_{ik} e_i = 0$ for each $k$\" and *also* as \"the residual is uncorrelated with each regressor in sample\"."
+      }
+     ],
+     "words": 98,
+     "symbols": [
+      "$\\mathbf{X}$, $\\mathbf{e}$, $\\mathbf{z}$",
+      "$k$",
+      "$e_i$",
+      "$x_i$, $\\mathbf{x}_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "pythagoras-why-orthogonality-makes-things-add-up",
+   "heading": "Pythagoras: why orthogonality makes things add up",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "pythagoras-why-orthogonality-makes-things-add-up-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "This is the single most useful consequence. Expand the squared length of a sum:"
+      },
+      {
+       "t": "math",
+       "tex": "\\|\\mathbf{a}+\\mathbf{b}\\|^2 = \\|\\mathbf{a}\\|^2 + 2\\,\\mathbf{a}'\\mathbf{b} + \\|\\mathbf{b}\\|^2"
+      },
+      {
+       "t": "prose",
+       "md": "The cross-term $2\\,\\mathbf{a}'\\mathbf{b}$ is the *interaction*. Orthogonality kills it:"
+      },
+      {
+       "t": "math",
+       "tex": "\\boxed{\\mathbf{a} \\perp \\mathbf{b} \\iff \\|\\mathbf{a}+\\mathbf{b}\\|^2 = \\|\\mathbf{a}\\|^2 + \\|\\mathbf{b}\\|^2}"
+      },
+      {
+       "t": "prose",
+       "md": "So orthogonality is precisely the condition under which **squared lengths are additive**. Since squared length is variance (and sum of squares), every \"total = part + part\" identity in statistics is a Pythagorean theorem in disguise:"
+      },
+      {
+       "t": "table",
+       "md": "| Identity | What is orthogonal to what |\n| --- | --- |\n| $\\mathrm{TSS} = \\mathrm{ESS} + \\mathrm{RSS}$ | Fitted deviations $\\perp$ residuals |\n| $\\mathrm{Var}(X+Y) = \\mathrm{Var}(X) + \\mathrm{Var}(Y)$ when uncorrelated | $\\tilde{X} \\perp \\tilde{Y}$ |\n| $\\mathrm{Var}(Y) = \\mathrm{Var}(E[Y\\mid X]) + E[\\mathrm{Var}(Y\\mid X)]$ | Conditional mean $\\perp$ deviation from it ([Law of Total Variance](note:law-of-total-variance)) |\n| $\\|\\mathbf{y}\\|^2 = \\|\\mathbf{P}\\mathbf{y}\\|^2 + \\|\\mathbf{M}\\mathbf{y}\\|^2$ | $\\mathbf{P}\\mathbf{M} = \\mathbf{0}$ ([Projection Matrix and Residual Maker](note:projection-matrix-and-residual-maker)) |\n| MSE $=$ bias$^2$ $+$ variance | Bias (a constant) $\\perp$ sampling noise |"
+      },
+      {
+       "t": "prose",
+       "md": "If you ever see a decomposition where the cross-term vanishes, look for the orthogonality that made it vanish. There always is one."
+      }
+     ],
+     "words": 113,
+     "symbols": [
+      "$\\mathbf{a}$, $\\mathbf{b}$",
+      "$\\mathbf{a}'\\mathbf{b}$",
+      "$\\lVert\\mathbf{a}\\rVert$",
+      "$X$, $Y$",
+      "$E[\\mathrm{Var}(Y\\mid X)]$",
+      "$\\mathbf{y}$, $\\hat{\\mathbf{y}}$",
+      "$\\mathbf{P} = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$",
+      "$\\mathbf{M} = \\mathbf{I} - \\mathbf{P}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "the-orthogonal-decomposition-theorem",
+   "heading": "The orthogonal decomposition theorem",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-orthogonal-decomposition-theorem-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The structural fact that makes projection work. Given a subspace $V \\subseteq \\mathbb{R}^n$, **every** vector splits one and only one way:"
+      },
+      {
+       "t": "math",
+       "tex": "\\mathbf{y} = \\underbrace{\\mathbf{y}_V}_{\\in\\, V} + \\underbrace{\\mathbf{y}_{V^\\perp}}_{\\in\\, V^\\perp}"
+      },
+      {
+       "t": "prose",
+       "md": "- *Existence*: $\\mathbf{y}_V$ is the orthogonal projection of $\\mathbf{y}$ onto $V$.\n- *Uniqueness*: if $\\mathbf{y} = \\mathbf{v}_1 + \\mathbf{w}_1 = \\mathbf{v}_2 + \\mathbf{w}_2$ then $\\mathbf{v}_1 - \\mathbf{v}_2 = \\mathbf{w}_2 - \\mathbf{w}_1$ lies in both $V$ and $V^\\perp$, hence is orthogonal to itself, hence has zero length, hence is $\\mathbf{0}$."
+      },
+      {
+       "t": "prose",
+       "md": "That last move — **$\\mathbf{z}'\\mathbf{z} = 0 \\Rightarrow \\mathbf{z} = \\mathbf{0}$** — is the workhorse trick of the whole subject. The only vector orthogonal to itself is the zero vector. It is how you prove uniqueness of projections, why $V \\cap V^\\perp = \\{\\mathbf{0}\\}$, and why a residual orthogonal to its own fitted values is a genuinely separate piece of information rather than a repackaging of the fit."
+      },
+      {
+       "t": "prose",
+       "md": "**Why projection *is* least squares.** Let $\\mathbf{v}\\in V$ be any candidate. Then $\\mathbf{y} - \\mathbf{v} = (\\mathbf{y} - \\mathbf{y}_V) + (\\mathbf{y}_V - \\mathbf{v})$, where the first term lies in $V^\\perp$ and the second in $V$. Pythagoras:"
+      },
+      {
+       "t": "math",
+       "tex": "\\|\\mathbf{y} - \\mathbf{v}\\|^2 = \\underbrace{\\|\\mathbf{y} - \\mathbf{y}_V\\|^2}_{\\text{fixed}} + \\underbrace{\\|\\mathbf{y}_V - \\mathbf{v}\\|^2}_{\\geq\\, 0}"
+      }
+     ],
+     "words": 120,
+     "symbols": [
+      "$V$, $V^\\perp$",
+      "$\\mathbf{X}$, $\\mathbf{e}$, $\\mathbf{z}$",
+      "$\\mathbf{y}$, $\\hat{\\mathbf{y}}$",
+      "$n$, $K$",
+      "$\\mathbf{x}$, $\\mathbf{v}$"
+     ]
+    },
+    {
+     "id": "the-orthogonal-decomposition-theorem-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "minimised uniquely at $\\mathbf{v} = \\mathbf{y}_V$. **Least squares is not an approximation to geometry; it is geometry.** OLS does not \"happen to be\" a projection — minimising squared error and dropping a perpendicular are the same operation, and the orthogonality condition $\\mathbf{X}'\\mathbf{e} = \\mathbf{0}$ is the first-order condition of that minimisation."
+      }
+     ],
+     "words": 44,
+     "symbols": [
+      "$\\mathbf{X}$, $\\mathbf{e}$, $\\mathbf{z}$",
+      "$\\mathbf{y}$, $\\hat{\\mathbf{y}}$",
+      "$\\mathbf{x}$, $\\mathbf{v}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "orthogonal-complements",
+   "heading": "Orthogonal complements",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "orthogonal-complements-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "V^\\perp = \\{\\mathbf{z}\\in\\mathbb{R}^n : \\mathbf{z}'\\mathbf{v} = 0 \\ \\text{ for all } \\mathbf{v}\\in V\\}"
+      },
+      {
+       "t": "table",
+       "md": "| Property | Reading |\n| --- | --- |\n| $V^\\perp$ is itself a subspace | Closed under addition and scaling |\n| $V \\cap V^\\perp = \\{\\mathbf{0}\\}$ | Nothing is orthogonal to itself but zero |\n| $\\dim V + \\dim V^\\perp = n$ | The dimensions partition — this is the $K$ and $n-K$ of degrees of freedom |\n| $(V^\\perp)^\\perp = V$ | The relation is symmetric |\n| $\\mathbf{z} \\perp$ each basis vector of $V$ $\\Rightarrow$ $\\mathbf{z}\\in V^\\perp$ | **Checking a basis is enough.** This is why $\\mathbf{X}'\\mathbf{e}=\\mathbf{0}$ — one equation per column — makes $\\mathbf{e}$ orthogonal to the whole [Column Space](note:column-space) |"
+      },
+      {
+       "t": "prose",
+       "md": "**Worked example.** $V = \\mathrm{span}\\{(1,0,1)', (0,1,1)'\\}$, a plane in $\\mathbb{R}^3$. For $\\mathbf{z}\\in V^\\perp$ we need $z_1 + z_3 = 0$ and $z_2 + z_3 = 0$, so $\\mathbf{z} = t(-1,-1,1)'$ — a line. And $\\dim V + \\dim V^\\perp = 2 + 1 = 3$ ✓"
+      },
+      {
+       "t": "prose",
+       "md": "In regression language: $V = \\mathrm{col}(\\mathbf{X})$ is where fitted values live ($\\dim K$), $V^\\perp$ is where residuals live ($\\dim n - K$), and the $n-K$ in $\\widehat{\\sigma}^2 = \\mathbf{e}'\\mathbf{e}/(n-K)$ is literally the dimension of the residual space."
+      }
+     ],
+     "words": 94,
+     "symbols": [
+      "$V$, $V^\\perp$",
+      "$\\mathbf{X}$, $\\mathbf{e}$, $\\mathbf{z}$",
+      "$n$, $K$",
+      "$t$",
+      "$z$",
+      "$\\hat{\\sigma}$",
+      "$\\mathbf{x}$, $\\mathbf{v}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "orthonormal-bases-and-why-they-are-the-good-coordinates",
+   "heading": "Orthonormal bases, and why they are the good coordinates",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "orthonormal-bases-and-why-they-are-the-good-coordinates-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Orthonormal** = mutually orthogonal *and* unit length: $\\mathbf{q}_i'\\mathbf{q}_j = 1$ if $i=j$ and $0$ otherwise. Stacked into a matrix, $Q'Q = I$ — an **orthogonal matrix**."
+      },
+      {
+       "t": "prose",
+       "md": "In a general basis, finding coordinates means solving a linear system. In an orthonormal basis it is free:"
+      },
+      {
+       "t": "math",
+       "tex": "\\mathbf{y} = \\sum_j c_j\\mathbf{q}_j \\quad\\text{with}\\quad c_j = \\mathbf{q}_j'\\mathbf{y}, \\qquad \\|\\mathbf{y}\\|^2 = \\sum_j c_j^2 \\quad (\\text{Parseval})"
+      },
+      {
+       "t": "prose",
+       "md": "Why: take the inner product of both sides with $\\mathbf{q}_k$ and every term dies except $c_k$. **Orthogonality makes coordinates mutually non-interfering** — changing one does not disturb the others. That property, transplanted into regression, is exactly why orthogonal regressors have coefficients that do not move when you add or drop other regressors (Part III)."
+      }
+     ],
+     "words": 85,
+     "symbols": [
+      "$\\mathbf{q}_j$, $c_j$",
+      "$\\mathbf{y}$, $\\hat{\\mathbf{y}}$",
+      "$Q$"
+     ]
+    },
+    {
+     "id": "orthonormal-bases-and-why-they-are-the-good-coordinates-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Other consequences worth carrying:"
+      },
+      {
+       "t": "prose",
+       "md": "- $Q$ preserves lengths and angles: $(Q\\mathbf{a})'(Q\\mathbf{b}) = \\mathbf{a}'Q'Q\\mathbf{b} = \\mathbf{a}'\\mathbf{b}$. Orthogonal matrices are **rotations and reflections** — rigid motions. Nothing gets stretched.\n- $Q^{-1} = Q'$. The hardest operation in linear algebra collapses to a transpose.\n- Projection onto an orthonormal set is a sum of one-dimensional projections: $\\mathbf{P} = QQ' = \\sum_j \\mathbf{q}_j\\mathbf{q}_j'$, with no inverse required. Compare the general $\\mathbf{P} = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$: the $(\\mathbf{X}'\\mathbf{X})^{-1}$ sits there *purely* to undo the non-orthogonality of the columns of $\\mathbf{X}$. If $\\mathbf{X}'\\mathbf{X} = I$ it disappears.\n- **Gram–Schmidt**: any basis can be made orthonormal by repeatedly subtracting off projections — take $\\mathbf{x}_2$, remove its component along $\\mathbf{x}_1$, normalise, repeat. This is the same operation as *partialling out* in [Frisch-Waugh-Lovell Theorem](note:frisch-waugh-lovell-theorem): residualising one regressor on the others is Gram–Schmidt applied to a design matrix."
+      }
+     ],
+     "words": 111,
+     "symbols": [
+      "$\\mathbf{a}$, $\\mathbf{b}$",
+      "$\\mathbf{a}'\\mathbf{b}$",
+      "$\\lVert\\mathbf{a}\\rVert$",
+      "$\\mathbf{q}_j$, $c_j$",
+      "$\\mathbf{X}$, $\\mathbf{e}$, $\\mathbf{z}$",
+      "$\\mathbf{P} = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$",
+      "$\\mathbf{x}$",
+      "$Q$"
+     ]
+    },
+    {
+     "id": "orthonormal-bases-and-why-they-are-the-good-coordinates-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Spectral Decomposition](note:spectral-decomposition) says every symmetric matrix has an orthonormal eigenbasis — so symmetric matrices are \"diagonal, seen from suitably rotated coordinates\"."
+      },
+      {
+       "t": "prose",
+       "md": "**Worked example.** $\\mathbf{q}_1 = \\tfrac{1}{\\sqrt2}(1,1)'$, $\\mathbf{q}_2 = \\tfrac{1}{\\sqrt2}(1,-1)'$, $\\mathbf{b} = (3,1)'$. Coordinates $c_1 = 4/\\sqrt2$, $c_2 = 2/\\sqrt2$, and $c_1\\mathbf{q}_1 + c_2\\mathbf{q}_2 = (2,2)' + (1,-1)' = (3,1)'$ ✓ Parseval: $c_1^2 + c_2^2 = 8 + 2 = 10 = \\|\\mathbf{b}\\|^2$ ✓ — and since $(2,2)' \\perp (1,-1)'$, that is also Pythagoras."
+      }
+     ],
+     "words": 32,
+     "symbols": [
+      "$\\mathbf{a}$, $\\mathbf{b}$",
+      "$\\mathbf{q}_j$, $c_j$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cauchy-schwarz",
+   "heading": "Cauchy–Schwarz",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "cauchy-schwarz-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "|\\mathbf{a}'\\mathbf{b}| \\leq \\|\\mathbf{a}\\|\\,\\|\\mathbf{b}\\|"
+      },
+      {
+       "t": "prose",
+       "md": "with equality iff one vector is a multiple of the other."
+      },
+      {
+       "t": "prose",
+       "md": "**Proof from projection** — worth knowing, because it shows the inequality is just \"a length cannot be negative\". Project $\\mathbf{b}$ onto $\\mathbf{a}$; the residual is $\\mathbf{r} = \\mathbf{b} - \\frac{\\mathbf{a}'\\mathbf{b}}{\\mathbf{a}'\\mathbf{a}}\\mathbf{a}$. Then by Pythagoras,"
+      },
+      {
+       "t": "math",
+       "tex": "0 \\leq \\|\\mathbf{r}\\|^2 = \\|\\mathbf{b}\\|^2 - \\frac{(\\mathbf{a}'\\mathbf{b})^2}{\\|\\mathbf{a}\\|^2} \\;\\Longrightarrow\\; (\\mathbf{a}'\\mathbf{b})^2 \\leq \\|\\mathbf{a}\\|^2\\|\\mathbf{b}\\|^2"
+      },
+      {
+       "t": "prose",
+       "md": "Equality holds iff $\\|\\mathbf{r}\\| = 0$, i.e. $\\mathbf{b}$ is exactly a multiple of $\\mathbf{a}$ — perfect collinearity. Equivalently: $|\\cos\\theta| \\leq 1$, obvious once you accept the cosine formula. The content is that **a projection can never be longer than the thing being projected.**"
+      }
+     ],
+     "words": 71,
+     "symbols": [
+      "$\\mathbf{a}$, $\\mathbf{b}$",
+      "$\\mathbf{a}'\\mathbf{b}$",
+      "$\\lVert\\mathbf{a}\\rVert$",
+      "$\\theta$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "part-ii-statistics-is-geometry",
+   "heading": "Part II — Statistics is geometry",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "part-ii-statistics-is-geometry-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Demean two variables: $\\tilde{\\mathbf{x}} = \\mathbf{x} - \\bar{x}\\mathbf{1}$, $\\tilde{\\mathbf{y}} = \\mathbf{y} - \\bar{y}\\mathbf{1}$. Then"
+      },
+      {
+       "t": "table",
+       "md": "| Statistic | Geometric meaning |\n| --- | --- |\n| Sample covariance | $\\tilde{\\mathbf{x}}'\\tilde{\\mathbf{y}}/(n-1)$ — an inner product |\n| Sample variance | $\\|\\tilde{\\mathbf{x}}\\|^2/(n-1)$ — squared length |\n| Standard deviation | $\\|\\tilde{\\mathbf{x}}\\|/\\sqrt{n-1}$ — a length |\n| Correlation | $\\cos\\theta$ between $\\tilde{\\mathbf{x}}$ and $\\tilde{\\mathbf{y}}$ |\n| Uncorrelated | $\\tilde{\\mathbf{x}} \\perp \\tilde{\\mathbf{y}}$ |\n| Perfectly correlated ($r = \\pm1$) | $\\tilde{\\mathbf{x}}$ and $\\tilde{\\mathbf{y}}$ collinear |\n| $R^2$ | $\\cos^2$ of the angle between $\\tilde{\\mathbf{y}}$ and $\\mathrm{col}(\\tilde{\\mathbf{X}})$ |"
+      },
+      {
+       "t": "prose",
+       "md": "So Cauchy–Schwarz **is** the statement that a correlation lies in $[-1, 1]$."
+      },
+      {
+       "t": "prose",
+       "md": "Notice that the demeaning step is itself a projection: $\\mathbf{1}$ is a direction in $\\mathbb{R}^n$, and $\\tilde{\\mathbf{x}}$ is the component of $\\mathbf{x}$ orthogonal to it. **Covariance is an inner product taken after projecting out the constant.** That is why correlation and cosine differ only by that first step — and why an uncentred cosine (sometimes called cosine similarity) is *not* a correlation."
+      },
+      {
+       "t": "prose",
+       "md": "**Worked example**: $\\mathbf{x} = (1,2,3,4,5)'$, $\\mathbf{y} = (2,1,4,3,6)'$. Demeaned, $\\tilde{\\mathbf{x}} = (-2,-1,0,1,2)'$ and $\\tilde{\\mathbf{y}} = (-1.2,-2.2,0.8,-0.2,2.8)'$. Then $\\tilde{\\mathbf{x}}'\\tilde{\\mathbf{y}} = 10$, $\\|\\tilde{\\mathbf{x}}\\| = \\sqrt{10}$, $\\|\\tilde{\\mathbf{y}}\\| = \\sqrt{14.8}$, so"
+      },
+      {
+       "t": "math",
+       "tex": "\\cos\\theta = \\frac{10}{\\sqrt{148}} = 0.822"
+      },
+      {
+       "t": "prose",
+       "md": "exactly the sample correlation — an angle of about $34.7°$."
+      }
+     ],
+     "words": 117,
+     "symbols": [
+      "$\\theta$",
+      "$\\tilde{\\mathbf{x}}$, $\\tilde{\\mathbf{y}}$",
+      "$\\mathbf{y}$, $\\hat{\\mathbf{y}}$",
+      "$n$, $K$",
+      "$\\mathbf{1}$, $\\bar{y}$",
+      "$\\mathbf{x}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "the-same-geometry-for-random-variables",
+   "heading": "The same geometry for random variables",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-same-geometry-for-random-variables-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Everything above also works in a space whose \"vectors\" are random variables, with"
+      },
+      {
+       "t": "math",
+       "tex": "\\langle X, Y\\rangle = E[XY], \\qquad \\|X\\| = \\sqrt{E[X^2]}"
+      },
+      {
+       "t": "prose",
+       "md": "Orthogonality is $E[XY] = 0$; for demeaned variables that is $\\mathrm{Cov}(X,Y) = 0$. Then:"
+      },
+      {
+       "t": "prose",
+       "md": "- Cauchy–Schwarz becomes $|\\mathrm{Cov}(X,Y)| \\leq \\sigma_X\\sigma_Y$, i.e. $|\\rho| \\leq 1$.\n- The **linear projection** of $Y$ on $X$ is the projection onto $\\mathrm{span}\\{1, X\\}$; its error is orthogonal to $1$ and to $X$ by construction.\n- The **conditional mean** $E[Y\\mid X]$ is the projection onto the much larger space of *all* functions of $X$. Hence it is the best predictor in mean square, and $Y - E[Y\\mid X]$ is orthogonal to every function of $X$ — see [Conditional Mean vs Linear Projection](note:conditional-mean-vs-linear-projection).\n- [Law of Total Variance](note:law-of-total-variance) is Pythagoras in this space."
+      }
+     ],
+     "words": 94,
+     "symbols": [
+      "$X$, $Y$",
+      "$\\sigma_X$, $\\sigma_Y$, $\\rho$"
+     ]
+    },
+    {
+     "id": "the-same-geometry-for-random-variables-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "This is also the cleanest way to see what separates *uncorrelated* from *independent*: uncorrelated means orthogonal to the two-dimensional span $\\{1, X\\}$; independent means orthogonal to every function of $X$. A far stronger demand."
+      }
+     ],
+     "words": 31,
+     "symbols": [
+      "$X$, $Y$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "the-normal-equations-are-an-orthogonality-condition",
+   "heading": "The normal equations are an orthogonality condition",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-normal-equations-are-an-orthogonality-condition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "OLS minimises $(\\mathbf{y} - \\mathbf{X}\\mathbf{b})'(\\mathbf{y} - \\mathbf{X}\\mathbf{b})$. The first-order condition is"
+      },
+      {
+       "t": "math",
+       "tex": "\\mathbf{X}'\\mathbf{e} = \\mathbf{0} \\quad\\Longleftrightarrow\\quad \\sum_i x_{ik}e_i = 0 \\ \\text{ for every } k"
+      },
+      {
+       "t": "prose",
+       "md": "Read it as: **the residual has been squeezed until none of it lies along any regressor.** If any were left, you could cut the sum of squares further by moving along that regressor — so the estimator would not be finished. Orthogonality is not a side-property of OLS; it is the definition of having converged, and (given full rank — [Full Rank and Identification](note:full-rank-and-identification)) it is what pins $\\mathbf{b}$ down uniquely."
+      }
+     ],
+     "words": 74,
+     "symbols": [
+      "$\\mathbf{a}$, $\\mathbf{b}$",
+      "$\\mathbf{X}$, $\\mathbf{e}$, $\\mathbf{z}$",
+      "$\\mathbf{y}$, $\\hat{\\mathbf{y}}$",
+      "$k$",
+      "$e_i$",
+      "$x_i$, $\\mathbf{x}_i$"
+     ]
+    },
+    {
+     "id": "the-normal-equations-are-an-orthogonality-condition-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Consequences that follow immediately, with no extra assumptions:"
+      },
+      {
+       "t": "prose",
+       "md": "- With a constant in $\\mathbf{X}$, the first normal equation is $\\mathbf{1}'\\mathbf{e} = 0$: residuals sum to zero.\n- $\\hat{\\mathbf{y}}'\\mathbf{e} = \\mathbf{b}'\\mathbf{X}'\\mathbf{e} = 0$: fitted values are orthogonal to residuals, which gives $\\mathrm{TSS} = \\mathrm{ESS} + \\mathrm{RSS}$ and hence $R^2 \\in [0,1]$.\n- These hold *in every sample*, true model or not. They are arithmetic. The assumption with real content is **population** orthogonality, $E[\\mathbf{x}\\varepsilon] = 0$ — see [Strict Exogeneity](note:strict-exogeneity). Do not confuse the two: sample orthogonality is guaranteed by construction; population orthogonality is what identification needs and what you can get wrong."
+      }
+     ],
+     "words": 80,
+     "symbols": [
+      "$\\mathbf{a}$, $\\mathbf{b}$",
+      "$\\mathbf{X}$, $\\mathbf{e}$, $\\mathbf{z}$",
+      "$\\varepsilon$",
+      "$\\mathbf{y}$, $\\hat{\\mathbf{y}}$",
+      "$\\mathbf{x}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "orthogonal-regressors-when-coefficients-stop-interfering",
+   "heading": "Orthogonal regressors: when coefficients stop interfering",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "orthogonal-regressors-when-coefficients-stop-interfering-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Take all variables demeaned, with long regression $\\mathbf{y} = \\mathbf{x}_1 b_1 + \\mathbf{x}_2 b_2 + \\mathbf{e}$. Suppose you instead run the short one, $\\mathbf{y}$ on $\\mathbf{x}_1$ alone. Premultiply the long equation by $\\mathbf{x}_1'$ and use $\\mathbf{x}_1'\\mathbf{e} = 0$:"
+      },
+      {
+       "t": "math",
+       "tex": "\\tilde b_1 = \\frac{\\mathbf{x}_1'\\mathbf{y}}{\\mathbf{x}_1'\\mathbf{x}_1} = b_1 + b_2\\underbrace{\\frac{\\mathbf{x}_1'\\mathbf{x}_2}{\\mathbf{x}_1'\\mathbf{x}_1}}_{\\text{regression of } \\mathbf{x}_2 \\text{ on } \\mathbf{x}_1}"
+      },
+      {
+       "t": "prose",
+       "md": "That is **omitted variable bias**, and it is a non-orthogonality term. If $\\mathbf{x}_1 \\perp \\mathbf{x}_2$ it vanishes and $\\tilde b_1 = b_1$ exactly."
+      },
+      {
+       "t": "table",
+       "md": "| | Orthogonal regressors | Correlated regressors |\n| --- | --- | --- |\n| Coefficients | Unchanged by adding or dropping others | Shift — omitted variable bias |\n| $\\mathbf{X}'\\mathbf{X}$ | Diagonal — $K$ separate simple regressions | Full; must be inverted jointly |\n| $R^2$ | Additive across regressors | Not decomposable |\n| Standard errors | No variance inflation | Inflated by multicollinearity |"
+      }
+     ],
+     "words": 79,
+     "symbols": [
+      "$\\mathbf{X}$, $\\mathbf{e}$, $\\mathbf{z}$",
+      "$\\mathbf{y}$, $\\hat{\\mathbf{y}}$",
+      "$n$, $K$",
+      "$\\mathbf{x}$",
+      "$b_2$"
+     ]
+    },
+    {
+     "id": "orthogonal-regressors-when-coefficients-stop-interfering-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "This is also the clean way to state [Frisch-Waugh-Lovell Theorem](note:frisch-waugh-lovell-theorem): you can always *manufacture* orthogonality by residualising $\\mathbf{x}_1$ on $\\mathbf{x}_2$ first, and the multivariate coefficient equals the simple regression on that residualised regressor. Multiple regression = simple regression on the orthogonalised part. \"Controlling for\" means \"projecting out\"."
+      },
+      {
+       "t": "prose",
+       "md": "**Worked example — an orthogonal design.** $n = 4$, with"
+      },
+      {
+       "t": "math",
+       "tex": "\\mathbf{1} = (1,1,1,1)', \\quad \\mathbf{x}_1 = (1,1,-1,-1)', \\quad \\mathbf{x}_2 = (1,-1,1,-1)', \\qquad \\mathbf{y} = (5,1,2,0)'"
+      },
+      {
+       "t": "prose",
+       "md": "All three regressors are mutually orthogonal (every pairwise sum of products is $0$), so $\\mathbf{X}'\\mathbf{X} = 4I$ and each coefficient is just $\\mathbf{x}_k'\\mathbf{y}/4$:"
+      },
+      {
+       "t": "math",
+       "tex": "b_0 = \\tfrac{8}{4} = 2, \\qquad b_1 = \\tfrac{5+1-2-0}{4} = 1, \\qquad b_2 = \\tfrac{5-1+2-0}{4} = 1.5"
+      },
+      {
+       "t": "prose",
+       "md": "No matrix inversion — and these are identical whether you run the regressions one at a time or all together. Fitted $\\hat{\\mathbf{y}} = (4.5, 1.5, 2.5, -0.5)'$ and residual $\\mathbf{e} = 0.5(1,-1,-1,1)'$, which is orthogonal to all three regressors ✓ (it is the one direction in $\\mathbb{R}^4$ the design did not span: the interaction)."
+      },
+      {
+       "t": "prose",
+       "md": "Pythagoras, twice over:"
+      },
+      {
+       "t": "math",
+       "tex": "\\mathrm{TSS} = 14 = \\underbrace{13}_{\\mathrm{ESS}} + \\underbrace{1}_{\\mathrm{RSS}}, \\qquad \\mathrm{ESS} = \\underbrace{b_1^2\\|\\mathbf{x}_1\\|^2}_{4} + \\underbrace{b_2^2\\|\\mathbf{x}_2\\|^2}_{9} = 13"
+      }
+     ],
+     "words": 113,
+     "symbols": [
+      "$\\mathbf{X}$, $\\mathbf{e}$, $\\mathbf{z}$",
+      "$\\mathbf{y}$, $\\hat{\\mathbf{y}}$",
+      "$n$, $K$",
+      "$\\mathbf{x}$",
+      "$b_2$"
+     ]
+    },
+    {
+     "id": "orthogonal-regressors-when-coefficients-stop-interfering-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The explained variation splits cleanly by regressor — possible *only* because the regressors are orthogonal. With correlated regressors there is no such attribution, which is why \"how much of the variation does variable $k$ explain?\" is usually an ill-posed question."
+      }
+     ],
+     "words": 38,
+     "symbols": [
+      "$k$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "orthogonality-conditions-as-identification",
+   "heading": "Orthogonality conditions as identification",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "orthogonality-conditions-as-identification-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Across estimators the template is the same: *the error is orthogonal to something you observe*, and counting those conditions against the parameters is what identifies the model."
+      },
+      {
+       "t": "table",
+       "md": "| Estimator | Orthogonality imposed | Note |\n| --- | --- | --- |\n| OLS | $E[\\mathbf{x}\\varepsilon] = 0$ | Regressors exogenous ([Strict Exogeneity](note:strict-exogeneity)) |\n| IV / 2SLS | $E[\\mathbf{z}\\varepsilon] = 0$ | Instruments exogenous; $\\mathbf{x}$ need not be ([Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls)) |\n| GMM | $E[g(\\mathbf{w},\\theta)] = 0$ | The general case; \"moment conditions\" *are* orthogonality conditions |\n| Method of moments | $E[\\varepsilon] = 0$, etc. | Same idea, exactly identified |"
+      },
+      {
+       "t": "prose",
+       "md": "When an orthogonality condition fails — endogeneity, omitted variables, measurement error, simultaneity — the estimator is inconsistent, and the OVB formula above tells you the sign and rough size of the damage. **Almost every identification argument in econometrics is a claim that some orthogonality does or does not hold.**"
+      }
+     ],
+     "words": 114,
+     "symbols": [
+      "$\\theta$",
+      "$\\mathbf{X}$, $\\mathbf{e}$, $\\mathbf{z}$",
+      "$\\varepsilon$",
+      "$\\mathbf{x}$",
+      "$h(x)$, $g(x)$, $E[y\\mid x]$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "other-places-it-does-the-work",
+   "heading": "Other places it does the work",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "other-places-it-does-the-work-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **[Gauss-Markov Theorem](note:gauss-markov-theorem)**: the proof compares OLS to a rival linear estimator and the cross-term dies by an orthogonality, $\\sum_i w_i d_i = 0$. Geometrically — OLS is the projection, any other linear unbiased estimator adds a component orthogonal to it, and Pythagoras says that can only *add* variance. Minimum variance is Pythagoras.\n- **[Projection Matrix and Residual Maker](note:projection-matrix-and-residual-maker)**: $\\mathbf{P}\\mathbf{M} = \\mathbf{0}$ says the fitted and residual spaces are orthogonal complements; $\\mathrm{trace}(\\mathbf{M}) = n - K$ is their dimension split, i.e. the degrees of freedom.\n- **[Spectral Decomposition](note:spectral-decomposition)**: symmetric matrices have orthogonal eigenvectors, which is why variance matrices can be rotated to diagonal form — and why PCA works, since it looks for orthogonal directions of maximal variance.\n- **[Quadratic Forms and Definiteness](note:quadratic-forms-and-definiteness)**: $\\mathbf{a}'A\\mathbf{a}$ generalises $\\mathbf{a}'\\mathbf{a}$; the ordinary inner product is the case $A = I$."
+      }
+     ],
+     "words": 117,
+     "symbols": [
+      "$\\mathbf{a}$, $\\mathbf{b}$",
+      "$\\lVert\\mathbf{a}\\rVert$",
+      "$\\mathbf{P} = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$",
+      "$\\mathbf{M} = \\mathbf{I} - \\mathbf{P}$",
+      "$n$, $K$",
+      "$A$",
+      "$w_i$",
+      "$d_i = a_i - w_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Uncorrelated ≠ independent.** Orthogonality of demeaned vectors is only about *linear* association. $X \\sim U(-1,1)$ with $Y = X^2$ is uncorrelated and perfectly dependent. Under joint normality the two notions coincide — which is why the distinction is easy to lose.\n- **Orthogonal ≠ orthonormal.** Orthogonal vectors need not be unit length; *orthonormal* means both. $Q'Q = I$ requires orthonormal columns.\n- **Sample vs population orthogonality.** $\\mathbf{X}'\\mathbf{e} = \\mathbf{0}$ always holds by construction, so it is never evidence that your model is right. $E[\\mathbf{x}\\varepsilon] = 0$ is an assumption and cannot be tested by plotting residuals against regressors — that plot is flat by arithmetic."
+      }
+     ],
+     "words": 87,
+     "symbols": [
+      "$X$, $Y$",
+      "$\\mathbf{X}$, $\\mathbf{e}$, $\\mathbf{z}$",
+      "$\\varepsilon$",
+      "$\\mathbf{x}$",
+      "$Q$"
+     ]
+    },
+    {
+     "id": "common-mistakes-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Orthogonality is relative to an inner product.** Under heteroskedasticity or serial correlation, GLS uses $\\mathbf{a}'\\Omega^{-1}\\mathbf{b}$, and vectors orthogonal under one inner product need not be orthogonal under the other. \"Perpendicular\" depends on the metric ([Homoskedasticity](note:homoskedasticity)).\n- **Forgetting to demean.** Raw $\\mathbf{x}'\\mathbf{y} = 0$ is not \"uncorrelated\"; correlation requires projecting out $\\mathbf{1}$ first. Two strictly positive variables can never be orthogonal in raw form, yet may easily be uncorrelated.\n- **Zero correlation at the aggregate.** $r = 0$ overall is compatible with strong, opposite-signed relationships within subgroups — orthogonality of the pooled vectors says nothing about conditional orthogonality."
+      }
+     ],
+     "words": 89,
+     "symbols": [
+      "$\\mathbf{a}$, $\\mathbf{b}$",
+      "$\\lVert\\mathbf{a}\\rVert$",
+      "$\\Omega$",
+      "$\\mathbf{y}$, $\\hat{\\mathbf{y}}$",
+      "$\\mathbf{x}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Column Space](note:column-space) · [Linear Independence and Rank](note:linear-independence-and-rank)\n- [Projection Matrix and Residual Maker](note:projection-matrix-and-residual-maker) · [Frisch-Waugh-Lovell Theorem](note:frisch-waugh-lovell-theorem)\n- [Spectral Decomposition](note:spectral-decomposition) — orthogonal eigenvectors\n- [Law of Total Variance](note:law-of-total-variance) · [Conditional Mean vs Linear Projection](note:conditional-mean-vs-linear-projection)\n- [Quadratic Forms and Definiteness](note:quadratic-forms-and-definiteness)"
+      }
+     ],
+     "words": 35,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,298 @@
+{
+ "slug": "geometric-series",
+ "notation": [
+  {
+   "tex": "$r$",
+   "meaning": "Common ratio between terms",
+   "kind": "Number",
+   "typical": "$\\lvert r\\rvert < 1$ for convergence",
+   "keys": [
+    "r"
+   ]
+  },
+  {
+   "tex": "$T$",
+   "meaning": "Number of terms",
+   "kind": "Count",
+   "typical": "—",
+   "keys": [
+    "T"
+   ]
+  },
+  {
+   "tex": "$S$",
+   "meaning": "Sum of the series",
+   "kind": "Number",
+   "typical": "—",
+   "keys": [
+    "S"
+   ]
+  },
+  {
+   "tex": "$\\beta = 1/(1+i)$",
+   "meaning": "Discount factor",
+   "kind": "Number",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$i$",
+   "meaning": "Interest rate",
+   "kind": "Rate",
+   "typical": "0.05 in the example",
+   "keys": [
+    "i"
+   ]
+  },
+  {
+   "tex": "$c$",
+   "meaning": "Payment per period",
+   "kind": "Amount",
+   "typical": "100 in the example",
+   "keys": [
+    "c"
+   ]
+  },
+  {
+   "tex": "$g$",
+   "meaning": "Growth rate of payments",
+   "kind": "Rate",
+   "typical": "$g < i$",
+   "keys": [
+    "g"
+   ]
+  },
+  {
+   "tex": "$y_t$, $\\varepsilon_t$",
+   "meaning": "AR(1) series and its shock",
+   "kind": "Random variables",
+   "typical": "—",
+   "keys": [
+    "y",
+    "varepsilon"
+   ]
+  },
+  {
+   "tex": "$\\rho$",
+   "meaning": "Persistence of the AR(1) process",
+   "kind": "Parameter",
+   "typical": "0.9 in the example",
+   "keys": [
+    "rho"
+   ]
+  },
+  {
+   "tex": "$\\sigma^2$",
+   "meaning": "Shock variance",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "sigma"
+   ]
+  },
+  {
+   "tex": "$A$, $I$",
+   "meaning": "Square matrix and identity matrix",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "A",
+    "I"
+   ]
+  },
+  {
+   "tex": "$\\lambda$",
+   "meaning": "Eigenvalues of $A$",
+   "kind": "Numbers",
+   "typical": "All $\\lvert\\lambda\\rvert < 1$",
+   "keys": [
+    "lambda"
+   ]
+  },
+  {
+   "tex": "$t$",
+   "meaning": "Year",
+   "kind": "Index",
+   "typical": "1963–2017",
+   "keys": [
+    "t"
+   ],
+   "from": "canonical-model-of-the-skill-premium"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A geometric series adds up terms that each shrink by the same factor — one, a half, a quarter, and so on. As long as the factor is below one in size, the infinite total is finite and has a simple formula. That one formula prices anything paid over time with discounting, from a perpetuity to a career-long wage premium, and also tells you how shocks persist in a time series."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the maths behind present values, multipliers and the stability of dynamic systems.",
+       "folded": false
+      }
+     ],
+     "words": 87,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "\\sum_{t=0}^{\\infty}r^t = \\frac{1}{1-r}\\quad(|r|<1), \\qquad \\sum_{t=0}^{T-1}r^t = \\frac{1-r^T}{1-r}"
+      },
+      {
+       "t": "prose",
+       "md": "**Proof of the finite sum**: let $S = 1 + r + \\dots + r^{T-1}$. Then $S - rS = 1 - r^T$."
+      }
+     ],
+     "words": 7,
+     "symbols": [
+      "$r$",
+      "$T$",
+      "$S$",
+      "$t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "present-value",
+   "heading": "Present value",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "present-value-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Discount factor $\\beta = 1/(1+i)$."
+      },
+      {
+       "t": "table",
+       "md": "| Stream | Present value | Example ($c = \\$100$, $i = 5\\%$) |\n| --- | --- | --- |\n| Perpetuity, first payment in one year | $c/i$ | \\$2,000 |\n| Annuity, $T$ payments | $\\dfrac{c}{i}\\big(1 - (1+i)^{-T}\\big)$ | 30 years: \\$1,537.25 |\n| Growing perpetuity, growth $g < i$ | $c/(i - g)$ | |"
+      }
+     ],
+     "words": 27,
+     "symbols": [
+      "$T$",
+      "$\\beta = 1/(1+i)$",
+      "$i$",
+      "$c$",
+      "$g$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ar-1-processes",
+   "heading": "AR(1) processes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "ar-1-processes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$y_t = \\rho y_{t-1} + \\varepsilon_t$ with $|\\rho| < 1$. Substituting back, $y_t = \\sum_{k\\geq0}\\rho^k\\varepsilon_{t-k}$, so"
+      },
+      {
+       "t": "math",
+       "tex": "\\mathrm{Var}(y_t) = \\sigma^2\\sum_{k\\geq0}\\rho^{2k} = \\frac{\\sigma^2}{1-\\rho^2}"
+      },
+      {
+       "t": "prose",
+       "md": "At $\\rho = 0.9$ the variance is $5.26\\sigma^2$: persistence amplifies shocks."
+      }
+     ],
+     "words": 11,
+     "symbols": [
+      "$y_t$, $\\varepsilon_t$",
+      "$\\rho$",
+      "$\\sigma^2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "matrix-version",
+   "heading": "Matrix version",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "matrix-version-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "(I - A)^{-1} = I + A + A^2 + \\dots \\quad\\text{if every eigenvalue of } A \\text{ has } |\\lambda| < 1"
+      },
+      {
+       "t": "prose",
+       "md": "([Eigenvalues and Eigenvectors](note:eigenvalues-and-eigenvectors)). This is the input-output multiplier, and the solution of a stable linear dynamic system."
+      }
+     ],
+     "words": 17,
+     "symbols": [
+      "$A$, $I$",
+      "$\\lambda$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Labor / human capital**: the present value of a college wage premium over a career — the return that drives education decisions behind relative supply in the [Canonical Model of the Skill Premium](note:canonical-model-of-the-skill-premium).\n- **Macro / finance**: discounting, multipliers, asset prices.\n- **Time series econometrics**: AR processes and serially correlated errors (a failure of the no-correlation assumption in [SR Assumptions](note:sr-assumptions))."
+      }
+     ],
+     "words": 58,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Eigenvalues and Eigenvectors](note:eigenvalues-and-eigenvectors)"
+      }
+     ],
+     "words": 4,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

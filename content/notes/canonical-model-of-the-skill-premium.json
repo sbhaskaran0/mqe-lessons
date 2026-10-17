@@ -1,0 +1,330 @@
+{
+ "slug": "canonical-model-of-the-skill-premium",
+ "notation": [
+  {
+   "tex": "$w_{Ht}$, $w_{Lt}$",
+   "meaning": "Wage per efficiency unit of college and non-college labor",
+   "kind": "Prices, endogenous",
+   "typical": "—",
+   "keys": [
+    "w"
+   ]
+  },
+  {
+   "tex": "$H_t$, $L_t$",
+   "meaning": "Supply of college and non-college labor in efficiency units",
+   "kind": "Exogenous (inelastic supply)",
+   "typical": "—",
+   "keys": [
+    "H",
+    "L"
+   ]
+  },
+  {
+   "tex": "$A_{Ht}$, $A_{Lt}$",
+   "meaning": "Productivity of each type of labor (technology)",
+   "kind": "Unobserved, exogenous",
+   "typical": "—",
+   "keys": [
+    "A"
+   ]
+  },
+  {
+   "tex": "$\\sigma$",
+   "meaning": "Elasticity of substitution between the two types",
+   "kind": "Parameter",
+   "typical": "≈ 2.3 (OLS), 2.6 (2SLS)",
+   "keys": [
+    "sigma"
+   ]
+  },
+  {
+   "tex": "$\\beta = -1/\\sigma$",
+   "meaning": "Coefficient on log relative supply",
+   "kind": "Estimated",
+   "typical": "−0.44",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$\\gamma_0$, $\\gamma_1$",
+   "meaning": "Intercept and annual trend in relative demand",
+   "kind": "Estimated",
+   "typical": "$\\hat{\\gamma}_1 \\approx 0.018$ per year",
+   "keys": [
+    "gamma"
+   ]
+  },
+  {
+   "tex": "$\\epsilon_{0t}$, $\\epsilon_{1t}$",
+   "meaning": "Errors: unobserved relative technology, or its deviation from trend",
+   "kind": "Unobserved",
+   "typical": "—",
+   "keys": [
+    "epsilon"
+   ]
+  },
+  {
+   "tex": "$t$",
+   "meaning": "Year",
+   "kind": "Index",
+   "typical": "1963–2017",
+   "keys": [
+    "t"
+   ]
+  },
+  {
+   "tex": "$w_H/w_L$",
+   "meaning": "Relative wage: the skill premium as a ratio",
+   "kind": "Endogenous",
+   "typical": "US college/high-school ≈ 1.48 (1963) to ≈ 1.95 (2008), from log gaps 0.39 and 0.67",
+   "keys": [
+    "~w_H/w_L"
+   ],
+   "from": "relative-supply-and-demand"
+  },
+  {
+   "tex": "$\\hat{\\sigma}$",
+   "meaning": "Estimated elasticity of substitution in the example",
+   "kind": "Statistic",
+   "typical": "2.28 (OLS), 2.58 (2SLS)",
+   "keys": [
+    "hat(sigma)"
+   ],
+   "from": "instrumental-variables-and-2sls"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The canonical model treats the college wage premium as the outcome of a race. Every year more people graduate from college, which on its own would push the premium down because graduates become less scarce. At the same time, technology keeps raising the demand for skilled workers, which pushes the premium up. Whether the premium rises or falls depends on which side is running faster. The model turns this story into one equation that can be estimated from data on wages and numbers of graduates."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It explains why the US premium fell in the 1970s (supply won) and rose after 1980 (demand won), and it measures how substitutable skilled and unskilled workers are.",
+       "folded": false
+      }
+     ],
+     "words": 116,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Tinbergen (1974); Katz and Murphy (1992). The **race between education and technology**: relative supply of skill (education) pushes the [Skill Premium](note:skill-premium) down, relative demand (technology) pushes it up, and the premium reflects which is winning."
+      }
+     ],
+     "words": 35,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "assumptions",
+   "heading": "Assumptions",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "assumptions-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Two groups, $\\mathcal{H}_t$ and $\\mathcal{L}_t$ — college and non-college (or any two-group split).\n2. **Within each group, workers are perfect substitutes** in efficiency units.\n3. **Relative supply is inelastic**: it does not respond to prices ([Relative Supply and Demand](note:relative-supply-and-demand)).\n4. Output is [CES Production Function](note:ces-production-function) in the two labour types, with competitive labour markets."
+      }
+     ],
+     "words": 52,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "the-equilibrium-equation",
+   "heading": "The equilibrium equation",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-equilibrium-equation-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "\\ln\\frac{w_{Ht}}{w_{Lt}} = \\frac{\\sigma-1}{\\sigma}\\ln\\frac{A_{Ht}}{A_{Lt}} - \\frac{1}{\\sigma}\\ln\\frac{H_t}{L_t}"
+      },
+      {
+       "t": "prose",
+       "md": "- Education: $\\partial\\ln(w_H/w_L)/\\partial\\ln(H/L) = -1/\\sigma$\n- Technology: $\\partial\\ln(w_H/w_L)/\\partial\\ln(A_H/A_L) = (\\sigma-1)/\\sigma$, positive iff $\\sigma>1$"
+      },
+      {
+       "t": "prose",
+       "md": "Wages and supplies can be built from data ([Composition Adjustment](note:composition-adjustment), [Efficiency Units of Labor](note:efficiency-units-of-labor)). Relative technology cannot."
+      }
+     ],
+     "words": 23,
+     "symbols": [
+      "$w_{Ht}$, $w_{Lt}$",
+      "$H_t$, $L_t$",
+      "$A_{Ht}$, $A_{Lt}$",
+      "$\\sigma$",
+      "$w_H/w_L$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "estimation-version-1",
+   "heading": "Estimation, version 1",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "estimation-version-1-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "\\ln\\frac{w_{Ht}}{w_{Lt}} = \\beta\\ln\\frac{H_t}{L_t} + \\epsilon_{0t}, \\qquad \\beta = -\\frac{1}{\\sigma}, \\qquad \\epsilon_{0t} = \\frac{\\sigma-1}{\\sigma}\\ln\\frac{A_{Ht}}{A_{Lt}}"
+      },
+      {
+       "t": "prose",
+       "md": "OLS is unbiased only if $\\ln(A_{Ht}/A_{Lt})$ is independent of $\\ln(H_t/L_t)$ — **implausible**: education choices respond to relative productivity, and so does relative employment given education. A [Strict Exogeneity](note:strict-exogeneity) failure."
+      }
+     ],
+     "words": 26,
+     "symbols": [
+      "$w_{Ht}$, $w_{Lt}$",
+      "$H_t$, $L_t$",
+      "$A_{Ht}$, $A_{Lt}$",
+      "$\\sigma$",
+      "$\\beta = -1/\\sigma$",
+      "$\\epsilon_{0t}$, $\\epsilon_{1t}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "estimation-version-2-the-canonical-model",
+   "heading": "Estimation, version 2 — the canonical model",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "estimation-version-2-the-canonical-model-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Assume relative technology is a linear trend plus noise:"
+      },
+      {
+       "t": "math",
+       "tex": "\\frac{\\sigma-1}{\\sigma}\\ln\\frac{A_{Ht}}{A_{Lt}} = \\gamma_0 + \\gamma_1 t + \\epsilon_{1t}"
+      },
+      {
+       "t": "math",
+       "tex": "\\ln\\frac{w_{Ht}}{w_{Lt}} = \\gamma_0 + \\gamma_1 t + \\beta\\ln\\frac{H_t}{L_t} + \\epsilon_{1t}"
+      },
+      {
+       "t": "prose",
+       "md": "Now OLS is unbiased if **deviations from trend** in relative productivity are independent of **deviations from trend** in $\\ln(H_t/L_t)$. More plausible: the stock of educated workers moves slowly, driven by cohorts, and does not chase year-to-year productivity wiggles."
+      },
+      {
+       "t": "prose",
+       "md": "By the [Frisch-Waugh-Lovell Theorem](note:frisch-waugh-lovell-theorem), $\\hat\\beta$ is identical to regressing detrended $\\ln(w_H/w_L)$ on detrended $\\ln(H/L)$ — which is exactly why \"deviations from trend\" is the relevant exogeneity condition."
+      }
+     ],
+     "words": 69,
+     "symbols": [
+      "$w_{Ht}$, $w_{Lt}$",
+      "$H_t$, $L_t$",
+      "$A_{Ht}$, $A_{Lt}$",
+      "$\\sigma$",
+      "$\\beta = -1/\\sigma$",
+      "$\\gamma_0$, $\\gamma_1$",
+      "$\\epsilon_{0t}$, $\\epsilon_{1t}$",
+      "$t$",
+      "$w_H/w_L$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "interpreting-the-estimates",
+   "heading": "Interpreting the estimates",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "interpreting-the-estimates-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- $\\hat\\beta < 0$, giving $\\hat\\sigma = -1/\\hat\\beta$\n- $\\hat\\gamma_1 > 0$: relative demand for skill grows steadily. In quantity terms relative demand grows at $\\sigma\\gamma_1$ per year."
+      },
+      {
+       "t": "prose",
+       "md": "For estimates see [Elasticity of Substitution Between College and Non-College Labor](note:elasticity-of-substitution-between-college-and-non-college-labor)."
+      }
+     ],
+     "words": 29,
+     "symbols": [
+      "$\\sigma$",
+      "$\\gamma_0$, $\\gamma_1$",
+      "$\\hat{\\sigma}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "limits",
+   "heading": "Limits",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "limits-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- A smooth trend cannot explain **acceleration or slowdown** in demand growth; on 1963–2017 US data the model over-predicts the premium after about 2010.\n- One skill dimension only; no role for tasks, occupations, capital or trade — \"much more to follow\"."
+      }
+     ],
+     "words": 42,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Math background: [Homogeneous Functions and Euler's Theorem](note:homogeneous-functions-and-eulers-theorem) · [Logarithms and Growth Rates](note:logarithms-and-growth-rates) · [Taylor Series Approximation](note:taylor-series-approximation)\n- [Skill Premium](note:skill-premium)\n- [Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls) — the robustness check on $\\beta$\n- Paper: [Katz and Murphy 1992 - Changes in Relative Wages](note:katz-and-murphy-1992-changes-in-relative-wages)"
+      }
+     ],
+     "words": 38,
+     "symbols": [
+      "$\\beta = -1/\\sigma$"
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1045 @@
+{
+ "slug": "econ-424-l2-between-group-inequality",
+ "notation": [
+  {
+   "tex": "$e$",
+   "meaning": "Detailed education cell (e.g. BA, MA, PhD)",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "e"
+   ],
+   "from": "composition-adjustment"
+  },
+  {
+   "tex": "$w_{ey}$",
+   "meaning": "Average wage in cell $e$ in year $y$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "w"
+   ],
+   "from": "composition-adjustment"
+  },
+  {
+   "tex": "$g$, $\\bar s_g$",
+   "meaning": "Group (cell) and its share held fixed over time",
+   "kind": "Index / chosen fixed weight",
+   "typical": "—",
+   "keys": [
+    "g",
+    "bar(s)"
+   ],
+   "from": "composition-adjustment"
+  },
+  {
+   "tex": "$\\mu_{gy}$, $\\sigma^2_{gy}$",
+   "meaning": "Mean and variance of log wages in cell $g$, year $y$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "mu",
+    "sigma"
+   ],
+   "from": "composition-adjustment"
+  },
+  {
+   "tex": "$L_H$, $L_L$",
+   "meaning": "Quantities of high-skill and low-skill labor",
+   "kind": "Endogenous, or exogenous when supply is inelastic",
+   "typical": "—",
+   "keys": [
+    "L"
+   ],
+   "from": "relative-supply-and-demand"
+  },
+  {
+   "tex": "$Y$",
+   "meaning": "Output",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "Y"
+   ],
+   "from": "ces-production-function"
+  },
+  {
+   "tex": "$L$, $H$",
+   "meaning": "Low-skill and high-skill labor (or any two inputs)",
+   "kind": "Inputs",
+   "typical": "—",
+   "keys": [
+    "L",
+    "H"
+   ],
+   "from": "ces-production-function"
+  },
+  {
+   "tex": "$A_L$, $A_H$",
+   "meaning": "Productivity of each input (factor-augmenting technology)",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "A"
+   ],
+   "from": "ces-production-function"
+  },
+  {
+   "tex": "$p$",
+   "meaning": "Output price",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "p"
+   ],
+   "from": "ces-production-function"
+  },
+  {
+   "tex": "$a$",
+   "meaning": "Weight on $L$ in the weighted form used for the Cobb-Douglas limit",
+   "kind": "Parameter",
+   "typical": "0.5 in the example",
+   "keys": [
+    "a"
+   ],
+   "from": "ces-production-function"
+  },
+  {
+   "tex": "$\\beta = -1/\\sigma$",
+   "meaning": "Slope of the log relative wage on log relative supply",
+   "kind": "Estimated coefficient",
+   "typical": "−0.44 (OLS example)",
+   "keys": [
+    "beta"
+   ],
+   "from": "elasticity-of-substitution"
+  },
+  {
+   "tex": "$\\gamma$",
+   "meaning": "Growth rate of TFP",
+   "kind": "Parameter",
+   "typical": "≈ 0.02",
+   "keys": [
+    "gamma"
+   ],
+   "from": "factor-augmenting-technology"
+  },
+  {
+   "tex": "$\\epsilon_{0t}$, $\\epsilon_{1t}$",
+   "meaning": "Errors: unobserved relative technology, or its deviation from trend",
+   "kind": "Unobserved",
+   "typical": "—",
+   "keys": [
+    "epsilon"
+   ],
+   "from": "canonical-model-of-the-skill-premium"
+  },
+  {
+   "tex": "$t$",
+   "meaning": "Year",
+   "kind": "Index",
+   "typical": "1963–2017",
+   "keys": [
+    "t"
+   ],
+   "from": "canonical-model-of-the-skill-premium"
+  },
+  {
+   "tex": "$Inc_{Ht}$",
+   "meaning": "Total wage bill of college workers",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "~Inc_Ht"
+   ],
+   "from": "efficiency-units-of-labor"
+  },
+  {
+   "tex": "$\\hat{\\sigma}$",
+   "meaning": "Estimated elasticity of substitution in the example",
+   "kind": "Statistic",
+   "typical": "2.28 (OLS), 2.58 (2SLS)",
+   "keys": [
+    "hat(sigma)"
+   ],
+   "from": "instrumental-variables-and-2sls"
+  },
+  {
+   "tex": "$b_1$, $b_2$",
+   "meaning": "OLS estimates of the intercept and slope",
+   "kind": "Estimators",
+   "typical": "—",
+   "keys": [
+    "b"
+   ],
+   "from": "ols-estimator"
+  },
+  {
+   "tex": "$n$, $K$",
+   "meaning": "Observations and regressors",
+   "kind": "Counts",
+   "typical": "—",
+   "keys": [
+    "n",
+    "K"
+   ],
+   "from": "projection-matrix-and-residual-maker"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**The US college premium rose sharply after 1980 even though the relative supply of college workers kept rising — so relative demand must have grown faster. A two-factor CES model with a steady demand trend fits 55 years of data well, with $\\hat\\sigma \\approx 2.3$, and supply swings explain most of the premium's deviations from trend.**"
+      }
+     ],
+     "words": 52,
+     "symbols": [
+      "$\\hat{\\sigma}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1-measuring-the-premium-composition-adjusting",
+   "heading": "1. Measuring the premium: composition adjusting",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-measuring-the-premium-composition-adjusting-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A raw college/non-college wage ratio moves when the **mix** of workers changes, even if no one's pay changes. [Composition Adjustment](note:composition-adjustment) holds sub-group weights fixed so the series tracks the **price** of skill."
+      },
+      {
+       "t": "prose",
+       "md": "In the lecture's example, no wages change, but college workers shift toward the higher-paid degree. The unadjusted premium rises from 1.75 to 2.00; the adjusted premium stays at 1.75."
+      }
+     ],
+     "words": 65,
+     "symbols": []
+    },
+    {
+     "id": "1-measuring-the-premium-composition-adjusting-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "Non-college workers earn 20 an hour in both years. College workers hold a BA (paid 30) or an MA (paid 60), and no wage changes. The MA share of college workers rises from 0.2 in year 1 to 0.4 in year 2. Holding the cell weights at their year-1 shares, what is the composition-adjusted college/non-college wage ratio in year 2?",
+       "answer": 1.8,
+       "tol": 0.01,
+       "wrong": [
+        {
+         "answer": 2.1,
+         "tol": 0.01,
+         "md": "that uses the year-2 weights, $0.6 \\times 30 + 0.4 \\times 60 = 42$ over 20: the unadjusted premium, which moves with the mix"
+        },
+        {
+         "answer": 2.25,
+         "tol": 0.01,
+         "md": "that weights BA and MA equally; the question fixes the weights at the year-1 shares 0.8 and 0.2"
+        },
+        {
+         "answer": 1.5,
+         "tol": 0.01,
+         "md": "that is the BA wage alone over 20; the college average also includes MA workers at their year-1 share 0.2"
+        }
+       ],
+       "why": "At the year-1 weights the college average is $0.8 \\times 30 + 0.2 \\times 60 = 36$, so the adjusted ratio is $36/20 = 1.8$ in both years. The unadjusted ratio rises from 1.8 to $42/20 = 2.1$ only because the mix shifted toward the higher-paid MA cell, even though no one's pay changed ([Composition Adjustment](note:composition-adjustment)).",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 63,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "2-the-supply-and-demand-logic",
+   "heading": "2. The supply-and-demand logic",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-the-supply-and-demand-logic-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Wages are prices of labour, set by markets and by institutions. Start with markets only: [Relative Supply and Demand](note:relative-supply-and-demand) set the [Skill Premium](note:skill-premium)."
+      }
+     ],
+     "words": 23,
+     "symbols": []
+    },
+    {
+     "id": "2-the-supply-and-demand-logic-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "From 1963 to 2017 the relative supply of college labor rose by about 1.5 log points, and the college premium also rose. Using supply and demand alone, what follows?",
+       "options": [
+        {
+         "md": "The supply shift alone explains the rise",
+         "correct": false,
+         "feedback": "An outward shift in relative supply alone moves down the relative demand curve and lowers the premium. The premium rose, so supply cannot be the whole story."
+        },
+        {
+         "md": "Relative demand for college labor shifted out by more than relative supply",
+         "correct": true
+        },
+        {
+         "md": "The premium should have fallen, so the data must be wrong",
+         "correct": false,
+         "feedback": "The data need not be wrong; something else moved. A higher price together with a higher quantity means demand shifted out."
+        },
+        {
+         "md": "Nothing can be said without first estimating $\\sigma$",
+         "correct": false,
+         "feedback": "The direction needs no estimate: with downward-sloping demand, a higher price and a higher quantity can only come from demand shifting out by more than supply. $\\sigma$ is needed only to say by how much."
+        }
+       ],
+       "why": "A shift out in relative supply alone would **lower** the premium. The premium rose, so relative demand must have shifted out by more than supply. That conclusion needs no model ([US Relative Skill Supply Since 1963](note:us-relative-skill-supply-since-1963), [US Skill Premium Since 1963](note:us-skill-premium-since-1963)).",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 67,
+     "symbols": [
+      "$\\mu_{gy}$, $\\sigma^2_{gy}$"
+     ]
+    },
+    {
+     "id": "2-the-supply-and-demand-logic-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Relative supply of college labour rose steadily — [US Relative Skill Supply Since 1963](note:us-relative-skill-supply-since-1963).\n- A supply shift alone would **lower** the premium.\n- The premium **rose** — [US Skill Premium Since 1963](note:us-skill-premium-since-1963).\n- So relative **demand shifted out by more than supply**. That conclusion needs no model."
+      },
+      {
+       "t": "interactive",
+       "widget": "us-skill-premium-chart",
+       "show": [
+        "premium",
+        "supply",
+        "low",
+        "slowdown"
+       ],
+       "prompt": "Both series on one axis, as changes since 1963 in log points (≈, read off the lecture figures).",
+       "predict": {
+        "hide": [
+         "premium"
+        ],
+        "ask": "Relative supply grew fast until about 1982, then at roughly half the pace. What did the premium do?",
+        "options": [
+         "Rose steadily throughout, like supply",
+         "Fell through the 1970s to a low around 1980, then rose steadily",
+         "Rose through the 1970s, then fell after 1982"
+        ],
+        "answer": 1,
+        "why": "Relative supply grew fastest in the 1970s and outpaced demand, so the premium fell to about −0.06 around 1980. After about 1982 supply growth roughly halved while demand kept growing, so the premium rose by about 0.31 log points by 2017. Supply rising throughout says nothing about the price on its own: the premium reflects demand growth net of supply growth.",
+        "feedback": [
+         "More supply pushes the premium down, not up. The premium follows demand growth minus supply growth, and supply grew at different paces before and after 1982.",
+         null,
+         "Reversed: the fast supply growth before 1982 pushed the premium down, and the slowdown after 1982 let demand pull it up."
+        ]
+       },
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 64,
+     "symbols": [
+      "$w_{ey}$",
+      "$L_H$, $L_L$",
+      "$L$, $H$"
+     ]
+    },
+    {
+     "id": "2-the-supply-and-demand-logic-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "In the lecture's series the premium is ≈ −0.06 at its low around 1979–80 and ≈ +0.25 in 2017, both relative to 1963. By how many log points did it rise between the two?",
+       "answer": 0.31,
+       "tol": 0.02,
+       "wrong": [
+        {
+         "answer": 0.19,
+         "tol": 0.01,
+         "md": "going from −0.06 up to +0.25 is a rise of $0.25 + 0.06$, not $0.25 - 0.06$"
+        },
+        {
+         "answer": 0.25,
+         "tol": 0.005,
+         "md": "that is the rise since 1963; the question starts from the 1980 low of −0.06"
+        },
+        {
+         "answer": 0.36,
+         "tol": 0.005,
+         "md": "that is the proportional rise in the wage ratio, $e^{0.31} - 1$; the question asks for log points"
+        }
+       ],
+       "why": "$0.25 - (-0.06) = 0.31$ log points. As a ratio, the college wage relative to the non-college wage rose by about $e^{0.31} - 1 \\approx 36\\%$ ([Log Wage Gap](note:log-wage-gap)). Relative supply kept rising over the same years, so relative demand grew faster still ([US Skill Premium Since 1963](note:us-skill-premium-since-1963))."
+      }
+     ],
+     "words": 35,
+     "symbols": [
+      "$e$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "3-the-canonical-model",
+   "heading": "3. The canonical model",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "3-the-canonical-model-1",
+     "blocks": [
+      {
+       "t": "quote",
+       "md": "Paper summary: [Katz and Murphy 1992 - Changes in Relative Wages](note:katz-and-murphy-1992-changes-in-relative-wages)",
+       "papers": [
+        "katz-and-murphy-1992-changes-in-relative-wages"
+       ]
+      },
+      {
+       "t": "prose",
+       "md": "[Canonical Model of the Skill Premium](note:canonical-model-of-the-skill-premium) (Tinbergen 1974; Katz and Murphy 1992) formalises the race."
+      },
+      {
+       "t": "prose",
+       "md": "- Two groups, perfect substitutes within each, inelastic supply\n- [CES Production Function](note:ces-production-function) with [Factor-Augmenting Technology](note:factor-augmenting-technology) $A_H, A_L$ and [Elasticity of Substitution](note:elasticity-of-substitution) $\\sigma$\n- Competitive wages give"
+      },
+      {
+       "t": "math",
+       "tex": "\\ln\\frac{w_{Ht}}{w_{Lt}} = \\frac{\\sigma-1}{\\sigma}\\ln\\frac{A_{Ht}}{A_{Lt}} - \\frac{1}{\\sigma}\\ln\\frac{H_t}{L_t}"
+      },
+      {
+       "t": "prose",
+       "md": "More education lowers the premium at rate $1/\\sigma$. Skill-augmenting technology raises it only if $\\sigma > 1$."
+      }
+     ],
+     "words": 63,
+     "symbols": [
+      "$w_{ey}$",
+      "$\\mu_{gy}$, $\\sigma^2_{gy}$",
+      "$L_H$, $L_L$",
+      "$L$, $H$",
+      "$A_L$, $A_H$"
+     ]
+    },
+    {
+     "id": "3-the-canonical-model-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Suppose $\\sigma = 0.5$. Relative technology $\\ln(A_{Ht}/A_{Lt})$ rises by 0.1 while relative supply $H_t/L_t$ stays fixed. What happens to the log premium $\\ln(w_{Ht}/w_{Lt})$?",
+       "options": [
+        {
+         "md": "It rises by 0.1, because the technology favours college workers",
+         "correct": false,
+         "feedback": "Technology enters with the coefficient $(\\sigma-1)/\\sigma$, which is $-1$ at $\\sigma = 0.5$, not $+1$. Making college labor more productive raises the premium only when $\\sigma > 1$."
+        },
+        {
+         "md": "It is unchanged, because only relative supply moves the premium",
+         "correct": false,
+         "feedback": "Relative technology enters the equation with the coefficient $(\\sigma-1)/\\sigma$, which is zero only at $\\sigma = 1$. At $\\sigma = 0.5$ it is $-1$."
+        },
+        {
+         "md": "It falls by 0.1",
+         "correct": true
+        },
+        {
+         "md": "It falls by 0.2",
+         "correct": false,
+         "feedback": "$-1/\\sigma = -2$ is the coefficient on relative supply $\\ln(H_t/L_t)$, which is held fixed here. Technology carries $(\\sigma-1)/\\sigma = -1$."
+        }
+       ],
+       "why": "The coefficient on $\\ln(A_{Ht}/A_{Lt})$ is $(\\sigma-1)/\\sigma = (0.5-1)/0.5 = -1$, so the log premium changes by $-1 \\times 0.1 = -0.1$. That coefficient is positive only when $\\sigma > 1$, which is why skill-augmenting technology raises the premium only in that case.",
+       "objectives": [
+        4
+       ]
+      }
+     ],
+     "words": 49,
+     "symbols": [
+      "$w_{ey}$",
+      "$\\mu_{gy}$, $\\sigma^2_{gy}$",
+      "$L_H$, $L_L$",
+      "$L$, $H$",
+      "$A_L$, $A_H$"
+     ]
+    },
+    {
+     "id": "3-the-canonical-model-3",
+     "blocks": [
+      {
+       "t": "derive",
+       "title": "Derive the relative wage equation from the CES wages",
+       "objectives": [
+        3
+       ],
+       "symbols": [
+        "\\sigma \\in (0.3, 4)",
+        "p",
+        "Y_t",
+        "A_{Ht}",
+        "A_{Lt}",
+        "H_t",
+        "L_t"
+       ],
+       "inherited": [
+        {
+         "tex": "$w_{Ht}$, $w_{Lt}$",
+         "typical": "—",
+         "from": "canonical-model-of-the-skill-premium"
+        },
+        {
+         "tex": "$H_t$, $L_t$",
+         "typical": "—",
+         "from": "canonical-model-of-the-skill-premium"
+        },
+        {
+         "tex": "$A_{Ht}$, $A_{Lt}$",
+         "typical": "—",
+         "from": "canonical-model-of-the-skill-premium"
+        },
+        {
+         "tex": "$\\sigma$",
+         "typical": "≈ 2.3 (OLS), 2.6 (2SLS)",
+         "from": "canonical-model-of-the-skill-premium"
+        }
+       ],
+       "unknowns": [
+        "$w_{Ht}$",
+        "$w_{Lt}$"
+       ],
+       "dims": [],
+       "data": [],
+       "matrices": [],
+       "define": [],
+       "given": [
+        "w_{Ht} = pA_{Ht}^{\\frac{\\sigma-1}{\\sigma}}\\left(\\frac{H_t}{Y_t}\\right)^{-\\frac{1}{\\sigma}}",
+        "w_{Lt} = pA_{Lt}^{\\frac{\\sigma-1}{\\sigma}}\\left(\\frac{L_t}{Y_t}\\right)^{-\\frac{1}{\\sigma}}"
+       ],
+       "steps": [
+        {
+         "md": "Take logs of the college wage: $\\ln w_{Ht} = \\ln p + \\frac{\\sigma-1}{\\sigma}\\ln A_{Ht} - \\frac{1}{\\sigma}\\ln\\frac{H_t}{Y_t}$",
+         "tex": "\\ln w_{Ht} = \\ln p + \\frac{\\sigma-1}{\\sigma}\\ln A_{Ht} - \\frac{1}{\\sigma}\\ln\\frac{H_t}{Y_t}",
+         "hint": "$\\ln(ab^{c}) = \\ln a + c\\ln b$."
+        },
+        {
+         "md": "Subtract the same expression for $\\ln w_{Lt}$; $\\ln p$ and $\\ln Y_t$ cancel: $\\ln\\frac{w_{Ht}}{w_{Lt}} = \\frac{\\sigma-1}{\\sigma}\\ln\\frac{A_{Ht}}{A_{Lt}} - \\frac{1}{\\sigma}\\ln\\frac{H_t}{L_t}$",
+         "tex": "\\ln\\frac{w_{Ht}}{w_{Lt}} = \\frac{\\sigma-1}{\\sigma}\\ln\\frac{A_{Ht}}{A_{Lt}} - \\frac{1}{\\sigma}\\ln\\frac{H_t}{L_t}",
+         "hint": "$-\\frac{1}{\\sigma}\\ln\\frac{H_t}{Y_t} + \\frac{1}{\\sigma}\\ln\\frac{L_t}{Y_t} = -\\frac{1}{\\sigma}\\ln\\frac{H_t}{L_t}$."
+        }
+       ],
+       "accept": [
+        "\\frac{w_{Ht}}{w_{Lt}} = \\left(\\frac{A_{Ht}}{A_{Lt}}\\right)^{\\frac{\\sigma-1}{\\sigma}}\\left(\\frac{H_t}{L_t}\\right)^{-\\frac{1}{\\sigma}}"
+       ],
+       "reject": [
+        {
+         "tex": "\\ln\\frac{w_{Ht}}{w_{Lt}} = \\frac{\\sigma-1}{\\sigma}\\ln\\frac{A_{Ht}}{A_{Lt}} + \\frac{1}{\\sigma}\\ln\\frac{H_t}{L_t}",
+         "md": "sign: each wage carries $(H_t/Y_t)^{-1/\\sigma}$, so more college labor lowers the premium"
+        },
+        {
+         "tex": "\\ln\\frac{w_{Ht}}{w_{Lt}} = \\frac{\\sigma-1}{\\sigma}\\ln\\frac{A_{Ht}}{A_{Lt}} - \\sigma\\ln\\frac{H_t}{L_t}",
+         "md": "the coefficient on relative supply is $-1/\\sigma$, not $-\\sigma$: a larger elasticity of substitution means a flatter response"
+        },
+        {
+         "tex": "\\ln\\frac{w_{Ht}}{w_{Lt}} = \\ln\\frac{A_{Ht}}{A_{Lt}} - \\frac{1}{\\sigma}\\ln\\frac{H_t}{L_t}",
+         "md": "technology enters as $A^{(\\sigma-1)/\\sigma}$, so its log carries the factor $(\\sigma-1)/\\sigma$"
+        }
+       ]
+      }
+     ],
+     "words": 22,
+     "symbols": [
+      "$w_{ey}$",
+      "$\\mu_{gy}$, $\\sigma^2_{gy}$",
+      "$L_H$, $L_L$",
+      "$Y$",
+      "$L$, $H$",
+      "$A_L$, $A_H$",
+      "$p$",
+      "$a$",
+      "$b_1$, $b_2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "4-measuring-supply",
+   "heading": "4. Measuring supply",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "4-measuring-supply-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$H_t$ rises with more college workers *or* more education among them. It is measured in [Efficiency Units of Labor](note:efficiency-units-of-labor): $\\ln H_t = \\ln Inc_{Ht} - \\ln w_{Ht}$, wage bill divided by the composition-adjusted price."
+      }
+     ],
+     "words": 25,
+     "symbols": [
+      "$w_{ey}$",
+      "$L$, $H$",
+      "$Inc_{Ht}$",
+      "$n$, $K$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "5-estimation",
+   "heading": "5. Estimation",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "5-estimation-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Relative technology is unobserved. Regressing the premium on supply alone is biased, because education responds to productivity — a [Strict Exogeneity](note:strict-exogeneity) failure."
+      },
+      {
+       "t": "prose",
+       "md": "The canonical model assumes a linear trend in relative technology and estimates"
+      },
+      {
+       "t": "math",
+       "tex": "\\ln\\frac{w_{Ht}}{w_{Lt}} = \\gamma_0 + \\gamma_1 t + \\beta\\ln\\frac{H_t}{L_t} + \\epsilon_{1t}, \\qquad \\beta = -\\tfrac{1}{\\sigma}"
+      },
+      {
+       "t": "prose",
+       "md": "The identifying assumption concerns **deviations from trend**, by the [Frisch-Waugh-Lovell Theorem](note:frisch-waugh-lovell-theorem)."
+      }
+     ],
+     "words": 44,
+     "symbols": [
+      "$w_{ey}$",
+      "$\\mu_{gy}$, $\\sigma^2_{gy}$",
+      "$L_H$, $L_L$",
+      "$L$, $H$",
+      "$\\beta = -1/\\sigma$",
+      "$\\gamma$",
+      "$\\epsilon_{0t}$, $\\epsilon_{1t}$",
+      "$t$"
+     ]
+    },
+    {
+     "id": "5-estimation-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Which identifying assumption does the canonical regression, with the linear trend included, rely on to recover $\\beta = -1/\\sigma$?",
+       "options": [
+        {
+         "md": "Deviations of $\\ln(H_t/L_t)$ from its trend are uncorrelated with $\\epsilon_{1t}$, the deviation of relative technology from its trend",
+         "correct": true
+        },
+        {
+         "md": "$\\ln(H_t/L_t)$ is uncorrelated with relative technology $\\ln(A_{Ht}/A_{Lt})$ itself",
+         "correct": false,
+         "feedback": "That is what the regression on supply alone, without a trend, needs, and it fails because education responds to productivity. Including the trend changes what must be uncorrelated with supply."
+        },
+        {
+         "md": "Relative technology $A_{Ht}/A_{Lt}$ is constant over time",
+         "correct": false,
+         "feedback": "The model lets relative technology grow: the linear trend $\\gamma_1 t$ captures that growth."
+        },
+        {
+         "md": "Relative supply $\\ln(H_t/L_t)$ has no trend",
+         "correct": false,
+         "feedback": "Relative supply trends up strongly (about 1.5 log points since 1963), and that is allowed: by Frisch–Waugh–Lovell, including the trend works on the detrended series."
+        }
+       ],
+       "why": "With the trend in the regression, Frisch–Waugh–Lovell says $\\hat\\beta$ comes from regressing the detrended premium on detrended supply. So the assumption is about deviations: supply's movements around its trend must be unrelated to technology's movements around its trend, $\\epsilon_{1t}$. Without the trend, supply would have to be uncorrelated with the whole of relative technology, which fails ([Strict Exogeneity](note:strict-exogeneity)).",
+       "objectives": [
+        5
+       ]
+      }
+     ],
+     "words": 49,
+     "symbols": [
+      "$\\mu_{gy}$, $\\sigma^2_{gy}$",
+      "$L_H$, $L_L$",
+      "$L$, $H$",
+      "$A_L$, $A_H$",
+      "$\\beta = -1/\\sigma$",
+      "$\\gamma$",
+      "$\\epsilon_{0t}$, $\\epsilon_{1t}$",
+      "$t$"
+     ]
+    },
+    {
+     "id": "5-estimation-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Data**: the March [Current Population Survey (CPS)](note:current-population-survey-cps), 1963–2017, with care around processing breaks (top-coding, imputation, hours coding)."
+      }
+     ],
+     "words": 18,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "6-results",
+   "heading": "6. Results",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "6-results-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| | Trend (per 100 yrs) | $\\hat\\beta$ | $\\hat\\sigma$ |\n| --- | --- | --- | --- |\n| OLS | 1.78 | −0.44 | 2.28 |\n| 2SLS | 1.64 | −0.39 | 2.58 |"
+      },
+      {
+       "t": "prose",
+       "md": "Details: [Elasticity of Substitution Between College and Non-College Labor](note:elasticity-of-substitution-between-college-and-non-college-labor). The 2SLS check uses [Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls)."
+      }
+     ],
+     "words": 39,
+     "symbols": [
+      "$\\hat{\\sigma}$"
+     ]
+    },
+    {
+     "id": "6-results-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "In the canonical regression with a trend, suppose another sample gives the coefficient on log relative supply as $\\hat\\beta = -0.35$. What elasticity of substitution $\\hat\\sigma$ does this imply?",
+       "answer": 2.857,
+       "tol": 0.02857,
+       "vary": [
+        {
+         "sym": "\\hat\\beta",
+         "lo": -0.8,
+         "hi": -0.3,
+         "step": 0.01
+        }
+       ],
+       "compute": "-\\frac{1}{\\hat\\beta}",
+       "bindings": [
+        {
+         "sym": "\\hat\\beta",
+         "value": -0.35,
+         "span": "$\\hat\\beta = -0.35$"
+        }
+       ],
+       "wrongCompute": [
+        {
+         "tex": "-\\hat\\beta",
+         "md": "that is the size of the coefficient itself; $\\beta = -1/\\sigma$, so $\\sigma$ is its reciprocal"
+        },
+        {
+         "tex": "\\frac{1}{\\hat\\beta}",
+         "md": "sign: $\\beta$ is negative, so $\\sigma = -1/\\beta$ is positive"
+        }
+       ],
+       "why": "The model sets $\\beta = -1/\\sigma$, so $\\hat\\sigma = -1/\\hat\\beta$. With $\\hat\\beta = -0.35$ that gives $\\hat\\sigma = 1/0.35 \\approx 2.86$. The table's OLS row works the same way: $1/0.44 \\approx 2.27$, shown as 2.28 because it is computed from the unrounded coefficient.",
+       "objectives": [
+        6
+       ]
+      }
+     ],
+     "words": 25,
+     "symbols": [
+      "$\\mu_{gy}$, $\\sigma^2_{gy}$",
+      "$\\beta = -1/\\sigma$",
+      "$\\hat{\\sigma}$"
+     ]
+    },
+    {
+     "id": "6-results-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Supply pushes the premium down; demand more than compensates.** That much was known before estimating.\n- **Fit is close** across 1963–2017. The model over-predicts after about 2010.\n- **The fit survives detrending.** Detrended supply and the detrended premium are near mirror images: fast supply growth in the 1970s lowered the premium, and the supply slowdown after about 1982 let it rise. Most de-trended movement in the premium is accounted for by supply alone."
+      }
+     ],
+     "words": 75,
+     "symbols": []
+    },
+    {
+     "id": "6-results-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "Use the OLS row: trend 1.78 per 100 years and $\\hat\\beta = -0.44$. How fast must log relative supply grow each year to hold the premium constant? Give the change in $\\ln(H_t/L_t)$ per year (such as 0.010).",
+       "answer": 0.0405,
+       "tol": 0.0008,
+       "wrong": [
+        {
+         "answer": 0.0078,
+         "tol": 0.0003,
+         "md": "that multiplies the trend by $0.44$; set $\\gamma_1 + \\beta g = 0$ and divide by $0.44$ instead"
+        },
+        {
+         "answer": 0.0178,
+         "tol": 0.0003,
+         "md": "that is the trend itself: how fast the premium would rise with supply held fixed"
+        },
+        {
+         "answer": 4.05,
+         "tol": 0.05,
+         "md": "give the change in $\\ln(H_t/L_t)$ per year: 4.05 is per 100 years, or the answer in percent"
+        }
+       ],
+       "why": "The premium is flat when $\\gamma_1 + \\hat\\beta g = 0$, so $g = 0.0178/0.44 \\approx 0.0405$, the same as $\\hat\\sigma\\gamma_1 = 2.28 \\times 0.0178$. So the trend says relative demand grows by about 4 log points a year, measured in units of relative supply: supply must grow that fast just to keep the premium from rising.",
+       "objectives": [
+        6
+       ]
+      }
+     ],
+     "words": 35,
+     "symbols": [
+      "$g$, $\\bar s_g$",
+      "$L_H$, $L_L$",
+      "$L$, $H$",
+      "$\\beta = -1/\\sigma$",
+      "$\\gamma$",
+      "$\\hat{\\sigma}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "7-what-drives-demand-a-first-look",
+   "heading": "7. What drives demand — a first look",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "7-what-drives-demand-a-first-look-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A [Shift-Share Decomposition](note:shift-share-decomposition) of the college wage-bill share, 1967 to 2017: it rose from about 20% to 54.7%. About 1.1 pp came from college-intensive industries growing; about 33.6 pp from industries becoming more college-intensive. See [College Wage Bill Share 1967-2017](note:college-wage-bill-share-1967-2017)."
+      }
+     ],
+     "words": 43,
+     "symbols": []
+    },
+    {
+     "id": "7-what-drives-demand-a-first-look-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "What percentage of the 1967–2017 rise in the college wage-bill share came from the within-industry component, industries becoming more college-intensive?",
+       "answer": 96.8,
+       "tol": 0.5,
+       "wrong": [
+        {
+         "answer": 61.4,
+         "tol": 0.5,
+         "md": "that divides 33.6 pp by the 2017 level of 54.7%; divide by the rise, $54.7 - 20 = 34.7$ pp"
+        },
+        {
+         "answer": 3.2,
+         "tol": 0.5,
+         "md": "that is the between-industry share, $1.1/34.7$: college-intensive industries growing"
+        },
+        {
+         "answer": 168.0,
+         "tol": 1.0,
+         "md": "that divides by the 1967 level of 20%; divide by the rise of 34.7 pp"
+        }
+       ],
+       "why": "The share rose by $54.7 - 20 = 34.7$ pp, of which $1.1$ pp is between industries and $33.6$ pp within. So $33.6/34.7 \\approx 96.8\\%$ came from industries becoming more college-intensive, not from college-intensive industries growing.",
+       "objectives": [
+        7
+       ]
+      }
+     ],
+     "words": 21,
+     "symbols": []
+    },
+    {
+     "id": "7-what-drives-demand-a-first-look-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The lecture warns that reading this causally is dangerous. \"Much more to follow.\""
+      }
+     ],
+     "words": 13,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "cross-course-links",
+   "heading": "Cross-course links",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "cross-course-links-1",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "tip",
+       "title": "Econometrics in this lecture",
+       "md": "- $\\beta = -1/\\sigma$ is a log-log coefficient, read as an elasticity — [Functional Forms and Elasticities](note:functional-forms-and-elasticities)\n- The bias in version 1 is a [Strict Exogeneity](note:strict-exogeneity) failure\n- Detrending is the [Frisch-Waugh-Lovell Theorem](note:frisch-waugh-lovell-theorem), i.e. the residual maker from [Projection Matrix and Residual Maker](note:projection-matrix-and-residual-maker)\n- Estimation is [OLS Estimator](note:ols-estimator), then [Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls)",
+       "folded": false
+      }
+     ],
+     "words": 55,
+     "symbols": [
+      "$\\mu_{gy}$, $\\sigma^2_{gy}$",
+      "$\\beta = -1/\\sigma$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "math-refresher",
+   "heading": "Math refresher",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "math-refresher-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Math Prep L4 Multivariable Differentiation](note:math-prep-l4-multivariable-differentiation) — CES wages as partial derivatives; why the premium depends only on $H/L$\n- [Math Prep L7 Approximations Logs and Series](note:math-prep-l7-approximations-logs-and-series) — the log-linear relative wage equation; CES → Cobb-Douglas\n- [Math Prep L1 Matrix Algebra Essentials](note:math-prep-l1-matrix-algebra-essentials) — the partitioned inverse behind Frisch-Waugh-Lovell\n- [Math Prep L2 Vector Spaces Rank and Projection](note:math-prep-l2-vector-spaces-rank-and-projection) — detrending as a projection"
+      }
+     ],
+     "words": 57,
+     "symbols": [
+      "$L_H$, $L_L$",
+      "$L$, $H$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Compute composition-adjusted and unadjusted premia from a small table, and explain the difference.\n2. Use a supply-demand diagram to argue that relative demand must have risen.\n3. Derive the relative wage equation from the CES production function.\n4. Explain why skill-augmenting technology raises the premium only if $\\sigma > 1$.\n5. State the identifying assumption of the canonical model, and why including a trend changes it.\n6. Recover $\\sigma$ from $\\hat\\beta$, and convert the trend into relative demand growth.\n7. Compute a shift-share decomposition and give two reasons not to read it causally."
+      }
+     ],
+     "words": 89,
+     "symbols": [
+      "$\\mu_{gy}$, $\\sigma^2_{gy}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "papers-in-this-lecture",
+   "heading": "Papers in this lecture",
+   "role": "papers",
+   "steps": [
+    {
+     "id": "papers-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "papers",
+       "items": [
+        "katz-and-murphy-1992-changes-in-relative-wages"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "composition-adjustment",
+        "skill-premium",
+        "log-wage-gap",
+        "relative-supply-and-demand",
+        "ces-production-function",
+        "elasticity-of-substitution",
+        "factor-augmenting-technology",
+        "canonical-model-of-the-skill-premium",
+        "efficiency-units-of-labor",
+        "frisch-waugh-lovell-theorem",
+        "instrumental-variables-and-2sls",
+        "shift-share-decomposition",
+        "law-of-iterated-expectations",
+        "strict-exogeneity",
+        "functional-forms-and-elasticities",
+        "ols-estimator",
+        "projection-matrix-and-residual-maker",
+        "within-and-between-group-inequality"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "facts-and-data-in-this-lecture",
+   "heading": "Facts and data in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "facts-and-data-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "facts",
+       "items": [
+        "us-skill-premium-since-1963",
+        "us-relative-skill-supply-since-1963",
+        "elasticity-of-substitution-between-college-and-non-college-labor",
+        "college-wage-bill-share-1967-2017",
+        "current-population-survey-cps"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

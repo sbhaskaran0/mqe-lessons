@@ -1,0 +1,501 @@
+{
+ "slug": "math-prep-l4-multivariable-differentiation",
+ "notation": [
+  {
+   "tex": "$f(\\mathbf{x})$",
+   "meaning": "Function of several inputs",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "f"
+   ],
+   "from": "partial-derivatives-and-the-gradient"
+  },
+  {
+   "tex": "$x_i$",
+   "meaning": "Input $i$",
+   "kind": "Variable",
+   "typical": "—",
+   "keys": [
+    "x"
+   ],
+   "from": "partial-derivatives-and-the-gradient"
+  },
+  {
+   "tex": "$Y$, $K$, $L$",
+   "meaning": "Output, capital, labor in the Cobb-Douglas example",
+   "kind": "—",
+   "typical": "$K = 8$, $L = 27$",
+   "keys": [
+    "Y",
+    "K",
+    "L"
+   ],
+   "from": "partial-derivatives-and-the-gradient"
+  },
+  {
+   "tex": "$MPK$, $MPL$",
+   "meaning": "Marginal products of capital and labor",
+   "kind": "Partial derivatives",
+   "typical": "0.703, 0.486 in the example",
+   "keys": [
+    "~MPK",
+    "~MPL"
+   ],
+   "from": "partial-derivatives-and-the-gradient"
+  },
+  {
+   "tex": "$z = f(x_1, \\ldots, x_n)$",
+   "meaning": "Function of several inputs",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "z"
+   ],
+   "from": "multivariable-chain-rule"
+  },
+  {
+   "tex": "$dz$, $dx_i$",
+   "meaning": "Small changes (total differential)",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "~dz",
+    "~dx_i"
+   ],
+   "from": "multivariable-chain-rule"
+  },
+  {
+   "tex": "$Y$, $A$, $K$, $L$",
+   "meaning": "Output, TFP, capital, labor in the growth-accounting example",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "Y",
+    "A",
+    "K",
+    "L"
+   ],
+   "from": "multivariable-chain-rule"
+  },
+  {
+   "tex": "$H(\\mathbf{x})$",
+   "meaning": "Hessian matrix at $\\mathbf{x}$",
+   "kind": "Symmetric matrix",
+   "typical": "—",
+   "keys": [
+    "H"
+   ],
+   "from": "hessian-matrix"
+  },
+  {
+   "tex": "$x$, $y$",
+   "meaning": "Inputs in the two-variable example",
+   "kind": "Variables",
+   "typical": "—",
+   "keys": [
+    "x",
+    "y"
+   ],
+   "from": "hessian-matrix"
+  },
+  {
+   "tex": "$F(x, y) = 0$",
+   "meaning": "Equation linking $x$ and $y$",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "F"
+   ],
+   "from": "implicit-function-theorem"
+  },
+  {
+   "tex": "$t$",
+   "meaning": "Scaling factor applied to every input",
+   "kind": "Number > 0",
+   "typical": "—",
+   "keys": [
+    "t"
+   ],
+   "from": "homogeneous-functions-and-eulers-theorem"
+  },
+  {
+   "tex": "$w_i$, $p$",
+   "meaning": "Price of input $i$ and of output",
+   "kind": "Prices",
+   "typical": "—",
+   "keys": [
+    "w",
+    "p"
+   ],
+   "from": "homogeneous-functions-and-eulers-theorem"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Economics is mostly marginal effects of one variable holding others fixed, and how equilibria shift when something changes. This unit covers the five tools for that, and ends with the result that makes the canonical skill-premium model work: with constant returns, marginal products depend only on input ratios.**"
+      }
+     ],
+     "words": 48,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "1-partial-derivatives-and-the-gradient",
+   "heading": "1. Partial derivatives and the gradient",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-partial-derivatives-and-the-gradient-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Partial Derivatives and the Gradient](note:partial-derivatives-and-the-gradient): differentiate in one variable, holding the rest fixed. Competitive wages are marginal products, so the wage equations in [Econ 424 L2 Between-Group Inequality](note:econ-424-l2-between-group-inequality) are two partial derivatives of a [CES Production Function](note:ces-production-function)."
+      }
+     ],
+     "words": 37,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "2-when-inputs-move-together",
+   "heading": "2. When inputs move together",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-when-inputs-move-together-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Multivariable Chain Rule](note:multivariable-chain-rule): $dz/dt = \\sum f_i\\,dx_i/dt$. In logs it gives growth accounting, and it separates a *partial* effect from a *total* one."
+      }
+     ],
+     "words": 19,
+     "symbols": [
+      "$f(\\mathbf{x})$",
+      "$x_i$",
+      "$z = f(x_1, \\ldots, x_n)$",
+      "$dz$, $dx_i$",
+      "$t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "3-curvature",
+   "heading": "3. Curvature",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "3-curvature-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Hessian Matrix](note:hessian-matrix): the matrix of second derivatives, symmetric by Young's theorem. Its definiteness classifies critical points; its cross-partials say whether inputs are complements."
+      }
+     ],
+     "words": 23,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "4-comparative-statics",
+   "heading": "4. Comparative statics",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "4-comparative-statics-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Implicit Function Theorem](note:implicit-function-theorem): $dy/dx = -F_x/F_y$. Applied to an equilibrium condition it tells you how the price moves when demand shifts — the formal version of the supply-and-demand diagrams used for the skill premium."
+      }
+     ],
+     "words": 30,
+     "symbols": [
+      "$x_i$",
+      "$x$, $y$",
+      "$F(x, y) = 0$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "5-homogeneity",
+   "heading": "5. Homogeneity",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "5-homogeneity-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Homogeneous Functions and Euler's Theorem](note:homogeneous-functions-and-eulers-theorem): with constant returns, paying each factor its marginal product exhausts output, and marginal products depend only on input **ratios**. That is why $w_H/w_L$ is a function of $H/L$ alone in the [Canonical Model of the Skill Premium](note:canonical-model-of-the-skill-premium)."
+      }
+     ],
+     "words": 40,
+     "symbols": [
+      "$Y$, $K$, $L$",
+      "$H(\\mathbf{x})$",
+      "$w_i$, $p$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "self-check",
+   "heading": "Self-check",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "self-check-1",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "1. $Y = K^{0.3}L^{0.7}$ at $K = 8$, $L = 27$: find $Y$, MPK and MPL, and check Euler's theorem. What is MPK?",
+       "answer": 0.703,
+       "tol": 0.005,
+       "wrong": [
+        {
+         "answer": 0.128,
+         "tol": 0.005,
+         "md": "upside down: $MPK = 0.3(L/K)^{0.7}$"
+        },
+        {
+         "answer": 2.343,
+         "tol": 0.01,
+         "md": "that is $Y/K$, the average product; differentiating brings down the 0.3"
+        },
+        {
+         "answer": 0.432,
+         "tol": 0.005,
+         "md": "the power on $L/K$ is $1 - 0.3 = 0.7$, not 0.3"
+        }
+       ],
+       "why": "$Y = 8^{0.3}27^{0.7} = 18.74$, $MPK = 0.3(L/K)^{0.7} = 0.703$, $MPL = 0.7(K/L)^{0.3} = 0.486$; $8(0.703) + 27(0.486) = 18.74 = Y$, so paying each factor its marginal product exhausts output. → [Homogeneous Functions and Euler's Theorem](note:homogeneous-functions-and-eulers-theorem)",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 13,
+     "symbols": [
+      "$Y$, $K$, $L$",
+      "$MPK$, $MPL$"
+     ]
+    },
+    {
+     "id": "self-check-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "2. With $Y = AK^{0.3}L^{0.7}$, TFP growing 1%, capital 3% and labour 1%, how fast does output grow (in %)?",
+       "answer": 2.6,
+       "tol": 0.05,
+       "wrong": [
+        {
+         "answer": 5.0,
+         "tol": 0.0,
+         "md": "that adds the growth rates unweighted; each input's growth is weighted by its exponent, $0.3$ for capital and $0.7$ for labour"
+        },
+        {
+         "answer": 1.6,
+         "tol": 0.0,
+         "md": "that leaves out TFP: $A$ multiplies output, so its 1% growth adds one-for-one"
+        },
+        {
+         "answer": 3.4,
+         "tol": 0.0,
+         "md": "the exponents are swapped: capital's weight is $0.3$ and labour's $0.7$"
+        }
+       ],
+       "why": "Taking logs and differentiating in time, output growth is TFP growth plus each input's growth times its exponent: $1 + 0.3(3) + 0.7(1) = 2.6\\%$. → [Multivariable Chain Rule](note:multivariable-chain-rule)",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 16,
+     "symbols": [
+      "$Y$, $K$, $L$",
+      "$Y$, $A$, $K$, $L$"
+     ]
+    },
+    {
+     "id": "self-check-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "3. Slope of $x^2 + y^2 = 25$ at $(3, 4)$?",
+       "answer": -0.75,
+       "tol": 0.01,
+       "wrong": [
+        {
+         "answer": -1.333,
+         "tol": 0.01,
+         "md": "that is $-F_y/F_x$, upside down: the theorem gives $dy/dx = -F_x/F_y$"
+        },
+        {
+         "answer": 0.75,
+         "tol": 0.01,
+         "md": "the minus sign is missing: $dy/dx = -F_x/F_y$"
+        }
+       ],
+       "why": "With $F(x, y) = x^2 + y^2 - 25$, $F_x = 2x = 6$ and $F_y = 2y = 8$, so $dy/dx = -F_x/F_y = -6/8 = -3/4$. → [Implicit Function Theorem](note:implicit-function-theorem)",
+       "objectives": [
+        4
+       ]
+      }
+     ],
+     "words": 4,
+     "symbols": [
+      "$x_i$",
+      "$x$, $y$",
+      "$F(x, y) = 0$"
+     ]
+    },
+    {
+     "id": "self-check-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "4. Hessian of $f(x,y) = x^2 + xy + y^2$, and what kind of point is $(0,0)$?",
+       "options": [
+        {
+         "md": "$\\begin{pmatrix}2&1\\\\1&2\\end{pmatrix}$, indefinite, so a saddle",
+         "correct": false,
+         "feedback": "Nonzero cross-partials don't make a saddle: $f_{xx} = 2 > 0$ and $\\det H = 4 - 1 = 3 > 0$, so this $H$ is positive definite."
+        },
+        {
+         "md": "$\\begin{pmatrix}1&1/2\\\\1/2&1\\end{pmatrix}$, positive definite, so a minimum",
+         "correct": false,
+         "feedback": "That is the matrix of the quadratic form, with the $xy$ coefficient split in half. The Hessian holds second derivatives, $f_{xx} = 2$ and $f_{xy} = 1$: twice that matrix."
+        },
+        {
+         "md": "$\\begin{pmatrix}2&1\\\\1&2\\end{pmatrix}$, positive definite, so a minimum",
+         "correct": true
+        },
+        {
+         "md": "$\\begin{pmatrix}2&0\\\\0&2\\end{pmatrix}$, positive definite, so a minimum",
+         "correct": false,
+         "feedback": "That drops the cross-partial: $f_x = 2x + y$, so $f_{xy} = 1$, not 0."
+        }
+       ],
+       "why": "$f_{xx} = 2$, $f_{yy} = 2$ and $f_{xy} = f_{yx} = 1$, so $H = \\begin{pmatrix}2&1\\\\1&2\\end{pmatrix}$. It is positive definite ($f_{xx} = 2 > 0$, $\\det H = 3 > 0$), so the critical point $(0,0)$ is a minimum. → [Hessian Matrix](note:hessian-matrix)",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 28,
+     "symbols": [
+      "$f(\\mathbf{x})$",
+      "$x_i$",
+      "$H(\\mathbf{x})$",
+      "$x$, $y$"
+     ]
+    },
+    {
+     "id": "self-check-5",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "5. Why does the CES skill premium not depend on the *level* of $H$ and $L$, only their ratio?",
+       "options": [
+        {
+         "md": "Because competitive wages equal marginal products",
+         "correct": false,
+         "feedback": "Wages equal marginal products in any competitive model, and that alone would let them depend on levels. What removes the levels is constant returns."
+        },
+        {
+         "md": "CES is homogeneous of degree 1, so marginal products are homogeneous of degree 0: functions of $H/L$ only",
+         "correct": true
+        },
+        {
+         "md": "Because marginal products are homogeneous of degree 1, like the production function",
+         "correct": false,
+         "feedback": "If they were, doubling both $H$ and $L$ would double both wages. With constant returns they are homogeneous of degree 0, so doubling both leaves them unchanged."
+        },
+        {
+         "md": "Because Euler's theorem makes factor payments exhaust output",
+         "correct": false,
+         "feedback": "That holds under constant returns, but it is about total payments adding up to output, not about what each marginal product depends on."
+        }
+       ],
+       "why": "CES is homogeneous of degree 1, so marginal products are homogeneous of degree 0: scaling $H$ and $L$ by the same factor leaves $w_H$ and $w_L$, and so $w_H/w_L$, unchanged. Only $H/L$ matters. → [Homogeneous Functions and Euler's Theorem](note:homogeneous-functions-and-eulers-theorem)",
+       "objectives": [
+        5
+       ]
+      }
+     ],
+     "words": 60,
+     "symbols": [
+      "$Y$, $K$, $L$",
+      "$H(\\mathbf{x})$",
+      "$w_i$, $p$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Compute partials and a gradient, and interpret them as marginal effects.\n2. Distinguish partial from total derivatives; do growth accounting.\n3. Build a Hessian and classify a critical point.\n4. Do comparative statics with the implicit function theorem.\n5. Use Euler's theorem to show factor payments exhaust output under CRS."
+      }
+     ],
+     "words": 51,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "partial-derivatives-and-the-gradient",
+        "multivariable-chain-rule",
+        "hessian-matrix",
+        "implicit-function-theorem",
+        "homogeneous-functions-and-eulers-theorem"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

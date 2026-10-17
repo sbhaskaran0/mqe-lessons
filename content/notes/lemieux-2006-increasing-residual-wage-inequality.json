@@ -1,0 +1,203 @@
+{
+ "slug": "lemieux-2006-increasing-residual-wage-inequality",
+ "notation": [],
+ "sections": [
+  {
+   "id": "key-takeaways",
+   "heading": "Key takeaways",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "key-takeaways-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. **Composition matters for dispersion, not just for averages.** Groups with more education and experience have more dispersed wages. As the workforce became older and more educated, within-group inequality rose mechanically — even with no change in wage-setting within any group.\n2. **Adjusted for composition, the rise in residual inequality is a 1980s event.** After the 1980s, most of the measured increase disappears once group shares are held fixed.\n3. **Use the right dataset.** Hourly wages constructed from the March CPS are noisy, and noise inflates measured dispersion; May/MORG point-in-time wages show a much smaller 1990s rise."
+      }
+     ],
+     "words": 97,
+     "symbols": []
+    },
+    {
+     "id": "key-takeaways-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "4. **So within-group inequality is weak evidence for a pervasive, continuing rise in demand for skill.** The paper's conclusion (beyond the lecture) is that rising returns to post-secondary education, not residual inequality, carry the post-1990 story."
+      }
+     ],
+     "words": 36,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "research-question",
+   "heading": "Research question",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "research-question-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Why did residual (within-group) wage inequality keep rising after the 1980s — rising demand for unobserved skill, changing workforce composition, or measurement error?"
+      }
+     ],
+     "words": 22,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "data-and-setting",
+   "heading": "Data and setting",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "data-and-setting-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "US May CPS (1973–78) and MORG CPS (1979 on) compared with the March CPS ([Current Population Survey (CPS)](note:current-population-survey-cps)). Inequality measured by the [variance of log wages](note:variance-of-log-income), decomposed into [within- and between-group](note:within-and-between-group-inequality) parts."
+      }
+     ],
+     "words": 33,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "empirical-strategy",
+   "heading": "Empirical strategy",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "empirical-strategy-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Re-weight the workforce to hold the distribution of education × experience cells fixed at a base period, then recompute within-group variance — a [Composition Adjustment](note:composition-adjustment) applied to a variance — and compare datasets with different measurement error ([Classical Measurement Error](note:classical-measurement-error))."
+      }
+     ],
+     "words": 37,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "results",
+   "heading": "Results",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "results-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The lecture extends the composition point to total and within-education variance using cleaned May/MORG data."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/US variance of log wages decomposition 1973-2009.png",
+       "alt": "US variance of log wages decomposition 1973-2009"
+      }
+     ],
+     "words": 16,
+     "symbols": []
+    },
+    {
+     "id": "results-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With 128 cells, about two-thirds of the variance of log wages is within groups ([US Variance of Log Wages 1973-2009](note:us-variance-of-log-wages-1973-2009))."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/US within-education variance of log wages 1973-2009.png",
+       "alt": "US within-education variance of log wages 1973-2009"
+      }
+     ],
+     "words": 20,
+     "symbols": []
+    },
+    {
+     "id": "results-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Variance is highest for college graduates, and after the mid-1980s it falls for less-educated groups while rising for college graduates ([US Within-Education Wage Variance 1973-2009](note:us-within-education-wage-variance-1973-2009))."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/US variance of log wages composition-adjusted vs not 1973-2009.png",
+       "alt": "US variance of log wages composition-adjusted vs not 1973-2009"
+      },
+      {
+       "t": "prose",
+       "md": "Holding education shares fixed, the variance in **2001 equals 1979**, and 2009 looks like the early 1970s: the post-1980s \"rise\" is largely composition."
+      }
+     ],
+     "words": 48,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "caveats",
+   "heading": "Caveats",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "caveats-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Composition adjustment holds group shares fixed but cannot say *why* within-group dispersion differs across groups; if returns to unobserved skill rise more for the educated, part of the \"composition\" effect is a price effect.\n- The result depends on how finely groups are defined (more cells move variance from within to between).\n- Debate (beyond the lecture): Autor, Katz and Kearney (2008) argue the upper-tail rise in residual inequality after 1990 is real and not explained by composition."
+      }
+     ],
+     "words": 79,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "in-econ-424-l3-total-and-within-group-inequality",
+   "heading": "In Econ 424 L3 Total and Within-Group Inequality",
+   "role": "paper-in-lesson",
+   "steps": [
+    {
+     "id": "in-econ-424-l3-total-and-within-group-inequality-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The lecture says its variance analysis is \"an extension of one of the two main points of Lemieux (2006)\" — the composition point — and discusses but does not show the second (the right dataset), which motivates using May/MORG rather than March data. Be able to explain why higher variance among the educated plus a rising education share raises total variance mechanically, and what \"2001 equals 1979\" means."
+      }
+     ],
+     "words": 67,
+     "symbols": []
+    }
+   ],
+   "lesson": "econ-424-l3-total-and-within-group-inequality"
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Composition Adjustment](note:composition-adjustment) · [Within- and Between-Group Inequality](note:within-and-between-group-inequality) · [Variance of Log Income](note:variance-of-log-income) · [Classical Measurement Error](note:classical-measurement-error) · [Law of Total Variance](note:law-of-total-variance)"
+      }
+     ],
+     "words": 18,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

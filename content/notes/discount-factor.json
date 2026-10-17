@@ -1,0 +1,238 @@
+{
+ "slug": "discount-factor",
+ "notation": [
+  {
+   "tex": "$\\beta$",
+   "meaning": "Discount factor: weight on next period's utility",
+   "kind": "Parameter in (0, 1]",
+   "typical": "0.8–0.99",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$\\rho$",
+   "meaning": "Rate of time preference (discount rate)",
+   "kind": "Parameter",
+   "typical": "0.25 when $\\beta = 0.8$",
+   "keys": [
+    "rho"
+   ]
+  },
+  {
+   "tex": "$u(\\cdot)$",
+   "meaning": "Per-period utility",
+   "kind": "Function",
+   "typical": "$\\ln c$ in the examples",
+   "keys": [
+    "u"
+   ]
+  },
+  {
+   "tex": "$c_1$, $c_2$",
+   "meaning": "Consumption today and next period",
+   "kind": "Choice",
+   "typical": "—",
+   "keys": [
+    "c"
+   ]
+  },
+  {
+   "tex": "$U$",
+   "meaning": "Lifetime utility",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "U"
+   ]
+  },
+  {
+   "tex": "$r$",
+   "meaning": "Market interest rate",
+   "kind": "Exogenous or equilibrium",
+   "typical": "—",
+   "keys": [
+    "r"
+   ]
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Most people would rather have a nice meal tonight than the same meal a year from now. The discount factor measures how much less a future pleasure counts compared with the same pleasure today. A discount factor of 1 means you are perfectly patient — next year counts as much as now. A discount factor of 0.8 means a unit of enjoyment next year is worth only 0.8 units today. The less patient someone is, the more they consume now and the less they save, all else equal."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "Patience is one of the three forces behind saving (with consumption smoothing and the interest rate), and in equilibrium it helps set the interest rate itself.",
+       "folded": false
+      }
+     ],
+     "words": 118,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "In lifetime utility, future utility is multiplied by $\\beta$ per period:"
+      },
+      {
+       "t": "math",
+       "tex": "U = u(c_1) + \\beta\\,u(c_2), \\qquad 0 < \\beta \\le 1, \\qquad \\beta = \\frac{1}{1+\\rho}"
+      }
+     ],
+     "words": 10,
+     "symbols": [
+      "$\\beta$",
+      "$\\rho$",
+      "$u(\\cdot)$",
+      "$c_1$, $c_2$",
+      "$U$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "intuition",
+   "heading": "Intuition",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "intuition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With log utility the optimal plan satisfies $c_2 = \\beta(1+r)c_1$. If $r = 0$, consumption **falls** over time by the factor $\\beta$: the impatient consumer front-loads. A higher interest rate offsets impatience; when $\\beta(1+r) = 1$ consumption is flat."
+      }
+     ],
+     "words": 29,
+     "symbols": [
+      "$\\beta$",
+      "$c_1$, $c_2$",
+      "$r$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$\\beta = 0.8$, $r = 0.2$: $\\beta(1+r) = 0.96$, so $c_2 = 0.96\\,c_1$ — consumption falls slightly over time, because the interest rate does not fully compensate for impatience. With $c_1 = 200$, $c_2 = 192$."
+      },
+      {
+       "t": "prose",
+       "md": "**In equilibrium** (two consumers with total incomes $Y_1$, $Y_2$ and log utility): $1 + r = Y_2/(\\beta Y_1)$. Lowering $\\beta$ from 1 to 0.9 with $Y_1 = Y_2 = 300$ raises $r$ from 0 to 11.1%: less patient people want to borrow more and save less, so the interest rate must rise to clear the market."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Two-period saving model - discount factor and interest rate effects.png",
+       "alt": "Two-period saving model - discount factor and interest rate effects"
+      }
+     ],
+     "words": 60,
+     "symbols": [
+      "$\\beta$",
+      "$c_1$, $c_2$",
+      "$r$"
+     ]
+    },
+    {
+     "id": "worked-example-2",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Two-period saving model - patience and the interest rate.png",
+       "alt": "Two-period saving model - patience and the interest rate",
+       "caption": "Hand-drawn: lower β raises c₁ and lowers saving; higher β means more saving and a lower equilibrium r."
+      }
+     ],
+     "words": 16,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Confusing the discount **factor** $\\beta$ (near 1) with the discount **rate** $\\rho$ (near 0).\n- Assuming impatience means consumption must fall over time — only if $\\beta(1+r) < 1$."
+      }
+     ],
+     "words": 24,
+     "symbols": [
+      "$\\beta$",
+      "$\\rho$",
+      "$r$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Macro: consumption-saving, Ramsey growth, asset pricing.\n- Finance and public economics: discounting future cash flows and welfare."
+      }
+     ],
+     "words": 18,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Consumption Euler Equation](note:consumption-euler-equation) · [Two-Period Consumption-Saving Model](note:two-period-consumption-saving-model) · [Market Clearing](note:market-clearing)"
+      }
+     ],
+     "words": 9,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

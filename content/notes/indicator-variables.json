@@ -1,0 +1,399 @@
+{
+ "slug": "indicator-variables",
+ "notation": [
+  {
+   "tex": "$D_i$ (e.g. $UTOWN$, $FEMALE$)",
+   "meaning": "Indicator: 1 if observation $i$ is in the group, 0 otherwise",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "D",
+    "~UTOWN",
+    "~FEMALE"
+   ]
+  },
+  {
+   "tex": "$\\beta_1$",
+   "meaning": "Mean outcome of the reference (zero) group",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$\\beta_2$",
+   "meaning": "Difference in mean outcome between the groups",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$\\bar{y}_0$, $\\bar{y}_1$",
+   "meaning": "Sample means of the two groups",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "bar(y)"
+   ]
+  },
+  {
+   "tex": "$b_1$, $b_2$",
+   "meaning": "OLS estimates, equal to $\\bar{y}_0$ and $\\bar{y}_1 - \\bar{y}_0$",
+   "kind": "Estimators",
+   "typical": "—",
+   "keys": [
+    "b"
+   ]
+  },
+  {
+   "tex": "$k$",
+   "meaning": "Number of categories",
+   "kind": "Count",
+   "typical": "Use $k - 1$ dummies",
+   "keys": [
+    "k"
+   ]
+  },
+  {
+   "tex": "$\\beta_0, \\ldots, \\beta_{k-1}$",
+   "meaning": "Intercept and category gaps",
+   "kind": "Parameters",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$\\boldsymbol{\\delta}$",
+   "meaning": "A nonzero vector with $\\mathbf{X}\\boldsymbol{\\delta} = \\mathbf{0}$ — the dummy trap",
+   "kind": "Vector",
+   "typical": "—",
+   "keys": [
+    "bold(delta)"
+   ]
+  },
+  {
+   "tex": "$e$, $\\varepsilon$",
+   "meaning": "Error term",
+   "kind": "Unobserved",
+   "typical": "—",
+   "keys": [
+    "e",
+    "varepsilon"
+   ]
+  },
+  {
+   "tex": "$y_i$, $x_i$",
+   "meaning": "Outcome and explanatory variable for observation $i$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "y",
+    "x"
+   ],
+   "from": "ols-estimator"
+  },
+  {
+   "tex": "$\\bar{x}$, $\\bar{y}$",
+   "meaning": "Sample means",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "bar(x)",
+    "bar(y)"
+   ],
+   "from": "ols-estimator"
+  },
+  {
+   "tex": "$N$",
+   "meaning": "Number of observations",
+   "kind": "Count",
+   "typical": "—",
+   "keys": [
+    "N"
+   ],
+   "from": "ols-estimator"
+  },
+  {
+   "tex": "$\\mathbf{X}$",
+   "meaning": "Regressor matrix",
+   "kind": "Data ($N\\times K$)",
+   "typical": "—",
+   "keys": [
+    "bold(X)"
+   ],
+   "from": "full-rank-and-identification"
+  },
+  {
+   "tex": "$NI$, $S$, $T$",
+   "meaning": "Non-labor income, labor income and total income ($T = NI + S$) in the example",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "~NI",
+    "S",
+    "T"
+   ],
+   "from": "full-rank-and-identification"
+  },
+  {
+   "tex": "$A$",
+   "meaning": "Matrix",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "A"
+   ],
+   "from": "linear-independence-and-rank"
+  },
+  {
+   "tex": "$PRICE$, $SQFT$",
+   "meaning": "House price and square footage in the quadratic example",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "~PRICE",
+    "~SQFT"
+   ],
+   "from": "functional-forms-and-elasticities"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "An indicator, or dummy, variable is a yes-or-no switch in a regression: it equals one if an observation belongs to a group — a house in a particular neighbourhood, a worker who is female — and zero otherwise. With a single dummy, the regression simply compares the average outcome of the two groups: the intercept is the average for the zero group, and the dummy's coefficient is the gap between the groups. Several categories need one dummy fewer than the number of categories."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "Dummies are how regressions handle categories, and reading them as gaps relative to a reference group is essential to interpreting results.",
+       "folded": false
+      }
+     ],
+     "words": 105,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Also called factor or dummy variables. A binary regressor turns the regression into a **comparison of two group means**. That equivalence is the whole section."
+      },
+      {
+       "t": "math",
+       "tex": "UTOWN = \\begin{cases} 1, & \\text{house in University Town} \\\\ 0, & \\text{house in Golden Oaks}\\end{cases}, \\qquad PRICE = \\beta_1 + \\beta_2\\,UTOWN + e"
+      },
+      {
+       "t": "prose",
+       "md": "Always write out the regression function for each value of the indicator:"
+      },
+      {
+       "t": "math",
+       "tex": "E[PRICE] = \\begin{cases} \\beta_1 + \\beta_2, & UTOWN = 1 \\\\ \\beta_1, & UTOWN = 0\\end{cases}"
+      }
+     ],
+     "words": 37,
+     "symbols": [
+      "$D_i$ (e.g. $UTOWN$, $FEMALE$)",
+      "$\\beta_1$",
+      "$\\beta_2$",
+      "$\\beta_0, \\ldots, \\beta_{k-1}$",
+      "$e$, $\\varepsilon$",
+      "$N$",
+      "$NI$, $S$, $T$",
+      "$PRICE$, $SQFT$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ols-reduces-to-sample-means",
+   "heading": "OLS reduces to sample means",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "ols-reduces-to-sample-means-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "b_1 = \\bar{y}_0, \\qquad b_2 = \\bar{y}_1 - \\bar{y}_0"
+      },
+      {
+       "t": "prose",
+       "md": "So $\\beta_1$ is the mean of the **omitted (reference) group**, and $\\beta_2$ is the **difference** in means."
+      },
+      {
+       "t": "prose",
+       "md": "**Proof sketch.** With $x_i\\in\\{0,1\\}$, $\\bar{x} = n_1/n$. The denominator of $b_2$ is $n_1 n_0/n$ and the numerator simplifies to $(n_1 n_0/n)(\\bar{y}_1 - \\bar{y}_0)$, so $b_2 = \\bar{y}_1 - \\bar{y}_0$ and $b_1 = \\bar{y} - b_2\\bar{x} = \\bar{y}_0$."
+      }
+     ],
+     "words": 29,
+     "symbols": [
+      "$\\beta_1$",
+      "$\\beta_2$",
+      "$\\bar{y}_0$, $\\bar{y}_1$",
+      "$b_1$, $b_2$",
+      "$\\beta_0, \\ldots, \\beta_{k-1}$",
+      "$y_i$, $x_i$",
+      "$\\bar{x}$, $\\bar{y}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "it-nests-the-two-sample-t-test",
+   "heading": "It nests the two-sample t test",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "it-nests-the-two-sample-t-test-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Testing $H_0: \\beta_2 = 0$ with the usual $t$ statistic is **algebraically identical** to the pooled-variance two-sample $t$ test from elementary statistics. Say that if asked why we bother: regression nests the simpler test as a special case and extends it to controls."
+      }
+     ],
+     "words": 37,
+     "symbols": [
+      "$\\beta_1$",
+      "$\\beta_2$",
+      "$\\beta_0, \\ldots, \\beta_{k-1}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "the-wage-example",
+   "heading": "The wage example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-wage-example-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "E(WAGE) = \\beta_1 + \\beta_2\\,FEMALE = \\begin{cases}\\beta_1 + \\beta_2, & FEMALE = 1\\\\ \\beta_1, & FEMALE = 0\\end{cases}"
+      },
+      {
+       "t": "prose",
+       "md": "with $\\beta_1 = \\overline{WAGE}_{Male}$ and $\\beta_2 = \\overline{WAGE}_{Female} - \\overline{WAGE}_{Male}$. Note this is a **raw gap** with no controls — not an estimate of discrimination."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Wage histograms by gender.png",
+       "alt": "Wage histograms by gender"
+      },
+      {
+       "t": "prose",
+       "md": "The lecture first plots the two wage distributions (the `cps_small` data, 1,000 workers): both are right-skewed, and the men's is shifted right. Regressing wage on the female indicator gives $\\widehat{WAGE} = 11.53 - 2.66\\,FEMALE$, so men average \\$11.53 an hour and women $11.53 - 2.66 = \\$8.87$; the gap has $t = -6.88$. With no other controls this is a raw difference in means, not an estimate of discrimination."
+      }
+     ],
+     "words": 75,
+     "symbols": [
+      "$D_i$ (e.g. $UTOWN$, $FEMALE$)",
+      "$\\beta_1$",
+      "$\\beta_2$",
+      "$\\beta_0, \\ldots, \\beta_{k-1}$",
+      "$A$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "multiple-categories-and-the-dummy-variable-trap",
+   "heading": "Multiple categories and the dummy variable trap",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "multiple-categories-and-the-dummy-variable-trap-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "For $k$ levels, include **$k-1$** dummies plus the intercept:"
+      },
+      {
+       "t": "math",
+       "tex": "y_i = \\beta_0 + \\beta_1 D_{1i} + \\beta_2 D_{2i} + \\dots + \\beta_{k-1} D_{(k-1)i} + \\varepsilon_i"
+      },
+      {
+       "t": "prose",
+       "md": "Including all $k$ alongside an intercept makes the dummy columns sum to the column of ones — perfect multicollinearity, $\\mathbf{X}'\\mathbf{X}$ singular, no unique solution. That is the **dummy variable trap**, and it is [Full Rank and Identification](note:full-rank-and-identification) made concrete: there exists $\\boldsymbol{\\delta}\\neq\\mathbf{0}$ with $\\mathbf{X}\\boldsymbol{\\delta} = \\mathbf{0}$."
+      },
+      {
+       "t": "prose",
+       "md": "The omitted level is the **reference group**, and every coefficient is read as a difference from it."
+      }
+     ],
+     "words": 63,
+     "symbols": [
+      "$D_i$ (e.g. $UTOWN$, $FEMALE$)",
+      "$\\beta_1$",
+      "$\\beta_2$",
+      "$k$",
+      "$\\beta_0, \\ldots, \\beta_{k-1}$",
+      "$\\boldsymbol{\\delta}$",
+      "$e$, $\\varepsilon$",
+      "$y_i$, $x_i$",
+      "$\\mathbf{X}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "practical-note",
+   "heading": "Practical note",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "practical-note-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Check the counts in each level before estimating. A level with very few observations gives a coefficient with a huge standard error."
+      }
+     ],
+     "words": 22,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Math background: [Linear Independence and Rank](note:linear-independence-and-rank)\n- [Full Rank and Identification](note:full-rank-and-identification)\n- [Functional Forms and Elasticities](note:functional-forms-and-elasticities)"
+      }
+     ],
+     "words": 17,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

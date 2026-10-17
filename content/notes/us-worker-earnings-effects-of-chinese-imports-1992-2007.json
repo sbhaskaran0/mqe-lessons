@@ -1,0 +1,245 @@
+{
+ "slug": "us-worker-earnings-effects-of-chinese-imports-1992-2007",
+ "notation": [
+  {
+   "tex": "$IP_j$",
+   "meaning": "Import penetration ratio",
+   "kind": "Statistic in [0, 1]",
+   "typical": "US imports from China ≈ 0.002 (1987) to ≈ 0.047 (2007) overall",
+   "keys": [
+    "~IP_j"
+   ],
+   "from": "import-penetration"
+  },
+  {
+   "tex": "$\\tau$",
+   "meaning": "End year of the exposure period",
+   "kind": "Index",
+   "typical": "often 2007",
+   "keys": [
+    "tau"
+   ],
+   "from": "import-penetration"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Following individual workers by the industry they worked in in 1991 — so that later moves do not select the sample — those in industries hit harder by Chinese imports had lower cumulative earnings over 1992–2007, spent more time switching employers and in nonemployment, and drew more disability benefits. The losses fall on low- and middle-wage workers; high-wage workers move and recover.**"
+      }
+     ],
+     "words": 61,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "design",
+   "heading": "Design",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "design-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Exposure**: $\\Delta IP_{j}$ = change in US imports from China 1991–$\\tau$ over 1991 absorption in the worker's 1991 industry ([Import Penetration](note:import-penetration)).\n- **Instrument**: the same using other high-income countries' imports from China, with absorption lagged three years ([Shift-Share Instrument](note:shift-share-instrument)).\n- **Outcome**: cumulative earnings 1992–$\\tau$, in multiples (× 100) of average annual earnings in 1988–91.\n- **Sample**: 1% random sample of US workers from the Social Security Administration's Master Earnings File, born 1943–1970, with high labor-force attachment in 1988–91 (earnings ≥ 1,600 hours at the real 1989 federal minimum wage each year). Standard errors clustered by 3-digit industry."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Trade exposure and production-worker intensity by US industry.png",
+       "alt": "Trade exposure and production-worker intensity by US industry"
+      }
+     ],
+     "words": 97,
+     "symbols": [
+      "$IP_j$",
+      "$\\tau$"
+     ]
+    },
+    {
+     "id": "design-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Average import-penetration growth 1991–2007 by industry group (pp): toys/other 32.6, textile/apparel/leather 16.7, wood/furniture 15.2, machines/electrical 15.2, plastic/rubber/glass 7.0, metal 6.1, transportation 1.7, chemical 1.4, paper/print 1.4, food/tobacco 0.6. Highly exposed industries tend to employ a high share of production workers."
+      }
+     ],
+     "words": 60,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "baseline-table-ii-tau-2007",
+   "heading": "Baseline (Table II, $\\tau$ = 2007)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "baseline-table-ii-tau-2007-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Chinese imports and cumulative worker earnings 1992-2007.png",
+       "alt": "Table - Chinese imports and cumulative worker earnings 1992-2007"
+      },
+      {
+       "t": "prose",
+       "md": "OLS: −2.939 (1.150) without controls to −6.099 (1.395) with controls. 2SLS: −6.883 (1.351) to **−6.864 (2.477)** in the full specification (column 9). N = 508,129."
+      },
+      {
+       "t": "prose",
+       "md": "**Magnitude**: ΔIP is 7.30 pp at the 75th and 0.62 pp at the 25th percentile, so the implied difference in cumulative earnings is $-6.86 \\times (7.30 - 0.62) \\approx -46\\%$ of initial annual earnings."
+      }
+     ],
+     "words": 62,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "unpacking-and-falsification-table-iii",
+   "heading": "Unpacking and falsification (Table III)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "unpacking-and-falsification-table-iii-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Chinese imports, earnings, years worked and pre-period test.png",
+       "alt": "Table - Chinese imports, earnings, years worked and pre-period test"
+      },
+      {
+       "t": "table",
+       "md": "| | Cumulative earnings | Years with earnings | Earnings per year |\n| --- | --- | --- | --- |\n| 1992–2007 | −6.864** (2.477) | −0.535 (0.505) | −0.393** (0.140) |\n| Pre-period 1976–1991 (falsification) | −0.432 (1.996) | 0.695 (0.856) | −0.064 (0.112) |"
+      },
+      {
+       "t": "prose",
+       "md": "No effect of future exposure in the pre-period: exposed workers were not already on declining paths."
+      }
+     ],
+     "words": 58,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "timing-figure-iii",
+   "heading": "Timing (Figure III)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "timing-figure-iii-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Cumulative earnings and job churning of trade-exposed US workers.png",
+       "alt": "Cumulative earnings and job churning of trade-exposed US workers"
+      },
+      {
+       "t": "prose",
+       "md": "The cumulative-earnings coefficient drifts down from about −0.3 (1993) to −2 (1999), −4 (2003) and −6.9 (2007); the number of employer changes and moves into nonemployment rises steadily (coefficient ≈ +2 by 2007). Values read off the chart."
+      }
+     ],
+     "words": 39,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "non-wage-income-table-vi",
+   "heading": "Non-wage income (Table VI)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "non-wage-income-table-vi-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Chinese imports and non-wage income of US workers.png",
+       "alt": "Table - Chinese imports and non-wage income of US workers"
+      },
+      {
+       "t": "prose",
+       "md": "Exposure raises years with Social Security Disability (SSDI) as the main income source (0.562*, SE 0.268) and SSDI income (0.352*, SE 0.164); self-employment income does not offset losses."
+      }
+     ],
+     "words": 32,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "by-initial-wage-table-ix",
+   "heading": "By initial wage (Table IX)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "by-initial-wage-table-ix-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Chinese imports and worker earnings by initial wage tercile.png",
+       "alt": "Table - Chinese imports and worker earnings by initial wage tercile"
+      },
+      {
+       "t": "table",
+       "md": "| Initial wage tercile | Cumulative earnings, all firms | At initial firm | At other firms, other sectors |\n| --- | --- | --- | --- |\n| Bottom | −18.27** (5.76) | −8.78* | −10.34* |\n| Middle | −9.93** (3.65) | −8.50** | −4.16 |\n| Top | −0.22 (2.07) | −9.15~ | +6.69 |"
+      },
+      {
+       "t": "prose",
+       "md": "High-wage workers leave exposed employers and make up the losses elsewhere; low-wage workers lose at their initial firm and after moving."
+      }
+     ],
+     "words": 67,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "reading-it-correctly",
+   "heading": "Reading it correctly",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "reading-it-correctly-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Why track workers by initial industry**: people still in a region or industry later are a selected sample; fixing the 1991 \"location\" avoids that selection.\n- **Inequality**: impacts are strong outside the top of the distribution."
+      }
+     ],
+     "words": 37,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Shift-Share Instrument](note:shift-share-instrument) · [Import Penetration](note:import-penetration) · [SSA Master Earnings File](note:ssa-master-earnings-file) · [US Local Labor Market Effects of Chinese Imports 1990-2007](note:us-local-labor-market-effects-of-chinese-imports-1990-2007)\n- Paper: [Autor, Dorn, Hanson and Song 2014 - Trade Adjustment](note:autor-dorn-hanson-and-song-2014-trade-adjustment)"
+      }
+     ],
+     "words": 29,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

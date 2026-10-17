@@ -1,0 +1,475 @@
+{
+ "slug": "sampling-distribution-of-ols",
+ "notation": [
+  {
+   "tex": "$b_k$",
+   "meaning": "OLS estimate of coefficient $k$",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "b"
+   ]
+  },
+  {
+   "tex": "$\\beta_k$",
+   "meaning": "True coefficient",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$\\sigma^2$",
+   "meaning": "Error variance",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "sigma"
+   ]
+  },
+  {
+   "tex": "$\\widehat{\\sigma}^2$",
+   "meaning": "Estimate of $\\sigma^2$: residual sum of squares over $N - K$",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "hat(sigma)"
+   ]
+  },
+  {
+   "tex": "$\\hat{e}_i$, $\\mathbf{e}$",
+   "meaning": "Residuals",
+   "kind": "Computed",
+   "typical": "—",
+   "keys": [
+    "hat(e)",
+    "bold(e)"
+   ]
+  },
+  {
+   "tex": "$\\boldsymbol{\\varepsilon}$",
+   "meaning": "True errors",
+   "kind": "Unobserved",
+   "typical": "—",
+   "keys": [
+    "bold(varepsilon)"
+   ]
+  },
+  {
+   "tex": "$N$, $K$",
+   "meaning": "Observations and number of coefficients",
+   "kind": "Counts",
+   "typical": "$K = 2$ in simple regression",
+   "keys": [
+    "N",
+    "K"
+   ]
+  },
+  {
+   "tex": "$se(b_k)$",
+   "meaning": "Standard error of $b_k$",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "~se(b_k)"
+   ]
+  },
+  {
+   "tex": "$t$",
+   "meaning": "Test statistic $(b_k - \\beta_k)/se(b_k)$",
+   "kind": "Statistic",
+   "typical": "≈ ±2 is the 5% threshold in large samples",
+   "keys": [
+    "t"
+   ]
+  },
+  {
+   "tex": "$Z$, $V$",
+   "meaning": "A standard normal and an independent chi-square variable",
+   "kind": "Random variables",
+   "typical": "—",
+   "keys": [
+    "Z",
+    "V"
+   ]
+  },
+  {
+   "tex": "$\\chi^2_\\nu$, $\\nu$",
+   "meaning": "Chi-square distribution and its degrees of freedom",
+   "kind": "Distribution",
+   "typical": "—",
+   "keys": [
+    "chi",
+    "nu"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{M}$, $\\mathbf{P}$, $\\mathbf{X}$",
+   "meaning": "Residual maker, projection matrix, regressor matrix",
+   "kind": "Matrices",
+   "typical": "—",
+   "keys": [
+    "bold(M)",
+    "bold(P)",
+    "bold(X)"
+   ]
+  },
+  {
+   "tex": "$y_i$, $x_i$",
+   "meaning": "Outcome and explanatory variable for observation $i$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "y",
+    "x"
+   ],
+   "from": "ols-estimator"
+  },
+  {
+   "tex": "$e_i$",
+   "meaning": "True error: everything else affecting $y_i$",
+   "kind": "Unobserved",
+   "typical": "—",
+   "keys": [
+    "e"
+   ],
+   "from": "ols-estimator"
+  },
+  {
+   "tex": "$\\bar{x}$, $\\bar{y}$",
+   "meaning": "Sample means",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "bar(x)",
+    "bar(y)"
+   ],
+   "from": "ols-estimator"
+  },
+  {
+   "tex": "$w_i$",
+   "meaning": "OLS weight on $y_i$ in $b_2$",
+   "kind": "Depends only on $x$",
+   "typical": "Sum to zero",
+   "keys": [
+    "w"
+   ],
+   "from": "ols-estimator"
+  },
+  {
+   "tex": "$\\boldsymbol{\\beta}$, $\\boldsymbol{\\varepsilon}$",
+   "meaning": "True coefficients and errors",
+   "kind": "Parameter / unobserved",
+   "typical": "—",
+   "keys": [
+    "bold(beta)",
+    "bold(varepsilon)"
+   ],
+   "from": "projection-matrix-and-residual-maker"
+  },
+  {
+   "tex": "$\\mathbf{a}$, $\\mathbf{b}$, $\\mathbf{p}$",
+   "meaning": "Vectors in the one-vector projection example",
+   "kind": "Vectors",
+   "typical": "—",
+   "keys": [
+    "bold(a)",
+    "bold(b)",
+    "bold(p)"
+   ],
+   "from": "projection-matrix-and-residual-maker"
+  },
+  {
+   "tex": "$H_0$, $H_1$",
+   "meaning": "Null and alternative hypotheses",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "H"
+   ],
+   "from": "hypothesis-tests-on-regression-coefficients"
+  },
+  {
+   "tex": "$R^2$",
+   "meaning": "Coefficient of determination",
+   "kind": "Statistic",
+   "typical": "0.385 for the food regression",
+   "keys": [
+    "R"
+   ],
+   "from": "coefficient-of-determination"
+  },
+  {
+   "tex": "$t$, $F$",
+   "meaning": "The slope's $t$ statistic and the regression $F$ statistic",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "t",
+    "F"
+   ],
+   "from": "coefficient-of-determination"
+  },
+  {
+   "tex": "$p$, $n$",
+   "meaning": "Number of parameters and of observations",
+   "kind": "Counts",
+   "typical": "—",
+   "keys": [
+    "p",
+    "n"
+   ],
+   "from": "regression-diagnostics"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Each sample of data gives a slightly different regression estimate, just as each poll gives a slightly different answer. The sampling distribution describes how those estimates would be spread out if you could repeat the sampling many times: centred on the true value, with a spread that shrinks as the sample grows. Because the true spread is unknown, it is estimated from the residuals, and that extra uncertainty is why test statistics follow a t distribution instead of a normal."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is what turns a single estimate into a statement of confidence — standard errors, t tests and confidence intervals all come from it.",
+       "folded": false
+      }
+     ],
+     "words": 106,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "with-normality-sr6",
+   "heading": "With normality (SR6)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "with-normality-sr6-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Exactly normal, conditional on $x$:"
+      },
+      {
+       "t": "math",
+       "tex": "b_2 \\mid x \\;\\sim\\; N\\!\\left(\\beta_2,\\; \\frac{\\sigma^2}{\\sum (x_i - \\bar{x})^2}\\right)"
+      },
+      {
+       "t": "math",
+       "tex": "b_1 \\mid x \\;\\sim\\; N\\!\\left(\\beta_1,\\; \\frac{\\sigma^2 \\sum x_i^2}{N\\sum (x_i - \\bar{x})^2}\\right)"
+      },
+      {
+       "t": "prose",
+       "md": "Why this is immediate: $b_2 = \\beta_2 + \\sum w_i e_i$ is a linear combination of normals, and a linear transformation of a normal vector is normal. In matrix form, $\\mathbf{b} = \\boldsymbol{\\beta} + (\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\boldsymbol{\\varepsilon}$, so if $\\boldsymbol{\\varepsilon}\\sim N(\\mathbf{0},\\sigma^2\\mathbf{I})$ then $\\mathbf{b}\\sim N(\\boldsymbol{\\beta},\\sigma^2(\\mathbf{X}'\\mathbf{X})^{-1})$."
+      }
+     ],
+     "words": 30,
+     "symbols": [
+      "$b_k$",
+      "$\\beta_k$",
+      "$\\sigma^2$",
+      "$\\boldsymbol{\\varepsilon}$",
+      "$N$, $K$",
+      "$\\mathbf{M}$, $\\mathbf{P}$, $\\mathbf{X}$",
+      "$y_i$, $x_i$",
+      "$e_i$",
+      "$\\bar{x}$, $\\bar{y}$",
+      "$w_i$",
+      "$\\boldsymbol{\\beta}$, $\\boldsymbol{\\varepsilon}$",
+      "$\\mathbf{a}$, $\\mathbf{b}$, $\\mathbf{p}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "without-normality",
+   "heading": "Without normality",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "without-normality-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The CLT makes the above **approximately** correct for large $N$. See [Error Normality and Jarque-Bera](note:error-normality-and-jarque-bera)."
+      }
+     ],
+     "words": 14,
+     "symbols": [
+      "$N$, $K$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "estimating-the-error-variance",
+   "heading": "Estimating the error variance",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "estimating-the-error-variance-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "\\widehat{\\sigma}^2 = \\frac{\\sum_{i=1}^{N} \\hat{e}_i^{\\,2}}{N-2}, \\qquad \\hat{e}_i = y_i - b_1 - b_2 x_i"
+      },
+      {
+       "t": "prose",
+       "md": "**Why $N-2$, not $N$.** The two normal equations impose two exact linear restrictions on the $N$ residuals ($\\sum\\hat{e}_i = 0$ and $\\sum x_i\\hat{e}_i = 0$), so only $N-2$ are free. In matrix terms $\\mathbf{e} = \\mathbf{M}\\boldsymbol{\\varepsilon}$ and"
+      },
+      {
+       "t": "math",
+       "tex": "E[\\mathbf{e}'\\mathbf{e}] = \\sigma^2\\,\\mathrm{trace}(\\mathbf{M}) = \\sigma^2(N-K)"
+      },
+      {
+       "t": "prose",
+       "md": "so dividing by $N-K$ makes $\\widehat{\\sigma}^2$ unbiased. See [Projection Matrix and Residual Maker](note:projection-matrix-and-residual-maker). Dividing by $N$ would understate $\\sigma^2$."
+      }
+     ],
+     "words": 38,
+     "symbols": [
+      "$b_k$",
+      "$\\sigma^2$",
+      "$\\widehat{\\sigma}^2$",
+      "$\\hat{e}_i$, $\\mathbf{e}$",
+      "$\\boldsymbol{\\varepsilon}$",
+      "$N$, $K$",
+      "$\\mathbf{M}$, $\\mathbf{P}$, $\\mathbf{X}$",
+      "$y_i$, $x_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "standard-errors",
+   "heading": "Standard errors",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "standard-errors-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Substitute $\\widehat{\\sigma}^2$ into the variance formulas from [OLS Estimator](note:ols-estimator):"
+      },
+      {
+       "t": "math",
+       "tex": "se(b_k) = \\sqrt{\\widehat{\\mathrm{Var}}(b_k)}"
+      }
+     ],
+     "words": 8,
+     "symbols": [
+      "$b_k$",
+      "$\\widehat{\\sigma}^2$",
+      "$se(b_k)$",
+      "$e_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "the-t-statistic",
+   "heading": "The t statistic",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-t-statistic-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "t = \\frac{b_2 - \\beta_2}{se(b_2)} \\;\\sim\\; t_{N-2}"
+      },
+      {
+       "t": "prose",
+       "md": "**Why $t$ and not normal**: you replaced the unknown $\\sigma$ with an estimate built from the same data. If $Z\\sim N(0,1)$ and $V\\sim\\chi^2_\\nu$ independently, then $Z/\\sqrt{V/\\nu}\\sim t_\\nu$. Here $(N-2)\\widehat{\\sigma}^2/\\sigma^2 \\sim \\chi^2_{N-2}$, and it is **independent** of $b_2$ — a consequence of $\\mathbf{P}\\mathbf{M} = \\mathbf{0}$."
+      },
+      {
+       "t": "prose",
+       "md": "The default software null is $H_0: \\beta_k = 0$ two-sided. A small $p$-value rejects, meaning the coefficient is statistically distinguishable from zero — **not** that it is economically meaningful."
+      },
+      {
+       "t": "prose",
+       "md": "One- and two-sided tests, p-values and worked examples: [Hypothesis Tests on Regression Coefficients](note:hypothesis-tests-on-regression-coefficients). The fit statistic $R^2$: [Coefficient of Determination](note:coefficient-of-determination)."
+      }
+     ],
+     "words": 72,
+     "symbols": [
+      "$b_k$",
+      "$\\beta_k$",
+      "$\\sigma^2$",
+      "$\\widehat{\\sigma}^2$",
+      "$N$, $K$",
+      "$t$",
+      "$Z$, $V$",
+      "$\\chi^2_\\nu$, $\\nu$",
+      "$\\mathbf{M}$, $\\mathbf{P}$, $\\mathbf{X}$",
+      "$e_i$",
+      "$H_0$, $H_1$",
+      "$R^2$",
+      "$p$, $n$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "what-the-lecture-says-to-check-for-fit",
+   "heading": "What the lecture says to check for fit",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-the-lecture-says-to-check-for-fit-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- $t$ statistics and $p$-values on each coefficient\n- $R^2$, the coefficient of determination\n- the model $F$ statistic and its $p$-value\n- a residual plot: scattered about zero, constant spread ([Regression Diagnostics](note:regression-diagnostics))\n- whether estimates are interpretable and signed as theory predicts\n- robustness of the estimates ([Bootstrapping OLS](note:bootstrapping-ols))\n- correlation between actual and predicted values"
+      },
+      {
+       "t": "callout",
+       "kind": "warning",
+       "title": "$R^2$ is not comparable across models with different dependent variables",
+       "md": "$\\ln y$ and $y$ have different total variation. See [Functional Forms and Elasticities](note:functional-forms-and-elasticities).",
+       "folded": false
+      }
+     ],
+     "words": 73,
+     "symbols": [
+      "$t$",
+      "$y_i$, $x_i$",
+      "$R^2$",
+      "$t$, $F$",
+      "$p$, $n$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Math background: [Trace of a Matrix](note:trace-of-a-matrix) · [Quadratic Forms and Definiteness](note:quadratic-forms-and-definiteness)\n- [Confidence vs Prediction Intervals](note:confidence-vs-prediction-intervals)\n- [Gauss-Markov Theorem](note:gauss-markov-theorem)"
+      }
+     ],
+     "words": 19,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

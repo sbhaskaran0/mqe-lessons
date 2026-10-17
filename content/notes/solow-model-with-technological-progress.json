@@ -1,0 +1,640 @@
+{
+ "slug": "solow-model-with-technological-progress",
+ "notation": [
+  {
+   "tex": "$Y, K, L, C$",
+   "meaning": "Output, capital, labor, consumption (economy-wide totals)",
+   "kind": "Endogenous ($L$ exogenous)",
+   "typical": "—",
+   "keys": [
+    "Y",
+    "K",
+    "L",
+    "C"
+   ]
+  },
+  {
+   "tex": "$A$",
+   "meaning": "Total factor productivity, growing at $\\gamma$",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "A"
+   ]
+  },
+  {
+   "tex": "$s$",
+   "meaning": "Saving rate",
+   "kind": "Parameter in (0, 1)",
+   "typical": "≈ 0.2",
+   "keys": [
+    "s"
+   ]
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "Capital share",
+   "kind": "Parameter in (0, 1)",
+   "typical": "≈ 1/3",
+   "keys": [
+    "alpha"
+   ]
+  },
+  {
+   "tex": "$\\delta$",
+   "meaning": "Depreciation rate",
+   "kind": "Parameter",
+   "typical": "≈ 0.05",
+   "keys": [
+    "delta"
+   ]
+  },
+  {
+   "tex": "$\\eta$",
+   "meaning": "Population (labor) growth rate; often written $n$",
+   "kind": "Parameter",
+   "typical": "≈ 0.01",
+   "keys": [
+    "eta"
+   ]
+  },
+  {
+   "tex": "$\\gamma$",
+   "meaning": "Growth rate of TFP $A$",
+   "kind": "Parameter",
+   "typical": "≈ 0.02",
+   "keys": [
+    "gamma"
+   ]
+  },
+  {
+   "tex": "$\\tilde{A} = A^{1/(1-\\alpha)}$",
+   "meaning": "Labor-augmenting technology",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "tilde(A)"
+   ]
+  },
+  {
+   "tex": "$\\tilde{\\gamma} = \\gamma/(1-\\alpha)$",
+   "meaning": "Growth rate of $\\tilde{A}$",
+   "kind": "Parameter",
+   "typical": "≈ 0.03",
+   "keys": [
+    "tilde(gamma)"
+   ]
+  },
+  {
+   "tex": "$\\tilde{k}, \\tilde{y}, \\tilde{c}$",
+   "meaning": "Capital, output and consumption per effective worker (divided by $\\tilde{A}L$)",
+   "kind": "Endogenous; $\\tilde{k}$ is the state variable",
+   "typical": "—",
+   "keys": [
+    "tilde(k)",
+    "tilde(y)",
+    "tilde(c)"
+   ]
+  },
+  {
+   "tex": "$k, y, c$",
+   "meaning": "The same per worker (divided by $L$)",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "k",
+    "y",
+    "c"
+   ]
+  },
+  {
+   "tex": "$f(\\tilde{k}) = \\tilde{k}^{\\alpha}$",
+   "meaning": "Output per effective worker",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "f"
+   ]
+  },
+  {
+   "tex": "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$",
+   "meaning": "Steady-state values per effective worker",
+   "kind": "Endogenous",
+   "typical": "3.31, 1.49, 1.19 in the example",
+   "keys": [
+    "bar(k)",
+    "bar(y)",
+    "bar(c)"
+   ]
+  },
+  {
+   "tex": "$g_X$",
+   "meaning": "Growth rate of a variable $X$",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "g"
+   ]
+  },
+  {
+   "tex": "$X$",
+   "meaning": "Any economy-wide total ($K$, $Y$, $C$)",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "X"
+   ],
+   "from": "balanced-growth-path"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The basic Solow model holds technology and the workforce fixed, so capital per worker settles down and growth stops. Real economies add workers every year and keep finding better ways to produce. This version adds both. The trick is to measure everything per \"effective worker\" — a worker weighted by how productive current technology makes them. Measured that way, capital again settles at a resting point. But that resting point hides steady growth: output per actual worker rises as fast as technology improves, and total output also grows with the workforce. Saving still changes only the level of the path, never its long-run slope."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the version that matches the data — sustained growth in living standards — and it shows that only technological progress can deliver it.",
+       "folded": false
+      }
+     ],
+     "words": 129,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The [Solow Growth Model](note:solow-growth-model) with labor growing at rate $\\eta$ and total factor productivity at rate $\\gamma$. Divided by effective labor $\\tilde{A}L$ (\"stationarized\"), capital per effective worker follows"
+      },
+      {
+       "t": "math",
+       "tex": "\\tilde{k}_{t+1}(1 + \\tilde{\\gamma} + \\eta) = s\\tilde{k}_t^{\\alpha} + (1-\\delta)\\tilde{k}_t"
+      },
+      {
+       "t": "prose",
+       "md": "and converges to"
+      },
+      {
+       "t": "math",
+       "tex": "\\bar{k} = \\left(\\frac{s}{\\delta + \\eta + \\tilde{\\gamma}}\\right)^{\\frac{1}{1-\\alpha}}, \\qquad \\tilde{\\gamma} = \\frac{\\gamma}{1-\\alpha}"
+      }
+     ],
+     "words": 28,
+     "symbols": [
+      "$Y, K, L, C$",
+      "$s$",
+      "$\\alpha$",
+      "$\\delta$",
+      "$\\eta$",
+      "$\\gamma$",
+      "$\\tilde{A} = A^{1/(1-\\alpha)}$",
+      "$\\tilde{\\gamma} = \\gamma/(1-\\alpha)$",
+      "$\\tilde{k}, \\tilde{y}, \\tilde{c}$",
+      "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "why-the-basic-steady-state-breaks",
+   "heading": "Why the basic steady state breaks",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "why-the-basic-steady-state-breaks-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "In the basic model the steady state is constant capital per worker, $\\bar{k} = (sA/\\delta)^{1/(1-\\alpha)}$. If $A$ grows, this target keeps rising, so $k$ never settles and there is no steady state to find. The fix is to measure capital relative to something that grows with technology and population: capital per **effective** worker, $\\tilde{k} = K/(\\tilde{A}L)$ with $\\tilde{A} = A^{1/(1-\\alpha)}$."
+      }
+     ],
+     "words": 49,
+     "symbols": [
+      "$Y, K, L, C$",
+      "$A$",
+      "$s$",
+      "$\\alpha$",
+      "$\\delta$",
+      "$\\tilde{A} = A^{1/(1-\\alpha)}$",
+      "$\\tilde{k}, \\tilde{y}, \\tilde{c}$",
+      "$k, y, c$",
+      "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "technology-rewritten",
+   "heading": "Technology, rewritten",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "technology-rewritten-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Object | Definition | Note |\n| --- | --- | --- |\n| Labor-augmenting technology | $\\tilde{A} = A^{1/(1-\\alpha)}$, so $Y = K^{\\alpha}(\\tilde{A}L)^{1-\\alpha}$ | The same technology relabelled to multiply labor ([Factor-Augmenting Technology](note:factor-augmenting-technology)) |\n| Its growth rate | $\\tilde{\\gamma} = \\gamma/(1-\\alpha)$ | **Larger than $\\gamma$** (0.02 → 0.03): all productivity gains are concentrated in one factor |\n| Effective labor | $\\tilde{A}L$ | Workers in efficiency units — a worker with twice the technology counts as two ([Efficiency Units of Labor](note:efficiency-units-of-labor)) |"
+      }
+     ],
+     "words": 54,
+     "symbols": [
+      "$Y, K, L, C$",
+      "$A$",
+      "$\\alpha$",
+      "$\\gamma$",
+      "$\\tilde{A} = A^{1/(1-\\alpha)}$",
+      "$\\tilde{\\gamma} = \\gamma/(1-\\alpha)$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "three-ways-to-scale-a-variable",
+   "heading": "Three ways to scale a variable",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "three-ways-to-scale-a-variable-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Level | Capital | Output | Consumption | Divided by | Steady-state growth |\n| --- | --- | --- | --- | --- | --- |\n| **Aggregate** | $K$ | $Y$ | $C$ | nothing | $\\tilde{\\gamma} + \\eta$ |\n| **Per worker** | $k = K/L$ | $y = Y/L$ | $c = C/L$ | $L$ | $\\tilde{\\gamma}$ |\n| **Per effective worker** | $\\tilde{k} = \\dfrac{K}{\\tilde{A}L}$ | $\\tilde{y} = \\dfrac{Y}{\\tilde{A}L}$ | $\\tilde{c} = \\dfrac{C}{\\tilde{A}L}$ | $\\tilde{A}L$ | $0$ — **constant** |"
+      },
+      {
+       "t": "prose",
+       "md": "Only the tilde variables settle down, which is the whole reason for introducing them. Living standards are $y$, the per-worker row, which grows at $\\tilde{\\gamma}$ forever."
+      }
+     ],
+     "words": 46,
+     "symbols": [
+      "$Y, K, L, C$",
+      "$\\eta$",
+      "$\\tilde{A} = A^{1/(1-\\alpha)}$",
+      "$\\tilde{\\gamma} = \\gamma/(1-\\alpha)$",
+      "$\\tilde{k}, \\tilde{y}, \\tilde{c}$",
+      "$k, y, c$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "stationarizing",
+   "heading": "Stationarizing",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "stationarizing-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Growth-rate rules used throughout: $X^{\\alpha}$ grows at $\\alpha g_X$, and $XY$ grows at $g_X + g_Y$ ([Logarithms and Growth Rates](note:logarithms-and-growth-rates))."
+      },
+      {
+       "t": "prose",
+       "md": "**Step 1 — production per effective worker.** Move technology inside the labor term and divide by $\\tilde{A}L$:"
+      },
+      {
+       "t": "math",
+       "tex": "Y = AK^{\\alpha}L^{1-\\alpha} = K^{\\alpha}\\big(A^{\\frac{1}{1-\\alpha}}L\\big)^{1-\\alpha} = K^{\\alpha}(\\tilde{A}L)^{1-\\alpha} \\;\\Longrightarrow\\; \\tilde{y} = \\frac{Y}{\\tilde{A}L} = \\tilde{k}^{\\alpha}"
+      },
+      {
+       "t": "prose",
+       "md": "**Step 2 — growth of $\\tilde{A}$.** $\\tilde{A} = A^{1/(1-\\alpha)}$ grows at approximately $\\gamma/(1-\\alpha) = \\tilde{\\gamma}$ — a discrete-time approximation; exactly $(1+\\gamma)^{1/(1-\\alpha)} - 1$ (0.0301 rather than 0.03 for $\\gamma = 0.02$, $\\alpha = 1/3$)."
+      },
+      {
+       "t": "prose",
+       "md": "**Step 3 — law of motion.** Divide $K_{t+1} = sY_t + (1-\\delta)K_t$ by $\\tilde{A}_tL_t$. The right side is $s\\tilde{y}_t + (1-\\delta)\\tilde{k}_t$. On the left, use $\\tilde{A}_t = \\tilde{A}_{t+1}/(1+\\tilde{\\gamma})$ and $L_t = L_{t+1}/(1+\\eta)$:"
+      },
+      {
+       "t": "math",
+       "tex": "\\frac{K_{t+1}}{\\tilde{A}_tL_t} = \\tilde{k}_{t+1}(1+\\tilde{\\gamma})(1+\\eta) = \\tilde{k}_{t+1}(1 + \\tilde{\\gamma} + \\eta + \\tilde{\\gamma}\\eta) \\approx \\tilde{k}_{t+1}(1 + \\tilde{\\gamma} + \\eta)"
+      },
+      {
+       "t": "prose",
+       "md": "Dropping the small cross term $\\tilde{\\gamma}\\eta$ (e.g. $0.03\\times0.01 = 0.0003$) gives the law of motion in the Definition."
+      },
+      {
+       "t": "prose",
+       "md": "**What moves $\\tilde{k}$.** The numerator $K$ rises with investment $sf(\\tilde{k})$ and falls with depreciation $\\delta\\tilde{k}$; the denominator $\\tilde{A}L$ rises at rate $\\tilde{\\gamma}$ (technology) and $\\eta$ (population). So effective depreciation is $\\delta + \\eta + \\tilde{\\gamma}$: capital per effective worker must be replaced, spread over new workers, and kept up with rising efficiency."
+      }
+     ],
+     "words": 117,
+     "symbols": [
+      "$Y, K, L, C$",
+      "$A$",
+      "$s$",
+      "$\\alpha$",
+      "$\\delta$",
+      "$\\eta$",
+      "$\\gamma$",
+      "$\\tilde{A} = A^{1/(1-\\alpha)}$",
+      "$\\tilde{\\gamma} = \\gamma/(1-\\alpha)$",
+      "$\\tilde{k}, \\tilde{y}, \\tilde{c}$",
+      "$f(\\tilde{k}) = \\tilde{k}^{\\alpha}$",
+      "$g_X$",
+      "$X$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "steady-state",
+   "heading": "Steady state",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "steady-state-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Set $\\tilde{k}_{t+1} = \\tilde{k}_t = \\bar{k}$ ([Steady State](note:steady-state)): saving equals **break-even investment**,"
+      },
+      {
+       "t": "math",
+       "tex": "(\\delta + \\eta + \\tilde{\\gamma})\\,\\bar{k} = s f(\\bar{k})"
+      },
+      {
+       "t": "prose",
+       "md": "On the [Solow Diagram](note:solow-diagram), the straight line now has slope $\\delta + \\eta + \\tilde{\\gamma}$ and the axis is $\\tilde{k}$."
+      },
+      {
+       "t": "prose",
+       "md": "**Worked example**: $\\alpha = 1/3$, $s = 0.2$, $\\delta = 0.05$, $\\eta = 0.01$, $\\gamma = 0.02$ → $\\tilde{\\gamma} = 0.03$, break-even rate 0.09, $\\bar{k} = (0.2/0.09)^{1.5} = 3.31$, $\\bar{y} = 1.49$, $\\bar{c} = 0.8\\bar{y} = 1.19$."
+      }
+     ],
+     "words": 27,
+     "symbols": [
+      "$s$",
+      "$\\alpha$",
+      "$\\delta$",
+      "$\\eta$",
+      "$\\gamma$",
+      "$\\tilde{\\gamma} = \\gamma/(1-\\alpha)$",
+      "$\\tilde{k}, \\tilde{y}, \\tilde{c}$",
+      "$f(\\tilde{k}) = \\tilde{k}^{\\alpha}$",
+      "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "comparative-statics",
+   "heading": "Comparative statics",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "comparative-statics-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Change | Effect on $\\bar{k}$ (and $\\bar{y}$) | Graph | Long-run growth of $y$ |\n| --- | --- | --- | --- |\n| Higher saving $s$ | ↑ | $sf(\\tilde{k})$ shifts up | Unchanged ($\\tilde{\\gamma}$) — level effect |\n| Higher depreciation $\\delta$ | ↓ | break-even line steeper | Unchanged — level effect |\n| Faster population growth $\\eta$ | ↓ | break-even line steeper | Unchanged — level effect |\n| Faster technology growth $\\gamma$ | ↓ (per *effective* worker) | break-even line steeper | **Higher** — growth effect |\n| Higher capital share $\\alpha$ | ↑ | exponent $1/(1-\\alpha)$ larger | — |"
+      },
+      {
+       "t": "prose",
+       "md": "To trace a shock in levels, combine the Solow diagram with log growth paths: $\\ln k = \\ln\\tilde{k} + \\ln\\tilde{A}$ and $\\ln K = \\ln\\tilde{k} + \\ln\\tilde{A} + \\ln L$ ([Balanced Growth Path](note:balanced-growth-path))."
+      }
+     ],
+     "words": 71,
+     "symbols": [
+      "$Y, K, L, C$",
+      "$s$",
+      "$\\alpha$",
+      "$\\delta$",
+      "$\\eta$",
+      "$\\gamma$",
+      "$\\tilde{A} = A^{1/(1-\\alpha)}$",
+      "$\\tilde{\\gamma} = \\gamma/(1-\\alpha)$",
+      "$\\tilde{k}, \\tilde{y}, \\tilde{c}$",
+      "$k, y, c$",
+      "$f(\\tilde{k}) = \\tilde{k}^{\\alpha}$",
+      "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$"
+     ]
+    },
+    {
+     "id": "comparative-statics-2",
+     "heading": "Faster population growth",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Solow diagram - rise in population growth with technological progress.png",
+       "alt": "Solow diagram - rise in population growth with technological progress"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    },
+    {
+     "id": "comparative-statics-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The break-even line rotates up from $(\\delta + \\eta_1 + \\tilde{\\gamma})\\tilde{k}$ to $(\\delta + \\eta_2 + \\tilde{\\gamma})\\tilde{k}$: there are more people next period than at the old rate, so each gets less capital. $\\bar{k}$ falls and $\\tilde{k}$ declines gradually. With the example values, $\\eta$ from 0.01 to 0.02 lowers $\\bar{k}$ from 3.31 to 2.83."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Log growth paths - rise in population growth, capital per worker.png",
+       "alt": "Log growth paths - rise in population growth, capital per worker"
+      }
+     ],
+     "words": 44,
+     "symbols": [
+      "$\\delta$",
+      "$\\eta$",
+      "$\\tilde{\\gamma} = \\gamma/(1-\\alpha)$",
+      "$\\tilde{k}, \\tilde{y}, \\tilde{c}$",
+      "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$"
+     ]
+    },
+    {
+     "id": "comparative-statics-4",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Per worker, $\\ln k = \\ln\\tilde{k} + \\ln\\tilde{A}$: while $\\tilde{k}$ falls, capital per worker grows more slowly than $\\tilde{\\gamma}$ (about 2.0% instead of 3% right after the shock), then returns to slope $\\tilde{\\gamma}$ on a **lower parallel path** — about 0.16 log points lower for $k$ and 0.05 for $y$. A level effect, not a growth effect."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Log growth paths - rise in population growth, aggregate capital.png",
+       "alt": "Log growth paths - rise in population growth, aggregate capital"
+      },
+      {
+       "t": "prose",
+       "md": "In aggregate, $\\ln K$ adds $\\ln L$, whose slope rises from $\\eta_1$ to $\\eta_2$: aggregate growth eventually rises from $\\tilde{\\gamma} + \\eta_1$ to $\\tilde{\\gamma} + \\eta_2$, after a transition held back by falling $\\tilde{k}$."
+      }
+     ],
+     "words": 69,
+     "symbols": [
+      "$Y, K, L, C$",
+      "$\\eta$",
+      "$\\tilde{A} = A^{1/(1-\\alpha)}$",
+      "$\\tilde{\\gamma} = \\gamma/(1-\\alpha)$",
+      "$\\tilde{k}, \\tilde{y}, \\tilde{c}$",
+      "$k, y, c$"
+     ]
+    },
+    {
+     "id": "comparative-statics-5",
+     "heading": "Slower technology growth",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Solow diagram - fall in technology growth with log growth paths.png",
+       "alt": "Solow diagram - fall in technology growth with log growth paths"
+      },
+      {
+       "t": "prose",
+       "md": "A fall in $\\tilde{\\gamma}$ rotates the break-even line **down**, so $\\bar{k}$ rises (with $\\gamma$ from 0.02 to 0.01, $\\tilde{\\gamma}$ falls from 0.03 to 0.015 and $\\bar{k}$ rises from 3.31 to 4.35). Capital per worker bends from slope $\\tilde{\\gamma}_1$ to the flatter slope $\\tilde{\\gamma}_2$ — growth slows gradually (2.99%, 2.90%, 2.82%, … toward 1.5%) because the rising $\\tilde{k}$ partly offsets slower technology. Aggregates move from $\\tilde{\\gamma}_1 + \\eta$ to $\\tilde{\\gamma}_2 + \\eta$. This is a **growth effect**: living standards grow more slowly forever."
+      }
+     ],
+     "words": 76,
+     "symbols": [
+      "$\\eta$",
+      "$\\gamma$",
+      "$\\tilde{\\gamma} = \\gamma/(1-\\alpha)$",
+      "$\\tilde{k}, \\tilde{y}, \\tilde{c}$",
+      "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "transitional-dynamics-and-convergence",
+   "heading": "Transitional dynamics and convergence",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "transitional-dynamics-and-convergence-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Below the steady state, saving exceeds break-even investment, so $\\tilde{k}$ rises — fast at first, then more slowly, because the marginal product of capital diminishes ([Convexity and Concavity](note:convexity-and-concavity)). Starting at half of $\\bar{k}$ in the example, $\\tilde{k}$ grows about 5.1% in the first period, then 4.6%, 4.2%, …"
+      },
+      {
+       "t": "callout",
+       "kind": "note",
+       "title": "Beyond the notes",
+       "md": "Convergence is *conditional* — toward each economy's own steady state. Linearizing around $\\bar{k}$ gives a convergence speed of about $(1-\\alpha)(\\delta + \\eta + \\tilde{\\gamma})$ per period: 6% in the example, a half-life of about $\\ln 2/0.06 \\approx 11.6$ periods (direct simulation from half of $\\bar{k}$: the log gap halves in about 10 periods, the level gap in about 13).",
+       "folded": false
+      }
+     ],
+     "words": 96,
+     "symbols": [
+      "$\\alpha$",
+      "$\\delta$",
+      "$\\eta$",
+      "$\\tilde{\\gamma} = \\gamma/(1-\\alpha)$",
+      "$\\tilde{k}, \\tilde{y}, \\tilde{c}$",
+      "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "long-run-growth",
+   "heading": "Long-run growth",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "long-run-growth-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "On the [Balanced Growth Path](note:balanced-growth-path), per-worker variables grow at $\\tilde{\\gamma}$ and aggregates at $\\tilde{\\gamma} + \\eta$; ratios such as $K/Y$ and $C/Y$ are constant. Saving and population growth change **levels**, not long-run growth rates — sustained growth in living standards requires technological progress. The golden rule becomes $f'(\\bar{k}) = \\delta + \\eta + \\tilde{\\gamma}$, still $s = \\alpha$ under Cobb-Douglas ([Golden Rule Saving Rate](note:golden-rule-saving-rate))."
+      }
+     ],
+     "words": 47,
+     "symbols": [
+      "$Y, K, L, C$",
+      "$s$",
+      "$\\alpha$",
+      "$\\delta$",
+      "$\\eta$",
+      "$\\tilde{\\gamma} = \\gamma/(1-\\alpha)$",
+      "$f(\\tilde{k}) = \\tilde{k}^{\\alpha}$",
+      "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Saying higher saving raises the long-run *growth rate*. It raises the level; growth is faster only during the transition.\n- Forgetting that faster technology growth lowers capital per *effective* worker while raising per-worker growth.\n- Mixing the three scalings: a constant $\\tilde{k}$ does not mean constant $k$ or $K$.\n- Using $\\gamma$ where $\\tilde{\\gamma}$ belongs: per-worker growth is $\\gamma/(1-\\alpha)$, not $\\gamma$."
+      }
+     ],
+     "words": 55,
+     "symbols": [
+      "$Y, K, L, C$",
+      "$\\alpha$",
+      "$\\gamma$",
+      "$\\tilde{\\gamma} = \\gamma/(1-\\alpha)$",
+      "$\\tilde{k}, \\tilde{y}, \\tilde{c}$",
+      "$k, y, c$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Macro: the benchmark growth model; growth accounting; the balanced-growth facts."
+      }
+     ],
+     "words": 11,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Solow Growth Model](note:solow-growth-model) · [Balanced Growth Path](note:balanced-growth-path) · [Factor-Augmenting Technology](note:factor-augmenting-technology) · [Efficiency Units of Labor](note:efficiency-units-of-labor) · [Solow Diagram](note:solow-diagram)"
+      }
+     ],
+     "words": 15,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

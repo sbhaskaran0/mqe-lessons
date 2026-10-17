@@ -1,0 +1,64 @@
+{
+ "slug": "cross-country-gini-comparison",
+ "notation": [],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**On a family-income basis the US ranks 40th most unequal of 150 countries (Gini 45.0) — far above Western Europe and the Nordics, well below southern Africa and much of Latin America.**"
+      },
+      {
+       "t": "table",
+       "md": "| Rank (1 = least equal) | Country | Gini |\n| --- | --- | --- |\n| 1 | Lesotho | 63.2 |\n| 2 | South Africa | 62.5 |\n| 5 | Haiti | 60.8 |\n| 10 | Colombia | 53.5 |\n| 30 | China | 46.6 |\n| 40 | United States | 45.0 |\n| 111 | United Kingdom | 32.4 |\n| 112 | Canada | 32.1 |\n| 132 | Denmark | 28.8 |\n| 139 | Norway | 26.8 |\n| 145 | Sweden | 24.9 |\n| 150 | Finland | 21.5 |"
+      }
+     ],
+     "words": 92,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "the-trap",
+   "heading": "The trap",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-trap-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The US is 45.0 here but ≈ 0.64 in [US Income Inequality Since 1917](note:us-income-inequality-since-1917). The **variable** (family income vs tax-unit income) and the **population** (households vs tax filers) differ, and survey years vary by country. Comparing Ginis across sources without checking these is a classic error — the core point of [Defining Inequality](note:defining-inequality)."
+      }
+     ],
+     "words": 53,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Gini Coefficient](note:gini-coefficient)"
+      }
+     ],
+     "words": 3,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

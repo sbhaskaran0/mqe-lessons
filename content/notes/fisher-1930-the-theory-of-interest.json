@@ -1,0 +1,215 @@
+{
+ "slug": "fisher-1930-the-theory-of-interest",
+ "notation": [
+  {
+   "tex": "$y_1$, $y_2$",
+   "meaning": "Income in periods 1 and 2",
+   "kind": "Exogenous",
+   "typical": "180, 216",
+   "keys": [
+    "y"
+   ],
+   "from": "two-period-consumption-saving-model"
+  },
+  {
+   "tex": "$c_1$, $c_2$",
+   "meaning": "Consumption in periods 1 and 2",
+   "kind": "Choice",
+   "typical": "200, 192",
+   "keys": [
+    "c"
+   ],
+   "from": "two-period-consumption-saving-model"
+  },
+  {
+   "tex": "$r$",
+   "meaning": "Interest rate",
+   "kind": "Exogenous to the consumer; endogenous in equilibrium",
+   "typical": "0.2",
+   "keys": [
+    "r"
+   ],
+   "from": "two-period-consumption-saving-model"
+  },
+  {
+   "tex": "$\\beta$",
+   "meaning": "Discount factor",
+   "kind": "Parameter in (0, 1]",
+   "typical": "0.8",
+   "keys": [
+    "beta"
+   ],
+   "from": "two-period-consumption-saving-model"
+  }
+ ],
+ "sections": [
+  {
+   "id": "key-takeaways",
+   "heading": "Key takeaways",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "key-takeaways-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. **Choosing across time is like choosing between goods.** Consumption today and consumption tomorrow are two goods; the consumer trades them off using a marginal rate of substitution, exactly as with apples and oranges.\n2. **The interest rate is a relative price.** $1+r$ is how many units of future consumption one unit of present consumption costs — the price of the present in terms of the future.\n3. **Two forces set it: impatience and opportunity** (beyond the lecture: the book's subtitle). Impatience (time preference) makes people want to consume now; the opportunity to invest makes giving up consumption productive. The rate settles where they balance."
+      }
+     ],
+     "words": 103,
+     "symbols": [
+      "$r$"
+     ]
+    },
+    {
+     "id": "key-takeaways-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "4. **Saving and borrowing smooth consumption.** Lending and borrowing let people reshape their income stream into the consumption stream they prefer; across the economy, savers' supply must equal borrowers' demand."
+      }
+     ],
+     "words": 30,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "research-question",
+   "heading": "Research question",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "research-question-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "What determines the rate of interest, and how do individuals decide how much to save or borrow?"
+      }
+     ],
+     "words": 17,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "data-and-setting",
+   "heading": "Data and setting",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "data-and-setting-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A theoretical treatise. The lecture uses a simplified two-period version with fixed incomes (\"endowments\"), log utility and a discount factor, then a version where saving creates capital."
+      }
+     ],
+     "words": 27,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "empirical-strategy",
+   "heading": "Empirical strategy",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "empirical-strategy-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Not empirical: the argument is built from individual optimization (marginal rate of substitution equals the price of present goods) and aggregate market clearing — formalized today as the [Two-Period Consumption-Saving Model](note:two-period-consumption-saving-model)."
+      }
+     ],
+     "words": 30,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "results",
+   "heading": "Results",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "results-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Two-period saving model - summary.png",
+       "alt": "Two-period saving model - summary"
+      },
+      {
+       "t": "prose",
+       "md": "Formalized: consumers choose $c_1$, $c_2$ so that MRS $= 1+r$ ([Consumption Euler Equation](note:consumption-euler-equation)) and the [Intertemporal Budget Constraint](note:intertemporal-budget-constraint) holds; the interest rate adjusts until [Market Clearing](note:market-clearing) holds. With log utility and two consumers, $1 + r = (y_2^A + y_2^B)/(\\beta(y_1^A + y_1^B))$: the rate rises with future income relative to current income and with impatience (lower $\\beta$)."
+      }
+     ],
+     "words": 43,
+     "symbols": [
+      "$y_1$, $y_2$",
+      "$c_1$, $c_2$",
+      "$r$",
+      "$\\beta$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "caveats",
+   "heading": "Caveats",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "caveats-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- The two-period endowment version has no production; the \"opportunity to invest\" enters only when saving creates capital, where the marginal product of capital takes the interest rate's place.\n- The model has no uncertainty, borrowing limits or institutions such as banks.\n- Income and substitution effects of interest-rate changes can conflict (beyond the lecture); the lecture's framing emphasizes that a higher rate encourages saving."
+      }
+     ],
+     "words": 65,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "in-econ-402a-l2-two-period-saving-model",
+   "heading": "In Econ 402A L2 Two-Period Saving Model",
+   "role": "paper-in-lesson",
+   "steps": [
+    {
+     "id": "in-econ-402a-l2-two-period-saving-model-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The typed notes open by saying the lecture is \"a simplified version of Irving Fisher's work in the early 1900s\". It moves the course from Solow's *assumed* saving rate to saving as a *choice*: today's version has fixed income and saving earns interest; the capital version makes MPK the return to saving, preparing the return to an infinite horizon."
+      }
+     ],
+     "words": 59,
+     "symbols": []
+    }
+   ],
+   "lesson": "econ-402a-l2-two-period-saving-model"
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Two-Period Consumption-Saving Model](note:two-period-consumption-saving-model) · [Consumption Euler Equation](note:consumption-euler-equation) · [Market Clearing](note:market-clearing) · [Discount Factor](note:discount-factor)"
+      }
+     ],
+     "words": 11,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

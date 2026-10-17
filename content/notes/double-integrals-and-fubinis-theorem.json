@@ -1,0 +1,304 @@
+{
+ "slug": "double-integrals-and-fubinis-theorem",
+ "notation": [
+  {
+   "tex": "$R$",
+   "meaning": "Region of integration",
+   "kind": "Set",
+   "typical": "—",
+   "keys": [
+    "R"
+   ]
+  },
+  {
+   "tex": "$f(x, y)$",
+   "meaning": "Function or joint density",
+   "kind": "Function",
+   "typical": "$x + y$ in the example",
+   "keys": [
+    "f"
+   ]
+  },
+  {
+   "tex": "$a, b, c, d$",
+   "meaning": "Integration limits",
+   "kind": "Numbers",
+   "typical": "—",
+   "keys": [
+    "a",
+    "b",
+    "c",
+    "d"
+   ]
+  },
+  {
+   "tex": "$f_X(x)$",
+   "meaning": "Marginal density of $X$",
+   "kind": "Function",
+   "typical": "$x + 1/2$ in the example",
+   "keys": [
+    "f"
+   ]
+  },
+  {
+   "tex": "$f(y\\mid x)$",
+   "meaning": "Conditional density of $Y$ given $X = x$",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "f"
+   ]
+  },
+  {
+   "tex": "$g(X, Y)$",
+   "meaning": "Any function of the two variables",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "g"
+   ]
+  },
+  {
+   "tex": "$X$, $Y$",
+   "meaning": "Random variables",
+   "kind": "—",
+   "typical": "$E[X] = 7/12$ in the example",
+   "keys": [
+    "X",
+    "Y"
+   ]
+  },
+  {
+   "tex": "$E[Y\\mid X]$",
+   "meaning": "Average of $Y$ for a given value of $X$",
+   "kind": "Random variable (a function of $X$)",
+   "typical": "—",
+   "keys": [
+    "~E[Y\\midX]"
+   ],
+   "from": "law-of-iterated-expectations"
+  },
+  {
+   "tex": "$y$",
+   "meaning": "Income or wage",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "y"
+   ],
+   "from": "within-and-between-group-inequality"
+  },
+  {
+   "tex": "$x$, $u$",
+   "meaning": "Original and new variable of integration",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "x",
+    "u"
+   ],
+   "from": "change-of-variables"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A double integral adds up something over an area rather than along a line — total probability over all combinations of two variables, for example. Fubini's theorem says you can do it in two steps, one variable at a time, and in either order. That is exactly how you get the distribution of one variable from a joint distribution: integrate the other one out. It also makes the proof of the law of iterated expectations short."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the working tool for any calculation involving two random variables together, from covariances to conditional expectations.",
+       "folded": false
+      }
+     ],
+     "words": 96,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "\\iint_R f(x,y)\\,dA = \\int_a^b\\left(\\int_c^d f(x,y)\\,dy\\right)dx = \\int_c^d\\left(\\int_a^b f(x,y)\\,dx\\right)dy"
+      },
+      {
+       "t": "prose",
+       "md": "**Fubini's theorem**: if $\\iint|f|\\,dA < \\infty$, the order of integration does not matter. For non-rectangular regions, the inner limits depend on the outer variable."
+      }
+     ],
+     "words": 21,
+     "symbols": [
+      "$f(x, y)$",
+      "$a, b, c, d$",
+      "$f_X(x)$",
+      "$f(y\\mid x)$",
+      "$y$",
+      "$x$, $u$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "joint-marginal-and-conditional-densities",
+   "heading": "Joint, marginal and conditional densities",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "joint-marginal-and-conditional-densities-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "For a joint density $f(x,y)$:"
+      },
+      {
+       "t": "prose",
+       "md": "- Marginal: $f_X(x) = \\int f(x,y)\\,dy$ — integrate out the other variable\n- Conditional: $f(y\\mid x) = f(x,y)/f_X(x)$\n- Expectation: $E[g(X,Y)] = \\iint g(x,y)f(x,y)\\,dy\\,dx$"
+      }
+     ],
+     "words": 15,
+     "symbols": [
+      "$f(x, y)$",
+      "$a, b, c, d$",
+      "$f_X(x)$",
+      "$f(y\\mid x)$",
+      "$g(X, Y)$",
+      "$X$, $Y$",
+      "$y$",
+      "$x$, $u$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$f(x,y) = x + y$ on the unit square. It is a valid density: $\\iint (x+y)\\,dA = 1$. Marginal: $f_X(x) = x + \\tfrac12$. Mean: $E[X] = \\int_0^1 x(x + \\tfrac12)\\,dx = 7/12 \\approx 0.583$."
+      }
+     ],
+     "words": 11,
+     "symbols": [
+      "$f(x, y)$",
+      "$a, b, c, d$",
+      "$f_X(x)$",
+      "$f(y\\mid x)$",
+      "$X$, $Y$",
+      "$y$",
+      "$x$, $u$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "the-law-of-iterated-expectations-proved",
+   "heading": "The law of iterated expectations, proved",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-law-of-iterated-expectations-proved-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "E\\big[E[Y\\mid X]\\big] = \\int\\left(\\int y\\,f(y\\mid x)\\,dy\\right)f_X(x)\\,dx = \\iint y\\,f(x,y)\\,dy\\,dx = E[Y]"
+      },
+      {
+       "t": "prose",
+       "md": "The middle step uses $f(y\\mid x)f_X(x) = f(x,y)$; the last uses Fubini to integrate out $x$ first."
+      }
+     ],
+     "words": 12,
+     "symbols": [
+      "$f(x, y)$",
+      "$a, b, c, d$",
+      "$f_X(x)$",
+      "$f(y\\mid x)$",
+      "$X$, $Y$",
+      "$E[Y\\mid X]$",
+      "$y$",
+      "$x$, $u$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Wrong inner limits on a non-rectangular region (e.g. the triangle $0 \\leq y \\leq x \\leq 1$).\n- Swapping the order for an integrand that is not absolutely integrable."
+      }
+     ],
+     "words": 24,
+     "symbols": [
+      "$y$",
+      "$x$, $u$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Probability / econometrics**: continuous-variable proofs of the [Law of Iterated Expectations](note:law-of-iterated-expectations) and [Law of Total Variance](note:law-of-total-variance); covariances; the conditional mean in [Conditional Mean vs Linear Projection](note:conditional-mean-vs-linear-projection).\n- **Inequality**: integrating a joint distribution of income and group to get [Within- and Between-Group Inequality](note:within-and-between-group-inequality) components."
+      }
+     ],
+     "words": 43,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Change of Variables](note:change-of-variables)"
+      }
+     ],
+     "words": 4,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

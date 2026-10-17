@@ -1,0 +1,345 @@
+{
+ "slug": "simple-linear-regression-model",
+ "notation": [
+  {
+   "tex": "$y_i$",
+   "meaning": "Outcome for observation $i$ (e.g. food spending)",
+   "kind": "Random variable",
+   "typical": "—",
+   "keys": [
+    "y"
+   ]
+  },
+  {
+   "tex": "$x_i$",
+   "meaning": "Explanatory variable (e.g. income)",
+   "kind": "Observed",
+   "typical": "—",
+   "keys": [
+    "x"
+   ]
+  },
+  {
+   "tex": "$\\beta_1$",
+   "meaning": "Intercept: average $y$ when $x = 0$",
+   "kind": "Parameter",
+   "typical": "80 in the food example",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$\\beta_2$",
+   "meaning": "Slope: change in average $y$ per unit of $x$",
+   "kind": "Parameter",
+   "typical": "10 in the food example (income in \\$100 units; 0.10 per dollar)",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$e_i$",
+   "meaning": "Error: everything else affecting $y_i$",
+   "kind": "Unobserved",
+   "typical": "Mean zero",
+   "keys": [
+    "e"
+   ]
+  },
+  {
+   "tex": "$E[y\\mid x]$, $\\mu_{y\\mid x}$",
+   "meaning": "Average of $y$ at a given $x$ (the regression function)",
+   "kind": "Population quantity",
+   "typical": "—",
+   "keys": [
+    "~E[y\\midx]",
+    "mu"
+   ]
+  },
+  {
+   "tex": "$\\sigma^2$",
+   "meaning": "Variance of $y$ around its conditional mean",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "sigma"
+   ]
+  },
+  {
+   "tex": "$\\Delta x$",
+   "meaning": "A change in $x$",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "~\\Deltax"
+   ]
+  },
+  {
+   "tex": "$b_2$",
+   "meaning": "OLS slope estimate",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "b"
+   ],
+   "from": "sr-assumptions"
+  },
+  {
+   "tex": "$\\hat{e}_i$",
+   "meaning": "Residual: $y_i - b_1 - b_2x_i$",
+   "kind": "Computed",
+   "typical": "Sum to zero",
+   "keys": [
+    "hat(e)"
+   ],
+   "from": "ols-estimator"
+  },
+  {
+   "tex": "$\\bar{x}$, $\\bar{y}$",
+   "meaning": "Sample means",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "bar(x)",
+    "bar(y)"
+   ],
+   "from": "ols-estimator"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The simple linear regression model is a way of describing how one thing tends to move with another — say, how weekly food spending rises with income. It says the average outcome lies on a straight line, and each actual observation sits somewhere around that line because of everything else the model leaves out. The line captures the systematic part; the scatter around it is the unexplained part. The goal is to learn the line's height and slope from data."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the template every regression builds on, and it makes the key distinction between what the model explains and what it lumps into the error.",
+       "folded": false
+      }
+     ],
+     "words": 108,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A statement about the **conditional** distribution of $y$ given $x$. Everything else in regression analysis follows from that."
+      },
+      {
+       "t": "math",
+       "tex": "y_i = \\beta_1 + \\beta_2 x_i + e_i"
+      },
+      {
+       "t": "prose",
+       "md": "The motivating example: a household spends \\$80 plus 10 cents of each dollar of income on food, so $y = 80 + 0.10x$ with income $x$ in dollars — or $y = 80 + 10x$ with $x$ in hundreds of dollars, the units used in the rest of this note. In reality many other factors matter, and $e$ collects all of them."
+      },
+      {
+       "t": "interactive",
+       "widget": "ols-line-fitter",
+       "state": {
+        "b1": 80,
+        "b2": 10
+       },
+       "lock": [
+        "b1",
+        "b2"
+       ],
+       "show": [
+        "points",
+        "line",
+        "residuals",
+        "resid_mean"
+       ],
+       "highlight": "residuals",
+       "prompt": "Forty simulated households, with income $x$ in hundreds of dollars a week. The line is the regression function $E[y \\mid x] = \\beta_1 + \\beta_2 x = 80 + 10x$: 80 dollars plus 10 cents of each dollar of income. The vertical sticks are the errors $e_i = y_i - \\beta_1 - \\beta_2 x_i$, everything else that moves food spending.",
+       "predict": {
+        "hide": [
+         "resid_mean"
+        ],
+        "ask": "The errors have conditional mean zero, $E[e \\mid x] = 0$. What is the average of these 40 errors?",
+        "options": [
+         "Exactly 0: the errors have mean zero",
+         "Close to 0 but not exactly: this is one sample of 40",
+         "It cannot be known, because errors are never observed"
+        ],
+        "answer": 1,
+        "why": "The 40 errors average +7.07 dollars: half a standard error ($89.5/\\sqrt{40} = 14.2$) from zero, so this sample sits a little above the true line. Zero conditional mean is a statement about the population; a sample's errors average zero only on average across samples. OLS residuals, by contrast, sum to exactly zero in every sample, so the OLS line passes through $(\\bar{x}, \\bar{y})$, 7.07 above the true line.",
+        "feedback": [
+         "$E[e \\mid x] = 0$ describes the population: averaged over many samples the errors centre on zero. One sample of 40 households averages close to zero, but not exactly.",
+         null,
+         "In real data, yes: $\\beta_1$ and $\\beta_2$ are unknown, so $e_i$ cannot be computed. These households are simulated from a known line, which is what lets the widget draw the errors."
+        ]
+       }
+      }
+     ],
+     "words": 103,
+     "symbols": [
+      "$y_i$",
+      "$x_i$",
+      "$\\beta_1$",
+      "$\\beta_2$",
+      "$e_i$",
+      "$E[y\\mid x]$, $\\mu_{y\\mid x}$",
+      "$b_2$",
+      "$\\hat{e}_i$",
+      "$\\bar{x}$, $\\bar{y}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "the-decomposition",
+   "heading": "The decomposition",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-decomposition-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "\\underbrace{y}_{\\text{Data}} \\;=\\; \\underbrace{\\beta_1 + \\beta_2 x}_{\\text{Model}} \\;+\\; \\underbrace{e}_{\\text{Uncertainty}}"
+      },
+      {
+       "t": "prose",
+       "md": "- **Systematic component**: $E[y \\mid x] = \\beta_1 + \\beta_2 x$, the *regression function*.\n- **Random component**: $e = y - E[y\\mid x]$, everything else driving variation in $y$."
+      }
+     ],
+     "words": 14,
+     "symbols": [
+      "$y_i$",
+      "$x_i$",
+      "$\\beta_1$",
+      "$\\beta_2$",
+      "$e_i$",
+      "$E[y\\mid x]$, $\\mu_{y\\mid x}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "the-regression-function",
+   "heading": "The regression function",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-regression-function-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "E[y_i \\mid x_i] = \\beta_1 + \\beta_2 x_i"
+      },
+      {
+       "t": "prose",
+       "md": "A change $\\Delta x$ changes $E[y\\mid x]$ by $\\beta_2 \\Delta x$, holding all else constant. Note the lecture's caution: this is **association**, not causation — you cannot say a change in $x$ *causes* the change in the conditional mean without further argument."
+      }
+     ],
+     "words": 33,
+     "symbols": [
+      "$y_i$",
+      "$x_i$",
+      "$\\beta_1$",
+      "$\\beta_2$",
+      "$E[y\\mid x]$, $\\mu_{y\\mid x}$",
+      "$\\Delta x$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "conditional-mean-and-variance",
+   "heading": "Conditional mean and variance",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "conditional-mean-and-variance-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- $E[y \\mid x = 10] = \\mu_{y\\mid x}$ — population mean weekly food expenditure at an income of \\$1,000 a week ($x$ in \\$100 units)\n- $\\mathrm{Var}[y \\mid x = 10] = \\sigma^2$ — dispersion of expenditure about that mean (see [Homoskedasticity](note:homoskedasticity))"
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Food expenditure and income - histograms and conditional distributions.png",
+       "alt": "Food expenditure and income - histograms and conditional distributions"
+      },
+      {
+       "t": "prose",
+       "md": "The lecture splits the food data at an income of \\$2,000 a week: the distribution of food spending among the richer households sits to the right of the poorer households' and is more spread out, a picture of $E[y \\mid x]$ rising with $x$ (and of a variance that rises too)."
+      }
+     ],
+     "words": 74,
+     "symbols": [
+      "$y_i$",
+      "$x_i$",
+      "$E[y\\mid x]$, $\\mu_{y\\mid x}$",
+      "$\\sigma^2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "terminology",
+   "heading": "Terminology",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "terminology-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| $y$ | $x$ |\n| --- | --- |\n| Dependent variable | Independent variable |\n| Explained variable | Explanatory variable |\n| Response variable | Control variable |\n| Predicted variable | Predictor variable |\n| Regressand | Regressor |"
+      }
+     ],
+     "words": 20,
+     "symbols": [
+      "$y_i$",
+      "$x_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [SR Assumptions](note:sr-assumptions) — the conditions under which this model supports estimation and inference\n- [OLS Estimator](note:ols-estimator) — how $\\beta_1, \\beta_2$ are estimated\n- [Conditional Mean vs Linear Projection](note:conditional-mean-vs-linear-projection) — whether $E[y\\mid x]$ *has* to be linear (it does not)"
+      }
+     ],
+     "words": 33,
+     "symbols": [
+      "$y_i$",
+      "$x_i$",
+      "$\\beta_1$",
+      "$\\beta_2$",
+      "$E[y\\mid x]$, $\\mu_{y\\mid x}$"
+     ]
+    }
+   ]
+  }
+ ]
+}

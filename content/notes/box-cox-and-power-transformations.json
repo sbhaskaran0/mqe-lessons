@@ -1,0 +1,524 @@
+{
+ "slug": "box-cox-and-power-transformations",
+ "notation": [
+  {
+   "tex": "$x$ (or $y$)",
+   "meaning": "Variable being transformed (must be positive for Box-Cox)",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "x",
+    "y"
+   ]
+  },
+  {
+   "tex": "$\\lambda$",
+   "meaning": "Power parameter: 1 = no change, 0.5 = square root, 0 = log, −1 = reciprocal",
+   "kind": "Parameter, estimated",
+   "typical": "Round to a natural value",
+   "keys": [
+    "lambda"
+   ]
+  },
+  {
+   "tex": "$T_{BC}(x,\\lambda)$",
+   "meaning": "Box-Cox transform",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "T"
+   ]
+  },
+  {
+   "tex": "$T_{YJ}(x,\\lambda)$",
+   "meaning": "Yeo-Johnson transform, allows negative values",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "T"
+   ]
+  },
+  {
+   "tex": "$\\lambda_0$, $\\hat{\\lambda}$",
+   "meaning": "Maximum-likelihood value and a candidate rounded value",
+   "kind": "Estimates",
+   "typical": "e.g. 0.0013 vs 0",
+   "keys": [
+    "lambda",
+    "hat(lambda)"
+   ]
+  },
+  {
+   "tex": "$L_0$, $\\hat{L}$",
+   "meaning": "Log-likelihoods at those values",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "L",
+    "hat(L)"
+   ]
+  },
+  {
+   "tex": "$T$",
+   "meaning": "Likelihood-ratio statistic $2(L_0 - \\hat{L})$",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "T"
+   ]
+  },
+  {
+   "tex": "$\\chi^2_1$",
+   "meaning": "Chi-square distribution with 1 degree of freedom",
+   "kind": "Distribution",
+   "typical": "5% critical value ≈ 3.84",
+   "keys": [
+    "chi"
+   ]
+  },
+  {
+   "tex": "$Y$, $X$, $p$, $q$, $a$, $b$",
+   "meaning": "Variables and powers in the bulging-rule regression",
+   "kind": "Data / parameters",
+   "typical": "—",
+   "keys": [
+    "Y",
+    "X",
+    "p",
+    "q",
+    "a",
+    "b"
+   ]
+  },
+  {
+   "tex": "$\\beta_1$, $\\beta_2$, $e_i$",
+   "meaning": "Intercept, slope and error in the transformed regression",
+   "kind": "Parameters / error",
+   "typical": "—",
+   "keys": [
+    "beta",
+    "e"
+   ]
+  },
+  {
+   "tex": "$t$",
+   "meaning": "Time",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "t"
+   ],
+   "from": "logarithms-and-growth-rates"
+  },
+  {
+   "tex": "$p$, $n$",
+   "meaning": "Number of parameters and of observations",
+   "kind": "Counts",
+   "typical": "—",
+   "keys": [
+    "p",
+    "n"
+   ],
+   "from": "regression-diagnostics"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Raw data are often awkward for regression: incomes that span from thousands to millions, spreads that widen as values grow, relationships that curve. Power transformations re-express a variable — taking a square root, a log or a reciprocal — to straighten the relationship, even out the spread or make the distribution more symmetric. Box-Cox is a family of such transformations controlled by one dial, with the log as a special setting; the data can choose the best dial setting."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "Choosing the right transformation can make a regression's assumptions hold, and its results much easier to interpret.",
+       "folded": false
+      }
+     ],
+     "words": 97,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Transformations serve three distinct purposes. A good answer names which one is in play: **linearity**, **constant variance**, or **normality**. One transformation often improves more than one."
+      }
+     ],
+     "words": 26,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "why-logs",
+   "heading": "Why logs",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "why-logs-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Logs compress variables spanning orders of magnitude (GDP at $10^{10}$ alongside real rates at $10^{-2}$), convert multiplicative relationships into additive ones, turn proportional changes into differences, and frequently cure heteroskedasticity where the error scales with the level of $y$. See [Functional Forms and Elasticities](note:functional-forms-and-elasticities) for interpretation."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Ornstein assets - density before and after logs.png",
+       "alt": "Ornstein assets - density before and after logs"
+      },
+      {
+       "t": "prose",
+       "md": "The assets of 248 Canadian firms span several orders of magnitude: untransformed, almost all of the density is squeezed against zero; in logs the distribution is close to symmetric."
+      }
+     ],
+     "words": 72,
+     "symbols": [
+      "$x$ (or $y$)"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "box-cox",
+   "heading": "Box-Cox",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "box-cox-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "T_{BC}(x,\\lambda) = x^{(\\lambda)} = \\begin{cases} \\dfrac{x^{\\lambda}-1}{\\lambda}, & \\lambda \\neq 0 \\\\[6pt] \\ln(x), & \\lambda = 0 \\end{cases}"
+      },
+      {
+       "t": "prose",
+       "md": "The $\\lambda = 0$ case is the **limit** of $(x^\\lambda - 1)/\\lambda$ as $\\lambda\\to0$ — an exercise in [L'Hôpital's Rule](note:lhopitals-rule) worth doing once, because \"why does $\\lambda=0$ mean log?\" is a natural question."
+      },
+      {
+       "t": "prose",
+       "md": "Two practical rules:"
+      },
+      {
+       "t": "prose",
+       "md": "- $\\lambda$ is estimated by **maximum likelihood**.\n- **Round to a natural value** (0, ½, 1, −1) rather than keeping 0.0012 — both to avoid overfitting the transformation to sample noise and to keep the result interpretable."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Ladder of powers - UN GDP per capita.png",
+       "alt": "Ladder of powers - UN GDP per capita"
+      },
+      {
+       "t": "prose",
+       "md": "The lecture standardizes GDP per capita after each power on the ladder: $\\lambda = 1$ and $0.5$ leave a long upper tail of outliers, $\\lambda = -1$ and $-0.5$ create a long lower tail, and $\\lambda = 0$ (logs) is the most symmetric."
+      }
+     ],
+     "words": 95,
+     "symbols": [
+      "$x$ (or $y$)",
+      "$\\lambda$",
+      "$T_{BC}(x,\\lambda)$",
+      "$T_{YJ}(x,\\lambda)$",
+      "$\\lambda_0$, $\\hat{\\lambda}$",
+      "$T$",
+      "$Y$, $X$, $p$, $q$, $a$, $b$",
+      "$t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "testing-a-rounded",
+   "heading": "Testing a rounded λ",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "testing-a-rounded-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Likelihood ratio procedure:"
+      },
+      {
+       "t": "prose",
+       "md": "1. Get the MLE $\\lambda_0$ and its log-likelihood $L_0$.\n2. Compute the log-likelihood $\\hat{L}$ at the candidate $\\hat\\lambda$.\n3. Form $T = 2(L_0 - \\hat{L})$.\n4. $p = P(\\chi^2_1 \\geq T)$. One degree of freedom = one restriction."
+      },
+      {
+       "t": "prose",
+       "md": "For several variables at once (the `Highway1` multivariate example, R's `car::powerTransform`), $\\lambda$ is a **vector** — each variable gets its own power — and the LR test has as many degrees of freedom as restrictions imposed."
+      },
+      {
+       "t": "prose",
+       "md": "**The lecture's example.** Infant mortality in the UN data is strongly right-skewed."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Infant mortality - histogram.png",
+       "alt": "Infant mortality - histogram"
+      },
+      {
+       "t": "prose",
+       "md": "Box-Cox estimates $\\lambda_0 = 0.047$, with 95% interval $[-0.088, 0.182]$. The likelihood-ratio tests:"
+      },
+      {
+       "t": "table",
+       "md": "| Candidate $\\hat{\\lambda}$ | $T$ | p-value | Verdict |\n| --- | --- | --- | --- |\n| 0 (log) | 0.46 | 0.50 | Not rejected: inside the interval |\n| 0.5 (square root) | 41.96 | $9 \\times 10^{-11}$ | Rejected |\n| 1 (no transformation) | 172.81 | ≈ 0 | Rejected |"
+      }
+     ],
+     "words": 112,
+     "symbols": [
+      "$\\lambda$",
+      "$T_{BC}(x,\\lambda)$",
+      "$T_{YJ}(x,\\lambda)$",
+      "$\\lambda_0$, $\\hat{\\lambda}$",
+      "$L_0$, $\\hat{L}$",
+      "$T$",
+      "$\\chi^2_1$",
+      "$Y$, $X$, $p$, $q$, $a$, $b$"
+     ]
+    },
+    {
+     "id": "testing-a-rounded-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "So the log is the natural choice. Read the interval and the tests together: a rounded value inside the 95% interval is exactly a value the 5% LR test does not reject."
+      }
+     ],
+     "words": 32,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "yeo-johnson-when-x-can-be-negative",
+   "heading": "Yeo-Johnson — when x can be negative",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "yeo-johnson-when-x-can-be-negative-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "T_{YJ}(x,\\lambda) = \\begin{cases} T_{BC}(x+1,\\;\\lambda), & x \\geq 0 \\\\[4pt] T_{BC}(-x+1,\\;2-\\lambda), & x < 0 \\end{cases}"
+      },
+      {
+       "t": "prose",
+       "md": "Motivating case: S&P 500 returns, where logs are undefined."
+      }
+     ],
+     "words": 10,
+     "symbols": [
+      "$x$ (or $y$)",
+      "$\\lambda$",
+      "$T_{BC}(x,\\lambda)$",
+      "$T_{YJ}(x,\\lambda)$",
+      "$\\lambda_0$, $\\hat{\\lambda}$",
+      "$T$",
+      "$Y$, $X$, $p$, $q$, $a$, $b$",
+      "$t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "restricted-range-variables-on-0-1",
+   "heading": "Restricted-range variables on [0,1]",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "restricted-range-variables-on-0-1-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Proportions pile up at the endpoints, which is a problem for probit and logistic models. Two spreading transformations:"
+      },
+      {
+       "t": "math",
+       "tex": "T_{\\arcsin\\sqrt{\\;}}(x) = \\sin^{-1}\\!\\left(\\sqrt{x}\\right), \\qquad T_{logit}(x) = \\ln\\!\\left(\\frac{x}{1-x}\\right)"
+      },
+      {
+       "t": "prose",
+       "md": "The **arcsine square-root** is the variance-stabilising choice for a proportion: binomial variance $p(1-p)/n$ depends on $p$, and this transformation removes that dependence. The **logit** maps $(0,1)$ onto the whole real line and is the link function behind logistic regression."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Arcsine square-root transform - effect on proportions.png",
+       "alt": "Arcsine square-root transform - effect on proportions"
+      }
+     ],
+     "words": 54,
+     "symbols": [
+      "$x$ (or $y$)",
+      "$T_{BC}(x,\\lambda)$",
+      "$T_{YJ}(x,\\lambda)$",
+      "$T$",
+      "$Y$, $X$, $p$, $q$, $a$, $b$",
+      "$p$, $n$"
+     ]
+    },
+    {
+     "id": "restricted-range-variables-on-0-1-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Applied to evenly spread proportions, the arcsine square-root stretches the ends of $[0, 1]$ and compresses the middle (the lower panels plot each value against its rank)."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Percent women in occupations - logit and arcsine square-root.png",
+       "alt": "Percent women in occupations - logit and arcsine square-root"
+      },
+      {
+       "t": "prose",
+       "md": "On the share of women in the Prestige occupations, which piles up near 0, both transformations pull the cluster away from the boundary. The logit needs a small adjustment first, because some occupations have exactly 0% women and $\\mathrm{logit}(0) = -\\infty$; the lecture shrinks the shares towards 0.5 by 0.025."
+      }
+     ],
+     "words": 74,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "equalising-spread-across-groups",
+   "heading": "Equalising spread across groups",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "equalising-spread-across-groups-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Tukey's **spread-level plot** regresses $\\log(\\text{interquartile spread})$ on $\\log(\\text{median})$ across groups; the suggested power is $1 - \\text{slope}$. In the Ornstein interlocks example the suggestion is $\\lambda = 0.15$, close enough to 0 that a log is used instead."
+      },
+      {
+       "t": "prose",
+       "md": "The lecture's spread-level table (interlocks + 1, so that logs exist):"
+      },
+      {
+       "t": "table",
+       "md": "| Nation | Median | Hinge spread |\n| --- | --- | --- |\n| Canada | 13.0 | 24.0 |\n| Other | 15.5 | 20.0 |\n| UK | 9.0 | 10.0 |\n| US | 6.0 | 11.0 |"
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Spread-level plot - Ornstein interlocks by nation.png",
+       "alt": "Spread-level plot - Ornstein interlocks by nation"
+      }
+     ],
+     "words": 66,
+     "symbols": [
+      "$\\lambda$",
+      "$\\lambda_0$, $\\hat{\\lambda}$"
+     ]
+    },
+    {
+     "id": "equalising-spread-across-groups-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The fitted slope is 0.847, so the suggested power is $1 - 0.847 = 0.153$, close to 0. After $\\log_{10}(1 + \\text{interlocks})$ the four boxes have similar spreads:"
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Ornstein interlocks by nation - after log transform.png",
+       "alt": "Ornstein interlocks by nation - after log transform"
+      }
+     ],
+     "words": 21,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "transformations-toward-linearity",
+   "heading": "Transformations toward linearity",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "transformations-toward-linearity-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Transform both sides: fit $Y^q = \\beta_1 + \\beta_2 X^p + e$. **Mosteller and Tukey's bulging rule** tells you which direction to move on the ladder of powers based on the direction the scatter bulges — up the ladder (squares, cubes) toward the bulge, down the ladder (roots, logs, reciprocals) away from it."
+      },
+      {
+       "t": "prose",
+       "md": "The lecture's worked case, a scatter bulging toward the lower left:"
+      },
+      {
+       "t": "math",
+       "tex": "Y_i^{1/a} = \\beta_1 + \\beta_2 X_i^{\\,b} + e_i, \\qquad a, b > 1"
+      },
+      {
+       "t": "prose",
+       "md": "with larger $a$ or $b$ giving more convexity."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Bulging rule - four simulated curvature patterns.png",
+       "alt": "Bulging rule - four simulated curvature patterns"
+      }
+     ],
+     "words": 61,
+     "symbols": [
+      "$Y$, $X$, $p$, $q$, $a$, $b$",
+      "$\\beta_1$, $\\beta_2$, $e_i$"
+     ]
+    },
+    {
+     "id": "transformations-toward-linearity-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Each panel simulates data from $Y^q = 5 + 2X^p + e$ for one pair of powers, giving the four bulge directions. In the lecture's worked case the data come from $p = 2$, $q = 1$; regressing $Y$ on $X^2$ straightens the relationship:"
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Bulging rule example - fit in untransformed and transformed space.png",
+       "alt": "Bulging rule example - fit in untransformed and transformed space"
+      }
+     ],
+     "words": 29,
+     "symbols": [
+      "$Y$, $X$, $p$, $q$, $a$, $b$",
+      "$\\beta_1$, $\\beta_2$, $e_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Math background: [L'Hôpital's Rule](note:lhopitals-rule) · [Logarithms and Growth Rates](note:logarithms-and-growth-rates) · [Unconstrained Optimization](note:unconstrained-optimization)\n- [Homoskedasticity](note:homoskedasticity) — the main problem these solve\n- [Functional Forms and Elasticities](note:functional-forms-and-elasticities)\n- [Regression Diagnostics](note:regression-diagnostics)"
+      }
+     ],
+     "words": 27,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

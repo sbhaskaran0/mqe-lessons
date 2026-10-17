@@ -1,0 +1,358 @@
+{
+ "slug": "composition-adjustment",
+ "notation": [
+  {
+   "tex": "$y$",
+   "meaning": "Year",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "y"
+   ]
+  },
+  {
+   "tex": "$e$",
+   "meaning": "Detailed education cell (e.g. BA, MA, PhD)",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "e"
+   ]
+  },
+  {
+   "tex": "$\\mathcal{E}_H$, $\\mathcal{E}_L$",
+   "meaning": "Sets of college and non-college education cells",
+   "kind": "Sets",
+   "typical": "—",
+   "keys": [
+    "cal(E)"
+   ]
+  },
+  {
+   "tex": "$s_{ey}$",
+   "meaning": "Weight (population share) of cell $e$ in year $y$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "s"
+   ]
+  },
+  {
+   "tex": "$s_e$",
+   "meaning": "Weight of cell $e$ held fixed over time",
+   "kind": "Chosen fixed weight",
+   "typical": "Base-year or period average",
+   "keys": [
+    "s"
+   ]
+  },
+  {
+   "tex": "$w_{ey}$",
+   "meaning": "Average wage in cell $e$ in year $y$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "w"
+   ]
+  },
+  {
+   "tex": "$\\text{SP}^{NCA}_y$, $\\text{SP}^{CA}_y$",
+   "meaning": "Unadjusted and composition-adjusted skill premium",
+   "kind": "Statistic",
+   "typical": "1.75–2.00 in the example",
+   "keys": [
+    "~\\textSP^NCA_y",
+    "~\\textSP^CA_y"
+   ]
+  },
+  {
+   "tex": "$g$, $\\bar s_g$",
+   "meaning": "Group (cell) and its share held fixed over time",
+   "kind": "Index / chosen fixed weight",
+   "typical": "—",
+   "keys": [
+    "g",
+    "bar(s)"
+   ]
+  },
+  {
+   "tex": "$\\mu_{gy}$, $\\sigma^2_{gy}$",
+   "meaning": "Mean and variance of log wages in cell $g$, year $y$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "mu",
+    "sigma"
+   ]
+  },
+  {
+   "tex": "$\\bar\\mu_y$",
+   "meaning": "Overall mean log wage at the fixed weights",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "bar(mu)"
+   ]
+  },
+  {
+   "tex": "$V^{CA}_y$",
+   "meaning": "Composition-adjusted variance of log wages",
+   "kind": "Statistic",
+   "typical": "0.21 in the example",
+   "keys": [
+    "~V^CA_y"
+   ]
+  },
+  {
+   "tex": "$A_{Ht}$, $A_{Lt}$",
+   "meaning": "Productivity of each type of labor (technology)",
+   "kind": "Unobserved, exogenous",
+   "typical": "—",
+   "keys": [
+    "A"
+   ],
+   "from": "canonical-model-of-the-skill-premium"
+  },
+  {
+   "tex": "$C$, $N$",
+   "meaning": "College and non-college groups (observed)",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "C",
+    "N"
+   ],
+   "from": "within-and-between-group-inequality"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "An average can change even when nobody's pay changes, simply because the mix of people in the group shifts. If more college graduates go on to earn master's degrees, the average college wage rises even though every individual wage stays the same. Composition adjustment removes that effect by averaging with a fixed mix of people over time, so a change in the average reflects a real change in pay rates rather than a change in who is in the group."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "Without it, a rising wage gap might just reflect a changing workforce rather than a changing price of skill.",
+       "folded": false
+      }
+     ],
+     "words": 102,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Holding the mix of sub-groups fixed when averaging, so that a measured change reflects **prices**, not **shifts in who is in the group**."
+      }
+     ],
+     "words": 23,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "the-problem",
+   "heading": "The problem",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-problem-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A group average is a weighted average of sub-group averages ([Law of Iterated Expectations](note:law-of-iterated-expectations)). If the weights change, the average moves even when no sub-group's wage moves."
+      },
+      {
+       "t": "prose",
+       "md": "Take data at the year × detailed-education level, with $e \\in \\mathcal{E}_H$ (college) or $e \\in \\mathcal{E}_L$ (non-college), sample weights $s_{ey}$ and average wages $w_{ey}$."
+      },
+      {
+       "t": "prose",
+       "md": "**Not composition-adjusted** — weights vary by year:"
+      },
+      {
+       "t": "math",
+       "tex": "\\text{SP}^{NCA}_y = \\frac{\\sum_{e\\in\\mathcal{E}_H} \\frac{s_{ey}}{\\sum_{e'\\in\\mathcal{E}_H}s_{e'y}}\\, w_{ey}}{\\sum_{e\\in\\mathcal{E}_L} \\frac{s_{ey}}{\\sum_{e'\\in\\mathcal{E}_L}s_{e'y}}\\, w_{ey}}"
+      },
+      {
+       "t": "prose",
+       "md": "**Composition-adjusted** — weights $s_e$ fixed over time:"
+      },
+      {
+       "t": "math",
+       "tex": "\\text{SP}^{CA}_y = \\frac{\\sum_{e\\in\\mathcal{E}_H} \\frac{s_{e}}{\\sum_{e'\\in\\mathcal{E}_H}s_{e'}}\\, w_{ey}}{\\sum_{e\\in\\mathcal{E}_L} \\frac{s_{e}}{\\sum_{e'\\in\\mathcal{E}_L}s_{e'}}\\, w_{ey}}"
+      },
+      {
+       "t": "prose",
+       "md": "Both are ratios of average wages; only the weights differ."
+      }
+     ],
+     "words": 64,
+     "symbols": [
+      "$e$",
+      "$\\mathcal{E}_H$, $\\mathcal{E}_L$",
+      "$s_{ey}$",
+      "$s_e$",
+      "$w_{ey}$",
+      "$\\text{SP}^{NCA}_y$, $\\text{SP}^{CA}_y$",
+      "$A_{Ht}$, $A_{Lt}$",
+      "$C$, $N$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Year | Edu | College | Weight | Avg wage |\n| --- | --- | --- | --- | --- |\n| 1990 | $e_1$ | 0 | 0.50 | 10 |\n| 1990 | $e_2$ | 1 | 0.25 | 15 |\n| 1990 | $e_3$ | 1 | 0.25 | 20 |\n| 2000 | $e_1$ | 0 | 0.50 | 10 |\n| 2000 | $e_2$ | 1 | 0.00 | 15 |\n| 2000 | $e_3$ | 1 | 0.50 | 20 |"
+      },
+      {
+       "t": "prose",
+       "md": "No wage changes. College workers shift from $e_2$ toward the higher-paid $e_3$ (think: more postgraduate degrees)."
+      },
+      {
+       "t": "table",
+       "md": "| | 1990 | 2000 |\n| --- | --- | --- |\n| Not adjusted | 1.75 | **2.00** |\n| Adjusted (base-year weights 0.25, 0.25) | 1.75 | 1.75 |\n| Adjusted (period-average weights 0.125, 0.375) | 1.875 | 1.875 |"
+      },
+      {
+       "t": "prose",
+       "md": "The unadjusted premium \"rises\" purely from composition. The adjusted one correctly shows no change in prices. The *level* depends on which fixed weights you pick; the *change* does not."
+      }
+     ],
+     "words": 117,
+     "symbols": [
+      "$e$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "when-to-adjust",
+   "heading": "When to adjust",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "when-to-adjust-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "When you want the **price** of skill — what the same worker would earn — rather than the average earnings of whoever happens to be in the group. That is what the [Skill Premium](note:skill-premium) in the [Canonical Model of the Skill Premium](note:canonical-model-of-the-skill-premium) needs. In practice, cells are defined by education × experience × gender etc."
+      }
+     ],
+     "words": 51,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "the-quantity-side",
+   "heading": "The quantity side",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-quantity-side-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The composition change does not vanish — it shows up as more college labour **supply** in efficiency units. See [Efficiency Units of Labor](note:efficiency-units-of-labor)."
+      }
+     ],
+     "words": 22,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "adjusting-a-dispersion-measure",
+   "heading": "Adjusting a dispersion measure",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "adjusting-a-dispersion-measure-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The same idea applies to inequality. Total variance of log wages is a share-weighted sum of within-cell variances and squared gaps between cell means ([Within- and Between-Group Inequality](note:within-and-between-group-inequality)). If the workforce shifts toward cells with higher variance or more extreme means, total variance rises even when no cell's wages change. Fixing the shares removes that:"
+      },
+      {
+       "t": "math",
+       "tex": "V^{CA}_y = \\sum_g \\bar s_g\\Big[\\sigma^2_{gy} + \\big(\\mu_{gy} - \\bar\\mu_y\\big)^2\\Big], \\qquad \\bar\\mu_y = \\sum_g \\bar s_g\\,\\mu_{gy}"
+      },
+      {
+       "t": "prose",
+       "md": "**Worked example** — two cells, no change in any cell's wages: non-college (mean log wage 2.5, variance 0.15) and college (mean 3.0, variance 0.25). The college share rises from 0.2 to 0.4."
+      }
+     ],
+     "words": 92,
+     "symbols": [
+      "$g$, $\\bar s_g$",
+      "$\\mu_{gy}$, $\\sigma^2_{gy}$",
+      "$\\bar\\mu_y$",
+      "$V^{CA}_y$",
+      "$A_{Ht}$, $A_{Lt}$",
+      "$C$, $N$"
+     ]
+    },
+    {
+     "id": "adjusting-a-dispersion-measure-2",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| | Year 1 | Year 2 |\n| --- | --- | --- |\n| Within part | 0.170 | 0.190 |\n| Between part | 0.040 | 0.060 |\n| Total variance | 0.210 | **0.250** |\n| Composition-adjusted (year-1 shares) | 0.210 | 0.210 |"
+      },
+      {
+       "t": "prose",
+       "md": "The whole rise of 0.04 is composition: more workers in the group with more dispersed wages, and a more even split between groups with different means."
+      }
+     ],
+     "words": 59,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Log Wage Gap](note:log-wage-gap)\n- [Shift-Share Decomposition](note:shift-share-decomposition) — a related accounting exercise"
+      }
+     ],
+     "words": 11,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

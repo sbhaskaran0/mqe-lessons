@@ -1,0 +1,1068 @@
+{
+ "slug": "econ-430-l7-the-classical-linear-regression-model",
+ "notation": [
+  {
+   "tex": "$h(x)$, $g(x)$, $E[y\\mid x]$",
+   "meaning": "Conditional mean: true average $y$ at each $x$",
+   "kind": "Population function",
+   "typical": "Any shape",
+   "keys": [
+    "h",
+    "g",
+    "~E[y\\midx]"
+   ],
+   "from": "conditional-mean-vs-linear-projection"
+  },
+  {
+   "tex": "$\\alpha$, $\\beta$",
+   "meaning": "Intercept and slope of the best linear predictor",
+   "kind": "Population parameters",
+   "typical": "$\\beta = \\mathrm{Cov}(x,y)/\\mathrm{Var}(x)$",
+   "keys": [
+    "alpha",
+    "beta"
+   ],
+   "from": "conditional-mean-vs-linear-projection"
+  },
+  {
+   "tex": "$\\varepsilon$",
+   "meaning": "Projection error: $y - \\alpha - \\beta x$",
+   "kind": "Random variable",
+   "typical": "Uncorrelated with $x$ by construction",
+   "keys": [
+    "varepsilon"
+   ],
+   "from": "conditional-mean-vs-linear-projection"
+  },
+  {
+   "tex": "$v$",
+   "meaning": "Error relative to the conditional mean: $y - h(x)$",
+   "kind": "Random variable",
+   "typical": "Mean zero given $x$",
+   "keys": [
+    "v"
+   ],
+   "from": "conditional-mean-vs-linear-projection"
+  },
+  {
+   "tex": "$\\mathbf{x}^0$, $g_k$",
+   "meaning": "Expansion point and partial derivatives in the Taylor approximation",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(x)",
+    "g"
+   ],
+   "from": "conditional-mean-vs-linear-projection"
+  },
+  {
+   "tex": "$K$",
+   "meaning": "Number of regressors",
+   "kind": "Count",
+   "typical": "—",
+   "keys": [
+    "K"
+   ],
+   "from": "conditional-mean-vs-linear-projection"
+  },
+  {
+   "tex": "$\\mathbf{y}$",
+   "meaning": "Column of $N$ outcomes",
+   "kind": "Data ($N\\times1$)",
+   "typical": "—",
+   "keys": [
+    "bold(y)"
+   ],
+   "from": "ols-in-matrix-form"
+  },
+  {
+   "tex": "$\\mathbf{X}$",
+   "meaning": "Table of regressors, one column per variable, including a column of ones",
+   "kind": "Data ($N\\times K$)",
+   "typical": "—",
+   "keys": [
+    "bold(X)"
+   ],
+   "from": "ols-in-matrix-form"
+  },
+  {
+   "tex": "$\\boldsymbol{\\beta}$",
+   "meaning": "True coefficients",
+   "kind": "Unknown parameters ($K\\times1$)",
+   "typical": "—",
+   "keys": [
+    "bold(beta)"
+   ],
+   "from": "ols-in-matrix-form"
+  },
+  {
+   "tex": "$\\mathbf{b}$",
+   "meaning": "OLS estimates, $(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{y}$",
+   "kind": "Estimator ($K\\times1$)",
+   "typical": "—",
+   "keys": [
+    "bold(b)"
+   ],
+   "from": "ols-in-matrix-form"
+  },
+  {
+   "tex": "$\\boldsymbol{\\varepsilon}$",
+   "meaning": "True errors (disturbances)",
+   "kind": "Unobserved ($N\\times1$)",
+   "typical": "—",
+   "keys": [
+    "bold(varepsilon)"
+   ],
+   "from": "ols-in-matrix-form"
+  },
+  {
+   "tex": "$\\mathbf{e}$",
+   "meaning": "Residuals, $\\mathbf{y} - \\mathbf{X}\\mathbf{b}$",
+   "kind": "Computed ($N\\times1$)",
+   "typical": "Orthogonal to $\\mathbf{X}$",
+   "keys": [
+    "bold(e)"
+   ],
+   "from": "ols-in-matrix-form"
+  },
+  {
+   "tex": "$N$, $K$",
+   "meaning": "Number of observations and of regressors",
+   "kind": "Counts",
+   "typical": "$N \\geq K$",
+   "keys": [
+    "N",
+    "K"
+   ],
+   "from": "ols-in-matrix-form"
+  },
+  {
+   "tex": "$\\sigma^2$",
+   "meaning": "Error variance",
+   "kind": "Unknown parameter",
+   "typical": "—",
+   "keys": [
+    "sigma"
+   ],
+   "from": "ols-in-matrix-form"
+  },
+  {
+   "tex": "$f_k(\\cdot)$",
+   "meaning": "Any function of the data used as a regressor (log, square, dummy)",
+   "kind": "Transformation",
+   "typical": "—",
+   "keys": [
+    "f"
+   ],
+   "from": "ols-in-matrix-form"
+  },
+  {
+   "tex": "$NI$, $S$, $T$",
+   "meaning": "Non-labor income, labor income and total income ($T = NI + S$) in the example",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "~NI",
+    "S",
+    "T"
+   ],
+   "from": "full-rank-and-identification"
+  },
+  {
+   "tex": "$a$",
+   "meaning": "Any amount shifted between coefficients in the example",
+   "kind": "Number",
+   "typical": "—",
+   "keys": [
+    "a"
+   ],
+   "from": "full-rank-and-identification"
+  },
+  {
+   "tex": "$\\boldsymbol{\\varepsilon}$, $y$",
+   "meaning": "Error and outcome",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(varepsilon)",
+    "y"
+   ],
+   "from": "full-rank-and-identification"
+  },
+  {
+   "tex": "$e_i$",
+   "meaning": "Error for observation $i$",
+   "kind": "Unobserved",
+   "typical": "—",
+   "keys": [
+    "e"
+   ],
+   "from": "strict-exogeneity"
+  },
+  {
+   "tex": "$x_i$, $\\mathbf{x}_i$",
+   "meaning": "Regressor(s) for observation $i$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "x",
+    "bold(x)"
+   ],
+   "from": "strict-exogeneity"
+  },
+  {
+   "tex": "$\\widehat{\\sigma}^2$",
+   "meaning": "Estimate of $\\sigma^2$ from the residuals",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "hat(sigma)"
+   ],
+   "from": "homoskedasticity"
+  },
+  {
+   "tex": "$\\mathbf{I}$",
+   "meaning": "Identity matrix",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(I)"
+   ],
+   "from": "homoskedasticity"
+  },
+  {
+   "tex": "$\\bar{y}$, $\\bar{y}_g$",
+   "meaning": "Overall mean and mean in group $g$",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "bar(y)"
+   ],
+   "from": "law-of-iterated-expectations"
+  },
+  {
+   "tex": "$\\mathbf{y}$, $\\hat{\\mathbf{y}}$",
+   "meaning": "Outcome and fitted values",
+   "kind": "Data / computed",
+   "typical": "—",
+   "keys": [
+    "bold(y)",
+    "hat(bold(y))"
+   ],
+   "from": "projection-matrix-and-residual-maker"
+  },
+  {
+   "tex": "$\\mathbf{P} = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$",
+   "meaning": "Projection (hat) matrix: turns $\\mathbf{y}$ into fitted values",
+   "kind": "Matrix ($n\\times n$)",
+   "typical": "Trace $K$",
+   "keys": [
+    "bold(P)"
+   ],
+   "from": "projection-matrix-and-residual-maker"
+  },
+  {
+   "tex": "$\\mathbf{M} = \\mathbf{I} - \\mathbf{P}$",
+   "meaning": "Residual maker: turns $\\mathbf{y}$ into residuals",
+   "kind": "Matrix ($n\\times n$)",
+   "typical": "Trace $n - K$",
+   "keys": [
+    "bold(M)"
+   ],
+   "from": "projection-matrix-and-residual-maker"
+  },
+  {
+   "tex": "$n$, $K$",
+   "meaning": "Observations and regressors",
+   "kind": "Counts",
+   "typical": "—",
+   "keys": [
+    "n",
+    "K"
+   ],
+   "from": "projection-matrix-and-residual-maker"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**The appendix restates simple regression in the language of matrices and conditional expectations. Every bivariate distribution has a best linear predictor, $\\alpha + \\beta x$ with $\\beta = \\mathrm{Cov}(x, y)/\\mathrm{Var}(x)$, whether or not the conditional mean is linear. The classical model assumes it is, $E[\\mathbf{y} \\mid \\mathbf{X}] = \\mathbf{X}\\boldsymbol{\\beta}$, and least squares then solves the normal equations $\\mathbf{X}'\\mathbf{X}\\mathbf{b} = \\mathbf{X}'\\mathbf{y}$. The fitted values are the projection of $\\mathbf{y}$ onto the columns of $\\mathbf{X}$, and the residual maker satisfies $\\mathbf{M}\\mathbf{X} = \\mathbf{0}$, the result the notes call fundamental.**"
+      },
+      {
+       "t": "callout",
+       "kind": "info",
+       "title": "Source",
+       "md": "The appendix of `Regression_Lecture1_Adv.ipynb` (see [Econ 430 L1 Univariate Characterizations](note:econ-430-l1-univariate-characterizations) for how the notebook maps to lectures). The scalar versions of these results are in [Econ 430 L3 The Method of Least Squares](note:econ-430-l3-the-method-of-least-squares).",
+       "folded": false
+      }
+     ],
+     "words": 103,
+     "symbols": [
+      "$\\alpha$, $\\beta$",
+      "$\\mathbf{y}$",
+      "$\\mathbf{X}$",
+      "$\\boldsymbol{\\beta}$",
+      "$\\mathbf{b}$",
+      "$\\boldsymbol{\\varepsilon}$, $y$",
+      "$x_i$, $\\mathbf{x}_i$",
+      "$\\mathbf{M} = \\mathbf{I} - \\mathbf{P}$"
+     ]
+    },
+    {
+     "id": "intro-2",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "warning",
+       "title": "Notation",
+       "md": "The appendix writes the disturbances as $\\boldsymbol{\\varepsilon}$ and the residuals as $\\mathbf{e}$, and numbers the coefficients $\\beta_1, \\ldots, \\beta_K$ with $\\beta_1$ on the constant; its bivariate section writes $y = \\alpha + \\beta x + \\varepsilon$.",
+       "folded": false
+      }
+     ],
+     "words": 23,
+     "symbols": [
+      "$\\alpha$, $\\beta$",
+      "$\\varepsilon$",
+      "$\\boldsymbol{\\varepsilon}$",
+      "$\\mathbf{e}$",
+      "$\\boldsymbol{\\varepsilon}$, $y$",
+      "$x_i$, $\\mathbf{x}_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1-conditional-mean-and-linear-projection",
+   "heading": "1. Conditional mean and linear projection",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-conditional-mean-and-linear-projection-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The conditional mean function $h(x) = E[y \\mid x]$ is the function that minimizes $E[(y - h(x))^2]$: the best predictor of $y$, of any shape ([Conditional Mean vs Linear Projection](note:conditional-mean-vs-linear-projection)). Separately, any pair $(x, y)$ can be written $y = \\alpha + \\beta x + \\varepsilon$ with $\\mathrm{Cov}(x, \\varepsilon) = 0$, by setting $\\beta = \\mathrm{Cov}(x, y)/\\mathrm{Var}(x)$ and $\\alpha = E[y] - \\beta E[x]$. That is the linear projection, the best *linear* predictor. The two coincide only when $E[y \\mid x]$ is linear. Regressing $y$ on $x$ estimates the projection; we use it because it is simple to estimate and interpret, at the cost of missing nonlinear structure."
+      }
+     ],
+     "words": 70,
+     "symbols": [
+      "$h(x)$, $g(x)$, $E[y\\mid x]$",
+      "$\\alpha$, $\\beta$",
+      "$\\varepsilon$",
+      "$\\boldsymbol{\\varepsilon}$, $y$",
+      "$x_i$, $\\mathbf{x}_i$"
+     ]
+    },
+    {
+     "id": "1-conditional-mean-and-linear-projection-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Let $x$ be uniform on $[-1, 1]$ and $y = x^2 + v$ with $E[v \\mid x] = 0$. What is the linear projection of $y$ on $x$?",
+       "options": [
+        {
+         "md": "A flat line at $E[y] = 1/3$: $\\mathrm{Cov}(x, x^2) = E[x^3] = 0$ by symmetry, so $\\beta = 0$",
+         "correct": true
+        },
+        {
+         "md": "$\\alpha + \\beta x$ with $\\beta = 2x$, the derivative of $x^2$",
+         "correct": false,
+         "feedback": "The projection's $\\beta$ is a single number, $\\mathrm{Cov}(x, y)/\\mathrm{Var}(x)$, not a function of $x$. The derivative describes the conditional mean, which is not linear here."
+        },
+        {
+         "md": "It does not exist, because $E[y \\mid x] = x^2$ is not linear",
+         "correct": false,
+         "feedback": "The projection exists for every distribution with finite variances; it simply differs from the conditional mean when that is nonlinear."
+        },
+        {
+         "md": "The line $y = x$, which touches the parabola at $x = 0$ and $x = 1$",
+         "correct": false,
+         "feedback": "That line crosses the parabola at two points but is not the best linear predictor: by symmetry the projection cannot tilt either way."
+        }
+       ],
+       "why": "$\\beta = \\mathrm{Cov}(x, y)/\\mathrm{Var}(x) = \\mathrm{Cov}(x, x^2)/\\mathrm{Var}(x)$. Because $x$ is symmetric about 0, $E[x] = 0$ and $E[x^3] = 0$, so $\\mathrm{Cov}(x, x^2) = 0$ and $\\beta = 0$; then $\\alpha = E[y] = E[x^2] = 1/3$. The projection is flat even though $y$ depends strongly on $x$, the clearest case of the projection and the conditional mean parting ways.",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 40,
+     "symbols": [
+      "$h(x)$, $g(x)$, $E[y\\mid x]$",
+      "$\\alpha$, $\\beta$",
+      "$v$",
+      "$\\boldsymbol{\\varepsilon}$, $y$",
+      "$x_i$, $\\mathbf{x}_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "2-the-classical-linear-regression-model",
+   "heading": "2. The classical linear regression model",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-the-classical-linear-regression-model-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The model is $\\mathbf{y} = \\mathbf{X}\\boldsymbol{\\beta} + \\boldsymbol{\\varepsilon}$ with $N$ observations and $K$ columns in $\\mathbf{X}$, usually including a constant ([OLS in Matrix Form](note:ols-in-matrix-form)). Its assumptions: the conditional mean is linear in the parameters; $\\mathbf{X}$ has full column rank, so no two parameter vectors give the same $E[\\mathbf{y} \\mid \\mathbf{X}]$ ([Full Rank and Identification](note:full-rank-and-identification)); $E[\\boldsymbol{\\varepsilon} \\mid \\mathbf{X}] = \\mathbf{0}$, which is stronger than $E[\\varepsilon_i \\mid \\mathbf{x}_i] = 0$ and implies $\\mathrm{Cov}[\\mathbf{X}, \\boldsymbol{\\varepsilon}] = \\mathbf{0}$ ([Strict Exogeneity](note:strict-exogeneity), via the [Law of Iterated Expectations](note:law-of-iterated-expectations)); $\\mathrm{Var}[\\boldsymbol{\\varepsilon} \\mid \\mathbf{X}] = \\sigma^2\\mathbf{I}$, which by the [Law of Total Variance](note:law-of-total-variance) gives $\\mathrm{Var}[\\boldsymbol{\\varepsilon}] = \\sigma^2\\mathbf{I}$ too ([Homoskedasticity](note:homoskedasticity)); and, of limited use, normal disturbances."
+      }
+     ],
+     "words": 72,
+     "symbols": [
+      "$\\varepsilon$",
+      "$\\mathbf{x}^0$, $g_k$",
+      "$K$",
+      "$\\mathbf{y}$",
+      "$\\mathbf{X}$",
+      "$\\boldsymbol{\\beta}$",
+      "$\\boldsymbol{\\varepsilon}$",
+      "$N$, $K$",
+      "$\\sigma^2$",
+      "$\\mathbf{I}$"
+     ]
+    },
+    {
+     "id": "2-the-classical-linear-regression-model-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "The classical model assumes $E[\\boldsymbol{\\varepsilon} \\mid \\mathbf{X}] = \\mathbf{0}$, where $\\mathbf{X}$ holds the regressors of every observation. What does this say that $E[\\varepsilon_i \\mid \\mathbf{x}_i] = 0$ alone does not?",
+       "options": [
+        {
+         "md": "That the disturbances have constant variance",
+         "correct": false,
+         "feedback": "Neither statement is about variances; constant variance is the separate assumption $\\mathrm{Var}[\\boldsymbol{\\varepsilon} \\mid \\mathbf{X}] = \\sigma^2\\mathbf{I}$."
+        },
+        {
+         "md": "That $\\varepsilon_i$ is uncorrelated with $\\mathbf{x}_i$",
+         "correct": false,
+         "feedback": "Both statements imply this: $E[\\varepsilon_i \\mid \\mathbf{x}_i] = 0$ already gives $\\mathrm{Cov}(\\mathbf{x}_i, \\varepsilon_i) = \\mathbf{0}$."
+        },
+        {
+         "md": "That no observation's regressors, $\\mathbf{x}_j$ for any $j$, carry information about the mean of $\\varepsilon_i$",
+         "correct": true
+        },
+        {
+         "md": "That the disturbances are normally distributed",
+         "correct": false,
+         "feedback": "Normality is a separate, optional assumption; a zero conditional mean says nothing about the shape of the distribution."
+        }
+       ],
+       "why": "$E[\\varepsilon_i \\mid \\mathbf{x}_i] = 0$ conditions only on observation $i$'s own regressors. $E[\\boldsymbol{\\varepsilon} \\mid \\mathbf{X}] = \\mathbf{0}$ conditions on all of them, so it also rules out, for example, a disturbance that is predictable from another period's regressors in time-series data. With a random sample the two coincide, because observation $j$ is independent of observation $i$.",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 47,
+     "symbols": [
+      "$\\varepsilon$",
+      "$\\mathbf{x}^0$, $g_k$",
+      "$\\mathbf{X}$",
+      "$\\boldsymbol{\\varepsilon}$",
+      "$\\sigma^2$",
+      "$\\mathbf{I}$"
+     ]
+    },
+    {
+     "id": "2-the-classical-linear-regression-model-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Linear means linear in the parameters, not in the variables.** $E[y \\mid \\mathbf{x}] = \\beta_1f_1(\\cdot) + \\ldots + \\beta_Kf_K(\\cdot)$ is linear for any functions $f_k$ of the data: logs, quadratics, time trends, dummies, interactions, even the translog."
+      }
+     ],
+     "words": 27,
+     "symbols": [
+      "$\\alpha$, $\\beta$",
+      "$\\mathbf{x}^0$, $g_k$",
+      "$f_k(\\cdot)$",
+      "$\\boldsymbol{\\varepsilon}$, $y$"
+     ]
+    },
+    {
+     "id": "2-the-classical-linear-regression-model-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Which of these conditional mean functions is **not** linear in its parameters?",
+       "options": [
+        {
+         "md": "$E[y \\mid x] = \\alpha + \\beta_1x + \\beta_2x^2$",
+         "correct": false,
+         "feedback": "Each parameter multiplies a function of the data ($1$, $x$, $x^2$), so the model is linear in $\\alpha$, $\\beta_1$ and $\\beta_2$ even though it is curved in $x$."
+        },
+        {
+         "md": "$E[\\ln y \\mid \\mathbf{x}] = \\alpha + \\sum_k \\beta_k\\ln x_k$",
+         "correct": false,
+         "feedback": "The loglinear model is linear in the $\\beta_k$: each multiplies $\\ln x_k$, a function of the data."
+        },
+        {
+         "md": "$E[y \\mid x, D] = \\beta_1 + \\beta_2D + \\beta_3Dx$, with $D$ an indicator",
+         "correct": false,
+         "feedback": "$D$ and $Dx$ are functions of the data, so each $\\beta$ enters linearly."
+        },
+        {
+         "md": "$E[y \\mid x] = \\beta_1 + \\beta_2x^{\\beta_3}$",
+         "correct": true
+        }
+       ],
+       "why": "A model is linear in the parameters when it can be written $\\sum_k \\beta_kf_k(\\text{data})$. In $\\beta_1 + \\beta_2x^{\\beta_3}$ the parameter $\\beta_3$ sits in an exponent, and $\\beta_2$ multiplies a term that depends on another parameter, so no choice of data functions makes it linear; OLS cannot estimate it directly.",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 15,
+     "symbols": [
+      "$h(x)$, $g(x)$, $E[y\\mid x]$",
+      "$\\alpha$, $\\beta$",
+      "$\\mathbf{x}^0$, $g_k$",
+      "$f_k(\\cdot)$",
+      "$\\boldsymbol{\\varepsilon}$, $y$",
+      "$x_i$, $\\mathbf{x}_i$"
+     ]
+    },
+    {
+     "id": "2-the-classical-linear-regression-model-5",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The full-rank assumption fails when a regressor is an exact linear combination of others, as in the notes' example with non-labour income, labour income and total income, $T = NI + S$: shifting any amount $a$ between the three coefficients leaves the fit unchanged. Nonlinear dependence, such as $x$ and $x^2$ together, is no problem."
+      }
+     ],
+     "words": 47,
+     "symbols": [
+      "$N$, $K$",
+      "$NI$, $S$, $T$",
+      "$a$",
+      "$x_i$, $\\mathbf{x}_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "3-least-squares-in-matrix-form",
+   "heading": "3. Least squares in matrix form",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "3-least-squares-in-matrix-form-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Least squares minimizes $\\mathbf{e}'\\mathbf{e} = (\\mathbf{y} - \\mathbf{X}\\mathbf{b})'(\\mathbf{y} - \\mathbf{X}\\mathbf{b})$. Setting the derivative to zero ([Matrix Calculus](note:matrix-calculus)) gives the normal equations and, if $\\mathbf{X}'\\mathbf{X}$ is invertible, the solution:"
+      },
+      {
+       "t": "math",
+       "tex": "-2\\mathbf{X}'(\\mathbf{y} - \\mathbf{X}\\mathbf{b}) = \\mathbf{0} \\;\\Rightarrow\\; \\mathbf{X}'\\mathbf{X}\\mathbf{b} = \\mathbf{X}'\\mathbf{y} \\;\\Rightarrow\\; \\mathbf{b} = (\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{y}"
+      },
+      {
+       "t": "prose",
+       "md": "The notes point out the analogy with the projection: $\\mathbf{b} = (\\frac{1}{N}\\mathbf{X}'\\mathbf{X})^{-1}(\\frac{1}{N}\\mathbf{X}'\\mathbf{y})$ is the sample version of $\\mathrm{Var}(\\mathbf{x})^{-1}\\mathrm{Cov}(\\mathbf{x}, y)$. The same matrix gives the variance, $\\mathrm{Var}(\\mathbf{b} \\mid \\mathbf{X}) = \\sigma^2(\\mathbf{X}'\\mathbf{X})^{-1}$."
+      }
+     ],
+     "words": 40,
+     "symbols": [
+      "$\\mathbf{x}^0$, $g_k$",
+      "$\\mathbf{y}$",
+      "$\\mathbf{X}$",
+      "$\\mathbf{b}$",
+      "$\\mathbf{e}$",
+      "$N$, $K$",
+      "$\\sigma^2$",
+      "$\\boldsymbol{\\varepsilon}$, $y$"
+     ]
+    },
+    {
+     "id": "3-least-squares-in-matrix-form-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "Math Prep L1 gives $\\mathrm{Var}(\\mathbf{b}) = \\sigma^2(\\mathbf{X}'\\mathbf{X})^{-1}$. Take $N = 4$ observations with $x = (1, 2, 3, 6)$ and $\\mathbf{X} = [\\mathbf{1},\\ x]$. What is the slope's diagonal entry of $(\\mathbf{X}'\\mathbf{X})^{-1}$, that is $\\mathrm{Var}(b_2 \\mid x)/\\sigma^2$? Give four decimal places.",
+       "answer": 0.0714,
+       "tol": 0.0005,
+       "wrong": [
+        {
+         "answer": 0.8929,
+         "tol": 0.0005,
+         "md": "that is the top-left entry, $50/56$, which belongs to the intercept $b_1$; the slope's entry is the bottom-right one"
+        },
+        {
+         "answer": 0.02,
+         "tol": 0.0005,
+         "md": "that inverts the entry $\\sum x_i^2 = 50$ on its own; a matrix is not inverted entry by entry, and the off-diagonal $\\sum x_i = 12$ matters"
+        },
+        {
+         "answer": 0.0179,
+         "tol": 0.0005,
+         "md": "that is $1/\\det(\\mathbf{X}'\\mathbf{X}) = 1/56$; the $2\\times2$ inverse swaps the diagonal, so the slope's entry is $N/\\det = 4/56$"
+        }
+       ],
+       "why": "$\\mathbf{X}'\\mathbf{X} = \\begin{pmatrix} N & \\sum x_i \\\\ \\sum x_i & \\sum x_i^2 \\end{pmatrix} = \\begin{pmatrix} 4 & 12 \\\\ 12 & 50 \\end{pmatrix}$, with determinant $200 - 144 = 56$. Math Prep L1's $2\\times2$ inverse puts $N = 4$ in the bottom-right, so the entry is $4/56 = 0.0714$. That matches this lecture's $\\mathrm{Var}(b_2 \\mid x) = \\sigma^2/\\sum(x_i - \\bar{x})^2$: here $\\sum(x_i - \\bar{x})^2 = 4 + 1 + 0 + 9 = 14$, and $1/14 = 0.0714$, because the determinant is $N\\sum(x_i - \\bar{x})^2$.",
+       "objectives": [
+        4
+       ]
+      }
+     ],
+     "words": 21,
+     "symbols": [
+      "$\\mathbf{X}$",
+      "$\\mathbf{b}$",
+      "$N$, $K$",
+      "$\\sigma^2$",
+      "$x_i$, $\\mathbf{x}_i$"
+     ]
+    },
+    {
+     "id": "3-least-squares-in-matrix-form-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "When $\\mathbf{X}$ contains a constant, the first normal equation is $\\sum e_i = 0$, which has three consequences: the residuals sum to zero, the regression passes through the point of means, and the fitted values average $\\bar{y}$. In the population $E[\\mathbf{X}'\\boldsymbol{\\varepsilon}] = \\mathbf{0}$; in the sample $\\frac{1}{N}\\sum\\mathbf{x}_ie_i = \\mathbf{0}$."
+      }
+     ],
+     "words": 37,
+     "symbols": [
+      "$\\mathbf{x}^0$, $g_k$",
+      "$\\mathbf{X}$",
+      "$\\boldsymbol{\\varepsilon}$",
+      "$N$, $K$",
+      "$e_i$",
+      "$\\bar{y}$, $\\bar{y}_g$"
+     ]
+    },
+    {
+     "id": "3-least-squares-in-matrix-form-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Which of these results needs $\\mathbf{X}$ to contain a column of ones?",
+       "options": [
+        {
+         "md": "$\\mathbf{X}'\\mathbf{e} = \\mathbf{0}$: the residuals are orthogonal to every regressor",
+         "correct": false,
+         "feedback": "That is the normal equations themselves, $\\mathbf{X}'(\\mathbf{y} - \\mathbf{X}\\mathbf{b}) = \\mathbf{0}$, which hold for any $\\mathbf{X}$ of full rank."
+        },
+        {
+         "md": "$\\sum e_i = 0$: the residuals sum to zero, so the fitted line passes through the means",
+         "correct": true
+        },
+        {
+         "md": "$\\mathbf{M}\\mathbf{X} = \\mathbf{0}$",
+         "correct": false,
+         "feedback": "$\\mathbf{M}\\mathbf{X} = \\mathbf{X} - \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{X} = \\mathbf{0}$ uses only the invertibility of $\\mathbf{X}'\\mathbf{X}$."
+        }
+       ],
+       "why": "$\\mathbf{X}'\\mathbf{e} = \\mathbf{0}$ says each column of $\\mathbf{X}$ is orthogonal to $\\mathbf{e}$. If one column is $\\mathbf{1}$, its row of that equation reads $\\mathbf{1}'\\mathbf{e} = \\sum e_i = 0$. Without a constant no column forces that, so the residuals can have a nonzero mean, and $R^2$ need not lie between 0 and 1.",
+       "objectives": [
+        6
+       ]
+      }
+     ],
+     "words": 31,
+     "symbols": [
+      "$\\mathbf{y}$",
+      "$\\mathbf{X}$",
+      "$\\mathbf{b}$",
+      "$\\mathbf{e}$",
+      "$e_i$",
+      "$\\mathbf{M} = \\mathbf{I} - \\mathbf{P}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "4-projection-and-the-residual-maker",
+   "heading": "4. Projection and the residual maker",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "4-projection-and-the-residual-maker-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The data split into the fitted values and the residuals, $\\mathbf{y} = \\mathbf{X}\\mathbf{b} + \\mathbf{e}$: a projection plus a residual, just as the population splits into the conditional mean plus a disturbance ([Projection Matrix and Residual Maker](note:projection-matrix-and-residual-maker)). The residual maker $\\mathbf{M} = \\mathbf{I} - \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$ turns $\\mathbf{y}$ into the residuals, $\\mathbf{e} = \\mathbf{M}\\mathbf{y}$, and the projection matrix $\\mathbf{P} = \\mathbf{I} - \\mathbf{M}$ turns it into the fitted values, $\\hat{\\mathbf{y}} = \\mathbf{P}\\mathbf{y}$, the projection of $\\mathbf{y}$ onto the column space of $\\mathbf{X}$. Both are symmetric and idempotent, $\\mathbf{P}\\mathbf{M} = \\mathbf{0}$, and $\\mathbf{M}$ is singular."
+      }
+     ],
+     "words": 65,
+     "symbols": [
+      "$\\mathbf{y}$",
+      "$\\mathbf{X}$",
+      "$\\mathbf{b}$",
+      "$\\mathbf{e}$",
+      "$\\mathbf{I}$",
+      "$\\mathbf{y}$, $\\hat{\\mathbf{y}}$",
+      "$\\mathbf{P} = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$",
+      "$\\mathbf{M} = \\mathbf{I} - \\mathbf{P}$"
+     ]
+    },
+    {
+     "id": "4-projection-and-the-residual-maker-2",
+     "blocks": [
+      {
+       "t": "derive",
+       "title": "Show that the residual maker annihilates $\\mathbf{X}$",
+       "objectives": [
+        5
+       ],
+       "symbols": [],
+       "inherited": [
+        {
+         "tex": "$\\mathbf{X}$",
+         "typical": "—",
+         "from": "projection-matrix-and-residual-maker"
+        },
+        {
+         "tex": "$\\mathbf{P} = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$",
+         "typical": "Trace $K$",
+         "from": "projection-matrix-and-residual-maker"
+        },
+        {
+         "tex": "$\\mathbf{M} = \\mathbf{I} - \\mathbf{P}$",
+         "typical": "Trace $n - K$",
+         "from": "projection-matrix-and-residual-maker"
+        }
+       ],
+       "unknowns": [],
+       "dims": [
+        "$n > K$"
+       ],
+       "data": [],
+       "matrices": [
+        "$\\mathbf{X}$ is $n \\times K$"
+       ],
+       "define": [
+        "\\mathbf{P} = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'",
+        "\\mathbf{M} = \\mathbf{I}_n - \\mathbf{P}"
+       ],
+       "given": [],
+       "steps": [
+        {
+         "md": "Multiply out: $\\mathbf{M}\\mathbf{X} = \\mathbf{X} - \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{X}$",
+         "tex": "\\mathbf{M}\\mathbf{X} = \\mathbf{X} - \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{X}"
+        },
+        {
+         "md": "$(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{X} = \\mathbf{I}_K$, so $\\mathbf{M}\\mathbf{X} = \\mathbf{0}$",
+         "tex": "\\mathbf{M}\\mathbf{X} = \\mathbf{0}"
+        }
+       ],
+       "accept": [
+        "\\mathbf{P}\\mathbf{X} = \\mathbf{X}"
+       ],
+       "reject": [
+        {
+         "tex": "\\mathbf{M}\\mathbf{X} = \\mathbf{X}",
+         "md": "that keeps only $\\mathbf{I}\\mathbf{X}$; the projection part, $\\mathbf{P}\\mathbf{X} = \\mathbf{X}$, removes all of it"
+        },
+        {
+         "tex": "\\mathbf{M} = \\mathbf{I} - \\mathbf{X}'(\\mathbf{X}\\mathbf{X}')^{-1}\\mathbf{X}",
+         "md": "the transposes are swapped: $\\mathbf{X}\\mathbf{X}'$ is $n \\times n$ with rank $K$, so it has no inverse"
+        },
+        {
+         "tex": "\\mathbf{M} = \\mathbf{0}",
+         "md": "$\\mathbf{M}\\mathbf{X} = \\mathbf{0}$ doesn't make $\\mathbf{M}$ zero: it keeps everything orthogonal to the columns of $\\mathbf{X}$"
+        }
+       ]
+      }
+     ],
+     "words": 9,
+     "symbols": [
+      "$K$",
+      "$\\mathbf{X}$",
+      "$\\mathbf{I}$",
+      "$\\mathbf{P} = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$",
+      "$\\mathbf{M} = \\mathbf{I} - \\mathbf{P}$",
+      "$n$, $K$"
+     ]
+    },
+    {
+     "id": "4-projection-and-the-residual-maker-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Because $\\mathbf{M}\\mathbf{X} = \\mathbf{0}$, $\\mathbf{M}\\mathbf{y} = \\mathbf{M}(\\mathbf{X}\\boldsymbol{\\beta} + \\boldsymbol{\\varepsilon}) = \\mathbf{M}\\boldsymbol{\\varepsilon}$: the residuals depend only on the disturbances."
+      }
+     ],
+     "words": 8,
+     "symbols": [
+      "$\\mathbf{y}$",
+      "$\\mathbf{X}$",
+      "$\\boldsymbol{\\beta}$",
+      "$\\boldsymbol{\\varepsilon}$",
+      "$\\mathbf{M} = \\mathbf{I} - \\mathbf{P}$"
+     ]
+    },
+    {
+     "id": "4-projection-and-the-residual-maker-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "The notes write $\\mathbf{M}\\mathbf{y} = \\mathbf{M}\\mathbf{X}\\boldsymbol{\\beta} + \\mathbf{M}\\boldsymbol{\\varepsilon} = \\mathbf{M}\\boldsymbol{\\varepsilon} = \\boldsymbol{\\varepsilon}$. Which step is wrong?",
+       "options": [
+        {
+         "md": "$\\mathbf{M}\\mathbf{X}\\boldsymbol{\\beta} = \\mathbf{0}$, because $\\boldsymbol{\\beta}$ is unknown",
+         "correct": false,
+         "feedback": "$\\mathbf{M}\\mathbf{X} = \\mathbf{0}$ whatever $\\boldsymbol{\\beta}$ is, so $\\mathbf{M}\\mathbf{X}\\boldsymbol{\\beta} = \\mathbf{0}$ holds; not knowing $\\boldsymbol{\\beta}$ does not matter."
+        },
+        {
+         "md": "The last one: $\\mathbf{M}\\boldsymbol{\\varepsilon}$ is the residual vector $\\mathbf{e}$, not $\\boldsymbol{\\varepsilon}$, because $\\mathbf{M}$ strips out the part of $\\boldsymbol{\\varepsilon}$ that lies in the column space of $\\mathbf{X}$",
+         "correct": true
+        },
+        {
+         "md": "$\\mathbf{M}\\mathbf{y} = \\mathbf{M}\\mathbf{X}\\boldsymbol{\\beta} + \\mathbf{M}\\boldsymbol{\\varepsilon}$, because $\\mathbf{M}$ cannot be distributed over a sum",
+         "correct": false,
+         "feedback": "Matrix multiplication distributes over addition, so substituting $\\mathbf{y} = \\mathbf{X}\\boldsymbol{\\beta} + \\boldsymbol{\\varepsilon}$ and multiplying out is fine."
+        }
+       ],
+       "why": "$\\mathbf{M}\\boldsymbol{\\varepsilon} = \\boldsymbol{\\varepsilon}$ would need $\\mathbf{P}\\boldsymbol{\\varepsilon} = \\mathbf{0}$, that is, disturbances exactly orthogonal to every column of $\\mathbf{X}$ in the sample, which happens with probability zero. The correct chain is $\\mathbf{e} = \\mathbf{M}\\mathbf{y} = \\mathbf{M}\\boldsymbol{\\varepsilon}$: residuals are a projection of the disturbances, not equal to them. That is why $E[\\mathbf{e}'\\mathbf{e}] = \\sigma^2\\,\\mathrm{trace}(\\mathbf{M}) = \\sigma^2(N - K)$ rather than $N\\sigma^2$.",
+       "objectives": [
+        5
+       ]
+      }
+     ],
+     "words": 38,
+     "symbols": [
+      "$K$",
+      "$\\mathbf{y}$",
+      "$\\mathbf{X}$",
+      "$\\boldsymbol{\\beta}$",
+      "$\\boldsymbol{\\varepsilon}$",
+      "$\\mathbf{e}$",
+      "$N$, $K$",
+      "$\\sigma^2$",
+      "$\\mathbf{P} = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$",
+      "$\\mathbf{M} = \\mathbf{I} - \\mathbf{P}$"
+     ]
+    },
+    {
+     "id": "4-projection-and-the-residual-maker-5",
+     "blocks": [
+      {
+       "t": "derive",
+       "title": "Show that $\\mathrm{trace}(\\mathbf{M}) = n - K$",
+       "objectives": [
+        5
+       ],
+       "symbols": [],
+       "inherited": [
+        {
+         "tex": "$\\mathbf{X}$",
+         "typical": "—",
+         "from": "projection-matrix-and-residual-maker"
+        },
+        {
+         "tex": "$\\mathbf{P} = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$",
+         "typical": "Trace $K$",
+         "from": "projection-matrix-and-residual-maker"
+        },
+        {
+         "tex": "$\\mathbf{M} = \\mathbf{I} - \\mathbf{P}$",
+         "typical": "Trace $n - K$",
+         "from": "projection-matrix-and-residual-maker"
+        },
+        {
+         "tex": "$n$, $K$",
+         "typical": "—",
+         "from": "projection-matrix-and-residual-maker"
+        }
+       ],
+       "unknowns": [],
+       "dims": [
+        "$n > K$"
+       ],
+       "data": [],
+       "matrices": [
+        "$\\mathbf{X}$ is $n \\times K$"
+       ],
+       "define": [
+        "\\mathbf{P} = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'",
+        "\\mathbf{M} = \\mathbf{I}_n - \\mathbf{P}"
+       ],
+       "given": [],
+       "steps": [
+        {
+         "md": "The trace of a difference is the difference of the traces: $\\mathrm{trace}(\\mathbf{M}) = \\mathrm{trace}(\\mathbf{I}_n) - \\mathrm{trace}(\\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}')$",
+         "tex": "\\mathrm{trace}(\\mathbf{M}) = \\mathrm{trace}(\\mathbf{I}_n) - \\mathrm{trace}(\\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}')"
+        },
+        {
+         "md": "Cycle the trace, $\\mathrm{trace}(\\mathbf{AB}) = \\mathrm{trace}(\\mathbf{BA})$, so $\\mathrm{trace}(\\mathbf{P}) = \\mathrm{trace}((\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{X}) = \\mathrm{trace}(\\mathbf{I}_K) = K$: $\\mathrm{trace}(\\mathbf{M}) = n - K$",
+         "tex": "\\mathrm{trace}(\\mathbf{M}) = n - K"
+        }
+       ],
+       "accept": [
+        "\\mathrm{trace}(\\mathbf{P}) = K"
+       ],
+       "reject": [
+        {
+         "tex": "\\mathrm{trace}(\\mathbf{M}) = n",
+         "md": "that is $\\mathrm{trace}(\\mathbf{I}_n)$ alone; $\\mathbf{M}$ removes the $K$ dimensions spanned by the columns of $\\mathbf{X}$"
+        },
+        {
+         "tex": "\\mathrm{trace}(\\mathbf{M}) = K",
+         "md": "$K$ is $\\mathrm{trace}(\\mathbf{P})$, the part that $\\mathbf{M}$ takes away from $\\mathrm{trace}(\\mathbf{I}_n) = n$"
+        },
+        {
+         "tex": "\\mathrm{trace}(\\mathbf{P}) = n",
+         "md": "cycle the trace: $\\mathrm{trace}(\\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}') = \\mathrm{trace}((\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{X}) = \\mathrm{trace}(\\mathbf{I}_K) = K$"
+        }
+       ]
+      }
+     ],
+     "words": 17,
+     "symbols": [
+      "$K$",
+      "$\\mathbf{X}$",
+      "$\\mathbf{I}$",
+      "$\\mathbf{P} = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$",
+      "$\\mathbf{M} = \\mathbf{I} - \\mathbf{P}$",
+      "$n$, $K$"
+     ]
+    },
+    {
+     "id": "4-projection-and-the-residual-maker-6",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "The food-expenditure data have $N = 40$. Suppose the regression adds two more regressors, so $\\mathbf{X}$ has a constant and three regressors, with linearly independent columns. By what number must SSR be divided to make $\\widehat{\\sigma}^2$ unbiased?",
+       "answer": 36.0,
+       "tol": 0.1,
+       "wrong": [
+        {
+         "answer": 38.0,
+         "tol": 0.1,
+         "md": "that is $N - 2$ from the simple regression; with four columns in $\\mathbf{X}$ there are four restrictions on the residuals"
+        },
+        {
+         "answer": 37.0,
+         "tol": 0.1,
+         "md": "that leaves out the constant; the column of ones is a column of $\\mathbf{X}$ too, so $K = 4$"
+        },
+        {
+         "answer": 40.0,
+         "tol": 0.1,
+         "md": "that is $\\mathrm{trace}(\\mathbf{I}_N)$ alone; dividing by $N$ understates $\\sigma^2$ because $\\mathbf{M}$ removes $K$ dimensions"
+        }
+       ],
+       "why": "Math Prep L2: the residuals satisfy $\\mathbf{X}'\\mathbf{e} = \\mathbf{0}$, one equation per column of $\\mathbf{X}$, constant included, so $K = 4$. Math Prep L1: $E[\\mathbf{e}'\\mathbf{e}] = \\sigma^2\\,\\mathrm{trace}(\\mathbf{M})$. This lecture: $\\mathrm{trace}(\\mathbf{M}) = N - K = 40 - 4 = 36$, which uses $(\\mathbf{X}'\\mathbf{X})^{-1}$ and so needs independent columns. Dividing SSR by 36 makes $\\widehat{\\sigma}^2$ unbiased.",
+       "objectives": [
+        5
+       ]
+      }
+     ],
+     "words": 32,
+     "symbols": [
+      "$K$",
+      "$\\mathbf{X}$",
+      "$\\mathbf{e}$",
+      "$N$, $K$",
+      "$\\sigma^2$",
+      "$\\widehat{\\sigma}^2$",
+      "$\\mathbf{I}$",
+      "$\\mathbf{M} = \\mathbf{I} - \\mathbf{P}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "math-refresher",
+   "heading": "Math refresher",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "math-refresher-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Math Prep L1 Matrix Algebra Essentials](note:math-prep-l1-matrix-algebra-essentials) — transpose and inverse rules, the trace\n- [Math Prep L2 Vector Spaces Rank and Projection](note:math-prep-l2-vector-spaces-rank-and-projection) — column space, rank, OLS as a projection\n- [Math Prep L3 Eigenvalues and Quadratic Forms](note:math-prep-l3-eigenvalues-and-quadratic-forms) — why $\\mathbf{X}'\\mathbf{X}$ is positive definite under full rank\n- [Math Prep L5 Matrix Calculus](note:math-prep-l5-matrix-calculus) — deriving the normal equations"
+      }
+     ],
+     "words": 54,
+     "symbols": [
+      "$\\mathbf{X}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Distinguish the conditional mean function from the linear projection, derive $\\beta = \\mathrm{Cov}(x, y)/\\mathrm{Var}(x)$ and $\\alpha = E[y] - \\beta E[x]$, and say when the two coincide.\n2. State the assumptions of the classical linear regression model in matrix form: linearity, full rank, $E[\\boldsymbol{\\varepsilon} \\mid \\mathbf{X}] = \\mathbf{0}$, $\\mathrm{Var}[\\boldsymbol{\\varepsilon} \\mid \\mathbf{X}] = \\sigma^2\\mathbf{I}$ and optional normality.\n3. Decide whether a model is linear in its parameters.\n4. Derive the normal equations and $\\mathbf{b} = (\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{y}$, and use $(\\mathbf{X}'\\mathbf{X})^{-1}$ for the variance of $\\mathbf{b}$.\n5. Show that $\\mathbf{M}\\mathbf{X} = \\mathbf{0}$, that $\\mathbf{M}$ is symmetric and idempotent, that $\\mathbf{e} = \\mathbf{M}\\mathbf{y} = \\mathbf{M}\\boldsymbol{\\varepsilon}$, and that $\\mathrm{trace}(\\mathbf{M}) = N - K$.\n6. State what follows when $\\mathbf{X}$ contains a constant: the residuals sum to zero, the fit passes through the means, and the fitted values average $\\bar{y}$."
+      }
+     ],
+     "words": 94,
+     "symbols": [
+      "$\\alpha$, $\\beta$",
+      "$K$",
+      "$\\mathbf{y}$",
+      "$\\mathbf{X}$",
+      "$\\mathbf{b}$",
+      "$\\boldsymbol{\\varepsilon}$",
+      "$\\mathbf{e}$",
+      "$N$, $K$",
+      "$\\sigma^2$",
+      "$\\boldsymbol{\\varepsilon}$, $y$",
+      "$x_i$, $\\mathbf{x}_i$",
+      "$\\mathbf{I}$",
+      "$\\bar{y}$, $\\bar{y}_g$",
+      "$\\mathbf{M} = \\mathbf{I} - \\mathbf{P}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "conditional-mean-vs-linear-projection",
+        "ols-in-matrix-form",
+        "full-rank-and-identification",
+        "strict-exogeneity",
+        "homoskedasticity",
+        "law-of-iterated-expectations",
+        "law-of-total-variance",
+        "matrix-calculus",
+        "projection-matrix-and-residual-maker"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

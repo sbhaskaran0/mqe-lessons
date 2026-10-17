@@ -1,0 +1,87 @@
+/* The derivation exercise (Derive.tsx). A card like a checkpoint, with a typed-maths input, a live reading of it and the
+   steps reached so far. Colours and sizes come from tokens.css. */
+
+.derive {
+  font-family: var(--font-ui); border: 1px solid var(--border); border-radius: var(--radius);
+  background: var(--surface); padding: var(--space-5); box-shadow: var(--shadow); display: grid; gap: var(--space-4);
+}
+.derive[data-result="done"] { border-color: color-mix(in srgb, var(--success) 50%, var(--border)); }
+.derive-kicker { display: flex; align-items: center; gap: var(--space-2); font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); }
+.derive-badge { margin-left: auto; color: var(--text-3); text-transform: none; letter-spacing: 0; font-weight: 600; }
+.derive-badge[data-ok="true"] { color: var(--success); }
+.derive-title { font-family: var(--font-text); font-size: var(--text-md); line-height: var(--leading); font-weight: 600; margin: 0; }
+.derive-label { display: inline-block; margin: 0; font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-3); }
+h4.derive-label { display: block; margin-bottom: var(--space-2); }
+h4.derive-label:focus { outline: none; }
+
+.derive-givens { display: flex; flex-wrap: wrap; gap: var(--space-3) var(--space-6); padding: var(--space-3) var(--space-4); border-radius: var(--radius-sm); background: var(--surface-2); }
+.derive-list { list-style: none; margin: var(--space-1) 0 0; padding: 0; display: grid; gap: var(--space-1); }
+.derive-math { font-size: 1.05em; }
+
+.derive-exercise, .derive-done { display: grid; gap: var(--space-4); }
+.derive-worked { margin: 0; padding-left: var(--space-5); display: grid; gap: var(--space-3); font-family: var(--font-text); line-height: var(--leading); }
+.derive-worked-step::marker { color: var(--text-3); font-family: var(--font-ui); font-weight: 600; }
+.derive-revealed .derive-worked-step { animation: step-in var(--dur) var(--ease); }
+.derive-why { margin-top: var(--space-1); padding: var(--space-2) var(--space-3); border-left: 3px solid var(--why); background: var(--why-soft); border-radius: var(--radius-sm); font-size: var(--text-sm); }
+.derive-why-label { display: block; font-family: var(--font-ui); font-weight: 600; color: var(--text-2); }
+
+.derive-lines { margin: var(--space-1) 0 0; padding-left: var(--space-5); display: grid; gap: var(--space-1); color: var(--text-2); }
+
+.derive-justify { display: grid; gap: var(--space-3); padding: var(--space-4); border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg); }
+.derive-justify-line { font-family: var(--font-text); line-height: var(--leading); }
+.derive-justify-prompt { font-weight: 600; padding: 0; margin-bottom: var(--space-2); }
+.derive-justify-result { margin: 0; min-height: 1.2em; font-size: var(--text-sm); }
+.derive-justify-result[data-ok="false"] { color: var(--danger); }
+
+.derive-verdict { display: grid; gap: var(--space-2); }
+.derive-verdict:empty { display: none; }
+.derive-verdict:focus { outline: none; }
+.derive-verdict-line { display: flex; align-items: center; gap: var(--space-2); margin: 0; font-weight: 700; }
+.derive-verdict-line[data-ok="true"] { color: var(--success); }
+.derive-verdict-line[data-ok="false"] { color: var(--danger); }
+.derive-verdict-line[data-ok="neutral"] { color: var(--text-2); font-weight: 600; }
+.derive-line-note { margin: 0; font-size: var(--text-sm); color: var(--text-2); }
+
+.derive-form { display: grid; gap: var(--space-3); }
+.derive-switch { display: inline-flex; align-items: center; gap: var(--space-2); font-size: var(--text-sm); color: var(--text-2); cursor: pointer; justify-self: start; min-height: 32px; }
+.derive-switch input { width: 18px; height: 18px; accent-color: var(--accent); margin: 0; }
+.derive-switch:has(input:focus-visible) { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: var(--radius-sm); }
+.derive-next { display: grid; gap: var(--space-2); padding: var(--space-3) var(--space-4); border-left: 4px solid var(--accent); background: var(--accent-soft); border-radius: var(--radius-sm); font-family: var(--font-text); line-height: var(--leading); }
+.derive-next p { margin: 0; }
+.derive-next .btn { justify-self: start; font-family: var(--font-ui); }
+.derive-hint { font-family: var(--font-text); }
+.derive-compose {
+  display: grid; gap: var(--space-3);
+  /* Clears the fixed Continue bar (about 92px, up to 140px with its gate note) when the input is focused. */
+  scroll-margin-bottom: 160px;
+}
+.derive-input-label { font-size: var(--text-sm); font-weight: 600; color: var(--text-2); }
+.derive-row { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+.derive-input {
+  flex: 1 1 260px; min-width: 0; min-height: var(--touch); padding: 0 var(--space-3); border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border); background: var(--surface); color: var(--text); font-family: var(--font-mono); font-size: var(--text-md);
+}
+.derive-input:focus { border-color: var(--accent); outline: none; box-shadow: 0 0 0 3px var(--accent-soft); }
+.derive-preview { min-height: 2.4em; padding: var(--space-2) var(--space-3); border-radius: var(--radius-sm); background: var(--surface-2); font-size: var(--text-sm); color: var(--text-2); overflow-x: auto; }
+.derive-preview[data-ok="false"] { background: var(--warn-soft); color: var(--text); }
+.derive-hintline { color: var(--text-3); }
+.derive-suggest { color: var(--text-2); }
+.derive-chips { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.derive-chip {
+  display: inline-flex; align-items: center; justify-content: center; min-width: 36px; min-height: 36px; padding: 0 var(--space-3);
+  border-radius: var(--radius-sm); border: 1px solid var(--border); background: var(--surface); color: var(--text);
+  font-family: var(--font-mono); font-size: var(--text-sm); cursor: pointer;
+}
+.derive-chip:hover { border-color: var(--accent); background: var(--accent-soft); }
+.derive-chip:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.derive-actions { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+.derive-note, .derive-loading { margin: 0; color: var(--text-2); font-size: var(--text-sm); }
+
+@media (max-width: 640px) {
+  .derive { padding: var(--space-4); }
+}
+
+/* Check.tsx's per-option feedback (a multiple-choice option's own explanation, shown under the option chosen). */
+.mcq-feedback { margin: calc(var(--space-1) * -1) 0 var(--space-1) var(--space-5); padding: var(--space-2) var(--space-3); border-left: 3px solid var(--why); background: var(--why-soft); border-radius: var(--radius-sm); font-family: var(--font-text); font-size: var(--text-sm); line-height: var(--leading); animation: step-in var(--dur) var(--ease); }
+.mcq-feedback > :last-child { margin-bottom: 0; }
+.check-diagnosis { font-weight: 600; }

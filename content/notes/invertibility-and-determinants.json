@@ -1,0 +1,297 @@
+{
+ "slug": "invertibility-and-determinants",
+ "notation": [
+  {
+   "tex": "$A$",
+   "meaning": "Square matrix ($n\\times n$)",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "A"
+   ]
+  },
+  {
+   "tex": "$\\det(A)$",
+   "meaning": "Determinant: volume-scaling factor",
+   "kind": "Number",
+   "typical": "0 means singular",
+   "keys": []
+  },
+  {
+   "tex": "$A^{-1}$",
+   "meaning": "Inverse",
+   "kind": "Matrix",
+   "typical": "Exists iff $\\det A \\neq 0$",
+   "keys": [
+    "A"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{x}$",
+   "meaning": "Vector",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(x)"
+   ]
+  },
+  {
+   "tex": "$\\lambda_i$",
+   "meaning": "Eigenvalues of $A$",
+   "kind": "Numbers",
+   "typical": "Product equals $\\det A$",
+   "keys": [
+    "lambda"
+   ]
+  },
+  {
+   "tex": "$n$",
+   "meaning": "Size of the matrix",
+   "kind": "Count",
+   "typical": "—",
+   "keys": [
+    "n"
+   ]
+  },
+  {
+   "tex": "$A$, $B$, $C$",
+   "meaning": "Matrices of conformable sizes",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "A",
+    "B",
+    "C"
+   ],
+   "from": "matrix-algebra-identities"
+  },
+  {
+   "tex": "$\\mathbf{X}$, $\\mathbf{y}$, $\\mathbf{b}$",
+   "meaning": "Regressors, outcome and OLS coefficients in the examples",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(X)",
+    "bold(y)",
+    "bold(b)"
+   ],
+   "from": "matrix-algebra-identities"
+  },
+  {
+   "tex": "$c_1, \\ldots, c_k$",
+   "meaning": "Weights in a linear combination",
+   "kind": "Numbers",
+   "typical": "—",
+   "keys": [
+    "c"
+   ],
+   "from": "linear-independence-and-rank"
+  },
+  {
+   "tex": "$a$",
+   "meaning": "Any amount shifted between coefficients in the example",
+   "kind": "Number",
+   "typical": "—",
+   "keys": [
+    "a"
+   ],
+   "from": "full-rank-and-identification"
+  },
+  {
+   "tex": "$b_1$, $b_2$",
+   "meaning": "OLS estimates, equal to $\\bar{y}_0$ and $\\bar{y}_1 - \\bar{y}_0$",
+   "kind": "Estimators",
+   "typical": "—",
+   "keys": [
+    "b"
+   ],
+   "from": "indicator-variables"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A square matrix can be undone — inverted — only if it does not squash space flat. The determinant measures how much a matrix stretches or shrinks areas and volumes; if it is zero, the matrix collapses some direction to nothing, information is lost, and there is no way back. A whole list of conditions turns out to be the same thing: nonzero determinant, independent columns, full rank, no zero eigenvalue."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "In regression, whether the key matrix built from the data can be inverted decides whether the coefficients can be estimated at all.",
+       "folded": false
+      }
+     ],
+     "words": 94,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "For a square $n\\times n$ matrix $A$, these statements are **all equivalent** — prove one and you have them all:"
+      },
+      {
+       "t": "prose",
+       "md": "1. $A^{-1}$ exists\n2. $\\det(A) \\neq 0$\n3. $\\mathrm{rank}(A) = n$ ([Linear Independence and Rank](note:linear-independence-and-rank))\n4. The columns of $A$ are linearly independent\n5. $A\\mathbf{x} = \\mathbf{0}$ only for $\\mathbf{x} = \\mathbf{0}$\n6. No eigenvalue of $A$ is zero ([Eigenvalues and Eigenvectors](note:eigenvalues-and-eigenvectors))"
+      },
+      {
+       "t": "prose",
+       "md": "A matrix failing them is **singular**."
+      }
+     ],
+     "words": 49,
+     "symbols": [
+      "$A$",
+      "$A^{-1}$",
+      "$\\mathbf{x}$",
+      "$n$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "the-determinant",
+   "heading": "The determinant",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-determinant-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "For $2\\times2$: $\\det\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix} = ad - bc$. Geometrically, $|\\det A|$ is the factor by which $A$ scales areas (volumes in higher dimensions); $\\det A = 0$ means $A$ squashes space into a lower dimension, so the map cannot be undone."
+      }
+     ],
+     "words": 26,
+     "symbols": [
+      "$A$",
+      "$A^{-1}$",
+      "$c_1, \\ldots, c_k$",
+      "$a$",
+      "$b_1$, $b_2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "properties",
+   "heading": "Properties",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "properties-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Property | Statement |\n| --- | --- |\n| Product | $\\det(AB) = \\det(A)\\det(B)$ |\n| Transpose | $\\det(A') = \\det(A)$ |\n| Inverse | $\\det(A^{-1}) = 1/\\det(A)$ |\n| Scalar | $\\det(cA) = c^n\\det(A)$ for $n\\times n$ |\n| Eigenvalues | $\\det(A) = \\prod_i \\lambda_i$ |\n| Triangular | Product of the diagonal |"
+      }
+     ],
+     "words": 15,
+     "symbols": [
+      "$A$",
+      "$A^{-1}$",
+      "$\\lambda_i$",
+      "$n$",
+      "$A$, $B$, $C$",
+      "$c_1, \\ldots, c_k$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$\\begin{pmatrix}2&1\\\\4&2\\end{pmatrix}$: $\\det = 4 - 4 = 0$. The second column is half the first, so the columns are dependent and there is no inverse. $\\begin{pmatrix}1&2\\\\3&4\\end{pmatrix}$: $\\det = -2 \\neq 0$, invertible."
+      }
+     ],
+     "words": 18,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Only square matrices have determinants or inverses. A non-square $\\mathbf{X}$ is handled through the square $\\mathbf{X}'\\mathbf{X}$.\n- $\\det(A + B) \\neq \\det(A) + \\det(B)$."
+      }
+     ],
+     "words": 16,
+     "symbols": [
+      "$A$",
+      "$A^{-1}$",
+      "$A$, $B$, $C$",
+      "$\\mathbf{X}$, $\\mathbf{y}$, $\\mathbf{b}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Econometrics**: $(\\mathbf{X}'\\mathbf{X})^{-1}$ exists exactly when $\\mathbf{X}$ has full column rank — [Full Rank and Identification](note:full-rank-and-identification); the dummy variable trap in [Indicator Variables](note:indicator-variables) is a singular $\\mathbf{X}'\\mathbf{X}$.\n- **Probability**: the Jacobian determinant in [Change of Variables](note:change-of-variables)."
+      }
+     ],
+     "words": 32,
+     "symbols": [
+      "$\\mathbf{X}$, $\\mathbf{y}$, $\\mathbf{b}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Partitioned Matrices](note:partitioned-matrices)\n- [Matrix Algebra Identities](note:matrix-algebra-identities)"
+      }
+     ],
+     "words": 7,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

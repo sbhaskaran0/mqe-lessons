@@ -1,0 +1,237 @@
+{
+ "slug": "econ-430",
+ "notation": [
+  {
+   "tex": "$X$, $x_i$",
+   "meaning": "Random variable; observation $i$ of it",
+   "kind": "Random variable / data",
+   "typical": "—",
+   "keys": [
+    "X",
+    "x"
+   ],
+   "from": "skewness-and-kurtosis"
+  },
+  {
+   "tex": "$\\mathbf{X}$",
+   "meaning": "All regressors for all observations",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "bold(X)"
+   ],
+   "from": "strict-exogeneity"
+  },
+  {
+   "tex": "$t$",
+   "meaning": "Test statistic $(b_k - \\beta_k)/se(b_k)$",
+   "kind": "Statistic",
+   "typical": "≈ ±2 is the 5% threshold in large samples",
+   "keys": [
+    "t"
+   ],
+   "from": "sampling-distribution-of-ols"
+  },
+  {
+   "tex": "$\\mathbf{M}$, $\\mathbf{P}$, $\\mathbf{X}$",
+   "meaning": "Residual maker, projection matrix, regressor matrix",
+   "kind": "Matrices",
+   "typical": "—",
+   "keys": [
+    "bold(M)",
+    "bold(P)",
+    "bold(X)"
+   ],
+   "from": "sampling-distribution-of-ols"
+  },
+  {
+   "tex": "$R^2$",
+   "meaning": "Coefficient of determination",
+   "kind": "Statistic",
+   "typical": "0.385 for the food regression",
+   "keys": [
+    "R"
+   ],
+   "from": "coefficient-of-determination"
+  },
+  {
+   "tex": "$\\mathbf{y}$",
+   "meaning": "Column of $N$ outcomes",
+   "kind": "Data ($N\\times1$)",
+   "typical": "—",
+   "keys": [
+    "bold(y)"
+   ],
+   "from": "ols-in-matrix-form"
+  },
+  {
+   "tex": "$\\mathbf{b}$",
+   "meaning": "OLS estimates, $(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{y}$",
+   "kind": "Estimator ($K\\times1$)",
+   "typical": "—",
+   "keys": [
+    "bold(b)"
+   ],
+   "from": "ols-in-matrix-form"
+  }
+ ],
+ "sections": [
+  {
+   "id": "lectures",
+   "heading": "Lectures",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "lectures-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. [Econ 430 L1 Univariate Characterizations](note:econ-430-l1-univariate-characterizations)\n2. [Econ 430 L2 Bivariate Characterizations](note:econ-430-l2-bivariate-characterizations)\n3. [Econ 430 L3 The Method of Least Squares](note:econ-430-l3-the-method-of-least-squares)\n4. [Econ 430 L4 Cross-Validation and the Bootstrap](note:econ-430-l4-cross-validation-and-the-bootstrap)\n5. [Econ 430 L5 Estimating Nonlinear Relationships](note:econ-430-l5-estimating-nonlinear-relationships)\n6. [Econ 430 L6 Indicator Variables and the OLS Workflow](note:econ-430-l6-indicator-variables-and-the-ols-workflow)\n7. [Econ 430 L7 The Classical Linear Regression Model](note:econ-430-l7-the-classical-linear-regression-model)"
+      },
+      {
+       "t": "prose",
+       "md": "L1 to L7 come from one notebook, `Regression_Lecture1_Adv.ipynb`, one lecture per major heading."
+      }
+     ],
+     "words": 71,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "course-arc-so-far",
+   "heading": "Course arc so far",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "course-arc-so-far-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The course starts by **looking at the data**. [Econ 430 L1 Univariate Characterizations](note:econ-430-l1-univariate-characterizations) describes each variable on its own, with summary statistics, [Skewness and Kurtosis](note:skewness-and-kurtosis), histograms, [Kernel Density Estimation](note:kernel-density-estimation), the [Q-Q Plot](note:q-q-plot) and the [Cullen-Frey Graph](note:cullen-frey-graph); [Econ 430 L2 Bivariate Characterizations](note:econ-430-l2-bivariate-characterizations) looks at pairs, with scatterplots and the [Lowess Smoother](note:lowess-smoother) as a first check of linearity."
+      }
+     ],
+     "words": 56,
+     "symbols": []
+    },
+    {
+     "id": "course-arc-so-far-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Econ 430 L3 The Method of Least Squares](note:econ-430-l3-the-method-of-least-squares) is the core. It starts from the [Simple Linear Regression Model](note:simple-linear-regression-model) and the [SR Assumptions](note:sr-assumptions), derives the [OLS Estimator](note:ols-estimator), and shows that it is unbiased under linearity, [Strict Exogeneity](note:strict-exogeneity) and variation in $x$, and BLUE once [Homoskedasticity](note:homoskedasticity) and no autocorrelation are added ([Gauss-Markov Theorem](note:gauss-markov-theorem)). The [Sampling Distribution of OLS](note:sampling-distribution-of-ols) then supports inference: [Hypothesis Tests on Regression Coefficients](note:hypothesis-tests-on-regression-coefficients), the [Coefficient of Determination](note:coefficient-of-determination) and [Confidence vs Prediction Intervals](note:confidence-vs-prediction-intervals)."
+      }
+     ],
+     "words": 73,
+     "symbols": [
+      "$X$, $x_i$"
+     ]
+    },
+    {
+     "id": "course-arc-so-far-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Econ 430 L4 Cross-Validation and the Bootstrap](note:econ-430-l4-cross-validation-and-the-bootstrap) uses resampling to ask how well a model predicts new data ([Cross-Validation](note:cross-validation)) and how much its estimates would vary ([Bootstrapping OLS](note:bootstrapping-ols)). [Econ 430 L5 Estimating Nonlinear Relationships](note:econ-430-l5-estimating-nonlinear-relationships) fits curves by transforming variables ([Functional Forms and Elasticities](note:functional-forms-and-elasticities), [Box-Cox and Power Transformations](note:box-cox-and-power-transformations)). [Econ 430 L6 Indicator Variables and the OLS Workflow](note:econ-430-l6-indicator-variables-and-the-ols-workflow) adds categorical regressors ([Indicator Variables](note:indicator-variables)) and a seven-step workflow of fitting, testing and [Regression Diagnostics](note:regression-diagnostics). [Econ 430 L7 The Classical Linear Regression Model](note:econ-430-l7-the-classical-linear-regression-model) restates everything in matrix form: [OLS in Matrix Form](note:ols-in-matrix-form), the [Projection Matrix and Residual Maker](note:projection-matrix-and-residual-maker) and the [Conditional Mean vs Linear Projection](note:conditional-mean-vs-linear-projection). The matrix algebra it relies on is in [Math Prep](note:math-prep)."
+      }
+     ],
+     "words": 111,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "exam-weight",
+   "heading": "Exam weight",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "exam-weight-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Block | Lecture | Topics | Weight |\n| --- | --- | --- | --- |\n| Looking at data | L1, L2 | [EDA for Regression](note:eda-for-regression), [Q-Q Plot](note:q-q-plot), [Skewness and Kurtosis](note:skewness-and-kurtosis), [Lowess Smoother](note:lowess-smoother) | Low to medium |\n| Model and OLS | L3 | [SR Assumptions](note:sr-assumptions), [OLS Estimator](note:ols-estimator), [Gauss-Markov Theorem](note:gauss-markov-theorem), [Sampling Distribution of OLS](note:sampling-distribution-of-ols), [Hypothesis Tests on Regression Coefficients](note:hypothesis-tests-on-regression-coefficients), [Coefficient of Determination](note:coefficient-of-determination), [Confidence vs Prediction Intervals](note:confidence-vs-prediction-intervals) | **Highest** |\n| Resampling | L4 | [Cross-Validation](note:cross-validation), [Bootstrapping OLS](note:bootstrapping-ols) | Medium |\n| Transformations | L5 | [Functional Forms and Elasticities](note:functional-forms-and-elasticities), [Box-Cox and Power Transformations](note:box-cox-and-power-transformations) | **High** |\n| Categorical and diagnostics | L6 | [Indicator Variables](note:indicator-variables), [Regression Diagnostics](note:regression-diagnostics) | Medium |\n| Matrix theory | L7 | [OLS in Matrix Form](note:ols-in-matrix-form), [Projection Matrix and Residual Maker](note:projection-matrix-and-residual-maker), [Conditional Mean vs Linear Projection](note:conditional-mean-vs-linear-projection), [Full Rank and Identification](note:full-rank-and-identification) | **High** |"
+      }
+     ],
+     "words": 101,
+     "symbols": []
+    },
+    {
+     "id": "exam-weight-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The Fall 2025 midterm matches these weights: about half of it is interpretation of log, log-log and quadratic models, Box-Cox output, $t$ tests, $R^2$ and forecast intervals (L3 and L5), with one matrix derivation ($\\mathbf{M}\\mathbf{X} = \\mathbf{0}$, L7), and short answers on bootstrapping, Q-Q plots and normality tests (L1, L4, L6). Its multiple-regression questions (omitted variables, interactions, RESET, Mallows' $C_p$, White's test) go beyond L1 to L7."
+      }
+     ],
+     "words": 61,
+     "symbols": [
+      "$\\mathbf{X}$",
+      "$t$",
+      "$\\mathbf{M}$, $\\mathbf{P}$, $\\mathbf{X}$",
+      "$R^2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "if-you-only-have-one-evening",
+   "heading": "If you only have one evening",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "if-you-only-have-one-evening-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Derive $\\mathbf{b} = (\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{y}$ from scratch; prove $\\mathbf{M}\\mathbf{X} = \\mathbf{0}$ and $\\mathbf{M}\\mathbf{M} = \\mathbf{M}$; derive the four rows of the functional-form table by differentiating. Those three cover most of what the hard questions can touch."
+      }
+     ],
+     "words": 26,
+     "symbols": [
+      "$\\mathbf{X}$",
+      "$\\mathbf{M}$, $\\mathbf{P}$, $\\mathbf{X}$",
+      "$\\mathbf{y}$",
+      "$\\mathbf{b}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "practice-and-guides",
+   "heading": "Practice and guides",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "practice-and-guides-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Econ 430 Simple Linear Regression Practice Questions](note:econ-430-simple-linear-regression-practice-questions) · [Econ 430 Simple Linear Regression Practice Answers](note:econ-430-simple-linear-regression-practice-answers)\n- [Math Prerequisites for Econ 430](note:math-prerequisites-for-econ-430)\n- [Math Prep](note:math-prep) — linear algebra and calculus refresher, with self-checks"
+      }
+     ],
+     "words": 31,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "shared-with-other-courses",
+   "heading": "Shared with other courses",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "shared-with-other-courses-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Several concepts first written up here are used in [Econ 424](note:econ-424) — see Concept Index."
+      }
+     ],
+     "words": 14,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

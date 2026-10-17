@@ -1,0 +1,90 @@
+{
+ "slug": "us-variance-of-log-wages-1973-2009",
+ "notation": [],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**The variance of US log hourly wages rose sharply in the 1980s (≈0.185 in 1979 to ≈0.23 in 1988), fell back to ≈0.20 around 2000 and rose again to ≈0.22 by 2009. Within-group variance is about two-thirds of the total. Holding the education mix fixed, the 2001 level equals 1979 and 2009 looks like the early 1970s.**"
+      },
+      {
+       "t": "prose",
+       "md": "All values read off the lecture charts, approximate. Groups for the decomposition: 4 education × 2 gender × 2 race × 8 age = 128 cells, **not** composition-adjusted."
+      }
+     ],
+     "words": 85,
+     "symbols": []
+    },
+    {
+     "id": "intro-2",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Year | Total | Within cells (W) | Between cells (B) | Total, composition-adjusted by education |\n| --- | --- | --- | --- | --- |\n| 1973 | ≈ 0.195 | ≈ 0.12 | ≈ 0.075 | ≈ 0.205 |\n| 1979 | ≈ 0.185 | ≈ 0.12 | ≈ 0.07 | ≈ 0.185 |\n| 1988 | ≈ 0.229 | ≈ 0.155 | ≈ 0.075 | ≈ 0.223 |\n| 2001 | ≈ 0.203 | ≈ 0.14 | ≈ 0.065 | ≈ 0.186 |\n| 2009 | ≈ 0.218 | ≈ 0.155 | ≈ 0.065 | ≈ 0.20 |"
+      },
+      {
+       "t": "prose",
+       "md": "Between-cell share B/T ≈ 0.33 on average over the period."
+      }
+     ],
+     "words": 73,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "reading-it-correctly",
+   "heading": "Reading it correctly",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "reading-it-correctly-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **The 1980s are exceptional**: the rise is pervasive — total, within and between all climb.\n- **Post-1980s levels stay high, but much of that is composition**: the education mix shifted toward groups with higher within-group variance (see [US Within-Education Wage Variance 1973-2009](note:us-within-education-wage-variance-1973-2009)). Composition-adjusted, the gap between the post-2000 level and the 1970s mostly disappears — the adjustment fixes education shares as in [Composition Adjustment](note:composition-adjustment).\n- **W depends on the cells**: with finer groups (more characteristics), more variance is labelled between and less within. \"Two-thirds within\" is for these 128 cells."
+      }
+     ],
+     "words": 89,
+     "symbols": []
+    },
+    {
+     "id": "reading-it-correctly-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Data matter for dispersion**: May/MORG hourly wages are point-in-time measures; March-CPS hourly wages built from annual earnings, weeks and hours are noisier, and noise inflates the variance ([Classical Measurement Error](note:classical-measurement-error)). All CPS series are top-coded, so the variance is understated ([Top Coding](note:top-coding)).\n- **Read the axis**: the same series replotted on a stretched vertical scale looks far more dramatic."
+      }
+     ],
+     "words": 61,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Variance of Log Income](note:variance-of-log-income) · [Within- and Between-Group Inequality](note:within-and-between-group-inequality) · [Current Population Survey (CPS)](note:current-population-survey-cps)\n- Paper: [Lemieux 2006 - Increasing Residual Wage Inequality](note:lemieux-2006-increasing-residual-wage-inequality)"
+      }
+     ],
+     "words": 22,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

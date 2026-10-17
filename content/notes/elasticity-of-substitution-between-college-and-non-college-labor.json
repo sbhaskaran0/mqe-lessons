@@ -1,0 +1,146 @@
+{
+ "slug": "elasticity-of-substitution-between-college-and-non-college-labor",
+ "notation": [
+  {
+   "tex": "$H_t$, $L_t$",
+   "meaning": "Supply of college and non-college labor in efficiency units",
+   "kind": "Exogenous (inelastic supply)",
+   "typical": "—",
+   "keys": [
+    "H",
+    "L"
+   ],
+   "from": "canonical-model-of-the-skill-premium"
+  },
+  {
+   "tex": "$\\sigma$",
+   "meaning": "Elasticity of substitution between the two types",
+   "kind": "Parameter",
+   "typical": "≈ 2.3 (OLS), 2.6 (2SLS)",
+   "keys": [
+    "sigma"
+   ],
+   "from": "canonical-model-of-the-skill-premium"
+  },
+  {
+   "tex": "$\\hat{\\sigma}$",
+   "meaning": "Estimated elasticity of substitution in the example",
+   "kind": "Statistic",
+   "typical": "2.28 (OLS), 2.58 (2SLS)",
+   "keys": [
+    "hat(sigma)"
+   ],
+   "from": "instrumental-variables-and-2sls"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Estimating the canonical model on 1963–2017 US data gives $\\hat\\sigma \\approx 2.3$ (OLS) to $2.6$ (2SLS): college and non-college workers are substitutes, with $\\sigma$ comfortably above 1.**"
+      }
+     ],
+     "words": 23,
+     "symbols": [
+      "$\\sigma$",
+      "$\\hat{\\sigma}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "the-lectures-estimates",
+   "heading": "The lecture's estimates",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-lectures-estimates-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Standard errors in parentheses."
+      },
+      {
+       "t": "table",
+       "md": "| Method | Constant | Trend (per 100 years) | $\\ln(H_t/L_t)$ | Implied $\\sigma$ |\n| --- | --- | --- | --- | --- |\n| OLS | 0.00 (0.01) | 1.78 (0.11) | −0.44 (0.04) | 2.28 |\n| 2SLS | −0.01 (0.01) | 1.64 (0.11) | −0.39 (0.04) | 2.58 |"
+      },
+      {
+       "t": "prose",
+       "md": "2SLS instruments relative supply with the relative log population of college to non-college ([Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls)). The implied $\\sigma = -1/\\hat\\beta$ is computed from unrounded coefficients, so $1/0.44 = 2.27$ shows as 2.28."
+      }
+     ],
+     "words": 75,
+     "symbols": [
+      "$H_t$, $L_t$",
+      "$\\sigma$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "derived",
+   "heading": "Derived",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "derived-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- The trend is 0.0178 a year in log-wage units. Multiplying by $\\sigma$ converts it to relative **demand** growth: about $2.28 \\times 0.0178 \\approx 4\\%$ a year.\n- Since $\\sigma > 1$, skill-augmenting technology **raises** the premium ([Factor-Augmenting Technology](note:factor-augmenting-technology))."
+      }
+     ],
+     "words": 31,
+     "symbols": [
+      "$\\sigma$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "for-comparison",
+   "heading": "For comparison",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "for-comparison-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Katz and Murphy (1992), on 1963–87 data, estimated $\\sigma \\approx 1.4$. (From the literature, not this lecture.)"
+      }
+     ],
+     "words": 15,
+     "symbols": [
+      "$\\sigma$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Elasticity of Substitution](note:elasticity-of-substitution)\n- [Canonical Model of the Skill Premium](note:canonical-model-of-the-skill-premium)\n- Paper: [Katz and Murphy 1992 - Changes in Relative Wages](note:katz-and-murphy-1992-changes-in-relative-wages)"
+      }
+     ],
+     "words": 22,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

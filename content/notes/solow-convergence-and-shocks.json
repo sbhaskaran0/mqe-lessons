@@ -1,0 +1,175 @@
+{
+ "slug": "solow-convergence-and-shocks",
+ "notation": [
+  {
+   "tex": "$A$",
+   "meaning": "Total factor productivity (technology)",
+   "kind": "Exogenous; constant in the basic model",
+   "typical": "1 in the example",
+   "keys": [
+    "A"
+   ],
+   "from": "solow-growth-model"
+  },
+  {
+   "tex": "$y = Y/L$, $k = K/L$, $c = C/L$",
+   "meaning": "Output, capital and consumption per worker",
+   "kind": "Endogenous; $k$ is the state variable",
+   "typical": "—",
+   "keys": [
+    "y",
+    "k",
+    "c"
+   ],
+   "from": "solow-growth-model"
+  },
+  {
+   "tex": "$s$",
+   "meaning": "Saving rate — assumed, not chosen optimally",
+   "kind": "Parameter in (0, 1)",
+   "typical": "0.5 in the example (≈ 0.2 in data)",
+   "keys": [
+    "s"
+   ],
+   "from": "solow-growth-model"
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "Capital share: exponent on $K$",
+   "kind": "Parameter in (0, 1)",
+   "typical": "0.5 in the example (≈ 1/3 in data)",
+   "keys": [
+    "alpha"
+   ],
+   "from": "solow-growth-model"
+  },
+  {
+   "tex": "$\\delta$",
+   "meaning": "Depreciation rate: share of capital worn out each period",
+   "kind": "Parameter",
+   "typical": "0.1 in the example (≈ 0.05 in data)",
+   "keys": [
+    "delta"
+   ],
+   "from": "solow-growth-model"
+  },
+  {
+   "tex": "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$",
+   "meaning": "Steady-state values (an overbar always means steady state)",
+   "kind": "Endogenous",
+   "typical": "25, 5, 2.5 in the example",
+   "keys": [
+    "bar(k)",
+    "bar(y)",
+    "bar(c)"
+   ],
+   "from": "solow-growth-model"
+  },
+  {
+   "tex": "$t$",
+   "meaning": "Time period",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "t"
+   ],
+   "from": "solow-growth-model"
+  },
+  {
+   "tex": "$t^{*}$",
+   "meaning": "Date a shock hits",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "t*"
+   ],
+   "from": "solow-diagram"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "solow-convergence-and-shocks"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$A$",
+      "$y = Y/L$, $k = K/L$, $c = C/L$",
+      "$s$",
+      "$\\alpha$",
+      "$\\delta$",
+      "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$",
+      "$t^{*}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Reproduces the professor's handwritten time path `Solow transition path - capital converging to steady state.png` (start at $k_1 = 100$, converge to $\\bar{k} = 25$), and the time-path halves of the shock figures (`Solow diagram - rise in depreciation.png`, `Solow diagram - rise in saving rate.png`) and of `Golden rule - consumption path after a rise in saving.png`."
+      }
+     ],
+     "words": 56,
+     "symbols": [
+      "$y = Y/L$, $k = K/L$, $c = C/L$",
+      "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$"
+     ]
+    },
+    {
+     "id": "notes-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Purpose.** Iterate $k_{t+1} = sAk_t^{\\alpha} + (1-\\delta)k_t$ and see convergence: fast while the gap between investment and depreciation is large, slower as it closes. Then shock $s$ or $\\delta$ at $t^{*}$: capital is flat until the shock and bends smoothly to $\\bar{k}_2$; it never jumps. Consumption $c_t = (1-s_t)Ak_t^{\\alpha}$ does jump at $t^{*}$, because the share consumed changes at once.\n- **Shocks as parameters.** The notes write the shock as $s_1 \\to s_2$ or $\\delta_1 \\to \\delta_2$ at date $t^{*}$, so the widget does too: set $s_2 \\ne s_1$ or $\\delta_2 \\ne \\delta_1$. With $s_2 = s_1$ and $\\delta_2 = \\delta_1$ nothing happens at $t^{*}$. The widget is a view of [Solow Model Per Worker](note:solow-model-per-worker): $\\bar{k}_1$, $\\bar{k}_2$, $\\bar{c}_1$, $\\bar{c}_2$ and the law of motion are the model's own, evaluated with $(s, \\delta)$ set to the values before or after the shock, so no formula is written twice."
+      }
+     ],
+     "words": 109,
+     "symbols": [
+      "$A$",
+      "$y = Y/L$, $k = K/L$, $c = C/L$",
+      "$s$",
+      "$\\alpha$",
+      "$\\delta$",
+      "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$",
+      "$t^{*}$"
+     ]
+    },
+    {
+     "id": "notes-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Timing.** Period $t^{*}$ is the first period with the new values: $k_{t^{*}}$ is still the old capital, $c_{t^{*}}$ already uses $s_2$, and $k_{t^{*}+1}$ is built with $s_2$ and $\\delta_2$.\n- **Period numbering.** Periods count from 1, as the notes do (`t0: 1`): the starting value $k_1$ is plotted at $t = 1$, $k_2 = 95$ at $t = 2$, and the notes' $k_{51} \\approx 28.93$ at $t = 51$. The shock date $t^{*}$ is on the same scale.\n- **Elements.** Series `capital`, `target` ($\\bar{k}$ for the current $s$ and $\\delta$), `output`, `consumption`; panels `levels_k`, `flows`; readouts `kbar1_out`, `kbar2_out`, `cbar1_out`, `cbar2_out`.\n- **Tests.** The notes' path ($k_2 = 95$, $k_3 = 90.37$, $k_4 = 86.09$, $k_{51} \\approx 28.93$), the shocks ($\\bar{k}$ from 25 to 16 and from 25 to 36), the consumption paths (2.1 → 1.8 → 2.4 and 2.5 → 2.0 → 2.4) and revision question 7, computed independently in Python."
+      }
+     ],
+     "words": 119,
+     "symbols": [
+      "$y = Y/L$, $k = K/L$, $c = C/L$",
+      "$s$",
+      "$\\delta$",
+      "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$",
+      "$t$",
+      "$t^{*}$"
+     ]
+    }
+   ]
+  }
+ ]
+}

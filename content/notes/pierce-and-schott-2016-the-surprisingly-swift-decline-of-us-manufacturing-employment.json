@@ -1,0 +1,201 @@
+{
+ "slug": "pierce-and-schott-2016-the-surprisingly-swift-decline-of-us-manufacturing-employment",
+ "notation": [],
+ "sections": [
+  {
+   "id": "key-takeaways",
+   "heading": "Key takeaways",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "key-takeaways-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. **Policy uncertainty is a trade cost.** Tariffs on Chinese goods did not fall in 2001. What changed was that the annual risk of a jump to Smoot-Hawley rates disappeared.\n2. **Industries that gained most certainty lost the most jobs.** The difference-in-differences coefficient on Post × NTR gap is −0.47, so moving from the 25th (0.23) to the 75th (0.40) percentile gap implies an 8 log point relative employment loss.\n3. **The timing points to PNTR.** Year-by-year coefficients are flat before 2001, then turn negative and keep falling through 2007.\n4. **It helps explain why US manufacturing employment collapsed after 2000** — after decades of a roughly flat level — even though real manufacturing output kept growing."
+      }
+     ],
+     "words": 117,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "research-question",
+   "heading": "Research question",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "research-question-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "What caused the sharp drop in US manufacturing employment after 2000, and did the change in US trade policy toward China play a role?"
+      }
+     ],
+     "words": 24,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "data-and-setting",
+   "heading": "Data and setting",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "data-and-setting-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Industry employment, 1990–2007, from the Census [Longitudinal Business Database (LBD)](note:longitudinal-business-database-lbd).\n- NTR and non-NTR tariff rates (ad valorem equivalents, 1999) from Feenstra, Romalis and Schott (2002)."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/US manufacturing employment vs real value added 1948-2010.png",
+       "alt": "US manufacturing employment vs real value added 1948-2010"
+      }
+     ],
+     "words": 28,
+     "symbols": []
+    },
+    {
+     "id": "data-and-setting-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "US imports from China had paid low Normal Trade Relations (NTR) tariffs since 1980, but only through annual renewals that were uncertain and politically contentious. With China's WTO accession the US granted permanent NTR (PNTR), and the gap between non-NTR and NTR rates — the **NTR gap** — varied widely across industries."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Distribution of NTR gaps across US industries 1999.png",
+       "alt": "Distribution of NTR gaps across US industries 1999"
+      }
+     ],
+     "words": 50,
+     "symbols": []
+    },
+    {
+     "id": "data-and-setting-3",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/China NTR uncertainty index 1989-2013.png",
+       "alt": "China NTR uncertainty index 1989-2013"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "empirical-strategy",
+   "heading": "Empirical strategy",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "empirical-strategy-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A [Difference-in-Differences](note:difference-in-differences) with continuous treatment, estimated by OLS with industry and year [fixed effects](note:fixed-effects-regression): log employment on $\\text{Post}_t \\times \\text{NTRGap}_i$, plus controls interacted with the post period. Observations are weighted by 1990 employment, and errors are [clustered](note:clustered-standard-errors) by industry. An event-study version replaces the single interaction with one per year."
+      }
+     ],
+     "words": 47,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "results",
+   "heading": "Results",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "results-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - PNTR and US manufacturing employment baseline results.png",
+       "alt": "Table - PNTR and US manufacturing employment baseline results"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    },
+    {
+     "id": "results-2",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/PNTR effect on US manufacturing employment event study.png",
+       "alt": "PNTR effect on US manufacturing employment event study"
+      },
+      {
+       "t": "prose",
+       "md": "Coefficients: −0.714 (fixed effects only), −0.601, and −0.469 with the full controls. Details in [US Manufacturing Employment Effects of PNTR 1990-2007](note:us-manufacturing-employment-effects-of-pntr-1990-2007)."
+      }
+     ],
+     "words": 24,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "caveats",
+   "heading": "Caveats",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "caveats-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- The design identifies *relative* losses across industries, not the aggregate effect on manufacturing.\n- Other changes around 2001 (the end of textile quotas, China's own WTO reforms) could correlate with NTR gaps; the paper controls for them (MFA exposure, Chinese tariffs, subsidies and licensing).\n- The NTR gap is mostly determined by 1930s tariff schedules, which supports exogeneity but means it measures exposure to the policy, not to imports directly."
+      }
+     ],
+     "words": 71,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "in-econ-424-l5-international-trade-empirics",
+   "heading": "In Econ 424 L5 International Trade Empirics",
+   "role": "paper-in-lesson",
+   "steps": [
+    {
+     "id": "in-econ-424-l5-international-trade-empirics-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "It opens the industry analysis. Manufacturing's share had been falling since World War II, so China cannot explain the long decline, but the post-2000 contraction \"would have been slower\" without it. Regressing employment on Chinese imports directly is endogenous (a negative US supply shock raises imports), so the paper uses a policy change instead. Be able to explain the NTR gap, write the DiD and event-study equations, interpret −0.47 × 0.17 = −0.08, and read the event-study figure for pre-trends."
+      }
+     ],
+     "words": 81,
+     "symbols": []
+    }
+   ],
+   "lesson": "econ-424-l5-international-trade-empirics"
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Difference-in-Differences](note:difference-in-differences) · [Fixed Effects Regression](note:fixed-effects-regression) · [Clustered Standard Errors](note:clustered-standard-errors) · [US Manufacturing Employment 1939-2015](note:us-manufacturing-employment-1939-2015)"
+      }
+     ],
+     "words": 12,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

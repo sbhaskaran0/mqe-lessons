@@ -1,0 +1,150 @@
+{
+ "slug": "defining-inequality",
+ "notation": [
+  {
+   "tex": "$n$",
+   "meaning": "Number of people",
+   "kind": "Count",
+   "typical": "—",
+   "keys": [
+    "n"
+   ],
+   "from": "gini-coefficient"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Inequality is never just inequality: any statement about it has to say inequality of what, among whom, and measured how. Wage inequality among all workers is a different question from wage inequality among college graduates, or from the gap between graduates and everyone else. And even for one variable and one group, different measures can give different answers. Many apparent disagreements about whether inequality is high or rising are really disagreements about these three choices."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "Spelling out the variable, the population and the measure is the first step in reading or making any claim about inequality.",
+       "folded": false
+      }
+     ],
+     "words": 99,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Inequality is never just \"inequality\". It is always defined for three things, and a statement missing any one of them is not well-posed."
+      },
+      {
+       "t": "table",
+       "md": "| Component | Question | Examples |\n| --- | --- | --- |\n| **Variable** | Inequality *of what?* | Income, wages, wealth, consumption, education, height |\n| **Population** | Inequality *across whom?* | Everyone (total); workers with given characteristics (within-group); groups themselves (between-group) |\n| **Measure** | Summarised *how?* | [Gini Coefficient](note:gini-coefficient), [Top Income Shares](note:top-income-shares), [Percentile Ratios](note:percentile-ratios), [Coefficient of Variation](note:coefficient-of-variation), [Variance of Log Income](note:variance-of-log-income), [Log Wage Gap](note:log-wage-gap) |"
+      }
+     ],
+     "words": 73,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "the-three-populations",
+   "heading": "The three populations",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-three-populations-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Total**: the entire population.\n- **Within-group**: everyone in a given group, e.g. wage dispersion among college graduates only. The population is the members of that group.\n- **Between-group**: the population is the set of *groups*, e.g. the gap between average college and average high-school wages."
+      },
+      {
+       "t": "prose",
+       "md": "See [Within- and Between-Group Inequality](note:within-and-between-group-inequality)."
+      }
+     ],
+     "words": 53,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "worked-example-same-data-three-questions",
+   "heading": "Worked example — same data, three questions",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-same-data-three-questions-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Nine workers, wages 20, 12, 17, 10, 22, 13, 11, 10, 10."
+      },
+      {
+       "t": "table",
+       "md": "| Variable | Population | Measure | Value |\n| --- | --- | --- | --- |\n| Wage | Total | Standard deviation | 4.62 |\n| Wage | Within college | Standard deviation | 4.57 |\n| Wage | Within high school | Standard deviation | 5.07 |\n| Wage | Between education groups | Group means | 14.75 vs 13.20 |"
+      },
+      {
+       "t": "prose",
+       "md": "(The SDs are *sample* standard deviations, dividing by $n-1$.)"
+      }
+     ],
+     "words": 60,
+     "symbols": [
+      "$n$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "why-it-matters",
+   "heading": "Why it matters",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "why-it-matters-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Two \"Gini coefficients for the US\" can differ enormously because they differ in variable and population: the IRS tax-unit income Gini is about 0.64, the CIA Factbook family-income Gini is 45.0. Neither is wrong — see [Cross-Country Gini Comparison](note:cross-country-gini-comparison)."
+      }
+     ],
+     "words": 40,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Lorenz Curve](note:lorenz-curve) — a *representation* of a distribution, not a measure\n- [Properties of Inequality Measures](note:properties-of-inequality-measures)"
+      }
+     ],
+     "words": 16,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

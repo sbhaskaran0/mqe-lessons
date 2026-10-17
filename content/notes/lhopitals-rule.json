@@ -1,0 +1,251 @@
+{
+ "slug": "lhopitals-rule",
+ "notation": [
+  {
+   "tex": "$f$, $g$",
+   "meaning": "Numerator and denominator functions",
+   "kind": "—",
+   "typical": "Both → 0 or ∞",
+   "keys": [
+    "f",
+    "g"
+   ]
+  },
+  {
+   "tex": "$a$",
+   "meaning": "Point being approached",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "a"
+   ]
+  },
+  {
+   "tex": "$x$",
+   "meaning": "Variable",
+   "kind": "—",
+   "typical": "5 in the Box-Cox example",
+   "keys": [
+    "x"
+   ]
+  },
+  {
+   "tex": "$\\lambda$",
+   "meaning": "Box-Cox power",
+   "kind": "Parameter",
+   "typical": "→ 0",
+   "keys": [
+    "lambda"
+   ]
+  },
+  {
+   "tex": "$\\sigma$",
+   "meaning": "Elasticity of substitution",
+   "kind": "Parameter",
+   "typical": "→ 1",
+   "keys": [
+    "sigma"
+   ]
+  },
+  {
+   "tex": "$\\rho = (\\sigma-1)/\\sigma$",
+   "meaning": "CES substitution parameter",
+   "kind": "Parameter",
+   "typical": "→ 0",
+   "keys": [
+    "rho"
+   ]
+  },
+  {
+   "tex": "$Y$, $L$, $H$",
+   "meaning": "Output and two inputs",
+   "kind": "—",
+   "typical": "$L = 4$, $H = 9$ in the example",
+   "keys": [
+    "Y",
+    "L",
+    "H"
+   ]
+  },
+  {
+   "tex": "$a$ (CES)",
+   "meaning": "Weight on $L$",
+   "kind": "Parameter",
+   "typical": "0.5 in the example",
+   "keys": [
+    "a"
+   ]
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "L'Hôpital's rule resolves expressions that collapse to zero divided by zero, or infinity divided by infinity, as some quantity approaches a limit. Instead of the ratio of the two functions, look at the ratio of how fast each is changing — their derivatives — which often has a clear answer. It explains two results you meet in economics: why the log is a special case of the Box-Cox power family, and why the CES production function becomes Cobb-Douglas."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It shows that some special cases are genuine limits of a family rather than separate assumptions.",
+       "folded": false
+      }
+     ],
+     "words": 96,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "If $f(a) = g(a) = 0$ (or both tend to $\\pm\\infty$) and the limit on the right exists:"
+      },
+      {
+       "t": "math",
+       "tex": "\\lim_{x\\to a}\\frac{f(x)}{g(x)} = \\lim_{x\\to a}\\frac{f'(x)}{g'(x)}"
+      },
+      {
+       "t": "prose",
+       "md": "Other indeterminate forms ($0\\cdot\\infty$, $1^\\infty$, $\\infty - \\infty$) are rewritten as a ratio first, often by taking logs."
+      }
+     ],
+     "words": 25,
+     "symbols": [
+      "$f$, $g$",
+      "$a$",
+      "$x$",
+      "$a$ (CES)"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example-1-box-cox",
+   "heading": "Worked example 1 — Box-Cox",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1-box-cox-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$\\lim_{\\lambda\\to0}\\dfrac{x^\\lambda - 1}{\\lambda}$ is $0/0$. Differentiate top and bottom with respect to $\\lambda$: $\\dfrac{x^\\lambda\\ln x}{1} \\to \\ln x$."
+      },
+      {
+       "t": "prose",
+       "md": "So the log is the $\\lambda = 0$ member of the Box-Cox family, not a special case bolted on. Numerically, at $x = 5$ and $\\lambda = 0.001$: $1.6107$ vs $\\ln 5 = 1.6094$."
+      }
+     ],
+     "words": 28,
+     "symbols": [
+      "$x$",
+      "$\\lambda$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example-2-ces-to-cobb-douglas",
+   "heading": "Worked example 2 — CES to Cobb-Douglas",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-2-ces-to-cobb-douglas-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With $\\rho = (\\sigma-1)/\\sigma$, $Y = [aL^\\rho + (1-a)H^\\rho]^{1/\\rho}$. As $\\sigma\\to1$, $\\rho\\to0$, a $1^\\infty$ form. Take logs: $\\ln Y = \\ln[aL^\\rho + (1-a)H^\\rho]/\\rho$, now $0/0$. L'Hôpital in $\\rho$:"
+      },
+      {
+       "t": "math",
+       "tex": "\\ln Y \\to \\frac{a\\ln L + (1-a)\\ln H}{1} \\quad\\Longrightarrow\\quad Y \\to L^aH^{1-a}"
+      },
+      {
+       "t": "prose",
+       "md": "Numerically ($L = 4$, $H = 9$, $a = 0.5$): $\\rho = 0.1 \\to 6.050$, $\\rho = 0.01 \\to 6.005$, $\\rho = 0.001 \\to 6.0005$; Cobb-Douglas gives 6."
+      }
+     ],
+     "words": 14,
+     "symbols": [
+      "$a$",
+      "$\\sigma$",
+      "$\\rho = (\\sigma-1)/\\sigma$",
+      "$Y$, $L$, $H$",
+      "$a$ (CES)"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Using it when the form is not indeterminate.\n- Differentiating the quotient with the quotient rule — differentiate numerator and denominator **separately**."
+      }
+     ],
+     "words": 22,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Econometrics**: [Box-Cox and Power Transformations](note:box-cox-and-power-transformations).\n- **Labor / macro**: the Cobb-Douglas limit of the [CES Production Function](note:ces-production-function); why $\\sigma = 1$ means constant factor shares."
+      }
+     ],
+     "words": 22,
+     "symbols": [
+      "$\\sigma$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Taylor Series Approximation](note:taylor-series-approximation) — an alternative route to most of these limits"
+      }
+     ],
+     "words": 12,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

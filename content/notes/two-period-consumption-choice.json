@@ -1,0 +1,134 @@
+{
+ "slug": "two-period-consumption-choice",
+ "notation": [
+  {
+   "tex": "$y_1$, $y_2$",
+   "meaning": "Income in periods 1 and 2",
+   "kind": "Exogenous",
+   "typical": "180, 216",
+   "keys": [
+    "y"
+   ],
+   "from": "two-period-consumption-saving-model"
+  },
+  {
+   "tex": "$c_1$, $c_2$",
+   "meaning": "Consumption in periods 1 and 2",
+   "kind": "Choice",
+   "typical": "200, 192",
+   "keys": [
+    "c"
+   ],
+   "from": "two-period-consumption-saving-model"
+  },
+  {
+   "tex": "$s = y_1 - c_1$",
+   "meaning": "Saving *amount* (negative = borrowing) — not the saving *rate* $s$ of the Solow model",
+   "kind": "Choice",
+   "typical": "−20",
+   "keys": [
+    "s"
+   ],
+   "from": "two-period-consumption-saving-model"
+  },
+  {
+   "tex": "$r$",
+   "meaning": "Interest rate",
+   "kind": "Exogenous to the consumer; endogenous in equilibrium",
+   "typical": "0.2",
+   "keys": [
+    "r"
+   ],
+   "from": "two-period-consumption-saving-model"
+  },
+  {
+   "tex": "$U(c_1, c_2)$",
+   "meaning": "Lifetime utility",
+   "kind": "Function",
+   "typical": "$\\ln c_1 + \\beta\\ln c_2$",
+   "keys": [
+    "U"
+   ],
+   "from": "two-period-consumption-saving-model"
+  },
+  {
+   "tex": "$\\beta$",
+   "meaning": "Discount factor",
+   "kind": "Parameter in (0, 1]",
+   "typical": "0.8",
+   "keys": [
+    "beta"
+   ],
+   "from": "two-period-consumption-saving-model"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "two-period-consumption-choice"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$y_1$, $y_2$",
+      "$c_1$, $c_2$",
+      "$s = y_1 - c_1$",
+      "$r$",
+      "$U(c_1, c_2)$",
+      "$\\beta$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Purpose.** See MRS $= 1 + r$ as a tangency: the best bundle is where the highest reachable indifference curve just touches the lifetime budget line. Whether it lies left or right of the endowment says whether the consumer saves or borrows.\n- **Model.** A view of [Two-Period Consumer Model](note:two-period-consumer-model) ($U = \\ln c_1 + \\beta\\ln c_2$, endowment $(y_1, y_2)$). The budget line pivots around the endowment when $r$ moves, with slope $-(1+r)$; its $c_1$-intercept is the present value of income $y_1 + y_2/(1+r)$.\n- **Elements.** Panel `choice`: curves `budget`, `ic_opt` (through the optimum) and `ic_end` (through the endowment, dashed); points `endowment` (draggable, bound to $y_1$ and $y_2$) and `optimum`. Readouts `c1_out`, `c2_out`, `s_out`, `mrs_out`, `mrs_end_out`. When $s = 0$ the two indifference curves coincide."
+      }
+     ],
+     "words": 111,
+     "symbols": [
+      "$y_1$, $y_2$",
+      "$c_1$, $c_2$",
+      "$s = y_1 - c_1$",
+      "$r$",
+      "$U(c_1, c_2)$",
+      "$\\beta$"
+     ]
+    },
+    {
+     "id": "notes-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Goal it supports.** `abs(s) < 1`: with $y_1$, $y_2$ and $\\beta$ locked, the $r$ slider (step 0.01) meets it at the grid points next to $1 + r = y_2/(\\beta y_1)$ (0.04 and 0.05 for the swapped incomes).\n- **Tests.** The lecture's numbers (typed-notes example; perfect smoothing) and the computed swapped-incomes and $s = 0$ cases, checked independently in Python; curves are read at fixed $c_1$ (`budget@150`)."
+      }
+     ],
+     "words": 58,
+     "symbols": [
+      "$y_1$, $y_2$",
+      "$c_1$, $c_2$",
+      "$s = y_1 - c_1$",
+      "$r$",
+      "$\\beta$"
+     ]
+    }
+   ]
+  }
+ ]
+}

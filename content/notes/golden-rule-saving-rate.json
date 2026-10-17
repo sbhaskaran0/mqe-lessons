@@ -1,0 +1,448 @@
+{
+ "slug": "golden-rule-saving-rate",
+ "notation": [
+  {
+   "tex": "$s$",
+   "meaning": "Saving rate",
+   "kind": "Policy / choice parameter",
+   "typical": "Golden rule: $s^* = \\alpha$",
+   "keys": [
+    "s"
+   ]
+  },
+  {
+   "tex": "$\\bar{k}$, $\\bar{c}$",
+   "meaning": "Steady-state capital and consumption: per worker in the basic-model sections, per effective worker once growth is added",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "bar(k)",
+    "bar(c)"
+   ]
+  },
+  {
+   "tex": "$f(\\cdot)$, $f'(\\cdot)$",
+   "meaning": "Output per worker (basic model) or per effective worker (with growth), and the marginal product of capital (MPK)",
+   "kind": "Functions",
+   "typical": "—",
+   "keys": [
+    "f"
+   ]
+  },
+  {
+   "tex": "$\\delta$",
+   "meaning": "Depreciation rate",
+   "kind": "Parameter",
+   "typical": "≈ 0.05",
+   "keys": [
+    "delta"
+   ]
+  },
+  {
+   "tex": "$\\eta$",
+   "meaning": "Population growth rate",
+   "kind": "Parameter",
+   "typical": "≈ 0.01",
+   "keys": [
+    "eta"
+   ]
+  },
+  {
+   "tex": "$\\tilde{\\gamma}$",
+   "meaning": "Growth rate of labor-augmenting technology",
+   "kind": "Parameter",
+   "typical": "≈ 0.03",
+   "keys": [
+    "tilde(gamma)"
+   ]
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "Capital share",
+   "kind": "Parameter",
+   "typical": "≈ 1/3",
+   "keys": [
+    "alpha"
+   ]
+  },
+  {
+   "tex": "$k^*, y^*, c^*$",
+   "meaning": "Golden-rule steady-state capital, output, consumption",
+   "kind": "Endogenous",
+   "typical": "7.13, 1.92, 1.28 per effective worker in the growth example; 25, 5, 2.5 per worker in the basic example",
+   "keys": [
+    "k*",
+    "y*",
+    "c*"
+   ]
+  },
+  {
+   "tex": "$A$",
+   "meaning": "Total factor productivity (basic model)",
+   "kind": "Exogenous",
+   "typical": "1 in the basic example",
+   "keys": [
+    "A"
+   ]
+  },
+  {
+   "tex": "$k$, $c$",
+   "meaning": "Capital and consumption per worker (basic model)",
+   "kind": "Endogenous",
+   "typical": "25 and 2.5 at the golden rule in the basic example",
+   "keys": [
+    "k",
+    "c"
+   ]
+  },
+  {
+   "tex": "$K$",
+   "meaning": "Capital stock: machines, structures",
+   "kind": "Endogenous (stock, state variable)",
+   "typical": "—",
+   "keys": [
+    "K"
+   ],
+   "from": "solow-growth-model"
+  },
+  {
+   "tex": "$\\tilde{\\gamma}$, $\\tilde{k}$",
+   "meaning": "Growth rate of labor-augmenting technology; capital per effective worker (extended model)",
+   "kind": "Parameter / endogenous",
+   "typical": "≈ 0.03",
+   "keys": [
+    "tilde(gamma)",
+    "tilde(k)"
+   ],
+   "from": "solow-growth-model"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Saving more makes an economy richer in the long run — but only up to a point. If people save almost everything, the economy builds a huge stock of machines, yet so much output goes into maintaining and replacing them that little is left over to consume. Save too little and there are too few machines to produce much at all. The golden rule is the saving rate in between that delivers the most consumption, year after year, once the economy has settled down."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It gives a test for whether an economy saves too much or too little, and shows that more saving is not always better.",
+       "folded": false
+      }
+     ],
+     "words": 109,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The saving rate that maximizes **steady-state consumption** — per worker in the basic model with constant technology and workforce, per effective worker once growth is added."
+      }
+     ],
+     "words": 25,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "basic-model-no-population-or-technology-growth",
+   "heading": "Basic model: no population or technology growth",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "basic-model-no-population-or-technology-growth-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With $A$ and the workforce constant ($\\eta = \\tilde{\\gamma} = 0$), steady-state consumption per worker is output minus replacement investment (everything in this section, including its example, is per worker):"
+      },
+      {
+       "t": "math",
+       "tex": "\\bar{c} = f(\\bar{k}) - \\delta\\bar{k} \\quad\\Longrightarrow\\quad f'(\\bar{k}) = \\delta"
+      },
+      {
+       "t": "prose",
+       "md": "With $f(k) = Ak^{\\alpha}$: $\\alpha Ak^{\\alpha-1} = \\delta$ gives $k^{*} = (\\alpha A/\\delta)^{1/(1-\\alpha)}$. The steady state is $\\bar{k} = (sA/\\delta)^{1/(1-\\alpha)}$, and the two coincide exactly when $s = \\alpha$."
+      },
+      {
+       "t": "prose",
+       "md": "**Decision rule.** If $f'(\\bar{k}) > \\delta$, one more unit of capital adds more output than it costs in depreciation, so steady-state consumption rises with capital — save more. If $f'(\\bar{k}) < \\delta$, extra capital adds output but not enough to cover its own depreciation — save less."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Solow diagram - consumption at different saving rates.png",
+       "alt": "Solow diagram - consumption at different saving rates",
+       "caption": "Hand-drawn: steady-state consumption is the gap between $f(k)$ and the depreciation line $\\delta k$. It is largest where a line parallel to $\\delta k$ (dashed) just touches $f(k)$ — slope of $f$ equal to $\\delta$. A saving rate near 1 (blue) or near 0 (green) leaves almost nothing to consume."
+      }
+     ],
+     "words": 116,
+     "symbols": [
+      "$s$",
+      "$\\bar{k}$, $\\bar{c}$",
+      "$f(\\cdot)$, $f'(\\cdot)$",
+      "$\\delta$",
+      "$\\eta$",
+      "$\\tilde{\\gamma}$",
+      "$\\alpha$",
+      "$k^*, y^*, c^*$",
+      "$A$",
+      "$k$, $c$"
+     ]
+    },
+    {
+     "id": "basic-model-no-population-or-technology-growth-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Worked example** ($\\alpha = 1/2$, $A = 1$, $\\delta = 0.1$): $k^{*} = (0.5/0.1)^2 = 25$, $y^{*} = 5$, $c^{*} = 2.5$. Here $\\bar{c}(s) = 10s(1-s)$: 0.9 at $s = 0.1$, 2.1 at $s = 0.3$, **2.5 at $s = 0.5$**, 2.1 at $s = 0.7$, 0.9 at $s = 0.9$. (The curve is symmetric around $\\alpha$ only because $\\alpha = 1/2$.)"
+      }
+     ],
+     "words": 25,
+     "symbols": [
+      "$s$",
+      "$\\bar{k}$, $\\bar{c}$",
+      "$\\delta$",
+      "$\\alpha$",
+      "$k^*, y^*, c^*$",
+      "$A$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "derivation",
+   "heading": "Derivation",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "derivation-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Steady-state consumption is output minus the investment needed to keep $\\bar{k}$ constant:"
+      },
+      {
+       "t": "math",
+       "tex": "\\bar{c} = f(\\bar{k}) - (\\delta + \\eta + \\tilde{\\gamma})\\bar{k}"
+      },
+      {
+       "t": "prose",
+       "md": "Choosing $\\bar{k}$ (through $s$) to maximize it ([Unconstrained Optimization](note:unconstrained-optimization)):"
+      },
+      {
+       "t": "math",
+       "tex": "f'(\\bar{k}) = \\delta + \\eta + \\tilde{\\gamma}"
+      },
+      {
+       "t": "prose",
+       "md": "The marginal product of capital equals the break-even investment rate. The second-order condition holds because $f$ is concave."
+      }
+     ],
+     "words": 35,
+     "symbols": [
+      "$s$",
+      "$\\bar{k}$, $\\bar{c}$",
+      "$f(\\cdot)$, $f'(\\cdot)$",
+      "$\\delta$",
+      "$\\eta$",
+      "$\\tilde{\\gamma}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cobb-douglas-solution",
+   "heading": "Cobb-Douglas solution",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "cobb-douglas-solution-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With $f'(\\tilde{k}) = \\alpha\\tilde{k}^{\\alpha-1}$ and $\\bar{k} = (s/(\\delta+\\eta+\\tilde{\\gamma}))^{1/(1-\\alpha)}$, the condition collapses to"
+      },
+      {
+       "t": "math",
+       "tex": "s^* = \\alpha"
+      },
+      {
+       "t": "math",
+       "tex": "k^* = \\left(\\frac{\\alpha}{\\delta+\\eta+\\tilde{\\gamma}}\\right)^{\\frac{1}{1-\\alpha}}, \\quad y^* = \\left(\\frac{\\alpha}{\\delta+\\eta+\\tilde{\\gamma}}\\right)^{\\frac{\\alpha}{1-\\alpha}}, \\quad c^* = (1-\\alpha)\\,y^*"
+      },
+      {
+       "t": "prose",
+       "md": "**Worked example** (with growth, so per effective worker; $\\alpha = 1/3$, $\\delta + \\eta + \\tilde{\\gamma} = 0.09$): $k^* = 7.13$, $y^* = 1.92$, $c^* = 1.28$. With $s = 0.2$ instead, $\\bar{c} = 1.19$, and $MPK = 0.15 > 0.09$: the economy saves too little."
+      }
+     ],
+     "words": 22,
+     "symbols": [
+      "$s$",
+      "$\\bar{k}$, $\\bar{c}$",
+      "$f(\\cdot)$, $f'(\\cdot)$",
+      "$\\delta$",
+      "$\\eta$",
+      "$\\tilde{\\gamma}$",
+      "$\\alpha$",
+      "$k^*, y^*, c^*$",
+      "$K$",
+      "$\\tilde{\\gamma}$, $\\tilde{k}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "interpretation",
+   "heading": "Interpretation",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "interpretation-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| At the steady state | Meaning | Policy |\n| --- | --- | --- |\n| $MPK > \\delta + \\eta + \\tilde{\\gamma}$ | Too little capital | Saving more raises long-run consumption |\n| $MPK < \\delta + \\eta + \\tilde{\\gamma}$ | Too much capital — **dynamically inefficient** | Saving less raises consumption now *and* later |"
+      }
+     ],
+     "words": 29,
+     "symbols": [
+      "$\\delta$",
+      "$\\eta$",
+      "$\\tilde{\\gamma}$",
+      "$K$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "consumption-dynamics-after-a-change-in-saving",
+   "heading": "Consumption dynamics after a change in saving",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "consumption-dynamics-after-a-change-in-saving-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Raising $s$ cuts consumption immediately (a larger share of the same output is saved), then consumption rises as capital and output build up."
+      },
+      {
+       "t": "prose",
+       "md": "Example (the growth example, per effective worker): $s$ from 0.20 to 0.25. $\\tilde{c}$ drops at once from 1.19 to 1.12, is still below its old level after 10 periods (1.18), is above it by 30 (1.23), and converges to 1.25. The new level is higher because 0.25 is nearer the golden rule."
+      }
+     ],
+     "words": 80,
+     "symbols": [
+      "$s$"
+     ]
+    },
+    {
+     "id": "consumption-dynamics-after-a-change-in-saving-2",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "warning",
+       "title": "\"Closer to the golden rule means more consumption\" is a heuristic",
+       "md": "It holds when comparing saving rates on the same side of $\\alpha$. Across sides, compute: in the growth example ($\\alpha = 1/3$, per effective worker), $s = 0.6$ gives $\\bar{c} = 1.03$, above $s = 0.1$'s 0.95, even though 0.6 is further from $1/3$.",
+       "folded": false
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Golden rule - consumption path after a rise in saving.png",
+       "alt": "Golden rule - consumption path after a rise in saving",
+       "caption": "Hand-drawn: after a rise in $s$, consumption drops at once. Left: starting below the golden rule, it recovers past its old level $\\bar{c}_1$. Right: starting above it, it recovers only partly and settles lower."
+      }
+     ],
+     "words": 76,
+     "symbols": [
+      "$s$",
+      "$\\bar{k}$, $\\bar{c}$",
+      "$\\alpha$"
+     ]
+    },
+    {
+     "id": "consumption-dynamics-after-a-change-in-saving-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Basic-model numbers, per worker ($\\alpha = 1/2$, $A = 1$, $\\delta = 0.1$):"
+      },
+      {
+       "t": "table",
+       "md": "| Change in $s$ | $\\bar{c}$ before | Immediately after | After 10 periods | New $\\bar{c}$ |\n| --- | --- | --- | --- | --- |\n| 0.3 → 0.4 | 2.10 | 1.80 | 2.04 | **2.40** (passes the old level after 14 periods) |\n| 0.5 → 0.6 | 2.50 | 2.00 | 2.16 | **2.40** (never regains the old level) |"
+      },
+      {
+       "t": "prose",
+       "md": "**Precise rule** (since $\\bar{c}$ rises in $s$ below $\\alpha$ and falls above it): long-run consumption ends higher if the new $s \\le \\alpha$, lower if the old $s \\ge \\alpha$, and if the change crosses $\\alpha$ you must compute. For example 0.3 → 0.8 takes $\\bar{c}$ from 2.1 to 1.6."
+      },
+      {
+       "t": "prose",
+       "md": "Cutting $s$ reverses the pattern: an immediate gain, then a decline."
+      }
+     ],
+     "words": 106,
+     "symbols": [
+      "$s$",
+      "$\\bar{k}$, $\\bar{c}$",
+      "$\\delta$",
+      "$\\alpha$",
+      "$A$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Macro**: welfare comparisons across steady states; the dynamic-efficiency debate (are economies over-saving?); the benchmark against which optimal-saving models (Ramsey) are compared."
+      }
+     ],
+     "words": 22,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Solow Growth Model](note:solow-growth-model)\n- [Cobb-Douglas Production Function](note:cobb-douglas-production-function)\n- [Consumption Euler Equation](note:consumption-euler-equation) — when saving is chosen, MPK is the return that saving earns"
+      }
+     ],
+     "words": 23,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

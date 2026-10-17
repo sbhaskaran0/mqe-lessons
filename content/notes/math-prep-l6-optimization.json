@@ -1,0 +1,502 @@
+{
+ "slug": "math-prep-l6-optimization",
+ "notation": [
+  {
+   "tex": "$f(\\mathbf{x})$",
+   "meaning": "Objective function",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "f"
+   ],
+   "from": "unconstrained-optimization"
+  },
+  {
+   "tex": "$x$, $y$",
+   "meaning": "Choice variables in the example",
+   "kind": "Variables",
+   "typical": "—",
+   "keys": [
+    "x",
+    "y"
+   ],
+   "from": "unconstrained-optimization"
+  },
+  {
+   "tex": "$\\lambda$",
+   "meaning": "Box-Cox power estimated by maximum likelihood (in the uses list)",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "lambda"
+   ],
+   "from": "unconstrained-optimization"
+  },
+  {
+   "tex": "$\\mathbf{x}$, $\\mathbf{y}$",
+   "meaning": "Two points",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(x)",
+    "bold(y)"
+   ],
+   "from": "convexity-and-concavity"
+  },
+  {
+   "tex": "$g$",
+   "meaning": "Concave or convex function in Jensen's inequality",
+   "kind": "Function",
+   "typical": "e.g. log",
+   "keys": [
+    "g"
+   ],
+   "from": "convexity-and-concavity"
+  },
+  {
+   "tex": "$w$",
+   "meaning": "Wage in the example",
+   "kind": "Data",
+   "typical": "10 or 40",
+   "keys": [
+    "w"
+   ],
+   "from": "convexity-and-concavity"
+  },
+  {
+   "tex": "$\\mathcal{L}$",
+   "meaning": "Lagrangian",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "cal(L)"
+   ],
+   "from": "constrained-optimization-and-lagrange-multipliers"
+  },
+  {
+   "tex": "$V$",
+   "meaning": "Maximised value",
+   "kind": "Endogenous",
+   "typical": "5.521 in the example",
+   "keys": [
+    "V"
+   ],
+   "from": "constrained-optimization-and-lagrange-multipliers"
+  },
+  {
+   "tex": "$p_x$, $p_y$, $m$",
+   "meaning": "Prices and income in the example",
+   "kind": "Parameters",
+   "typical": "2, 5, 100",
+   "keys": [
+    "p",
+    "m"
+   ],
+   "from": "constrained-optimization-and-lagrange-multipliers"
+  },
+  {
+   "tex": "$MU_x$, $MU_y$",
+   "meaning": "Marginal utilities",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "~MU_x",
+    "~MU_y"
+   ],
+   "from": "constrained-optimization-and-lagrange-multipliers"
+  },
+  {
+   "tex": "$x$, $x^*(p)$",
+   "meaning": "Job choice in the application, and the optimal choice at prices $p$",
+   "kind": "Choice / endogenous",
+   "typical": "2 in the example",
+   "keys": [
+    "x",
+    "x*"
+   ],
+   "from": "envelope-theorem"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Nearly every model in the MQE is an optimization: least squares, maximum likelihood, firms hiring until wages equal marginal products, workers choosing education. This unit is the toolkit — first- and second-order conditions, concavity, Lagrangians and the envelope theorem — plus Jensen's inequality, which keeps reappearing whenever logs and averages meet.**"
+      }
+     ],
+     "words": 49,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "1-unconstrained-problems",
+   "heading": "1. Unconstrained problems",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-unconstrained-problems-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Unconstrained Optimization](note:unconstrained-optimization): set the gradient to zero, then check the Hessian — negative definite for a max, positive definite for a min. Least squares is this problem with $f = \\mathbf{e}'\\mathbf{e}$ (Unit 5)."
+      }
+     ],
+     "words": 29,
+     "symbols": [
+      "$f(\\mathbf{x})$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "2-concavity-and-jensen",
+   "heading": "2. Concavity and Jensen",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-concavity-and-jensen-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Convexity and Concavity](note:convexity-and-concavity): if $f$ is concave, any critical point is the global max. Jensen's inequality, $E[\\ln W] \\leq \\ln E[W]$, explains why the mean of log wages sits below the log of mean wages — a gap that matters for the log measures in [Econ 424 L1 Measuring Inequality](note:econ-424-l1-measuring-inequality)."
+      }
+     ],
+     "words": 43,
+     "symbols": [
+      "$f(\\mathbf{x})$"
+     ]
+    },
+    {
+     "id": "2-concavity-and-jensen-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "The Hessian of $f(x,y) = -x^2 - y^2 + xy + 3x$ has eigenvalues $-1$ and $-3$ at every point. What can you conclude about a critical point of $f$?",
+       "options": [
+        {
+         "md": "It is a saddle point, because the cross term $xy$ gives the Hessian nonzero off-diagonal entries",
+         "correct": false,
+         "feedback": "Definiteness is read from the eigenvalues, not from whether the off-diagonal entries are zero. Both eigenvalues are negative, so the Hessian is negative definite."
+        },
+        {
+         "md": "It is a local maximum, but whether it is the global maximum would need values of $f$ far from the point",
+         "correct": false,
+         "feedback": "That would be so if the Hessian were negative definite only at the critical point. Here it is negative definite everywhere, so $f$ is concave, and concavity settles the global question."
+        },
+        {
+         "md": "It is the global maximum, because $f$ is concave",
+         "correct": true
+        }
+       ],
+       "why": "Eigenvalues $-1$ and $-3$ at every point make the Hessian negative definite everywhere, so $f$ is concave. For a concave $f$, any critical point is the global max: no separate search far away is needed.",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 61,
+     "symbols": [
+      "$f(\\mathbf{x})$",
+      "$x$, $y$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "3-constraints",
+   "heading": "3. Constraints",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "3-constraints-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Constrained Optimization and Lagrange Multipliers](note:constrained-optimization-and-lagrange-multipliers): add $\\lambda(c - g(\\mathbf{x}))$ and solve. At the optimum, gradients are parallel (tangency), and $\\lambda$ is the shadow price of the constraint."
+      }
+     ],
+     "words": 23,
+     "symbols": [
+      "$\\lambda$",
+      "$\\mathbf{x}$, $\\mathbf{y}$",
+      "$g$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "4-how-the-optimum-responds",
+   "heading": "4. How the optimum responds",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "4-how-the-optimum-responds-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Envelope Theorem](note:envelope-theorem): the derivative of the maximized value with respect to a parameter is just the partial of the Lagrangian — re-optimization has no first-order effect. Roy's identity, Shephard's lemma and Hotelling's lemma are all this one result."
+      },
+      {
+       "t": "interactive",
+       "widget": "envelope-theorem-and-job-switching",
+       "state": {
+        "p0": 2,
+        "p1": 2.1
+       },
+       "lock": [
+        "p0",
+        "p1"
+       ],
+       "show": [
+        "value",
+        "stay",
+        "start",
+        "switch",
+        "keep",
+        "gap",
+        "gain_stay_out",
+        "gain_switch_out",
+        "extra_out"
+       ],
+       "prompt": "Estimate the income gain from a price rise with the envelope theorem, then reveal it",
+       "predict": {
+        "hide": [
+         "switch",
+         "keep",
+         "gap",
+         "gain_stay_out",
+         "gain_switch_out",
+         "extra_out"
+        ],
+        "ask": "Income from job $x$ at output price $p$ is $f(x, p) = px - x^2/2$, and at $p_0 = 2$ the best job is $x_0 = 2$. Using the envelope theorem, by about how much does the maximized income $V$ rise when $p$ goes from 2 to 2.1?",
+        "readout": "gain_switch_out",
+        "tol": 0.01
+       },
+       "objectives": [
+        4
+       ]
+      }
+     ],
+     "words": 52,
+     "symbols": [
+      "$f(\\mathbf{x})$",
+      "$x$, $y$",
+      "$V$",
+      "$p_x$, $p_y$, $m$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "self-check",
+   "heading": "Self-check",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "self-check-1",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "1. Maximize $f(x,y) = -x^2 - y^2 + xy + 3x$. What is the maximum value of $f$?",
+       "answer": 3.0,
+       "tol": 0.01,
+       "wrong": [
+        {
+         "answer": 2.25,
+         "tol": 0.0,
+         "md": "that drops the cross term from the first-order conditions, giving $(1.5, 0)$; $\\partial(xy)/\\partial x = y$ and $\\partial(xy)/\\partial y = x$ belong in them"
+        },
+        {
+         "answer": 2.0,
+         "tol": 0.0,
+         "md": "that is $x^* = 2$, the maximizer; the question asks for the value $f(2, 1)$"
+        }
+       ],
+       "why": "FOCs: $-2x + y + 3 = 0$, $x - 2y = 0$ → $(2, 1)$, $f = -4 - 1 + 2 + 6 = 3$. Hessian eigenvalues $-1, -3$: negative definite everywhere, so a global max. → [Unconstrained Optimization](note:unconstrained-optimization)",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 8,
+     "symbols": [
+      "$f(\\mathbf{x})$",
+      "$x$, $y$",
+      "$x$, $x^*(p)$"
+     ]
+    },
+    {
+     "id": "self-check-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "2. Maximize $\\ln x + \\ln y$ subject to $2x + 5y = 100$. Give $\\lambda$.",
+       "answer": 0.02,
+       "tol": 0.001,
+       "wrong": [
+        {
+         "answer": 0.04,
+         "tol": 0.0,
+         "md": "that is $MU_x = 1/x$ alone; the condition is $MU_x = \\lambda p_x$, so divide by $p_x = 2$"
+        },
+        {
+         "answer": 0.01,
+         "tol": 0.0,
+         "md": "that is $1/m$; each log term gets half of income, so $\\lambda = 1/(p_x x) = 1/50$"
+        },
+        {
+         "answer": 50.0,
+         "tol": 0.0,
+         "md": "that is $p_x x = 1/\\lambda$, the reciprocal of the multiplier"
+        }
+       ],
+       "why": "With $\\mathcal{L} = \\ln x + \\ln y + \\lambda(100 - 2x - 5y)$, the FOCs $1/x = 2\\lambda$ and $1/y = 5\\lambda$ say spending is equal on the two goods. Half of income on each: $x = 25$, $y = 10$, $\\lambda = 2/m = 0.02$. → [Constrained Optimization and Lagrange Multipliers](note:constrained-optimization-and-lagrange-multipliers)",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 5,
+     "symbols": [
+      "$x$, $y$",
+      "$\\lambda$",
+      "$\\mathcal{L}$",
+      "$p_x$, $p_y$, $m$",
+      "$MU_x$, $MU_y$"
+     ]
+    },
+    {
+     "id": "self-check-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "3. In Q2, what is $dV/dp_x$?",
+       "answer": -0.5,
+       "tol": 0.005,
+       "wrong": [
+        {
+         "answer": 0.5,
+         "tol": 0.0,
+         "md": "the sign is wrong: a higher price shrinks the budget set, so the maximized value falls"
+        },
+        {
+         "answer": -0.02,
+         "tol": 0.0,
+         "md": "that is $-\\lambda$ alone; $\\partial\\mathcal{L}/\\partial p_x = -\\lambda x$, so multiply by $x = 25$"
+        },
+        {
+         "answer": -0.2,
+         "tol": 0.0,
+         "md": "that multiplies $-\\lambda$ by $y = 10$; $p_x$ multiplies $x$ in the constraint, so the factor is $x = 25$"
+        }
+       ],
+       "why": "By the envelope theorem, differentiate $\\mathcal{L} = \\ln x + \\ln y + \\lambda(m - p_x x - p_y y)$ holding $x$, $y$ and $\\lambda$ at the optimum: $dV/dm = \\lambda = 0.02$; $dV/dp_x = -\\lambda x = -0.5$; Roy: $x = 0.5/0.02 = 25$. → [Envelope Theorem](note:envelope-theorem)",
+       "objectives": [
+        4
+       ]
+      }
+     ],
+     "words": 5,
+     "symbols": [
+      "$x$, $y$",
+      "$\\lambda$",
+      "$\\mathcal{L}$",
+      "$V$",
+      "$p_x$, $p_y$, $m$"
+     ]
+    },
+    {
+     "id": "self-check-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "4. Wages are 10 or 40 with equal probability. Compare $\\ln E[w]$ and $E[\\ln w]$: what is $\\ln E[w] - E[\\ln w]$?",
+       "answer": 0.223,
+       "tol": 0.002,
+       "wrong": [
+        {
+         "answer": -0.223,
+         "tol": 0.002,
+         "md": "the sign is reversed: $\\ln$ is concave, so Jensen puts the log of the mean above the mean of the logs"
+        },
+        {
+         "answer": 0.0,
+         "tol": 0.0,
+         "md": "taking logs and averaging don't commute for a nonlinear function like $\\ln$"
+        },
+        {
+         "answer": 5.0,
+         "tol": 0.0,
+         "md": "that is the gap in levels, arithmetic mean 25 minus geometric mean 20; the question asks for the gap in logs"
+        }
+       ],
+       "why": "$\\ln 25 = 3.219 > 2.996 = E[\\ln w]$, a gap of $0.223 = \\ln(25/20)$; the geometric mean is 20 vs an arithmetic mean of 25. → [Convexity and Concavity](note:convexity-and-concavity)",
+       "objectives": [
+        5
+       ]
+      }
+     ],
+     "words": 13,
+     "symbols": [
+      "$w$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Solve unconstrained problems and verify the second-order condition.\n2. Use concavity to argue a critical point is a global optimum.\n3. Set up and solve a Lagrangian, and interpret the multiplier.\n4. Apply the envelope theorem to get value-function derivatives.\n5. State Jensen's inequality and apply it to logs."
+      }
+     ],
+     "words": 50,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "unconstrained-optimization",
+        "convexity-and-concavity",
+        "constrained-optimization-and-lagrange-multipliers",
+        "envelope-theorem"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

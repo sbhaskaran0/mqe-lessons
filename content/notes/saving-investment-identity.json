@@ -1,0 +1,238 @@
+{
+ "slug": "saving-investment-identity",
+ "notation": [
+  {
+   "tex": "$Y$",
+   "meaning": "Output (equal to income)",
+   "kind": "Endogenous",
+   "typical": "100 in the example",
+   "keys": [
+    "Y"
+   ]
+  },
+  {
+   "tex": "$C$",
+   "meaning": "Consumption",
+   "kind": "Endogenous",
+   "typical": "70 in the example",
+   "keys": [
+    "C"
+   ]
+  },
+  {
+   "tex": "$I$",
+   "meaning": "Investment",
+   "kind": "Endogenous",
+   "typical": "30 in the example",
+   "keys": [
+    "I"
+   ]
+  },
+  {
+   "tex": "$S$",
+   "meaning": "Saving",
+   "kind": "Endogenous",
+   "typical": "Equals $I$",
+   "keys": [
+    "S"
+   ]
+  },
+  {
+   "tex": "$s$",
+   "meaning": "Saving rate",
+   "kind": "Parameter in (0, 1)",
+   "typical": "0.3 in the example",
+   "keys": [
+    "s"
+   ]
+  },
+  {
+   "tex": "$T$, $G$",
+   "meaning": "Taxes and government spending",
+   "kind": "Policy",
+   "typical": "—",
+   "keys": [
+    "T",
+    "G"
+   ]
+  },
+  {
+   "tex": "$NX$",
+   "meaning": "Net exports (current account)",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "~NX"
+   ]
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "In an economy that does not trade with the outside world and has no government, everything produced is either consumed or invested in new capital, and whatever people do not consume is saved. Put those two facts together and saving must equal investment — every dollar saved ends up financing a machine or a building. If households save a fixed share of their income, investment is that same share of output."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the link between household saving behaviour and capital accumulation in growth models, and a check on any macro accounting.",
+       "folded": false
+      }
+     ],
+     "words": 94,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "In a closed economy with no government, output is spent on consumption or investment, and whatever is not consumed is saved:"
+      },
+      {
+       "t": "math",
+       "tex": "Y = C + I, \\qquad S = Y - C \\quad\\Longrightarrow\\quad S = I"
+      },
+      {
+       "t": "prose",
+       "md": "Every unit saved becomes a unit of new capital."
+      }
+     ],
+     "words": 30,
+     "symbols": [
+      "$Y$",
+      "$C$",
+      "$I$",
+      "$S$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "with-a-constant-saving-rate",
+   "heading": "With a constant saving rate",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "with-a-constant-saving-rate-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "If households save a fixed fraction $s\\in(0,1)$ of income, $S = sY$, $C = (1-s)Y$ and"
+      },
+      {
+       "t": "math",
+       "tex": "I = sY"
+      },
+      {
+       "t": "prose",
+       "md": "Example: $Y = 100$ and $s = 0.3$ give $S = I = 30$ and $C = 70$."
+      }
+     ],
+     "words": 13,
+     "symbols": [
+      "$Y$",
+      "$C$",
+      "$I$",
+      "$S$",
+      "$s$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "extensions-beyond-the-closed-economy-case",
+   "heading": "Extensions (beyond the closed-economy case)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "extensions-beyond-the-closed-economy-case-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Economy | Identity |\n| --- | --- |\n| Closed, no government | $S = I$ |\n| With government | $S_{private} + (T - G) = I$ |\n| Open | $S - I = NX$ (current account) |"
+      }
+     ],
+     "words": 12,
+     "symbols": [
+      "$I$",
+      "$S$",
+      "$T$, $G$",
+      "$NX$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Reading it as causal: it is an accounting identity. Behaviour enters through assumptions like a fixed $s$."
+      }
+     ],
+     "words": 17,
+     "symbols": [
+      "$s$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Macro / growth**: links saving behaviour to the [Capital Accumulation Equation](note:capital-accumulation-equation) in the [Solow Growth Model](note:solow-growth-model)."
+      }
+     ],
+     "words": 16,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Capital Accumulation Equation](note:capital-accumulation-equation)"
+      }
+     ],
+     "words": 4,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

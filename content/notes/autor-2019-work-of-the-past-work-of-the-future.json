@@ -1,0 +1,206 @@
+{
+ "slug": "autor-2019-work-of-the-past-work-of-the-future",
+ "notation": [],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "info",
+       "title": "Attribution",
+       "md": "The lecture slides show these figures without naming the paper; their numbering, titles and notes match Autor (2019).",
+       "folded": false
+      }
+     ],
+     "words": 19,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "key-takeaways",
+   "heading": "Key takeaways",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "key-takeaways-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. **Cities became much more educated.** In 1970 the college share barely rose with density; by 2015 it ran from about 0.17 in the least dense to 0.41 in the densest commuting zones.\n2. **Middle-skill jobs disappeared fastest in dense places.** Production, clerical, administrative and sales jobs, once concentrated in cities, fell most where they had been most common — the spatial face of [Wage Polarization](note:wage-polarization).\n3. **Non-college city workers moved down, not up.** In dense places non-college adults shifted out of middle-skill jobs into low-skill service, transport and laborer jobs, not into high-skill ones."
+      }
+     ],
+     "words": 96,
+     "symbols": []
+    },
+    {
+     "id": "key-takeaways-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "4. **The urban wage premium for the less educated faded.** In 1970 wages rose with density for every education group; by 2015 the gradient had flattened for those without a high-school degree and steepened for post-college workers."
+      }
+     ],
+     "words": 37,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "research-question",
+   "heading": "Research question",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "research-question-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "How has the \"work of the past\" — middle-skill urban jobs open to non-college workers — changed, and what does it imply for where and for whom opportunity is concentrated?"
+      }
+     ],
+     "words": 28,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "data-and-setting",
+   "heading": "Data and setting",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "data-and-setting-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "US Census 1970–2000 and pooled ACS 2014–2016 (IPUMS), with occupations harmonized across decades and mapped to 722 consistent [Commuting Zone](note:commuting-zone)s ordered by 1970 population density."
+      }
+     ],
+     "words": 27,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "results",
+   "heading": "Results",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "results-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/US college and dropout shares by city density 1970-2015.png",
+       "alt": "US college and dropout shares by city density 1970-2015"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    },
+    {
+     "id": "results-2",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/US occupational employment shares by city density 1970-2015.png",
+       "alt": "US occupational employment shares by city density 1970-2015"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    },
+    {
+     "id": "results-3",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/US non-college occupational shares by city density 1970-2015.png",
+       "alt": "US non-college occupational shares by city density 1970-2015"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    },
+    {
+     "id": "results-4",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/US log hourly wages by education and city density 1970-2015.png",
+       "alt": "US log hourly wages by education and city density 1970-2015"
+      },
+      {
+       "t": "prose",
+       "md": "Values read off the charts are in [US Skill and Occupation Shifts by City Density 1970-2015](note:us-skill-and-occupation-shifts-by-city-density-1970-2015)."
+      }
+     ],
+     "words": 16,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "caveats",
+   "heading": "Caveats",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "caveats-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Descriptive: the figures show where and for whom change happened, not why (automation, trade and offshoring are all candidates).\n- Places are ordered by 1970 density, so the comparison is across places with different starting points, not a causal effect of density."
+      }
+     ],
+     "words": 43,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "in-econ-424-l5-international-trade-empirics",
+   "heading": "In Econ 424 L5 International Trade Empirics",
+   "role": "paper-in-lesson",
+   "steps": [
+    {
+     "id": "in-econ-424-l5-international-trade-empirics-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The lecture asks \"why start with regional analysis, other than identification?\" and answers with these figures: something interesting is happening across space. They connect the inequality facts from earlier lectures (polarization, falling returns for the less educated) to geography, motivating the regional trade studies that follow."
+      }
+     ],
+     "words": 46,
+     "symbols": []
+    }
+   ],
+   "lesson": "econ-424-l5-international-trade-empirics"
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Commuting Zone](note:commuting-zone) · [Wage Polarization](note:wage-polarization) · [Within- and Between-Group Inequality](note:within-and-between-group-inequality)"
+      }
+     ],
+     "words": 9,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

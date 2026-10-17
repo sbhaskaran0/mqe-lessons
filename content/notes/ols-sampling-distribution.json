@@ -1,0 +1,165 @@
+{
+ "slug": "ols-sampling-distribution",
+ "notation": [
+  {
+   "tex": "$b_k$",
+   "meaning": "OLS estimate of coefficient $k$",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "b"
+   ],
+   "from": "sampling-distribution-of-ols"
+  },
+  {
+   "tex": "$\\beta_k$",
+   "meaning": "True coefficient",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ],
+   "from": "sampling-distribution-of-ols"
+  },
+  {
+   "tex": "$\\sigma^2$",
+   "meaning": "Error variance",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "sigma"
+   ],
+   "from": "sampling-distribution-of-ols"
+  },
+  {
+   "tex": "$N$, $K$",
+   "meaning": "Observations and number of coefficients",
+   "kind": "Counts",
+   "typical": "$K = 2$ in simple regression",
+   "keys": [
+    "N",
+    "K"
+   ],
+   "from": "sampling-distribution-of-ols"
+  },
+  {
+   "tex": "$y_i$, $x_i$",
+   "meaning": "Outcome and regressor",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "y",
+    "x"
+   ],
+   "from": "sr-assumptions"
+  },
+  {
+   "tex": "$\\bar{x}$, $\\bar{y}$",
+   "meaning": "Sample means",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "bar(x)",
+    "bar(y)"
+   ],
+   "from": "ols-estimator"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "ols-sampling-distribution"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$b_k$",
+      "$\\beta_k$",
+      "$\\sigma^2$",
+      "$N$, $K$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Many samples from the population of [OLS Sampling Model](note:ols-sampling-model), one OLS fit each, and the histogram of the 2,000 slopes $b_2$: [Sampling Distribution of OLS](note:sampling-distribution-of-ols) made visible. The sample of [OLS Line Fitter](note:ols-line-fitter) is one draw from this population."
+      },
+      {
+       "t": "prose",
+       "md": "- **Purpose.** See unbiasedness and the standard error as statements about many samples. With SR1 to SR5 the histogram centres on $\\beta_2 = 10$ and its spread is $\\sigma/\\sqrt{\\sum(x_i - \\bar{x})^2}$, which the average textbook standard error matches. Heteroskedasticity (`het` = 1) leaves the centre alone but the textbook standard error understates the spread, while the robust (HC1) one is close. An error correlated with $x$ ($\\gamma > 0$: SR2 fails) moves the centre to $\\beta_2 + \\gamma$."
+      }
+     ],
+     "words": 103,
+     "symbols": [
+      "$b_k$",
+      "$\\beta_k$",
+      "$\\sigma^2$",
+      "$y_i$, $x_i$",
+      "$\\bar{x}$, $\\bar{y}$"
+     ]
+    },
+    {
+     "id": "notes-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Learner.** Sliders $N$, $\\sigma$, `het`, the correlation of $x$ with the error, $\\gamma$ and the number of samples; \"Draw again\" draws a fresh set of samples with the same settings. Lines mark $\\beta_2$ (`truth`) and the mean of the draws (`centre`); the normal curves `textbook` and `robust` are centred on $\\beta_2$ with the average textbook and robust standard errors as their spread.\n- **Scalars.** Summaries `b2_mean`, `b2_sd`, `se_mean`, `hc_mean` (goals and tests read them); readouts `b2_mean_out`, `b2_sd_out`, `se_mean_out`, `hc_mean_out`; the model's `sd_b2`."
+      }
+     ],
+     "words": 90,
+     "symbols": [
+      "$\\beta_k$",
+      "$\\sigma^2$",
+      "$N$, $K$",
+      "$y_i$, $x_i$"
+     ]
+    },
+    {
+     "id": "notes-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Goal it supports.** `b2_sd <= 0.84` with `het` = 0, $\\gamma = 0$, $\\sigma = 89.5$ and $R = 2000$: half the $N = 40$ spread (1.67, $\\sigma\\sqrt{E[1/S_{xx}]}$), reached at about $N = 160$ (0.832 in the first draw, 0.857 at $N = 150$; \"Draw again\" reseeds, so the threshold N varies by a step or so)."
+      }
+     ],
+     "words": 42,
+     "symbols": [
+      "$\\sigma^2$",
+      "$N$, $K$"
+     ]
+    },
+    {
+     "id": "notes-4",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Tests.** The brief's Monte Carlo numbers, at tolerances of at least four Monte Carlo standard errors (0.15 and 0.11 on the mean and spread of $b_2$ at $N = 40$, 0.17 and 0.12 with heteroskedasticity). The player's own draws at seed 430001: 9.99, 1.677 and 1.667 (SR1 to SR5); 10.01 and 0.832 ($N = 160$); 9.99, 1.947, 1.820 and 1.902 (heteroskedastic); 11.99 ($\\gamma = 2$). Raising $N$ extends each sample's draws, so the same settings always give the same histogram."
+      }
+     ],
+     "words": 84,
+     "symbols": [
+      "$b_k$",
+      "$N$, $K$"
+     ]
+    }
+   ]
+  }
+ ]
+}

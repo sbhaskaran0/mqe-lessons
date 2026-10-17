@@ -1,0 +1,200 @@
+{
+ "slug": "top-coding",
+ "notation": [
+  {
+   "tex": "$y$",
+   "meaning": "True income",
+   "kind": "Data (unobserved above $c$)",
+   "typical": "—",
+   "keys": [
+    "y"
+   ]
+  },
+  {
+   "tex": "$c$",
+   "meaning": "Top code: the cap set by the survey agency",
+   "kind": "Parameter",
+   "typical": "Often near the 97th–99th percentile",
+   "keys": [
+    "c"
+   ]
+  },
+  {
+   "tex": "$y^{o}$",
+   "meaning": "Recorded income",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "~y^o"
+   ]
+  },
+  {
+   "tex": "$\\mu$, $\\sigma$",
+   "meaning": "Mean and standard deviation of log income in the example",
+   "kind": "Parameter",
+   "typical": "3 and 0.6",
+   "keys": [
+    "mu",
+    "sigma"
+   ]
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Many surveys do not record very high incomes exactly, partly to protect respondents' privacy. Anyone earning above a cap is simply written down as earning the cap. A banker on five million and a doctor on four hundred thousand can both appear as earning the same capped amount. The data then look less unequal than reality, and any growth at the very top is invisible because the recorded value cannot move above the cap. The problem is worse when the cap is low relative to wages, and comparisons over time break when the survey moves the cap."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "Top-coded survey data understate inequality and miss the rise of top incomes, which is why research on the top uses tax or social security records instead.",
+       "folded": false
+      }
+     ],
+     "words": 126,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With a top code $c$, the recorded income is the true income censored from above:"
+      },
+      {
+       "t": "math",
+       "tex": "y^{o} = \\min(y,\\; c)"
+      }
+     ],
+     "words": 14,
+     "symbols": [
+      "$y$",
+      "$c$",
+      "$y^{o}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "consequences",
+   "heading": "Consequences",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "consequences-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Measure | Effect of top coding |\n| --- | --- |\n| Variance of log income | Biased **down** |\n| Mean income | Biased down |\n| Percentiles below the cap (10th, 50th, 90th) | Unaffected, if the cap is above them |\n| Top income shares | Unusable — the top is exactly what is censored |\n| Changes over time at the top | Invisible; a moving cap creates spurious breaks |"
+      }
+     ],
+     "words": 55,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Let $\\ln y$ be normal with $\\mu = 3$ and $\\sigma = 0.6$, so the true variance of log income is 0.36."
+      },
+      {
+       "t": "table",
+       "md": "| Top code at | $\\ln c$ | Variance of recorded log income | Understatement |\n| --- | --- | --- | --- |\n| 95th percentile | 3.99 | 0.329 | 8.5% |\n| 99th percentile | 4.40 | 0.354 | 1.8% |"
+      },
+      {
+       "t": "prose",
+       "md": "The static bias is modest here. The bigger problem is dynamic: if top incomes grow by 50%, recorded incomes above the cap do not move at all."
+      }
+     ],
+     "words": 71,
+     "symbols": [
+      "$y$",
+      "$c$",
+      "$\\mu$, $\\sigma$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fixes",
+   "heading": "Fixes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "fixes-1",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "note",
+       "title": "Beyond the lecture",
+       "md": "- Multiply top-coded values by a constant (1.4–1.5 is a common convention).\n- Impute the censored tail from a Pareto distribution.\n- Use administrative data without a cap: [IRS Individual Tax Data](note:irs-individual-tax-data) or the [SSA Master Earnings File](note:ssa-master-earnings-file).",
+       "folded": false
+      }
+     ],
+     "words": 44,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Inequality: any survey-based measure of dispersion or of the top tail.\n- Econometrics: top coding is censoring of the variable (beyond the lecture: handled by censored-regression or Tobit models)."
+      }
+     ],
+     "words": 30,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Variance of Log Income](note:variance-of-log-income) · [Top Income Shares](note:top-income-shares) · [Percentile Ratios](note:percentile-ratios) · [Current Population Survey (CPS)](note:current-population-survey-cps)"
+      }
+     ],
+     "words": 14,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

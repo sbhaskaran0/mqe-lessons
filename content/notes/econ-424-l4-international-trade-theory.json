@@ -1,0 +1,798 @@
+{
+ "slug": "econ-424-l4-international-trade-theory",
+ "notation": [
+  {
+   "tex": "$j$, $i$",
+   "meaning": "Industries (goods)",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "j",
+    "i"
+   ],
+   "from": "specific-factors-model"
+  },
+  {
+   "tex": "$p_j$",
+   "meaning": "Price of good $j$, set on world markets",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "p"
+   ],
+   "from": "specific-factors-model"
+  },
+  {
+   "tex": "$Y_j$",
+   "meaning": "Output of good $j$ — fixed because factors cannot move",
+   "kind": "Exogenous (fixed)",
+   "typical": "—",
+   "keys": [
+    "Y"
+   ],
+   "from": "specific-factors-model"
+  },
+  {
+   "tex": "$\\alpha_j$",
+   "meaning": "Share of revenue paid to a given factor in industry $j$",
+   "kind": "Parameter in (0, 1)",
+   "typical": "≈ 2/3 for labor",
+   "keys": [
+    "alpha"
+   ],
+   "from": "specific-factors-model"
+  },
+  {
+   "tex": "$w_j$",
+   "meaning": "Wage (payment per unit) of the factor in industry $j$",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "w"
+   ],
+   "from": "specific-factors-model"
+  },
+  {
+   "tex": "$f$, $g$",
+   "meaning": "Factor and good, in the many-goods extension",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "f",
+    "g"
+   ],
+   "from": "specific-factors-model"
+  },
+  {
+   "tex": "$\\lambda_{fg}$",
+   "meaning": "Share of factor $f$'s income earned in good $g$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "lambda"
+   ],
+   "from": "specific-factors-model"
+  },
+  {
+   "tex": "$a_f$",
+   "meaning": "Productivity change specific to factor $f$",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "a"
+   ],
+   "from": "specific-factors-model"
+  },
+  {
+   "tex": "$s_{rj}$",
+   "meaning": "Share of $r$'s workers employed in $j$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "s"
+   ],
+   "from": "shift-share-exposure"
+  },
+  {
+   "tex": "$V(\\theta)$",
+   "meaning": "Maximised value as a function of a parameter",
+   "kind": "Value function",
+   "typical": "—",
+   "keys": [
+    "V"
+   ],
+   "from": "envelope-theorem"
+  },
+  {
+   "tex": "$x$, $x^*(p)$",
+   "meaning": "Job choice in the application, and the optimal choice at prices $p$",
+   "kind": "Choice / endogenous",
+   "typical": "2 in the example",
+   "keys": [
+    "x",
+    "x*"
+   ],
+   "from": "envelope-theorem"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Trade raises inequality through a simple channel: opening up changes world demand for what each industry, firm or region produces, which changes prices, which changes the demand for the workers tied to those goods. In the lecture's deliberately simple model — a small open economy with completely immobile factors — a factor's income moves one-for-one with the price of its good, and a region's or skill group's average wage moves by an income-share-weighted average of price changes. Places and workers concentrated in export winners gain; those concentrated in import-competing goods lose.**"
+      }
+     ],
+     "words": 89,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "1-the-mechanism-industries-firms-regions",
+   "heading": "1. The mechanism: industries, firms, regions",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-the-mechanism-industries-firms-regions-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The \"standard\" story trade economists have had in mind for decades rests on two habits: prices are shaped by supply and demand, and trade works through **local factor demand**. Trade liberalization raises world demand for some domestic goods (US planes) and lowers it for others (US textiles). Planes use relatively more high-education workers and textiles more low-education workers, so liberalization can raise the wage of high- relative to low-education workers — a demand shift in the language of [Relative Supply and Demand](note:relative-supply-and-demand) and the [Skill Premium](note:skill-premium)."
+      }
+     ],
+     "words": 85,
+     "symbols": []
+    },
+    {
+     "id": "1-the-mechanism-industries-firms-regions-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The same logic runs at two other levels:"
+      },
+      {
+       "t": "prose",
+       "md": "- **Firms**: if world demand rises for New Balance products and falls for Converse products, New Balance workers gain relative to Converse workers — unless workers move freely between firms.\n- **Regions**: planes are made in Los Angeles, textiles in Rome, Georgia, so LA workers gain relative to Rome workers — unless workers move freely between regions."
+      },
+      {
+       "t": "prose",
+       "md": "In each case the groups are industries, firms or regions, so trade moves *between-group* inequality along whatever dimension workers cannot easily cross ([Within- and Between-Group Inequality](note:within-and-between-group-inequality))."
+      }
+     ],
+     "words": 89,
+     "symbols": []
+    },
+    {
+     "id": "1-the-mechanism-industries-firms-regions-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "World demand rises for New Balance products and falls for Converse products. In the lecture's argument, what would stop New Balance workers from gaining relative to Converse workers?",
+       "options": [
+        {
+         "md": "Both firms being in the same region",
+         "correct": false,
+         "feedback": "Sharing a region does not help if workers are tied to their firm: the gain runs through demand for each firm's own workers."
+        },
+        {
+         "md": "Workers being free to move between the two firms",
+         "correct": true
+        },
+        {
+         "md": "The economy being a small open economy that takes prices as given",
+         "correct": false,
+         "feedback": "Price-taking is what passes the change in world demand into the prices these firms get. It delivers the gain rather than undoing it."
+        },
+        {
+         "md": "Each firm paying its workers a constant share of revenue",
+         "correct": false,
+         "feedback": "A constant share of higher revenue is a higher payment, so constant shares pass the price rise through to New Balance workers."
+        }
+       ],
+       "why": "The gain runs through local factor demand: New Balance workers are tied to a good whose price rose. If workers move freely between the firms, they move until the two firms pay the same, so the relative gain disappears. Sharing a region does not help if workers cannot switch firms. Price-taking and constant shares are assumptions that *deliver* the result, not what undoes it.",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 66,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "2-a-simpler-model-that-connects-to-data",
+   "heading": "2. A simpler model that connects to data",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-a-simpler-model-that-connects-to-data-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The professor sets aside the standard trade models in favor of something simpler that maps more directly onto data. Goods are indexed by $j$. The economy is a [Small Open Economy](note:small-open-economy), so it takes prices $p_j$ as given. Factors are **completely immobile**, so output in each industry is fixed at $Y_j$. Each factor receives a constant share $\\alpha_j$ of revenue, so factor payments are $\\alpha_j p_j Y_j$ and"
+      },
+      {
+       "t": "math",
+       "tex": "d\\log(\\text{factor payments}_j) = d\\log p_j ."
+      },
+      {
+       "t": "prose",
+       "md": "Because factors cannot move, this is the change in income of a *given* set of factors. This is the [Specific-Factors Model](note:specific-factors-model) in its extreme form."
+      }
+     ],
+     "words": 86,
+     "symbols": [
+      "$j$, $i$",
+      "$p_j$",
+      "$Y_j$",
+      "$\\alpha_j$"
+     ]
+    },
+    {
+     "id": "2-a-simpler-model-that-connects-to-data-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "In the lecture's model (small open economy, immobile factors, constant factor shares), the world price of good $j$ rises by 0.10 log points. By how much do factor payments in industry $j$ change?",
+       "options": [
+        {
+         "md": "By $\\alpha_j \\times 0.10$, the factor's share of the price rise",
+         "correct": false,
+         "feedback": "The share multiplies the level of revenue, so in logs it is a constant that drops out: $\\log(\\alpha_jp_jY_j) = \\log\\alpha_j + \\log p_j + \\log Y_j$."
+        },
+        {
+         "md": "By more than 0.10, a magnification effect",
+         "correct": false,
+         "feedback": "Magnification needs another factor to move into or out of the industry. Here every factor is immobile and output is fixed, so payments move exactly with the price."
+        },
+        {
+         "md": "By 0.10 log points: one-for-one with the price",
+         "correct": true
+        },
+        {
+         "md": "Not at all, because the factor's share $\\alpha_j$ is constant",
+         "correct": false,
+         "feedback": "The share is constant, but revenue $p_jY_j$ rises with the price, so the payment $\\alpha_jp_jY_j$ rises too."
+        }
+       ],
+       "why": "Payments are $\\alpha_j p_j Y_j$. In logs, $\\log\\alpha_j$ and $\\log Y_j$ are constant (a fixed share, and fixed output because factors cannot move), so $d\\log(\\text{factor payments}_j) = d\\log p_j = 0.10$. A constant *share* of a larger revenue is a larger *payment*. A rise of more than 0.10 needs another factor that can move in, which this model rules out ([Specific-Factors Model](note:specific-factors-model)).",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 66,
+     "symbols": [
+      "$j$, $i$",
+      "$p_j$",
+      "$Y_j$",
+      "$\\alpha_j$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "3-implications-for-firms",
+   "heading": "3. Implications for firms",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "3-implications-for-firms-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "If goods $j$ and $i$ are made by different firms and $d\\log p_j > d\\log p_i$, workers at $j$'s firms gain relative to those at $i$'s. Workers at firms receiving a positive trade shock (export market access) see wages rise; those at firms hit by a negative shock (import expansion) see wages fall."
+      }
+     ],
+     "words": 46,
+     "symbols": [
+      "$j$, $i$",
+      "$p_j$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "4-implications-for-regions-or-factors",
+   "heading": "4. Implications for regions — or factors",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "4-implications-for-regions-or-factors-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Now take two regions, Rome (R) and Los Angeles (L), and two industries, airplanes (A) and textiles (T). A region's average wage is its employment-weighted wage, $w_r = s_{rA}w_A + s_{rT}w_T$. Differentiating and writing $\\lambda_{rj}$ for the share of the region's **income** earned in industry $j$:"
+      },
+      {
+       "t": "math",
+       "tex": "d\\log w_r = \\lambda_{rA}\\,d\\log p_A + (1-\\lambda_{rA})\\,d\\log p_T"
+      },
+      {
+       "t": "prose",
+       "md": "using $d\\log w_j = d\\log p_j$ from section 2. If airplane prices rise relative to textile prices and LA earns a larger share of its income in airplanes than Rome does, LA's average wage rises relative to Rome's. Regions with a high share in goods receiving export shocks, or a low share in goods receiving import shocks, gain. The identical algebra applies with factors (skilled and unskilled workers) in place of regions. This weighted-average structure is [Shift-Share Exposure](note:shift-share-exposure); its derivation uses [Logarithms and Growth Rates](note:logarithms-and-growth-rates)."
+      },
+      {
+       "t": "interactive",
+       "widget": "shift-share-wage-exposure-explorer",
+       "state": {
+        "dpA": 0.1,
+        "dpT": -0.05,
+        "lamL": 0.6,
+        "lamR": 0.2
+       },
+       "lock": [
+        "dpA",
+        "dpT",
+        "lamR"
+       ],
+       "show": [
+        "exposure",
+        "pT",
+        "pA",
+        "la",
+        "zero",
+        "wL_out"
+       ],
+       "highlight": "la",
+       "prompt": "Airplane prices rise by 0.10 log points and textile prices fall by 0.05. Los Angeles earns 60% of its income in airplanes. Then drag Los Angeles along the line: a region's wage change is a weighted average of the two price changes, so it always lies between $-0.05$ and $+0.10$.",
+       "predict": {
+        "hide": [
+         "exposure",
+         "la",
+         "wL_out"
+        ],
+        "ask": "What happens to the average wage in Los Angeles?",
+        "options": [
+         "It rises by 0.10, like the airplane price",
+         "It rises by 0.04: 0.6 × 0.10 + 0.4 × (−0.05)",
+         "It rises by 0.06: 0.6 × 0.10, counting only airplanes",
+         "It rises by 0.025, the simple average of the two price changes"
+        ],
+        "answer": 1,
+        "why": "A region's wage change is the income-share-weighted average of its industries' price changes: $0.6 \\times 0.10 + 0.4 \\times (-0.05) = 0.06 - 0.02 = 0.04$. It lies between the two price changes, closer to the airplane price because Los Angeles earns more of its income there.",
+        "feedback": [
+         "Los Angeles earns only 60% of its income in airplanes. The other 40% comes from textiles, whose price fell.",
+         null,
+         "The textile part counts too: 40% of Los Angeles' income is earned in textiles, whose price fell by 0.05, which subtracts 0.02.",
+         "The weights are Los Angeles' income shares, 0.6 and 0.4, not equal weights. The simple average describes a region that earns half its income in each industry."
+        ]
+       },
+       "objectives": [
+        4
+       ]
+      }
+     ],
+     "words": 169,
+     "symbols": [
+      "$j$, $i$",
+      "$p_j$",
+      "$w_j$",
+      "$\\lambda_{fg}$",
+      "$s_{rj}$"
+     ]
+    },
+    {
+     "id": "4-implications-for-regions-or-factors-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "*Example (computed for these notes):* airplane prices +10%, textile prices −5%, with LA earning 60% of its income in airplanes and Rome 20%. LA's wage rises about 4%, Rome's falls about 2%, a relative gain for LA of 0.4 × 0.15 = 6 log points."
+      },
+      {
+       "t": "interactive",
+       "widget": "shift-share-wage-exposure-explorer",
+       "state": {
+        "dpA": 0.1,
+        "dpT": -0.05,
+        "lamL": 0.6,
+        "lamR": 0.2
+       },
+       "lock": [
+        "dpA",
+        "dpT",
+        "lamL"
+       ],
+       "show": [
+        "exposure",
+        "pT",
+        "pA",
+        "la",
+        "rome",
+        "zero",
+        "rel_gap",
+        "wL_out",
+        "wR_out",
+        "rel_out"
+       ],
+       "highlight": "rome",
+       "prompt": "Los Angeles gains 0.04 and Rome loses 0.02, so Los Angeles gains 0.06 relative to Rome: the dashed gap, $0.4 \\times 0.15$. Drag Rome until its average wage does not change at all.",
+       "goal": {
+        "when": "abs(wR) < 0.0015",
+        "success": "Rome's wage is unchanged at an airplane share of 1/3: $\\tfrac13 \\times 0.10 + \\tfrac23 \\times (-0.05) = 0$. Regions earning more than a third of their income in airplanes gain; those earning less lose.",
+        "hint": "Drag Rome to the right, to where the line crosses the dotted zero line."
+       },
+       "objectives": [
+        5
+       ]
+      }
+     ],
+     "words": 78,
+     "symbols": [
+      "$p_j$",
+      "$w_j$",
+      "$\\lambda_{fg}$"
+     ]
+    },
+    {
+     "id": "4-implications-for-regions-or-factors-3",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "shift-share-wage-exposure-explorer",
+       "state": {
+        "dpA": 0.1,
+        "dpT": -0.05,
+        "lamL": 0.6,
+        "lamR": 0.2
+       },
+       "lock": [
+        "lamL",
+        "lamR"
+       ],
+       "show": [
+        "exposure",
+        "pT",
+        "pA",
+        "la",
+        "rome",
+        "zero",
+        "rel_gap",
+        "wL_out",
+        "wR_out",
+        "rel_out"
+       ],
+       "highlight": "rel_gap",
+       "prompt": "Now the shares are fixed at 0.6 and 0.2 and the prices can move. Change the two price changes until Los Angeles' wage moves by exactly as much as Rome's.",
+       "goal": {
+        "when": "abs(rel) < 0.001",
+        "success": "With $d\\log p_A = d\\log p_T$ the line is flat and every region's wage moves by the same amount, so relative wages do not move. Only a change in *relative* prices redistributes: the gap is $(\\lambda_{LA,A} - \\lambda_{Rome,A})(d\\log p_A - d\\log p_T)$.",
+        "hint": "Set the two price sliders to the same value."
+       },
+       "objectives": [
+        4
+       ]
+      }
+     ],
+     "words": 32,
+     "symbols": [
+      "$p_j$",
+      "$w_j$",
+      "$\\lambda_{fg}$"
+     ]
+    },
+    {
+     "id": "4-implications-for-regions-or-factors-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "A region employs half its workers in airplanes and half in textiles, and airplane workers earn twice the textile wage. What is $\\lambda_{rA}$, the share of the region's income earned in airplanes?",
+       "answer": 0.6666666666666666,
+       "tol": 0.01,
+       "wrong": [
+        {
+         "answer": 0.5,
+         "tol": 0.0,
+         "md": "that is the employment share $s_{rA}$; the weight is the income share, which counts the airplane workers' higher wage"
+        },
+        {
+         "answer": 0.3333333333333333,
+         "tol": 0.01,
+         "md": "that is the share of income earned in textiles, $1 - \\lambda_{rA}$"
+        }
+       ],
+       "why": "$\\lambda_{rA} = s_{rA}w_A/w_r = (0.5 \\times 2)/(0.5 \\times 2 + 0.5 \\times 1) = 1/1.5 = 2/3$. The weights come from differentiating $w_r = \\sum_j s_{rj}w_j$ and dividing by $w_r$, so they are income shares. Using the employment share, 0.5, would understate the region's exposure to airplane prices ([Shift-Share Exposure](note:shift-share-exposure)).",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 31,
+     "symbols": [
+      "$w_j$",
+      "$\\lambda_{fg}$",
+      "$s_{rj}$"
+     ]
+    },
+    {
+     "id": "4-implications-for-regions-or-factors-5",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "Keep the airplane income shares at 0.6 for Los Angeles and 0.2 for Rome, and airplane prices at +0.10, but let textile prices fall by 0.15 instead of 0.05. By how many log points does the average wage in Los Angeles rise relative to Rome's?",
+       "answer": 0.1,
+       "tol": 0.005,
+       "wrong": [
+        {
+         "answer": 0.06,
+         "tol": 0.0,
+         "md": "that is the gap with the old textile change, −0.05; with −0.15 the price gap is 0.25"
+        },
+        {
+         "answer": 0.0,
+         "tol": 0.0,
+         "md": "that is Los Angeles' own wage change, $0.6 \\times 0.10 + 0.4 \\times (-0.15) = 0$; the question asks for Los Angeles relative to Rome"
+        },
+        {
+         "answer": -0.02,
+         "tol": 0.0,
+         "md": "you added the two price changes; the relative change uses their gap, $d\\log p_A - d\\log p_T = 0.25$"
+        },
+        {
+         "answer": 0.25,
+         "tol": 0.0,
+         "md": "that is the price gap alone; multiply it by the gap in airplane income shares, $0.6 - 0.2 = 0.4$"
+        }
+       ],
+       "why": "The relative change is $(\\lambda_{LA,A} - \\lambda_{Rome,A})(d\\log p_A - d\\log p_T) = 0.4 \\times (0.10 - (-0.15)) = 0.4 \\times 0.25 = 0.10$. Separately, the Los Angeles wage is unchanged ($0.6 \\times 0.10 + 0.4 \\times (-0.15) = 0$) and Rome's falls by 0.10 ($0.2 \\times 0.10 + 0.8 \\times (-0.15)$).",
+       "objectives": [
+        4
+       ]
+      }
+     ],
+     "words": 50,
+     "symbols": [
+      "$p_j$",
+      "$\\lambda_{fg}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "5-taking-it-to-data",
+   "heading": "5. Taking it to data",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "5-taking-it-to-data-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Which level to study depends on what you believe about mobility: limited mobility across firms calls for firm-level analysis, limited mobility across regions for regional analysis. Factors are not completely immobile, but a theoretical result says that if they are allocated optimally, the previous results still hold for small price changes (under some assumptions) — see section 6."
+      }
+     ],
+     "words": 57,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "6-generalizations-marked-to-skip",
+   "heading": "6. Generalizations (marked \"to skip\")",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "6-generalizations-marked-to-skip-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The final slides are flagged as skipped in lecture; they extend the result rather than change it."
+      },
+      {
+       "t": "prose",
+       "md": "- **Many factors and goods**: $d\\ln w_f = \\sum_g \\lambda_{fg}\\,d\\ln p_g$. A factor disproportionately employed in goods whose prices rise gains relatively.\n- **Other shocks**: adding factor productivity change, $d\\ln w_f = a_f + \\sum_g \\lambda_{fg}\\,d\\ln p_g$, captures skill-biased productivity change ([Factor-Augmenting Technology](note:factor-augmenting-technology)); some technical change can be thought of as changing \"goods\" prices directly.\n- **Mobile factors**: a worker chooses a job $x$ to maximize income $f(x, \\mathbf{p})$. At the optimum $f_x = 0$, so the effect of a small price change on income is just the direct effect $f_{\\mathbf{p}}$ — the [Envelope Theorem](note:envelope-theorem). Re-optimizing the job choice adds nothing to first order, so the immobile-factor results carry over."
+      },
+      {
+       "t": "interactive",
+       "widget": "envelope-theorem-and-job-switching",
+       "state": {
+        "p0": 2,
+        "p1": 2.1
+       },
+       "lock": [
+        "p0"
+       ],
+       "show": [
+        "value",
+        "stay",
+        "start",
+        "switch",
+        "keep",
+        "gap",
+        "gain_stay_out",
+        "gain_switch_out",
+        "extra_out"
+       ],
+       "highlight": "gap",
+       "prompt": "An example (from [Envelope Theorem](note:envelope-theorem)): income from job $x$ is $f(x, p) = px - x^2/2$, so the best job is $x^* = p$. The worker's job is optimal at $p_0 = 2$, and the price rises to 2.1. Keeping the job raises income by $x_0 \\times 0.1 = 0.200$, exactly the immobile-factor answer. Then drag the price a long way from 2 and watch the gap.",
+       "goal": {
+        "when": "abs(extra - 0.5) < 0.01",
+        "success": "With a price change of 1, switching adds 0.5, a quarter of the 2 that keeping the job gains or loses. The extra gain is $(p_1 - p_0)^2/2$: negligible for small price changes, which is why the immobile-factor results hold to first order, but not for large ones.",
+        "hint": "Drag the price to 3, or down to 1."
+       },
+       "predict": {
+        "hide": [
+         "value",
+         "switch",
+         "gap",
+         "gain_switch_out",
+         "extra_out"
+        ],
+        "ask": "How much does a worker who switches to the new best job gain?",
+        "options": [
+         "About 0.205: almost exactly the same as staying",
+         "About 0.40: twice as much, because they also move to a better job",
+         "About 0.10: less, because switching jobs is costly"
+        ],
+        "answer": 0,
+        "why": "Income is $f(x, p) = px - x^2/2$. A worker who keeps the old job $x_0 = 2$ gains $x_0\\,\\Delta p = 0.200$. The new best job, $x^{*} = 2.1$, adds only $(\\Delta p)^2/2 = 0.005$ on top, because at the old optimum $f_x = 0$: moving the job a little changes income by nothing to first order. That is the envelope theorem.",
+        "feedback": [
+         null,
+         "Switching does find a better job, but near the old optimum the improvement is tiny: $(\\Delta p)^2/2 = 0.005$, not another 0.2.",
+         "There is no switching cost here, and re-optimizing can never lower income: the worker could always keep the old job and gain 0.200."
+        ]
+       },
+       "objectives": [
+        6
+       ]
+      }
+     ],
+     "words": 155,
+     "symbols": [
+      "$p_j$",
+      "$w_j$",
+      "$f$, $g$",
+      "$\\lambda_{fg}$",
+      "$a_f$",
+      "$V(\\theta)$",
+      "$x$, $x^*(p)$"
+     ]
+    },
+    {
+     "id": "6-generalizations-marked-to-skip-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Workers can switch jobs and choose them optimally. After a small rise in the price of what they make, how does the first-order income gain compare with the immobile-factor prediction?",
+       "options": [
+        {
+         "md": "Larger, because workers also move into better-paying jobs",
+         "correct": false,
+         "feedback": "They do move to a better job, but at the old optimum $f_x = 0$, so the gain from moving is second order: $(\\Delta p)^2/2$ in the widget's example."
+        },
+        {
+         "md": "Smaller, because workers leave the industry whose price rose",
+         "correct": false,
+         "feedback": "A higher price pulls the best job toward that industry, not away from it; and either way re-optimizing adds nothing to first order."
+        },
+        {
+         "md": "Zero, because mobility equalizes wages across jobs",
+         "correct": false,
+         "feedback": "Mobility can equalize pay across jobs, but it does not cancel the price rise: income still rises by the direct effect $f_{\\mathbf{p}}$, exactly as for an immobile worker."
+        },
+        {
+         "md": "The same: re-optimizing the job adds only a second-order gain",
+         "correct": true
+        }
+       ],
+       "why": "Income is $f(x, \\mathbf{p})$ with the job chosen so that $f_x = 0$. The total effect of a price change is $f_x \\cdot dx^*/d\\mathbf{p} + f_{\\mathbf{p}}$, and the first term vanishes at the optimum ([Envelope Theorem](note:envelope-theorem)). In the widget's example, a price rise from 2 to 2.1 gives 0.200 to a worker who stays and 0.205 to one who switches: the difference, 0.005, is second order.",
+       "objectives": [
+        6
+       ]
+      }
+     ],
+     "words": 64,
+     "symbols": [
+      "$p_j$",
+      "$f$, $g$",
+      "$x$, $x^*(p)$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cross-course-links",
+   "heading": "Cross-course links",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "cross-course-links-1",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "tip",
+       "title": "Econometrics and math in this lecture",
+       "md": "- The regional formula is a shift-share exposure measure — the structure behind Bartik instruments ([Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls)).\n- The mobile-factor result is the [Envelope Theorem](note:envelope-theorem) from Math Prep.",
+       "folded": false
+      }
+     ],
+     "words": 35,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "math-refresher",
+   "heading": "Math refresher",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "math-refresher-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Math Prep L7 Approximations Logs and Series](note:math-prep-l7-approximations-logs-and-series) — log changes as percentage changes; differentiating a weighted average\n- [Math Prep L6 Optimization](note:math-prep-l6-optimization) — first-order conditions and the envelope theorem"
+      }
+     ],
+     "words": 28,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Explain, in words, how trade liberalization changes relative wages across industries, firms and regions, and why mobility undoes it.\n2. Show that with immobile factors and constant factor shares, $d\\log(\\text{factor payments}_j) = d\\log p_j$.\n3. Derive $d\\log w_r = \\sum_j \\lambda_{rj}\\,d\\log p_j$ from $w_r = \\sum_j s_{rj}w_j$, and explain why the weights are income shares.\n4. Compute regional or factor wage changes from shares and price changes, and the relative change between two regions.\n5. Say which regions or factors gain from export and import shocks.\n6. State why optimal factor allocation leaves the first-order results unchanged (envelope theorem)."
+      }
+     ],
+     "words": 85,
+     "symbols": [
+      "$p_j$",
+      "$w_j$",
+      "$\\lambda_{fg}$",
+      "$s_{rj}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "specific-factors-model",
+        "small-open-economy",
+        "shift-share-exposure",
+        "envelope-theorem",
+        "relative-supply-and-demand",
+        "skill-premium",
+        "within-and-between-group-inequality",
+        "logarithms-and-growth-rates",
+        "factor-augmenting-technology"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

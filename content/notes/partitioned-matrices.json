@@ -1,0 +1,261 @@
+{
+ "slug": "partitioned-matrices",
+ "notation": [
+  {
+   "tex": "$A, B, C, D$",
+   "meaning": "Blocks of a partitioned matrix",
+   "kind": "Matrices",
+   "typical": "—",
+   "keys": [
+    "A",
+    "B",
+    "C",
+    "D"
+   ]
+  },
+  {
+   "tex": "$E$, $F$",
+   "meaning": "Blocks of a partitioned vector",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "E",
+    "F"
+   ]
+  },
+  {
+   "tex": "$D - CA^{-1}B$",
+   "meaning": "Schur complement",
+   "kind": "Matrix",
+   "typical": "—",
+   "keys": [
+    "~D-CA^-1B"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{X}_1$, $\\mathbf{X}_2$",
+   "meaning": "Control regressors and regressors of interest",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "bold(X)"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{M}_1$",
+   "meaning": "Residual maker for $\\mathbf{X}_1$",
+   "kind": "Matrix",
+   "typical": "—",
+   "keys": [
+    "bold(M)"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{b}_2$",
+   "meaning": "OLS coefficients on $\\mathbf{X}_2$",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "bold(b)"
+   ]
+  },
+  {
+   "tex": "$\\sigma^2$",
+   "meaning": "Error variance",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "sigma"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{y}$",
+   "meaning": "Outcome",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "bold(y)"
+   ],
+   "from": "frisch-waugh-lovell-theorem"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A partitioned matrix is a big matrix cut into blocks, each treated as a single entry. Block multiplication works like ordinary multiplication as long as the pieces fit and the order is kept. Splitting the regressors into a group of controls and a group of interest, and inverting in blocks, shows exactly how a coefficient's estimate and precision depend on the variation left in its variable after the controls are accounted for."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the algebra behind controlling for variables, the Frisch-Waugh-Lovell theorem and omitted-variable bias.",
+       "folded": false
+      }
+     ],
+     "words": 89,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Split a matrix into blocks and treat each block as an entry. Products work as with scalars — provided the block dimensions conform and you keep the order."
+      },
+      {
+       "t": "math",
+       "tex": "\\begin{pmatrix}A&B\\\\C&D\\end{pmatrix}\\begin{pmatrix}E\\\\F\\end{pmatrix} = \\begin{pmatrix}AE + BF\\\\ CE + DF\\end{pmatrix}"
+      }
+     ],
+     "words": 27,
+     "symbols": [
+      "$A, B, C, D$",
+      "$E$, $F$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "regression-partition",
+   "heading": "Regression partition",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "regression-partition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Split the regressors $\\mathbf{X} = [\\mathbf{X}_1\\ \\mathbf{X}_2]$. Then"
+      },
+      {
+       "t": "math",
+       "tex": "\\mathbf{X}'\\mathbf{X} = \\begin{pmatrix}\\mathbf{X}_1'\\mathbf{X}_1 & \\mathbf{X}_1'\\mathbf{X}_2\\\\ \\mathbf{X}_2'\\mathbf{X}_1 & \\mathbf{X}_2'\\mathbf{X}_2\\end{pmatrix}"
+      }
+     ],
+     "words": 4,
+     "symbols": [
+      "$\\mathbf{X}_1$, $\\mathbf{X}_2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "the-partitioned-inverse",
+   "heading": "The partitioned inverse",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-partitioned-inverse-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "For a symmetric block matrix with invertible $A$, the lower-right block of the inverse is the inverse of the **Schur complement** $D - CA^{-1}B$:"
+      },
+      {
+       "t": "math",
+       "tex": "\\begin{pmatrix}A&B\\\\C&D\\end{pmatrix}^{-1} = \\begin{pmatrix}\\cdot & \\cdot\\\\ \\cdot & (D - CA^{-1}B)^{-1}\\end{pmatrix}"
+      },
+      {
+       "t": "prose",
+       "md": "Applied to $\\mathbf{X}'\\mathbf{X}$:"
+      },
+      {
+       "t": "math",
+       "tex": "D - CA^{-1}B = \\mathbf{X}_2'\\mathbf{X}_2 - \\mathbf{X}_2'\\mathbf{X}_1(\\mathbf{X}_1'\\mathbf{X}_1)^{-1}\\mathbf{X}_1'\\mathbf{X}_2 = \\mathbf{X}_2'\\mathbf{M}_1\\mathbf{X}_2"
+      },
+      {
+       "t": "prose",
+       "md": "where $\\mathbf{M}_1$ is the residual maker for $\\mathbf{X}_1$. So $[(\\mathbf{X}'\\mathbf{X})^{-1}]_{22} = (\\mathbf{X}_2'\\mathbf{M}_1\\mathbf{X}_2)^{-1}$."
+      },
+      {
+       "t": "prose",
+       "md": "**Numerical check** (20 observations, $\\mathbf{X}_1$ = constant and trend, $\\mathbf{X}_2$ random): the (3,3) element of $(\\mathbf{X}'\\mathbf{X})^{-1}$ and $1/(\\mathbf{X}_2'\\mathbf{M}_1\\mathbf{X}_2)$ agree to 15 digits."
+      }
+     ],
+     "words": 47,
+     "symbols": [
+      "$A, B, C, D$",
+      "$D - CA^{-1}B$",
+      "$\\mathbf{X}_1$, $\\mathbf{X}_2$",
+      "$\\mathbf{M}_1$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "why-it-matters",
+   "heading": "Why it matters",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "why-it-matters-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Multiply out the block normal equations and solve for $\\mathbf{b}_2$: you get $\\mathbf{b}_2 = (\\mathbf{X}_2'\\mathbf{M}_1\\mathbf{X}_2)^{-1}\\mathbf{X}_2'\\mathbf{M}_1\\mathbf{y}$ — the [Frisch-Waugh-Lovell Theorem](note:frisch-waugh-lovell-theorem). The same block gives $\\mathrm{Var}(\\mathbf{b}_2) = \\sigma^2(\\mathbf{X}_2'\\mathbf{M}_1\\mathbf{X}_2)^{-1}$: a coefficient is precise only if its regressor has variation left **after** partialling out the others."
+      }
+     ],
+     "words": 34,
+     "symbols": [
+      "$\\mathbf{X}_1$, $\\mathbf{X}_2$",
+      "$\\mathbf{M}_1$",
+      "$\\mathbf{b}_2$",
+      "$\\sigma^2$",
+      "$\\mathbf{y}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Econometrics**: [Frisch-Waugh-Lovell Theorem](note:frisch-waugh-lovell-theorem); omitted-variable bias; variance of a subset of coefficients ([Sampling Distribution of OLS](note:sampling-distribution-of-ols))."
+      }
+     ],
+     "words": 16,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Projection Matrix and Residual Maker](note:projection-matrix-and-residual-maker)\n- [Matrix Algebra Identities](note:matrix-algebra-identities)"
+      }
+     ],
+     "words": 10,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

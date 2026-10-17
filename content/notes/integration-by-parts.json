@@ -1,0 +1,296 @@
+{
+ "slug": "integration-by-parts",
+ "notation": [
+  {
+   "tex": "$u$, $v$",
+   "meaning": "The two parts of the integrand",
+   "kind": "Functions",
+   "typical": "—",
+   "keys": [
+    "u",
+    "v"
+   ]
+  },
+  {
+   "tex": "$a$, $b$",
+   "meaning": "Limits of integration",
+   "kind": "Numbers",
+   "typical": "—",
+   "keys": [
+    "a",
+    "b"
+   ]
+  },
+  {
+   "tex": "$X$",
+   "meaning": "Non-negative random variable",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "X"
+   ]
+  },
+  {
+   "tex": "$F$, $f$",
+   "meaning": "Its cumulative distribution and density",
+   "kind": "Functions",
+   "typical": "—",
+   "keys": [
+    "F",
+    "f"
+   ]
+  },
+  {
+   "tex": "$E[X]$",
+   "meaning": "Expected value",
+   "kind": "Number",
+   "typical": "2 in the exponential example",
+   "keys": [
+    "~E[X]"
+   ]
+  },
+  {
+   "tex": "$L(p)$",
+   "meaning": "Lorenz curve",
+   "kind": "Function",
+   "typical": "$p^2$ in the example",
+   "keys": [
+    "L"
+   ]
+  },
+  {
+   "tex": "$G$",
+   "meaning": "Gini coefficient",
+   "kind": "Number",
+   "typical": "1/3 in the example",
+   "keys": [
+    "G"
+   ]
+  },
+  {
+   "tex": "$y$, $\\mu$",
+   "meaning": "Income and mean income",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "y",
+    "mu"
+   ]
+  },
+  {
+   "tex": "$w_R$",
+   "meaning": "Reservation wage",
+   "kind": "Number",
+   "typical": "—",
+   "keys": [
+    "w"
+   ]
+  },
+  {
+   "tex": "$x$, $u$",
+   "meaning": "Original and new variable of integration",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "x",
+    "u"
+   ],
+   "from": "change-of-variables"
+  },
+  {
+   "tex": "$p$, $c$",
+   "meaning": "Selling price and unit cost",
+   "kind": "Parameters",
+   "typical": "10, 4",
+   "keys": [
+    "p",
+    "c"
+   ],
+   "from": "leibniz-integral-rule"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Integration by parts is the product rule run backwards: it trades one integral that is hard to compute for another that is easier. In economics its most useful job is computing averages from distributions — for example, showing that the average of a positive quantity equals the area under the curve of the probability that it exceeds each value. The same area logic turns a Lorenz curve into a Gini coefficient."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the standard tool for expectations, moments and areas under distribution curves.",
+       "folded": false
+      }
+     ],
+     "words": 86,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The product rule, integrated:"
+      },
+      {
+       "t": "math",
+       "tex": "\\int_a^b u\\,dv = \\big[uv\\big]_a^b - \\int_a^b v\\,du"
+      },
+      {
+       "t": "prose",
+       "md": "Choose $u$ so that $du$ is simpler than $u$, and $dv$ so that $v$ is easy to find."
+      }
+     ],
+     "words": 17,
+     "symbols": [
+      "$u$, $v$",
+      "$a$, $b$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example-expectation-from-the-survival-function",
+   "heading": "Worked example — expectation from the survival function",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-expectation-from-the-survival-function-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "For $X \\geq 0$ with CDF $F$ and density $f$:"
+      },
+      {
+       "t": "math",
+       "tex": "E[X] = \\int_0^\\infty x f(x)\\,dx = \\int_0^\\infty \\big(1 - F(x)\\big)\\,dx"
+      },
+      {
+       "t": "prose",
+       "md": "Take $u = x$ and $dv = f(x)\\,dx$ with $v = -(1 - F(x))$. The boundary term $-x(1-F(x))$ vanishes at both ends for distributions with a finite mean."
+      },
+      {
+       "t": "prose",
+       "md": "For an exponential distribution with rate 0.5, $1 - F(x) = e^{-0.5x}$, and the integral gives $E[X] = 2$."
+      }
+     ],
+     "words": 33,
+     "symbols": [
+      "$u$, $v$",
+      "$X$",
+      "$F$, $f$",
+      "$E[X]$",
+      "$x$, $u$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "areas-in-inequality",
+   "heading": "Areas in inequality",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "areas-in-inequality-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With a continuous [Lorenz Curve](note:lorenz-curve) $L(p)$, the area between the line of equality and $L$ gives the [Gini Coefficient](note:gini-coefficient):"
+      },
+      {
+       "t": "math",
+       "tex": "G = 1 - 2\\int_0^1 L(p)\\,dp"
+      },
+      {
+       "t": "prose",
+       "md": "If $L(p) = p^2$, then $\\int_0^1 p^2\\,dp = 1/3$ and $G = 1/3$. Integrating by parts, with $L'(p)$ equal to income at rank $p$ relative to the mean, gives the equivalent covariance form $G = 2\\,\\mathrm{Cov}(y, F(y))/\\mu$ (a standard result, beyond these notes)."
+      }
+     ],
+     "words": 44,
+     "symbols": [
+      "$F$, $f$",
+      "$L(p)$",
+      "$G$",
+      "$y$, $\\mu$",
+      "$p$, $c$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Choosing $u$ and $dv$ the hard way round (e.g. $u = e^x$, $dv = x\\,dx$ makes it worse).\n- Dropping the boundary term without checking that it vanishes."
+      }
+     ],
+     "words": 22,
+     "symbols": [
+      "$u$, $v$",
+      "$x$, $u$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Probability / econometrics**: moments of distributions; deriving the mean of truncated distributions.\n- **Inequality**: Gini and Lorenz-curve integrals.\n- **Labor / search**: expected wage above a reservation wage, $\\int_{w_R}^\\infty (1 - F(w))\\,dw$."
+      }
+     ],
+     "words": 27,
+     "symbols": [
+      "$F$, $f$",
+      "$w_R$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Change of Variables](note:change-of-variables)\n- [Leibniz Integral Rule](note:leibniz-integral-rule)"
+      }
+     ],
+     "words": 8,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

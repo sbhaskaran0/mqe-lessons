@@ -1,0 +1,262 @@
+{
+ "slug": "q-q-plot",
+ "notation": [
+  {
+   "tex": "$x_{(i)}$",
+   "meaning": "The $i$-th smallest observation (order statistic)",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "x"
+   ]
+  },
+  {
+   "tex": "$n$",
+   "meaning": "Number of observations",
+   "kind": "Count",
+   "typical": "—",
+   "keys": [
+    "n"
+   ]
+  },
+  {
+   "tex": "$p_i$",
+   "meaning": "Plotting position: the share of the sample at or below rank $i$",
+   "kind": "Number in (0, 1)",
+   "typical": "$(i - 0.5)/n$",
+   "keys": [
+    "p"
+   ]
+  },
+  {
+   "tex": "$F^{-1}(\\cdot)$",
+   "meaning": "Quantile function of the reference distribution",
+   "kind": "Function",
+   "typical": "Standard normal by default",
+   "keys": [
+    "F"
+   ]
+  },
+  {
+   "tex": "$z$",
+   "meaning": "A standard normal quantile (the horizontal axis)",
+   "kind": "Number",
+   "typical": "−3 to 3",
+   "keys": [
+    "z"
+   ]
+  },
+  {
+   "tex": "$\\bar{x}$, $s$",
+   "meaning": "Sample mean and standard deviation, for the reference line",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "bar(x)",
+    "s"
+   ]
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A Q-Q plot checks whether data look like they came from a particular distribution, usually the bell curve. Sort the observations from smallest to largest and pair each one with the value a bell curve would put at the same rank: the smallest observation against the smallest value you would expect, the median against the expected median, and so on. If the data really are bell-shaped, the pairs fall on a straight line. Where the points bend away from the line tells you how the data differ: a long right tail, heavy tails on both sides, or tails that are too short."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the standard picture for judging whether regression residuals are close enough to normal, and the shape of the bend points to the fix.",
+       "folded": false
+      }
+     ],
+     "words": 130,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Sort the sample, $x_{(1)} \\leq \\ldots \\leq x_{(n)}$. Plot each $x_{(i)}$ against the theoretical quantile $F^{-1}(p_i)$ of the reference distribution, with plotting positions such as $p_i = (i - 0.5)/n$:"
+      },
+      {
+       "t": "math",
+       "tex": "\\left(F^{-1}(p_i),\\; x_{(i)}\\right), \\qquad i = 1, \\ldots, n"
+      },
+      {
+       "t": "prose",
+       "md": "With `line='s'` (statsmodels) the reference line is $\\bar{x} + s\\,z$, so a normal sample with any mean and standard deviation falls along it."
+      }
+     ],
+     "words": 39,
+     "symbols": [
+      "$x_{(i)}$",
+      "$n$",
+      "$p_i$",
+      "$F^{-1}(\\cdot)$",
+      "$z$",
+      "$\\bar{x}$, $s$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "reading-the-shape",
+   "heading": "Reading the shape",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "reading-the-shape-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Compare each end of the plot with the line. \"Above\" means the sample value is larger than the reference predicts at that rank."
+      },
+      {
+       "t": "table",
+       "md": "| Pattern | Left end | Right end | Meaning |\n| --- | --- | --- | --- |\n| Straight line | On the line | On the line | Reference distribution fits |\n| Convex (bends upward) | Above the line | Above the line | **Right skew**: short left tail, long right tail |\n| Concave (bends downward) | Below the line | Below the line | **Left skew** |\n| S-shape, steep at the ends | Below the line | Above the line | **Heavy tails** (kurtosis above 3): too many extreme values |\n| S-shape, flat at the ends | Above the line | Below the line | **Light tails** (kurtosis below 3) |"
+      }
+     ],
+     "words": 108,
+     "symbols": []
+    },
+    {
+     "id": "reading-the-shape-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A useful check: the middle of the plot is almost always close to the line, so judge the ends."
+      }
+     ],
+     "words": 19,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "worked-examples-from-the-lecture",
+   "heading": "Worked examples from the lecture",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-examples-from-the-lecture-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Prestige income.** Both ends sit above the line: the lowest incomes are higher than a normal would predict, and the top incomes (about 25,000 against a predicted 16,000) far higher. That is right skew, matching the skewness of 2.16 in [Skewness and Kurtosis](note:skewness-and-kurtosis)."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/QQ plot - Prestige income.png",
+       "alt": "QQ plot - Prestige income"
+      }
+     ],
+     "words": 46,
+     "symbols": []
+    },
+    {
+     "id": "worked-examples-from-the-lecture-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Split by occupation type the plots straighten out, especially for blue-collar occupations: much of the skew came from mixing groups with different income levels."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/QQ plots - Prestige income by occupation type.png",
+       "alt": "QQ plots - Prestige income by occupation type"
+      }
+     ],
+     "words": 24,
+     "symbols": []
+    },
+    {
+     "id": "worked-examples-from-the-lecture-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Residuals.** The standardized residuals of the prestige regression (prestige on income, education and type) lie close to the line, which is what the normality assumption wants."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/QQ plot - standardized residuals of the prestige regression.png",
+       "alt": "QQ plot - standardized residuals of the prestige regression"
+      }
+     ],
+     "words": 26,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Reading the middle.** Departures show up in the tails; a plot that is straight in the middle can still reject normality.\n- **Confusing skew with heavy tails.** Skew bends both ends the same way; heavy tails bend them in opposite directions.\n- **Expecting perfection in small samples.** With 20 to 30 points some wiggle at the ends is normal noise. Pair the plot with a test ([Error Normality and Jarque-Bera](note:error-normality-and-jarque-bera)).\n- **Plotting raw residuals with the wrong line.** Use standardized residuals, or a standardized line, so the scale matches."
+      }
+     ],
+     "words": 90,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Econometrics: checking the normality of residuals in [Regression Diagnostics](note:regression-diagnostics); non-normal residuals matter for small-sample inference, not for unbiasedness.\n- Statistics: comparing a variable with any reference distribution (normal, gamma, Weibull) when choosing a model, as in the [Cullen-Frey Graph](note:cullen-frey-graph)."
+      }
+     ],
+     "words": 40,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Skewness and Kurtosis](note:skewness-and-kurtosis) · [Error Normality and Jarque-Bera](note:error-normality-and-jarque-bera) · [Regression Diagnostics](note:regression-diagnostics) · [EDA for Regression](note:eda-for-regression)"
+      }
+     ],
+     "words": 13,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

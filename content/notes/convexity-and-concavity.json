@@ -1,0 +1,252 @@
+{
+ "slug": "convexity-and-concavity",
+ "notation": [
+  {
+   "tex": "$f$",
+   "meaning": "Function",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "f"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{x}$, $\\mathbf{y}$",
+   "meaning": "Two points",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(x)",
+    "bold(y)"
+   ]
+  },
+  {
+   "tex": "$t$",
+   "meaning": "Mixing weight between them",
+   "kind": "Number in [0, 1]",
+   "typical": "—",
+   "keys": [
+    "t"
+   ]
+  },
+  {
+   "tex": "$X$",
+   "meaning": "Random variable",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "X"
+   ]
+  },
+  {
+   "tex": "$g$",
+   "meaning": "Concave or convex function in Jensen's inequality",
+   "kind": "Function",
+   "typical": "e.g. log",
+   "keys": [
+    "g"
+   ]
+  },
+  {
+   "tex": "$w$",
+   "meaning": "Wage in the example",
+   "kind": "Data",
+   "typical": "10 or 40",
+   "keys": [
+    "w"
+   ]
+  },
+  {
+   "tex": "$e$",
+   "meaning": "Error term in the quadratic example",
+   "kind": "Unobserved",
+   "typical": "—",
+   "keys": [
+    "e"
+   ],
+   "from": "functional-forms-and-elasticities"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A concave function curves downward, like a hill: the straight line between any two points on it lies below the curve. Diminishing returns and risk aversion are both concavity. A convex function curves upward, like a bowl. These shapes matter because, for a concave function, the top of the hill is the single best point. Jensen's inequality adds that, for a concave function, the average of the outcomes is below the outcome of the average."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "Concavity guarantees optimisation problems have a clean answer, and Jensen's inequality explains why averaging logs is not the same as the log of an average.",
+       "folded": false
+      }
+     ],
+     "words": 103,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$f$ is **concave** if for all $\\mathbf{x},\\mathbf{y}$ and $t\\in[0,1]$"
+      },
+      {
+       "t": "math",
+       "tex": "f\\big(t\\mathbf{x} + (1-t)\\mathbf{y}\\big) \\geq t f(\\mathbf{x}) + (1-t)f(\\mathbf{y})"
+      },
+      {
+       "t": "prose",
+       "md": "— the chord lies below the graph. **Convex** reverses the inequality."
+      }
+     ],
+     "words": 16,
+     "symbols": [
+      "$f$",
+      "$\\mathbf{x}$, $\\mathbf{y}$",
+      "$t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "tests-for-twice-differentiable-functions",
+   "heading": "Tests for twice-differentiable functions",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "tests-for-twice-differentiable-functions-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Shape | One variable | Many variables |\n| --- | --- | --- |\n| Concave | $f'' \\leq 0$ | Hessian negative semidefinite everywhere |\n| Strictly concave | $f'' < 0$ | Hessian negative definite |\n| Convex | $f'' \\geq 0$ | Hessian positive semidefinite everywhere |"
+      },
+      {
+       "t": "prose",
+       "md": "([Quadratic Forms and Definiteness](note:quadratic-forms-and-definiteness))"
+      }
+     ],
+     "words": 27,
+     "symbols": [
+      "$f$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "why-economists-care",
+   "heading": "Why economists care",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "why-economists-care-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Optimization**: a critical point of a concave function is a **global** max; strict concavity makes it unique.\n- **Diminishing returns** is concavity: $f'' < 0$.\n- **Risk aversion** is a concave utility function."
+      }
+     ],
+     "words": 31,
+     "symbols": [
+      "$f$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "jensens-inequality",
+   "heading": "Jensen's inequality",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "jensens-inequality-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "For a random variable $X$ and **concave** $g$: $E[g(X)] \\leq g(E[X])$ (reversed for convex)."
+      },
+      {
+       "t": "prose",
+       "md": "**Worked example**: wages 10 and 40 with equal probability. $\\ln E[w] = \\ln 25 = 3.219$, but $E[\\ln w] = 2.996$, so the geometric mean ($e^{2.996} = 20$) is below the arithmetic mean (25). Averaging logs is not the log of the average."
+      }
+     ],
+     "words": 38,
+     "symbols": [
+      "$X$",
+      "$g$",
+      "$w$",
+      "$e$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Concave ≠ quasiconcave: quasiconcavity (convex upper contour sets) is weaker and is what utility functions need for well-behaved indifference curves.\n- Checking the Hessian only at the critical point gives a *local* result; concavity requires it everywhere."
+      }
+     ],
+     "words": 37,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Inequality**: the gap between the log of the mean and the mean of logs is itself an inequality measure; it is why a [Log Wage Gap](note:log-wage-gap) of group means differs from a gap in mean log wages, and why the [Variance of Log Income](note:variance-of-log-income) weights the bottom heavily.\n- **Econometrics**: retransforming predictions from a log model understates the mean ([Functional Forms and Elasticities](note:functional-forms-and-elasticities)).\n- **Optimization**: [Unconstrained Optimization](note:unconstrained-optimization)."
+      }
+     ],
+     "words": 68,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Hessian Matrix](note:hessian-matrix)\n- [Change of Variables](note:change-of-variables) — the lognormal mean shows Jensen exactly"
+      }
+     ],
+     "words": 13,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

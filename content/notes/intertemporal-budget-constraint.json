@@ -1,0 +1,229 @@
+{
+ "slug": "intertemporal-budget-constraint",
+ "notation": [
+  {
+   "tex": "$y_1$, $y_2$",
+   "meaning": "Income (endowment) in periods 1 and 2, in units of the consumption good",
+   "kind": "Exogenous",
+   "typical": "180, 216 in the example",
+   "keys": [
+    "y"
+   ]
+  },
+  {
+   "tex": "$c_1$, $c_2$",
+   "meaning": "Consumption in periods 1 and 2",
+   "kind": "Choice",
+   "typical": "200, 192 in the example",
+   "keys": [
+    "c"
+   ]
+  },
+  {
+   "tex": "$s$",
+   "meaning": "Saving *amount* in period 1; negative means borrowing (not the Solow saving *rate*)",
+   "kind": "Choice",
+   "typical": "−20 in the example",
+   "keys": [
+    "s"
+   ]
+  },
+  {
+   "tex": "$r$",
+   "meaning": "Interest rate on saving and borrowing",
+   "kind": "Exogenous (to one consumer)",
+   "typical": "0.2 in the example",
+   "keys": [
+    "r"
+   ]
+  },
+  {
+   "tex": "$1+r$",
+   "meaning": "Gross return: units of period-2 goods per unit saved",
+   "kind": "—",
+   "typical": "1.2",
+   "keys": [
+    "r"
+   ]
+  },
+  {
+   "tex": "$\\frac{1}{1+r}$",
+   "meaning": "Price of one unit of period-2 consumption in period-1 units",
+   "kind": "—",
+   "typical": "0.833",
+   "keys": [
+    "r"
+   ]
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Suppose you earn some income this year and some next year, and you can save or borrow at an interest rate. Saving lets you move money forward: put aside 100 today and you have 100 plus interest next year. Borrowing moves money backward: spend more today and repay with interest later. However you shuffle things, you cannot spend more over your life than you earn. The intertemporal budget constraint says exactly that, measuring everything in today's money: the value today of all your spending must equal the value today of all your income."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the single constraint behind every saving and borrowing decision, and it shows that saving changes *when* you consume, not *how much* you can consume in total value.",
+       "folded": false
+      }
+     ],
+     "words": 125,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With income $y_1$, $y_2$, consumption $c_1$, $c_2$, saving $s$ and interest rate $r$, the two period budgets are"
+      },
+      {
+       "t": "math",
+       "tex": "y_1 = c_1 + s, \\qquad y_2 + (1+r)s = c_2"
+      },
+      {
+       "t": "prose",
+       "md": "Substituting $s = y_1 - c_1$ into the second gives the lifetime constraint"
+      },
+      {
+       "t": "math",
+       "tex": "y_1 + \\frac{y_2}{1+r} = c_1 + \\frac{c_2}{1+r}"
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Two-period saving model - period and lifetime budget constraints.png",
+       "alt": "Two-period saving model - period and lifetime budget constraints",
+       "caption": "Hand-drawn: the two period budgets combine into one lifetime budget."
+      }
+     ],
+     "words": 30,
+     "symbols": [
+      "$y_1$, $y_2$",
+      "$c_1$, $c_2$",
+      "$s$",
+      "$r$",
+      "$1+r$",
+      "$\\frac{1}{1+r}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "intuition",
+   "heading": "Intuition",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "intuition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Divide anything that happens in period 2 by $1+r$ and it is converted into today's money (its **present value**). The left side is the present value of income, the right side the present value of consumption. The relative price of consuming tomorrow instead of today is $\\frac{1}{1+r}$: give up one unit today and you get $1+r$ units tomorrow."
+      }
+     ],
+     "words": 55,
+     "symbols": [
+      "$r$",
+      "$1+r$",
+      "$\\frac{1}{1+r}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$y_1 = 180$, $y_2 = 216$, $r = 0.2$. Present value of income $= 180 + 216/1.2 = 360$. If the consumer chooses $c_1 = 200$ (borrowing 20), then $c_2 = 216 - 1.2 \\times 20 = 192$, and $200 + 192/1.2 = 360$. ✓"
+      }
+     ],
+     "words": 12,
+     "symbols": [
+      "$y_1$, $y_2$",
+      "$c_1$, $c_2$",
+      "$r$",
+      "$1+r$",
+      "$\\frac{1}{1+r}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Forgetting that saving can be negative — borrowing is just negative saving.\n- Adding period-1 and period-2 amounts without discounting: they are in different units.\n- Thinking a higher interest rate raises lifetime resources for everyone: it raises the present value of income only for savers' future receipts, and lowers the present value of period-2 income."
+      }
+     ],
+     "words": 56,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Macro: consumption-saving models, Ricardian equivalence, government and current-account budget constraints.\n- Finance: present value and discounting of cash flows ([Geometric Series](note:geometric-series) for many periods)."
+      }
+     ],
+     "words": 25,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Two-Period Consumption-Saving Model](note:two-period-consumption-saving-model) · [Consumption Euler Equation](note:consumption-euler-equation) · [Constrained Optimization and Lagrange Multipliers](note:constrained-optimization-and-lagrange-multipliers)"
+      }
+     ],
+     "words": 12,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

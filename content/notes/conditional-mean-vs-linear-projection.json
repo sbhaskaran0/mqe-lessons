@@ -1,0 +1,519 @@
+{
+ "slug": "conditional-mean-vs-linear-projection",
+ "notation": [
+  {
+   "tex": "$h(x)$, $g(x)$, $E[y\\mid x]$",
+   "meaning": "Conditional mean: true average $y$ at each $x$",
+   "kind": "Population function",
+   "typical": "Any shape",
+   "keys": [
+    "h",
+    "g",
+    "~E[y\\midx]"
+   ]
+  },
+  {
+   "tex": "$\\alpha$, $\\beta$",
+   "meaning": "Intercept and slope of the best linear predictor",
+   "kind": "Population parameters",
+   "typical": "$\\beta = \\mathrm{Cov}(x,y)/\\mathrm{Var}(x)$",
+   "keys": [
+    "alpha",
+    "beta"
+   ]
+  },
+  {
+   "tex": "$\\varepsilon$",
+   "meaning": "Projection error: $y - \\alpha - \\beta x$",
+   "kind": "Random variable",
+   "typical": "Uncorrelated with $x$ by construction",
+   "keys": [
+    "varepsilon"
+   ]
+  },
+  {
+   "tex": "$v$",
+   "meaning": "Error relative to the conditional mean: $y - h(x)$",
+   "kind": "Random variable",
+   "typical": "Mean zero given $x$",
+   "keys": [
+    "v"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{x}^0$, $g_k$",
+   "meaning": "Expansion point and partial derivatives in the Taylor approximation",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(x)",
+    "g"
+   ]
+  },
+  {
+   "tex": "$\\gamma_0$, $\\boldsymbol{\\gamma}$",
+   "meaning": "Intercept and coefficients of the multivariate projection",
+   "kind": "Population parameters",
+   "typical": "—",
+   "keys": [
+    "gamma",
+    "bold(gamma)"
+   ]
+  },
+  {
+   "tex": "$K$",
+   "meaning": "Number of regressors",
+   "kind": "Count",
+   "typical": "—",
+   "keys": [
+    "K"
+   ]
+  },
+  {
+   "tex": "$Y$, $X$",
+   "meaning": "Two random variables",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "Y",
+    "X"
+   ],
+   "from": "law-of-iterated-expectations"
+  },
+  {
+   "tex": "$\\boldsymbol{\\varepsilon}$, $\\mathbf{X}$",
+   "meaning": "Errors and regressors in the econometrics applications",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(varepsilon)",
+    "bold(X)"
+   ],
+   "from": "law-of-iterated-expectations"
+  },
+  {
+   "tex": "$f$",
+   "meaning": "Function being approximated",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "f"
+   ],
+   "from": "taylor-series-approximation"
+  },
+  {
+   "tex": "$x$, $\\mathbf{d}$",
+   "meaning": "Nearby value, or the step away from $\\mathbf{x}$",
+   "kind": "—",
+   "typical": "Small for accuracy",
+   "keys": [
+    "x",
+    "bold(d)"
+   ],
+   "from": "taylor-series-approximation"
+  },
+  {
+   "tex": "$y_0$",
+   "meaning": "Actual new outcome at $x_0$",
+   "kind": "Random variable",
+   "typical": "—",
+   "keys": [
+    "y"
+   ],
+   "from": "confidence-vs-prediction-intervals"
+  },
+  {
+   "tex": "$N$, $\\bar{x}$",
+   "meaning": "Sample size and mean of $x$",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "N",
+    "bar(x)"
+   ],
+   "from": "confidence-vs-prediction-intervals"
+  },
+  {
+   "tex": "$p$, $n$",
+   "meaning": "Number of parameters and of observations",
+   "kind": "Counts",
+   "typical": "—",
+   "keys": [
+    "p",
+    "n"
+   ],
+   "from": "regression-diagnostics"
+  },
+  {
+   "tex": "$\\mathbf{b}$",
+   "meaning": "OLS estimates, $(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{y}$",
+   "kind": "Estimator ($K\\times1$)",
+   "typical": "—",
+   "keys": [
+    "bold(b)"
+   ],
+   "from": "ols-in-matrix-form"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "There are two different things a regression line can mean. The conditional mean is the true average outcome at each value of the explanatory variable — it can curve, jump or wiggle however the data truly behave. The linear projection is simply the best straight line through those averages. The two coincide only when the true relationship happens to be a straight line. Ordinary least squares always estimates the best straight line, whether or not the truth is straight."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It tells you what a regression coefficient really measures when the relationship is not linear, and why the error being uncorrelated with the regressor is automatic for a projection but a real assumption for a conditional mean.",
+       "folded": false
+      }
+     ],
+     "words": 118,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The deepest conceptual idea behind linear regression: what OLS actually estimates when the true relationship is not linear."
+      }
+     ],
+     "words": 18,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "the-conditional-mean-function",
+   "heading": "The conditional mean function",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-conditional-mean-function-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$h(\\mathbf{X})$ is the function that minimises $E_{X,Y}[Y - h(X)]^2$. It equals $E[y\\mid x]$, it can be **any** shape — linear, quadratic, a step function — and it is the best possible predictor of $y$ given $x$ in the MSE sense. Nonparametric: no assumptions on functional form. No restrictions on conditional variances at this point."
+      }
+     ],
+     "words": 44,
+     "symbols": [
+      "$h(x)$, $g(x)$, $E[y\\mid x]$",
+      "$Y$, $X$",
+      "$\\boldsymbol{\\varepsilon}$, $\\mathbf{X}$",
+      "$x$, $\\mathbf{d}$",
+      "$y_0$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "the-linear-projection",
+   "heading": "The linear projection",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-linear-projection-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "For **any** bivariate distribution $f(x,y)$ whatsoever, you can always write"
+      },
+      {
+       "t": "math",
+       "tex": "y = \\alpha + \\beta x + \\varepsilon, \\qquad \\beta = \\frac{\\mathrm{Cov}(x,y)}{\\mathrm{Var}(x)}, \\qquad \\alpha = E[y] - \\beta E[x]"
+      },
+      {
+       "t": "prose",
+       "md": "with $\\mathrm{Cov}(x,\\varepsilon) = 0$ **by construction**."
+      },
+      {
+       "t": "prose",
+       "md": "**Derivation.** Take $\\mathrm{Cov}(x,\\cdot)$ through the equation:"
+      },
+      {
+       "t": "math",
+       "tex": "\\mathrm{Cov}(x,y) = \\mathrm{Cov}(x,\\alpha) + \\beta\\,\\mathrm{Cov}(x,x) + \\mathrm{Cov}(x,\\varepsilon) = 0 + \\beta\\,\\mathrm{Var}(x) + 0"
+      },
+      {
+       "t": "prose",
+       "md": "so $\\beta = \\mathrm{Cov}(x,y)/\\mathrm{Var}(x)$. Take expectations: $E[y] = \\alpha + \\beta E[x] + 0$, so $\\alpha = E[y] - \\beta E[x]$."
+      }
+     ],
+     "words": 21,
+     "symbols": [
+      "$\\alpha$, $\\beta$",
+      "$\\varepsilon$",
+      "$f$",
+      "$x$, $\\mathbf{d}$",
+      "$y_0$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "does-this-mean-e-y-x-x",
+   "heading": "Does this mean E[y|x] = α + βx?",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "does-this-mean-e-y-x-x-1",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "danger",
+       "title": "No.",
+       "md": "The projection exists **always**. It coincides with the conditional mean **only** when the conditional mean happens to be linear in $x$.",
+       "folded": false
+      },
+      {
+       "t": "prose",
+       "md": "The conditional mean function is $h(x)$ such that $y = h(x) + v$ with $E[v\\mid x] = 0$ — and $h$ need not be linear."
+      },
+      {
+       "t": "prose",
+       "md": "**Intuition.** If $y = x^2 + \\text{noise}$, then $E[y\\mid x] = x^2$, while the projection $\\alpha + \\beta x$ is merely the best straight line through that parabola."
+      },
+      {
+       "t": "prose",
+       "md": "This is the distinction behind [Strict Exogeneity](note:strict-exogeneity): $\\mathrm{Cov}(x,\\varepsilon) = 0$ holds automatically for the projection and assumes nothing, whereas $E[\\varepsilon\\mid x] = 0$ is a real restriction — it is exactly the statement that $E[y\\mid x]$ is linear."
+      }
+     ],
+     "words": 77,
+     "symbols": [
+      "$h(x)$, $g(x)$, $E[y\\mid x]$",
+      "$\\alpha$, $\\beta$",
+      "$\\varepsilon$",
+      "$v$",
+      "$x$, $\\mathbf{d}$",
+      "$y_0$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "comparison",
+   "heading": "Comparison",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "comparison-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Feature | Conditional mean $E[y\\mid x]$ | Linear projection $\\alpha + \\beta x$ |\n| --- | --- | --- |\n| Functional form | Arbitrary, possibly nonlinear | Linear only |\n| What it is | True expected value given $x$ | Best linear approximation of $y$ from $x$ |\n| Formula | Depends on the joint distribution | $\\beta = \\mathrm{Cov}(x,y)/\\mathrm{Var}(x)$, $\\alpha = E[y] - \\beta E[x]$ |\n| Assumptions | None | None — exists for any distribution with finite variances; linearity restricts the approximating line, not the data |\n| Optimality | Minimises MSE, unconstrained | Minimises MSE among linear functions |\n| Easy to estimate? | No — needs large $n$, curse of dimensionality | Yes, via OLS |\n| Interpretability | Often complex | Very interpretable |\n| Equal when? | Always defined | Equals $E[y\\mid x]$ only if $E[y\\mid x]$ is linear |"
+      }
+     ],
+     "words": 86,
+     "symbols": [
+      "$h(x)$, $g(x)$, $E[y\\mid x]$",
+      "$\\alpha$, $\\beta$",
+      "$x$, $\\mathbf{d}$",
+      "$y_0$",
+      "$p$, $n$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "why-econometrics-uses-the-projection-anyway",
+   "heading": "Why econometrics uses the projection anyway",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "why-econometrics-uses-the-projection-anyway-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Simple to estimate**: just OLS, from sample means and variances.\n- **Interpretable**: $\\beta$ answers \"what happens to $y$ on average if $x$ rises by one unit?\"\n- **Robust**: even if $E[y\\mid x]$ is nonlinear, the projection is still a meaningful best linear fit.\n- **Foundational**: it is the basis of classical regression theory, IV, DiD, time-series forecasting and econometric identification."
+      },
+      {
+       "t": "prose",
+       "md": "**What you give up**: nonlinear structure. If the true relationship is curved, the projection is a straight line through it, and it is not an unbiased estimate of $E[y\\mid x]$ under misspecification."
+      },
+      {
+       "t": "prose",
+       "md": "In practice we almost never know $E[y\\mid x]$ exactly, and estimating it nonparametrically needs large samples and suffers the curse of dimensionality in high dimensions. The projection is the tractable approximation."
+      }
+     ],
+     "words": 115,
+     "symbols": [
+      "$h(x)$, $g(x)$, $E[y\\mid x]$",
+      "$\\alpha$, $\\beta$",
+      "$x$, $\\mathbf{d}$",
+      "$y_0$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "linear-approximation-framing",
+   "heading": "Linear approximation framing",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "linear-approximation-framing-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The appendix also frames the linear model as a first-order [Taylor Series Approximation](note:taylor-series-approximation) to $g(\\mathbf{x}) = E[y\\mid\\mathbf{x}]$ around a point $\\mathbf{x}^0$:"
+      },
+      {
+       "t": "math",
+       "tex": "\\hat{g}(\\mathbf{x}) = g(\\mathbf{x}^0) + \\sum_{k=1}^K \\big[g_k \\mid \\mathbf{x} = \\mathbf{x}^0\\big](x_k - x_k^0)"
+      },
+      {
+       "t": "prose",
+       "md": "and the projection as"
+      },
+      {
+       "t": "math",
+       "tex": "g^*(\\mathbf{x}) = \\gamma_0 + \\sum_{k=1}^K \\gamma_k (x_k - E[x_k]), \\qquad \\gamma_0 = E[y], \\qquad \\boldsymbol{\\gamma} = \\{\\mathrm{Var}[\\mathbf{x}]\\}^{-1}\\{\\mathrm{Cov}[\\mathbf{x},y]\\}"
+      },
+      {
+       "t": "callout",
+       "kind": "important",
+       "title": "The projection is the best linear approximation *to the conditional mean*.",
+       "md": "Notice $\\gamma_0 = E[y]$ and the line is centred at $E[\\mathbf{x}]$: the projection passes through the point of means. It is the line that best approximates $g(x) = E[y\\mid x]$ in mean squared error over the whole distribution of $x$ — **not** the tangent line to $g$ at $E[x]$. Its slope is a weighted average of $g'$ over the distribution of $x$, and equals $g'(E[x])$ only in special cases (e.g. $g$ linear). Example: $x \\sim \\text{Exp}(1)$ and $g(x) = x^2$ give $g'(E[x]) = 2$ but $\\beta = \\mathrm{Cov}(x,x^2)/\\mathrm{Var}(x) = 4$. So the relationship runs **conditional mean → (approximated by) → linear projection**, never the other way around: $E[y\\mid x]$ is the primitive, possibly-curved object; $\\alpha + \\beta x$ is the single straight line that fits it best, with one averaged slope used everywhere.",
+       "folded": false
+      }
+     ],
+     "words": 128,
+     "symbols": [
+      "$h(x)$, $g(x)$, $E[y\\mid x]$",
+      "$\\alpha$, $\\beta$",
+      "$\\mathbf{x}^0$, $g_k$",
+      "$\\gamma_0$, $\\boldsymbol{\\gamma}$",
+      "$K$",
+      "$x$, $\\mathbf{d}$",
+      "$y_0$"
+     ]
+    },
+    {
+     "id": "linear-approximation-framing-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Worth knowing as the formal sense in which linearity is an *approximation* rather than a claim."
+      }
+     ],
+     "words": 16,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "how-projection-best-linear-approximation-shapes-use-cases",
+   "heading": "How \"projection = best linear approximation\" shapes use cases",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "how-projection-best-linear-approximation-shapes-use-cases-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Because $\\beta$ is one slope fitted over the whole distribution of $x$ and then applied globally, several practical consequences follow:"
+      },
+      {
+       "t": "prose",
+       "md": "- **Prediction where the data are dense is reliable; prediction far from them is not.** The line minimises squared error weighted by the distribution of $x$, so it tracks $E[y\\mid x]$ best where $x$ has most mass and carries no guarantee outside the data. Predictions for $x$ far from $E[x]$ extrapolate an averaged slope into regions where the true curvature of $E[y\\mid x]$ may look nothing like it. See [Confidence vs Prediction Intervals](note:confidence-vs-prediction-intervals) for how interval width already reflects this (wider further from $\\bar{x}$)."
+      }
+     ],
+     "words": 93,
+     "symbols": [
+      "$h(x)$, $g(x)$, $E[y\\mid x]$",
+      "$\\alpha$, $\\beta$",
+      "$x$, $\\mathbf{d}$",
+      "$y_0$",
+      "$N$, $\\bar{x}$"
+     ]
+    },
+    {
+     "id": "how-projection-best-linear-approximation-shapes-use-cases-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **$\\beta$ is an *average* derivative, not *the* derivative.** If $E[y\\mid x]$ is curved, the true marginal effect $\\partial E[y\\mid x]/\\partial x$ varies with $x$; OLS $\\beta$ collapses it into one number — a weighted average of that slope across the support of $x$ (non-negative weights, largest at $E[x]$). Treating $\\beta$ as \"the effect of $x$ on $y$\" everywhere is only valid when $E[y\\mid x]$ truly is linear, which is exactly the content of [Strict Exogeneity](note:strict-exogeneity) ($E[\\varepsilon\\mid x]=0$)."
+      }
+     ],
+     "words": 59,
+     "symbols": [
+      "$h(x)$, $g(x)$, $E[y\\mid x]$",
+      "$\\alpha$, $\\beta$",
+      "$\\varepsilon$",
+      "$x$, $\\mathbf{d}$",
+      "$y_0$"
+     ]
+    },
+    {
+     "id": "how-projection-best-linear-approximation-shapes-use-cases-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Curvature is a modelling choice, not a law.** You aren't stuck approximating $g(x)$ with a straight line in $x$ itself — [Functional Forms and Elasticities](note:functional-forms-and-elasticities) (log-linear, linear-log, log-log) and [Box-Cox and Power Transformations](note:box-cox-and-power-transformations) re-express the variables so that the *transformed* relationship is closer to linear, i.e. so the linear approximation is applied to a better-behaved function. This is still \"projection approximates conditional mean\" — just with a more flexible basis than raw $x$.\n- **Diagnostics exist precisely to catch where the approximation fails.** Residual-vs-fitted and similar plots in [Regression Diagnostics](note:regression-diagnostics) are how you detect that $g(x)$ has curvature the line missed (systematic patterns in residuals) and decide whether to add polynomial terms, transform, or otherwise move beyond the single global linear approximation."
+      }
+     ],
+     "words": 118,
+     "symbols": [
+      "$h(x)$, $g(x)$, $E[y\\mid x]$",
+      "$\\mathbf{x}^0$, $g_k$",
+      "$x$, $\\mathbf{d}$"
+     ]
+    },
+    {
+     "id": "how-projection-best-linear-approximation-shapes-use-cases-4",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **This is why econometrics still uses it.** As above: the projection needs no knowledge of $g(x)$'s shape, is estimable from sample means/variances alone via OLS, and gives an interpretable single-number summary — at the cost of being only an average approximation rather than the exact conditional mean."
+      }
+     ],
+     "words": 48,
+     "symbols": [
+      "$h(x)$, $g(x)$, $E[y\\mid x]$",
+      "$\\mathbf{x}^0$, $g_k$",
+      "$x$, $\\mathbf{d}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Math background: [Taylor Series Approximation](note:taylor-series-approximation) · [Double Integrals and Fubini's Theorem](note:double-integrals-and-fubinis-theorem)\n- [Simple Linear Regression Model](note:simple-linear-regression-model)\n- [OLS in Matrix Form](note:ols-in-matrix-form) — $\\mathbf{b}$ is the sample analogue of $\\boldsymbol{\\gamma}$\n- [Strict Exogeneity](note:strict-exogeneity)\n- [Functional Forms and Elasticities](note:functional-forms-and-elasticities) — better bases for the linear approximation\n- [Box-Cox and Power Transformations](note:box-cox-and-power-transformations) — choosing a transformation to reduce curvature\n- [Regression Diagnostics](note:regression-diagnostics) — detecting where the linear approximation breaks down\n- [Confidence vs Prediction Intervals](note:confidence-vs-prediction-intervals) — why uncertainty grows away from $\\bar{x}$"
+      }
+     ],
+     "words": 71,
+     "symbols": [
+      "$\\gamma_0$, $\\boldsymbol{\\gamma}$",
+      "$N$, $\\bar{x}$",
+      "$\\mathbf{b}$"
+     ]
+    }
+   ]
+  }
+ ]
+}

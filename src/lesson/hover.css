@@ -1,0 +1,33 @@
+/* Symbol hover inside rendered math (SymbolHover.tsx). With a mouse a symbol lights up under the pointer; on a touch
+   screen, where nothing can light up first, a faint underline says a tap explains it. Background and box-shadow
+   only, never border or padding, so KaTeX's layout is untouched. Notation-dense notes (Econ 430) wrap nearly every
+   letter, so the resting state stays quiet. */
+
+.sym-scope { position: relative; }
+
+.sym-scope .sym { cursor: help; border-radius: 3px; transition: background var(--dur) var(--ease), box-shadow var(--dur) var(--ease); }
+.sym-scope .sym:hover, .sym-scope .sym.sym-active { background: var(--accent-soft); box-shadow: inset 0 -2px 0 var(--accent); }
+@media (hover: none) {
+  .sym-scope .sym { box-shadow: inset 0 -1px 0 color-mix(in srgb, var(--accent) 30%, transparent); }
+}
+
+.sym-pop {
+  position: absolute; z-index: 40; margin: 0;
+  font-family: var(--font-ui); text-align: left; line-height: 1.45;
+  animation: sym-pop-in 140ms var(--ease);
+  pointer-events: auto;
+}
+.sym-pop[data-above] { animation-name: sym-pop-in-above; }
+.sym-pop .symbol-detail-tex { font-size: var(--text-lg); }
+.sym-pop .symbol-detail-meaning { font-size: var(--text-sm); font-weight: 600; color: var(--text); font-family: var(--font-text); }
+.sym-pop .symbol-detail-meta { font-size: var(--text-xs); }
+.sym-pop .symbol-from { font-size: var(--text-xs); }
+@keyframes sym-pop-in { from { opacity: 0; transform: translateY(-4px); } }
+@keyframes sym-pop-in-above { from { opacity: 0; transform: translateY(4px); } }
+
+/* The visual pane's scope stands in for the pane as the lesson grid's third column. */
+.pane-scope { align-self: stretch; min-width: 0; display: flex; flex-direction: column; }
+.pane-scope > .pane { flex: 1 1 auto; }
+
+/* Not hover: the "Practise question by question" button in a practice note's header (NoteChrome.tsx). */
+.note-practice { margin-top: var(--space-4); }

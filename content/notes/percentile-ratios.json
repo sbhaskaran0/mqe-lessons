@@ -1,0 +1,191 @@
+{
+ "slug": "percentile-ratios",
+ "notation": [
+  {
+   "tex": "$w_{90}$, $w_{50}$, $w_{10}$",
+   "meaning": "Wage at the 90th, 50th (median) and 10th percentiles",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "w"
+   ]
+  },
+  {
+   "tex": "$w_{p,y}$",
+   "meaning": "Wage at percentile $p$ in year $y$",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "w"
+   ]
+  },
+  {
+   "tex": "$p$, $y$",
+   "meaning": "Percentile and year",
+   "kind": "Indices",
+   "typical": "—",
+   "keys": [
+    "p",
+    "y"
+   ]
+  },
+  {
+   "tex": "gap",
+   "meaning": "$\\ln\\bar{w}_A - \\ln\\bar{w}_B$",
+   "kind": "Statistic",
+   "typical": "College gap ≈ 0.67 in 2008",
+   "keys": [
+    "~gap"
+   ],
+   "from": "log-wage-gap"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A percentile ratio compares the income of someone near the top with someone further down — for example, a worker at the 90th percentile, who earns more than ninety percent of workers, against one at the 10th. Usually these are taken in logs, which makes them add up neatly: the gap between the top and bottom equals the gap between top and middle plus the gap between middle and bottom. That lets you see whether inequality is growing at the top, the bottom or both."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "They are robust to errors at the extremes of survey data and are the standard way to show where in the wage distribution inequality is changing.",
+       "folded": false
+      }
+     ],
+     "words": 113,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Ratios of income at two percentiles of the distribution — usually in logs."
+      },
+      {
+       "t": "math",
+       "tex": "\\text{90-10 gap} = \\ln w_{90} - \\ln w_{10}"
+      },
+      {
+       "t": "prose",
+       "md": "Common choices: 90-10 (overall), **90-50 (upper-tail)**, **50-10 (lower-tail)**."
+      }
+     ],
+     "words": 20,
+     "symbols": [
+      "$w_{90}$, $w_{50}$, $w_{10}$",
+      "$w_{p,y}$",
+      "gap"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "the-additivity-that-makes-them-useful",
+   "heading": "The additivity that makes them useful",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-additivity-that-makes-them-useful-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "\\ln\\frac{w_{90}}{w_{10}} = \\ln\\frac{w_{90}}{w_{50}} + \\ln\\frac{w_{50}}{w_{10}}"
+      },
+      {
+       "t": "prose",
+       "md": "Overall inequality splits exactly into upper-tail and lower-tail inequality. This is how labour economists showed that US inequality since 1990 has been driven by the upper tail while the lower tail stopped widening — the pattern called **polarization**. See [US Wage Percentiles 1963-2008](note:us-wage-percentiles-1963-2008)."
+      }
+     ],
+     "words": 42,
+     "symbols": [
+      "$w_{90}$, $w_{50}$, $w_{10}$",
+      "$w_{p,y}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "tracking-changes-over-time",
+   "heading": "Tracking changes over time",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "tracking-changes-over-time-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The lecture plots, for each percentile $p$, the cumulative log change relative to a base year:"
+      },
+      {
+       "t": "math",
+       "tex": "\\ln\\!\\left(\\frac{w_{p,y}}{w_{p,1963}}\\right) = \\ln w_{p,y} - \\ln w_{p,1963}"
+      },
+      {
+       "t": "prose",
+       "md": "Diverging lines mean widening gaps."
+      }
+     ],
+     "words": 20,
+     "symbols": [
+      "$w_{90}$, $w_{50}$, $w_{10}$",
+      "$w_{p,y}$",
+      "$p$, $y$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "properties",
+   "heading": "Properties",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "properties-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Scale invariant\n- **Robust to top-coding** and outliers — a reason they are popular with survey data like the [Current Population Survey (CPS)](note:current-population-survey-cps)\n- Ignore everything except the two percentiles: transfers within the top 10% or bottom 10% do not move the 90-10"
+      }
+     ],
+     "words": 43,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Math background: [Logarithms and Growth Rates](note:logarithms-and-growth-rates)\n- [Log Wage Gap](note:log-wage-gap) — the between-group analogue\n- [Top Income Shares](note:top-income-shares)\n- [Properties of Inequality Measures](note:properties-of-inequality-measures)"
+      }
+     ],
+     "words": 23,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

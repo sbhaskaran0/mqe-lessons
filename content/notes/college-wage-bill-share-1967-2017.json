@@ -1,0 +1,68 @@
+{
+ "slug": "college-wage-bill-share-1967-2017",
+ "notation": [],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**The share of the US wage bill paid to college workers rose from about 20% in 1967 to 54.7% in 2017. Almost all of the 34.7 pp increase happened within industries.**"
+      },
+      {
+       "t": "table",
+       "md": "| Component | Contribution |\n| --- | --- |\n| Between industries (college-intensive industries grew) | ≈ 1.1 pp |\n| Within industries (industries became more college-intensive) | ≈ 33.6 pp |\n| **Total** | **34.7 pp** |"
+      },
+      {
+       "t": "prose",
+       "md": "1967 is the first year with consistent `ind90ly` industry codes."
+      }
+     ],
+     "words": 68,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "caution",
+   "heading": "Caution",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "caution-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "This is accounting, not causation. See the caveats in [Shift-Share Decomposition](note:shift-share-decomposition)."
+      }
+     ],
+     "words": 11,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Shift-Share Decomposition](note:shift-share-decomposition)\n- [Skill Premium](note:skill-premium)"
+      }
+     ],
+     "words": 6,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

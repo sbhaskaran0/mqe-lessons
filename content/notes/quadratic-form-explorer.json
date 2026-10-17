@@ -1,0 +1,104 @@
+{
+ "slug": "quadratic-form-explorer",
+ "notation": [
+  {
+   "tex": "$A$",
+   "meaning": "Symmetric matrix",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "A"
+   ],
+   "from": "quadratic-forms-and-definiteness"
+  },
+  {
+   "tex": "$\\mathbf{x}$, $\\mathbf{v}$",
+   "meaning": "Vectors",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(x)",
+    "bold(v)"
+   ],
+   "from": "quadratic-forms-and-definiteness"
+  },
+  {
+   "tex": "$q(\\mathbf{x}) = \\mathbf{x}'A\\mathbf{x}$",
+   "meaning": "Quadratic form",
+   "kind": "Number",
+   "typical": "—",
+   "keys": [
+    "q"
+   ],
+   "from": "quadratic-forms-and-definiteness"
+  },
+  {
+   "tex": "$\\lambda$",
+   "meaning": "Eigenvalues of $A$",
+   "kind": "Numbers",
+   "typical": "All positive for PD",
+   "keys": [
+    "lambda"
+   ],
+   "from": "quadratic-forms-and-definiteness"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "quadratic-form-explorer"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$A$",
+      "$\\mathbf{x}$, $\\mathbf{v}$",
+      "$\\lambda$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Purpose.** See definiteness: the level sets of $\\mathbf{x}'A\\mathbf{x}$ change as $A$ moves between definite, semidefinite and indefinite, and the signs of the eigenvalues give the same verdict as the leading principal minors $a$ and $ac - b^2$.\n- **Model.** Its own (no shared model): $A = \\begin{pmatrix}a&b\\\\b&c\\end{pmatrix}$, $\\lambda_{1,2} = \\tfrac{a+c}{2} \\pm \\sqrt{\\left(\\tfrac{a-c}{2}\\right)^2 + b^2}$, as in [Quadratic Forms and Definiteness](note:quadratic-forms-and-definiteness) and [Eigenvalues and Eigenvectors](note:eigenvalues-and-eigenvectors). The eigenvector formula avoids trigonometry, which widget expressions do not have.\n- **Elements.** Panel `form`: the level sets of $q$ (at $\\pm 0.5, \\pm 1, \\pm 2, \\pm 4$), arrows `v1`, `v2` (unit eigenvectors). Panel `stretch`: arrows `x_vec`, `Ax_vec`, `lv1`, `lv2` (eigenvectors scaled by their eigenvalues, so a negative eigenvalue points back) and the draggable point `x_tip`. Readouts `trace_out`, `minor1_out`, `det_out`, `l1_out`, `l2_out`, `cls_out`, `align_out`."
+      }
+     ],
+     "words": 115,
+     "symbols": [
+      "$A$",
+      "$\\mathbf{x}$, $\\mathbf{v}$",
+      "$q(\\mathbf{x}) = \\mathbf{x}'A\\mathbf{x}$",
+      "$\\lambda$"
+     ]
+    },
+    {
+     "id": "notes-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Classification.** `cls_out` is a number shown through its value labels: 2 positive definite, 1 positive semidefinite, 0 indefinite, −1 negative semidefinite, −2 negative definite (the zero matrix counts as PSD).\n- **Goal it supports.** PSD but not PD: `abs(det) < 0.005 and a + c > 0`. On the 0.1 grid the determinant is a multiple of 0.01, so this holds only where it is zero.\n- **Tests.** L3 self-check questions 1 and 2 and two computed matrices (checked with `numpy.linalg.eigh`), plus one matrix per remaining class and the eigenvector edge cases."
+      }
+     ],
+     "words": 97,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

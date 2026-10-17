@@ -1,0 +1,278 @@
+{
+ "slug": "kernel-density-estimation",
+ "notation": [
+  {
+   "tex": "$x_i$",
+   "meaning": "Observation $i$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "x"
+   ]
+  },
+  {
+   "tex": "$n$",
+   "meaning": "Number of observations",
+   "kind": "Count",
+   "typical": "1,000 in the lecture's example",
+   "keys": [
+    "n"
+   ]
+  },
+  {
+   "tex": "$x$",
+   "meaning": "Point at which the density is estimated",
+   "kind": "Argument",
+   "typical": "—",
+   "keys": [
+    "x"
+   ]
+  },
+  {
+   "tex": "$\\widehat{p}(x)$",
+   "meaning": "Estimated density at $x$",
+   "kind": "Statistic",
+   "typical": "Integrates to 1",
+   "keys": [
+    "hat(p)"
+   ]
+  },
+  {
+   "tex": "$K(\\cdot)$",
+   "meaning": "Kernel: the shape of each bump",
+   "kind": "Function",
+   "typical": "Standard normal density",
+   "keys": [
+    "K"
+   ]
+  },
+  {
+   "tex": "$h$",
+   "meaning": "Bandwidth: the width of each bump",
+   "kind": "Choice",
+   "typical": "Larger = smoother",
+   "keys": [
+    "h"
+   ]
+  },
+  {
+   "tex": "$\\widehat{\\sigma}$",
+   "meaning": "Sample standard deviation, used by rules of thumb",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "hat(sigma)"
+   ]
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A histogram sorts observations into bins and counts them, so its shape depends on where the bin edges fall. A kernel density estimate instead places a small smooth bump, usually a little bell curve, on top of every observation and adds the bumps up. Where observations crowd together the bumps pile up into a peak; where they are sparse the curve stays low. The width of each bump, called the bandwidth, is the one real choice: wide bumps give a smooth curve that can blur real features, and narrow bumps give a jagged curve that chases noise."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It shows the shape of a variable, or of a regression's residuals, without the arbitrariness of bin edges, and the bandwidth choice is a standard example of the bias-variance trade-off.",
+       "folded": false
+      }
+     ],
+     "words": 130,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Given observations $x_1, \\ldots, x_n$, the kernel density estimate at a point $x$ is"
+      },
+      {
+       "t": "math",
+       "tex": "\\widehat{p}(x) = \\frac{1}{nh}\\sum_{i=1}^{n} K\\!\\left(\\frac{x - x_i}{h}\\right)"
+      },
+      {
+       "t": "prose",
+       "md": "where $K$ is a kernel (a symmetric density, usually the standard normal) and $h > 0$ is the bandwidth."
+      }
+     ],
+     "words": 25,
+     "symbols": [
+      "$x_i$",
+      "$n$",
+      "$x$",
+      "$\\widehat{p}(x)$",
+      "$K(\\cdot)$",
+      "$h$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "intuition",
+   "heading": "Intuition",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "intuition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Each term $K((x - x_i)/h)/h$ is a bump of total area 1 centred on $x_i$. Dividing the sum by $n$ makes the total area 1, so $\\widehat{p}$ is itself a density. It is a \"smoothed histogram\" with no bin edges."
+      }
+     ],
+     "words": 34,
+     "symbols": [
+      "$x_i$",
+      "$n$",
+      "$x$",
+      "$\\widehat{p}(x)$",
+      "$K(\\cdot)$",
+      "$h$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "the-bandwidth-trade-off",
+   "heading": "The bandwidth trade-off",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-bandwidth-trade-off-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Bandwidth | Bias | Variance | What you see |\n| --- | --- | --- | --- |\n| Large $h$ | High: peaks flattened, tails spread | Low | Over-smoothed curve; real bumps disappear |\n| Small $h$ | Low | High: depends on individual points | Spiky curve that follows noise |"
+      },
+      {
+       "t": "prose",
+       "md": "In the lecture's plot, seaborn's default bandwidth (red) is compared with half of it (blue dashed, `bw_adjust=0.5`): the narrower kernel shows a sharper peak near zero and more wiggles in the tail."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Kernel density estimate - two bandwidths on exponential data.png",
+       "alt": "Kernel density estimate - two bandwidths on exponential data"
+      }
+     ],
+     "words": 69,
+     "symbols": [
+      "$h$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The lecture draws 1,000 values from an exponential distribution with mean 0.5. A common rule of thumb (Scott's rule, which seaborn uses by default; beyond the lecture) sets $h = 1.06\\,\\widehat{\\sigma}\\,n^{-1/5}$. With $\\widehat{\\sigma} \\approx 0.5$ and $n = 1000$, $h \\approx 1.06 \\times 0.5 \\times 0.251 = 0.133$; `bw_adjust=0.5` halves it to about 0.067."
+      }
+     ],
+     "words": 42,
+     "symbols": [
+      "$n$",
+      "$h$",
+      "$\\widehat{\\sigma}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "properties-and-when-it-fails",
+   "heading": "Properties and when it fails",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "properties-and-when-it-fails-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Boundaries** (beyond the lecture): a normal kernel puts some mass below zero even for a variable that cannot be negative, like the exponential draws. The lecture's plot trims the axis at −0.15 for this reason; the estimate is biased downward right at the boundary.\n- **The kernel shape matters little**; the bandwidth matters a lot.\n- **Rug plots** (a tick at every observation) under the curve show where the data actually are."
+      }
+     ],
+     "words": 74,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Reading a bump produced by a tiny bandwidth as a real second mode.\n- Forgetting that the curve is an estimate: with few observations it is noisy whatever $h$ is."
+      }
+     ],
+     "words": 30,
+     "symbols": [
+      "$h$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Statistics: density plots alongside histograms ([EDA for Regression](note:eda-for-regression)).\n- Econometrics: overlaid on residual histograms and on bootstrap distributions ([Bootstrapping OLS](note:bootstrapping-ols))."
+      }
+     ],
+     "words": 21,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [EDA for Regression](note:eda-for-regression) · [Skewness and Kurtosis](note:skewness-and-kurtosis)"
+      }
+     ],
+     "words": 7,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,230 @@
+{
+ "slug": "spectral-decomposition",
+ "notation": [
+  {
+   "tex": "$A$",
+   "meaning": "Symmetric matrix",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "A"
+   ]
+  },
+  {
+   "tex": "$Q$",
+   "meaning": "Matrix whose columns are orthonormal eigenvectors",
+   "kind": "Matrix",
+   "typical": "$Q'Q = I$",
+   "keys": [
+    "Q"
+   ]
+  },
+  {
+   "tex": "$\\Lambda$",
+   "meaning": "Diagonal matrix of eigenvalues",
+   "kind": "Matrix",
+   "typical": "—",
+   "keys": [
+    "Lambda"
+   ]
+  },
+  {
+   "tex": "$\\boldsymbol{\\Omega}$",
+   "meaning": "Error covariance matrix in GLS",
+   "kind": "Matrix",
+   "typical": "—",
+   "keys": [
+    "bold(Omega)"
+   ]
+  },
+  {
+   "tex": "$I$",
+   "meaning": "Identity matrix",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "I"
+   ],
+   "from": "eigenvalues-and-eigenvectors"
+  },
+  {
+   "tex": "$\\mathbf{M} = \\mathbf{I} - \\mathbf{P}$",
+   "meaning": "Residual maker: turns $\\mathbf{y}$ into residuals",
+   "kind": "Matrix ($n\\times n$)",
+   "typical": "Trace $n - K$",
+   "keys": [
+    "bold(M)"
+   ],
+   "from": "projection-matrix-and-residual-maker"
+  },
+  {
+   "tex": "$n$, $K$",
+   "meaning": "Observations and regressors",
+   "kind": "Counts",
+   "typical": "—",
+   "keys": [
+    "n",
+    "K"
+   ],
+   "from": "projection-matrix-and-residual-maker"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Any symmetric matrix can be understood as a pure stretch along a set of perpendicular directions. The spectral decomposition writes it that way: rotate into those directions, stretch each by its eigenvalue, rotate back. In that form, raising the matrix to a power, inverting it or taking its square root is easy — you just do it to each stretch factor."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is how generalised least squares transforms data to fix unequal or correlated errors, and the basis of principal components.",
+       "folded": false
+      }
+     ],
+     "words": 83,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "For any **symmetric** $A$:"
+      },
+      {
+       "t": "math",
+       "tex": "A = Q\\Lambda Q', \\qquad Q'Q = QQ' = I"
+      },
+      {
+       "t": "prose",
+       "md": "Columns of $Q$ are orthonormal eigenvectors; $\\Lambda$ is the diagonal matrix of (real) eigenvalues."
+      }
+     ],
+     "words": 15,
+     "symbols": [
+      "$A$",
+      "$Q$",
+      "$\\Lambda$",
+      "$I$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "intuition",
+   "heading": "Intuition",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "intuition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "In the eigenvector coordinate system, a symmetric matrix just stretches each axis by its eigenvalue. $Q'$ rotates into those coordinates, $\\Lambda$ stretches, $Q$ rotates back."
+      }
+     ],
+     "words": 22,
+     "symbols": [
+      "$Q$",
+      "$\\Lambda$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "what-it-buys-you",
+   "heading": "What it buys you",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-it-buys-you-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Functions of $A$ act on the eigenvalues only:"
+      },
+      {
+       "t": "math",
+       "tex": "A^k = Q\\Lambda^kQ', \\qquad A^{-1} = Q\\Lambda^{-1}Q', \\qquad A^{1/2} = Q\\Lambda^{1/2}Q'"
+      },
+      {
+       "t": "prose",
+       "md": "**Worked example**: for $A = \\begin{pmatrix}2&1\\\\1&2\\end{pmatrix}$ (eigenvalues 3 and 1),"
+      },
+      {
+       "t": "math",
+       "tex": "A^{-1/2} = Q\\,\\mathrm{diag}(3^{-1/2}, 1)\\,Q' = \\begin{pmatrix}0.789&-0.211\\\\-0.211&0.789\\end{pmatrix}"
+      },
+      {
+       "t": "prose",
+       "md": "and $A^{-1/2}AA^{-1/2} = I$."
+      }
+     ],
+     "words": 15,
+     "symbols": [
+      "$A$",
+      "$Q$",
+      "$\\Lambda$",
+      "$I$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Econometrics**: GLS transforms the model by $\\boldsymbol{\\Omega}^{-1/2}$ so that errors become homoskedastic and uncorrelated — this is how [Homoskedasticity](note:homoskedasticity) failures are fixed efficiently; showing $\\mathbf{M}$ is a projection with $n-K$ unit eigenvalues ([Projection Matrix and Residual Maker](note:projection-matrix-and-residual-maker)).\n- **Statistics**: principal components are the eigenvectors of a covariance matrix."
+      }
+     ],
+     "words": 45,
+     "symbols": [
+      "$\\boldsymbol{\\Omega}$",
+      "$\\mathbf{M} = \\mathbf{I} - \\mathbf{P}$",
+      "$n$, $K$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Quadratic Forms and Definiteness](note:quadratic-forms-and-definiteness)\n- [Eigenvalues and Eigenvectors](note:eigenvalues-and-eigenvectors)"
+      }
+     ],
+     "words": 9,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

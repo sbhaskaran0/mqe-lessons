@@ -1,0 +1,254 @@
+{
+ "slug": "shift-share-decomposition",
+ "notation": [
+  {
+   "tex": "$WB_t$",
+   "meaning": "Total wage bill in year $t$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "~WB_t"
+   ]
+  },
+  {
+   "tex": "$WB_{Ht}$",
+   "meaning": "Wage bill paid to college workers",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "~WB_Ht"
+   ]
+  },
+  {
+   "tex": "$WB_{it}$, $WB_{Hit}$",
+   "meaning": "Total and college wage bill in industry $i$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "~WB_it",
+    "~WB_Hit"
+   ]
+  },
+  {
+   "tex": "$i$",
+   "meaning": "Industry",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "i"
+   ]
+  },
+  {
+   "tex": "$\\Delta$",
+   "meaning": "Change between the two periods",
+   "kind": "Operator",
+   "typical": "—",
+   "keys": [
+    "Delta"
+   ]
+  },
+  {
+   "tex": "overbar",
+   "meaning": "Average of the two periods",
+   "kind": "Operator",
+   "typical": "—",
+   "keys": [
+    "~overbar"
+   ]
+  },
+  {
+   "tex": "$a_C$, $a_N$",
+   "meaning": "Share of high-ability workers in each education group",
+   "kind": "Parameter, $a_C > a_N$",
+   "typical": "0.6 and 0.2 in the example",
+   "keys": [
+    "a"
+   ],
+   "from": "within-and-between-group-inequality"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A shift-share decomposition splits a change in an overall share into two sources. Suppose the share of the wage bill paid to college graduates rises. That could happen because industries that hire many graduates grew — a shift in the mix of industries — or because each industry started hiring more graduates. The decomposition measures how much of the change comes from each, using simple accounting with no assumptions about causes."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is a fast first look at whether a change is driven by the economy's composition or by changes within its parts — but it describes, it does not explain.",
+       "folded": false
+      }
+     ],
+     "words": 101,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "An **accounting** split of a change in an aggregate share into a part from shifts in the mix of units (between) and a part from changes inside units (within)."
+      }
+     ],
+     "words": 29,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "setup",
+   "heading": "Setup",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "setup-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Industries $i$. Wage bill $WB_t$, wage bill paid to college workers $WB_{Ht}$. The college wage-bill share is a weighted average of industry college shares:"
+      },
+      {
+       "t": "math",
+       "tex": "\\frac{WB_{Ht}}{WB_t} = \\sum_i \\frac{WB_{Hit}}{WB_{it}}\\cdot\\frac{WB_{it}}{WB_t}"
+      },
+      {
+       "t": "prose",
+       "md": "college intensity of industry $i$ × industry $i$'s share of the total wage bill."
+      }
+     ],
+     "words": 33,
+     "symbols": [
+      "$WB_t$",
+      "$WB_{Ht}$",
+      "$WB_{it}$, $WB_{Hit}$",
+      "$i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "the-decomposition",
+   "heading": "The decomposition",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-decomposition-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "\\Delta\\frac{WB_{Ht}}{WB_t} = \\underbrace{\\sum_i \\overline{\\left(\\frac{WB_{Hit}}{WB_{it}}\\right)}\\,\\Delta\\frac{WB_{it}}{WB_t}}_{\\text{between industry}} + \\underbrace{\\sum_i \\Delta\\frac{WB_{Hit}}{WB_{it}}\\;\\overline{\\left(\\frac{WB_{it}}{WB_t}\\right)}}_{\\text{within industry}}"
+      },
+      {
+       "t": "prose",
+       "md": "Bars are averages over the two periods. With averaged weights the decomposition is **exact**: $\\Delta(ab) = \\bar{a}\\,\\Delta b + \\bar{b}\\,\\Delta a$."
+      },
+      {
+       "t": "prose",
+       "md": "- **Between**: college-intensive industries grow.\n- **Within**: industries become more college-intensive."
+      }
+     ],
+     "words": 25,
+     "symbols": [
+      "$WB_t$",
+      "$WB_{Ht}$",
+      "$WB_{it}$, $WB_{Hit}$",
+      "$\\Delta$",
+      "$a_C$, $a_N$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "result-in-the-lecture",
+   "heading": "Result in the lecture",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "result-in-the-lecture-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1967–2017: college wage-bill share rises from ≈20% to 54.7% (+34.7 pp). Between ≈ 1.1 pp; **within ≈ 33.6 pp**. See [College Wage Bill Share 1967-2017](note:college-wage-bill-share-1967-2017)."
+      }
+     ],
+     "words": 28,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "why-a-causal-reading-is-dangerous",
+   "heading": "Why a causal reading is dangerous",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "why-a-causal-reading-is-dangerous-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The lecture flags it without elaborating. The standard reasons:"
+      },
+      {
+       "t": "prose",
+       "md": "- **Supply moves the share too.** A wage-bill share is price × quantity. More college graduates lower the premium and lead *every* industry to hire more of them, which appears as \"within\" with no demand shift at all.\n- **Within is not the same as technology.** Trade and outsourcing of low-skill tasks *inside* an industry also show up as within.\n- **Granularity.** Finer industry definitions move change from within to between."
+      }
+     ],
+     "words": 79,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "not-to-be-confused-with",
+   "heading": "Not to be confused with",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "not-to-be-confused-with-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Shift-Share Exposure](note:shift-share-exposure) uses \"shift-share\" for a different object: a unit's share-weighted average of sector-level shocks (the Bartik structure), used to predict how regions or factors are hit by trade or demand shocks. This note's decomposition is an accounting split of a change in an aggregate share."
+      }
+     ],
+     "words": 46,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Within- and Between-Group Inequality](note:within-and-between-group-inequality) — same logic, different object\n- [Composition Adjustment](note:composition-adjustment)"
+      }
+     ],
+     "words": 12,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

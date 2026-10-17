@@ -1,0 +1,320 @@
+{
+ "slug": "functional-forms-and-elasticities",
+ "notation": [
+  {
+   "tex": "$y$, $x$",
+   "meaning": "Outcome and explanatory variable",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "y",
+    "x"
+   ]
+  },
+  {
+   "tex": "$\\beta_1$, $\\beta_2$",
+   "meaning": "Intercept and slope of the chosen form",
+   "kind": "Parameters",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$\\varepsilon$",
+   "meaning": "Elasticity: % change in $y$ for a 1% change in $x$ (not an error term here)",
+   "kind": "Derived quantity",
+   "typical": "—",
+   "keys": [
+    "varepsilon"
+   ]
+  },
+  {
+   "tex": "$PRICE$, $SQFT$",
+   "meaning": "House price and square footage in the quadratic example",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "~PRICE",
+    "~SQFT"
+   ]
+  },
+  {
+   "tex": "$\\alpha_1$, $\\alpha_2$",
+   "meaning": "Intercept and coefficient on $SQFT^2$",
+   "kind": "Parameters",
+   "typical": "$\\hat{\\alpha}_2 = 0.0154$",
+   "keys": [
+    "alpha"
+   ]
+  },
+  {
+   "tex": "$e$",
+   "meaning": "Error term in the quadratic example",
+   "kind": "Unobserved",
+   "typical": "—",
+   "keys": [
+    "e"
+   ]
+  },
+  {
+   "tex": "$\\boldsymbol{\\beta}$",
+   "meaning": "True coefficients",
+   "kind": "Unknown parameters ($K\\times1$)",
+   "typical": "—",
+   "keys": [
+    "bold(beta)"
+   ],
+   "from": "ols-in-matrix-form"
+  },
+  {
+   "tex": "$T_{BC}(x,\\lambda)$",
+   "meaning": "Box-Cox transform",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "T"
+   ],
+   "from": "box-cox-and-power-transformations"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The same data can be fitted with lines in different shapes by taking logs of the outcome, the explanatory variable, both or neither. Each shape changes how you read the slope: an extra unit adds a fixed amount, an extra unit adds a fixed percentage, a one percent change adds a fixed amount, or a one percent change adds a fixed percentage. An elasticity is the last of these — the percentage response to a one percent change — and only one shape makes it constant."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "Most exam and real-world mistakes in reading regressions come from interpreting a coefficient in the wrong units.",
+       "folded": false
+      }
+     ],
+     "words": 104,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "One of the highest-yield tables in applied econometrics. Know it in both directions: given a model, state the interpretation; given an interpretation, name the model."
+      },
+      {
+       "t": "table",
+       "md": "| Model | Specification | Slope $dy/dx$ | Elasticity | Verbal interpretation |\n| --- | --- | --- | --- | --- |\n| Linear | $y = \\beta_1 + \\beta_2 x$ | $\\beta_2$ | $\\beta_2 \\cdot (x/y)$ | A one-**unit** rise in $x$ raises $y$ by $\\beta_2$ units |\n| Log-linear | $\\ln y = \\beta_1 + \\beta_2 x$ | $\\beta_2 y$ | $\\beta_2 x$ | A one-**unit** rise in $x$ raises $y$ by about $100\\beta_2$ **percent** |\n| Linear-log | $y = \\beta_1 + \\beta_2 \\ln x$ | $\\beta_2 / x$ | $\\beta_2 / y$ | A one-**percent** rise in $x$ raises $y$ by about $\\beta_2/100$ **units** |\n| Log-log | $\\ln y = \\beta_1 + \\beta_2 \\ln x$ | $\\beta_2 \\cdot (y/x)$ | $\\boldsymbol{\\beta_2}$ | $\\beta_2$ **is** the elasticity |"
+      }
+     ],
+     "words": 69,
+     "symbols": [
+      "$y$, $x$",
+      "$\\beta_1$, $\\beta_2$",
+      "$\\boldsymbol{\\beta}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "the-general-formula",
+   "heading": "The general formula",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-general-formula-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "\\varepsilon = \\text{slope} \\times \\frac{x}{y}"
+      },
+      {
+       "t": "callout",
+       "kind": "tip",
+       "title": "Derive, don't memorise",
+       "md": "Every row follows from $d(\\ln y)/dx = (1/y)(dy/dx)$ and the chain rule ([Logarithms and Growth Rates](note:logarithms-and-growth-rates)). Derive the table once and you never have to recall four rows.",
+       "folded": false
+      }
+     ],
+     "words": 27,
+     "symbols": [
+      "$y$, $x$",
+      "$\\varepsilon$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "three-cautions",
+   "heading": "Three cautions",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "three-cautions-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. **Elasticity is constant only in the log-log model.** Everywhere else it varies with $x$ and $y$, so state where you evaluated it — usually at the means.\n2. **The percentage interpretations are approximations**, valid for small changes. The exact log-linear effect of a one-unit rise in $x$ is $100(e^{\\beta_2} - 1)$ percent. For $\\beta_2 = 0.094$ that is 9.86%, not 9.4%.\n3. **$R^2$ is not comparable** across models with different dependent variables. $\\ln y$ and $y$ have different total variation. Compare linear to linear-log, or log-linear to log-log, never across. For a real comparison use CV prediction error ([Cross-Validation](note:cross-validation)) on a common scale."
+      }
+     ],
+     "words": 92,
+     "symbols": [
+      "$y$, $x$",
+      "$\\beta_1$, $\\beta_2$",
+      "$e$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "the-quadratic-case",
+   "heading": "The quadratic case",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-quadratic-case-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "PRICE = \\alpha_1 + \\alpha_2\\, SQFT^2 + e"
+      },
+      {
+       "t": "math",
+       "tex": "\\frac{d\\widehat{PRICE}}{d\\,SQFT} = 2\\widehat{\\alpha}_2\\, SQFT, \\qquad \\varepsilon = 2\\widehat{\\alpha}_2\\, SQFT \\left(\\frac{SQFT}{\\widehat{PRICE}}\\right)"
+      },
+      {
+       "t": "prose",
+       "md": "The lesson generalises: once $x$ enters nonlinearly, the **marginal effect is a function of $x$**, not a single number. You must evaluate and report it at specific values. Note this is still a *linear model* in the sense of [OLS in Matrix Form](note:ols-in-matrix-form) — linear in $\\alpha_2$, nonlinear in $SQFT$."
+      },
+      {
+       "t": "prose",
+       "md": "**The lecture's estimate** (1,080 house sales): $\\widehat{PRICE} = 55{,}780 + 0.0154\\,SQFT^2$, $R^2 = 0.692$."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/House price on squared living area - quadratic fit.png",
+       "alt": "House price on squared living area - quadratic fit"
+      },
+      {
+       "t": "table",
+       "md": "| $SQFT$ | Slope ($ per sq ft) | Elasticity |\n| --- | --- | --- |\n| 2,000 | 61.69 | 1.05 |\n| 4,000 | 123.37 | 1.63 |\n| 6,000 | 185.06 | 1.82 |"
+      },
+      {
+       "t": "prose",
+       "md": "The spread of prices widens and the data thin out above about 4,000 square feet, so the fit is least reliable exactly where the slope is largest; its residuals are also far from normal (Jarque-Bera 61,385)."
+      }
+     ],
+     "words": 116,
+     "symbols": [
+      "$y$, $x$",
+      "$\\varepsilon$",
+      "$PRICE$, $SQFT$",
+      "$\\alpha_1$, $\\alpha_2$",
+      "$e$",
+      "$T_{BC}(x,\\lambda)$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "choosing-a-functional-form",
+   "heading": "Choosing a functional form",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "choosing-a-functional-form-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The lecture's three criteria, and its admission that you often cannot get all three:"
+      },
+      {
+       "t": "prose",
+       "md": "1. Consistent with economic theory\n2. Fits the data well\n3. The regression assumptions are satisfied ([SR Assumptions](note:sr-assumptions))"
+      },
+      {
+       "t": "prose",
+       "md": "**The lecture's comparison.** The food data (40 households) and the wage data (1,000 workers) are each fitted in several forms:"
+      },
+      {
+       "t": "table",
+       "md": "| Data | Model | Slope coefficient | $R^2$ | Residual JB p-value |\n| --- | --- | --- | --- | --- |\n| Food | Linear | 10.21 | 0.385 | 0.969 |\n| Food | Linear-log | 132.17 | 0.357 | 0.905 |\n| Food | Log-log | 0.556 | 0.445 | 0.017 |\n| Wage | Linear | 1.98 | 0.175 | ≈ 0 |\n| Wage | Log-linear | 0.0904 | 0.178 | ≈ 0 |"
+      }
+     ],
+     "words": 103,
+     "symbols": []
+    },
+    {
+     "id": "choosing-a-functional-form-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Within the food data only the linear and linear-log $R^2$ can be compared (same $y$): the linear model fits slightly better. The log-log $R^2$ of 0.445 is a share of the variation in $\\ln y$ and cannot be ranked against them. The log-log residuals also reject normality at 5%."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Food expenditure - linear-log fit with confidence band.png",
+       "alt": "Food expenditure - linear-log fit with confidence band"
+      }
+     ],
+     "words": 45,
+     "symbols": [
+      "$y$, $x$"
+     ]
+    },
+    {
+     "id": "choosing-a-functional-form-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "In the linear-log model the slope falls with income: \\$13.22 per extra \\$100 at an income of \\$1,000 a week ($132.17/10$), and a 1% rise in income adds about \\$1.32 a week ($132.17/100$)."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Infant mortality and GDP per capita - log-log.png",
+       "alt": "Infant mortality and GDP per capita - log-log"
+      },
+      {
+       "t": "prose",
+       "md": "Infant mortality against GDP per capita is sharply curved in levels but close to a straight line in logs, where the lowess curve and the OLS line agree: a log-log model with a constant elasticity fits."
+      }
+     ],
+     "words": 70,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Math background: [Logarithms and Growth Rates](note:logarithms-and-growth-rates) · [Convexity and Concavity](note:convexity-and-concavity)\n- [Box-Cox and Power Transformations](note:box-cox-and-power-transformations) — when none of the four standard forms works\n- [Simple Linear Regression Model](note:simple-linear-regression-model)"
+      }
+     ],
+     "words": 28,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

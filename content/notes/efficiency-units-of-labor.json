@@ -1,0 +1,232 @@
+{
+ "slug": "efficiency-units-of-labor",
+ "notation": [
+  {
+   "tex": "$H_t$, $L_t$",
+   "meaning": "College and non-college labor supply in efficiency units",
+   "kind": "Quantity",
+   "typical": "—",
+   "keys": [
+    "H",
+    "L"
+   ]
+  },
+  {
+   "tex": "$w_{Ht}$",
+   "meaning": "Composition-adjusted wage: price of one efficiency unit of college labor",
+   "kind": "Price",
+   "typical": "—",
+   "keys": [
+    "w"
+   ]
+  },
+  {
+   "tex": "$Inc_{Ht}$",
+   "meaning": "Total wage bill of college workers",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "~Inc_Ht"
+   ]
+  },
+  {
+   "tex": "$\\tilde{A}$",
+   "meaning": "Labor-augmenting productivity in growth models",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "tilde(A)"
+   ]
+  },
+  {
+   "tex": "$L$",
+   "meaning": "Number of workers",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "L"
+   ]
+  },
+  {
+   "tex": "$\\tilde{k} = K/(\\tilde{A}L)$",
+   "meaning": "Capital per effective worker",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "tilde(k)"
+   ]
+  },
+  {
+   "tex": "$K$",
+   "meaning": "Capital",
+   "kind": "Input",
+   "typical": "—",
+   "keys": [
+    "K"
+   ],
+   "from": "factor-augmenting-technology"
+  },
+  {
+   "tex": "$k, y, c$",
+   "meaning": "The same per worker (divided by $L$)",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "k",
+    "y",
+    "c"
+   ],
+   "from": "solow-model-with-technological-progress"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Not every hour of work delivers the same amount of productive effort: a more educated or more technologically equipped worker counts for more. Efficiency units measure labor in those effective terms — the number of workers multiplied by how productive each one is. Labor economists build them from data by dividing the total wage bill of a group by the price of a standard unit of its labor. Growth models use the same idea when they talk about effective workers."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It lets you count labor supply correctly when workers are improving, which is essential for measuring the supply of skill and for growth accounting.",
+       "folded": false
+      }
+     ],
+     "words": 106,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "How to measure the **supply** of college labour $H_t$ when college workers are not all alike."
+      },
+      {
+       "t": "prose",
+       "md": "$H_t$ rises if"
+      },
+      {
+       "t": "prose",
+       "md": "1. the **number** of college-educated workers rises, and/or\n2. the **amount of education within** the college-educated rises — a change in composition."
+      }
+     ],
+     "words": 39,
+     "symbols": [
+      "$H_t$, $L_t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "the-measurement-identity",
+   "heading": "The measurement identity",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-measurement-identity-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$H_t$ must be consistent with two things already measured: the composition-adjusted price $w_{Ht}$ ([Composition Adjustment](note:composition-adjustment)) and total income of college workers $Inc_{Ht}$ (the wage bill):"
+      },
+      {
+       "t": "math",
+       "tex": "H_t\\, w_{Ht} = Inc_{Ht} \\quad\\Longrightarrow\\quad \\ln H_t = \\ln Inc_{Ht} - \\ln w_{Ht}"
+      },
+      {
+       "t": "prose",
+       "md": "Same for $L_t$."
+      }
+     ],
+     "words": 24,
+     "symbols": [
+      "$H_t$, $L_t$",
+      "$w_{Ht}$",
+      "$Inc_{Ht}$",
+      "$L$",
+      "$k, y, c$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "the-analogy",
+   "heading": "The analogy",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-analogy-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Exactly like real GDP: **quantity = nominal value / price index**. The wage bill is the nominal value, the composition-adjusted wage is the price index, and efficiency units are the real quantity. Composition shifts that the price index holds fixed show up here, as more supply."
+      }
+     ],
+     "words": 44,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "in-growth-models",
+   "heading": "In growth models",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "in-growth-models-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Growth models use the same idea with technology instead of education: effective labor is $\\tilde{A}L$, where $\\tilde{A}$ is labor-augmenting productivity ([Factor-Augmenting Technology](note:factor-augmenting-technology)). One more worker adds $\\tilde{A}$ efficiency units. Dividing by $\\tilde{A}L$ gives \"per effective worker\" variables such as $\\tilde{k} = K/(\\tilde{A}L)$, which are constant on a [Balanced Growth Path](note:balanced-growth-path)."
+      }
+     ],
+     "words": 43,
+     "symbols": [
+      "$H_t$, $L_t$",
+      "$\\tilde{A}$",
+      "$L$",
+      "$\\tilde{k} = K/(\\tilde{A}L)$",
+      "$K$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Canonical Model of the Skill Premium](note:canonical-model-of-the-skill-premium) — where $\\ln(H_t/L_t)$ is the regressor\n- [US Relative Skill Supply Since 1963](note:us-relative-skill-supply-since-1963)\n- [Solow Model with Technological Progress](note:solow-model-with-technological-progress) — effective labor in growth models"
+      }
+     ],
+     "words": 29,
+     "symbols": [
+      "$H_t$, $L_t$",
+      "$L$"
+     ]
+    }
+   ]
+  }
+ ]
+}

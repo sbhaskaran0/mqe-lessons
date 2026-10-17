@@ -1,0 +1,78 @@
+{
+ "slug": "econ-424",
+ "notation": [],
+ "sections": [
+  {
+   "id": "lectures",
+   "heading": "Lectures",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "lectures-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. [Econ 424 L1 Measuring Inequality](note:econ-424-l1-measuring-inequality) — definitions, measures, headline facts\n2. [Econ 424 L2 Between-Group Inequality](note:econ-424-l2-between-group-inequality) — composition adjusting, the canonical model, shift-share\n3. [Econ 424 L3 Total and Within-Group Inequality](note:econ-424-l3-total-and-within-group-inequality) — variance decomposition, data quality, composition, wage polarization\n4. [Econ 424 L4 International Trade Theory](note:econ-424-l4-international-trade-theory) — trade as a demand shock; immobile factors; regional and factor exposure\n5. [Econ 424 L5 International Trade Empirics](note:econ-424-l5-international-trade-empirics) — China shock across regions, industries and workers; Brazil's tariff cuts; offshoring in Danish firms"
+      }
+     ],
+     "words": 76,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "course-arc-so-far",
+   "heading": "Course arc so far",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "course-arc-so-far-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "L1 builds the measurement toolkit. L2 applies it to the most-studied between-group gap, the college premium, and introduces the supply–demand framework the rest of the course will extend (\"much more to follow\" on what drives demand). L3 turns to total and within-group inequality: a pervasive rise in the 1980s, then a split by education that adds up to wage polarization. L4 starts on *why* demand shifts, with trade: price shocks pass through to the incomes of immobile factors, weighted by each region's or group's exposure. L5 takes that to data: regions, industries, workers and firms more exposed to negative trade shocks lose relative to others."
+      }
+     ],
+     "words": 106,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "shared-with-other-courses",
+   "heading": "Shared with other courses",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "shared-with-other-courses-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Econometrics concepts this course leans on, from [Econ 430](note:econ-430): [OLS Estimator](note:ols-estimator), [Strict Exogeneity](note:strict-exogeneity), [Functional Forms and Elasticities](note:functional-forms-and-elasticities), [Projection Matrix and Residual Maker](note:projection-matrix-and-residual-maker). Full list: Concept Index."
+      }
+     ],
+     "words": 26,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "math-refresher",
+   "heading": "Math refresher",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "math-refresher-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Math Prep](note:math-prep) — especially logs ([Math Prep L7 Approximations Logs and Series](note:math-prep-l7-approximations-logs-and-series)), multivariable differentiation ([Math Prep L4 Multivariable Differentiation](note:math-prep-l4-multivariable-differentiation)) and integration ([Math Prep L8 Integration for Probability](note:math-prep-l8-integration-for-probability))."
+      }
+     ],
+     "words": 26,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

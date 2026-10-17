@@ -1,0 +1,86 @@
+{
+ "slug": "us-relative-skill-supply-since-1963",
+ "notation": [
+  {
+   "tex": "$H_t$, $L_t$",
+   "meaning": "College and non-college labor supply in efficiency units",
+   "kind": "Quantity",
+   "typical": "—",
+   "keys": [
+    "H",
+    "L"
+   ],
+   "from": "efficiency-units-of-labor"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**The log relative supply of college to non-college labour rose by about 1.5 log points between 1963 and 2017 — fast until the early 1980s, then at roughly half the pace.**"
+      },
+      {
+       "t": "prose",
+       "md": "Measured as $\\ln(H_t/L_t)$ relative to 1963, in [Efficiency Units of Labor](note:efficiency-units-of-labor). Values read off the chart, approximate."
+      },
+      {
+       "t": "table",
+       "md": "| Year | Change since 1963 |\n| --- | --- |\n| 1975 | ≈ 0.6 |\n| 1982 | ≈ 0.85 |\n| 1990 | ≈ 0.95 |\n| 2002 | ≈ 1.2 |\n| 2017 | ≈ 1.5 |"
+      },
+      {
+       "t": "prose",
+       "md": "Implied average growth: roughly 4.5% a year from 1963 to 1982, and roughly 2% a year from 1982 to 2017."
+      }
+     ],
+     "words": 89,
+     "symbols": [
+      "$H_t$, $L_t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "why-it-matters",
+   "heading": "Why it matters",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "why-it-matters-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The supply slowdown around 1982 lines up with the start of the rapid rise in the [Skill Premium](note:skill-premium). The [Canonical Model of the Skill Premium](note:canonical-model-of-the-skill-premium) attributes much of the premium's *deviation from trend* to these supply swings."
+      }
+     ],
+     "words": 37,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [US Skill Premium Since 1963](note:us-skill-premium-since-1963)\n- [Relative Supply and Demand](note:relative-supply-and-demand)\n- Paper: [Katz and Murphy 1992 - Changes in Relative Wages](note:katz-and-murphy-1992-changes-in-relative-wages)"
+      }
+     ],
+     "words": 22,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

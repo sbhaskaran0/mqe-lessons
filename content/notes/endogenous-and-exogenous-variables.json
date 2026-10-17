@@ -1,0 +1,292 @@
+{
+ "slug": "endogenous-and-exogenous-variables",
+ "notation": [
+  {
+   "tex": "$y$",
+   "meaning": "Endogenous variables (outcomes the model solves for)",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "y"
+   ]
+  },
+  {
+   "tex": "$x$",
+   "meaning": "Exogenous variables (inputs given from outside, may change over time)",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "x"
+   ]
+  },
+  {
+   "tex": "$\\theta$",
+   "meaning": "Parameters (fixed constants of the model)",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "theta"
+   ]
+  },
+  {
+   "tex": "$G(\\cdot)$",
+   "meaning": "The model's solution: outcomes as a function of inputs",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "G"
+   ]
+  },
+  {
+   "tex": "$A$, $L$, $K$",
+   "meaning": "Technology, labor and capital in the growth example",
+   "kind": "Exogenous, exogenous, endogenous",
+   "typical": "—",
+   "keys": [
+    "A",
+    "L",
+    "K"
+   ]
+  },
+  {
+   "tex": "$s$, $\\alpha$, $\\delta$",
+   "meaning": "Saving rate, capital share and depreciation rate in the growth example",
+   "kind": "Parameter",
+   "typical": "0.2, 1/3, 0.05",
+   "keys": [
+    "s",
+    "alpha",
+    "delta"
+   ]
+  },
+  {
+   "tex": "$e$",
+   "meaning": "Regression error (econometric meaning)",
+   "kind": "Exogenous noise",
+   "typical": "—",
+   "keys": [
+    "e"
+   ]
+  },
+  {
+   "tex": "$\\beta_0$, $\\beta_1$",
+   "meaning": "Regression intercept and slope",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$Y_t$, $L_t$",
+   "meaning": "Output and labor",
+   "kind": "Endogenous / exogenous",
+   "typical": "—",
+   "keys": [
+    "Y",
+    "L"
+   ],
+   "from": "capital-accumulation-equation"
+  },
+  {
+   "tex": "$C$, $S$, $I$",
+   "meaning": "Consumption, saving, investment: $C = (1-s)Y$, $S = sY$, $S = I$",
+   "kind": "Endogenous (flows)",
+   "typical": "—",
+   "keys": [
+    "C",
+    "S",
+    "I"
+   ],
+   "from": "solow-growth-model"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Every model splits its variables into two kinds. Exogenous ones are handed to the model from outside: the model takes them as given and never asks where they came from, like the weather in a model of crop prices. Endogenous ones are what the model works out: change the exogenous inputs and the endogenous outputs respond. In a growth model, technology and the number of workers are usually given, while the stock of machines is built up by saving inside the model. Econometrics uses the same words differently: there, an endogenous regressor is one tangled up with the unexplained part of the outcome, which biases estimates."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "Comparative statics only make sense as changes to exogenous inputs, and mixing up the two meanings of \"endogenous\" is a classic confusion between macro and econometrics.",
+       "folded": false
+      }
+     ],
+     "words": 135,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A model maps exogenous inputs and parameters into endogenous outcomes:"
+      },
+      {
+       "t": "math",
+       "tex": "\\underbrace{y}_{\\text{endogenous}} = G\\big(\\underbrace{x}_{\\text{exogenous}};\\ \\theta\\big)"
+      },
+      {
+       "t": "prose",
+       "md": "A variable is **endogenous** if some equation of the model determines it, and **exogenous** if the model takes its value as given."
+      }
+     ],
+     "words": 32,
+     "symbols": [
+      "$y$",
+      "$x$",
+      "$\\theta$",
+      "$G(\\cdot)$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "three-kinds-of-inputs-and-outputs",
+   "heading": "Three kinds of inputs and outputs",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "three-kinds-of-inputs-and-outputs-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Kind | Definition | Growth-model example |\n| --- | --- | --- |\n| Exogenous variable | Given from outside; can change over time | Technology $A$, labor $L$ |\n| Parameter | A constant that governs behaviour or technology | $s$, $\\alpha$, $\\delta$ |\n| Endogenous variable | Solved for by the model | Capital $K$ (built by saving), output $Y$, consumption $C$ |"
+      },
+      {
+       "t": "prose",
+       "md": "Many texts lump parameters in with exogenous variables; the test is the same — the model never explains them."
+      },
+      {
+       "t": "prose",
+       "md": "**How to classify:** ask whether the model contains an equation that pins the variable down. Capital has one (the [Capital Accumulation Equation](note:capital-accumulation-equation)); technology does not, so it is exogenous — which is why the [Solow Growth Model](note:solow-growth-model) is called an *exogenous* growth model."
+      }
+     ],
+     "words": 99,
+     "symbols": [
+      "$A$, $L$, $K$",
+      "$s$, $\\alpha$, $\\delta$",
+      "$Y_t$, $L_t$",
+      "$C$, $S$, $I$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "comparative-statics",
+   "heading": "Comparative statics",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "comparative-statics-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A comparative-statics question changes an exogenous variable or parameter and traces how the endogenous variables respond: \"what happens to steady-state capital if the saving rate rises?\" Asking \"what if capital rises?\" is not a comparative-statics question in a model where capital is endogenous — it must be posed as a one-off shock to the starting point, after which the model's equations take over."
+      }
+     ],
+     "words": 62,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "the-econometric-meaning",
+   "heading": "The econometric meaning",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-econometric-meaning-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "In a regression $y = \\beta_0 + \\beta_1 x + e$, a regressor is **endogenous** if it is correlated with the error, $\\mathrm{Cov}(x, e) \\ne 0$, and **exogenous** if $E[e \\mid x] = 0$ ([Strict Exogeneity](note:strict-exogeneity)). Here $\\beta_0$ and $\\beta_1$ are the regression coefficients. Endogeneity biases OLS; [Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls) is the standard fix."
+      },
+      {
+       "t": "table",
+       "md": "| | Economic model | Econometrics |\n| --- | --- | --- |\n| Endogenous means | Determined inside the model | Correlated with the error term |\n| Exogenous means | Taken as given | Uncorrelated with (mean-independent of) the error |\n| Link | A variable the economic model determines jointly with the outcome (a price set by supply and demand) is usually endogenous in the econometric sense too — simultaneity bias | |"
+      }
+     ],
+     "words": 92,
+     "symbols": [
+      "$y$",
+      "$x$",
+      "$e$",
+      "$\\beta_0$, $\\beta_1$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Treating a parameter change and a shock to an endogenous state variable as the same experiment.\n- Assuming \"exogenous\" in a model means \"unimportant\": in the Solow model, exogenous technology drives all long-run growth.\n- Carrying the macro meaning into a regression: a variable can be exogenous in a theory and still endogenous in the data (measured with error, or jointly determined)."
+      }
+     ],
+     "words": 63,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Macro and micro theory: setting up any model and its comparative statics.\n- Econometrics: identification — deciding which regressors need instruments."
+      }
+     ],
+     "words": 21,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Solow Growth Model](note:solow-growth-model) · [Strict Exogeneity](note:strict-exogeneity) · [Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls) · [Implicit Function Theorem](note:implicit-function-theorem)"
+      }
+     ],
+     "words": 13,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

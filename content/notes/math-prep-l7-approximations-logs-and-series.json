@@ -1,0 +1,629 @@
+{
+ "slug": "math-prep-l7-approximations-logs-and-series",
+ "notation": [
+  {
+   "tex": "$f$",
+   "meaning": "Function being approximated",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "f"
+   ],
+   "from": "taylor-series-approximation"
+  },
+  {
+   "tex": "$a$, $\\mathbf{x}$",
+   "meaning": "Point the approximation is built around",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "a",
+    "bold(x)"
+   ],
+   "from": "taylor-series-approximation"
+  },
+  {
+   "tex": "$x$, $\\mathbf{d}$",
+   "meaning": "Nearby value, or the step away from $\\mathbf{x}$",
+   "kind": "—",
+   "typical": "Small for accuracy",
+   "keys": [
+    "x",
+    "bold(d)"
+   ],
+   "from": "taylor-series-approximation"
+  },
+  {
+   "tex": "$\\sigma$, $\\beta$",
+   "meaning": "Elasticity of substitution and the regression coefficient it is derived from",
+   "kind": "Parameters",
+   "typical": "—",
+   "keys": [
+    "sigma",
+    "beta"
+   ],
+   "from": "taylor-series-approximation"
+  },
+  {
+   "tex": "$y$, $X$, $Y$",
+   "meaning": "Variables",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "y",
+    "X",
+    "Y"
+   ],
+   "from": "logarithms-and-growth-rates"
+  },
+  {
+   "tex": "$t$",
+   "meaning": "Time",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "t"
+   ],
+   "from": "logarithms-and-growth-rates"
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "Exponent on a power",
+   "kind": "Number",
+   "typical": "—",
+   "keys": [
+    "alpha"
+   ],
+   "from": "logarithms-and-growth-rates"
+  },
+  {
+   "tex": "$\\varepsilon$",
+   "meaning": "Elasticity, $d\\ln y/d\\ln x$",
+   "kind": "Number",
+   "typical": "—",
+   "keys": [
+    "varepsilon"
+   ],
+   "from": "logarithms-and-growth-rates"
+  },
+  {
+   "tex": "$\\lambda$",
+   "meaning": "Box-Cox power (log is $\\lambda = 0$)",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "lambda"
+   ],
+   "from": "logarithms-and-growth-rates"
+  },
+  {
+   "tex": "$\\rho = (\\sigma-1)/\\sigma$",
+   "meaning": "CES substitution parameter",
+   "kind": "Parameter",
+   "typical": "→ 0",
+   "keys": [
+    "rho"
+   ],
+   "from": "lhopitals-rule"
+  },
+  {
+   "tex": "$r$",
+   "meaning": "Common ratio between terms",
+   "kind": "Number",
+   "typical": "$\\lvert r\\rvert < 1$ for convergence",
+   "keys": [
+    "r"
+   ],
+   "from": "geometric-series"
+  },
+  {
+   "tex": "$T$",
+   "meaning": "Number of terms",
+   "kind": "Count",
+   "typical": "—",
+   "keys": [
+    "T"
+   ],
+   "from": "geometric-series"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Most interpretation in applied economics is a first-order approximation: a log change read as a percentage, a regression line read as the average slope of a curve. This unit says when those approximations hold, plus two Calc 2 results the courses use without comment — L'Hôpital's rule and geometric series.**"
+      }
+     ],
+     "words": 50,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "1-taylor-expansions",
+   "heading": "1. Taylor expansions",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-taylor-expansions-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Taylor Series Approximation](note:taylor-series-approximation): $f(x) \\approx f(a) + f'(a)(x - a) + \\tfrac12f''(a)(x - a)^2$. The first-order term is the sense in which a linear model approximates a curved conditional mean near a point (the fitted regression line itself is the best linear fit over the whole distribution of $x$, not the tangent at the mean — [Conditional Mean vs Linear Projection](note:conditional-mean-vs-linear-projection)), and the second-order term is why the Hessian decides maxima and minima."
+      },
+      {
+       "t": "interactive",
+       "widget": "taylor-approximation-of-log-change",
+       "prompt": "Move away from the expansion point and watch the Taylor approximations of $\\ln(1+x)$ drift",
+       "status": "planned",
+       "purpose": "Judge first- and second-order Taylor accuracy: ln(1+x) ≈ x is close at 10% and poor at 50%; adding −x²/2 helps",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 73,
+     "symbols": [
+      "$f$",
+      "$a$, $\\mathbf{x}$",
+      "$x$, $\\mathbf{d}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "2-logs",
+   "heading": "2. Logs",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-logs-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Logarithms and Growth Rates](note:logarithms-and-growth-rates): $d\\ln y = dy/y$. Log differences approximate percentage changes for small changes only — a 0.67 log gap is 95%, not 67% — but they add over time and are symmetric, which is why log wage gaps, percentile ratios and the canonical model are all written in logs ([Econ 424 L1 Measuring Inequality](note:econ-424-l1-measuring-inequality), [Econ 424 L2 Between-Group Inequality](note:econ-424-l2-between-group-inequality)). Elasticities are log derivatives, the basis of the functional-form table in [Econ 430 L5 Estimating Nonlinear Relationships](note:econ-430-l5-estimating-nonlinear-relationships)."
+      }
+     ],
+     "words": 74,
+     "symbols": [
+      "$y$, $X$, $Y$"
+     ]
+    },
+    {
+     "id": "2-logs-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "For $Y = X^{\\alpha}$, what is the elasticity $\\varepsilon$ of $Y$ with respect to $X$?",
+       "options": [
+        {
+         "md": "$\\alpha X^{\\alpha - 1}$",
+         "correct": false,
+         "feedback": "That is $dY/dX$, the slope in levels, which changes with $X$. The elasticity is the log derivative $d\\ln Y/d\\ln X$."
+        },
+        {
+         "md": "$\\alpha$",
+         "correct": true
+        },
+        {
+         "md": "$\\alpha/X$",
+         "correct": false,
+         "feedback": "That is $d\\ln Y/dX$: the proportional change in $Y$ per unit of $X$, not per proportional change in $X$."
+        }
+       ],
+       "why": "$\\ln Y = \\alpha\\ln X$, so $\\varepsilon = d\\ln Y/d\\ln X = \\alpha$ at every $X$: a 1% rise in $X$ raises $Y$ by about $\\alpha$%. → [Logarithms and Growth Rates](note:logarithms-and-growth-rates)",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 9,
+     "symbols": [
+      "$y$, $X$, $Y$",
+      "$\\alpha$",
+      "$\\varepsilon$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "3-limits",
+   "heading": "3. Limits",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "3-limits-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[L'Hôpital's Rule](note:lhopitals-rule): for $0/0$ limits, differentiate top and bottom. It shows the Box-Cox transform becomes $\\ln x$ at $\\lambda = 0$, and CES becomes Cobb-Douglas at $\\sigma = 1$."
+      }
+     ],
+     "words": 21,
+     "symbols": [
+      "$x$, $\\mathbf{d}$",
+      "$\\sigma$, $\\beta$",
+      "$\\lambda$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "4-series",
+   "heading": "4. Series",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "4-series-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Geometric Series](note:geometric-series): $\\sum r^t = 1/(1 - r)$. It prices annuities and perpetuities — the present value of a college premium over a career — and gives the variance of an AR(1) process, $\\sigma^2/(1-\\rho^2)$."
+      }
+     ],
+     "words": 26,
+     "symbols": [
+      "$\\sigma$, $\\beta$",
+      "$t$",
+      "$\\rho = (\\sigma-1)/\\sigma$",
+      "$r$"
+     ]
+    },
+    {
+     "id": "4-series-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "An AR(1) process has persistence $\\rho = 0.9$ and shock variance $\\sigma^2 = 1$. What is the variance of $y_t$?",
+       "answer": 5.263,
+       "tol": 0.052629999999999996,
+       "vary": [
+        {
+         "sym": "\\rho",
+         "lo": 0.5,
+         "hi": 0.95,
+         "step": 0.05
+        }
+       ],
+       "compute": "\\frac{1}{1-\\rho^2}",
+       "bindings": [
+        {
+         "sym": "\\rho",
+         "value": 0.9,
+         "span": "$\\rho = 0.9$"
+        },
+        {
+         "sym": "\\sigma^2",
+         "value": 1.0,
+         "span": "$\\sigma^2 = 1$"
+        }
+       ],
+       "wrongCompute": [
+        {
+         "tex": "\\frac{1}{1-\\rho}",
+         "md": "that is $\\sigma^2/(1-\\rho)$; the variance sums the squared weights, so the ratio is $\\rho^2$, not $\\rho$"
+        },
+        {
+         "tex": "\\frac{\\rho^2}{1-\\rho^2}",
+         "md": "that leaves out the current shock: the series starts at 1, not at $\\rho^2$"
+        }
+       ],
+       "why": "The variance is a geometric series with ratio $\\rho^2$, so it is $\\sigma^2/(1-\\rho^2)$. For the written numbers, $1/(1 - 0.81) = 5.263$: more than five times the shock variance, because shocks persist. → [Geometric Series](note:geometric-series)",
+       "objectives": [
+        5
+       ]
+      }
+     ],
+     "words": 14,
+     "symbols": [
+      "$\\sigma$, $\\beta$",
+      "$y$, $X$, $Y$",
+      "$\\rho = (\\sigma-1)/\\sigma$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "self-check",
+   "heading": "Self-check",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "self-check-1",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "1. How good is \"log change ≈ percentage change\" at 10% and at 50%?",
+       "options": [
+        {
+         "md": "Close at both: the log tracks the percentage change for any change under 100%",
+         "correct": false,
+         "feedback": "At 50% it does not: $\\ln 1.5 = 0.405$ against 0.50 misses by 0.095, almost a fifth of the change."
+        },
+        {
+         "md": "Poor at both: even at 10% the log misses",
+         "correct": false,
+         "feedback": "At 10%, $\\ln 1.1 = 0.0953$ against 0.10 is off by under half a percentage point, which is close."
+        },
+        {
+         "md": "Close at 10%, poor at 50%",
+         "correct": true
+        }
+       ],
+       "why": "$\\ln 1.1 = 0.0953$ vs 0.10 (close); $\\ln 1.5 = 0.405$ vs 0.50 (poor). The first-order Taylor term is accurate only for small changes. → [Taylor Series Approximation](note:taylor-series-approximation)",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 42,
+     "symbols": []
+    },
+    {
+     "id": "self-check-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "2. A log wage gap is 0.40. How much more does the higher-paid group earn, in percent?",
+       "answer": 49.2,
+       "tol": 0.5,
+       "wrong": [
+        {
+         "answer": 40.0,
+         "tol": 0.0,
+         "md": "that reads the log gap as the percentage gap, which holds only for small gaps"
+        },
+        {
+         "answer": 149.2,
+         "tol": 0.0,
+         "md": "the ratio $e^{0.40}$; subtract 100"
+        },
+        {
+         "answer": 33.0,
+         "tol": 0.5,
+         "md": "that is $1 - e^{-0.40}$: how much less the lower-paid group earns, measured against the higher-paid group's pay"
+        }
+       ],
+       "why": "The earnings ratio is $e^{0.40}$, so the higher-paid group earns $e^{0.40} - 1 = 49.2\\%$ more, not 40%. → [Logarithms and Growth Rates](note:logarithms-and-growth-rates)",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 18,
+     "symbols": []
+    },
+    {
+     "id": "self-check-3",
+     "blocks": [
+      {
+       "t": "derive",
+       "title": "3. Show $\\lim_{\\lambda\\to0}(x^\\lambda - 1)/\\lambda = \\ln x$.",
+       "objectives": [
+        4
+       ],
+       "symbols": [
+        "x \\in (4, 8)",
+        "\\lambda \\in (0.01, 0.5)"
+       ],
+       "inherited": [
+        {
+         "tex": "$x$",
+         "typical": "5 in the Box-Cox example",
+         "from": "lhopitals-rule"
+        },
+        {
+         "tex": "$\\lambda$",
+         "typical": "→ 0",
+         "from": "lhopitals-rule"
+        }
+       ],
+       "unknowns": [
+        "$Q$"
+       ],
+       "dims": [],
+       "data": [],
+       "matrices": [],
+       "define": [],
+       "given": [],
+       "steps": [
+        {
+         "md": "Setting $\\lambda = 0$ directly gives: $\\lim_{\\lambda\\to0}\\frac{x^{\\lambda} - 1}{\\lambda} = \\frac{0}{0}$",
+         "tex": "\\lim_{\\lambda\\to0}\\frac{x^{\\lambda} - 1}{\\lambda} = \\frac{0}{0}",
+         "justify": {
+          "prompt": "Why can't you stop here?",
+          "options": [
+           {
+            "md": "The top is 0, so the limit is 0",
+            "correct": false
+           },
+           {
+            "md": "Top and bottom are both 0: $0/0$ has no value, so L'Hôpital applies",
+            "correct": true
+           },
+           {
+            "md": "The bottom is 0, so the limit is infinite",
+            "correct": false
+           }
+          ]
+         }
+        },
+        {
+         "md": "Differentiate top and bottom in $\\lambda$; the bottom's derivative is 1, and the top's is: $\\frac{d}{d\\lambda}\\left(x^{\\lambda} - 1\\right) = x^{\\lambda}\\ln x$",
+         "tex": "\\frac{d}{d\\lambda}\\left(x^{\\lambda} - 1\\right) = x^{\\lambda}\\ln x",
+         "justify": {
+          "prompt": "Where does the $\\ln x$ come from?",
+          "options": [
+           {
+            "md": "The power rule in $\\lambda$ brings down the exponent",
+            "correct": false
+           },
+           {
+            "md": "$x^{\\lambda} = e^{\\lambda\\ln x}$, so the chain rule brings down $\\ln x$",
+            "correct": true
+           }
+          ]
+         }
+        },
+        {
+         "md": "Write $Q$ for the limit and let $\\lambda \\to 0$ in $x^{\\lambda}\\ln x / 1$: $Q = \\ln x$",
+         "tex": "Q = \\ln x",
+         "hint": "$x^{\\lambda} \\to x^{0} = 1$."
+        }
+       ],
+       "accept": [],
+       "reject": [
+        {
+         "tex": "Q = 0",
+         "md": "setting $\\lambda = 0$ in the top alone ignores that the bottom is 0 too"
+        },
+        {
+         "tex": "Q = 1",
+         "md": "the derivative of $x^{\\lambda}$ in $\\lambda$ is $x^{\\lambda}\\ln x$, not $x^{\\lambda}$"
+        },
+        {
+         "tex": "Q = x^{\\lambda}\\ln x",
+         "md": "that is the ratio of derivatives before the limit; let $\\lambda \\to 0$, so $x^{\\lambda} \\to 1$"
+        }
+       ]
+      }
+     ],
+     "words": 26,
+     "symbols": [
+      "$x$, $\\mathbf{d}$",
+      "$\\lambda$"
+     ]
+    },
+    {
+     "id": "self-check-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "4. PV of \\$100 a year for 30 years at 5%, paid at the end of each year?",
+       "answer": 1537.25,
+       "tol": 0.5,
+       "wrong": [
+        {
+         "answer": 3000.0,
+         "tol": 0.0,
+         "md": "that adds the 30 payments without discounting them"
+        },
+        {
+         "answer": 2000.0,
+         "tol": 0.0,
+         "md": "that is the perpetuity, $100/0.05$; payments stop after 30 years"
+        },
+        {
+         "answer": 1614.11,
+         "tol": 0.0,
+         "md": "that discounts each payment one year too few, as if the first came today"
+        },
+        {
+         "answer": 6643.88,
+         "tol": 0.0,
+         "md": "that is the future value at year 30, $\\frac{100}{0.05}(1.05^{30} - 1)$, not the present value"
+        }
+       ],
+       "why": "$\\frac{100}{0.05}(1 - 1.05^{-30}) = \\$1{,}537.25$; the perpetuity is $100/0.05 = \\$2{,}000$, so the payments after year 30 are worth \\$462.75 today. → [Geometric Series](note:geometric-series)",
+       "objectives": [
+        5
+       ]
+      }
+     ],
+     "words": 18,
+     "symbols": []
+    },
+    {
+     "id": "self-check-5",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "5. Output grows 2% a year, compounded annually ($y_t = y_0 \\cdot 1.02^t$). How long does it take to double? Compare with the rule of 70.",
+       "options": [
+        {
+         "md": "35.0 years; the rule of 70 also gives 35",
+         "correct": true
+        },
+        {
+         "md": "34.7 years; the rule of 70's 35 is slightly too long",
+         "correct": false,
+         "feedback": "34.7 is $\\ln 2/0.02$, the doubling time under continuous growth. Here growth compounds yearly, so solve $1.02^T = 2$: $T = \\ln 2/\\ln 1.02 = 35.0$."
+        },
+        {
+         "md": "50 years; the rule of 70's 35 is too short",
+         "correct": false,
+         "feedback": "50 is $1/0.02$: it adds 2% of the starting level each year. Growth compounds, so solve $1.02^T = 2$."
+        }
+       ],
+       "why": "$\\ln 2/\\ln 1.02 = 35.0$ years; the rule of 70 gives 35. → [Logarithms and Growth Rates](note:logarithms-and-growth-rates)",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 53,
+     "symbols": [
+      "$y$, $X$, $Y$",
+      "$t$",
+      "$T$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Write first- and second-order Taylor approximations and judge their accuracy.\n2. Convert between log differences and exact percentage changes.\n3. Interpret an elasticity as a log derivative.\n4. Evaluate $0/0$ limits with L'Hôpital, including the Box-Cox and CES limits.\n5. Price annuities and perpetuities, and compute an AR(1) variance."
+      }
+     ],
+     "words": 51,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "taylor-series-approximation",
+        "logarithms-and-growth-rates",
+        "lhopitals-rule",
+        "geometric-series"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

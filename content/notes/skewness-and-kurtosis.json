@@ -1,0 +1,240 @@
+{
+ "slug": "skewness-and-kurtosis",
+ "notation": [
+  {
+   "tex": "$X$, $x_i$",
+   "meaning": "Random variable; observation $i$ of it",
+   "kind": "Random variable / data",
+   "typical": "—",
+   "keys": [
+    "X",
+    "x"
+   ]
+  },
+  {
+   "tex": "$\\mu$, $\\bar{x}$",
+   "meaning": "Population mean; sample mean",
+   "kind": "Parameter / statistic",
+   "typical": "—",
+   "keys": [
+    "mu",
+    "bar(x)"
+   ]
+  },
+  {
+   "tex": "$\\sigma$",
+   "meaning": "Standard deviation",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "sigma"
+   ]
+  },
+  {
+   "tex": "$n$",
+   "meaning": "Number of observations",
+   "kind": "Count",
+   "typical": "—",
+   "keys": [
+    "n"
+   ]
+  },
+  {
+   "tex": "$S$",
+   "meaning": "Skewness: third standardized moment",
+   "kind": "Statistic",
+   "typical": "0 for any symmetric distribution",
+   "keys": [
+    "S"
+   ]
+  },
+  {
+   "tex": "$K$",
+   "meaning": "Kurtosis: fourth standardized moment",
+   "kind": "Statistic",
+   "typical": "3 for a normal",
+   "keys": [
+    "K"
+   ]
+  },
+  {
+   "tex": "$K - 3$",
+   "meaning": "Excess kurtosis",
+   "kind": "Statistic",
+   "typical": "0 for a normal",
+   "keys": [
+    "K"
+   ]
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Two numbers summarize the shape of a distribution beyond its average and spread. Skewness says whether one tail is longer than the other: incomes are right-skewed because a few occupations earn far more than the rest, which drags the average above the middle value. Kurtosis says how heavy the tails are, meaning how often you see values far from the centre compared with a bell curve. A normal distribution has no skew and a kurtosis of three, so departures from those benchmarks hint that a variable, or a regression's residuals, is not normal."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "They are the inputs to the Jarque-Bera normality test and the Cullen-Frey graph, and a large skew is the usual signal that a log transformation will help.",
+       "folded": false
+      }
+     ],
+     "words": 123,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "For a random variable $X$ with mean $\\mu$ and standard deviation $\\sigma$:"
+      },
+      {
+       "t": "math",
+       "tex": "S = \\frac{E[(X-\\mu)^3]}{\\sigma^3}, \\qquad K = \\frac{E[(X-\\mu)^4]}{\\sigma^4}"
+      },
+      {
+       "t": "prose",
+       "md": "The sample versions replace the expectations with averages over the $n$ observations and $\\mu$, $\\sigma$ with $\\bar{x}$ and the sample standard deviation. **Excess kurtosis** is $K - 3$, which is zero for a normal distribution."
+      }
+     ],
+     "words": 37,
+     "symbols": [
+      "$X$, $x_i$",
+      "$\\mu$, $\\bar{x}$",
+      "$\\sigma$",
+      "$n$",
+      "$S$",
+      "$K$",
+      "$K - 3$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "reading-the-two-numbers",
+   "heading": "Reading the two numbers",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "reading-the-two-numbers-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Value | Meaning | Example |\n| --- | --- | --- |\n| $S > 0$ | Long right tail; mean above median | Incomes, wages, firm assets |\n| $S < 0$ | Long left tail; mean below median | Exam scores with a ceiling |\n| $K > 3$ (excess $> 0$) | Heavier tails than a normal: more extreme values | Financial returns, $t$ distributions |\n| $K < 3$ (excess $< 0$) | Lighter tails than a normal | Uniform ($K = 1.8$) |"
+      }
+     ],
+     "words": 46,
+     "symbols": [
+      "$S$",
+      "$K$",
+      "$K - 3$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The lecture's summary table for the Prestige data (102 occupations) reports income with mean 6,798, median 5,930.5, skewness 2.16 and kurtosis 6.47. The mean sits above the median and $S = 2.16$: a long right tail. The kurtosis comes from `scipy.stats.kurtosis`, which reports **excess** kurtosis by default, so $K = 6.47 + 3 = 9.47$: tails far heavier than a normal."
+      },
+      {
+       "t": "prose",
+       "md": "For comparison, the lecture's 100 simulated standard normal draws give skewness 0.014 and (excess) kurtosis 0.125: both close to the normal benchmarks of 0."
+      }
+     ],
+     "words": 84,
+     "symbols": [
+      "$S$",
+      "$K$",
+      "$K - 3$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Mixing up kurtosis and excess kurtosis.** `scipy.stats.kurtosis` reports $K - 3$; the statsmodels regression summary, `jarque_bera` and the Cullen-Frey graph report $K$ itself (the food regression's residuals show \"Kurtosis: 2.989\", close to 3). Check which one a table uses before comparing with 0 or 3.\n- **Over-reading small samples.** Both statistics are noisy, kurtosis especially, because they cube or raise to the fourth power the largest deviations. One outlier can move them a lot.\n- **Treating skewness as a test.** It describes the sample; whether the departure from normality is significant needs a test such as [Error Normality and Jarque-Bera](note:error-normality-and-jarque-bera)."
+      }
+     ],
+     "words": 101,
+     "symbols": [
+      "$K$",
+      "$K - 3$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Econometrics: the Jarque-Bera statistic is built from $S$ and $K$ of the residuals ([Error Normality and Jarque-Bera](note:error-normality-and-jarque-bera)).\n- Statistics: the [Cullen-Frey Graph](note:cullen-frey-graph) plots $(S^2, K)$ to suggest candidate distributions; a [Q-Q Plot](note:q-q-plot) shows the same shape features graphically.\n- Data preparation: strong right skew is the classic reason to take logs ([Box-Cox and Power Transformations](note:box-cox-and-power-transformations))."
+      }
+     ],
+     "words": 52,
+     "symbols": [
+      "$S$",
+      "$K$",
+      "$K - 3$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [EDA for Regression](note:eda-for-regression)\n- [Q-Q Plot](note:q-q-plot) · [Cullen-Frey Graph](note:cullen-frey-graph) · [Error Normality and Jarque-Bera](note:error-normality-and-jarque-bera)"
+      }
+     ],
+     "words": 13,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

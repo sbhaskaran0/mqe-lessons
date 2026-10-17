@@ -1,0 +1,462 @@
+{
+ "slug": "confidence-vs-prediction-intervals",
+ "notation": [
+  {
+   "tex": "$x_0$",
+   "meaning": "Value of the regressor at which to predict",
+   "kind": "Chosen",
+   "typical": "—",
+   "keys": [
+    "x"
+   ]
+  },
+  {
+   "tex": "$\\hat{y}_0 = b_1 + b_2x_0$",
+   "meaning": "Predicted value",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "hat(y)"
+   ]
+  },
+  {
+   "tex": "$y_0$",
+   "meaning": "Actual new outcome at $x_0$",
+   "kind": "Random variable",
+   "typical": "—",
+   "keys": [
+    "y"
+   ]
+  },
+  {
+   "tex": "$f = y_0 - \\hat{y}_0$",
+   "meaning": "Forecast error",
+   "kind": "Random variable",
+   "typical": "Mean zero",
+   "keys": [
+    "f"
+   ]
+  },
+  {
+   "tex": "$\\widehat{\\sigma}^2$",
+   "meaning": "Estimated error variance",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "hat(sigma)"
+   ]
+  },
+  {
+   "tex": "$N$, $\\bar{x}$",
+   "meaning": "Sample size and mean of $x$",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "N",
+    "bar(x)"
+   ]
+  },
+  {
+   "tex": "$t_{1-\\alpha/2,\\,N-2}$",
+   "meaning": "Critical value of the $t$ distribution",
+   "kind": "Constant",
+   "typical": "≈ 2 for a 95% interval",
+   "keys": [
+    "t"
+   ]
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "Significance level (here, not an intercept)",
+   "kind": "Choice",
+   "typical": "0.05",
+   "keys": [
+    "alpha"
+   ]
+  },
+  {
+   "tex": "$\\beta_1$, $\\beta_2$, $b_1$, $b_2$",
+   "meaning": "True and estimated intercept and slope",
+   "kind": "Parameters / estimators",
+   "typical": "—",
+   "keys": [
+    "beta",
+    "b"
+   ]
+  },
+  {
+   "tex": "$e_0$",
+   "meaning": "The new observation's own error",
+   "kind": "Random variable",
+   "typical": "—",
+   "keys": [
+    "e"
+   ]
+  },
+  {
+   "tex": "$se(f)$",
+   "meaning": "Standard error of the forecast",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "~se(f)"
+   ]
+  },
+  {
+   "tex": "$\\sigma^2$",
+   "meaning": "Error variance",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "sigma"
+   ],
+   "from": "sampling-distribution-of-ols"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A regression can answer two different questions at a given value of the explanatory variable. A confidence interval answers: where is the average outcome for everyone with this value? A prediction interval answers: where will one new person's outcome fall? The second is always wider, because on top of not knowing the exact line, you also cannot predict an individual's own luck. With more data the first shrinks toward a point; the second never does."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "Using a confidence interval when you mean to forecast one case badly understates the uncertainty — a classic mistake in policy and business forecasts.",
+       "folded": false
+      }
+     ],
+     "words": 101,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Almost guaranteed to appear. The two intervals answer **different questions** at the same $x_0$."
+      }
+     ],
+     "words": 13,
+     "symbols": [
+      "$x_0$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "confidence-interval-for-the-mean-response",
+   "heading": "Confidence interval for the mean response",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "confidence-interval-for-the-mean-response-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Target: $E[y \\mid x = x_0]$, a fixed population quantity. The only uncertainty is in $b_1$ and $b_2$."
+      },
+      {
+       "t": "math",
+       "tex": "\\hat{y}_0 \\pm t_{1-\\alpha/2,\\,N-2}\\;\\sqrt{\\widehat{\\sigma}^2\\left[\\frac{1}{N} + \\frac{(x_0-\\bar{x})^2}{\\sum (x_i-\\bar{x})^2}\\right]}"
+      }
+     ],
+     "words": 11,
+     "symbols": [
+      "$x_0$",
+      "$\\hat{y}_0 = b_1 + b_2x_0$",
+      "$y_0$",
+      "$\\widehat{\\sigma}^2$",
+      "$N$, $\\bar{x}$",
+      "$t_{1-\\alpha/2,\\,N-2}$",
+      "$\\beta_1$, $\\beta_2$, $b_1$, $b_2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "prediction-interval-for-a-new-observation",
+   "heading": "Prediction interval for a new observation",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "prediction-interval-for-a-new-observation-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Target: a single new $y_0$. You also carry that draw's own error $e_0$ — the gap between *one person* and the average person like them. If the true line says 16 years of education pays \\$20/hr, an actual such person earns \\$13 or \\$31, because of everything `educ` does not capture. So $\\sigma^2 = \\mathrm{Var}(e_0)$ is simply the **vertical thickness of the point cloud around the true line** — the one quantity in the formula you can eyeball from a scatterplot."
+      },
+      {
+       "t": "prose",
+       "md": "Define the **forecast error** $f = y_0 - \\hat{y}_0$, with $E[f] = 0$ and"
+      },
+      {
+       "t": "math",
+       "tex": "\\mathrm{Var}(f) = \\sigma^2\\left(1 + \\frac{1}{N} + \\frac{(x_0-\\bar{x})^2}{\\sum (x_i-\\bar{x})^2}\\right)"
+      },
+      {
+       "t": "math",
+       "tex": "\\hat{y}_0 \\pm t_{1-\\alpha/2,\\,N-2}\\; se(f), \\qquad se(f) = \\sqrt{\\widehat{\\mathrm{Var}}(f)}"
+      }
+     ],
+     "words": 81,
+     "symbols": [
+      "$x_0$",
+      "$\\hat{y}_0 = b_1 + b_2x_0$",
+      "$y_0$",
+      "$f = y_0 - \\hat{y}_0$",
+      "$N$, $\\bar{x}$",
+      "$t_{1-\\alpha/2,\\,N-2}$",
+      "$e_0$",
+      "$se(f)$",
+      "$\\sigma^2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "deriving-var-f",
+   "heading": "Deriving Var(f)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "deriving-var-f-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "f = (\\beta_1 + \\beta_2 x_0 + e_0) - (b_1 + b_2 x_0)"
+      },
+      {
+       "t": "prose",
+       "md": "Since $e_0$ is a fresh draw independent of the sample, $\\mathrm{Var}(f) = \\mathrm{Var}(e_0) + \\mathrm{Var}(b_1 + b_2 x_0)$. Expanding the second term with $\\mathrm{Var}(b_1)$, $\\mathrm{Var}(b_2)$ and $\\mathrm{Cov}(b_1,b_2)$ collapses to $\\sigma^2[1/N + (x_0-\\bar{x})^2/\\sum(x_i-\\bar{x})^2]$."
+      },
+      {
+       "t": "prose",
+       "md": "Each term has a source:"
+      },
+      {
+       "t": "table",
+       "md": "| Term                                    | Source of uncertainty                                                   |\n| --------------------------------------- | ----------------------------------------------------------------------- |\n| $1$                                     | the new observation's own error $e_0$                                   |\n| $1/N$                                   | uncertainty about the **level** of the line                             |\n| $(x_0-\\bar{x})^2 / \\sum(x_i-\\bar{x})^2$ | uncertainty about the **slope** — costs more the further from $\\bar{x}$ |"
+      }
+     ],
+     "words": 49,
+     "symbols": [
+      "$x_0$",
+      "$f = y_0 - \\hat{y}_0$",
+      "$N$, $\\bar{x}$",
+      "$\\beta_1$, $\\beta_2$, $b_1$, $b_2$",
+      "$e_0$",
+      "$\\sigma^2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "one-source-of-noise-two-channels",
+   "heading": "One source of noise, two channels",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "one-source-of-noise-two-channels-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The sharpest compression of the whole topic. Factor $\\sigma^2$ out of the bracket:"
+      },
+      {
+       "t": "math",
+       "tex": "\\mathrm{Var}(f) = \\sigma^2 \\cdot \\Big(\\underbrace{1}_{\\text{one fresh } e_0} + \\underbrace{\\tfrac{1}{N} + \\tfrac{(x_0-\\bar{x})^2}{\\sum(x_i-\\bar{x})^2}}_{\\text{the } N \\text{ in-sample } e_i\\text{'s}}\\Big)"
+      },
+      {
+       "t": "prose",
+       "md": "**Every term is the same $\\sigma^2$.** There is only *one* source of randomness in the problem — the unobservables — and it enters through two doors:"
+      },
+      {
+       "t": "table",
+       "md": "| | CI channel | PI's extra channel |\n| --- | --- | --- |\n| Which errors | the $N$ in-sample $e_1,\\dots,e_N$ | a single new $e_0$ |\n| How they enter | they perturbed $b_1,b_2$ away from $\\beta_1,\\beta_2$, so I don't know where the line is | it displaces $y_0$ off the true line |\n| Averaged? | **yes**, over $N$ observations | **no**, $N=1$ |\n| Therefore | $\\to 0$ at rate $1/\\sqrt{N}$ | never shrinks |"
+      }
+     ],
+     "words": 81,
+     "symbols": [
+      "$x_0$",
+      "$y_0$",
+      "$f = y_0 - \\hat{y}_0$",
+      "$N$, $\\bar{x}$",
+      "$\\beta_1$, $\\beta_2$, $b_1$, $b_2$",
+      "$e_0$",
+      "$\\sigma^2$"
+     ]
+    },
+    {
+     "id": "one-source-of-noise-two-channels-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "So the distinction is **not** unobserved *variables* versus unobserved *parameters*. It is the same unobserved variables, **averaged versus unaveraged**. Averaging $N$ of them kills their effect; a single one must be swallowed whole. This is why fact 3 below has to be true."
+      },
+      {
+       "t": "prose",
+       "md": "Two things this framing kills:"
+      },
+      {
+       "t": "prose",
+       "md": "- **It is variance, not bias.** Under Gauss–Markov OLS is unbiased, $E[b_2] = \\beta_2$, so the expected values are exactly right — there is zero error there. CI width is driven by the *sampling variance* of $b_1,b_2$, never by their expectation.\n- **$\\beta_1,\\beta_2$ are fixed constants,** not random variables. They have no distribution. The randomness lives in $b_1,b_2$, and only because the **sample** is random: draw different people, get a different line."
+      }
+     ],
+     "words": 113,
+     "symbols": [
+      "$N$, $\\bar{x}$",
+      "$\\beta_1$, $\\beta_2$, $b_1$, $b_2$"
+     ]
+    },
+    {
+     "id": "one-source-of-noise-two-channels-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "What *is* fair to say about expectations: the CI targets a conditional **expectation** $E[y|x_0]$; the PI targets a **realization** $y_0$."
+      }
+     ],
+     "words": 18,
+     "symbols": [
+      "$x_0$",
+      "$y_0$"
+     ]
+    },
+    {
+     "id": "one-source-of-noise-two-channels-4",
+     "heading": "The exogeneity condition this rests on",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$e_0$ is the aggregate of omitted determinants of $y$ — ability, field, firm, luck. For any of the above to hold they must be correlated with $y$ but **uncorrelated with $x$** ($E[e|x]=0$):"
+      },
+      {
+       "t": "table",
+       "md": "| Unobservable is... | Consequence |\n| --- | --- |\n| Correlated with $y$, not with $x$ | Lands in $\\sigma^2$. Widens the PI. Everything here holds. |\n| Correlated with $y$ **and** with $x$ | Omitted variable bias. $b_2$ inconsistent, both intervals centered wrong, neither has valid coverage. |"
+      },
+      {
+       "t": "prose",
+       "md": "If ability raises wages *and* correlates with education, that part is not in $\\sigma^2$ at all — it is contaminating $b_2$, and no interval width saves you."
+      }
+     ],
+     "words": 83,
+     "symbols": [
+      "$x_0$",
+      "$y_0$",
+      "$\\beta_1$, $\\beta_2$, $b_1$, $b_2$",
+      "$e_0$",
+      "$\\sigma^2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "the-three-things-to-be-able-to-say",
+   "heading": "The three things to be able to say",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-three-things-to-be-able-to-say-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. The PI differs from the CI by exactly the extra **$1$** inside the bracket — the irreducible variance of $e_0$. The PI is therefore always wider.\n2. Both widen as $x_0$ moves away from $\\bar{x}$, and are narrowest at $x_0 = \\bar{x}$. This is why the bands are hourglass-shaped and why **extrapolation is dangerous**.\n3. As $N\\to\\infty$ the CI width $\\to 0$ but the PI width $\\to t\\cdot\\sigma$, a floor. You can learn the regression line perfectly and still not predict an individual outcome."
+      }
+     ],
+     "words": 72,
+     "symbols": [
+      "$x_0$",
+      "$N$, $\\bar{x}$",
+      "$t_{1-\\alpha/2,\\,N-2}$",
+      "$e_0$",
+      "$\\sigma^2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example-in-the-lecture",
+   "heading": "Worked example in the lecture",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-in-the-lecture-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$wage = \\beta_1 + \\beta_2\\,educ$ on `cps4_small`, with both bands overlaid. The interpretation asked for: the CI says where the *average* wage of all people with that education lies; the PI says where *one more person's* wage is likely to fall."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Food expenditure regression - confidence and prediction bands.png",
+       "alt": "Food expenditure regression - confidence and prediction bands"
+      }
+     ],
+     "words": 37,
+     "symbols": [
+      "$\\beta_1$, $\\beta_2$, $b_1$, $b_2$",
+      "$e_0$"
+     ]
+    },
+    {
+     "id": "worked-example-in-the-lecture-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Both bands are narrowest at mean income, where the $(x_0 - \\bar{x})^2$ term is zero, and widen towards the edges. The prediction band is far wider because of the 1 inside the brackets: one household's own error, which no amount of data removes."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Wage on education - confidence and prediction bands.png",
+       "alt": "Wage on education - confidence and prediction bands"
+      },
+      {
+       "t": "prose",
+       "md": "For wages on education ($N = 1{,}000$) the confidence band is barely wider than the line, while the prediction band stays about 23 dollars wide on each side: a large sample pins down $E[y \\mid x_0]$, not an individual's wage."
+      }
+     ],
+     "words": 74,
+     "symbols": [
+      "$x_0$",
+      "$y_0$",
+      "$N$, $\\bar{x}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Sampling Distribution of OLS](note:sampling-distribution-of-ols)\n- [Bootstrapping OLS](note:bootstrapping-ols) — the nonparametric alternative to both"
+      }
+     ],
+     "words": 13,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

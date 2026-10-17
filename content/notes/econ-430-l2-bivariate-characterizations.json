@@ -1,0 +1,337 @@
+{
+ "slug": "econ-430-l2-bivariate-characterizations",
+ "notation": [
+  {
+   "tex": "$x_i$",
+   "meaning": "Observation $i$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "x"
+   ],
+   "from": "eda-for-regression"
+  },
+  {
+   "tex": "$x_i$, $y_i$",
+   "meaning": "Regressor and outcome for observation $i$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "x",
+    "y"
+   ],
+   "from": "lowess-smoother"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Once each variable is described, look at pairs. A scatterplot with both a straight regression line and a lowess smoother is the first test of the linear model: where the two curves part, a straight line misrepresents the relationship. On the Prestige data they part at high incomes, where prestige rises more slowly than the line assumes.**"
+      },
+      {
+       "t": "callout",
+       "kind": "info",
+       "title": "Source",
+       "md": "Section 2 of `Regression_Lecture1_Adv.ipynb` (see [Econ 430 L1 Univariate Characterizations](note:econ-430-l1-univariate-characterizations) for how the notebook maps to lectures).",
+       "folded": false
+      }
+     ],
+     "words": 78,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "1-scatterplots-with-a-line-and-a-smoother",
+   "heading": "1. Scatterplots with a line and a smoother",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-scatterplots-with-a-line-and-a-smoother-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The lecture plots prestige against income for 102 occupations, with the OLS line (solid, with its confidence band) and a [lowess](note:lowess-smoother) curve (dashed). Lowess fits a weighted line in a moving window around each income level and joins the fitted heights, so it traces the average of $y$ at each $x$ without assuming a shape. The two agree up to incomes of about 10,000, then lowess bends below the line."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Scatterplot with OLS line and lowess - prestige on income.png",
+       "alt": "Scatterplot with OLS line and lowess - prestige on income"
+      }
+     ],
+     "words": 69,
+     "symbols": [
+      "$x_i$",
+      "$x_i$, $y_i$"
+     ]
+    },
+    {
+     "id": "1-scatterplots-with-a-line-and-a-smoother-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "In the lecture's scatterplot of prestige on income, the lowess curve follows the OLS line up to incomes of about 10,000 and then bends below it. What does that say about a straight-line regression of prestige on income?",
+       "options": [
+        {
+         "md": "Nothing: lowess always bends at the ends because there are few points there",
+         "correct": false,
+         "feedback": "Lowess is less reliable at the extremes, but here the bend starts at about 10,000 and several occupations lie beyond it, all below the straight line."
+        },
+        {
+         "md": "The relationship is linear, but the errors are heteroskedastic",
+         "correct": false,
+         "feedback": "A smoother that departs from the line is a statement about the *mean* of prestige at each income, not about its spread."
+        },
+        {
+         "md": "Prestige rises more slowly at high incomes, so the line over-predicts prestige for the highest-paid occupations; a concave form such as log income may fit better",
+         "correct": true
+        }
+       ],
+       "why": "Lowess estimates the average prestige at each income locally. Where it lies below the OLS line, the line predicts more prestige than occupations at that income actually have. A curve that flattens as income rises is concave, which is the shape of a log: L5 returns to this choice of functional form.",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 87,
+     "symbols": []
+    },
+    {
+     "id": "1-scatterplots-with-a-line-and-a-smoother-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "What does a lowess curve compute at a given income level $x_0$?",
+       "options": [
+        {
+         "md": "The height at $x_0$ of a weighted least-squares line fitted to the observations with incomes near $x_0$, with nearer points weighted more",
+         "correct": true
+        },
+        {
+         "md": "The average of $y$ over all observations, weighted by how far their $x$ is from the overall mean",
+         "correct": false,
+         "feedback": "That would give one number for every $x_0$. Lowess refits at each $x_0$ using only a window of nearby observations."
+        },
+        {
+         "md": "The fitted value from a high-degree polynomial in $x$ estimated on the whole sample",
+         "correct": false,
+         "feedback": "A global polynomial uses every point for every $x_0$, so a few extreme points can bend the whole curve. Lowess is local."
+        }
+       ],
+       "why": "At each $x_0$, lowess takes a share of the data closest to $x_0$, weights them by distance (nearest points count most) and fits a line by weighted least squares; the curve joins the heights of those local lines. Because each piece is local, the curve can bend wherever the data do, which is what makes it a check on the single global line of OLS.",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 60,
+     "symbols": [
+      "$x_i$",
+      "$x_i$, $y_i$"
+     ]
+    },
+    {
+     "id": "1-scatterplots-with-a-line-and-a-smoother-4",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "lowess-span-explorer",
+       "prompt": "Fit a lowess curve by changing its span, and compare it with the OLS line",
+       "status": "planned",
+       "purpose": "See lowess as many local weighted lines, and see the span trade-off: large span approaches the OLS line, small span chases noise",
+       "objectives": [
+        1,
+        2
+       ]
+      }
+     ],
+     "words": 15,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "2-grouped-scatterplots-and-the-scatterplot-matrix",
+   "heading": "2. Grouped scatterplots and the scatterplot matrix",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-grouped-scatterplots-and-the-scatterplot-matrix-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Colouring the same plot by occupation type (professional, white collar, blue collar) and fitting a line to each group shows that the groups sit at different levels and with different slopes: the professional line is the flattest. A scatterplot matrix extends the idea to every pair of prestige, income, education and the share of women, with each variable's distribution by type on the diagonal ([EDA for Regression](note:eda-for-regression))."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Scatterplot by occupation type - prestige on income.png",
+       "alt": "Scatterplot by occupation type - prestige on income"
+      }
+     ],
+     "words": 67,
+     "symbols": []
+    },
+    {
+     "id": "2-grouped-scatterplots-and-the-scatterplot-matrix-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "In the grouped scatterplot, the professional occupations' line is much flatter than the blue-collar line. What does a single regression line through all 102 occupations miss?",
+       "options": [
+        {
+         "md": "Nothing, as long as the pooled slope is statistically significant",
+         "correct": false,
+         "feedback": "Significance of the pooled slope says that prestige rises with income on average. It cannot reveal that the rise differs across groups."
+        },
+        {
+         "md": "That income has no effect within professional occupations",
+         "correct": false,
+         "feedback": "The professional line is flatter, not flat: prestige still rises with income there, only more slowly."
+        },
+        {
+         "md": "That both the level and the slope of the prestige-income relationship differ by occupation type",
+         "correct": true
+        },
+        {
+         "md": "That the relationship is curved within every group",
+         "correct": false,
+         "feedback": "Within each type a straight line fits reasonably; the curvature in the pooled plot comes partly from mixing groups with different lines."
+        }
+       ],
+       "why": "Each colour has its own intercept and slope. One pooled line averages over them, so its slope mixes the within-type slopes with the gaps between types. The lowess bend in section 1 is partly this mixing: professionals dominate the high incomes, and their line is flatter.",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 67,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "3-jittering",
+   "heading": "3. Jittering",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "3-jittering-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With discrete variables many observations share the same coordinates, so a scatterplot of vocabulary score on years of education shows a grid in which one person and hundreds of people look identical. Jittering adds a little random noise to each point's plotted position, here 0.15 and then 0.3 of a unit, so the dense cells show up as clouds. The jittered plot with an OLS line and lowess shows the two nearly coinciding: the relationship is close to linear."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Vocabulary on education - jittered with OLS line and lowess.png",
+       "alt": "Vocabulary on education - jittered with OLS line and lowess"
+      }
+     ],
+     "words": 81,
+     "symbols": []
+    },
+    {
+     "id": "3-jittering-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "The lecture jitters education and vocabulary by up to 0.3 of a unit before plotting, and adds an OLS line and a lowess curve. What does the jitter change?",
+       "options": [
+        {
+         "md": "The OLS estimates, slightly, because the plotted points have moved",
+         "correct": false,
+         "feedback": "The lines are fitted to the original data; the noise is added only to the plotted positions."
+        },
+        {
+         "md": "Only the picture: overlapping points spread out so that density becomes visible",
+         "correct": true
+        },
+        {
+         "md": "It removes the measurement error in the discrete scores",
+         "correct": false,
+         "feedback": "Jitter adds noise to the display; it does nothing about how the scores were measured."
+        }
+       ],
+       "why": "Jittering is a display device for overplotted discrete data. The fitted line and the lowess curve are computed from the unjittered values, which is why they are unchanged; the jitter only shows where the observations pile up.",
+       "objectives": [
+        4
+       ]
+      }
+     ],
+     "words": 61,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "math-refresher",
+   "heading": "Math refresher",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "math-refresher-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Math Prep L6 Optimization](note:math-prep-l6-optimization) — weighted least squares behind each local lowess fit"
+      }
+     ],
+     "words": 13,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Read a scatterplot with an OLS line and a lowess curve, and say what it means when they diverge.\n2. Explain what a lowess smoother computes and how its span controls smoothness.\n3. Use grouped scatterplots and a scatterplot matrix to spot differences in level and slope across groups.\n4. Explain what jittering changes and what it leaves alone."
+      }
+     ],
+     "words": 60,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "eda-for-regression",
+        "lowess-smoother"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

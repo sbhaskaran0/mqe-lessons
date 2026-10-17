@@ -1,0 +1,114 @@
+{
+ "slug": "us-skill-premium-chart",
+ "notation": [
+  {
+   "tex": "$w_{Ht}$",
+   "meaning": "Wage per efficiency unit of college (high-skill) labor in year $t$",
+   "kind": "Price, endogenous",
+   "typical": "—",
+   "keys": [
+    "w"
+   ],
+   "from": "skill-premium"
+  },
+  {
+   "tex": "$H_t$, $L_t$",
+   "meaning": "College and non-college labor supply in efficiency units",
+   "kind": "Quantity",
+   "typical": "—",
+   "keys": [
+    "H",
+    "L"
+   ],
+   "from": "efficiency-units-of-labor"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "us-skill-premium-chart"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$w_{Ht}$",
+      "$H_t$, $L_t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The two series behind [US Skill Premium Since 1963](note:us-skill-premium-since-1963) and [US Relative Skill Supply Since 1963](note:us-relative-skill-supply-since-1963), on one axis. Both are March CPS series in log points, measured as the change since 1963: the composition-adjusted [Skill Premium](note:skill-premium) $\\ln(w_{Ht}/w_{Lt})$, and the log relative supply of college to non-college labor $\\ln(H_t/L_t)$ in [Efficiency Units of Labor](note:efficiency-units-of-labor)."
+      }
+     ],
+     "words": 52,
+     "symbols": [
+      "$w_{Ht}$",
+      "$H_t$, $L_t$"
+     ]
+    },
+    {
+     "id": "notes-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Where the numbers come from.** They are **read off the lecture figures (≈), not recomputed from CPS microdata**: the microdata are not in the vault. Each line was digitized from the figure's pixels, one point a year, 55 years, calibrated on the figure's gridlines. Reading error is about ±0.003 log points for the premium and ±0.005 for supply. The premium readings agree to within 0.001 with a second figure of the same series that carries labelled years (`Canonical model fit of the skill premium 1963-2017.png`). Provenance: `_data/registry.yaml`, dataset `us-skill-premium-supply-1963-2017`, and the notebook it names."
+      }
+     ],
+     "words": 100,
+     "symbols": []
+    },
+    {
+     "id": "notes-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Compare toggle.** It overlays `US college skill premium 1963-2017.png`, whose y axis runs from −0.1 to 0.3. Show only `premium` to match it line for line."
+      }
+     ],
+     "words": 30,
+     "symbols": []
+    },
+    {
+     "id": "notes-4",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **What to look for.**\n  - The premium rises to ≈ +0.04 in 1966, drifts down to its low of ≈ −0.06 in 1980–81 (annotation `low`), then climbs to ≈ +0.26 by 2011, about 0.3 log points above the low. It is flat after that.\n  - Supply rises in almost every year: ≈ 0.85 by 1982, about 4.4% a year, and then about 2% a year to ≈ 1.53 in 2017 (annotation `slowdown`). On this shared axis the premium's swings look small next to supply's rise. That is the point: supply grew ≈ 1.5 log points and the premium still rose, so relative demand must have grown faster."
+      }
+     ],
+     "words": 111,
+     "symbols": []
+    },
+    {
+     "id": "notes-5",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Against the fact tables.** The fact notes read these figures by eye at a few years, and their values agree with these readings within chart-reading error, with two exceptions:\n  - The premium table puts a value of ≈ +0.03 at ≈ 1971. In the figure the 1960s high is in 1966 (≈ +0.036); in 1971 the premium is ≈ +0.01.\n  - The premium table gives ≈ +0.10 for ≈ 1990. The readings are ≈ +0.08 in 1990 and ≈ +0.11 in 1991, so it agrees only allowing for a year's misreading of the unlabelled axis.\n\n  `mqe-lessons/docs/proposals/verify_data_lesson.py` lists every comparison.\n- **Elements.** Series `premium` and `supply`; annotations `low` and `slowdown`."
+      }
+     ],
+     "words": 114,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

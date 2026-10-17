@@ -1,0 +1,237 @@
+{
+ "slug": "multivariable-chain-rule",
+ "notation": [
+  {
+   "tex": "$z = f(x_1, \\ldots, x_n)$",
+   "meaning": "Function of several inputs",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "z"
+   ]
+  },
+  {
+   "tex": "$x_i(t)$",
+   "meaning": "Inputs that change with $t$",
+   "kind": "Variables",
+   "typical": "—",
+   "keys": [
+    "x"
+   ]
+  },
+  {
+   "tex": "$f_i$",
+   "meaning": "Partial derivative with respect to $x_i$",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "f"
+   ]
+  },
+  {
+   "tex": "$dz$, $dx_i$",
+   "meaning": "Small changes (total differential)",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "~dz",
+    "~dx_i"
+   ]
+  },
+  {
+   "tex": "$Y$, $A$, $K$, $L$",
+   "meaning": "Output, TFP, capital, labor in the growth-accounting example",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "Y",
+    "A",
+    "K",
+    "L"
+   ]
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "Capital share",
+   "kind": "Parameter",
+   "typical": "0.3 in the example",
+   "keys": [
+    "alpha"
+   ]
+  },
+  {
+   "tex": "$\\dot{Y}/Y$ etc.",
+   "meaning": "Growth rate of each variable",
+   "kind": "Rate",
+   "typical": "2.6% output growth in the example",
+   "keys": [
+    "~\\dotY/Y"
+   ]
+  },
+  {
+   "tex": "$t$",
+   "meaning": "Year",
+   "kind": "Index",
+   "typical": "1963–2017",
+   "keys": [
+    "t"
+   ],
+   "from": "canonical-model-of-the-skill-premium"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The chain rule handles knock-on effects. If output depends on capital and labor, and both are themselves growing over time, the total change in output is the sum of each input's effect times how fast that input is changing. That is different from a partial derivative, which freezes the other inputs. In growth rates the rule becomes very simple: output growth is a weighted sum of the growth rates of its ingredients."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It underlies growth accounting and is how you avoid confusing a direct effect with a total effect.",
+       "folded": false
+      }
+     ],
+     "words": 92,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "If $z = f(x_1,\\dots,x_n)$ and each $x_i$ depends on $t$:"
+      },
+      {
+       "t": "math",
+       "tex": "\\frac{dz}{dt} = \\sum_{i=1}^n\\frac{\\partial f}{\\partial x_i}\\frac{dx_i}{dt}"
+      },
+      {
+       "t": "prose",
+       "md": "The **total differential** is the same idea without $t$:"
+      },
+      {
+       "t": "math",
+       "tex": "dz = \\sum_i f_i\\,dx_i"
+      },
+      {
+       "t": "prose",
+       "md": "— the first-order change in $z$ from small changes in every input at once."
+      }
+     ],
+     "words": 25,
+     "symbols": [
+      "$z = f(x_1, \\ldots, x_n)$",
+      "$x_i(t)$",
+      "$f_i$",
+      "$dz$, $dx_i$",
+      "$t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "total-vs-partial",
+   "heading": "Total vs partial",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "total-vs-partial-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The partial $\\partial f/\\partial x_1$ holds $x_2$ fixed. The total derivative $dz/dx_1$ lets $x_2$ respond: $dz/dx_1 = f_1 + f_2\\,(dx_2/dx_1)$. Mixing the two up is the calculus version of omitted-variable bias."
+      }
+     ],
+     "words": 20,
+     "symbols": [
+      "$z = f(x_1, \\ldots, x_n)$",
+      "$x_i(t)$",
+      "$f_i$",
+      "$dz$, $dx_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example-growth-accounting",
+   "heading": "Worked example — growth accounting",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-growth-accounting-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$Y = AK^{\\alpha}L^{1-\\alpha}$. Take logs and differentiate with respect to time:"
+      },
+      {
+       "t": "math",
+       "tex": "\\frac{\\dot{Y}}{Y} = \\frac{\\dot{A}}{A} + \\alpha\\frac{\\dot{K}}{K} + (1-\\alpha)\\frac{\\dot{L}}{L}"
+      },
+      {
+       "t": "prose",
+       "md": "With $\\alpha = 0.3$, TFP growth 1%, capital growth 3% and labour growth 1%: output grows $1 + 0.9 + 0.7 = 2.6\\%$."
+      }
+     ],
+     "words": 21,
+     "symbols": [
+      "$Y$, $A$, $K$, $L$",
+      "$\\alpha$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Macro / labor**: growth accounting; decomposing changes in log relative wages into supply and technology terms in the [Canonical Model of the Skill Premium](note:canonical-model-of-the-skill-premium).\n- **Calculus**: derivation of the [Implicit Function Theorem](note:implicit-function-theorem) and of [Homogeneous Functions and Euler's Theorem](note:homogeneous-functions-and-eulers-theorem)."
+      }
+     ],
+     "words": 39,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Partial Derivatives and the Gradient](note:partial-derivatives-and-the-gradient)\n- [Logarithms and Growth Rates](note:logarithms-and-growth-rates)"
+      }
+     ],
+     "words": 11,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

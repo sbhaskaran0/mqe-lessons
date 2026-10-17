@@ -1,0 +1,163 @@
+{
+ "slug": "law-of-iterated-expectations",
+ "notation": [
+  {
+   "tex": "$Y$, $X$",
+   "meaning": "Two random variables",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "Y",
+    "X"
+   ]
+  },
+  {
+   "tex": "$E[Y\\mid X]$",
+   "meaning": "Average of $Y$ for a given value of $X$",
+   "kind": "Random variable (a function of $X$)",
+   "typical": "—",
+   "keys": [
+    "~E[Y\\midX]"
+   ]
+  },
+  {
+   "tex": "$\\bar{y}$, $\\bar{y}_g$",
+   "meaning": "Overall mean and mean in group $g$",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "bar(y)"
+   ]
+  },
+  {
+   "tex": "$s_g$",
+   "meaning": "Population share of group $g$",
+   "kind": "Weight",
+   "typical": "Sums to 1",
+   "keys": [
+    "s"
+   ]
+  },
+  {
+   "tex": "$\\boldsymbol{\\varepsilon}$, $\\mathbf{X}$",
+   "meaning": "Errors and regressors in the econometrics applications",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(varepsilon)",
+    "bold(X)"
+   ]
+  },
+  {
+   "tex": "$\\varepsilon$",
+   "meaning": "Projection error: $y - \\alpha - \\beta x$",
+   "kind": "Random variable",
+   "typical": "Uncorrelated with $x$ by construction",
+   "keys": [
+    "varepsilon"
+   ],
+   "from": "conditional-mean-vs-linear-projection"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The law of iterated expectations says that an overall average equals the average of group averages, each weighted by the size of its group. If two-thirds of workers earn 30 dollars an hour on average and one-third earn 60, the overall average is 40. In probability language: first average within each value of one variable, then average those averages, and you recover the plain average."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It sits behind many proofs in econometrics — including why an error unrelated to the regressors on average is also uncorrelated with them — and behind every composition effect in labor data.",
+       "folded": false
+      }
+     ],
+     "words": 98,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "E\\big[E[Y \\mid X]\\big] = E[Y]"
+      },
+      {
+       "t": "prose",
+       "md": "The average of the conditional averages is the overall average, weighting each group by its probability."
+      },
+      {
+       "t": "prose",
+       "md": "Discrete version, with group shares $s_g$:"
+      },
+      {
+       "t": "math",
+       "tex": "\\bar{y} = \\sum_g s_g\\,\\bar{y}_g"
+      }
+     ],
+     "words": 21,
+     "symbols": [
+      "$Y$, $X$",
+      "$E[Y\\mid X]$",
+      "$\\bar{y}$, $\\bar{y}_g$",
+      "$s_g$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Course | Use |\n| --- | --- |\n| Econometrics | One-line proof that $E[\\varepsilon\\mid\\mathbf{X}] = 0$ implies $\\mathrm{Cov}(\\mathbf{X},\\varepsilon) = 0$ ([Strict Exogeneity](note:strict-exogeneity)) |\n| Econometrics | Unbiasedness of OLS: condition on $\\mathbf{X}$, then average ([OLS Estimator](note:ols-estimator)) |\n| Inequality | An overall average wage is a weighted average of group averages — the root of composition effects ([Composition Adjustment](note:composition-adjustment)) |\n| Probability | Building block of the [Law of Total Variance](note:law-of-total-variance) |"
+      }
+     ],
+     "words": 49,
+     "symbols": [
+      "$\\boldsymbol{\\varepsilon}$, $\\mathbf{X}$",
+      "$\\varepsilon$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Math background: [Double Integrals and Fubini's Theorem](note:double-integrals-and-fubinis-theorem)\n- [Law of Total Variance](note:law-of-total-variance)\n- [Conditional Mean vs Linear Projection](note:conditional-mean-vs-linear-projection)"
+      }
+     ],
+     "words": 19,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,322 @@
+{
+ "slug": "bootstrapping-ols",
+ "notation": [
+  {
+   "tex": "$(x_i, y_i)$",
+   "meaning": "Original observations",
+   "kind": "Data",
+   "typical": "—",
+   "keys": []
+  },
+  {
+   "tex": "$n$",
+   "meaning": "Sample size (each bootstrap sample has the same size)",
+   "kind": "Count",
+   "typical": "—",
+   "keys": [
+    "n"
+   ]
+  },
+  {
+   "tex": "$B$",
+   "meaning": "Number of bootstrap repetitions",
+   "kind": "Choice",
+   "typical": "1,000 or more",
+   "keys": [
+    "B"
+   ]
+  },
+  {
+   "tex": "$\\hat{\\beta}_1^{*(b)}$",
+   "meaning": "Slope estimated on bootstrap sample $b$",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "~\\hat\\beta_1^*(b)"
+   ]
+  },
+  {
+   "tex": "$\\bar{\\hat{\\beta}}_1^{*}$",
+   "meaning": "Average of the $B$ bootstrap slopes",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "bar(hat(beta))*"
+   ]
+  },
+  {
+   "tex": "$SE_{boot}$",
+   "meaning": "Bootstrap standard error: standard deviation of the bootstrap estimates",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "~SE_boot"
+   ]
+  },
+  {
+   "tex": "$\\widehat{\\sigma}$",
+   "meaning": "Estimated standard deviation of the errors, one of the bootstrapped statistics",
+   "kind": "Statistic",
+   "typical": "89.5 in the food regression",
+   "keys": [
+    "hat(sigma)"
+   ]
+  },
+  {
+   "tex": "$y_i$, $x_i$",
+   "meaning": "Outcome and explanatory variable for observation $i$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "y",
+    "x"
+   ],
+   "from": "ols-estimator"
+  },
+  {
+   "tex": "$b_1$, $b_2$",
+   "meaning": "OLS estimates of the intercept and slope",
+   "kind": "Estimators",
+   "typical": "—",
+   "keys": [
+    "b"
+   ],
+   "from": "ols-estimator"
+  },
+  {
+   "tex": "$N$",
+   "meaning": "Number of observations",
+   "kind": "Count",
+   "typical": "—",
+   "keys": [
+    "N"
+   ],
+   "from": "ols-estimator"
+  },
+  {
+   "tex": "$t$",
+   "meaning": "Test statistic $(b_k - \\beta_k)/se(b_k)$",
+   "kind": "Statistic",
+   "typical": "≈ ±2 is the 5% threshold in large samples",
+   "keys": [
+    "t"
+   ],
+   "from": "sampling-distribution-of-ols"
+  },
+  {
+   "tex": "$S$",
+   "meaning": "Skewness of the residuals (lopsidedness)",
+   "kind": "Statistic",
+   "typical": "0 for a normal",
+   "keys": [
+    "S"
+   ],
+   "from": "error-normality-and-jarque-bera"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Bootstrapping is a way to see how much an estimate would wobble from sample to sample when you only have one sample. You treat your data as a stand-in for the whole population: draw a new sample of the same size from it, with replacement, re-run the regression, and repeat a thousand times. The spread of those thousand estimates tells you how uncertain your original estimate is — without assuming the errors follow a bell curve or have equal spread."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It gives honest standard errors and confidence intervals when the textbook formulas' assumptions fail, and works for statistics that have no formula at all.",
+       "folded": false
+      }
+     ],
+     "words": 106,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A resampling estimate of the **sampling distribution** of a statistic, without strong parametric assumptions. The lecture's recommendation: for any regression you estimate, include bootstrap estimates as a robustness check."
+      }
+     ],
+     "words": 29,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "procedure",
+   "heading": "Procedure",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "procedure-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. From the original $\\{(x_i, y_i)\\}_{i=1}^n$, draw a bootstrap sample of size $n$ **with replacement**.\n2. Re-estimate the regression on that resample, keeping $\\hat{\\beta}_0^*, \\hat{\\beta}_1^*$ (and $R^2$, elasticities, or whatever statistic you want).\n3. Repeat $B$ times to obtain $\\{\\hat{\\beta}_1^{*(b)}\\}_{b=1}^B$.\n4. Use the empirical distribution of the $B$ replicates as the sampling distribution."
+      },
+      {
+       "t": "math",
+       "tex": "SE_{boot}(\\hat{\\beta}_1) = \\sqrt{\\frac{1}{B - 1} \\sum_{b=1}^B \\left(\\hat{\\beta}_1^{*(b)} - \\bar{\\hat{\\beta}}_1^{*}\\right)^2}"
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Food expenditure - 500 bootstrap regression lines.png",
+       "alt": "Food expenditure - 500 bootstrap regression lines"
+      }
+     ],
+     "words": 44,
+     "symbols": [
+      "$n$",
+      "$B$",
+      "$\\hat{\\beta}_1^{*(b)}$",
+      "$\\bar{\\hat{\\beta}}_1^{*}$",
+      "$SE_{boot}$",
+      "$y_i$, $x_i$",
+      "$b_1$, $b_2$",
+      "$S$"
+     ]
+    },
+    {
+     "id": "procedure-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "On the food data each grey line is the fit to one resample of the 40 households and the red line averages them; the fan is narrowest near mean income, as the confidence band of [Confidence vs Prediction Intervals](note:confidence-vs-prediction-intervals) is."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Food expenditure - bootstrap distributions of intercept and slope.png",
+       "alt": "Food expenditure - bootstrap distributions of intercept and slope"
+      },
+      {
+       "t": "prose",
+       "md": "The 500 bootstrap intercepts and slopes are close to normal (the kernel density and the fitted normal almost coincide), as the central limit theorem predicts."
+      }
+     ],
+     "words": 65,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "why-bother",
+   "heading": "Why bother",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "why-bother-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Standard errors and confidence intervals **without** assuming normality ([Error Normality and Jarque-Bera](note:error-normality-and-jarque-bera)) or [Homoskedasticity](note:homoskedasticity)\n- Works for statistics with no closed-form standard error: $R^2$, adjusted $R^2$, elasticities, ratios of coefficients\n- Reveals skew in the sampling distribution, which a symmetric $t$ interval hides"
+      },
+      {
+       "t": "prose",
+       "md": "The lecture bootstraps the intercept, slope, $R^2$ and $\\widehat{\\sigma}$ of the `food` regression (500 resamples), and the slope, intercept and adjusted $R^2$ of the wage-on-experience regression (100 resamples)."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Food expenditure - bootstrap distribution of R-squared.png",
+       "alt": "Food expenditure - bootstrap distribution of R-squared"
+      }
+     ],
+     "words": 66,
+     "symbols": [
+      "$\\widehat{\\sigma}$",
+      "$t$"
+     ]
+    },
+    {
+     "id": "why-bother-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "For the food regression's $\\widehat{\\sigma}$ the 500 resamples give a mean of 86.88, a bootstrap standard error of 9.72 and a 95% percentile interval of [66.77, 105.26]; for $R^2$ the percentile interval runs from about ≈ 0.15 to ≈ 0.60 (read off the chart). Neither statistic has a standard error in the regression table."
+      }
+     ],
+     "words": 56,
+     "symbols": [
+      "$\\widehat{\\sigma}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "when-to-prefer-it",
+   "heading": "When to prefer it",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "when-to-prefer-it-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Small $N$ **and** non-normal residuals is the clear case: the exact $t$ intervals are untrustworthy and $N$ is too small to lean on the CLT. Report percentile or bias-corrected bootstrap intervals and say so explicitly. A visibly skewed bootstrap distribution is itself evidence against the symmetric $t$ interval."
+      },
+      {
+       "t": "prose",
+       "md": "Caveat: if the residuals are badly behaved because the *model* is wrong, a transformation ([Box-Cox and Power Transformations](note:box-cox-and-power-transformations)) is the better fix than a patch on inference."
+      }
+     ],
+     "words": 71,
+     "symbols": [
+      "$N$",
+      "$t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "contrast-with-cross-validation",
+   "heading": "Contrast with cross-validation",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "contrast-with-cross-validation-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "See [Cross-Validation](note:cross-validation). The bootstrap says nothing about overfitting."
+      }
+     ],
+     "words": 8,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Confidence vs Prediction Intervals](note:confidence-vs-prediction-intervals) — the parametric alternative\n- [Sampling Distribution of OLS](note:sampling-distribution-of-ols)"
+      }
+     ],
+     "words": 13,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

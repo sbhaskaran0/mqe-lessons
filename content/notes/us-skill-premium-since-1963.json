@@ -1,0 +1,145 @@
+{
+ "slug": "us-skill-premium-since-1963",
+ "notation": [
+  {
+   "tex": "$w_{Ht}$",
+   "meaning": "Wage per efficiency unit of college (high-skill) labor in year $t$",
+   "kind": "Price, endogenous",
+   "typical": "—",
+   "keys": [
+    "w"
+   ],
+   "from": "skill-premium"
+  },
+  {
+   "tex": "$H_t$, $L_t$",
+   "meaning": "Supply of college and non-college labor in efficiency units",
+   "kind": "Exogenous (inelastic supply)",
+   "typical": "—",
+   "keys": [
+    "H",
+    "L"
+   ],
+   "from": "canonical-model-of-the-skill-premium"
+  },
+  {
+   "tex": "$e$",
+   "meaning": "Detailed education cell (e.g. BA, MA, PhD)",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "e"
+   ],
+   "from": "composition-adjustment"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**The composition-adjusted college premium rose in the 1960s, fell through the 1970s to a low around 1979–80, then rose steadily for three decades before flattening after about 2010.**"
+      },
+      {
+       "t": "prose",
+       "md": "Values read off the charts, approximate."
+      },
+      {
+       "t": "table",
+       "md": "| Year | Log college/HS wage gap (Autor series) | Change since 1963 (lecture's series) |\n| --- | --- | --- |\n| 1963 | ≈ 0.39 | 0 |\n| ≈ 1971 | ≈ 0.46 | ≈ +0.01 (this series has an early peak: ≈ +0.04 in 1966) |\n| ≈ 1979–80 | ≈ 0.39 | ≈ −0.06 (low point, 1980–81) |\n| ≈ 1990 | ≈ 0.55 | ≈ +0.08 (≈ +0.11 by 1991) |\n| 2000 | ≈ 0.64 | ≈ +0.19 |\n| 2008 | ≈ 0.67 | ≈ +0.24 |\n| 2017 | — | ≈ +0.25 |"
+      },
+      {
+       "t": "interactive",
+       "widget": "us-skill-premium-chart",
+       "show": [
+        "premium",
+        "low"
+       ],
+       "highlight": "low",
+       "prompt": "The lecture's series, one point a year from 1963 to 2017 (≈, read off the figure). Hover to read any year; the compare toggle lays the lecture figure over it.",
+       "predict": {
+        "hide": [
+         "premium",
+         "low"
+        ],
+        "ask": "By 2017 the premium is about 0.25 log points above its 1963 level. How did it get there?",
+        "options": [
+         "It rose steadily, decade after decade",
+         "It fell through the 1970s to a low around 1980, then rose for three decades",
+         "It was flat until about 2000, then jumped"
+        ],
+        "answer": 1,
+        "why": "The premium fell through the 1970s, when relative supply grew fastest, to a low of about −0.06 around 1980. It then rose steadily, by about 0.31 log points, before flattening after about 2010. Relative supply rose throughout, so the rise after 1980 means relative demand grew faster than supply.",
+        "feedback": [
+         "A steady rise would mean demand always outpaced supply. In the 1970s relative supply grew faster than demand, and the premium fell to about −0.06 by 1980.",
+         null,
+         "Most of the rise came earlier: from about −0.06 around 1980 to about +0.19 by 2000. After about 2010 it flattened."
+        ]
+       }
+      }
+     ],
+     "words": 131,
+     "symbols": [
+      "$w_{Ht}$",
+      "$H_t$, $L_t$"
+     ]
+    },
+    {
+     "id": "intro-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A log gap of 0.67 means college workers earn about $e^{0.67} - 1 \\approx 95\\%$ more ([Log Wage Gap](note:log-wage-gap))."
+      }
+     ],
+     "words": 15,
+     "symbols": [
+      "$e$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "why-it-matters",
+   "heading": "Why it matters",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "why-it-matters-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Relative supply of college labour rose **throughout** this period ([US Relative Skill Supply Since 1963](note:us-relative-skill-supply-since-1963)). The 1970s fall and post-1980 rise are the two episodes the [Canonical Model of the Skill Premium](note:canonical-model-of-the-skill-premium) has to explain."
+      }
+     ],
+     "words": 35,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Skill Premium](note:skill-premium)\n- [Composition Adjustment](note:composition-adjustment)\n- Paper: [Katz and Murphy 1992 - Changes in Relative Wages](note:katz-and-murphy-1992-changes-in-relative-wages)"
+      }
+     ],
+     "words": 17,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

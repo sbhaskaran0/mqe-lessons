@@ -1,0 +1,256 @@
+{
+ "slug": "implicit-function-theorem",
+ "notation": [
+  {
+   "tex": "$F(x, y) = 0$",
+   "meaning": "Equation linking $x$ and $y$",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "F"
+   ]
+  },
+  {
+   "tex": "$F_x$, $F_y$",
+   "meaning": "Partial derivatives of $F$",
+   "kind": "—",
+   "typical": "$F_y \\neq 0$ required",
+   "keys": [
+    "F"
+   ]
+  },
+  {
+   "tex": "$U(x, y)$",
+   "meaning": "Utility (indifference-curve example)",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "U"
+   ]
+  },
+  {
+   "tex": "$D(p, a)$, $S(p)$",
+   "meaning": "Demand and supply in the market example",
+   "kind": "Functions",
+   "typical": "—",
+   "keys": [
+    "D",
+    "S"
+   ]
+  },
+  {
+   "tex": "$p$",
+   "meaning": "Price",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "p"
+   ]
+  },
+  {
+   "tex": "$a$",
+   "meaning": "Demand shifter",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "a"
+   ]
+  },
+  {
+   "tex": "$D_a$, $D_p$, $S_p$",
+   "meaning": "Partial derivatives of demand and supply",
+   "kind": "—",
+   "typical": "$D_p < 0 < S_p$",
+   "keys": [
+    "D",
+    "S"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{F}$, $\\mathbf{x}$, $\\mathbf{y}$",
+   "meaning": "Vector version",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(F)",
+    "bold(x)",
+    "bold(y)"
+   ]
+  },
+  {
+   "tex": "$x_i(t)$",
+   "meaning": "Inputs that change with $t$",
+   "kind": "Variables",
+   "typical": "—",
+   "keys": [
+    "x"
+   ],
+   "from": "multivariable-chain-rule"
+  },
+  {
+   "tex": "$x$, $y$",
+   "meaning": "Quantities chosen",
+   "kind": "Endogenous",
+   "typical": "25, 10",
+   "keys": [
+    "x",
+    "y"
+   ],
+   "from": "constrained-optimization-and-lagrange-multipliers"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Sometimes two variables are tied together by an equation you cannot easily solve for one of them — an equilibrium condition, an indifference curve. The implicit function theorem says you can still find how one responds to the other: the slope is minus the ratio of how sensitive the equation is to each. It is the formal tool behind comparative statics: how does the equilibrium price move when demand shifts?"
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It turns any equilibrium condition or first-order condition into predictions about how outcomes respond to changes.",
+       "folded": false
+      }
+     ],
+     "words": 88,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "If $F(x, y) = 0$ near a point where $F_y \\neq 0$, then $y$ can be written locally as a function $y(x)$, and"
+      },
+      {
+       "t": "math",
+       "tex": "\\frac{dy}{dx} = -\\frac{F_x}{F_y}"
+      },
+      {
+       "t": "prose",
+       "md": "**Derivation**: differentiate $F(x, y(x)) = 0$ with the [Multivariable Chain Rule](note:multivariable-chain-rule): $F_x + F_y\\,y'(x) = 0$."
+      },
+      {
+       "t": "prose",
+       "md": "Vector version: for $\\mathbf{F}(\\mathbf{x},\\mathbf{y}) = \\mathbf{0}$, $\\;\\partial\\mathbf{y}/\\partial\\mathbf{x}' = -[\\partial\\mathbf{F}/\\partial\\mathbf{y}']^{-1}\\,\\partial\\mathbf{F}/\\partial\\mathbf{x}'$, which needs that Jacobian to be invertible ([Invertibility and Determinants](note:invertibility-and-determinants))."
+      }
+     ],
+     "words": 34,
+     "symbols": [
+      "$F(x, y) = 0$",
+      "$F_x$, $F_y$",
+      "$\\mathbf{F}$, $\\mathbf{x}$, $\\mathbf{y}$",
+      "$x_i(t)$",
+      "$x$, $y$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-examples",
+   "heading": "Worked examples",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-examples-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **A circle**: $x^2 + y^2 = 25$ at $(3, 4)$: $dy/dx = -2x/2y = -3/4$.\n- **Indifference curve**: $U(x,y) = \\bar{U}$ gives slope $-U_x/U_y = -MRS$.\n- **Market equilibrium**: $D(p, a) - S(p) = 0$, with $a$ a demand shifter, gives"
+      },
+      {
+       "t": "math",
+       "tex": "\\frac{dp}{da} = \\frac{D_a}{S_p - D_p}"
+      },
+      {
+       "t": "prose",
+       "md": "which is positive when demand slopes down and supply up. Holding supply vertical ($S_p = 0$) gives $D_a/(-D_p)$: the price moves along the fixed supply."
+      }
+     ],
+     "words": 38,
+     "symbols": [
+      "$U(x, y)$",
+      "$D(p, a)$, $S(p)$",
+      "$p$",
+      "$a$",
+      "$D_a$, $D_p$, $S_p$",
+      "$x_i(t)$",
+      "$x$, $y$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Dropping the minus sign.\n- Using it where $F_y = 0$ — the solution may not exist or be unique there."
+      }
+     ],
+     "words": 18,
+     "symbols": [
+      "$F(x, y) = 0$",
+      "$F_x$, $F_y$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Labor / micro**: comparative statics of equilibrium wages when supply or demand shifts ([Relative Supply and Demand](note:relative-supply-and-demand)); how optimal choices respond to prices, via the FOCs ([Constrained Optimization and Lagrange Multipliers](note:constrained-optimization-and-lagrange-multipliers)).\n- **Macro**: comparative statics of steady states."
+      }
+     ],
+     "words": 38,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Envelope Theorem](note:envelope-theorem)"
+      }
+     ],
+     "words": 3,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

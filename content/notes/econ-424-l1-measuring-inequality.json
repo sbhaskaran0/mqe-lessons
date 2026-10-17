@@ -1,0 +1,638 @@
+{
+ "slug": "econ-424-l1-measuring-inequality",
+ "notation": [
+  {
+   "tex": "$y$",
+   "meaning": "Income or wage",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "y"
+   ],
+   "from": "within-and-between-group-inequality"
+  },
+  {
+   "tex": "$w_h$, $w_\\ell$",
+   "meaning": "Wages of high- and low-ability workers",
+   "kind": "Exogenous price",
+   "typical": "—",
+   "keys": [
+    "w"
+   ],
+   "from": "within-and-between-group-inequality"
+  },
+  {
+   "tex": "$z_i$",
+   "meaning": "Income of person $i$, sorted from lowest to highest",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "z"
+   ],
+   "from": "lorenz-curve"
+  },
+  {
+   "tex": "$n$",
+   "meaning": "Number of people",
+   "kind": "Count",
+   "typical": "—",
+   "keys": [
+    "n"
+   ],
+   "from": "lorenz-curve"
+  },
+  {
+   "tex": "$G$",
+   "meaning": "Gini coefficient",
+   "kind": "Statistic",
+   "typical": "US tax-unit income ≈ 0.64 (2015)",
+   "keys": [
+    "G"
+   ],
+   "from": "gini-coefficient"
+  },
+  {
+   "tex": "$\\mu$",
+   "meaning": "Mean income",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "mu"
+   ],
+   "from": "gini-coefficient"
+  },
+  {
+   "tex": "$x$",
+   "meaning": "Size of the top group, as a share of the population",
+   "kind": "Choice",
+   "typical": "0.10, 0.01, 0.001",
+   "keys": [
+    "x"
+   ],
+   "from": "top-income-shares"
+  },
+  {
+   "tex": "$\\sigma$",
+   "meaning": "Standard deviation of income",
+   "kind": "Statistic",
+   "typical": "4.36 in the example",
+   "keys": [
+    "sigma"
+   ],
+   "from": "coefficient-of-variation"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**The lecture sets the stage: inequality is always inequality *of a variable* *across a population*, summarised by a *measure* — and different choices give different answers. It then tours the main measures and the headline US facts.**"
+      },
+      {
+       "t": "prose",
+       "md": "Three questions frame it: what is inequality, how might we measure it, and what has happened over time."
+      }
+     ],
+     "words": 54,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "1-what-inequality-is",
+   "heading": "1. What inequality is",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-what-inequality-is-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Defining Inequality](note:defining-inequality) — variable × population × measure. The lecture's fake dataset of nine workers shows one wage variable producing three different questions:"
+      },
+      {
+       "t": "table",
+       "md": "| Population | Measure | Result |\n| --- | --- | --- |\n| Total | SD of wages | 4.62 |\n| Within education groups | SD of wages | College 4.57, High school 5.07 |\n| Between education groups | Average wage | College 14.75, High school 13.20 |"
+      },
+      {
+       "t": "prose",
+       "md": "That three-way split is [Within- and Between-Group Inequality](note:within-and-between-group-inequality), and it sets up the whole course."
+      }
+     ],
+     "words": 72,
+     "symbols": []
+    },
+    {
+     "id": "1-what-inequality-is-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "A report finds that among college graduates the 90-10 ratio of hourly wages is 4. Which split into variable, population and measure is right?",
+       "options": [
+        {
+         "md": "Variable: hourly wages; population: between education groups; measure: the 90-10 ratio",
+         "correct": false,
+         "feedback": "Nothing here compares college graduates with another group. Between-group inequality compares the groups themselves, like the lecture's average wages of 14.75 and 13.20."
+        },
+        {
+         "md": "Variable: the 90-10 ratio; population: college graduates; measure: hourly wages",
+         "correct": false,
+         "feedback": "This swaps two roles. Hourly wages are what is spread out (the variable); the 90-10 ratio is the single number that summarises the spread (the measure)."
+        },
+        {
+         "md": "Variable: hourly wages; population: within one group, college graduates; measure: the 90-10 ratio",
+         "correct": true
+        },
+        {
+         "md": "Variable: hourly wages; population: all workers (total); measure: the 90-10 ratio",
+         "correct": false,
+         "feedback": "The ratio is taken among college graduates only. Total inequality would use the 90th and 10th percentiles of every worker's wage."
+        }
+       ],
+       "why": "The variable is hourly wages. The claim looks only inside the college group, so the population is within-group. The measure is the 90-10 ratio, $w_{90}/w_{10}$. It is the lecture's \"within education groups\" row with a different measure in place of the SD.",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 69,
+     "symbols": [
+      "$w_h$, $w_\\ell$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "2-representing-a-distribution",
+   "heading": "2. Representing a distribution",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-representing-a-distribution-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The [Lorenz Curve](note:lorenz-curve) shows the share of income held by the bottom $x\\%$. On the fake data it is close to the 45° line. It carries a lot of information but is **not a measure**: it gives no single number, and US curves for 2004 and 2014 are nearly indistinguishable by eye."
+      },
+      {
+       "t": "interactive",
+       "widget": "lognormal-inequality-explorer",
+       "state": {
+        "mu": 3,
+        "sigma": 0.25
+       },
+       "lock": [
+        "mu"
+       ],
+       "show": [
+        "lorenz",
+        "equality",
+        "density"
+       ],
+       "highlight": "lorenz",
+       "prompt": "A model wage distribution: lognormal, with $\\sigma$ the spread of log wages. Raise $\\sigma$ and watch the Lorenz curve bow away from the 45° line of equality.",
+       "predict": {
+        "hide": [
+         "lorenz"
+        ],
+        "ask": "Picture the Lorenz curve at $\\sigma = 0.25$, then raise $\\sigma$ to 0.5. Where does the new curve lie, compared with the old one?",
+        "options": [
+         "Below it at every point: the new distribution is unambiguously more unequal",
+         "Below it at the bottom but above it at the top: the two curves cross",
+         "On top of it: the mean of log wages has not changed, and the Lorenz curve ignores the level"
+        ],
+        "answer": 0,
+        "why": "More spread in log wages lowers the income share of the bottom $x\\%$ at every $x$: at the median it falls from 40% to 31%. So the new curve sags below the old one everywhere, and the Gini rises from 0.14 to 0.28. When one Lorenz curve lies below another everywhere, every measure satisfying scale invariance and the transfer principle ranks it as more unequal; only when curves cross can measures disagree, which is why the curve itself is not a measure.",
+        "feedback": [
+         null,
+         "A larger $\\sigma$ spreads log wages on both sides of the same median, so the bottom $x\\%$ hold a smaller share for every $x$: within the lognormal family the curves never cross; crossing needs distributions that differ in shape, not just in spread.",
+         "Scale invariance means multiplying every wage by the same factor (raising $\\mu$) leaves the curve alone. Raising $\\sigma$ spreads wages apart, which changes every income share."
+        ]
+       },
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 76,
+     "symbols": [
+      "$w_h$, $w_\\ell$",
+      "$\\mu$",
+      "$x$",
+      "$\\sigma$"
+     ]
+    },
+    {
+     "id": "2-representing-a-distribution-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Why is the Lorenz curve not itself a measure of inequality?",
+       "options": [
+        {
+         "md": "It cannot be drawn from survey data",
+         "correct": false,
+         "feedback": "It can: sort incomes and plot cumulative shares, as the lecture does for its nine workers. The trouble is that the result is a whole curve, not one number."
+        },
+        {
+         "md": "It gives no single number, so the size of a change is hard to judge",
+         "correct": true
+        },
+        {
+         "md": "It changes when every income doubles",
+         "correct": false,
+         "feedback": "The reverse: it is built from income shares, so doubling every income leaves it unchanged. Scale invariance is a property a good measure should have, not a flaw."
+        },
+        {
+         "md": "It describes only the top of the distribution",
+         "correct": false,
+         "feedback": "It covers the whole distribution, from the bottom $x\\%$ up. Top income shares are the measure that looks only at the top."
+        }
+       ],
+       "why": "The curve pictures the whole distribution, but it does not reduce it to one number. US curves for 2004 and 2014 are nearly indistinguishable by eye, even though the Gini rose. It is scale invariant, so doubling every income leaves it unchanged ([Lorenz Curve](note:lorenz-curve)).",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 47,
+     "symbols": [
+      "$x$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "3-measures",
+   "heading": "3. Measures",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "3-measures-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Inequality is a broad concept, so there are many measures even for one variable and population:"
+      },
+      {
+       "t": "prose",
+       "md": "- [Gini Coefficient](note:gini-coefficient) — area between the Lorenz curve and the line of equality. On the fake data, $G = 0.167$\n- [Top Income Shares](note:top-income-shares) — top 10%, 1%, 0.1%\n- [Coefficient of Variation](note:coefficient-of-variation) — SD over the mean\n- [Variance of Log Income](note:variance-of-log-income) — the decomposable one, via the [Law of Total Variance](note:law-of-total-variance)\n- [Percentile Ratios](note:percentile-ratios) — 90-10, 90-50, 50-10\n- [Log Wage Gap](note:log-wage-gap) — log relative income of two groups"
+      },
+      {
+       "t": "prose",
+       "md": "How they compare: [Properties of Inequality Measures](note:properties-of-inequality-measures)."
+      },
+      {
+       "t": "interactive",
+       "widget": "lognormal-inequality-explorer",
+       "state": {
+        "mu": 3,
+        "sigma": 0.5
+       },
+       "lock": [
+        "mu"
+       ],
+       "show": [
+        "lorenz",
+        "equality",
+        "gini",
+        "p90p10",
+        "p50p10",
+        "p90p50",
+        "varlog",
+        "top10",
+        "log9010",
+        "log5010"
+       ],
+       "prompt": "Every measure, on one distribution. The nine-worker example has $G = 0.167$. Find the lognormal spread $\\sigma$ that gives the same Gini.",
+       "goal": {
+        "when": "abs(gini - 0.167) < 0.003",
+        "success": "$\\sigma \\approx 0.30$ gives $G \\approx 0.167$. The variance of log wages is then $\\sigma^2 \\approx 0.09$ and the 90-10 log gap about 0.77.",
+        "hint": "The Gini rises with $\\sigma$. At $\\sigma = 0.5$ it is 0.28, so lower $\\sigma$."
+       }
+      }
+     ],
+     "words": 105,
+     "symbols": [
+      "$w_h$, $w_\\ell$",
+      "$G$",
+      "$\\mu$",
+      "$\\sigma$"
+     ]
+    },
+    {
+     "id": "3-measures-2",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "lognormal-inequality-explorer",
+       "state": {
+        "mu": 3,
+        "sigma": 0.5
+       },
+       "lock": [
+        "sigma"
+       ],
+       "show": [
+        "density",
+        "lorenz",
+        "equality",
+        "gini",
+        "varlog",
+        "p90p10",
+        "mean",
+        "median"
+       ],
+       "prompt": "Now $\\sigma$ is locked and $\\mu$ is free. Raising $\\mu$ by 1 multiplies every wage by $e \\approx 2.7$.",
+       "predict": {
+        "hide": [
+         "gini",
+         "varlog",
+         "p90p10"
+        ],
+        "ask": "Raise μ by 1. What happens to the Gini, the variance of log wages and the 90-10 ratio?",
+        "options": [
+         "All three rise",
+         "All three stay the same",
+         "The Gini stays the same; the other two rise"
+        ],
+        "answer": 1,
+        "why": "Raising $\\mu$ by 1 multiplies every wage by $e \\approx 2.7$. The Gini is built from income shares, which do not change; $\\ln(e\\,w) = 1 + \\ln w$ shifts every log wage by the same amount, so their variance stays 0.25; and the factor cancels in $w_{90}/w_{10} = 3.60$. All three are scale invariant, so none of them moves.",
+        "feedback": [
+         "Every wage is multiplied by the same factor, so the gaps grow in dollars but not in proportion. All three measures are about proportions.",
+         null,
+         "The other two are scale invariant too: a common factor $e$ adds the same constant, 1, to every log wage, and it cancels in the ratio $w_{90}/w_{10}$."
+        ]
+       }
+      }
+     ],
+     "words": 13,
+     "symbols": [
+      "$w_h$, $w_\\ell$",
+      "$\\mu$",
+      "$\\sigma$"
+     ]
+    },
+    {
+     "id": "3-measures-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "Nine workers earn 10, 10, 10, 11, 12, 13, 17, 20 and 22. What is their Gini coefficient?",
+       "answer": 0.167,
+       "tol": 0.002,
+       "wrong": [
+        {
+         "answer": 0.334,
+         "tol": 0.002,
+         "md": "the denominator is $2n^2\\mu$: the Gini is *half* the mean absolute gap relative to the mean"
+        },
+        {
+         "answer": 0.0836,
+         "tol": 0.002,
+         "md": "the double sum runs over all 81 ordered pairs, so each gap counts twice: 376, not 188"
+        },
+        {
+         "answer": 0.188,
+         "tol": 0.002,
+         "md": "that divides by $n(n-1) = 72$ pairs; the formula divides by $n^2 = 81$"
+        }
+       ],
+       "why": "The total is 125, so the mean is $\\mu = 13.89$. Summing $|z_i - z_j|$ over all $9 \\times 9 = 81$ ordered pairs gives 376, so $G = 376 / (2 \\times 81 \\times 13.89) = 0.167$. The trapezoid rule on the Lorenz points gives the same ([Gini Coefficient](note:gini-coefficient)).",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 18,
+     "symbols": [
+      "$z_i$",
+      "$n$",
+      "$G$",
+      "$\\mu$"
+     ]
+    },
+    {
+     "id": "3-measures-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Which of these measures splits exactly into a within-group part and a between-group part?",
+       "options": [
+        {
+         "md": "The Gini coefficient",
+         "correct": false,
+         "feedback": "The Gini splits into within and between parts only when the groups' incomes do not overlap; otherwise a leftover term remains."
+        },
+        {
+         "md": "The variance of log income",
+         "correct": true
+        },
+        {
+         "md": "The 90-10 percentile ratio",
+         "correct": false,
+         "feedback": "Percentiles depend on where the cut-offs fall in the whole distribution, so the ratio cannot be built from group-level pieces."
+        },
+        {
+         "md": "The top 10% share",
+         "correct": false,
+         "feedback": "Who is in the overall top 10% depends on both groups at once, so the share has no within/between split."
+        }
+       ],
+       "why": "By the [Law of Total Variance](note:law-of-total-variance), $\\mathrm{Var}(\\ln y)$ is the share-weighted within-group variance plus the variance of the group means ([Variance of Log Income](note:variance-of-log-income)). The Gini decomposes only when the groups do not overlap ([Gini Coefficient](note:gini-coefficient)).",
+       "objectives": [
+        4
+       ]
+      }
+     ],
+     "words": 30,
+     "symbols": [
+      "$y$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "4-facts",
+   "heading": "4. Facts",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "4-facts-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [US Income Inequality Since 1917](note:us-income-inequality-since-1917) — the U-shape; Gini ≈ 0.40 in the 1940s to ≈ 0.64 today\n- [Cross-Country Gini Comparison](note:cross-country-gini-comparison) — US 40th of 150 on family income\n- [US Top Income Shares by State 2015](note:us-top-income-shares-by-state-2015) — top 1% hold 22%; New York and Florida lead\n- [US Wage Percentiles 1963-2008](note:us-wage-percentiles-1963-2008) — the 90th pulls away from 1980\n- [US Skill Premium Since 1963](note:us-skill-premium-since-1963) — the bridge to Lecture 2"
+      },
+      {
+       "t": "prose",
+       "md": "Data: [IRS Individual Tax Data](note:irs-individual-tax-data), [Current Population Survey (CPS)](note:current-population-survey-cps)."
+      }
+     ],
+     "words": 77,
+     "symbols": []
+    },
+    {
+     "id": "4-facts-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "The US Gini is reported as 0.64 in one source and 45.0 in another. What explains the difference?",
+       "options": [
+        {
+         "md": "They agree: 45.0 is 0.64 written on a 0–100 scale",
+         "correct": false,
+         "feedback": "On a 0–100 scale 0.64 would be 64. 45.0 means 0.45, so the two figures really differ."
+        },
+        {
+         "md": "One of them is an error, since a Gini must lie between 0 and 1",
+         "correct": false,
+         "feedback": "Ginis are often reported multiplied by 100. 45.0 is a Gini of 0.45, a legitimate value."
+        },
+        {
+         "md": "Both use the same income, but the 0.64 comes from survey data that top-code the highest incomes",
+         "correct": false,
+         "feedback": "The 0.64 comes from tax returns, not a survey. And top-coding caps the highest incomes, which lowers a measured Gini rather than raising it."
+        },
+        {
+         "md": "They measure different things: 0.64 is the Gini of tax-unit income from tax returns; 45.0 is the Gini of family income, on a 0–100 scale (0.45)",
+         "correct": true
+        }
+       ],
+       "why": "The measure is the same, but the variable and the population are not. [US Income Inequality Since 1917](note:us-income-inequality-since-1917) uses tax-unit income from IRS returns, which cover the top of the distribution. [Cross-Country Gini Comparison](note:cross-country-gini-comparison) uses family income and reports the Gini times 100. Change the unit (tax unit or family) or the income definition, and the answer changes: 0.64 against 0.45.",
+       "objectives": [
+        5
+       ]
+      }
+     ],
+     "words": 96,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "math-refresher",
+   "heading": "Math refresher",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "math-refresher-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Math Prep L7 Approximations Logs and Series](note:math-prep-l7-approximations-logs-and-series) — log gaps, percentile ratios, variance of logs\n- [Math Prep L6 Optimization](note:math-prep-l6-optimization) — Jensen's inequality: mean of logs vs log of mean\n- [Math Prep L8 Integration for Probability](note:math-prep-l8-integration-for-probability) — Lorenz curve and Gini as integrals; lognormal wages"
+      }
+     ],
+     "words": 44,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Name the variable, population and measure in any inequality claim.\n2. Build a Lorenz curve and compute a Gini from a small table.\n3. Explain why the Lorenz curve is not a measure, and what it means when two curves cross.\n4. Say which measures decompose into within and between, and why the Gini does not.\n5. Explain why the US Gini is 0.64 in one source and 45.0 in another."
+      }
+     ],
+     "words": 74,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "next",
+   "heading": "Next",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "next-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Econ 424 L2 Between-Group Inequality](note:econ-424-l2-between-group-inequality) — the relative wage of two groups."
+      }
+     ],
+     "words": 11,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "defining-inequality",
+        "within-and-between-group-inequality",
+        "lorenz-curve",
+        "gini-coefficient",
+        "top-income-shares",
+        "percentile-ratios",
+        "coefficient-of-variation",
+        "variance-of-log-income",
+        "log-wage-gap",
+        "properties-of-inequality-measures",
+        "law-of-total-variance"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "facts-and-data-in-this-lecture",
+   "heading": "Facts and data in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "facts-and-data-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "facts",
+       "items": [
+        "us-income-inequality-since-1917",
+        "cross-country-gini-comparison",
+        "us-top-income-shares-by-state-2015",
+        "us-wage-percentiles-1963-2008",
+        "us-skill-premium-since-1963",
+        "irs-individual-tax-data",
+        "current-population-survey-cps"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

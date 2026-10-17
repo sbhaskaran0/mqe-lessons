@@ -1,0 +1,239 @@
+{
+ "slug": "quadratic-forms-and-definiteness",
+ "notation": [
+  {
+   "tex": "$A$",
+   "meaning": "Symmetric matrix",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "A"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{x}$, $\\mathbf{v}$",
+   "meaning": "Vectors",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(x)",
+    "bold(v)"
+   ]
+  },
+  {
+   "tex": "$q(\\mathbf{x}) = \\mathbf{x}'A\\mathbf{x}$",
+   "meaning": "Quadratic form",
+   "kind": "Number",
+   "typical": "—",
+   "keys": [
+    "q"
+   ]
+  },
+  {
+   "tex": "$\\lambda$",
+   "meaning": "Eigenvalues of $A$",
+   "kind": "Numbers",
+   "typical": "All positive for PD",
+   "keys": [
+    "lambda"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{X}$",
+   "meaning": "Regressor matrix",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "bold(X)"
+   ]
+  },
+  {
+   "tex": "$\\boldsymbol{\\varepsilon}$, $\\mathbf{M}$, $\\mathbf{e}$",
+   "meaning": "Errors, residual maker, residuals",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(varepsilon)",
+    "bold(M)",
+    "bold(e)"
+   ]
+  },
+  {
+   "tex": "$x$, $y$",
+   "meaning": "Choice variables in the example",
+   "kind": "Variables",
+   "typical": "—",
+   "keys": [
+    "x",
+    "y"
+   ],
+   "from": "unconstrained-optimization"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A quadratic form is a way of building a single number from a vector using a matrix — the multivariable version of a number times x squared. A matrix is positive definite if that number is positive for every nonzero vector, like a bowl that curves up in every direction. Checking definiteness tells you whether a critical point is a minimum or maximum, and whether a matrix behaves like a variance."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the second-order condition in optimisation, and the reason least squares has a unique minimum.",
+       "folded": false
+      }
+     ],
+     "words": 89,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "For symmetric $A$, the **quadratic form** is"
+      },
+      {
+       "t": "math",
+       "tex": "q(\\mathbf{x}) = \\mathbf{x}'A\\mathbf{x} = \\sum_i\\sum_j a_{ij}x_ix_j"
+      }
+     ],
+     "words": 6,
+     "symbols": [
+      "$A$",
+      "$\\mathbf{x}$, $\\mathbf{v}$",
+      "$q(\\mathbf{x}) = \\mathbf{x}'A\\mathbf{x}$",
+      "$x$, $y$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "definiteness",
+   "heading": "Definiteness",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "definiteness-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Name | Condition for all $\\mathbf{x}\\neq\\mathbf{0}$ | Eigenvalue test |\n| --- | --- | --- |\n| Positive definite (PD) | $\\mathbf{x}'A\\mathbf{x} > 0$ | all $\\lambda > 0$ |\n| Positive semidefinite (PSD) | $\\mathbf{x}'A\\mathbf{x} \\geq 0$ | all $\\lambda \\geq 0$ |\n| Negative definite (ND) | $\\mathbf{x}'A\\mathbf{x} < 0$ | all $\\lambda < 0$ |\n| Indefinite | takes both signs | mixed signs |"
+      },
+      {
+       "t": "prose",
+       "md": "**Leading principal minors test** (PD): the determinants of the top-left $1\\times1$, $2\\times2$, … submatrices are all positive. For ND they alternate in sign, starting negative."
+      }
+     ],
+     "words": 49,
+     "symbols": [
+      "$A$",
+      "$\\mathbf{x}$, $\\mathbf{v}$",
+      "$\\lambda$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$A = \\begin{pmatrix}2&1\\\\1&2\\end{pmatrix}$: $\\mathbf{x}'A\\mathbf{x} = 2x_1^2 + 2x_1x_2 + 2x_2^2$. Minors $2 > 0$ and $3 > 0$, eigenvalues 3 and 1: **PD**."
+      }
+     ],
+     "words": 7,
+     "symbols": [
+      "$A$",
+      "$\\mathbf{x}$, $\\mathbf{v}$",
+      "$x$, $y$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "xx-is-always-psd",
+   "heading": "X'X is always PSD",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "xx-is-always-psd-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "\\mathbf{v}'\\mathbf{X}'\\mathbf{X}\\mathbf{v} = (\\mathbf{X}\\mathbf{v})'(\\mathbf{X}\\mathbf{v}) = \\|\\mathbf{X}\\mathbf{v}\\|^2 \\geq 0"
+      },
+      {
+       "t": "prose",
+       "md": "It equals zero only if $\\mathbf{X}\\mathbf{v} = \\mathbf{0}$ for some $\\mathbf{v}\\neq\\mathbf{0}$ — i.e. only if the columns are dependent. So $\\mathbf{X}'\\mathbf{X}$ is **PD exactly under full rank**."
+      }
+     ],
+     "words": 22,
+     "symbols": [
+      "$\\mathbf{x}$, $\\mathbf{v}$",
+      "$\\mathbf{X}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Optimization**: second-order conditions — a PD Hessian means a minimum, ND a maximum ([Unconstrained Optimization](note:unconstrained-optimization), [Hessian Matrix](note:hessian-matrix)); convexity ([Convexity and Concavity](note:convexity-and-concavity)).\n- **Econometrics**: the OLS Hessian $2\\mathbf{X}'\\mathbf{X}$ is PD, so the normal equations give a minimum ([OLS in Matrix Form](note:ols-in-matrix-form)); covariance matrices are PSD; $\\mathbf{e}'\\mathbf{e} = \\boldsymbol{\\varepsilon}'\\mathbf{M}\\boldsymbol{\\varepsilon}$ is a quadratic form, which is why its distribution is chi-square ([Sampling Distribution of OLS](note:sampling-distribution-of-ols))."
+      }
+     ],
+     "words": 58,
+     "symbols": [
+      "$\\mathbf{X}$",
+      "$\\boldsymbol{\\varepsilon}$, $\\mathbf{M}$, $\\mathbf{e}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Spectral Decomposition](note:spectral-decomposition)\n- [Eigenvalues and Eigenvectors](note:eigenvalues-and-eigenvectors)"
+      }
+     ],
+     "words": 7,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

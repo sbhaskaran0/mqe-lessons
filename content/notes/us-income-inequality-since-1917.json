@@ -1,0 +1,90 @@
+{
+ "slug": "us-income-inequality-since-1917",
+ "notation": [],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**The US income Gini traces a U: high in the 1920s, a sharp compression into the 1940s, three flat decades, then a steady rise from about 1980 to well above the 1920s peak.**"
+      },
+      {
+       "t": "prose",
+       "md": "Values are read off the lecture's charts and are approximate."
+      },
+      {
+       "t": "table",
+       "md": "| Period | US Gini (tax units) | What happened |\n| --- | --- | --- |\n| 1917 | ≈ 0.51 | |\n| 1928–29 | ≈ 0.57 | Pre-Depression peak |\n| Early 1940s | ≈ 0.40 | Trough — the \"Great Compression\" |\n| 1950s–1970s | ≈ 0.43–0.47 | Slow drift up, no big moves |\n| 1980 | ≈ 0.48 | Start of the modern rise |\n| Late 1980s | ≈ 0.58 | Steepest climb |\n| 2000 | ≈ 0.60 | |\n| 2012–2015 | ≈ 0.64 | Above the 1929 peak |"
+      }
+     ],
+     "words": 107,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "states",
+   "heading": "States",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "states-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "California and New York follow the same U but sit higher:"
+      },
+      {
+       "t": "prose",
+       "md": "- **California**: trough ≈ 0.36 around 1940; ≈ 0.68 by the 2010s\n- **New York**: ≈ 0.65 in 1929; trough ≈ 0.42; ≈ 0.71 by the 2010s — the most unequal of the three"
+      }
+     ],
+     "words": 44,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "reading-it-correctly",
+   "heading": "Reading it correctly",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "reading-it-correctly-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "This is a Gini of **tax-unit income** over **tax filers** ([IRS Individual Tax Data](note:irs-individual-tax-data)). It is not comparable with survey-based family-income Ginis — see [Cross-Country Gini Comparison](note:cross-country-gini-comparison), where the US scores 45.0. Same country, different variable and population ([Defining Inequality](note:defining-inequality))."
+      }
+     ],
+     "words": 40,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Gini Coefficient](note:gini-coefficient)"
+      }
+     ],
+     "words": 3,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,457 @@
+{
+ "slug": "regression-diagnostics",
+ "notation": [
+  {
+   "tex": "$h_i$",
+   "meaning": "Leverage of observation $i$: how unusual its regressors are",
+   "kind": "Statistic",
+   "typical": "Flag if $> 2p/n$",
+   "keys": [
+    "h"
+   ]
+  },
+  {
+   "tex": "$t_i$",
+   "meaning": "Studentised residual: how badly observation $i$ is fitted",
+   "kind": "Statistic",
+   "typical": "Flag if $\\lvert t_i\\rvert > 2$",
+   "keys": [
+    "t"
+   ]
+  },
+  {
+   "tex": "$p$, $n$",
+   "meaning": "Number of parameters and of observations",
+   "kind": "Counts",
+   "typical": "—",
+   "keys": [
+    "p",
+    "n"
+   ]
+  },
+  {
+   "tex": "$D_i$",
+   "meaning": "Cook's distance: how much all fitted values move when observation $i$ is dropped",
+   "kind": "Statistic",
+   "typical": "Large relative to $4/n$",
+   "keys": [
+    "D"
+   ]
+  },
+  {
+   "tex": "$DFFITS_i$",
+   "meaning": "Change in observation $i$'s own fitted value when it is dropped, in standard errors",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "~DFFITS_i"
+   ]
+  },
+  {
+   "tex": "$LM$",
+   "meaning": "Breusch-Pagan statistic, $n$ times the $R^2$ of the squared residuals on the regressors",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "~LM"
+   ]
+  },
+  {
+   "tex": "$R^2$",
+   "meaning": "Coefficient of determination of that auxiliary regression",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "R"
+   ]
+  },
+  {
+   "tex": "$JB$",
+   "meaning": "Jarque-Bera statistic",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "~JB"
+   ]
+  },
+  {
+   "tex": "$y_i$, $x_i$",
+   "meaning": "Outcome and regressor",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "y",
+    "x"
+   ],
+   "from": "sr-assumptions"
+  },
+  {
+   "tex": "$\\mathbf{P} = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$",
+   "meaning": "Projection (hat) matrix: turns $\\mathbf{y}$ into fitted values",
+   "kind": "Matrix ($n\\times n$)",
+   "typical": "Trace $K$",
+   "keys": [
+    "bold(P)"
+   ],
+   "from": "projection-matrix-and-residual-maker"
+  },
+  {
+   "tex": "$B$",
+   "meaning": "Number of bootstrap repetitions",
+   "kind": "Choice",
+   "typical": "1,000 or more",
+   "keys": [
+    "B"
+   ],
+   "from": "bootstrapping-ols"
+  },
+  {
+   "tex": "$S$",
+   "meaning": "Skewness of the residuals (lopsidedness)",
+   "kind": "Statistic",
+   "typical": "0 for a normal",
+   "keys": [
+    "S"
+   ],
+   "from": "error-normality-and-jarque-bera"
+  },
+  {
+   "tex": "$T_{BC}(x,\\lambda)$",
+   "meaning": "Box-Cox transform",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "T"
+   ],
+   "from": "box-cox-and-power-transformations"
+  },
+  {
+   "tex": "$L_0$, $\\hat{L}$",
+   "meaning": "Log-likelihoods at those values",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "L",
+    "hat(L)"
+   ],
+   "from": "box-cox-and-power-transformations"
+  },
+  {
+   "tex": "$F^{-1}(\\cdot)$",
+   "meaning": "Quantile function of the reference distribution",
+   "kind": "Function",
+   "typical": "Standard normal by default",
+   "keys": [
+    "F"
+   ],
+   "from": "q-q-plot"
+  },
+  {
+   "tex": "$\\bar{x}$, $s$",
+   "meaning": "Sample mean and standard deviation, for the reference line",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "bar(x)",
+    "s"
+   ],
+   "from": "q-q-plot"
+  },
+  {
+   "tex": "$\\mathbf{x}$",
+   "meaning": "Vector",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(x)"
+   ],
+   "from": "trace-of-a-matrix"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Regression diagnostics are the checks you run after fitting a line to see whether you should believe it. Plots of the residuals reveal curvature the line missed, spreads that widen, or errors that are not bell-shaped. Leverage and outlier checks find individual observations that are unusual — either far from the others in their explanatory variables, or badly fitted — and flag the ones that are both, since those can single-handedly pull the line."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "A regression can produce precise-looking numbers while violating its own assumptions; diagnostics are how you catch that before someone else does.",
+       "folded": false
+      }
+     ],
+     "words": 96,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "the-7-step-ols-workflow",
+   "heading": "The 7-step OLS workflow",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-7-step-ols-workflow-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The lecture's worked example regresses hourly wage on experience for 526 workers (the `wage1` data), using the female indicator only to colour the plots. If asked \"how would you approach this dataset,\" this is the answer, in order."
+      },
+      {
+       "t": "prose",
+       "md": "1. **Inspect the data.** Missingness, ranges, implausible values.\n2. **Look at distributions.** Pairplot conditioned on the categorical variable — see [EDA for Regression](note:eda-for-regression). This is where you spot skew and group differences *before* fitting.\n3. **Fit the model.**\n4. **Evaluate.** Coefficients, standard errors, $t$ statistics, $R^2$, $F$ statistic.\n5. **Diagnostic plots.** Residuals vs fitted, QQ plot of residuals, residual-leverage, Box-Cox.\n6. **Bootstrap the estimates.** [Bootstrapping OLS](note:bootstrapping-ols) on slope, intercept and adjusted $R^2$.\n7. **Cross-validate.** [Cross-Validation](note:cross-validation) to confirm the model generalises."
+      }
+     ],
+     "words": 113,
+     "symbols": [
+      "$t_i$",
+      "$R^2$",
+      "$F^{-1}(\\cdot)$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "leverage-outliers-and-influence",
+   "heading": "Leverage, outliers and influence",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "leverage-outliers-and-influence-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Three different things. Mixing them up is a classic error."
+      },
+      {
+       "t": "table",
+       "md": "| Concept | Definition | Property of | Cut-off |\n| --- | --- | --- | --- |\n| **Leverage** | $h_i$, the $i$-th diagonal of $\\mathbf{P}$ | $x$ **alone** | $h_i > 2p/n$ |\n| **Outlier** | large studentised residual | $y$ given $x$ | $\\lvert t_i\\rvert > 2$ |\n| **Influential** | both at once | both | flagged on both tests |"
+      }
+     ],
+     "words": 39,
+     "symbols": [
+      "$h_i$",
+      "$t_i$",
+      "$p$, $n$",
+      "$y_i$, $x_i$",
+      "$\\mathbf{P} = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$"
+     ]
+    },
+    {
+     "id": "leverage-outliers-and-influence-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Leverage** measures how far $\\mathbf{x}_i$ sits from $\\bar{x}$ in the design space. It comes from the hat matrix — see [Projection Matrix and Residual Maker](note:projection-matrix-and-residual-maker) — and since $\\mathrm{trace}(\\mathbf{P}) = p$, leverages average $p/n$, which is where $2p/n$ comes from.\n- **High leverage alone is not a problem.** A point far from $\\bar{x}$ but sitting *on* the line is fitted well and distorts nothing. It has the *power* to be influential if the data changed, which is worth reporting.\n- **Influential** means both unusual in $x$ and badly fitted, so deleting it would visibly move the coefficients."
+      },
+      {
+       "t": "prose",
+       "md": "In the lecture's `resid_leverage_plot`: blue flags high leverage, red flags outliers, purple flags both."
+      }
+     ],
+     "words": 103,
+     "symbols": [
+      "$p$, $n$",
+      "$y_i$, $x_i$",
+      "$\\mathbf{P} = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$",
+      "$\\bar{x}$, $s$",
+      "$\\mathbf{x}$"
+     ]
+    },
+    {
+     "id": "leverage-outliers-and-influence-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "In the wage example, $2p/n = 2 \\times 2/526 = 0.0076$. Many high earners are flagged as outliers (studentized residuals up to about ≈ 5) and the most experienced workers as high-leverage, but almost no worker is both."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Wage on experience - outlier and leverage diagnostics.png",
+       "alt": "Wage on experience - outlier and leverage diagnostics"
+      }
+     ],
+     "words": 30,
+     "symbols": [
+      "$p$, $n$"
+     ]
+    },
+    {
+     "id": "leverage-outliers-and-influence-4",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Influence measures** put the two together. Cook's distance $D_i$ measures how far all the fitted values move when observation $i$ is dropped; $DFFITS_i$ measures how far its own fitted value moves. statsmodels' `influence_plot` sizes each point's bubble by one of them, so the big bubbles are the observations to check (common cut-offs such as $D_i > 4/n$ are beyond the lecture)."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Wage on experience - influence plot with Cook's distance.png",
+       "alt": "Wage on experience - influence plot with Cook's distance"
+      }
+     ],
+     "words": 56,
+     "symbols": [
+      "$p$, $n$",
+      "$D_i$",
+      "$DFFITS_i$",
+      "$S$",
+      "$T_{BC}(x,\\lambda)$",
+      "$F^{-1}(\\cdot)$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "what-each-plot-checks",
+   "heading": "What each plot checks",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-each-plot-checks-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Plot | Checks |\n| --- | --- |\n| Residuals vs fitted | Nonlinearity (**curvature**), heteroskedasticity (**fanning**), outliers |\n| QQ plot of residuals | Normality — [Error Normality and Jarque-Bera](note:error-normality-and-jarque-bera), matters for small-sample inference only |\n| Residual vs leverage | Influential observations |\n| Box-Cox on the response | Whether a power transformation would help — [Box-Cox and Power Transformations](note:box-cox-and-power-transformations) |\n| Actual vs predicted | Overall fit; systematic over/under-prediction at the extremes |"
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Crime rate on density - four diagnostic plots.png",
+       "alt": "Crime rate on density - four diagnostic plots"
+      }
+     ],
+     "words": 56,
+     "symbols": []
+    },
+    {
+     "id": "what-each-plot-checks-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The four standard plots for the crime-rate regression: the residuals fan out as fitted values rise, the scale-location plot trends up and the Q-Q plot bends up at the right end, so the errors are heteroskedastic and right-skewed (its Jarque-Bera statistic is 19,209)."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Wage on experience - observed and residuals against predicted.png",
+       "alt": "Wage on experience - observed and residuals against predicted"
+      }
+     ],
+     "words": 44,
+     "symbols": []
+    },
+    {
+     "id": "what-each-plot-checks-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "For wage on experience the lowess curve in the residual plot bends down at high predicted wages: a straight line misses the flattening of wages late in a career."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Wage on experience - normal probability plot of residuals.png",
+       "alt": "Wage on experience - normal probability plot of residuals"
+      },
+      {
+       "t": "prose",
+       "md": "Its residuals' probability plot is convex, above the line at both ends: right skew ([Q-Q Plot](note:q-q-plot))."
+      }
+     ],
+     "words": 45,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "formal-tests-in-the-workflow",
+   "heading": "Formal tests in the workflow",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "formal-tests-in-the-workflow-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Step 4 of the workflow backs the plots with three tests. Each has \"the assumption holds\" as its null, so a small p-value is evidence of a problem."
+      },
+      {
+       "t": "table",
+       "md": "| Test | Null hypothesis | Wage on experience | Conclusion at 5% |\n| --- | --- | --- | --- |\n| Harvey-Collier | The relationship is linear | $t = -3.25$, $p = 0.0012$ | Reject: the fit misses curvature |\n| Jarque-Bera | The residuals are normal | $JB = 851.5$, $p \\approx 0$; skewness 1.96, kurtosis 7.84 | Reject: right-skewed, heavy-tailed residuals |\n| Breusch-Pagan | The error variance is constant | $LM = 5.74$, $p = 0.017$ | Reject: heteroskedasticity, so use robust standard errors |"
+      }
+     ],
+     "words": 79,
+     "symbols": [
+      "$t_i$",
+      "$p$, $n$",
+      "$LM$",
+      "$JB$",
+      "$B$",
+      "$L_0$, $\\hat{L}$"
+     ]
+    },
+    {
+     "id": "formal-tests-in-the-workflow-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The Breusch-Pagan test regresses the squared residuals on the regressors; a large $LM = nR^2$ from that auxiliary regression means the spread of the errors moves with $x$ (the mechanics are beyond the lecture, which only runs the test). What the failure breaks and what it leaves alone is in [Homoskedasticity](note:homoskedasticity)."
+      }
+     ],
+     "words": 47,
+     "symbols": [
+      "$p$, $n$",
+      "$LM$",
+      "$R^2$",
+      "$y_i$, $x_i$",
+      "$L_0$, $\\hat{L}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "reading-violations-off-a-plot",
+   "heading": "Reading violations off a plot",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "reading-violations-off-a-plot-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| What you see | Likely cause | Fix |\n| --- | --- | --- |\n| U or inverted-U in residuals vs fitted | Missing nonlinear term; SR1/SR2 failure | Add $x^2$, or transform |\n| Cone / fan widening with fitted values | Heteroskedasticity; SR3 failure | Robust SEs, or log $y$ |\n| Heavy tails in the QQ plot | Non-normal errors; SR6 failure | Bootstrap, or transform |\n| LOWESS smoother diverging from the OLS line | Wrong functional form | [Functional Forms and Elasticities](note:functional-forms-and-elasticities) |"
+      }
+     ],
+     "words": 65,
+     "symbols": [
+      "$y_i$, $x_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Math background: [Trace of a Matrix](note:trace-of-a-matrix)\n- [SR Assumptions](note:sr-assumptions)\n- [EDA for Regression](note:eda-for-regression)\n\n- [Q-Q Plot](note:q-q-plot) · [Lowess Smoother](note:lowess-smoother) · [Hypothesis Tests on Regression Coefficients](note:hypothesis-tests-on-regression-coefficients) · [Skewness and Kurtosis](note:skewness-and-kurtosis)"
+      }
+     ],
+     "words": 27,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

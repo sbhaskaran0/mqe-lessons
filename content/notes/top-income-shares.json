@@ -1,0 +1,153 @@
+{
+ "slug": "top-income-shares",
+ "notation": [
+  {
+   "tex": "$x$",
+   "meaning": "Size of the top group, as a share of the population",
+   "kind": "Choice",
+   "typical": "0.10, 0.01, 0.001",
+   "keys": [
+    "x"
+   ]
+  },
+  {
+   "tex": "$L(\\cdot)$",
+   "meaning": "Lorenz curve: income share of the bottom fraction",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "L"
+   ]
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A top income share is the fraction of all income that goes to the richest slice of the population — the top ten percent, top one percent or top tenth of one percent. If the top one percent receive twenty-two percent of income, they earn twenty-two times their population share. These measures are popular because they are easy to understand and because tax records capture the very top well, which is where most of the recent rise in inequality has happened."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "They are the headline numbers in public debates about inequality, and they reveal concentration at the top that broader measures can blur.",
+       "folded": false
+      }
+     ],
+     "words": 105,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The share of total income held by the top $x\\%$ of the population — e.g. top 10%, top 1%, top 0.1%."
+      },
+      {
+       "t": "math",
+       "tex": "\\text{Top } x\\% \\text{ share} = 1 - L(1 - x)"
+      },
+      {
+       "t": "prose",
+       "md": "It is one point on the [Lorenz Curve](note:lorenz-curve), read from the right end."
+      }
+     ],
+     "words": 34,
+     "symbols": [
+      "$x$",
+      "$L(\\cdot)$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "why-economists-use-it",
+   "heading": "Why economists use it",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "why-economists-use-it-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Directly interpretable**: \"the top 1% hold 22% of income.\"\n- **Measurable from tax data**, which captures the top of the distribution well. Surveys like the [Current Population Survey (CPS)](note:current-population-survey-cps) top-code high earnings and under-sample the rich.\n- **Focuses on where the action is**: most of the rise in US inequality since 1980 shows up at the very top."
+      }
+     ],
+     "words": 59,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "limitations",
+   "heading": "Limitations",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "limitations-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Says **nothing** about inequality within the bottom $1 - x$. A transfer between the poorest and the median leaves it unchanged.\n- Depends on the unit (individual vs tax unit vs household) and the income concept (pre/post-tax, with or without capital gains)."
+      }
+     ],
+     "words": 41,
+     "symbols": [
+      "$x$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "thresholds",
+   "heading": "Thresholds",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "thresholds-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Each share comes with a **threshold** — the income needed to enter the group. US 2015: about \\$125k for the top 10%, \\$443k for the top 1%, \\$2.0m for the top 0.1%. See [US Top Income Shares by State 2015](note:us-top-income-shares-by-state-2015)."
+      }
+     ],
+     "words": 41,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Percentile Ratios](note:percentile-ratios)\n- [Properties of Inequality Measures](note:properties-of-inequality-measures)\n- [IRS Individual Tax Data](note:irs-individual-tax-data)"
+      }
+     ],
+     "words": 13,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

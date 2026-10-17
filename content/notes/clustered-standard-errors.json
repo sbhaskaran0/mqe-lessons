@@ -1,0 +1,234 @@
+{
+ "slug": "clustered-standard-errors",
+ "notation": [
+  {
+   "tex": "$g$, $G$",
+   "meaning": "Cluster index and number of clusters",
+   "kind": "Index / data",
+   "typical": "27 states; 3-digit industries",
+   "keys": [
+    "g",
+    "G"
+   ]
+  },
+  {
+   "tex": "$X$, $X_g$",
+   "meaning": "Regressor matrix, and its rows for cluster $g$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "X"
+   ]
+  },
+  {
+   "tex": "$\\hat{\\mathbf{e}}_g$",
+   "meaning": "OLS residuals for cluster $g$",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "hat(bold(e))"
+   ]
+  },
+  {
+   "tex": "$\\hat\\beta$",
+   "meaning": "OLS coefficient estimate",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "hat(beta)"
+   ]
+  },
+  {
+   "tex": "$m$",
+   "meaning": "Observations per cluster",
+   "kind": "Data",
+   "typical": "20 in the example",
+   "keys": [
+    "m"
+   ]
+  },
+  {
+   "tex": "$\\rho_x$",
+   "meaning": "Within-cluster correlation of the regressor",
+   "kind": "Statistic in [0, 1]",
+   "typical": "1 if the regressor varies only by cluster",
+   "keys": [
+    "rho"
+   ]
+  },
+  {
+   "tex": "$\\rho_e$",
+   "meaning": "Within-cluster correlation of the errors",
+   "kind": "Statistic",
+   "typical": "0.1 in the example",
+   "keys": [
+    "rho"
+   ]
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Ordinary standard errors assume every observation brings independent information. But workers in the same industry, or regions in the same state, are hit by the same shocks, so their errors move together. Ten thousand workers from twenty industries do not carry ten thousand independent pieces of information about an industry-level shock — closer to twenty. Treating them as independent makes estimates look far more precise than they are. Clustering fixes this by letting errors be correlated in any way within a group, while assuming independence across groups."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "Without it, studies using regional or industry-level variation routinely report \"significant\" effects that are just noise.",
+       "folded": false
+      }
+     ],
+     "words": 105,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "For clusters $g = 1, \\dots, G$, the cluster-robust variance of the OLS estimator is"
+      },
+      {
+       "t": "math",
+       "tex": "\\widehat{\\mathrm{Var}}(\\hat\\beta) = (X'X)^{-1}\\Big(\\sum_{g=1}^{G} X_g'\\hat{\\mathbf{e}}_g\\hat{\\mathbf{e}}_g'X_g\\Big)(X'X)^{-1}"
+      },
+      {
+       "t": "prose",
+       "md": "With equal cluster sizes $m$, the ratio of correct to conventional standard errors is approximately"
+      },
+      {
+       "t": "math",
+       "tex": "\\sqrt{1 + (m - 1)\\rho_x\\rho_e}"
+      }
+     ],
+     "words": 24,
+     "symbols": [
+      "$g$, $G$",
+      "$X$, $X_g$",
+      "$\\hat{\\mathbf{e}}_g$",
+      "$\\hat\\beta$",
+      "$m$",
+      "$\\rho_x$",
+      "$\\rho_e$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A regressor that varies only at the cluster level ($\\rho_x = 1$), errors with within-cluster correlation $\\rho_e = 0.1$, and 20 observations per cluster: the standard error is understated by a factor of $\\sqrt{1 + 19 \\times 0.1} = 1.70$. A t-statistic of 3.4 under conventional errors is really about 2.0."
+      }
+     ],
+     "words": 40,
+     "symbols": [
+      "$\\rho_x$",
+      "$\\rho_e$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "choosing-the-cluster-level",
+   "heading": "Choosing the cluster level",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "choosing-the-cluster-level-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Cluster at the level of the **variation in the treatment** — if exposure is measured by industry, cluster by industry (or a coarser grouping such as 3-digit industries, since closely related industries share shocks).\n- Cluster where shocks are plausibly **correlated**: regions within a state, workers within a firm or industry.\n- When in doubt, cluster more coarsely; the cost is wider (honest) intervals."
+      },
+      {
+       "t": "callout",
+       "kind": "note",
+       "title": "Beyond the lecture",
+       "md": "Cluster-robust inference needs many clusters (a rough rule is 40–50 or more); with few, use wild cluster bootstrap. For shift-share designs, units with similar industry shares have correlated errors even across clusters, which motivates exposure-robust standard errors.",
+       "folded": false
+      }
+     ],
+     "words": 105,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Clustering at a finer level than the treatment varies (e.g. by worker when exposure is by industry).\n- Thinking clustering changes the coefficient — it changes only the standard errors.\n- Ignoring correlation over time within a unit in panel data; clustering by unit handles it."
+      }
+     ],
+     "words": 47,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Any regression with grouped data: regional, industry, firm or school-level shocks; panels with repeated observations per unit."
+      }
+     ],
+     "words": 18,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [OLS Estimator](note:ols-estimator) · [Homoskedasticity](note:homoskedasticity) · [Fixed Effects Regression](note:fixed-effects-regression) · [Difference-in-Differences](note:difference-in-differences) · [Shift-Share Instrument](note:shift-share-instrument)"
+      }
+     ],
+     "words": 10,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

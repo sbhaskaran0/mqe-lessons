@@ -1,0 +1,166 @@
+{
+ "slug": "small-open-economy",
+ "notation": [
+  {
+   "tex": "$j$",
+   "meaning": "Traded good",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "j"
+   ]
+  },
+  {
+   "tex": "$p_j$",
+   "meaning": "Domestic price of good $j$",
+   "kind": "Endogenous in a closed economy; exogenous here",
+   "typical": "—",
+   "keys": [
+    "p"
+   ]
+  },
+  {
+   "tex": "$p_j^{W}$",
+   "meaning": "World price of good $j$",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "~p_j^W"
+   ]
+  },
+  {
+   "tex": "$r^{W}$",
+   "meaning": "World interest rate (open-economy macro)",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "~r^W"
+   ]
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A small open economy trades with the rest of the world but is too small for its own choices to move world prices. Think of a single farmer selling wheat in a global market: however much or little she grows, the price of wheat is set elsewhere. In the same way, a small country can sell as many planes or import as much cloth as it likes at the going world price. That makes life simple for an analyst: changes in world prices — from a trade deal, a tariff abroad or a new competitor — arrive from outside, and the question is only how the economy responds to them."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "Treating prices as given turns trade shocks into exogenous price changes, which is what lets simple models trace them to wages and incomes.",
+       "folded": false
+      }
+     ],
+     "words": 134,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "An economy whose demand and supply are negligible relative to world markets, so the prices of traded goods are exogenous to it:"
+      },
+      {
+       "t": "math",
+       "tex": "p_j = p_j^{W} \\quad \\text{for every traded good } j"
+      }
+     ],
+     "words": 22,
+     "symbols": [
+      "$j$",
+      "$p_j$",
+      "$p_j^{W}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "properties",
+   "heading": "Properties",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "properties-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| | Small open economy | Large or closed economy |\n| --- | --- | --- |\n| Prices of traded goods | Given by world markets | Set by domestic supply and demand |\n| Effect of its own tariff on world prices | None | Can improve its terms of trade |\n| Domestic shocks | Change quantities traded, not prices | Change prices |\n| Trade shocks | Arrive as exogenous price changes | Partly absorbed by price adjustments |"
+      }
+     ],
+     "words": 60,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Assuming non-traded goods (haircuts, housing) also have world prices — only traded goods do.\n- Applying small-economy results to a large economy such as the US without checking whether its choices move world prices; models often make the assumption for tractability, not realism."
+      }
+     ],
+     "words": 43,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Trade: specific-factors and Heckscher-Ohlin analysis of price shocks ([Specific-Factors Model](note:specific-factors-model)).\n- Open-economy macro: a given world interest rate pins down capital flows."
+      }
+     ],
+     "words": 23,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Specific-Factors Model](note:specific-factors-model) · [Endogenous and Exogenous Variables](note:endogenous-and-exogenous-variables)"
+      }
+     ],
+     "words": 7,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

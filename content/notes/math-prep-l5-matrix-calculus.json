@@ -1,0 +1,396 @@
+{
+ "slug": "math-prep-l5-matrix-calculus",
+ "notation": [
+  {
+   "tex": "$\\mathbf{x}$, $\\mathbf{a}$",
+   "meaning": "Column vectors",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(x)",
+    "bold(a)"
+   ],
+   "from": "matrix-calculus"
+  },
+  {
+   "tex": "$A$",
+   "meaning": "Square matrix",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "A"
+   ],
+   "from": "matrix-calculus"
+  },
+  {
+   "tex": "$K$",
+   "meaning": "Length of the vector",
+   "kind": "Count",
+   "typical": "—",
+   "keys": [
+    "K"
+   ],
+   "from": "matrix-calculus"
+  },
+  {
+   "tex": "$\\mathbf{b}$, $\\mathbf{e}$",
+   "meaning": "OLS coefficients and residuals",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(b)",
+    "bold(e)"
+   ],
+   "from": "matrix-calculus"
+  },
+  {
+   "tex": "$\\mathbf{X}$, $\\mathbf{y}$",
+   "meaning": "Regressors and outcome",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "bold(X)",
+    "bold(y)"
+   ],
+   "from": "matrix-calculus"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Matrix calculus is ordinary calculus done one element at a time and then stacked. Two rules — linear forms and quadratic forms — cover the derivation of OLS, and the same pattern returns in GLS, maximum likelihood and GMM.**"
+      }
+     ],
+     "words": 37,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "1-the-two-rules",
+   "heading": "1. The two rules",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-the-two-rules-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Matrix Calculus](note:matrix-calculus): the derivative of a scalar with respect to a $K\\times1$ vector is the $K\\times1$ gradient. $\\partial(\\mathbf{a}'\\mathbf{x})/\\partial\\mathbf{x} = \\mathbf{a}$ (the analogue of $d(ax)/dx = a$) and $\\partial(\\mathbf{x}'A\\mathbf{x})/\\partial\\mathbf{x} = (A + A')\\mathbf{x}$, which is $2A\\mathbf{x}$ for symmetric $A$ (the analogue of $d(ax^2)/dx = 2ax$)."
+      }
+     ],
+     "words": 26,
+     "symbols": [
+      "$\\mathbf{x}$, $\\mathbf{a}$",
+      "$A$",
+      "$K$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "2-deriving-ols",
+   "heading": "2. Deriving OLS",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-deriving-ols-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Expand $\\mathbf{e}'\\mathbf{e} = \\mathbf{y}'\\mathbf{y} - 2\\mathbf{b}'\\mathbf{X}'\\mathbf{y} + \\mathbf{b}'\\mathbf{X}'\\mathbf{X}\\mathbf{b}$ and apply one rule per term:"
+      },
+      {
+       "t": "math",
+       "tex": "\\frac{\\partial\\,\\mathbf{e}'\\mathbf{e}}{\\partial\\mathbf{b}} = -2\\mathbf{X}'\\mathbf{y} + 2\\mathbf{X}'\\mathbf{X}\\mathbf{b} = \\mathbf{0}"
+      },
+      {
+       "t": "prose",
+       "md": "The solution is [OLS in Matrix Form](note:ols-in-matrix-form); the Hessian $2\\mathbf{X}'\\mathbf{X}$ is positive definite under full rank (Unit 3), so it is a minimum. This is the \"digression on multivariate calculus\" in [Econ 430 L7 The Classical Linear Regression Model](note:econ-430-l7-the-classical-linear-regression-model), with the second-order condition filled in."
+      }
+     ],
+     "words": 51,
+     "symbols": [
+      "$\\mathbf{b}$, $\\mathbf{e}$",
+      "$\\mathbf{X}$, $\\mathbf{y}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "3-checking-your-work",
+   "heading": "3. Checking your work",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "3-checking-your-work-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Write dimensions under each term: a scalar differentiated by a $K\\times1$ vector must give $K\\times1$. If you get a $1\\times K$ row, you have the transpose."
+      }
+     ],
+     "words": 22,
+     "symbols": [
+      "$K$"
+     ]
+    },
+    {
+     "id": "3-checking-your-work-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "A classmate differentiates $\\mathbf{e}'\\mathbf{e}$ with respect to $\\mathbf{b}$ and writes $-2\\mathbf{y}'\\mathbf{X} + 2\\mathbf{b}'\\mathbf{X}'\\mathbf{X}$. What does the dimension check say?",
+       "options": [
+        {
+         "md": "Each term is $1\\times K$, a row, so this is the transpose of the gradient",
+         "correct": true
+        },
+        {
+         "md": "Each term is $K\\times1$, so this is the gradient written another way",
+         "correct": false,
+         "feedback": "$\\mathbf{y}'$ is a row, so $\\mathbf{y}'\\mathbf{X}$ is a row too, and $\\mathbf{b}'\\mathbf{X}'\\mathbf{X}$ is $(1\\times K)(K\\times K) = 1\\times K$. The $K\\times1$ terms are $\\mathbf{X}'\\mathbf{y}$ and $\\mathbf{X}'\\mathbf{X}\\mathbf{b}$."
+        },
+        {
+         "md": "Each term is $K\\times K$, so this is the Hessian",
+         "correct": false,
+         "feedback": "A row vector times a matrix gives a row vector, not a square matrix. The Hessian $2\\mathbf{X}'\\mathbf{X}$ contains neither $\\mathbf{b}$ nor $\\mathbf{y}$."
+        },
+        {
+         "md": "Each term is a scalar, like $\\mathbf{e}'\\mathbf{e}$ itself",
+         "correct": false,
+         "feedback": "$\\mathbf{y}'\\mathbf{X}$ has one entry per column of $\\mathbf{X}$, so it is $1\\times K$, not $1\\times1$. Differentiating a scalar by a $K\\times1$ vector never leaves a scalar."
+        }
+       ],
+       "why": "$\\mathbf{y}'\\mathbf{X}$ and $\\mathbf{b}'\\mathbf{X}'\\mathbf{X} = (1\\times K)(K\\times K)$ are both $1\\times K$ rows. A scalar differentiated by the $K\\times1$ vector $\\mathbf{b}$ must give $K\\times1$, so the classmate has the transpose of $-2\\mathbf{X}'\\mathbf{y} + 2\\mathbf{X}'\\mathbf{X}\\mathbf{b}$.",
+       "objectives": [
+        4
+       ]
+      }
+     ],
+     "words": 53,
+     "symbols": [
+      "$K$",
+      "$\\mathbf{b}$, $\\mathbf{e}$",
+      "$\\mathbf{X}$, $\\mathbf{y}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "self-check",
+   "heading": "Self-check",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "self-check-1",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "1. $\\partial(\\mathbf{a}'\\mathbf{x})/\\partial\\mathbf{x}$?",
+       "options": [
+        {
+         "md": "$\\mathbf{a}'$",
+         "correct": false,
+         "feedback": "$\\mathbf{a}'$ is a $1\\times K$ row. A scalar differentiated by a $K\\times1$ vector gives a $K\\times1$ column, so $\\mathbf{a}'$ is the transpose of the answer."
+        },
+        {
+         "md": "$2\\mathbf{a}$",
+         "correct": false,
+         "feedback": "The factor 2 belongs to the quadratic form, the analogue of $d(ax^2)/dx = 2ax$. $\\mathbf{a}'\\mathbf{x}$ is linear in $\\mathbf{x}$, the analogue of $d(ax)/dx = a$."
+        },
+        {
+         "md": "$\\mathbf{a}$",
+         "correct": true
+        },
+        {
+         "md": "$\\mathbf{x}$",
+         "correct": false,
+         "feedback": "$\\mathbf{x}$ is the vector you differentiate with respect to. As in $d(ax)/dx = a$, the derivative of a linear form is its coefficient, not the variable."
+        }
+       ],
+       "why": "$\\mathbf{a}$. Element by element, $\\mathbf{a}'\\mathbf{x} = a_1x_1 + \\dots + a_Kx_K$ has derivative $a_k$ with respect to $x_k$, and stacking the $K$ derivatives gives the $K\\times1$ vector $\\mathbf{a}$. → [Matrix Calculus](note:matrix-calculus)",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 1,
+     "symbols": [
+      "$\\mathbf{x}$, $\\mathbf{a}$",
+      "$K$"
+     ]
+    },
+    {
+     "id": "self-check-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "2. For $A = \\begin{pmatrix}1&2\\\\0&3\\end{pmatrix}$ and $\\mathbf{x} = (1, 2)'$, compute $\\partial(\\mathbf{x}'A\\mathbf{x})/\\partial\\mathbf{x}$. What is its second entry?",
+       "answer": 14.0,
+       "tol": 0.01,
+       "wrong": [
+        {
+         "answer": 12.0,
+         "tol": 0.0,
+         "md": "that is the second entry of $2A\\mathbf{x} = (10, 12)'$; the shortcut $2A\\mathbf{x}$ needs $A$ symmetric, and this $A$ is not"
+        },
+        {
+         "answer": 8.0,
+         "tol": 0.0,
+         "md": "that is only $A'\\mathbf{x} = (1, 8)'$; the rule adds $A\\mathbf{x}$ as well"
+        },
+        {
+         "answer": 17.0,
+         "tol": 0.0,
+         "md": "that is the value of $\\mathbf{x}'A\\mathbf{x}$ itself, a scalar; the question asks for its derivative"
+        }
+       ],
+       "why": "$(A + A')\\mathbf{x} = \\begin{pmatrix}2&2\\\\2&6\\end{pmatrix}(1,2)' = (6, 14)'$, so the second entry is $2 + 12 = 14$. Note $2A\\mathbf{x} = (10, 12)'$ is **wrong** because $A$ is not symmetric. → [Matrix Calculus](note:matrix-calculus)",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 9,
+     "symbols": [
+      "$\\mathbf{x}$, $\\mathbf{a}$",
+      "$A$"
+     ]
+    },
+    {
+     "id": "self-check-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "3. Derive the normal equations from $\\mathbf{e}'\\mathbf{e}$. Which equation do you reach?",
+       "options": [
+        {
+         "md": "$\\mathbf{X}'\\mathbf{X}\\mathbf{b} = 2\\mathbf{X}'\\mathbf{y}$",
+         "correct": false,
+         "feedback": "That drops the 2 from the quadratic term. $\\mathbf{b}'\\mathbf{X}'\\mathbf{X}\\mathbf{b}$ is a quadratic form with $\\mathbf{X}'\\mathbf{X}$ symmetric, so its derivative is $2\\mathbf{X}'\\mathbf{X}\\mathbf{b}$. Both terms carry a 2, and the 2s cancel."
+        },
+        {
+         "md": "$\\mathbf{X}'\\mathbf{X}\\mathbf{b} = \\mathbf{X}'\\mathbf{y}$",
+         "correct": true
+        },
+        {
+         "md": "$\\mathbf{X}'\\mathbf{X}\\mathbf{b} = -\\mathbf{X}'\\mathbf{y}$",
+         "correct": false,
+         "feedback": "The cross term is $-2\\mathbf{b}'\\mathbf{X}'\\mathbf{y}$, with derivative $-2\\mathbf{X}'\\mathbf{y}$. Setting the gradient to $\\mathbf{0}$ moves it to the other side with a plus sign."
+        },
+        {
+         "md": "$\\mathbf{X}\\mathbf{X}'\\mathbf{b} = \\mathbf{X}'\\mathbf{y}$",
+         "correct": false,
+         "feedback": "$\\mathbf{X}\\mathbf{X}'$ has a row and a column for every observation, so it cannot multiply the $K\\times1$ vector $\\mathbf{b}$. The quadratic term is $\\mathbf{b}'\\mathbf{X}'\\mathbf{X}\\mathbf{b}$, with the $K\\times K$ matrix $\\mathbf{X}'\\mathbf{X}$ in the middle."
+        }
+       ],
+       "why": "Expand $\\mathbf{e}'\\mathbf{e} = \\mathbf{y}'\\mathbf{y} - 2\\mathbf{b}'\\mathbf{X}'\\mathbf{y} + \\mathbf{b}'\\mathbf{X}'\\mathbf{X}\\mathbf{b}$ and differentiate term by term: $\\mathbf{y}'\\mathbf{y}$ does not depend on $\\mathbf{b}$, the linear term gives $-2\\mathbf{X}'\\mathbf{y}$ and the quadratic term gives $2\\mathbf{X}'\\mathbf{X}\\mathbf{b}$. So $-2\\mathbf{X}'\\mathbf{y} + 2\\mathbf{X}'\\mathbf{X}\\mathbf{b} = \\mathbf{0}$, so $\\mathbf{X}'\\mathbf{X}\\mathbf{b} = \\mathbf{X}'\\mathbf{y}$. → [OLS in Matrix Form](note:ols-in-matrix-form)",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 11,
+     "symbols": [
+      "$K$",
+      "$\\mathbf{b}$, $\\mathbf{e}$",
+      "$\\mathbf{X}$, $\\mathbf{y}$"
+     ]
+    },
+    {
+     "id": "self-check-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "4. What is the Hessian of $\\mathbf{e}'\\mathbf{e}$, and why does it guarantee a minimum?",
+       "options": [
+        {
+         "md": "$2\\mathbf{X}'\\mathbf{X}$; it is symmetric, and a symmetric Hessian guarantees a minimum",
+         "correct": false,
+         "feedback": "Symmetry does not settle the sign of the curvature. A minimum needs the Hessian positive definite, and the lecture gets that from full column rank of $\\mathbf{X}$."
+        },
+        {
+         "md": "$2\\mathbf{X}\\mathbf{X}'$; positive definite when $\\mathbf{X}$ has full column rank",
+         "correct": false,
+         "feedback": "The Hessian is the derivative of the $K\\times1$ gradient with respect to the $K\\times1$ vector $\\mathbf{b}$, so it is $K\\times K$. $\\mathbf{X}\\mathbf{X}'$ has a row and a column for every observation."
+        },
+        {
+         "md": "$2\\mathbf{X}'\\mathbf{X}$; $\\mathbf{b}'\\mathbf{X}'\\mathbf{X}\\mathbf{b} = (\\mathbf{X}\\mathbf{b})'(\\mathbf{X}\\mathbf{b}) \\ge 0$, so it is positive definite for every $\\mathbf{X}$",
+         "correct": false,
+         "feedback": "$\\ge 0$ still allows $(\\mathbf{X}\\mathbf{b})'(\\mathbf{X}\\mathbf{b}) = 0$ for some $\\mathbf{b} \\ne \\mathbf{0}$, so it does not give positive definiteness. That needs $\\mathbf{X}$ to have full column rank."
+        },
+        {
+         "md": "$2\\mathbf{X}'\\mathbf{X}$; positive definite when $\\mathbf{X}$ has full column rank",
+         "correct": true
+        }
+       ],
+       "why": "$2\\mathbf{X}'\\mathbf{X}$, positive definite when $\\mathbf{X}$ has full column rank. Differentiating the gradient $-2\\mathbf{X}'\\mathbf{y} + 2\\mathbf{X}'\\mathbf{X}\\mathbf{b}$ again, the first term does not depend on $\\mathbf{b}$ and the second gives $2\\mathbf{X}'\\mathbf{X}$. A positive definite Hessian makes the stationary point a minimum. → [Quadratic Forms and Definiteness](note:quadratic-forms-and-definiteness)",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 44,
+     "symbols": [
+      "$K$",
+      "$\\mathbf{b}$, $\\mathbf{e}$",
+      "$\\mathbf{X}$, $\\mathbf{y}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Differentiate linear and quadratic forms with respect to a vector.\n2. Derive the OLS normal equations and solution from scratch.\n3. State and verify the second-order condition.\n4. Check every derivative's dimensions."
+      }
+     ],
+     "words": 33,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "matrix-calculus"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,354 @@
+{
+ "slug": "constrained-optimization-and-lagrange-multipliers",
+ "notation": [
+  {
+   "tex": "$f(\\mathbf{x})$",
+   "meaning": "Objective (e.g. utility)",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "f"
+   ]
+  },
+  {
+   "tex": "$g(\\mathbf{x}) = c$",
+   "meaning": "Constraint (e.g. budget)",
+   "kind": "Function / limit",
+   "typical": "—",
+   "keys": [
+    "g"
+   ]
+  },
+  {
+   "tex": "$\\mathcal{L}$",
+   "meaning": "Lagrangian",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "cal(L)"
+   ]
+  },
+  {
+   "tex": "$\\lambda$",
+   "meaning": "Lagrange multiplier: shadow price of the constraint",
+   "kind": "Endogenous",
+   "typical": "0.02 in the example",
+   "keys": [
+    "lambda"
+   ]
+  },
+  {
+   "tex": "$f_i$, $g_i$",
+   "meaning": "Partial derivatives",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "f",
+    "g"
+   ]
+  },
+  {
+   "tex": "$V$",
+   "meaning": "Maximised value",
+   "kind": "Endogenous",
+   "typical": "5.521 in the example",
+   "keys": [
+    "V"
+   ]
+  },
+  {
+   "tex": "$p_x$, $p_y$, $m$",
+   "meaning": "Prices and income in the example",
+   "kind": "Parameters",
+   "typical": "2, 5, 100",
+   "keys": [
+    "p",
+    "m"
+   ]
+  },
+  {
+   "tex": "$x$, $y$",
+   "meaning": "Quantities chosen",
+   "kind": "Endogenous",
+   "typical": "25, 10",
+   "keys": [
+    "x",
+    "y"
+   ]
+  },
+  {
+   "tex": "$MU_x$, $MU_y$",
+   "meaning": "Marginal utilities",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "~MU_x",
+    "~MU_y"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{x}^*$, $\\lambda^*$",
+   "meaning": "Optimal choices and multiplier",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "bold(x)*",
+    "lambda*"
+   ],
+   "from": "envelope-theorem"
+  },
+  {
+   "tex": "$U(x, y)$",
+   "meaning": "Utility (indifference-curve example)",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "U"
+   ],
+   "from": "implicit-function-theorem"
+  },
+  {
+   "tex": "$\\mathbf{F}$, $\\mathbf{x}$, $\\mathbf{y}$",
+   "meaning": "Vector version",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(F)",
+    "bold(x)",
+    "bold(y)"
+   ],
+   "from": "implicit-function-theorem"
+  },
+  {
+   "tex": "$c_1$, $c_2$",
+   "meaning": "Consumption today and next period",
+   "kind": "Choice",
+   "typical": "200, 192 in the example",
+   "keys": [
+    "c"
+   ],
+   "from": "consumption-euler-equation"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Many choices have a budget: maximise satisfaction without spending more than your income. The Lagrange method turns such a problem into an unconstrained one by attaching a price to the constraint. At the best choice, the trade-off you face along the budget exactly matches the trade-off you value. The attached price, the multiplier, has its own meaning: how much better off you would be if the constraint were loosened by one unit."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is how almost every consumer, firm and planner problem in economics is solved, and the multiplier is a shadow price you can interpret.",
+       "folded": false
+      }
+     ],
+     "words": 99,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Maximize $f(\\mathbf{x})$ subject to $g(\\mathbf{x}) = c$:"
+      },
+      {
+       "t": "math",
+       "tex": "\\mathcal{L}(\\mathbf{x},\\lambda) = f(\\mathbf{x}) + \\lambda\\big(c - g(\\mathbf{x})\\big)"
+      },
+      {
+       "t": "prose",
+       "md": "First-order conditions:"
+      },
+      {
+       "t": "math",
+       "tex": "\\frac{\\partial\\mathcal{L}}{\\partial x_i} = f_i - \\lambda g_i = 0 \\;\\;\\forall i, \\qquad \\frac{\\partial\\mathcal{L}}{\\partial\\lambda} = c - g(\\mathbf{x}) = 0"
+      }
+     ],
+     "words": 5,
+     "symbols": [
+      "$f(\\mathbf{x})$",
+      "$g(\\mathbf{x}) = c$",
+      "$\\mathcal{L}$",
+      "$\\lambda$",
+      "$f_i$, $g_i$",
+      "$x$, $y$",
+      "$\\mathbf{F}$, $\\mathbf{x}$, $\\mathbf{y}$",
+      "$c_1$, $c_2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "intuition",
+   "heading": "Intuition",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "intuition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "At the optimum the level set of $f$ is tangent to the constraint: $\\nabla f = \\lambda\\nabla g$. Dividing two FOCs gives the familiar tangency, e.g. $MU_x/MU_y = p_x/p_y$."
+      }
+     ],
+     "words": 21,
+     "symbols": [
+      "$f(\\mathbf{x})$",
+      "$g(\\mathbf{x}) = c$",
+      "$\\lambda$",
+      "$f_i$, $g_i$",
+      "$p_x$, $p_y$, $m$",
+      "$MU_x$, $MU_y$",
+      "$U(x, y)$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "is-a-price",
+   "heading": "λ is a price",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "is-a-price-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$\\lambda^* = dV/dc$: how much the optimal value rises if the constraint is relaxed by one unit — the **shadow price**. In consumer theory it is the marginal utility of income. See [Envelope Theorem](note:envelope-theorem)."
+      }
+     ],
+     "words": 30,
+     "symbols": [
+      "$V$",
+      "$\\mathbf{x}^*$, $\\lambda^*$",
+      "$c_1$, $c_2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Maximize $\\ln x + \\ln y$ subject to $2x + 5y = 100$."
+      },
+      {
+       "t": "prose",
+       "md": "FOCs: $1/x = 2\\lambda$ and $1/y = 5\\lambda$, so $2x = 5y$, each half of income. Solution: $x = 25$, $y = 10$, $\\lambda = 0.02$, $V = 5.521$. Raising income by one unit raises $V$ by about $0.02 = \\lambda$, which a numerical derivative confirms."
+      }
+     ],
+     "words": 24,
+     "symbols": [
+      "$\\lambda$",
+      "$V$",
+      "$x$, $y$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "inequality-constraints-kuhn-tucker",
+   "heading": "Inequality constraints (Kuhn–Tucker)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "inequality-constraints-kuhn-tucker-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "For $g(\\mathbf{x}) \\leq c$: same Lagrangian, plus $\\lambda \\geq 0$ and **complementary slackness**, $\\lambda\\,(c - g(\\mathbf{x})) = 0$. Either the constraint binds, or its shadow price is zero."
+      }
+     ],
+     "words": 17,
+     "symbols": [
+      "$g(\\mathbf{x}) = c$",
+      "$\\lambda$",
+      "$f_i$, $g_i$",
+      "$\\mathbf{F}$, $\\mathbf{x}$, $\\mathbf{y}$",
+      "$c_1$, $c_2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Forgetting the constraint equation itself as an FOC.\n- Assuming the solution is interior when non-negativity binds (corner solutions).\n- Second-order conditions here use the *bordered* Hessian, not the plain Hessian of $f$."
+      }
+     ],
+     "words": 33,
+     "symbols": [
+      "$f(\\mathbf{x})$",
+      "$f_i$, $g_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Micro / labor**: utility maximization, cost minimization (giving conditional factor demands), labour supply.\n- **Econometrics**: restricted least squares and the logic of Lagrange-multiplier (score) tests."
+      }
+     ],
+     "words": 25,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Envelope Theorem](note:envelope-theorem)\n- [Implicit Function Theorem](note:implicit-function-theorem)\n- [Consumption Euler Equation](note:consumption-euler-equation) — the intertemporal application: MRS = 1 + r"
+      }
+     ],
+     "words": 17,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

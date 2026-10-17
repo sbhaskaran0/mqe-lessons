@@ -1,0 +1,191 @@
+{
+ "slug": "instrumental-variables-and-2sls",
+ "notation": [
+  {
+   "tex": "$y$",
+   "meaning": "Outcome",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "y"
+   ]
+  },
+  {
+   "tex": "$x$",
+   "meaning": "Endogenous explanatory variable",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "x"
+   ]
+  },
+  {
+   "tex": "$z$",
+   "meaning": "Instrument: correlated with $x$, uncorrelated with the error",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "z"
+   ]
+  },
+  {
+   "tex": "$\\hat{x}$",
+   "meaning": "First-stage fitted values: the part of $x$ driven by $z$",
+   "kind": "Computed",
+   "typical": "—",
+   "keys": [
+    "hat(x)"
+   ]
+  },
+  {
+   "tex": "$\\hat{\\sigma}$",
+   "meaning": "Estimated elasticity of substitution in the example",
+   "kind": "Statistic",
+   "typical": "2.28 (OLS), 2.58 (2SLS)",
+   "keys": [
+    "hat(sigma)"
+   ]
+  },
+  {
+   "tex": "$\\ln(H_t/L_t)$",
+   "meaning": "Log relative supply of college labor — the endogenous regressor in the example",
+   "kind": "Data",
+   "typical": "—",
+   "keys": []
+  },
+  {
+   "tex": "$H_t$, $L_t$",
+   "meaning": "Supply of college and non-college labor in efficiency units",
+   "kind": "Exogenous (inelastic supply)",
+   "typical": "—",
+   "keys": [
+    "H",
+    "L"
+   ],
+   "from": "canonical-model-of-the-skill-premium"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Instrumental variables rescue a regression when the explanatory variable is tangled up with the hidden factors in the error, so ordinary least squares is biased. The fix is to find an instrument: something that moves the explanatory variable but has no other route to the outcome. You keep only the part of the explanatory variable that the instrument drives, and use that clean variation to estimate the effect. Two-stage least squares does this in two regressions."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the main tool for estimating causal effects from observational data when a variable of interest is endogenous.",
+       "folded": false
+      }
+     ],
+     "words": 98,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "When a regressor $x$ is correlated with the error — a [Strict Exogeneity](note:strict-exogeneity) failure — OLS is biased. An **instrument** $z$ fixes this if it is"
+      },
+      {
+       "t": "prose",
+       "md": "1. **Relevant**: correlated with $x$\n2. **Exogenous**: uncorrelated with the error — it affects $y$ only through $x$"
+      }
+     ],
+     "words": 36,
+     "symbols": [
+      "$y$",
+      "$x$",
+      "$z$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "two-stage-least-squares",
+   "heading": "Two-stage least squares",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "two-stage-least-squares-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. **First stage**: regress $x$ on $z$ (and any exogenous controls); keep the fitted values $\\hat{x}$.\n2. **Second stage**: regress $y$ on $\\hat{x}$ (and the same controls)."
+      },
+      {
+       "t": "prose",
+       "md": "$\\hat{x}$ contains only the variation in $x$ driven by $z$, which is uncorrelated with the error by assumption."
+      }
+     ],
+     "words": 37,
+     "symbols": [
+      "$y$",
+      "$x$",
+      "$z$",
+      "$\\hat{x}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "example-the-canonical-model",
+   "heading": "Example — the canonical model",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "example-the-canonical-model-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Relative supply $\\ln(H_t/L_t)$ measures college vs non-college *labour input*, which can respond to current wages through hours and participation. The lecture instruments it with the **relative log population** of college to non-college — a stock fixed by past education decisions and less responsive to this year's wages."
+      },
+      {
+       "t": "prose",
+       "md": "Result: the coefficient moves from −0.44 (OLS) to −0.39 (2SLS), so $\\hat\\sigma$ moves from 2.28 to 2.58. See [Elasticity of Substitution Between College and Non-College Labor](note:elasticity-of-substitution-between-college-and-non-college-labor)."
+      }
+     ],
+     "words": 74,
+     "symbols": [
+      "$\\hat{\\sigma}$",
+      "$H_t$, $L_t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Canonical Model of the Skill Premium](note:canonical-model-of-the-skill-premium)\n- [OLS Estimator](note:ols-estimator)\n- [Shift-Share Instrument](note:shift-share-instrument) — instruments built from base-period shares × external shocks"
+      }
+     ],
+     "words": 20,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

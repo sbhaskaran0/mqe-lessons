@@ -1,0 +1,5 @@
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+# cmd.exe mis-parses LF-only batch files (labels, long lines), so these keep CRLF.
+*.cmd text eol=crlf

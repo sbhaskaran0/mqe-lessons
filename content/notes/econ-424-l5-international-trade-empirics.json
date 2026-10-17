@@ -1,0 +1,1209 @@
+{
+ "slug": "econ-424-l5-international-trade-empirics",
+ "notation": [
+  {
+   "tex": "$w_{rj}$",
+   "meaning": "Wage in industry $j$ for $r$'s workers",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "w"
+   ],
+   "from": "shift-share-exposure"
+  },
+  {
+   "tex": "$\\lambda_{rj}$",
+   "meaning": "Share of $r$'s income earned in $j$ (the exposure weight)",
+   "kind": "Data",
+   "typical": "0.6 and 0.2 in the example",
+   "keys": [
+    "lambda"
+   ],
+   "from": "shift-share-exposure"
+  },
+  {
+   "tex": "$p_j$",
+   "meaning": "Price of good $j$",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "p"
+   ],
+   "from": "shift-share-exposure"
+  },
+  {
+   "tex": "$L_{ri}$, $L_r$",
+   "meaning": "Employment of region $r$ in industry $i$, and in total",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "L"
+   ],
+   "from": "shift-share-exposure"
+  },
+  {
+   "tex": "$\\theta_i$",
+   "meaning": "One minus industry $i$'s national labor share",
+   "kind": "Parameter in (0, 1)",
+   "typical": "0.4 and 0.8 in the example",
+   "keys": [
+    "theta"
+   ],
+   "from": "shift-share-exposure"
+  },
+  {
+   "tex": "$\\beta_{ri}$",
+   "meaning": "Tariff-measure weight for region $r$, industry $i$",
+   "kind": "Data",
+   "typical": "0.67 and 0.33 in the example",
+   "keys": [
+    "beta"
+   ],
+   "from": "shift-share-exposure"
+  },
+  {
+   "tex": "$\\alpha_L$, $\\varepsilon_r$",
+   "meaning": "Common intercept and regional error in the employment equation",
+   "kind": "Parameter / exogenous",
+   "typical": "—",
+   "keys": [
+    "alpha",
+    "varepsilon"
+   ],
+   "from": "shift-share-exposure"
+  },
+  {
+   "tex": "$g_i$",
+   "meaning": "Sector shock measured elsewhere (e.g. other high-income countries' import growth from China)",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "g"
+   ],
+   "from": "shift-share-instrument"
+  },
+  {
+   "tex": "$y_r$",
+   "meaning": "Outcome",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "y"
+   ],
+   "from": "shift-share-instrument"
+  },
+  {
+   "tex": "$M_j$, $E_j$",
+   "meaning": "Imports and exports of industry $j$'s goods",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "M",
+    "E"
+   ],
+   "from": "import-penetration"
+  },
+  {
+   "tex": "$\\delta_i$, $\\delta_t$",
+   "meaning": "Unit and time fixed effects",
+   "kind": "Parameters",
+   "typical": "—",
+   "keys": [
+    "delta"
+   ],
+   "from": "difference-in-differences"
+  },
+  {
+   "tex": "$\\Delta$",
+   "meaning": "Change between the start and end of a period",
+   "kind": "Operator",
+   "typical": "—",
+   "keys": [
+    "Delta"
+   ],
+   "from": "wage-polarization"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**The theory lecture predicted that trade shocks hurt the workers, firms and places tied to the goods hit hardest. This lecture takes that to data at three levels. Regions: US commuting zones more exposed to Chinese imports lost manufacturing jobs, employment and wages (the 75th- vs 25th-percentile zone lost 4.5% more manufacturing jobs), and Brazilian regions facing larger tariff cuts saw larger wage declines. Industries and workers: industries that gained most from China's permanent normal trade relations lost the most jobs, and workers starting in exposed industries lost about 46% of a year's earnings more than less-exposed workers. Firms: Danish firms that offshore more shed jobs, especially low-skill ones. The common thread is relative harm from negative demand shocks.**"
+      }
+     ],
+     "words": 120,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "1-the-question-harm-relative-to-whom",
+   "heading": "1. The question: harm relative to whom?",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-the-question-harm-relative-to-whom-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Imports from China grew twelvefold over 1991–2007 while manufacturing employment fell ([US Imports from China 1991-2007](note:us-imports-from-china-1991-2007), [US Manufacturing Employment 1939-2015](note:us-manufacturing-employment-1939-2015))."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/US imports from China and manufacturing employment 1987-2007.png",
+       "alt": "US imports from China and manufacturing employment 1987-2007"
+      },
+      {
+       "t": "prose",
+       "md": "The *huge* question — did China harm US workers? — cannot be answered by a regression across workers with different exposure, $\\Delta y_i = \\alpha + \\beta\\,\\text{ChinaShock}_i + \\varepsilon_i$. Even a causal $\\beta$ answers a smaller *big* question: were some workers harmed **relative to others**? Anything that hit everyone is differenced out."
+      }
+     ],
+     "words": 62,
+     "symbols": [
+      "$\\beta_{ri}$",
+      "$\\alpha_L$, $\\varepsilon_r$",
+      "$y_r$",
+      "$\\Delta$"
+     ]
+    },
+    {
+     "id": "1-the-question-harm-relative-to-whom-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Suppose the regression $\\Delta y_i = \\alpha + \\beta\\,\\text{ChinaShock}_i + \\varepsilon_i$ recovers a causal $\\beta < 0$. What does it establish?",
+       "options": [
+        {
+         "md": "China lowered average US worker outcomes by $\\beta$ times average exposure",
+         "correct": false,
+         "feedback": "An effect common to all workers shifts the intercept $\\alpha$, not $\\beta$, so it is differenced out. $\\beta$ only compares workers with different exposure."
+        },
+        {
+         "md": "More-exposed workers fared worse than less-exposed workers",
+         "correct": true
+        },
+        {
+         "md": "Less-exposed workers were unaffected by China",
+         "correct": false,
+         "feedback": "The regression cannot tell: whatever hit the less-exposed workers too, harmful or helpful, is differenced out."
+        },
+        {
+         "md": "Nothing, because exposure is not randomly assigned",
+         "correct": false,
+         "feedback": "The question takes $\\beta$ as causal. The limit is what is being compared, not identification."
+        }
+       ],
+       "why": "Even a causal $\\beta$ answers the smaller question, whether some workers were harmed relative to others. The aggregate question, whether China harmed US workers, needs the common effect that the comparison differences out.",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 40,
+     "symbols": [
+      "$\\beta_{ri}$",
+      "$\\alpha_L$, $\\varepsilon_r$",
+      "$y_r$",
+      "$\\Delta$"
+     ]
+    },
+    {
+     "id": "1-the-question-harm-relative-to-whom-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Without public worker-level panels spanning long horizons, exposure is measured across regions, industries or firms. The lecture starts with regions. Caveat: the first paper's results \"are now considered problematic\"; the lecture reports them as published and leaves the critique to the first assignment."
+      }
+     ],
+     "words": 43,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "2-why-regions-something-interesting-happens-across-space",
+   "heading": "2. Why regions? Something interesting happens across space",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-why-regions-something-interesting-happens-across-space-1",
+     "blocks": [
+      {
+       "t": "quote",
+       "md": "Paper summary: [Autor 2019 - Work of the Past, Work of the Future](note:autor-2019-work-of-the-past-work-of-the-future)",
+       "papers": [
+        "autor-2019-work-of-the-past-work-of-the-future"
+       ]
+      },
+      {
+       "t": "prose",
+       "md": "Beyond identification, space matters in its own right ([US Skill and Occupation Shifts by City Density 1970-2015](note:us-skill-and-occupation-shifts-by-city-density-1970-2015)). Since 1970, denser commuting zones became far more educated, lost middle-skill jobs much faster, replaced them with low-skill jobs for non-college workers, and lost their wage premium for the least educated — the spatial face of [Wage Polarization](note:wage-polarization)."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/US occupational employment shares by city density 1970-2015.png",
+       "alt": "US occupational employment shares by city density 1970-2015"
+      }
+     ],
+     "words": 67,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "3-regional-analysis-i-the-china-syndrome-autor-dorn-and-hanson-2013",
+   "heading": "3. Regional analysis I — the China Syndrome (Autor, Dorn and Hanson 2013)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "3-regional-analysis-i-the-china-syndrome-autor-dorn-and-hanson-2013-1",
+     "blocks": [
+      {
+       "t": "quote",
+       "md": "Paper summary: [Autor, Dorn and Hanson 2013 - The China Syndrome](note:autor-dorn-and-hanson-2013-the-china-syndrome)",
+       "papers": [
+        "autor-dorn-and-hanson-2013-the-china-syndrome"
+       ]
+      },
+      {
+       "t": "prose",
+       "md": "The theory says a region's wage and employment change with its share-weighted exposure to price changes, $d\\log w_r = \\alpha_w + \\sum_i \\lambda_{ri}\\,d\\log p_i + \\varepsilon_r$ ([Shift-Share Exposure](note:shift-share-exposure)). Prices are unobserved and endogenous, so ADH proxy the price change with the change in US imports from China per US worker in each industry ([Import Penetration](note:import-penetration)), weighted by the region's employment shares:"
+      },
+      {
+       "t": "math",
+       "tex": "IPW^{u}_{rt} = \\sum_i \\frac{L_{rit}}{L_{rt}}\\,\\frac{\\Delta M^{uc}_{it}}{L^{u}_{it}}"
+      },
+      {
+       "t": "prose",
+       "md": "They regress the change in regional manufacturing employment on it across 722 [Commuting Zone](note:commuting-zone)s over two periods, controlling for the start-of-period manufacturing share. That control matters because exposure is summed only over manufacturing, so it partly proxies for how much manufacturing a region has."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/US commuting zone exposure to Chinese imports 1990-2007.png",
+       "alt": "US commuting zone exposure to Chinese imports 1990-2007"
+      }
+     ],
+     "words": 106,
+     "symbols": [
+      "$w_{rj}$",
+      "$\\lambda_{rj}$",
+      "$p_j$",
+      "$L_{ri}$, $L_r$",
+      "$\\alpha_L$, $\\varepsilon_r$",
+      "$M_j$, $E_j$",
+      "$\\Delta$"
+     ]
+    },
+    {
+     "id": "3-regional-analysis-i-the-china-syndrome-autor-dorn-and-hanson-2013-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "US imports could rise because of negative US supply shocks or positive US demand shocks, both of which directly affect US employment. So ADH instrument with imports from China into other high-income countries and lagged employment shares — a [Shift-Share Instrument](note:shift-share-instrument), estimated by 2SLS ([Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls)) with errors clustered by state ([Clustered Standard Errors](note:clustered-standard-errors))."
+      }
+     ],
+     "words": 55,
+     "symbols": []
+    },
+    {
+     "id": "3-regional-analysis-i-the-china-syndrome-autor-dorn-and-hanson-2013-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "ADH regress the change in manufacturing employment on $IPW^{u}_{rt}$ and control for the start-of-period manufacturing share. Why does that control matter?",
+       "options": [
+        {
+         "md": "Exposure is summed only over manufacturing industries, so it partly measures how much manufacturing a region has",
+         "correct": true
+        },
+        {
+         "md": "It deals with US demand shocks that raise both imports and employment",
+         "correct": false,
+         "feedback": "That is the job of the instrument, Chinese imports into other high-income countries."
+        },
+        {
+         "md": "$IPW^{u}_{rt}$ is not scaled by the size of the region",
+         "correct": false,
+         "feedback": "It is: each industry is weighted by its share of the region's employment, $L_{rit}/L_{rt}$."
+        }
+       ],
+       "why": "Because the sum runs only over manufacturing industries, a region with a lot of manufacturing has high exposure almost automatically. Without the control, the coefficient would partly pick up having much manufacturing rather than China exposure itself.",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 58,
+     "symbols": [
+      "$L_{ri}$, $L_r$"
+     ]
+    },
+    {
+     "id": "3-regional-analysis-i-the-china-syndrome-autor-dorn-and-hanson-2013-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Why do ADH instrument $IPW^{u}_{rt}$ with Chinese imports into other high-income countries?",
+       "options": [
+        {
+         "md": "Because the price changes in the theory are unobserved",
+         "correct": false,
+         "feedback": "That is why they proxy prices with imports. The instrument addresses a different problem: why US imports from China rose."
+        },
+        {
+         "md": "Because exposure is summed only over manufacturing industries",
+         "correct": false,
+         "feedback": "That is why they control for the start-of-period manufacturing share."
+        },
+        {
+         "md": "Because US imports from China can rise with negative US supply shocks or positive US demand shocks, which move US employment directly",
+         "correct": true
+        },
+        {
+         "md": "Because the errors are correlated within states",
+         "correct": false,
+         "feedback": "That is handled by clustering the standard errors by state; it affects the standard errors, not the bias of the estimate."
+        }
+       ],
+       "why": "Other high-income countries' imports from China, with lagged employment shares, pick up China's supply growth but not US-specific supply or demand shocks. That isolates the part of US exposure that comes from China.",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 57,
+     "symbols": []
+    },
+    {
+     "id": "3-regional-analysis-i-the-china-syndrome-autor-dorn-and-hanson-2013-5",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Results** ([US Local Labor Market Effects of Chinese Imports 1990-2007](note:us-local-labor-market-effects-of-chinese-imports-1990-2007)): manufacturing employment/population falls by 0.60 pp per $1,000 of exposure; unemployment, non-participation and disability rise; wages fall about 0.76 log points; population barely moves. For two commuting zones at the 75th and 25th percentiles of exposure growth (a 1.06 difference), the more exposed one loses 4.5% more manufacturing employees and sees 0.8% lower mean weekly earnings."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - China shock and employment status by commuting zone.png",
+       "alt": "Table - China shock and employment status by commuting zone"
+      }
+     ],
+     "words": 73,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "4-regional-analysis-ii-brazils-tariff-cuts-kovak-2013",
+   "heading": "4. Regional analysis II — Brazil's tariff cuts (Kovak 2013)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "4-regional-analysis-ii-brazils-tariff-cuts-kovak-2013-1",
+     "blocks": [
+      {
+       "t": "quote",
+       "md": "Paper summary: [Kovak 2013 - Regional Effects of Trade Reform](note:kovak-2013-regional-effects-of-trade-reform)",
+       "papers": [
+        "kovak-2013-regional-effects-of-trade-reform"
+       ]
+      },
+      {
+       "t": "prose",
+       "md": "Brazil's early-1990s liberalization cut tariffs very unevenly across industries, and industries were unevenly spread across micro-regions. Because the reform equalized tariffs, the cuts were determined by pre-reform tariff levels, not by industry trends. Kovak's regional tariff change is a share-weighted tariff cut with two differences from ADH: it uses tariff cuts rather than import growth, and it weights traded industries by their labor share in the region divided by one minus the industry's national labor share. Non-traded industries get zero weight."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Brazil regional tariff changes 1990s.png",
+       "alt": "Brazil regional tariff changes 1990s"
+      }
+     ],
+     "words": 91,
+     "symbols": []
+    },
+    {
+     "id": "4-regional-analysis-ii-brazils-tariff-cuts-kovak-2013-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Which describes Kovak's regional tariff change?",
+       "options": [
+        {
+         "md": "The growth of imports per worker in each industry, weighted by the region's employment shares",
+         "correct": false,
+         "feedback": "That is ADH's measure. Kovak uses tariff cuts rather than import growth."
+        },
+        {
+         "md": "Tariff cuts weighted by each industry's share of regional employment, non-traded industries included",
+         "correct": false,
+         "feedback": "Non-traded industries get zero weight, and each traded industry's regional labor share is divided by one minus its national labor share."
+        },
+        {
+         "md": "Tariff cuts in traded industries, each weighted by its labor share in the region divided by one minus its national labor share; non-traded industries get zero weight",
+         "correct": true
+        },
+        {
+         "md": "Tariff cuts weighted by each industry's pre-reform tariff level",
+         "correct": false,
+         "feedback": "Pre-reform tariff levels determine the size of the cuts, because the reform equalized tariffs; they are not the weights."
+        }
+       ],
+       "why": "Kovak's measure differs from ADH's in two ways: tariff cuts replace import growth, and the weights are traded industries' regional labor shares divided by one minus the national labor share, with zero weight on non-traded industries.",
+       "objectives": [
+        4
+       ]
+      }
+     ],
+     "words": 70,
+     "symbols": []
+    },
+    {
+     "id": "4-regional-analysis-ii-brazils-tariff-cuts-kovak-2013-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Result** ([Brazil Regional Wage Effects of 1990s Tariff Cuts](note:brazil-regional-wage-effects-of-1990s-tariff-cuts)): an elasticity of 0.44 — a region facing a 10% larger tariff cut sees about 4.4% lower wages. Getting the measure wrong (setting non-traded price changes to zero) inflates it to about 2."
+      },
+      {
+       "t": "prose",
+       "md": "**Regional summary**: regions hit by negative demand shocks are harmed relative to others — in a rich and a middle-income country, for foreign shocks and domestic policy shocks alike."
+      }
+     ],
+     "words": 71,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "5-industry-analysis-the-swift-decline-of-us-manufacturing-pierce-and-schott-2016",
+   "heading": "5. Industry analysis — the swift decline of US manufacturing (Pierce and Schott 2016)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "5-industry-analysis-the-swift-decline-of-us-manufacturing-pierce-and-schott-2016-1",
+     "blocks": [
+      {
+       "t": "quote",
+       "md": "Paper summary: [Pierce and Schott 2016 - The Surprisingly Swift Decline of US Manufacturing Employment](note:pierce-and-schott-2016-the-surprisingly-swift-decline-of-us-manufacturing-employment)",
+       "papers": [
+        "pierce-and-schott-2016-the-surprisingly-swift-decline-of-us-manufacturing-employment"
+       ]
+      },
+      {
+       "t": "prose",
+       "md": "US manufacturing employment was roughly flat for decades, then fell by about a third after 2000 while real value added kept rising. Its share had been falling since World War II (structural change toward services), so China cannot explain the long decline — but the contraction plausibly would have been slower without it."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/US manufacturing employment vs real value added 1948-2010.png",
+       "alt": "US manufacturing employment vs real value added 1948-2010"
+      }
+     ],
+     "words": 67,
+     "symbols": []
+    },
+    {
+     "id": "5-industry-analysis-the-swift-decline-of-us-manufacturing-pierce-and-schott-2016-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Regressing industry employment growth on Chinese imports is endogenous: a negative US supply shock raises Chinese imports. Pierce and Schott use a policy change instead. US imports from China paid low NTR tariffs, but only through uncertain annual renewals; failure would have meant Smoot-Hawley rates. Granting China PNTR in 2001 removed the threat, and the threat's size — the **NTR gap** between non-NTR and NTR rates — varied widely across industries."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Distribution of NTR gaps across US industries 1999.png",
+       "alt": "Distribution of NTR gaps across US industries 1999"
+      }
+     ],
+     "words": 69,
+     "symbols": []
+    },
+    {
+     "id": "5-industry-analysis-the-swift-decline-of-us-manufacturing-pierce-and-schott-2016-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "What does an industry's NTR gap measure?",
+       "options": [
+        {
+         "md": "The tariff cut Chinese imports in that industry received in 2001",
+         "correct": false,
+         "feedback": "Chinese imports already paid the low NTR rates before 2001. PNTR did not lower the tariff paid; it removed the threat that those rates would revert."
+        },
+        {
+         "md": "The growth of US imports from China in that industry",
+         "correct": false,
+         "feedback": "That is ADH's exposure measure. Pierce and Schott use the policy change precisely because import growth is endogenous."
+        },
+        {
+         "md": "The difference between the US tariff on Chinese goods and China's tariff on US goods",
+         "correct": false,
+         "feedback": "The gap compares two possible US tariffs on Chinese goods, not tariffs in the two directions."
+        },
+        {
+         "md": "The difference between the non-NTR (Smoot-Hawley) rate and the NTR rate: how big a tariff spike non-renewal would have meant",
+         "correct": true
+        }
+       ],
+       "why": "Before 2001, the low NTR rates depended on uncertain annual renewals; failure meant Smoot-Hawley rates. The NTR gap is the size of that threat, which PNTR removed. It is the continuous treatment $\\text{NTRGap}_i$ interacted with $\\text{Post}_t$ in the difference-in-differences.",
+       "objectives": [
+        5
+       ]
+      }
+     ],
+     "words": 63,
+     "symbols": []
+    },
+    {
+     "id": "5-industry-analysis-the-swift-decline-of-us-manufacturing-pierce-and-schott-2016-4",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "They estimate a [Difference-in-Differences](note:difference-in-differences) with a continuous treatment, $\\ln \\text{Emp}_{it} = \\theta\\,\\text{Post}_t \\times \\text{NTRGap}_i + \\dots + \\delta_t + \\delta_i$, using industry and year fixed effects ([Fixed Effects Regression](note:fixed-effects-regression)) and Census [Longitudinal Business Database (LBD)](note:longitudinal-business-database-lbd) data."
+      },
+      {
+       "t": "prose",
+       "md": "**Results** ([US Manufacturing Employment Effects of PNTR 1990-2007](note:us-manufacturing-employment-effects-of-pntr-1990-2007)): $\\theta = -0.47$, so moving from the 25th (0.23) to the 75th (0.40) percentile gap implies an 8 log point relative employment loss. The event study shows no pre-trend, a quick effect after 2001, and losses that grow over time."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/PNTR effect on US manufacturing employment event study.png",
+       "alt": "PNTR effect on US manufacturing employment event study"
+      }
+     ],
+     "words": 71,
+     "symbols": [
+      "$\\theta_i$",
+      "$\\delta_i$, $\\delta_t$"
+     ]
+    },
+    {
+     "id": "5-industry-analysis-the-swift-decline-of-us-manufacturing-pierce-and-schott-2016-5",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "With the estimated $\\theta$ of $-0.47$, by how much does PNTR change $\\ln \\text{Emp}$ of an industry whose NTR gap is $g = 0.17$ larger than another's, relative to the other industry? Give the change in $\\ln \\text{Emp}$ (such as $-0.050$) to three decimal places.",
+       "answer": -0.0799,
+       "tol": 0.002397,
+       "vary": [
+        {
+         "sym": "g",
+         "lo": 0.05,
+         "hi": 0.4,
+         "step": 0.01
+        }
+       ],
+       "compute": "-0.47g",
+       "bindings": [
+        {
+         "sym": "g",
+         "value": 0.17,
+         "span": "$g = 0.17$"
+        }
+       ],
+       "wrongCompute": [
+        {
+         "tex": "0.47g",
+         "md": "check the sign: a larger NTR gap means a larger relative employment *loss* after PNTR"
+        },
+        {
+         "tex": "-47g",
+         "md": "that is in log points (100 times the log change); the question asks for the change in $\\ln \\text{Emp}$ itself"
+        }
+       ],
+       "why": "$\\theta$ is the change in $\\ln \\text{Emp}$ after PNTR per unit of NTR gap, so the relative effect is $\\theta$ times the gap difference, $-0.47g$. For the lecture's 25th-to-75th percentile spread (0.23 to 0.40) that gives about $-0.08$, the 8 log points in the text.",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 35,
+     "symbols": [
+      "$\\theta_i$",
+      "$g_i$"
+     ]
+    },
+    {
+     "id": "5-industry-analysis-the-swift-decline-of-us-manufacturing-pierce-and-schott-2016-6",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "The PNTR event study shows \"no pre-trend\". What does that mean, and why does it matter?",
+       "options": [
+        {
+         "md": "The estimated effects for the years before 2001 are close to zero, which supports parallel trends between high- and low-gap industries",
+         "correct": true
+        },
+        {
+         "md": "High- and low-gap industries had the same employment level before 2001",
+         "correct": false,
+         "feedback": "Levels may differ; the industry fixed effects absorb them. A pre-trend is about whether employment *changed* differently before the policy."
+        },
+        {
+         "md": "Total manufacturing employment was flat before 2001",
+         "correct": false,
+         "feedback": "That describes the aggregate series. The event study compares high- with low-gap industries, and anything common to all industries is absorbed by the year effects."
+        },
+        {
+         "md": "The effect is the same in every year after 2001",
+         "correct": false,
+         "feedback": "That concerns the years after the policy, and the estimated losses in fact grow over time."
+        }
+       ],
+       "why": "The event study estimates the effect year by year. If high-gap industries were already losing jobs relative to low-gap ones before 2001, the post-2001 gap could reflect that trend rather than PNTR. Effects near zero before 2001 and a quick drop after it support reading the drop as caused by PNTR.",
+       "objectives": [
+        5
+       ]
+      }
+     ],
+     "words": 65,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "6-worker-level-analysis-trade-adjustment-autor-dorn-hanson-and-song-2014",
+   "heading": "6. Worker-level analysis — trade adjustment (Autor, Dorn, Hanson and Song 2014)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "6-worker-level-analysis-trade-adjustment-autor-dorn-hanson-and-song-2014-1",
+     "blocks": [
+      {
+       "t": "quote",
+       "md": "Paper summary: [Autor, Dorn, Hanson and Song 2014 - Trade Adjustment](note:autor-dorn-hanson-and-song-2014-trade-adjustment)",
+       "papers": [
+        "autor-dorn-hanson-and-song-2014-trade-adjustment"
+       ]
+      },
+      {
+       "t": "prose",
+       "md": "Tracking regions or industries over time has a selection problem: the people still there later are not the people who were there before. ADHS instead follow individual workers by their **1991 industry**, using a 1% sample of the [SSA Master Earnings File](note:ssa-master-earnings-file). Exposure is the change in import penetration from China in the worker's initial industry, instrumented with other high-income countries' imports."
+      }
+     ],
+     "words": 73,
+     "symbols": []
+    },
+    {
+     "id": "6-worker-level-analysis-trade-adjustment-autor-dorn-hanson-and-song-2014-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Results** ([US Worker Earnings Effects of Chinese Imports 1992-2007](note:us-worker-earnings-effects-of-chinese-imports-1992-2007)): the 2SLS coefficient on cumulative 1992–2007 earnings is −6.86. With exposure of 7.30 pp at the 75th and 0.62 pp at the 25th percentile, the more exposed worker earns about 46% of an initial annual wage less over the period. There is no effect in a 1976–1991 placebo period. Losses build over time as workers churn between employers and nonemployment, disability receipt rises, and the damage is concentrated in the bottom two wage terciles: −18.3 for the bottom tercile, −9.9 for the middle and about zero for the top."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Cumulative earnings and job churning of trade-exposed US workers.png",
+       "alt": "Cumulative earnings and job churning of trade-exposed US workers"
+      }
+     ],
+     "words": 105,
+     "symbols": []
+    },
+    {
+     "id": "6-worker-level-analysis-trade-adjustment-autor-dorn-hanson-and-song-2014-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Why do ADHS assign each worker the exposure of their **1991 industry**, even after the worker moves on?",
+       "options": [
+        {
+         "md": "Because they no longer need an instrument for exposure",
+         "correct": false,
+         "feedback": "They still instrument the initial industry's exposure with other high-income countries' imports from China."
+        },
+        {
+         "md": "Because there are too few regions or industries to estimate the effect",
+         "correct": false,
+         "feedback": "ADH used 722 commuting zones. The problem the lecture names is who is still there, not how many units there are."
+        },
+        {
+         "md": "So that workers who switch to unexposed industries count as unexposed",
+         "correct": false,
+         "feedback": "It is the reverse: a worker who leaves an exposed industry keeps the 1991 exposure, so the losses from that adjustment are counted."
+        },
+        {
+         "md": "Because the people in a region or industry later are not the people who were there before",
+         "correct": true
+        }
+       ],
+       "why": "Tracking regions or industries over time has a selection problem: those who leave drop out of the later data. Fixing each worker's exposure at their 1991 industry follows the same people through churning, nonemployment and disability.",
+       "objectives": [
+        6
+       ]
+      }
+     ],
+     "words": 67,
+     "symbols": []
+    },
+    {
+     "id": "6-worker-level-analysis-trade-adjustment-autor-dorn-hanson-and-song-2014-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "Suppose the bottom-tercile coefficient, −18.3, applied to the same exposures as the pooled calculation: 7.30 pp at the 75th and 0.62 pp at the 25th percentile. How much less would the more-exposed bottom-tercile worker earn over 1992–2007, in percent of that worker's own initial annual wage?",
+       "answer": 122.2,
+       "tol": 1.0,
+       "wrong": [
+        {
+         "answer": 133.6,
+         "tol": 1.0,
+         "md": "that multiplies by the 75th-percentile exposure alone; the comparison is with the 25th-percentile worker, so use the difference 7.30 − 0.62 = 6.68"
+        },
+        {
+         "answer": 45.8,
+         "tol": 1.0,
+         "md": "that is the pooled coefficient −6.86; the question uses the bottom tercile's −18.3"
+        },
+        {
+         "answer": 66.1,
+         "tol": 1.0,
+         "md": "that uses the middle tercile's −9.9"
+        }
+       ],
+       "why": "The exposure gap is $7.30 - 0.62 = 6.68$ pp, so the loss is $18.3 \\times 6.68 \\approx 122$% of an initial annual wage, against 46% for the pooled worker ($6.86 \\times 6.68$). Because the outcome is scaled by each worker's own initial earnings, this says the loss is far larger relative to a low-wage worker's pay; the bottom tercile's actual exposure percentiles are not given in the lecture.",
+       "objectives": [
+        3,
+        6
+       ]
+      }
+     ],
+     "words": 50,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "7-firm-analysis-the-wage-effects-of-offshoring-hummels-jorgensen-munch-and-xiang-2014",
+   "heading": "7. Firm analysis — the wage effects of offshoring (Hummels, Jørgensen, Munch and Xiang 2014)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "7-firm-analysis-the-wage-effects-of-offshoring-hummels-jorgensen-munch-and-xiang-2014-1",
+     "blocks": [
+      {
+       "t": "quote",
+       "md": "Paper summary: [Hummels, Jørgensen, Munch and Xiang 2014 - The Wage Effects of Offshoring](note:hummels-jorgensen-munch-and-xiang-2014-the-wage-effects-of-offshoring)",
+       "papers": [
+        "hummels-jorgensen-munch-and-xiang-2014-the-wage-effects-of-offshoring"
+       ]
+      },
+      {
+       "t": "prose",
+       "md": "Using [Danish Matched Worker-Firm Data](note:danish-matched-worker-firm-data), HJMX ask how a firm's offshoring (imported materials) and exporting affect its workers. OLS is biased because productive firm-years both trade more and pay more. Firm fixed effects remove permanent differences, and firm-level shift-share instruments handle the time-varying part. Imports are instrumented with world export supply in the firm's initial source country–products; exports with world import demand in its initial destination country–products."
+      },
+      {
+       "t": "prose",
+       "md": "**Results** ([Denmark Firm-Level Effects of Offshoring 1995-2006](note:denmark-firm-level-effects-of-offshoring-1995-2006)): instrumented offshoring lowers employment and the share of low-skill workers; instrumented exporting raises all outcomes."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Firm-level effects of offshoring and exporting, Denmark.png",
+       "alt": "Table - Firm-level effects of offshoring and exporting, Denmark"
+      }
+     ],
+     "words": 106,
+     "symbols": []
+    },
+    {
+     "id": "7-firm-analysis-the-wage-effects-of-offshoring-hummels-jorgensen-munch-and-xiang-2014-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "HJMX already use firm fixed effects. What do they use to instrument a firm's imported materials (its offshoring)?",
+       "options": [
+        {
+         "md": "Nothing more: firm fixed effects absorb the productivity differences that bias OLS",
+         "correct": false,
+         "feedback": "Fixed effects remove only permanent differences between firms. A firm's productivity also changes over time, and productive firm-years both trade more and pay more, so the time-varying part still needs an instrument."
+        },
+        {
+         "md": "World export supply in the firm's initial source country–products",
+         "correct": true
+        },
+        {
+         "md": "World import demand in the firm's initial destination country–products",
+         "correct": false,
+         "feedback": "That is the instrument for the firm's *exports*: demand shocks in the markets it sells to."
+        },
+        {
+         "md": "Chinese imports into other high-income countries",
+         "correct": false,
+         "feedback": "That is ADH's instrument for a commuting zone's exposure. HJMX build firm-level shift-share instruments from each firm's own initial trade partners and products."
+        }
+       ],
+       "why": "OLS is biased because productive firm-years both trade more and pay more. Firm fixed effects handle the permanent part; for the time-varying part, imports are instrumented with world export supply in the firm's initial source country–products, and exports with world import demand in its initial destination country–products.",
+       "objectives": [
+        7
+       ]
+      }
+     ],
+     "words": 56,
+     "symbols": []
+    },
+    {
+     "id": "7-firm-analysis-the-wage-effects-of-offshoring-hummels-jorgensen-munch-and-xiang-2014-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "In HJMX's instrumented estimates, how do offshoring and exporting compare in their effects on a Danish firm?",
+       "options": [
+        {
+         "md": "Both lower firm employment, because both expose the firm to foreign competition",
+         "correct": false,
+         "feedback": "Exporting is a positive demand shock for the firm: instrumented exporting raises every outcome, employment included."
+        },
+        {
+         "md": "Offshoring raises the share of low-skill workers, while exporting lowers it",
+         "correct": false,
+         "feedback": "Offshoring works the other way: instrumented offshoring lowers the share of low-skill workers."
+        },
+        {
+         "md": "Offshoring lowers employment and the low-skill share; exporting raises all outcomes",
+         "correct": true
+        },
+        {
+         "md": "Both raise all outcomes, since trading firms are more productive",
+         "correct": false,
+         "feedback": "That is the OLS bias the instruments remove. Once instrumented, offshoring lowers employment."
+        }
+       ],
+       "why": "Instrumented offshoring lowers firm employment and the share of low-skill workers, so its low-skill workers bear the cost. Instrumented exporting raises all outcomes.",
+       "objectives": [
+        7
+       ]
+      }
+     ],
+     "words": 61,
+     "symbols": []
+    },
+    {
+     "id": "7-firm-analysis-the-wage-effects-of-offshoring-hummels-jorgensen-munch-and-xiang-2014-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Across the four levels (regions, industries, workers and firms), which conclusion do all of this lecture's studies support?",
+       "options": [
+        {
+         "md": "Units more exposed to negative demand shocks are harmed relative to less-exposed units",
+         "correct": true
+        },
+        {
+         "md": "Trade with China lowered total US employment and wages",
+         "correct": false,
+         "feedback": "Every design compares more- with less-exposed units, so anything that hit all of them is differenced out. They show relative harm, not the aggregate effect."
+        },
+        {
+         "md": "Exposed workers soon move to other regions or jobs, so the losses are temporary",
+         "correct": false,
+         "feedback": "Population barely moves in ADH, and in ADHS the losses build over time as workers churn between employers and nonemployment."
+        },
+        {
+         "md": "Every form of trade exposure hurts the workers involved",
+         "correct": false,
+         "feedback": "In HJMX exporting raises every firm outcome. The harm comes from negative demand shocks: import competition, tariff cuts and offshoring."
+        }
+       ],
+       "why": "Commuting zones exposed to Chinese imports, Brazilian regions with larger tariff cuts, high-NTR-gap industries, workers starting in exposed industries and the low-skill workers of offshoring firms all fared worse than less-exposed comparisons, in a rich and a middle-income country and for foreign and domestic policy shocks alike.",
+       "objectives": [
+        8
+       ]
+      }
+     ],
+     "words": 63,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "putting-it-together",
+   "heading": "Putting it together",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "putting-it-together-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "These questions combine this lecture with earlier ones: [Econ 424 L1 Measuring Inequality](note:econ-424-l1-measuring-inequality), [Econ 424 L3 Total and Within-Group Inequality](note:econ-424-l3-total-and-within-group-inequality) and [Econ 424 L4 International Trade Theory](note:econ-424-l4-international-trade-theory)."
+      }
+     ],
+     "words": 27,
+     "symbols": []
+    },
+    {
+     "id": "putting-it-together-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Two equal-sized regions, LA and Rome, have the same education mix, and before a trade shock workers of the same education earn the same distribution of wages in both. The shock raises every LA log wage by 0.05 and lowers every Rome log wage by 0.05. In L3's decomposition of the variance of log wages with the 4 education groups, where does the shock show up?",
+       "options": [
+        {
+         "md": "In the between-group part, because L4 says trade moves between-group inequality",
+         "correct": false,
+         "feedback": "L4's groups are the regions; here the groups are education groups. Each education group's mean is unchanged, since the two equal-sized regions with the same mix move by $+0.05$ and $-0.05$, so the between part does not move."
+        },
+        {
+         "md": "In neither part: the LA gain and the Rome loss cancel",
+         "correct": false,
+         "feedback": "They cancel in each education group's mean, not in its spread: within each group, workers who earned the same now differ by 0.10 log points."
+        },
+        {
+         "md": "In neither part: the variance of log wages cannot be split into within and between when the shock is regional",
+         "correct": false,
+         "feedback": "By the law of total variance (L1) it splits for any grouping; which part a change lands in depends on how the groups are defined (L3)."
+        },
+        {
+         "md": "In the within-group part: the gap opens inside each education group, while the between part is unchanged",
+         "correct": true
+        }
+       ],
+       "why": "L1's law of total variance splits $\\mathrm{Var}(\\ln w)$ into within-group and between-group parts, and L3 shows the split depends on the grouping. L4's shock is between *regions*, but regions are not the groups here. Every education group's mean stays put, so the between part is unchanged. Inside each education group, apply L1's law again with region as the subgroup: the region-level variances are unchanged, and the variance of the two region means, $\\pm 0.05$ with equal weights, adds $0.05^2 = 0.0025$."
+      }
+     ],
+     "words": 127,
+     "symbols": [
+      "$w_{rj}$"
+     ]
+    },
+    {
+     "id": "putting-it-together-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "Two regions earn shares $\\lambda_{1A} = 0.6$ and $\\lambda_{2A} = 0.2$ of their income in airplanes and the rest in textiles. Airplane prices rise by 0.05 log points and textile prices fall by 0.10. A shock common to all regions also lowers every wage by 0.03 log points, the $\\alpha_w$ of the regional regression in §3. By how many log points does region 1's wage change relative to region 2's?",
+       "answer": 0.06,
+       "tol": 0.002,
+       "wrong": [
+        {
+         "answer": 0.03,
+         "tol": 0.002,
+         "md": "that subtracts the common shock once; it lowers both regions' wages by 0.03, so it cancels in the comparison"
+        },
+        {
+         "answer": -0.04,
+         "tol": 0.002,
+         "md": "that is region 1's own change, $-0.03 + 0.6 \\times 0.05 + 0.4 \\times (-0.10)$; the question asks for its change relative to region 2"
+        },
+        {
+         "answer": 0.02,
+         "tol": 0.002,
+         "md": "that uses only the airplane price, $(0.6 - 0.2) \\times 0.05$; the textile price fall hits region 2 harder too"
+        }
+       ],
+       "why": "L4 gives $d\\log w_r = \\lambda_{rA}\\,d\\log p_A + (1 - \\lambda_{rA})\\,d\\log p_T$, and §3 of this lecture adds the common term $\\alpha_w$. Region 1 changes by $-0.03 + 0.03 - 0.04 = -0.04$ and region 2 by $-0.03 + 0.01 - 0.08 = -0.10$, so the relative change is $(0.6 - 0.2)(0.05 + 0.10) = 0.06$. The common $-0.03$ drops out, which is why a comparison across regions answers only the relative question (§1).",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 66,
+     "symbols": [
+      "$w_{rj}$",
+      "$\\lambda_{rj}$",
+      "$p_j$",
+      "$\\alpha_L$, $\\varepsilon_r$"
+     ]
+    },
+    {
+     "id": "putting-it-together-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "ADH find that more-exposed commuting zones lose manufacturing jobs and earnings relative to others, but their population barely moves. By L4's argument, why does the lack of movement matter?",
+       "options": [
+        {
+         "md": "Workers stay tied to their region's hit industries; L4's relative losses are undone only if workers move freely between regions",
+         "correct": true
+        },
+        {
+         "md": "It shows the shock was too small to matter for the region's workers",
+         "correct": false,
+         "feedback": "The losses are real: the 75th-percentile zone loses 4.5% more manufacturing employees and has 0.8% lower mean weekly earnings than the 25th-percentile zone."
+        },
+        {
+         "md": "Without migration, the regression recovers the aggregate effect of China on US workers",
+         "correct": false,
+         "feedback": "Migration or not, the regression compares more- with less-exposed zones, so anything that hit every zone is differenced out (§1). It still answers the relative question."
+        },
+        {
+         "md": "It means the small-open-economy assumption fails, so L4's model does not apply",
+         "correct": false,
+         "feedback": "Price-taking concerns goods prices, not where workers live. Immobility is the assumption that *delivers* L4's regional result."
+        }
+       ],
+       "why": "L4 argues that a price shock raises or lowers a region's wages relative to others \"unless workers move freely between regions\", since free movement would equalize pay across them. In ADH (§3 of this lecture) population barely moves, so exposed zones' workers stay tied to the industries hit by imports, and the relative loss is not arbitraged away."
+      }
+     ],
+     "words": 87,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "cross-course-links",
+   "heading": "Cross-course links",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "cross-course-links-1",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "tip",
+       "title": "Econometrics in this lecture (Econ 430)",
+       "md": "- Every paper turns on endogeneity and an instrument or policy experiment: [Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls), [Shift-Share Instrument](note:shift-share-instrument).\n- [Difference-in-Differences](note:difference-in-differences) and event studies with [Fixed Effects Regression](note:fixed-effects-regression); [Clustered Standard Errors](note:clustered-standard-errors) at the state or 3-digit-industry level.",
+       "folded": false
+      }
+     ],
+     "words": 42,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "math-refresher",
+   "heading": "Math refresher",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "math-refresher-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Math Prep L7 Approximations Logs and Series](note:math-prep-l7-approximations-logs-and-series) — log changes and percentage effects\n- [Math Prep L2 Vector Spaces Rank and Projection](note:math-prep-l2-vector-spaces-rank-and-projection) — fixed effects as projections (demeaning)"
+      }
+     ],
+     "words": 27,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Explain why a cross-worker regression on China exposure answers a \"relative\" question, not the aggregate one.\n2. Write down the ADH exposure measure and its instrument, and explain why the instrument is needed and why the manufacturing-share control matters.\n3. Convert coefficients into 75th-vs-25th-percentile magnitudes (ADH, Pierce-Schott, ADHS).\n4. Explain Kovak's regional tariff measure and how it differs from ADH's.\n5. Explain the NTR gap and set up the PNTR difference-in-differences and event study; interpret pre-trends.\n6. Explain why ADHS track workers by initial industry and summarize who loses.\n7. Explain the HJMX endogeneity problem and their firm-level instruments, and contrast offshoring and exporting effects.\n8. Summarize the common lesson across regions, industries, workers and firms."
+      }
+     ],
+     "words": 117,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "papers-in-this-lecture",
+   "heading": "Papers in this lecture",
+   "role": "papers",
+   "steps": [
+    {
+     "id": "papers-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "papers",
+       "items": [
+        "autor-2019-work-of-the-past-work-of-the-future",
+        "autor-dorn-and-hanson-2013-the-china-syndrome",
+        "kovak-2013-regional-effects-of-trade-reform",
+        "pierce-and-schott-2016-the-surprisingly-swift-decline-of-us-manufacturing-employment",
+        "autor-dorn-hanson-and-song-2014-trade-adjustment",
+        "hummels-jorgensen-munch-and-xiang-2014-the-wage-effects-of-offshoring"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "shift-share-exposure",
+        "shift-share-instrument",
+        "import-penetration",
+        "commuting-zone",
+        "difference-in-differences",
+        "fixed-effects-regression",
+        "clustered-standard-errors",
+        "instrumental-variables-and-2sls",
+        "specific-factors-model",
+        "wage-polarization"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "facts-and-data-in-this-lecture",
+   "heading": "Facts and data in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "facts-and-data-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "facts",
+       "items": [
+        "us-imports-from-china-1991-2007",
+        "us-manufacturing-employment-1939-2015",
+        "us-skill-and-occupation-shifts-by-city-density-1970-2015",
+        "us-local-labor-market-effects-of-chinese-imports-1990-2007",
+        "brazil-regional-wage-effects-of-1990s-tariff-cuts",
+        "us-manufacturing-employment-effects-of-pntr-1990-2007",
+        "us-worker-earnings-effects-of-chinese-imports-1992-2007",
+        "denmark-firm-level-effects-of-offshoring-1995-2006",
+        "ssa-master-earnings-file",
+        "longitudinal-business-database-lbd",
+        "danish-matched-worker-firm-data"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

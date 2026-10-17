@@ -1,0 +1,306 @@
+{
+ "slug": "hypothesis-tests-on-regression-coefficients",
+ "notation": [
+  {
+   "tex": "$\\beta_k$",
+   "meaning": "True coefficient $k$",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$b_k$",
+   "meaning": "Its OLS estimate",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "b"
+   ]
+  },
+  {
+   "tex": "$c$",
+   "meaning": "Value claimed by the null",
+   "kind": "Constant",
+   "typical": "0 by default",
+   "keys": [
+    "c"
+   ]
+  },
+  {
+   "tex": "$se(b_k)$",
+   "meaning": "Standard error of $b_k$ (uses $\\widehat{\\sigma}$)",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "~se(b_k)"
+   ]
+  },
+  {
+   "tex": "$\\sigma$, $\\widehat{\\sigma}$",
+   "meaning": "Standard deviation of the errors and its estimate",
+   "kind": "Parameter / statistic",
+   "typical": "89.5 in the food regression",
+   "keys": [
+    "sigma",
+    "hat(sigma)"
+   ]
+  },
+  {
+   "tex": "$t$",
+   "meaning": "Test statistic",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "t"
+   ]
+  },
+  {
+   "tex": "$T$",
+   "meaning": "A random variable with the $t_{N-K}$ distribution",
+   "kind": "Random variable",
+   "typical": "—",
+   "keys": [
+    "T"
+   ]
+  },
+  {
+   "tex": "$N$, $K$",
+   "meaning": "Observations and estimated coefficients",
+   "kind": "Counts",
+   "typical": "$K = 2$ in simple regression",
+   "keys": [
+    "N",
+    "K"
+   ]
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "Significance level (not an intercept here)",
+   "kind": "Choice",
+   "typical": "0.05",
+   "keys": [
+    "alpha"
+   ]
+  },
+  {
+   "tex": "$t_{q,\\,N-K}$",
+   "meaning": "The $q$ quantile of the $t_{N-K}$ distribution",
+   "kind": "Constant",
+   "typical": "$t_{0.975,38} = 2.024$, $t_{0.95,38} = 1.686$",
+   "keys": [
+    "t"
+   ]
+  },
+  {
+   "tex": "$H_0$, $H_1$",
+   "meaning": "Null and alternative hypotheses",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "H"
+   ]
+  },
+  {
+   "tex": "$R^2$",
+   "meaning": "Coefficient of determination",
+   "kind": "Statistic",
+   "typical": "0.385 for the food regression",
+   "keys": [
+    "R"
+   ],
+   "from": "coefficient-of-determination"
+  },
+  {
+   "tex": "$e_0$",
+   "meaning": "The new observation's own error",
+   "kind": "Random variable",
+   "typical": "—",
+   "keys": [
+    "e"
+   ],
+   "from": "confidence-vs-prediction-intervals"
+  },
+  {
+   "tex": "$p$, $n$",
+   "meaning": "Number of parameters and of observations",
+   "kind": "Counts",
+   "typical": "—",
+   "keys": [
+    "p",
+    "n"
+   ],
+   "from": "regression-diagnostics"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A regression gives one estimated slope, but a different sample would give a different one. A hypothesis test asks whether the estimate is far enough from some claimed value that chance alone is an unlikely explanation. Distance is measured in standard errors: an estimate two or more standard errors from the claimed value is usually judged too far. A two-sided test asks \"is the slope different from the claim?\"; a one-sided test asks a directional question such as \"is the slope larger?\" and puts all of its doubt in one tail."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "Every regression table prints a test of \"is this coefficient zero?\", and exam questions turn on choosing the right null, the right tail and the right standard error.",
+       "folded": false
+      }
+     ],
+     "words": 122,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Under SR1 to SR6 (or approximately, in large samples), for the null $H_0: \\beta_k = c$:"
+      },
+      {
+       "t": "math",
+       "tex": "t = \\frac{b_k - c}{se(b_k)} \\;\\sim\\; t_{N-K}"
+      },
+      {
+       "t": "table",
+       "md": "| Alternative | Reject $H_0$ at level $\\alpha$ if | p-value |\n| --- | --- | --- |\n| $H_1: \\beta_k \\neq c$ (two-sided) | $\\lvert t\\rvert > t_{1-\\alpha/2,\\,N-K}$ | $2\\,P(T > \\lvert t\\rvert)$ |\n| $H_1: \\beta_k > c$ (right tail) | $t > t_{1-\\alpha,\\,N-K}$ | $P(T > t)$ |\n| $H_1: \\beta_k < c$ (left tail) | $t < -t_{1-\\alpha,\\,N-K}$ | $P(T < t)$ |"
+      }
+     ],
+     "words": 26,
+     "symbols": [
+      "$\\beta_k$",
+      "$b_k$",
+      "$c$",
+      "$se(b_k)$",
+      "$t$",
+      "$T$",
+      "$\\alpha$",
+      "$t_{q,\\,N-K}$",
+      "$H_0$, $H_1$",
+      "$e_0$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example-the-food-regression",
+   "heading": "Worked example: the food regression",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-the-food-regression-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The lecture's table: $b_2 = 10.21$, $se(b_2) = 2.093$, $N = 40$."
+      },
+      {
+       "t": "prose",
+       "md": "- **Default two-sided test of $\\beta_2 = 0$**: $t = 10.21/2.093 = 4.88 > 2.024$, $p < 0.001$. Reject: income is related to food spending.\n- **One-sided test of $\\beta_2 = 7$ against $\\beta_2 > 7$** (the critical value is beyond what the lecture prints): $t = (10.21 - 7)/2.093 = 1.53 < t_{0.95,38} = 1.686$, right-tail $p = 0.067$. Do not reject at 5%: the data are consistent with 7 cents of each extra dollar going to food.\n- **Link to intervals**: the 95% confidence interval [5.97, 14.45] excludes 0 and includes 7, which agrees with both two-sided conclusions."
+      }
+     ],
+     "words": 72,
+     "symbols": [
+      "$\\beta_k$",
+      "$b_k$",
+      "$t$",
+      "$N$, $K$",
+      "$t_{q,\\,N-K}$",
+      "$e_0$",
+      "$p$, $n$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Wrong row.** The intercept's p-value (0.062 in the food table) says nothing about the slope.\n- **Wrong critical value.** A one-sided 5% test uses the 0.95 quantile (1.686 with 38 df), not 2.024. Decide the alternative before looking at the estimate.\n- **\"Fail to reject\" is not \"accept\".** The test keeps $H_0$ as a possibility; it does not show $H_0$ is true.\n- **Statistical is not economic significance** (beyond the lecture). With 526 workers, the wage-on-experience slope of \\$0.031 an hour per year of experience has $t = 2.60$, yet it is tiny in dollars and the regression's $R^2$ is 0.013 ([Coefficient of Determination](note:coefficient-of-determination)). Report the size of an effect as well as its p-value."
+      }
+     ],
+     "words": 116,
+     "symbols": [
+      "$t$",
+      "$t_{q,\\,N-K}$",
+      "$H_0$, $H_1$",
+      "$R^2$"
+     ]
+    },
+    {
+     "id": "common-mistakes-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Mixing $\\sigma$ and $se$.** The standard error already includes the estimate of $\\sigma$; that is why the reference distribution is $t$, not normal."
+      }
+     ],
+     "words": 20,
+     "symbols": [
+      "$\\sigma$, $\\widehat{\\sigma}$",
+      "$t$",
+      "$t_{q,\\,N-K}$",
+      "$e_0$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Econometrics: every coefficient in a regression table; confidence intervals are the same calculation turned around ([Confidence vs Prediction Intervals](note:confidence-vs-prediction-intervals)).\n- Diagnostics: tests such as Jarque-Bera and Breusch-Pagan follow the same logic with other statistics ([Regression Diagnostics](note:regression-diagnostics))."
+      }
+     ],
+     "words": 37,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Sampling Distribution of OLS](note:sampling-distribution-of-ols) · [Coefficient of Determination](note:coefficient-of-determination) · [Confidence vs Prediction Intervals](note:confidence-vs-prediction-intervals)"
+      }
+     ],
+     "words": 12,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

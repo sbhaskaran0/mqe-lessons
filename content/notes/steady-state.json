@@ -1,0 +1,342 @@
+{
+ "slug": "steady-state",
+ "notation": [
+  {
+   "tex": "$x_t$",
+   "meaning": "Value of the variable in period $t$ (e.g. capital per worker)",
+   "kind": "State variable",
+   "typical": "—",
+   "keys": [
+    "x"
+   ]
+  },
+  {
+   "tex": "$g(\\cdot)$",
+   "meaning": "Law of motion: turns this period's value into next period's",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "g"
+   ]
+  },
+  {
+   "tex": "$x^*$",
+   "meaning": "Steady state, where $g(x^*) = x^*$",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "x*"
+   ]
+  },
+  {
+   "tex": "$g'(x^*)$",
+   "meaning": "Slope of the law of motion at the steady state",
+   "kind": "Number",
+   "typical": "Stable if between −1 and 1",
+   "keys": [
+    "g"
+   ]
+  },
+  {
+   "tex": "$\\delta$, $\\eta$, $k$",
+   "meaning": "Depreciation, population growth and capital per worker in the growth-model picture",
+   "kind": "Parameters / state",
+   "typical": "≈ 0.05, ≈ 0.01",
+   "keys": [
+    "delta",
+    "eta",
+    "k"
+   ]
+  },
+  {
+   "tex": "$\\bar{k}$",
+   "meaning": "Steady-state capital per worker in the Solow example (the growth notes' symbol for $x^*$)",
+   "kind": "Endogenous",
+   "typical": "25",
+   "keys": [
+    "bar(k)"
+   ]
+  },
+  {
+   "tex": "$c$, $\\rho$",
+   "meaning": "Intercept and persistence in the AR(1) example",
+   "kind": "Parameters",
+   "typical": "Stable if $\\lvert\\rho\\rvert < 1$",
+   "keys": [
+    "c",
+    "rho"
+   ]
+  },
+  {
+   "tex": "$s$, $A$, $\\alpha$",
+   "meaning": "Saving rate, productivity and capital share in the Solow example",
+   "kind": "Parameters",
+   "typical": "0.5, 1, 0.5",
+   "keys": [
+    "s",
+    "A",
+    "alpha"
+   ]
+  },
+  {
+   "tex": "$f$",
+   "meaning": "Function being approximated",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "f"
+   ],
+   "from": "taylor-series-approximation"
+  },
+  {
+   "tex": "$sf(k)$",
+   "meaning": "Actual investment per worker: the share of output saved",
+   "kind": "Function (concave curve)",
+   "typical": "—",
+   "keys": [
+    "~sf(k)"
+   ],
+   "from": "solow-diagram"
+  },
+  {
+   "tex": "$y = Y/L$, $k = K/L$, $c = C/L$",
+   "meaning": "Output, capital and consumption per worker",
+   "kind": "Endogenous; $k$ is the state variable",
+   "typical": "—",
+   "keys": [
+    "y",
+    "k",
+    "c"
+   ],
+   "from": "solow-growth-model"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A steady state is a resting point: a situation that, once reached, repeats itself period after period, because the forces pushing a variable up exactly balance the forces pulling it down. Think of a bathtub with the tap running and the drain open — the water level settles where inflow equals outflow, and if you scoop some water out, it climbs back. For any steady state economists ask two questions: where is it, and does the economy return to it after a disturbance?"
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "Most dynamic models are solved by finding the steady state first and then studying how the economy travels toward it.",
+       "folded": false
+      }
+     ],
+     "words": 105,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "For a law of motion $x_{t+1} = g(x_t)$, a **steady state** $x^*$ is a value that reproduces itself:"
+      },
+      {
+       "t": "math",
+       "tex": "x^* = g(x^*)"
+      },
+      {
+       "t": "prose",
+       "md": "Once there, the variable stays there."
+      }
+     ],
+     "words": 20,
+     "symbols": [
+      "$x_t$",
+      "$g(\\cdot)$",
+      "$x^*$",
+      "$g'(x^*)$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "stability",
+   "heading": "Stability",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "stability-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A steady state is **stable** if, starting nearby, $x_t \\to x^*$. For a one-variable difference equation, a sufficient local condition is"
+      },
+      {
+       "t": "math",
+       "tex": "|g'(x^*)| < 1"
+      },
+      {
+       "t": "prose",
+       "md": "(by a first-order [Taylor Series Approximation](note:taylor-series-approximation) around $x^*$, deviations shrink by a factor $g'(x^*)$ each period). If $0 < g'(x^*) < 1$, convergence is monotone."
+      }
+     ],
+     "words": 36,
+     "symbols": [
+      "$x_t$",
+      "$g(\\cdot)$",
+      "$x^*$",
+      "$g'(x^*)$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "graphical-reading",
+   "heading": "Graphical reading",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "graphical-reading-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Plot \"inflow\" and \"outflow\" against $x$ — in growth models, saving $sf(k)$ and break-even investment $(\\delta + \\eta)k$. The steady state is where they cross; to the left inflows exceed outflows and $x$ rises, to the right it falls."
+      }
+     ],
+     "words": 32,
+     "symbols": [
+      "$x_t$",
+      "$\\delta$, $\\eta$, $k$",
+      "$s$, $A$, $\\alpha$",
+      "$f$",
+      "$sf(k)$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "transitional-dynamics",
+   "heading": "Transitional dynamics",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "transitional-dynamics-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Parameter changes** move the steady state; the variable then travels gradually to the new one.\n- **One-off shocks** to the state variable (destroying capital, a sudden population change) leave the steady state unchanged; the variable returns over time."
+      },
+      {
+       "t": "prose",
+       "md": "The variable itself cannot jump: a state variable like capital only moves through the law of motion."
+      }
+     ],
+     "words": 56,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "worked-example-the-solow-law-of-motion",
+   "heading": "Worked example: the Solow law of motion",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-the-solow-law-of-motion-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Capital per worker follows $k_{t+1} = g(k_t) = sAk_t^{\\alpha} + (1-\\delta)k_t$. With $s = 0.5$, $A = 1$, $\\alpha = 0.5$, $\\delta = 0.1$ the steady state is $\\bar{k} = (sA/\\delta)^{1/(1-\\alpha)} = 25$."
+      },
+      {
+       "t": "prose",
+       "md": "**Stability.** $g'(k) = \\alpha sAk^{\\alpha-1} + 1 - \\delta$. At the steady state $sA\\bar{k}^{\\alpha} = \\delta \\bar{k}$, so $\\alpha sA\\bar{k}^{\\alpha-1} = \\alpha\\delta$ and"
+      },
+      {
+       "t": "math",
+       "tex": "g'(\\bar{k}) = 1 - (1-\\alpha)\\delta = 0.95"
+      },
+      {
+       "t": "prose",
+       "md": "It lies between 0 and 1, so the steady state is stable and convergence is monotone: each period the remaining gap shrinks by about 5%. From $k = 100$ the path is 95, 90.37, 86.09, … and still about 28.9 after 50 periods — slow, because 0.95 is close to 1. See [Solow Diagram](note:solow-diagram) for the graphical version."
+      }
+     ],
+     "words": 73,
+     "symbols": [
+      "$g(\\cdot)$",
+      "$g'(x^*)$",
+      "$\\delta$, $\\eta$, $k$",
+      "$\\bar{k}$",
+      "$s$, $A$, $\\alpha$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Steady state ≠ no growth: in growth models it is defined in **normalized** variables, which can be constant while aggregates grow — see [Balanced Growth Path](note:balanced-growth-path).\n- Assuming existence or uniqueness: the production function's shape (concavity, Inada conditions) is what guarantees them."
+      }
+     ],
+     "words": 41,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Macro / growth**: [Solow Growth Model](note:solow-growth-model), [Capital Accumulation Equation](note:capital-accumulation-equation).\n- **Time series**: an AR(1) $y_t = c + \\rho y_{t-1}$ has steady state $c/(1-\\rho)$, stable iff $|\\rho| < 1$ ([Geometric Series](note:geometric-series))."
+      }
+     ],
+     "words": 22,
+     "symbols": [
+      "$c$, $\\rho$",
+      "$y = Y/L$, $k = K/L$, $c = C/L$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Balanced Growth Path](note:balanced-growth-path)"
+      }
+     ],
+     "words": 4,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

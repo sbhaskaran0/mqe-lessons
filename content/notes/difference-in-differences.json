@@ -1,0 +1,345 @@
+{
+ "slug": "difference-in-differences",
+ "notation": [
+  {
+   "tex": "$y_{it}$",
+   "meaning": "Outcome for unit $i$ (industry, region, worker) in period $t$",
+   "kind": "Data",
+   "typical": "log employment",
+   "keys": [
+    "y"
+   ]
+  },
+  {
+   "tex": "$\\bar{y}_{T,\\text{pre}}$ etc.",
+   "meaning": "Group mean outcome before or after the change",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "bar(y)"
+   ]
+  },
+  {
+   "tex": "$\\text{Post}_t$",
+   "meaning": "1 in periods after the change, 0 before",
+   "kind": "Indicator",
+   "typical": "—",
+   "keys": []
+  },
+  {
+   "tex": "$D_i$",
+   "meaning": "Treatment: a dummy, or a continuous intensity of exposure",
+   "kind": "Data",
+   "typical": "NTR gap ≈ 0.23–0.40",
+   "keys": [
+    "D"
+   ]
+  },
+  {
+   "tex": "$\\theta$",
+   "meaning": "Effect of treatment (per unit of $D_i$ if continuous)",
+   "kind": "Parameter",
+   "typical": "−0.47 in the PNTR example",
+   "keys": [
+    "theta"
+   ]
+  },
+  {
+   "tex": "$\\hat{\\theta}_{DiD}$",
+   "meaning": "Difference-in-differences estimate",
+   "kind": "Estimator",
+   "typical": "−0.2 in the 2×2 example",
+   "keys": [
+    "hat(theta)"
+   ]
+  },
+  {
+   "tex": "$\\delta_i$, $\\delta_t$",
+   "meaning": "Unit and time fixed effects",
+   "kind": "Parameters",
+   "typical": "—",
+   "keys": [
+    "delta"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{x}_{it}$, $\\gamma$",
+   "meaning": "Controls and their coefficients",
+   "kind": "Data / parameters",
+   "typical": "—",
+   "keys": [
+    "bold(x)",
+    "gamma"
+   ]
+  },
+  {
+   "tex": "$\\varepsilon_{it}$",
+   "meaning": "Error",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "varepsilon"
+   ]
+  },
+  {
+   "tex": "$\\theta_\\tau$",
+   "meaning": "Event-study effect in year $\\tau$",
+   "kind": "Parameter",
+   "typical": "0 before treatment if trends are parallel",
+   "keys": [
+    "theta"
+   ]
+  },
+  {
+   "tex": "$\\mathbb{1}\\{\\tau = t\\}$",
+   "meaning": "Indicator for year $\\tau$",
+   "kind": "Indicator",
+   "typical": "—",
+   "keys": [
+    "tau"
+   ]
+  },
+  {
+   "tex": "$\\tau$",
+   "meaning": "Event-study year index (summed over in the event-study regression)",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "tau"
+   ]
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Suppose a policy hits some industries harder than others. Comparing affected industries before and after is not enough: everything else that changed over those years gets mixed in. Comparing affected with unaffected industries after the policy is not enough either: they may always have been different. Difference-in-differences does both: it takes the before-to-after change in the affected group and subtracts the before-to-after change in the unaffected group. Whatever hit both groups cancels out, and so does any permanent gap between them. What is left is the effect of the policy — as long as the two groups would have moved in parallel without it."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the workhorse design for policy changes that hit some units more than others, and its key assumption can be checked by looking at the years before the change.",
+       "folded": false
+      }
+     ],
+     "words": 136,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With treated (T) and control (C) groups observed before and after a change:"
+      },
+      {
+       "t": "math",
+       "tex": "\\hat{\\theta}_{DiD} = \\big(\\bar{y}_{T,\\text{post}} - \\bar{y}_{T,\\text{pre}}\\big) - \\big(\\bar{y}_{C,\\text{post}} - \\bar{y}_{C,\\text{pre}}\\big)"
+      },
+      {
+       "t": "prose",
+       "md": "In regression form, with unit and time fixed effects and a treatment intensity $D_i$ (a dummy, or a continuous measure of exposure):"
+      },
+      {
+       "t": "math",
+       "tex": "y_{it} = \\theta\\,(\\text{Post}_t \\times D_i) + \\mathbf{x}_{it}'\\gamma + \\delta_i + \\delta_t + \\varepsilon_{it}"
+      }
+     ],
+     "words": 34,
+     "symbols": [
+      "$y_{it}$",
+      "$\\bar{y}_{T,\\text{pre}}$ etc.",
+      "$D_i$",
+      "$\\theta$",
+      "$\\hat{\\theta}_{DiD}$",
+      "$\\delta_i$, $\\delta_t$",
+      "$\\mathbf{x}_{it}$, $\\gamma$",
+      "$\\varepsilon_{it}$",
+      "$\\theta_\\tau$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**2 × 2.** Log employment in high-exposure industries goes from 10.0 to 9.7; in low-exposure industries from 10.0 to 9.9. Before-after alone says −0.3; the control group's change (−0.1) is the common trend. DiD = −0.3 − (−0.1) = **−0.2**."
+      },
+      {
+       "t": "prose",
+       "md": "**Continuous treatment.** With $\\theta = -0.47$ and treatment intensity rising from 0.23 (25th percentile) to 0.40 (75th), the implied relative effect is $-0.47 \\times 0.17 = -0.08$ log points."
+      }
+     ],
+     "words": 68,
+     "symbols": [
+      "$\\theta$",
+      "$\\theta_\\tau$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "identifying-assumption-parallel-trends",
+   "heading": "Identifying assumption: parallel trends",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "identifying-assumption-parallel-trends-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Without treatment, treated and control outcomes would have changed by the same amount. Fixed effects remove permanent level differences ($\\delta_i$) and shocks common to all units ($\\delta_t$); controls interacted with $\\text{Post}_t$ allow groups with different characteristics to trend differently."
+      }
+     ],
+     "words": 36,
+     "symbols": [
+      "$\\delta_i$, $\\delta_t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "event-study-version",
+   "heading": "Event-study version",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "event-study-version-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Replace the single $\\text{Post}_t \\times D_i$ term with one interaction per year:"
+      },
+      {
+       "t": "math",
+       "tex": "y_{it} = \\sum_{\\tau} \\theta_\\tau\\,\\big(\\mathbb{1}\\{\\tau = t\\} \\times D_i\\big) + \\mathbf{x}_{it}'\\gamma + \\delta_i + \\delta_t + \\varepsilon_{it}"
+      },
+      {
+       "t": "prose",
+       "md": "One year is omitted as the base. The $\\theta_\\tau$ before the change test parallel trends (they should be close to zero); those after trace how the effect builds."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/PNTR effect on US manufacturing employment event study.png",
+       "alt": "PNTR effect on US manufacturing employment event study",
+       "caption": "Example: 90% confidence intervals for $\\theta_\\tau$ when industry employment is regressed on year dummies × tariff-uncertainty gap. Flat before 2001, then a growing decline."
+      }
+     ],
+     "words": 58,
+     "symbols": [
+      "$y_{it}$",
+      "$D_i$",
+      "$\\theta$",
+      "$\\delta_i$, $\\delta_t$",
+      "$\\mathbf{x}_{it}$, $\\gamma$",
+      "$\\varepsilon_{it}$",
+      "$\\theta_\\tau$",
+      "$\\mathbb{1}\\{\\tau = t\\}$",
+      "$\\tau$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "when-it-fails",
+   "heading": "When it fails",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "when-it-fails-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Threat | What goes wrong |\n| --- | --- |\n| Pre-trends | Treated units were already diverging; pre-period $\\theta_\\tau \\neq 0$ |\n| Coinciding shocks | Another change at the same time hits the same units (e.g. quota removal in textiles) — control for it |\n| Anticipation | Units react before the official date, contaminating the \"pre\" period |\n| Staggered timing (beyond the lecture) | With different treatment dates and changing effects, the two-way fixed-effects estimate can mis-weight comparisons; newer estimators address this |"
+      }
+     ],
+     "words": 68,
+     "symbols": [
+      "$\\theta$",
+      "$\\theta_\\tau$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Reading a level difference between groups as the effect — DiD uses *changes*.\n- Forgetting that a continuous-treatment $\\theta$ is an effect per unit of intensity, so it must be scaled by a meaningful difference (e.g. 25th to 75th percentile).\n- Calling it an aggregate effect: it identifies the effect on treated units *relative* to less-treated ones; anything that hits everyone is absorbed by $\\delta_t$."
+      }
+     ],
+     "words": 64,
+     "symbols": [
+      "$\\theta$",
+      "$\\delta_i$, $\\delta_t$",
+      "$\\theta_\\tau$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Trade: effects of trade policy changes across industries or regions.\n- Labor and public economics: minimum wages, tax reforms, any policy with differential exposure."
+      }
+     ],
+     "words": 25,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Fixed Effects Regression](note:fixed-effects-regression) · [Indicator Variables](note:indicator-variables) · [Clustered Standard Errors](note:clustered-standard-errors) · [OLS Estimator](note:ols-estimator)"
+      }
+     ],
+     "words": 11,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

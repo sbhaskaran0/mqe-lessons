@@ -1,0 +1,304 @@
+{
+ "slug": "specific-factors-model",
+ "notation": [
+  {
+   "tex": "$j$, $i$",
+   "meaning": "Industries (goods)",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "j",
+    "i"
+   ]
+  },
+  {
+   "tex": "$p_j$",
+   "meaning": "Price of good $j$, set on world markets",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "p"
+   ]
+  },
+  {
+   "tex": "$Y_j$",
+   "meaning": "Output of good $j$ — fixed because factors cannot move",
+   "kind": "Exogenous (fixed)",
+   "typical": "—",
+   "keys": [
+    "Y"
+   ]
+  },
+  {
+   "tex": "$\\alpha_j$",
+   "meaning": "Share of revenue paid to a given factor in industry $j$",
+   "kind": "Parameter in (0, 1)",
+   "typical": "≈ 2/3 for labor",
+   "keys": [
+    "alpha"
+   ]
+  },
+  {
+   "tex": "$d\\log x$",
+   "meaning": "Log change in $x$: approximately its percentage change",
+   "kind": "Operator",
+   "typical": "—",
+   "keys": [
+    "~d\\logx"
+   ]
+  },
+  {
+   "tex": "$w_j$",
+   "meaning": "Wage (payment per unit) of the factor in industry $j$",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "w"
+   ]
+  },
+  {
+   "tex": "$f$, $g$",
+   "meaning": "Factor and good, in the many-goods extension",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "f",
+    "g"
+   ]
+  },
+  {
+   "tex": "$\\lambda_{fg}$",
+   "meaning": "Share of factor $f$'s income earned in good $g$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "lambda"
+   ]
+  },
+  {
+   "tex": "$a_f$",
+   "meaning": "Productivity change specific to factor $f$",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "a"
+   ]
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Imagine an economy in which workers and machines cannot move between industries — at least not quickly. A textile worker stays in textiles, an aircraft engineer stays in aircraft. If the world price of planes rises, aircraft firms sell the same planes for more money, and because nobody can move in to compete, the extra revenue goes to the people and machines already there. If the price of textiles falls, textile workers absorb the loss. So in the short run, what happens to your pay depends on what your industry, firm or region produces, not on how skilled you are in general."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the simplest way to see how trade creates winners and losers: price changes from opening to trade pass straight through to the incomes of the factors tied to each good.",
+       "folded": false
+      }
+     ],
+     "words": 136,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "In each industry $j$, factors are completely immobile, so output is fixed at $Y_j$; the economy takes the price $p_j$ as given; and each factor receives a constant share $\\alpha_j$ of revenue:"
+      },
+      {
+       "t": "math",
+       "tex": "\\text{factor payments}_j = \\alpha_j\\,p_j\\,Y_j \\quad\\Longrightarrow\\quad d\\log(\\text{factor payments}_j) = d\\log p_j"
+      },
+      {
+       "t": "prose",
+       "md": "Because the factors are fixed, the change in payments is the change in income of a given set of people and machines."
+      }
+     ],
+     "words": 50,
+     "symbols": [
+      "$j$, $i$",
+      "$p_j$",
+      "$Y_j$",
+      "$\\alpha_j$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "derivation",
+   "heading": "Derivation",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "derivation-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Take logs: $\\log(\\text{payments}_j) = \\log\\alpha_j + \\log p_j + \\log Y_j$. With $\\alpha_j$ and $Y_j$ constant, only $\\log p_j$ moves, so the log change in payments equals the log change in price ([Logarithms and Growth Rates](note:logarithms-and-growth-rates)). Since the number of factors in the industry is fixed, the payment per factor moves by the same amount: $d\\log w_j = d\\log p_j$."
+      }
+     ],
+     "words": 42,
+     "symbols": [
+      "$p_j$",
+      "$Y_j$",
+      "$\\alpha_j$",
+      "$w_j$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A trade liberalization raises the price of planes by 10% and lowers the price of textiles by 5%. Aircraft workers' wages rise by 10% (a log change of 0.095); textile workers' wages fall by 5% (−0.051). Relative to textile workers, aircraft workers gain about 0.15 log points. Nothing about their skills changed — only the price of what they make."
+      }
+     ],
+     "words": 62,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "implications",
+   "heading": "Implications",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "implications-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Unit tied to a good | Positive trade shock (export market access) | Negative trade shock (import competition) |\n| --- | --- | --- |\n| Industry | Workers' wages rise | Workers' wages fall |\n| Firm | Employees of exporting firms gain | Employees of import-competing firms lose |\n| Region | Regions specialized in the good gain | Regions specialized in the good lose |"
+      },
+      {
+       "t": "prose",
+       "md": "If $d\\log p_j > d\\log p_i$, factors in $j$ gain relative to factors in $i$. For a region or a factor spread over several industries, the change is a weighted average of price changes — see [Shift-Share Exposure](note:shift-share-exposure)."
+      }
+     ],
+     "words": 80,
+     "symbols": [
+      "$j$, $i$",
+      "$p_j$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "extensions",
+   "heading": "Extensions",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "extensions-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Productivity shocks**: adding a factor-specific productivity change $a_f$ gives $d\\ln w_f = a_f + \\sum_g \\lambda_{fg}\\,d\\ln p_g$, useful for skill-biased change ([Factor-Augmenting Technology](note:factor-augmenting-technology)). Here $\\lambda_{fg}$ is the share of factor $f$'s income earned in good $g$.\n- **Labor mobile across industries within a region**: the regional wage change weights each traded industry's price change by its labor share divided by one minus its national labor share, and non-traded industries drop out — the regional tariff measure in [Shift-Share Exposure](note:shift-share-exposure).\n- **Mobile factors**: if factors can move and are allocated optimally, the same first-order result holds for small price changes, by the [Envelope Theorem](note:envelope-theorem) — re-optimizing adds only second-order gains."
+      }
+     ],
+     "words": 97,
+     "symbols": [
+      "$p_j$",
+      "$w_j$",
+      "$f$, $g$",
+      "$\\lambda_{fg}$",
+      "$a_f$"
+     ]
+    },
+    {
+     "id": "extensions-2",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "note",
+       "title": "Beyond the lecture",
+       "md": "The textbook Ricardo-Viner model makes labor mobile and only capital (or land) specific. Then a price rise raises the specific factor's return by *more* than the price (the magnification effect) and the mobile factor's wage by less. The version here, with every factor immobile, is the limiting case.",
+       "folded": false
+      }
+     ],
+     "words": 51,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Reading the result as a long-run prediction: it describes the short run, before factors reallocate.\n- Forgetting that prices are taken as given — the result needs a [Small Open Economy](note:small-open-economy).\n- Confusing a factor's *share* (constant here) with its *payment* (moves with price)."
+      }
+     ],
+     "words": 44,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Trade: short-run distributional effects of tariffs, trade agreements and import competition.\n- Labor and regional economics: why firm, industry and regional exposure to trade predicts wage changes."
+      }
+     ],
+     "words": 28,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Shift-Share Exposure](note:shift-share-exposure) · [Small Open Economy](note:small-open-economy) · [Envelope Theorem](note:envelope-theorem) · [Relative Supply and Demand](note:relative-supply-and-demand)"
+      }
+     ],
+     "words": 12,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

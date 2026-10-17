@@ -1,0 +1,327 @@
+{
+ "slug": "capital-accumulation-equation",
+ "notation": [
+  {
+   "tex": "$K_t$",
+   "meaning": "Capital stock at the start of period $t$",
+   "kind": "State variable",
+   "typical": "—",
+   "keys": [
+    "K"
+   ]
+  },
+  {
+   "tex": "$I_t$",
+   "meaning": "Gross investment in period $t$",
+   "kind": "Flow",
+   "typical": "—",
+   "keys": [
+    "I"
+   ]
+  },
+  {
+   "tex": "$\\delta$",
+   "meaning": "Depreciation rate",
+   "kind": "Parameter",
+   "typical": "≈ 0.05",
+   "keys": [
+    "delta"
+   ]
+  },
+  {
+   "tex": "$\\Delta K_{t+1}$",
+   "meaning": "Net investment: $K_{t+1} - K_t$",
+   "kind": "Flow",
+   "typical": "—",
+   "keys": [
+    "~\\DeltaK_t+1"
+   ]
+  },
+  {
+   "tex": "$Y_t$, $L_t$",
+   "meaning": "Output and labor",
+   "kind": "Endogenous / exogenous",
+   "typical": "—",
+   "keys": [
+    "Y",
+    "L"
+   ]
+  },
+  {
+   "tex": "$s$",
+   "meaning": "Saving rate",
+   "kind": "Parameter",
+   "typical": "≈ 0.2",
+   "keys": [
+    "s"
+   ]
+  },
+  {
+   "tex": "$F(\\cdot)$, $f(\\cdot)$",
+   "meaning": "Production function in totals and per worker",
+   "kind": "Functions",
+   "typical": "—",
+   "keys": [
+    "F",
+    "f"
+   ]
+  },
+  {
+   "tex": "$k_t$",
+   "meaning": "Capital per worker (or per effective worker)",
+   "kind": "State variable",
+   "typical": "—",
+   "keys": [
+    "k"
+   ]
+  },
+  {
+   "tex": "$g$",
+   "meaning": "Growth rate of the denominator (workers, or effective workers)",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "g"
+   ]
+  },
+  {
+   "tex": "$\\delta k$",
+   "meaning": "Depreciation per worker: capital worn out each period",
+   "kind": "Function (straight line)",
+   "typical": "—",
+   "keys": [
+    "~\\deltak"
+   ],
+   "from": "solow-diagram"
+  },
+  {
+   "tex": "$\\Delta k_{t+1}$",
+   "meaning": "Change in capital per worker from $t$ to $t+1$",
+   "kind": "Endogenous",
+   "typical": "−5 at $k = 100$",
+   "keys": [
+    "~\\Deltak_t+1"
+   ],
+   "from": "solow-diagram"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The capital accumulation equation is the bookkeeping rule for an economy's stock of machines and buildings. Next year's capital equals this year's capital, minus the part that wears out, plus whatever new investment is added. If investment exceeds wear and tear, the capital stock grows; if not, it shrinks. In growth models, investment comes from saving, so this one equation links how much people save to how much capital the economy ends up with."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the engine of every growth model, and statisticians use it to build capital-stock data from investment records.",
+       "folded": false
+      }
+     ],
+     "words": 96,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "K_{t+1} = I_t + (1-\\delta)K_t"
+      },
+      {
+       "t": "prose",
+       "md": "Capital tomorrow equals investment today plus the fraction $1-\\delta$ of today's capital that does not wear out. $\\delta$ is the depreciation rate."
+      },
+      {
+       "t": "prose",
+       "md": "Equivalently, net investment is gross investment minus depreciation: $\\Delta K_{t+1} = I_t - \\delta K_t$."
+      }
+     ],
+     "words": 28,
+     "symbols": [
+      "$K_t$",
+      "$I_t$",
+      "$\\delta$",
+      "$\\Delta K_{t+1}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "as-a-law-of-motion",
+   "heading": "As a law of motion",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "as-a-law-of-motion-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With $I_t = sY_t$ ([Saving-Investment Identity](note:saving-investment-identity)) and a production function $Y_t = F(K_t, L_t)$:"
+      },
+      {
+       "t": "math",
+       "tex": "K_{t+1} = sF(K_t, L_t) + (1-\\delta)K_t"
+      },
+      {
+       "t": "prose",
+       "md": "This first-order difference equation is what generates dynamics: capital rises when saving exceeds depreciation and falls when it does not. Its fixed point is a [Steady State](note:steady-state)."
+      }
+     ],
+     "words": 34,
+     "symbols": [
+      "$K_t$",
+      "$I_t$",
+      "$\\delta$",
+      "$Y_t$, $L_t$",
+      "$s$",
+      "$F(\\cdot)$, $f(\\cdot)$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "in-per-worker-or-per-effective-worker-terms",
+   "heading": "In per-worker or per-effective-worker terms",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "in-per-worker-or-per-effective-worker-terms-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Dividing by a growing denominator adds a \"dilution\" term. If the denominator grows at rate $g$:"
+      },
+      {
+       "t": "math",
+       "tex": "k_{t+1}(1 + g) = sf(k_t) + (1-\\delta)k_t"
+      },
+      {
+       "t": "prose",
+       "md": "so effective depreciation is roughly $\\delta + g$: capital per worker must also be provided for new workers (and new efficiency)."
+      },
+      {
+       "t": "prose",
+       "md": "With a **constant workforce** ($g = 0$) this is simply $k_{t+1} = sf(k_t) + (1-\\delta)k_t$, or"
+      },
+      {
+       "t": "math",
+       "tex": "\\Delta k_{t+1} = sf(k_t) - \\delta k_t"
+      },
+      {
+       "t": "prose",
+       "md": "actual investment minus depreciation — the vertical gap in the [Solow Diagram](note:solow-diagram). Example with $f(k) = \\sqrt{k}$, $s = 0.5$, $\\delta = 0.1$: from $k = 100$, investment is 5 and depreciation 10, so $k$ falls to 95."
+      },
+      {
+       "t": "prose",
+       "md": "See [Solow Growth Model](note:solow-growth-model) (constant workforce) and [Solow Model with Technological Progress](note:solow-model-with-technological-progress) (growing workforce and technology)."
+      }
+     ],
+     "words": 81,
+     "symbols": [
+      "$\\delta$",
+      "$s$",
+      "$F(\\cdot)$, $f(\\cdot)$",
+      "$k_t$",
+      "$g$",
+      "$\\delta k$",
+      "$\\Delta k_{t+1}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$K_t = 100$, $\\delta = 0.05$, $I_t = 8$: $K_{t+1} = 8 + 95 = 103$. Depreciation (5) is below investment (8), so capital grows 3%."
+      }
+     ],
+     "words": 10,
+     "symbols": [
+      "$K_t$",
+      "$I_t$",
+      "$\\delta$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "measurement",
+   "heading": "Measurement",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "measurement-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The **perpetual inventory method** builds capital-stock data by running this equation forward from an initial guess, using investment series and an assumed $\\delta$."
+      }
+     ],
+     "words": 22,
+     "symbols": [
+      "$\\delta$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Macro / growth**: Solow, Ramsey and real-business-cycle models; growth accounting needs capital-stock series built this way."
+      }
+     ],
+     "words": 16,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Steady State](note:steady-state)\n- [Geometric Series](note:geometric-series) — the solution is a geometrically discounted sum of past investment"
+      }
+     ],
+     "words": 16,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

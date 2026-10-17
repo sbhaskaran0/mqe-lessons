@@ -1,0 +1,153 @@
+{
+ "slug": "us-skill-and-occupation-shifts-by-city-density-1970-2015",
+ "notation": [],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Across US commuting zones ordered by 1970 population density, four things changed between 1970 and 2015: dense places became far more educated; they lost middle-skill jobs much faster; for non-college workers, those jobs were replaced by low-skill service jobs; and the urban wage premium shrank for the least educated but not for the most educated.**"
+      },
+      {
+       "t": "prose",
+       "md": "All values read off the lecture charts, approximate. Each point is a group of commuting zones holding about 3–5% of the working-age population."
+      }
+     ],
+     "words": 79,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "i-bigger-cities-became-much-more-educated",
+   "heading": "I. Bigger cities became much more educated",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "i-bigger-cities-became-much-more-educated-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/US college and dropout shares by city density 1970-2015.png",
+       "alt": "US college and dropout shares by city density 1970-2015"
+      },
+      {
+       "t": "table",
+       "md": "| Share of working-age adults | 1970 (least → most dense) | 1990 | 2015 |\n| --- | --- | --- | --- |\n| College degree | ≈ 0.08 → 0.13 | ≈ 0.12 → 0.28 | ≈ 0.17 → 0.41 |\n| High-school dropout | ≈ 0.45 → 0.39 | ≈ 0.27 → 0.21 | ≈ 0.15 → 0.12 |"
+      },
+      {
+       "t": "prose",
+       "md": "The college gradient across density steepened sharply."
+      }
+     ],
+     "words": 49,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "ii-bigger-cities-lost-middle-class-jobs-much-more-rapidly",
+   "heading": "II. Bigger cities lost middle-class jobs much more rapidly",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "ii-bigger-cities-lost-middle-class-jobs-much-more-rapidly-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/US occupational employment shares by city density 1970-2015.png",
+       "alt": "US occupational employment shares by city density 1970-2015"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    },
+    {
+     "id": "ii-bigger-cities-lost-middle-class-jobs-much-more-rapidly-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Employment shares relative to the 1970 mean: middle-skill jobs (production, clerical, admin, sales) in the densest zones fell from ≈ +0.05 (1970) to ≈ −0.19 (2015); in the least dense they barely moved (≈ −0.12 to −0.15). High-skill jobs rose most in dense places (≈ +0.04 to ≈ +0.23)."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/US non-college occupational shares by city density 1970-2015.png",
+       "alt": "US non-college occupational shares by city density 1970-2015"
+      },
+      {
+       "t": "prose",
+       "md": "For **non-college** adults, dense places swapped middle-skill jobs for low-skill ones (services, transport, construction, laborers): the low-skill share in the densest zones rose from ≈ −0.08 to ≈ +0.15, while non-college high-skill shares barely changed."
+      }
+     ],
+     "words": 85,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "iii-bigger-cities-lost-their-wage-advantage-for-the-least-educated",
+   "heading": "III. Bigger cities lost their wage advantage for the least educated",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "iii-bigger-cities-lost-their-wage-advantage-for-the-least-educated-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/US log hourly wages by education and city density 1970-2015.png",
+       "alt": "US log hourly wages by education and city density 1970-2015"
+      },
+      {
+       "t": "prose",
+       "md": "In 1970 log hourly wages rose with density for every education group. By 2015 the gradient had flattened for workers without a high-school degree and steepened for post-college workers."
+      }
+     ],
+     "words": 29,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "reading-it-correctly",
+   "heading": "Reading it correctly",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "reading-it-correctly-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- These are cross-sectional patterns by 1970 density, not causal effects.\n- The occupation shifts are the spatial face of [Wage Polarization](note:wage-polarization): middle-skill jobs vanished fastest exactly where they were most concentrated.\n- They motivate regional analysis: something interesting happens across space, beyond its usefulness for identification."
+      }
+     ],
+     "words": 47,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Commuting Zone](note:commuting-zone) · [Wage Polarization](note:wage-polarization) · [US Within-Education Wage Variance 1973-2009](note:us-within-education-wage-variance-1973-2009)\n- Paper: [Autor 2019 - Work of the Past, Work of the Future](note:autor-2019-work-of-the-past-work-of-the-future)"
+      }
+     ],
+     "words": 23,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

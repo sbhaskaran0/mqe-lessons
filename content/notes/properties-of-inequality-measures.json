@@ -1,0 +1,176 @@
+{
+ "slug": "properties-of-inequality-measures",
+ "notation": [
+  {
+   "tex": "$V$",
+   "meaning": "Variance of log income",
+   "kind": "Statistic",
+   "typical": "0.0857 in the example",
+   "keys": [
+    "V"
+   ],
+   "from": "variance-of-log-income"
+  },
+  {
+   "tex": "$\\lambda$",
+   "meaning": "Any positive scaling factor applied to all incomes",
+   "kind": "Number",
+   "typical": "—",
+   "keys": [
+    "lambda"
+   ],
+   "from": "variance-of-log-income"
+  },
+  {
+   "tex": "$CV$",
+   "meaning": "Coefficient of variation",
+   "kind": "Statistic",
+   "typical": "0.31 in the example",
+   "keys": [
+    "~CV"
+   ],
+   "from": "coefficient-of-variation"
+  },
+  {
+   "tex": "$C$, $N$",
+   "meaning": "College and non-college groups (observed)",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "C",
+    "N"
+   ],
+   "from": "within-and-between-group-inequality"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Different inequality measures can disagree about which of two distributions is more unequal, because each one cares about different things. Some ignore everyone except the very top; some are most sensitive to the middle or the bottom; some change when you switch currencies, which they should not. This note lists the standard yardsticks for judging a measure — does it ignore units, does moving money from richer to poorer always lower it, does it split neatly into groups — and scores the common measures against them."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "Choosing a measure is choosing what kind of inequality you care about, so knowing these trade-offs prevents misleading comparisons.",
+       "folded": false
+      }
+     ],
+     "words": 106,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The lecture's point: inequality is a broad concept, so there are many measures even for a fixed variable and population. Measures differ in **which properties they satisfy** and **which part of the distribution they weight**. This note collects the standard comparison criteria."
+      },
+      {
+       "t": "callout",
+       "kind": "note",
+       "title": "Beyond the lecture",
+       "md": "The properties below are the standard axioms from the inequality literature. They do not appear in Lectures 1–2, but they are the natural way to compare measures and are likely to come up later.",
+       "folded": false
+      }
+     ],
+     "words": 80,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "standard-properties",
+   "heading": "Standard properties",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "standard-properties-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Scale invariance** — multiplying all incomes by $\\lambda$ leaves the measure unchanged.\n- **Transfer principle** (Pigou-Dalton) — a transfer from richer to poorer, keeping their order, lowers measured inequality.\n- **Population replication** — duplicating the population leaves the measure unchanged.\n- **Anonymity** — only the distribution matters, not who holds what.\n- **Subgroup decomposability** — total = within-group + between-group, exactly."
+      }
+     ],
+     "words": 54,
+     "symbols": [
+      "$\\lambda$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "comparison",
+   "heading": "Comparison",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "comparison-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Measure | Scale invariant | Transfer principle | Decomposable | Most sensitive to |\n| --- | --- | --- | --- | --- |\n| Standard deviation | **No** | Yes | — | Top (large deviations) |\n| [Coefficient of Variation](note:coefficient-of-variation) | Yes | Yes | Yes (as $\\tfrac12 CV^2$) | Top |\n| [Variance of Log Income](note:variance-of-log-income) | Yes | **Fails at high incomes** | **Yes** | Bottom (logs stretch low incomes) |\n| [Gini Coefficient](note:gini-coefficient) | Yes | Yes | **No** (overlap term) | Middle |\n| [Top Income Shares](note:top-income-shares) | Yes | Only for transfers across the cutoff | No | Top only |\n| [Percentile Ratios](note:percentile-ratios) | Yes | **No** (ignores most transfers) | No | Two points only |"
+      }
+     ],
+     "words": 76,
+     "symbols": [
+      "$V$",
+      "$CV$",
+      "$C$, $N$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lorenz-dominance",
+   "heading": "Lorenz dominance",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "lorenz-dominance-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "If two [Lorenz Curve](note:lorenz-curve)s do not cross, **every** measure satisfying scale invariance and the transfer principle agrees on the ranking. If they cross, measures can disagree — that is the formal reason no single measure is \"correct\"."
+      }
+     ],
+     "words": 36,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Math background: [Convexity and Concavity](note:convexity-and-concavity)\n- [Defining Inequality](note:defining-inequality)\n- [Within- and Between-Group Inequality](note:within-and-between-group-inequality)"
+      }
+     ],
+     "words": 14,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

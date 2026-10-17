@@ -1,0 +1,28 @@
+# generated - rebuilt from the vault by `npm run export` / `npm run build`. content/ is generated too, but committed:
+# it is what the public site serves, and it lets a clone build without the vault.
+/dist/
+/feedback/
+.netlify/
+
+# internal planning and review notes stay local, out of the public repo
+/docs/
+node_modules/
+*.tmp
+
+# test and tool output
+coverage/
+test-results/
+playwright-report/
+__pycache__/
+*.pyc
+.vite/
+
+# raw data never belongs here - it stays where it is; the vault's _data/ holds chart-ready exports
+*.dta
+*.parquet
+*.xlsx
+*.sav
+*.feather
+
+.DS_Store
+Thumbs.db

@@ -1,0 +1,160 @@
+{
+ "slug": "lognormal-inequality-explorer",
+ "notation": [
+  {
+   "tex": "$W$, $Z = \\ln W$",
+   "meaning": "Wage and log wage",
+   "kind": "Random variables",
+   "typical": "—",
+   "keys": [
+    "W",
+    "Z"
+   ],
+   "from": "change-of-variables"
+  },
+  {
+   "tex": "$\\mu$, $\\sigma$",
+   "meaning": "Mean and standard deviation of log wages",
+   "kind": "Parameters",
+   "typical": "3, 0.5 in the example",
+   "keys": [
+    "mu",
+    "sigma"
+   ],
+   "from": "change-of-variables"
+  },
+  {
+   "tex": "$z_i$",
+   "meaning": "Income of person $i$, sorted from lowest to highest",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "z"
+   ],
+   "from": "lorenz-curve"
+  },
+  {
+   "tex": "$G$",
+   "meaning": "Gini coefficient",
+   "kind": "Statistic",
+   "typical": "US tax-unit income ≈ 0.64 (2015)",
+   "keys": [
+    "G"
+   ],
+   "from": "gini-coefficient"
+  },
+  {
+   "tex": "$w_{90}$, $w_{50}$, $w_{10}$",
+   "meaning": "Wage at the 90th, 50th (median) and 10th percentiles",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "w"
+   ],
+   "from": "percentile-ratios"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "lognormal-inequality-explorer"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$W$, $Z = \\ln W$",
+      "$\\mu$, $\\sigma$",
+      "$w_{90}$, $w_{50}$, $w_{10}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A parametric wage distribution for the inequality measures. Wages are lognormal: $\\ln W \\sim N(\\mu, \\sigma^2)$, the worked example of [Change of Variables](note:change-of-variables). So $\\sigma$ is the standard deviation of log wages and $\\mu$ is their mean. There is no lecture figure to compare with: this is a model, not data."
+      }
+     ],
+     "words": 44,
+     "symbols": [
+      "$W$, $Z = \\ln W$",
+      "$\\mu$, $\\sigma$"
+     ]
+    },
+    {
+     "id": "notes-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Purpose.** One knob, $\\sigma$, drives every measure at once, so you can see how the measures move together while still answering different questions:\n  - the [Lorenz Curve](note:lorenz-curve) bows further below the 45° line (element `equality`);\n  - the [Gini Coefficient](note:gini-coefficient) $G$ rises;\n  - the [Percentile Ratios](note:percentile-ratios) widen;\n  - the [Variance of Log Income](note:variance-of-log-income) is exactly $\\sigma^2$;\n  - the [top 10% share](note:top-income-shares) rises.\n- **Scale invariance.** Raising $\\mu$ by 1 multiplies every wage by $e \\approx 2.72$. The density stretches to the right and the mean and median grow, but the Lorenz curve and every inequality measure stay put. The tests check this at $\\mu = 1$ and $\\mu = 5$."
+      }
+     ],
+     "words": 97,
+     "symbols": [
+      "$\\mu$, $\\sigma$",
+      "$G$"
+     ]
+    },
+    {
+     "id": "notes-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Closed forms** (standard results for the lognormal, beyond the notes). With $z_{0.9} = 1.28155$, the 90th percentile of the standard normal:\n  - Gini: $G = 2\\Phi(\\sigma/\\sqrt2) - 1$\n  - 90-10 ratio: $w_{90}/w_{10} = e^{2z_{0.9}\\sigma}$\n  - 50-10 and 90-50 ratios: both $e^{z_{0.9}\\sigma}$\n  - Variance of log wages: $\\mathrm{Var}(\\ln W) = \\sigma^2$\n  - Top 10% share: $\\Phi(\\sigma - z_{0.9})$\n  - Mean and median: $e^{\\mu + \\sigma^2/2}$ and $e^{\\mu}$\n\n  At $\\mu = 3$, $\\sigma = 0.5$ this gives $G = 0.276$, a 90-10 ratio of 3.60 (a log gap of 1.28), a top 10% share of 21.7%, and a mean of 22.76 against a median of 20.09. The last two are the numbers in [Change of Variables](note:change-of-variables)."
+      }
+     ],
+     "words": 88,
+     "symbols": [
+      "$W$, $Z = \\ln W$",
+      "$\\mu$, $\\sigma$",
+      "$z_i$",
+      "$G$",
+      "$w_{90}$, $w_{50}$, $w_{10}$"
+     ]
+    },
+    {
+     "id": "notes-4",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Why 90-50 equals 50-10 here.** Log wages are symmetric, so the upper-tail and lower-tail gaps are always equal. A lognormal cannot show one tail widening while the other holds still, which is the pattern [Percentile Ratios](note:percentile-ratios) separate.\n- **Measures.** The built-in percentile measures `p90p10`, `p50p10` and `p90p50` are ratios of wages. The readouts `log9010` and `log5010` give the log gaps, $\\ln(w_{90}/w_{10})$ and $\\ln(w_{50}/w_{10})$, the form the notes use. `varlog` is $\\mathrm{Var}(\\ln W)$; `top10` is a share between 0 and 1.\n- **Goal it supports.** `abs(gini - 0.167) < 0.003`: match the nine-worker example's $G = 0.167$ from [Lorenz Curve](note:lorenz-curve). It is reachable on the slider grid at $\\sigma = 0.30$ ($G = 0.168$). The exact solution is $\\sigma = \\sqrt2\\,\\Phi^{-1}(0.5835) = 0.298$."
+      }
+     ],
+     "words": 107,
+     "symbols": [
+      "$W$, $Z = \\ln W$",
+      "$\\mu$, $\\sigma$",
+      "$G$",
+      "$w_{90}$, $w_{50}$, $w_{10}$"
+     ]
+    },
+    {
+     "id": "notes-5",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Elements.** Views `density` and `lorenz`, plus `equality`; the measures above; readouts `log9010` and `log5010`. The derived values `z90` and `gini_closed` exist so the tests can check the closed forms without the runtime."
+      }
+     ],
+     "words": 34,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

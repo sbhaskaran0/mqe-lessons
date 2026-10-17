@@ -1,0 +1,251 @@
+{
+ "slug": "marginal-rate-of-substitution",
+ "notation": [
+  {
+   "tex": "$U(c_1, c_2)$",
+   "meaning": "Utility from consuming $c_1$ and $c_2$",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "U"
+   ]
+  },
+  {
+   "tex": "$c_1$, $c_2$",
+   "meaning": "Quantities of the two goods (or consumption in two periods)",
+   "kind": "Choice",
+   "typical": "—",
+   "keys": [
+    "c"
+   ]
+  },
+  {
+   "tex": "$\\partial U/\\partial c_i$",
+   "meaning": "Marginal utility: extra utility from one more unit of good $i$",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "~\\partialU/\\partialc_i"
+   ]
+  },
+  {
+   "tex": "$MRS$",
+   "meaning": "Marginal rate of substitution",
+   "kind": "Statistic",
+   "typical": "$1+r$ at an intertemporal optimum",
+   "keys": [
+    "~MRS"
+   ]
+  },
+  {
+   "tex": "$p_1/p_2$",
+   "meaning": "Relative price of good 1 in units of good 2",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "~p_1/p_2"
+   ]
+  },
+  {
+   "tex": "$\\beta$",
+   "meaning": "Discount factor in the log-utility example",
+   "kind": "Parameter",
+   "typical": "0.8",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$r$",
+   "meaning": "Interest rate (the intertemporal relative price is $1+r$)",
+   "kind": "Exogenous",
+   "typical": "0.2",
+   "keys": [
+    "r"
+   ]
+  },
+  {
+   "tex": "$p_x$, $p_y$, $m$",
+   "meaning": "Prices and income in the example",
+   "kind": "Parameters",
+   "typical": "2, 5, 100",
+   "keys": [
+    "p",
+    "m"
+   ],
+   "from": "constrained-optimization-and-lagrange-multipliers"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The marginal rate of substitution measures how much of one thing you would happily give up to get a little more of another, keeping you just as satisfied. If you have plenty of pizza and little coffee, you would give up a lot of pizza for one more coffee; if you have plenty of coffee, very little. That falling willingness — **diminishing** MRS — is why people like balanced bundles over extremes. At the best choice, your personal trade-off rate must equal the trade-off rate the market offers, the price ratio; otherwise switching a little would make you better off."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "\"MRS equals the price ratio\" is the optimality condition behind almost every consumer choice — including choosing between consuming today and tomorrow.",
+       "folded": false
+      }
+     ],
+     "words": 122,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "For utility $U(c_1, c_2)$, the marginal rate of substitution of good 1 for good 2 is the ratio of marginal utilities, and at an interior optimum it equals the relative price:"
+      },
+      {
+       "t": "math",
+       "tex": "MRS = \\frac{\\partial U/\\partial c_1}{\\partial U/\\partial c_2} = \\frac{p_1}{p_2}"
+      }
+     ],
+     "words": 29,
+     "symbols": [
+      "$U(c_1, c_2)$",
+      "$c_1$, $c_2$",
+      "$MRS$",
+      "$p_x$, $p_y$, $m$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "intuition",
+   "heading": "Intuition",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "intuition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "If the MRS is above the price ratio, the consumer values good 1 more than the market charges for it, so buying more of good 1 (and less of good 2) raises utility. If below, buy less. Only when they are equal is there no profitable swap."
+      },
+      {
+       "t": "prose",
+       "md": "Diminishing MRS: as $c_1$ rises relative to $c_2$, the extra satisfaction from $c_1$ falls relative to $c_2$, so the MRS falls. This curvature is what produces **smoothing** — spreading consumption evenly."
+      }
+     ],
+     "words": 73,
+     "symbols": [
+      "$c_1$, $c_2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example-intertemporal",
+   "heading": "Worked example (intertemporal)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-intertemporal-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With $U = \\ln c_1 + \\beta\\ln c_2$: $\\partial U/\\partial c_1 = 1/c_1$ and $\\partial U/\\partial c_2 = \\beta/c_2$, so"
+      },
+      {
+       "t": "math",
+       "tex": "MRS = \\frac{1/c_1}{\\beta/c_2} = \\frac{c_2}{\\beta c_1}"
+      },
+      {
+       "t": "prose",
+       "md": "The relative price of period-1 consumption is $1+r$ (giving up one unit today buys $1+r$ tomorrow), so the optimum sets $c_2/(\\beta c_1) = 1+r$. With $\\beta = 0.8$, $r = 0.2$ and $c_1 = 200$: $c_2 = 0.8 \\times 1.2 \\times 200 = 192$."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Two-period saving model - reading MRS equals 1 plus r.png",
+       "alt": "Two-period saving model - reading MRS equals 1 plus r",
+       "caption": "Hand-drawn: if MRS > 1 + r, consume more today and save less."
+      }
+     ],
+     "words": 34,
+     "symbols": [
+      "$U(c_1, c_2)$",
+      "$c_1$, $c_2$",
+      "$MRS$",
+      "$\\beta$",
+      "$r$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Inverting the ratio: MRS of 1 for 2 has good 1's marginal utility on top.\n- Forgetting that in a two-period problem the \"price ratio\" is $1+r$, not 1.\n- Assuming diminishing MRS means diminishing marginal utility of each good separately — related, but MRS is about the ratio."
+      }
+     ],
+     "words": 48,
+     "symbols": [
+      "$r$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Micro: consumer choice, indifference curves, demand.\n- Macro: the [Consumption Euler Equation](note:consumption-euler-equation) is MRS between periods = gross interest rate.\n- Production analogue: the marginal rate of technical substitution, linked to the [Elasticity of Substitution](note:elasticity-of-substitution)."
+      }
+     ],
+     "words": 35,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Constrained Optimization and Lagrange Multipliers](note:constrained-optimization-and-lagrange-multipliers) · [Consumption Euler Equation](note:consumption-euler-equation) · [Two-Period Consumption-Saving Model](note:two-period-consumption-saving-model)"
+      }
+     ],
+     "words": 12,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

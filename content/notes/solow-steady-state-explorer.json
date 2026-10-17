@@ -1,0 +1,228 @@
+{
+ "slug": "solow-steady-state-explorer",
+ "notation": [
+  {
+   "tex": "$k$",
+   "meaning": "Capital per worker (horizontal axis)",
+   "kind": "State variable",
+   "typical": "100 at the start of the example",
+   "keys": [
+    "k"
+   ],
+   "from": "solow-diagram"
+  },
+  {
+   "tex": "$f(k) = Ak^{\\alpha}$",
+   "meaning": "Output per worker",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "f"
+   ],
+   "from": "solow-diagram"
+  },
+  {
+   "tex": "$sf(k)$",
+   "meaning": "Actual investment per worker: the share of output saved",
+   "kind": "Function (concave curve)",
+   "typical": "—",
+   "keys": [
+    "~sf(k)"
+   ],
+   "from": "solow-diagram"
+  },
+  {
+   "tex": "$\\delta k$",
+   "meaning": "Depreciation per worker: capital worn out each period",
+   "kind": "Function (straight line)",
+   "typical": "—",
+   "keys": [
+    "~\\deltak"
+   ],
+   "from": "solow-diagram"
+  },
+  {
+   "tex": "$s$",
+   "meaning": "Saving rate",
+   "kind": "Parameter in (0, 1)",
+   "typical": "0.5 in the example",
+   "keys": [
+    "s"
+   ],
+   "from": "solow-diagram"
+  },
+  {
+   "tex": "$\\delta$",
+   "meaning": "Depreciation rate — the slope of the line",
+   "kind": "Parameter",
+   "typical": "0.1 in the example",
+   "keys": [
+    "delta"
+   ],
+   "from": "solow-diagram"
+  },
+  {
+   "tex": "$A$",
+   "meaning": "Total factor productivity",
+   "kind": "Exogenous",
+   "typical": "1 in the example",
+   "keys": [
+    "A"
+   ],
+   "from": "solow-diagram"
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "Capital share (curvature of $f$)",
+   "kind": "Parameter in (0, 1)",
+   "typical": "0.5 in the example",
+   "keys": [
+    "alpha"
+   ],
+   "from": "solow-diagram"
+  },
+  {
+   "tex": "$\\bar{k}$",
+   "meaning": "Steady state, where $sf(\\bar{k}) = \\delta\\bar{k}$",
+   "kind": "Endogenous",
+   "typical": "25 in the example",
+   "keys": [
+    "bar(k)"
+   ],
+   "from": "solow-diagram"
+  },
+  {
+   "tex": "$c$",
+   "meaning": "Consumption per worker, $f(k) - sf(k)$",
+   "kind": "Endogenous",
+   "typical": "2.5 at the steady state",
+   "keys": [
+    "c"
+   ],
+   "from": "solow-diagram"
+  },
+  {
+   "tex": "$L$",
+   "meaning": "Labor (all of the population works)",
+   "kind": "Exogenous; constant in the basic model",
+   "typical": "—",
+   "keys": [
+    "L"
+   ],
+   "from": "solow-growth-model"
+  },
+  {
+   "tex": "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$",
+   "meaning": "Steady-state values (an overbar always means steady state)",
+   "kind": "Endogenous",
+   "typical": "25, 5, 2.5 in the example",
+   "keys": [
+    "bar(k)",
+    "bar(y)",
+    "bar(c)"
+   ],
+   "from": "solow-growth-model"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "solow-steady-state-explorer"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$k$",
+      "$f(k) = Ak^{\\alpha}$",
+      "$sf(k)$",
+      "$\\delta k$",
+      "$s$",
+      "$\\delta$",
+      "$A$",
+      "$\\alpha$",
+      "$\\bar{k}$",
+      "$c$",
+      "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Reproduces the professor's handwritten Solow diagram, `Solow diagram - investment vs depreciation.png`: the concave investment curve $sf(k)$, the straight depreciation line $\\delta k$, their crossing at $\\bar{k}$, and the gap of $-5$ at $k = 100$ that takes capital to 95 next period."
+      }
+     ],
+     "words": 36,
+     "symbols": [
+      "$k$",
+      "$f(k) = Ak^{\\alpha}$",
+      "$sf(k)$",
+      "$\\delta k$",
+      "$s$",
+      "$\\delta$",
+      "$\\bar{k}$"
+     ]
+    },
+    {
+     "id": "notes-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Purpose.** Make $\\Delta k = sf(k_t) - \\delta k_t$ something you can see. Drag the point along the investment curve: where the curve is above the line, $\\Delta k > 0$ and capital grows; where it is below, capital shrinks; at the crossing, $\\Delta k = 0$. Then move $s$, $A$, $\\alpha$ and $\\delta$ to see the crossing, and the readouts $\\bar{k}$, $\\bar{y}$ and $\\bar{c}$, respond.\n- **Model.** Basic model per worker with $A$ and $L$ constant: $f(k) = Ak^{\\alpha}$ and $\\bar{k} = (sA/\\delta)^{1/(1-\\alpha)}$, as in [Solow Growth Model](note:solow-growth-model) and [Solow Diagram](note:solow-diagram). The widget is a view of [Solow Model Per Worker](note:solow-model-per-worker), which holds the parameters, the curves' equations and $\\bar{k}$, $\\bar{y}$, $\\bar{c}$; this note adds $k_t$, the panel `diagram` and the readouts."
+      }
+     ],
+     "words": 90,
+     "symbols": [
+      "$k$",
+      "$f(k) = Ak^{\\alpha}$",
+      "$\\delta k$",
+      "$s$",
+      "$\\delta$",
+      "$A$",
+      "$\\alpha$",
+      "$\\bar{k}$",
+      "$L$",
+      "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$"
+     ]
+    },
+    {
+     "id": "notes-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Elements.** Curves `output`, `saving`, `depreciation`; points `steady`, `probe` (draggable, bound to $k_t$); lines `gap` ($\\Delta k$ at $k_t$) and `cgap` ($\\bar{c}$, from $\\delta\\bar{k}$ up to $f(\\bar{k})$); region `consumption` (between $f(k)$ and $sf(k)$); readouts `dk_out`, `kbar_out`, `ybar_out`, `cbar_out`.\n- **Defaults.** The notes' worked example: $\\alpha = s = 1/2$, $\\delta = 0.1$, $A = 1$, so $\\bar{k} = 25$, $\\bar{y} = 5$, $\\bar{c} = 2.5$; the probe starts at $k = 100$.\n- **Tests.** Every number above was computed independently in Python (`docs/proposals/verify_pilots.py` in the lesson-player repo)."
+      }
+     ],
+     "words": 63,
+     "symbols": [
+      "$k$",
+      "$f(k) = Ak^{\\alpha}$",
+      "$sf(k)$",
+      "$s$",
+      "$\\delta$",
+      "$A$",
+      "$\\alpha$",
+      "$\\bar{k}$",
+      "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$"
+     ]
+    }
+   ]
+  }
+ ]
+}

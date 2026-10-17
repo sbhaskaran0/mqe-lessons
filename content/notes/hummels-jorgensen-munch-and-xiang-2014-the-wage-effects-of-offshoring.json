@@ -1,0 +1,156 @@
+{
+ "slug": "hummels-jorgensen-munch-and-xiang-2014-the-wage-effects-of-offshoring",
+ "notation": [],
+ "sections": [
+  {
+   "id": "key-takeaways",
+   "heading": "Key takeaways",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "key-takeaways-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. **Selection fools OLS.** Firms that offshore are bigger, more profitable and pay more, but that is because productive firms both trade more and do better. Raw correlations say nothing about the effect of offshoring.\n2. **Instrumented offshoring cuts jobs and low-skill work.** Firm employment falls (−0.106 per log point of offshoring) and the high-skilled share rises (+0.091), so the low-skilled share falls.\n3. **Exporting is different.** Instrumented exports raise employment (+0.374), output (+0.511), profits and wages per worker.\n4. **Trade shocks reach workers through their employer** (beyond the lecture). The paper's worker-level estimates find offshoring lowers low-skilled workers' wages and raises high-skilled workers' wages within the firm."
+      }
+     ],
+     "words": 112,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "research-question",
+   "heading": "Research question",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "research-question-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "What are the effects of a firm's offshoring (imported inputs) and exporting on its workers' wages and employment, and on firm outcomes?"
+      }
+     ],
+     "words": 22,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "data-and-setting",
+   "heading": "Data and setting",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "data-and-setting-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The population of Danish workers matched to the universe of private-sector firms, with product-level trade flows by origin and destination country ([Danish Matched Worker-Firm Data](note:danish-matched-worker-firm-data))."
+      }
+     ],
+     "words": 25,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "empirical-strategy",
+   "heading": "Empirical strategy",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "empirical-strategy-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Regress firm outcomes on log exports and log offshoring. Firm [fixed effects](note:fixed-effects-regression) remove permanent productivity differences.\n- Time-varying productivity still sits in the residual, so both trade variables are instrumented with firm-level [Shift-Share Instrument](note:shift-share-instrument)s:\n  - **World export supply** for imports: each source country–product's supply to the world excluding Denmark, weighted by the firm's initial import shares.\n  - **World import demand** for exports: each destination country–product's imports from the world excluding Denmark, weighted by the firm's initial export shares."
+      }
+     ],
+     "words": 81,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "results",
+   "heading": "Results",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "results-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Firm-level effects of offshoring and exporting, Denmark.png",
+       "alt": "Table - Firm-level effects of offshoring and exporting, Denmark"
+      },
+      {
+       "t": "prose",
+       "md": "Moving from OLS (column 1) to firm fixed effects (column 2) to instrumented offshoring (column 3) flips the employment effect from strongly positive to negative. Full table in [Denmark Firm-Level Effects of Offshoring 1995-2006](note:denmark-firm-level-effects-of-offshoring-1995-2006)."
+      }
+     ],
+     "words": 34,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "caveats",
+   "heading": "Caveats",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "caveats-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Denmark is a small, open, high-wage economy; magnitudes may not carry over.\n- The instruments assume world supply and demand shocks in the firm's specific country–products are unrelated to the firm's own shocks.\n- Firm-level effects are relative across firms; workers may move to other firms."
+      }
+     ],
+     "words": 48,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "in-econ-424-l5-international-trade-empirics",
+   "heading": "In Econ 424 L5 International Trade Empirics",
+   "role": "paper-in-lesson",
+   "steps": [
+    {
+     "id": "in-econ-424-l5-international-trade-empirics-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The firm-level analysis that closes the lecture. It completes the theory lecture's list of units — industries, regions and **firms** — showing that the same logic (a firm's trade shock changes the demand for its own workers) holds within firms. Be able to explain why OLS is biased here, how the two instruments are built, and why offshoring and exporting have opposite effects on employment."
+      }
+     ],
+     "words": 63,
+     "symbols": []
+    }
+   ],
+   "lesson": "econ-424-l5-international-trade-empirics"
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Shift-Share Instrument](note:shift-share-instrument) · [Fixed Effects Regression](note:fixed-effects-regression) · [Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls) · [Danish Matched Worker-Firm Data](note:danish-matched-worker-firm-data)"
+      }
+     ],
+     "words": 14,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

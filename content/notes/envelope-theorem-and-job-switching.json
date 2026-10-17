@@ -1,0 +1,111 @@
+{
+ "slug": "envelope-theorem-and-job-switching",
+ "notation": [
+  {
+   "tex": "$V(\\theta)$",
+   "meaning": "Maximised value as a function of a parameter",
+   "kind": "Value function",
+   "typical": "—",
+   "keys": [
+    "V"
+   ],
+   "from": "envelope-theorem"
+  },
+  {
+   "tex": "$m$, $p_x$, $p_y$",
+   "meaning": "Income and prices in the example",
+   "kind": "Parameters",
+   "typical": "100, 2, 5",
+   "keys": [
+    "m",
+    "p"
+   ],
+   "from": "envelope-theorem"
+  },
+  {
+   "tex": "$x$, $x^*(p)$",
+   "meaning": "Job choice in the application, and the optimal choice at prices $p$",
+   "kind": "Choice / endogenous",
+   "typical": "2 in the example",
+   "keys": [
+    "x",
+    "x*"
+   ],
+   "from": "envelope-theorem"
+  },
+  {
+   "tex": "$f(x, p)$",
+   "meaning": "Income from job $x$ at price $p$",
+   "kind": "Function",
+   "typical": "$px - x^2/2$ in the example",
+   "keys": [
+    "f"
+   ],
+   "from": "envelope-theorem"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "envelope-theorem-and-job-switching"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$V(\\theta)$",
+      "$m$, $p_x$, $p_y$",
+      "$x$, $x^*(p)$",
+      "$f(x, p)$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Purpose.** Show why the first-order effect of a price change on an optimizer's income ignores re-optimization. The line for keeping the original job is tangent to the best-job curve $V(p)$ at $p_0$. Near $p_0$ the two are almost the same, and they separate only with the square of the price change.\n- **Model.** The application in [Envelope Theorem](note:envelope-theorem): income from job $x$ is $f(x, p) = px - x^2/2$, so the best job is $x^* = p$ and $V(p) = p^2/2$. Keeping the job chosen at $p_0$ gives $f(x_0, p) = p\\,x_0 - x_0^2/2$, a straight line with slope $f_p = x_0$. The extra gain from switching is $(p_1 - p_0)^2/2$.\n- **Elements.** Curves `value` and `stay`; points `start`, `switch` (draggable, bound to $p_1$) and `keep`; line `gap`; readouts `gain_stay_out`, `gain_switch_out`, `extra_out`."
+      }
+     ],
+     "words": 108,
+     "symbols": [
+      "$V(\\theta)$",
+      "$m$, $p_x$, $p_y$",
+      "$x$, $x^*(p)$",
+      "$f(x, p)$"
+     ]
+    },
+    {
+     "id": "notes-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Defaults.** The worked example in [Envelope Theorem](note:envelope-theorem): $p_0 = 2$ and $p_1 = 2.1$, giving gains of 0.200 (stay) and 0.205 (switch), a difference of 0.005.\n- **Tests.** Computed in Python from $V(p) = p^2/2$ and $f(x_0, p) = p\\,x_0 - x_0^2/2$."
+      }
+     ],
+     "words": 31,
+     "symbols": [
+      "$V(\\theta)$",
+      "$m$, $p_x$, $p_y$",
+      "$x$, $x^*(p)$",
+      "$f(x, p)$"
+     ]
+    }
+   ]
+  }
+ ]
+}

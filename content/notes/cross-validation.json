@@ -1,0 +1,319 @@
+{
+ "slug": "cross-validation",
+ "notation": [
+  {
+   "tex": "$K$ (or $k$)",
+   "meaning": "Number of folds the data are split into",
+   "kind": "Choice",
+   "typical": "5 or 10",
+   "keys": [
+    "K",
+    "k"
+   ]
+  },
+  {
+   "tex": "$\\mathrm{MSE}^{(k)}$",
+   "meaning": "Mean squared prediction error on held-out fold $k$",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "k"
+   ]
+  },
+  {
+   "tex": "$CV_{(K)}$",
+   "meaning": "Average of the fold errors — the cross-validation score",
+   "kind": "Statistic",
+   "typical": "Lower is better",
+   "keys": [
+    "~CV_(K)"
+   ]
+  },
+  {
+   "tex": "$RMSE$",
+   "meaning": "Square root of mean squared error, in the outcome's units",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "~RMSE"
+   ]
+  },
+  {
+   "tex": "$y_i$, $\\hat{y}_i$",
+   "meaning": "Actual and predicted outcome",
+   "kind": "Data / prediction",
+   "typical": "—",
+   "keys": [
+    "y",
+    "hat(y)"
+   ]
+  },
+  {
+   "tex": "$n$",
+   "meaning": "Sample size",
+   "kind": "Count",
+   "typical": "—",
+   "keys": [
+    "n"
+   ]
+  },
+  {
+   "tex": "$R^2$",
+   "meaning": "Coefficient of determination of that auxiliary regression",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "R"
+   ],
+   "from": "regression-diagnostics"
+  },
+  {
+   "tex": "$Z$, $V$",
+   "meaning": "A standard normal and an independent chi-square variable",
+   "kind": "Random variables",
+   "typical": "—",
+   "keys": [
+    "Z",
+    "V"
+   ],
+   "from": "sampling-distribution-of-ols"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Cross-validation tests how well a model predicts data it has not seen. You hide part of the data, fit the model on the rest, and check how well it predicts the hidden part; then you rotate which part is hidden until every observation has been predicted once, and average the errors. A model that merely memorises its training data will look great in sample and poor here, so cross-validation exposes overfitting."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the standard way to choose between models for prediction — for example, how many polynomial terms to include — when in-sample fit always favours the most complicated one.",
+       "folded": false
+      }
+     ],
+     "words": 102,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A test of how well the model **generalises to new data**."
+      }
+     ],
+     "words": 11,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "the-holdout-method-and-its-problem",
+   "heading": "The holdout method and its problem",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-holdout-method-and-its-problem-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Split once into training (estimate parameters) and test (predict) sets. The estimate then depends on an arbitrary split."
+      }
+     ],
+     "words": 18,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "k-fold",
+   "heading": "k-fold",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "k-fold-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Partition the data into $k$ mutually exclusive random folds, fit on $k-1$, predict the held-out fold, average over all $k$."
+      },
+      {
+       "t": "math",
+       "tex": "CV_{(K)} = \\frac{1}{K}\\sum_{k=1}^{K}\\mathrm{MSE}^{(k)}"
+      },
+      {
+       "t": "math",
+       "tex": "RMSE = \\sqrt{\\mathrm{MSE}} = \\sqrt{\\frac{1}{n}\\sum_{i}(y_i - \\hat{y}_i)^2}"
+      },
+      {
+       "t": "prose",
+       "md": "The lecture's crime example regresses crimes per person on population density in 630 observations. Holding out 25% gives a training RMSE of 0.01305 and a test RMSE of 0.01300; 5-fold CV gives fold RMSEs of 0.0086, 0.0147, 0.0108, 0.0185 and 0.0117, averaging 0.0129. The test error is no larger than the training error because a two-parameter line has little room to overfit; the spread across folds shows how much one holdout split can mislead."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Wage on education - fitted lines from five CV folds.png",
+       "alt": "Wage on education - fitted lines from five CV folds"
+      }
+     ],
+     "words": 99,
+     "symbols": [
+      "$K$ (or $k$)",
+      "$\\mathrm{MSE}^{(k)}$",
+      "$CV_{(K)}$",
+      "$RMSE$",
+      "$y_i$, $\\hat{y}_i$",
+      "$n$",
+      "$R^2$",
+      "$Z$, $V$"
+     ]
+    },
+    {
+     "id": "k-fold-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Refitting wage on education on each set of four folds gives five nearly identical lines, another sign of a stable model (CV RMSE 11.66 dollars an hour)."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Stopping distance on speed - fitted lines from five CV folds.png",
+       "alt": "Stopping distance on speed - fitted lines from five CV folds"
+      },
+      {
+       "t": "prose",
+       "md": "The same exercise on the 50 cars moves the line more from fold to fold: with a small sample each held-out fifth matters (CV RMSE 14.97 feet)."
+      }
+     ],
+     "words": 56,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "what-it-is-for",
+   "heading": "What it is for",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-it-is-for-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Estimating **out-of-sample predictive error** and guarding against overfitting."
+      },
+      {
+       "t": "prose",
+       "md": "The lecture's application: fit polynomials of degree 1 to 5 in stopping distance to predict speed (the `cars` data, 50 cars) and pick the degree with the lowest CV error. In-sample error can only fall as the degree rises, so it would always pick degree 5; CV picks degree 1."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/CV RMSE by polynomial degree - speed on stopping distance.png",
+       "alt": "CV RMSE by polynomial degree - speed on stopping distance"
+      },
+      {
+       "t": "table",
+       "md": "| Degree | 1 | 2 | 3 | 4 | 5 |\n| --- | --- | --- | --- | --- | --- |\n| 5-fold CV RMSE (mph) | 3.64 | 4.46 | 4.17 | 4.60 | 6.41 |\n| In-sample RMSE (mph) | 3.09 | 2.82 | 2.77 | 2.77 | 2.74 |"
+      }
+     ],
+     "words": 97,
+     "symbols": []
+    },
+    {
+     "id": "what-it-is-for-2",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "warning",
+       "title": "Correction to the lecture notebook",
+       "md": "The notebook's cell builds the polynomial terms from `speed` and then predicts `speed`, so degrees 1 to 3 fit perfectly and its plot shows a CV RMSE of 0 that rises only at degrees 4 and 5. The table recomputes the intended model, speed on powers of stopping distance, with the same unshuffled 5-fold split. The conclusion survives: a low degree generalizes best and higher degrees overfit.",
+       "folded": false
+      }
+     ],
+     "words": 72,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "choosing-k",
+   "heading": "Choosing k",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "choosing-k-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Small $k$                                   | Large $k$ (up to leave-one-out, $k=n$) |\n| ------------------------------------------- | -------------------------------------- |\n| More bias — each model trained on less data | Lower bias                             |\n| Lower variance                              | Higher variance                        |\n| Cheaper                                     | Expensive                              |"
+      }
+     ],
+     "words": 23,
+     "symbols": [
+      "$K$ (or $k$)",
+      "$\\mathrm{MSE}^{(k)}$",
+      "$n$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "contrast-with-the-bootstrap",
+   "heading": "Contrast with the bootstrap",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "contrast-with-the-bootstrap-1",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "important",
+       "title": "Important",
+       "md": "**CV resamples to assess prediction. [Bootstrapping OLS](note:bootstrapping-ols) resamples to assess estimator uncertainty.** Different questions, same mechanical idea.",
+       "folded": false
+      },
+      {
+       "t": "prose",
+       "md": "The bootstrap **cannot** detect overfitting, because every resample is drawn from the same data the model was fitted on — there is no held-out information."
+      }
+     ],
+     "words": 42,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Regression Diagnostics](note:regression-diagnostics)\n- [Sampling Distribution of OLS](note:sampling-distribution-of-ols)\n\n- [Coefficient of Determination](note:coefficient-of-determination)"
+      }
+     ],
+     "words": 12,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

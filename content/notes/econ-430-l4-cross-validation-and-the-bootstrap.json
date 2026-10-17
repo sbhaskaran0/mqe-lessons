@@ -1,0 +1,599 @@
+{
+ "slug": "econ-430-l4-cross-validation-and-the-bootstrap",
+ "notation": [
+  {
+   "tex": "$K$ (or $k$)",
+   "meaning": "Number of folds the data are split into",
+   "kind": "Choice",
+   "typical": "5 or 10",
+   "keys": [
+    "K",
+    "k"
+   ],
+   "from": "cross-validation"
+  },
+  {
+   "tex": "$RMSE$",
+   "meaning": "Square root of mean squared error, in the outcome's units",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "~RMSE"
+   ],
+   "from": "cross-validation"
+  },
+  {
+   "tex": "$y_i$, $\\hat{y}_i$",
+   "meaning": "Actual and predicted outcome",
+   "kind": "Data / prediction",
+   "typical": "—",
+   "keys": [
+    "y",
+    "hat(y)"
+   ],
+   "from": "cross-validation"
+  },
+  {
+   "tex": "$n$",
+   "meaning": "Sample size",
+   "kind": "Count",
+   "typical": "—",
+   "keys": [
+    "n"
+   ],
+   "from": "cross-validation"
+  },
+  {
+   "tex": "$B$",
+   "meaning": "Number of bootstrap repetitions",
+   "kind": "Choice",
+   "typical": "1,000 or more",
+   "keys": [
+    "B"
+   ],
+   "from": "bootstrapping-ols"
+  },
+  {
+   "tex": "$\\widehat{\\sigma}$",
+   "meaning": "Estimated standard deviation of the errors, one of the bootstrapped statistics",
+   "kind": "Statistic",
+   "typical": "89.5 in the food regression",
+   "keys": [
+    "hat(sigma)"
+   ],
+   "from": "bootstrapping-ols"
+  },
+  {
+   "tex": "$t_i$",
+   "meaning": "Studentised residual: how badly observation $i$ is fitted",
+   "kind": "Statistic",
+   "typical": "Flag if $\\lvert t_i\\rvert > 2$",
+   "keys": [
+    "t"
+   ],
+   "from": "regression-diagnostics"
+  },
+  {
+   "tex": "$R^2$",
+   "meaning": "Coefficient of determination of that auxiliary regression",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "R"
+   ],
+   "from": "regression-diagnostics"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Both tools reuse the one sample you have by drawing from it at random. Cross-validation holds part of the data out, fits on the rest and scores the predictions, which estimates how the model will do on new data: for the crime data the 5-fold RMSE is 0.0129, and on the cars data it picks a straight line over higher-degree polynomials. The bootstrap resamples the data with replacement and refits, which shows how much the estimates would move from sample to sample: for the food regression it gives $\\widehat{\\sigma}$ a standard error of 9.7.**"
+      },
+      {
+       "t": "callout",
+       "kind": "info",
+       "title": "Source",
+       "md": "Section 4 of `Regression_Lecture1_Adv.ipynb` (see [Econ 430 L1 Univariate Characterizations](note:econ-430-l1-univariate-characterizations) for how the notebook maps to lectures).",
+       "folded": false
+      }
+     ],
+     "words": 116,
+     "symbols": [
+      "$\\widehat{\\sigma}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1-the-holdout-method-and-k-fold-cross-validation",
+   "heading": "1. The holdout method and k-fold cross-validation",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-the-holdout-method-and-k-fold-cross-validation-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "To see how a model generalizes, split the data into a training set (to estimate the model) and a test set (to predict and score). One split can be lucky or unlucky, so [k-fold cross-validation](note:cross-validation) splits the data into $k$ random folds, holds out each in turn, and averages the $k$ prediction errors. The usual score is the root mean squared error, $RMSE = \\sqrt{\\frac{1}{n}\\sum(y_i - \\hat{y}_i)^2}$: on average, how far the predictions miss, in the units of $y$."
+      },
+      {
+       "t": "prose",
+       "md": "The lecture's first example regresses crimes per person on population density (630 observations). Its diagnostic plots show strongly right-skewed, heteroskedastic residuals; the lowess curve on the residuals is nearly flat, so the straight line is a fair description of the mean."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Crime rate on density - residuals against density with lowess.png",
+       "alt": "Crime rate on density - residuals against density with lowess"
+      }
+     ],
+     "words": 112,
+     "symbols": [
+      "$K$ (or $k$)",
+      "$RMSE$",
+      "$y_i$, $\\hat{y}_i$",
+      "$n$",
+      "$R^2$"
+     ]
+    },
+    {
+     "id": "1-the-holdout-method-and-k-fold-cross-validation-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Holding out 25% gives a training RMSE of 0.01305 and a test RMSE of 0.01300. With 5 folds the fold RMSEs are 0.00855, 0.01474, 0.01079, 0.01852 and 0.01170."
+      }
+     ],
+     "words": 35,
+     "symbols": []
+    },
+    {
+     "id": "1-the-holdout-method-and-k-fold-cross-validation-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "The five fold RMSEs for the crime regression are 0.00855, 0.01474, 0.01079, 0.01852 and 0.01170. The lecture's overall CV score is their average. What is it? Give five decimal places.",
+       "answer": 0.01286,
+       "tol": 5e-06,
+       "wrong": [
+        {
+         "answer": 0.0117,
+         "tol": 5e-06,
+         "md": "that is the median fold, not the average"
+        },
+        {
+         "answer": 0.01852,
+         "tol": 5e-06,
+         "md": "that is the worst fold; the CV score averages all five"
+        },
+        {
+         "answer": 0.06431,
+         "tol": 5e-06,
+         "md": "that is the sum; divide by the number of folds, 5"
+        }
+       ],
+       "why": "$(0.00855 + 0.01474 + 0.01079 + 0.01852 + 0.01170)/5 = 0.06431/5 = 0.01286$: on average a held-out observation's crime rate is predicted with an error of about 0.013 crimes per person. The spread of the folds, from 0.009 to 0.019, shows how much a single holdout split could mislead.",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 35,
+     "symbols": []
+    },
+    {
+     "id": "1-the-holdout-method-and-k-fold-cross-validation-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "For the crime regression the training RMSE is 0.01305 and the test RMSE 0.01300. What does the comparison suggest?",
+       "options": [
+        {
+         "md": "No sign of overfitting: a two-parameter line predicts new observations about as well as the ones it was fitted to",
+         "correct": true
+        },
+        {
+         "md": "The model is overfitting, because the two errors are almost equal",
+         "correct": false,
+         "feedback": "Overfitting shows up as a *test* error well above the training error: the model has learned noise that does not carry over."
+        },
+        {
+         "md": "The test set must be easier than average, so the comparison is useless",
+         "correct": false,
+         "feedback": "One split can be lucky, which is why k-fold CV averages several; but the 5-fold average, 0.0129, agrees with both numbers."
+        }
+       ],
+       "why": "The training error is measured on data the model has seen, so it is usually the smaller of the two; a model that memorizes noise has a test error far above it. Here the test RMSE (0.01300) is no larger than the training RMSE (0.01305), and the 5-fold average is 0.01286: a simple line has little room to overfit.",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 65,
+     "symbols": []
+    },
+    {
+     "id": "1-the-holdout-method-and-k-fold-cross-validation-5",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The lecture repeats the exercise for wage on education (1,000 workers, CV RMSE 11.66 dollars an hour) and stopping distance on speed (50 cars, CV RMSE 14.97 feet), drawing the five fitted lines. With 1,000 workers the lines barely move; with 50 cars each held-out fifth shifts the line more."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Stopping distance on speed - fitted lines from five CV folds.png",
+       "alt": "Stopping distance on speed - fitted lines from five CV folds"
+      }
+     ],
+     "words": 54,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "2-choosing-model-complexity",
+   "heading": "2. Choosing model complexity",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-choosing-model-complexity-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Cross-validation is most useful for choosing between models. The lecture fits polynomials of degree 1 to 5 in stopping distance to predict speed and compares their CV errors. In-sample error can only fall as terms are added; the CV error is what reveals overfitting."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Speed against stopping distance.png",
+       "alt": "Speed against stopping distance"
+      }
+     ],
+     "words": 44,
+     "symbols": []
+    },
+    {
+     "id": "2-choosing-model-complexity-2",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "warning",
+       "title": "Correction to the lecture notebook",
+       "md": "The notebook's cell builds the polynomial terms from `speed` and then predicts `speed`, so degrees 1 to 3 fit perfectly and its plot shows a CV RMSE of 0. The figure and table below recompute the intended model, speed on powers of stopping distance, with the same unshuffled 5-fold split. The lecture's conclusion survives.",
+       "folded": false
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/CV RMSE by polynomial degree - speed on stopping distance.png",
+       "alt": "CV RMSE by polynomial degree - speed on stopping distance"
+      }
+     ],
+     "words": 59,
+     "symbols": []
+    },
+    {
+     "id": "2-choosing-model-complexity-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Speed is regressed on polynomials in stopping distance of degree 1 to 5. The in-sample RMSEs are 3.09, 2.82, 2.77, 2.77 and 2.74 mph; the 5-fold CV RMSEs are 3.64, 4.46, 4.17, 4.60 and 6.41 mph. Which degree should you choose?",
+       "options": [
+        {
+         "md": "Degree 5: it has the smallest in-sample error",
+         "correct": false,
+         "feedback": "In-sample error can only fall as terms are added, because each extra term gives OLS more freedom. That is why it cannot choose the degree."
+        },
+        {
+         "md": "Degree 1: it has the lowest CV error; the higher degrees fit the 50 cars better but predict held-out cars worse",
+         "correct": true
+        },
+        {
+         "md": "Degree 3: it balances the two columns",
+         "correct": false,
+         "feedback": "The decision rests on the out-of-sample column alone, and there degree 3 (4.17) is worse than degree 1."
+        }
+       ],
+       "why": "CV RMSE is lowest at degree 1 (3.64 mph) and rises to 6.41 at degree 5, while in-sample RMSE falls from 3.09 to 2.74. The gap between the columns widens with the degree: the extra terms fit noise in the 50 cars, which is overfitting.",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 87,
+     "symbols": []
+    },
+    {
+     "id": "2-choosing-model-complexity-4",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Stepping the degree up one at a time shows the two errors pulling apart: the fitted curve bends to pass near more of the 50 cars and swings wildly at the edges of the data."
+      },
+      {
+       "t": "interactive",
+       "widget": "polynomial-degree-and-cross-validation",
+       "prompt": "Raise the polynomial degree and watch in-sample error fall while cross-validated error rises",
+       "status": "planned",
+       "purpose": "See overfitting as the gap between in-sample and out-of-sample error as model complexity grows",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 48,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "3-bootstrapping-a-regression",
+   "heading": "3. Bootstrapping a regression",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "3-bootstrapping-a-regression-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The [bootstrap](note:bootstrapping-ols) treats the sample as a stand-in for the population. Draw $n$ observations from the data **with replacement**, re-estimate the regression, and repeat $B$ times. The spread of the $B$ estimates estimates the sampling distribution: their standard deviation is the bootstrap standard error, and their 2.5th and 97.5th percentiles give a 95% percentile interval. On the food data, 500 resamples give 500 regression lines that fan out away from mean income."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Food expenditure - 500 bootstrap regression lines.png",
+       "alt": "Food expenditure - 500 bootstrap regression lines"
+      }
+     ],
+     "words": 71,
+     "symbols": [
+      "$n$",
+      "$B$"
+     ]
+    },
+    {
+     "id": "3-bootstrapping-a-regression-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The bootstrap slopes look like the normal sampling distribution OLS theory describes. The repeated-sampling widget below draws fresh samples from a known population rather than resampling one sample, which is the thing the bootstrap imitates."
+      },
+      {
+       "t": "interactive",
+       "widget": "ols-sampling-distribution",
+       "state": {
+        "N": 40,
+        "sd": 89.5,
+        "het": 0,
+        "gamma": 0,
+        "R": 2000
+       },
+       "lock": [
+        "het",
+        "gamma",
+        "R"
+       ],
+       "prompt": "Work out the slope's spread across samples of 40 households, then reveal it",
+       "predict": {
+        "hide": [
+         "b2_sd_out"
+        ],
+        "ask": "Across many samples of $N = 40$ households with $\\sigma = 89.5$ and incomes uniform between 4 and 34 (so $\\mathrm{Var}(x) = 75$), the standard deviation of $b_2$ is about $\\sigma/\\sqrt{(N-1)\\mathrm{Var}(x)}$. What is it? The bootstrap standard error estimates this number from one sample.",
+        "readout": "b2_sd_out",
+        "tol": 0.15
+       },
+       "objectives": [
+        4
+       ]
+      }
+     ],
+     "words": 48,
+     "symbols": []
+    },
+    {
+     "id": "3-bootstrapping-a-regression-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The bootstrap also gives standard errors for statistics the regression table has none for. For the food regression's $\\widehat{\\sigma}$, the 500 resamples give a mean of 86.88, a standard error of 9.72 and a 95% percentile interval of [66.77, 105.26]; for its $R^2$ the percentile interval runs from about ≈ 0.15 to ≈ 0.60 (read off the chart)."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Food expenditure - bootstrap distribution of R-squared.png",
+       "alt": "Food expenditure - bootstrap distribution of R-squared"
+      }
+     ],
+     "words": 60,
+     "symbols": [
+      "$\\widehat{\\sigma}$",
+      "$R^2$"
+     ]
+    },
+    {
+     "id": "3-bootstrapping-a-regression-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "The 500 bootstrap estimates of $\\widehat{\\sigma}$ for the food regression have mean 86.88 and standard deviation 9.72. Using the normal approximation, what is the upper limit of a 95% interval for $\\sigma$? Give two decimal places.",
+       "answer": 105.93,
+       "tol": 0.03,
+       "wrong": [
+        {
+         "answer": 96.6,
+         "tol": 0.03,
+         "md": "that adds one standard error; a 95% interval uses 1.96"
+        },
+        {
+         "answer": 105.26,
+         "tol": 0.03,
+         "md": "that is the upper limit of the percentile interval, the 97.5th percentile of the 500 estimates, not the normal approximation"
+        },
+        {
+         "answer": 87.73,
+         "tol": 0.03,
+         "md": "that divides 9.72 by $\\sqrt{500}$; the bootstrap standard error is already the standard deviation of the estimates, with no division by $\\sqrt{B}$"
+        }
+       ],
+       "why": "$86.88 + 1.96 \\times 9.72 = 105.93$ (lower limit 67.83). The percentile interval, [66.77, 105.26], is shifted slightly lower because the bootstrap distribution is a little skewed; when the two disagree much, the percentile interval is the safer report.",
+       "objectives": [
+        4
+       ]
+      }
+     ],
+     "words": 36,
+     "symbols": [
+      "$B$",
+      "$\\widehat{\\sigma}$"
+     ]
+    },
+    {
+     "id": "3-bootstrapping-a-regression-5",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Doubling the number of bootstrap resamples, from $B = 500$ to $B = 1{,}000$, will make the bootstrap standard error of $\\widehat{\\sigma}$:",
+       "options": [
+        {
+         "md": "fall by a factor of about $\\sqrt{2}$, because more draws mean more information",
+         "correct": false,
+         "feedback": "The resamples all come from the same 40 households, so they add no information about the population. More draws only estimate the spread of the bootstrap distribution more precisely."
+        },
+        {
+         "md": "rise, because more resamples include more extreme values",
+         "correct": false,
+         "feedback": "A larger $B$ fills in the tails of the same distribution but leaves its spread unchanged."
+        },
+        {
+         "md": "stay close to 9.7: $B$ controls how precisely the bootstrap distribution is simulated, while its spread is set by the original sample size $n = 40$",
+         "correct": true
+        }
+       ],
+       "why": "The bootstrap standard error estimates the standard deviation of $\\widehat{\\sigma}$ across samples of size $n = 40$. That target depends on $n$ and on the data, not on $B$; raising $B$ only reduces the simulation noise in the estimate. To get a smaller standard error you need more households.",
+       "objectives": [
+        5
+       ]
+      }
+     ],
+     "words": 58,
+     "symbols": [
+      "$n$",
+      "$B$",
+      "$\\widehat{\\sigma}$"
+     ]
+    },
+    {
+     "id": "3-bootstrapping-a-regression-6",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "How does bootstrapping a regression enhance inference compared with the usual OLS output? Tick all that apply.",
+       "options": [
+        {
+         "md": "It gives standard errors and intervals that do not rely on normal or homoskedastic errors",
+         "correct": true
+        },
+        {
+         "md": "It removes bias from the OLS estimates",
+         "correct": false,
+         "feedback": "Each resample is fitted by OLS too. If the model's $E[e \\mid x] = 0$ fails, every bootstrap estimate inherits the same bias."
+        },
+        {
+         "md": "It gives a sampling distribution, and so standard errors, for statistics with no formula in the table, such as $R^2$ and $\\widehat{\\sigma}$",
+         "correct": true
+        },
+        {
+         "md": "It shows whether the model overfits new data",
+         "correct": false,
+         "feedback": "Each resample is fitted and summarized on the same data it was drawn from; judging out-of-sample prediction is what cross-validation is for."
+        },
+        {
+         "md": "It shows whether an estimate's sampling distribution is skewed, which a symmetric $t$ interval would hide",
+         "correct": true
+        }
+       ],
+       "why": "The bootstrap replaces the assumption-based formula for a standard error with the empirical spread of re-estimates, which makes it robust to non-normal and heteroskedastic errors and lets it handle any statistic. It cannot fix a biased model, and because it never predicts held-out data it says nothing about overfitting.",
+       "objectives": [
+        5
+       ]
+      }
+     ],
+     "words": 82,
+     "symbols": [
+      "$\\widehat{\\sigma}$",
+      "$t_i$",
+      "$R^2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "math-refresher",
+   "heading": "Math refresher",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "math-refresher-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Math Prep L8 Integration for Probability](note:math-prep-l8-integration-for-probability) — sampling distributions and the central limit theorem"
+      }
+     ],
+     "words": 14,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Describe the holdout method and k-fold cross-validation, and compute an overall CV score from the fold errors.\n2. Compare training and test RMSE and say what a gap between them means.\n3. Use cross-validation to choose model complexity, and explain why in-sample fit cannot.\n4. Describe the pairs bootstrap, and compute a bootstrap standard error or interval from its output.\n5. Explain what bootstrapping adds to the usual OLS inference, what it cannot do, and how it differs from cross-validation."
+      }
+     ],
+     "words": 81,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "cross-validation",
+        "bootstrapping-ols",
+        "regression-diagnostics"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

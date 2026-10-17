@@ -1,0 +1,461 @@
+{
+ "slug": "ols-estimator",
+ "notation": [
+  {
+   "tex": "$y_i$, $x_i$",
+   "meaning": "Outcome and explanatory variable for observation $i$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "y",
+    "x"
+   ]
+  },
+  {
+   "tex": "$\\beta_1$, $\\beta_2$",
+   "meaning": "True intercept and slope",
+   "kind": "Unknown parameters",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$b_1$, $b_2$",
+   "meaning": "OLS estimates of the intercept and slope",
+   "kind": "Estimators",
+   "typical": "—",
+   "keys": [
+    "b"
+   ]
+  },
+  {
+   "tex": "$e_i$",
+   "meaning": "True error: everything else affecting $y_i$",
+   "kind": "Unobserved",
+   "typical": "—",
+   "keys": [
+    "e"
+   ]
+  },
+  {
+   "tex": "$\\hat{e}_i$",
+   "meaning": "Residual: $y_i - b_1 - b_2x_i$",
+   "kind": "Computed",
+   "typical": "Sum to zero",
+   "keys": [
+    "hat(e)"
+   ]
+  },
+  {
+   "tex": "$\\bar{x}$, $\\bar{y}$",
+   "meaning": "Sample means",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "bar(x)",
+    "bar(y)"
+   ]
+  },
+  {
+   "tex": "$N$",
+   "meaning": "Number of observations",
+   "kind": "Count",
+   "typical": "—",
+   "keys": [
+    "N"
+   ]
+  },
+  {
+   "tex": "$w_i$",
+   "meaning": "OLS weight on $y_i$ in $b_2$",
+   "kind": "Depends only on $x$",
+   "typical": "Sum to zero",
+   "keys": [
+    "w"
+   ]
+  },
+  {
+   "tex": "$SSR$",
+   "meaning": "Sum of squared residuals",
+   "kind": "Objective being minimised",
+   "typical": "—",
+   "keys": [
+    "~SSR"
+   ]
+  },
+  {
+   "tex": "$\\sigma^2$",
+   "meaning": "Variance of the error",
+   "kind": "Unknown parameter",
+   "typical": "—",
+   "keys": [
+    "sigma"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{X}$",
+   "meaning": "Table of regressors, one column per variable, including a column of ones",
+   "kind": "Data ($N\\times K$)",
+   "typical": "—",
+   "keys": [
+    "bold(X)"
+   ],
+   "from": "ols-in-matrix-form"
+  },
+  {
+   "tex": "$\\mathbf{e}$",
+   "meaning": "Residuals, $\\mathbf{y} - \\mathbf{X}\\mathbf{b}$",
+   "kind": "Computed ($N\\times1$)",
+   "typical": "Orthogonal to $\\mathbf{X}$",
+   "keys": [
+    "bold(e)"
+   ],
+   "from": "ols-in-matrix-form"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Ordinary least squares is the standard way to draw the best straight line through a cloud of data points. For every candidate line, measure how far each point sits above or below it, square those gaps so misses in either direction count, and add them up. OLS picks the line that makes that total as small as possible. The result is a simple recipe: the slope is how much the two variables move together, divided by how much the explanatory variable moves on its own."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the starting point for almost all of applied econometrics; every later estimator is a fix for a situation where plain least squares goes wrong.",
+       "folded": false
+      }
+     ],
+     "words": 114,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The scalar derivation. You should be able to produce this from a blank page."
+      }
+     ],
+     "words": 14,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "objective",
+   "heading": "Objective",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "objective-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "SSR(b_1,b_2) = \\sum_{i=1}^{N}\\hat{e}_i^{\\,2} = \\sum_{i=1}^{N}(y_i - b_1 - b_2 x_i)^2"
+      },
+      {
+       "t": "interactive",
+       "widget": "ols-line-fitter",
+       "state": {
+        "b1": 250,
+        "b2": 2
+       },
+       "show": [
+        "points",
+        "line",
+        "squares",
+        "ssr"
+       ],
+       "highlight": "squares",
+       "prompt": "Each square has area $\\hat{e}_i^{\\,2} = (y_i - b_1 - b_2x_i)^2$, so $SSR(b_1, b_2)$ is their total area. Drag the line, or the $b_1$ and $b_2$ sliders, to make it as small as you can.",
+       "goal": {
+        "when": "ssr <= 1.01*ssr_min",
+        "success": "Within 1% of the minimum. The exact minimizer solves the two first-order conditions below.",
+        "hint": "Get the tilt ($b_2$) right first, then shift the line up or down ($b_1$)."
+       }
+      }
+     ],
+     "words": 24,
+     "symbols": [
+      "$y_i$, $x_i$",
+      "$b_1$, $b_2$",
+      "$\\hat{e}_i$",
+      "$\\bar{x}$, $\\bar{y}$",
+      "$N$",
+      "$SSR$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "first-order-conditions",
+   "heading": "First-order conditions",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "first-order-conditions-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "\\frac{\\partial SSR}{\\partial b_1} = -2\\sum (y_i - b_1 - b_2 x_i) = 0 \\;\\Longrightarrow\\; \\sum \\hat{e}_i = 0"
+      },
+      {
+       "t": "math",
+       "tex": "\\frac{\\partial SSR}{\\partial b_2} = -2\\sum x_i (y_i - b_1 - b_2 x_i) = 0 \\;\\Longrightarrow\\; \\sum x_i \\hat{e}_i = 0"
+      },
+      {
+       "t": "prose",
+       "md": "Two orthogonality conditions: **residuals sum to zero**, and **residuals are orthogonal to $x$**. In [OLS in Matrix Form](note:ols-in-matrix-form) these become the single statement $\\mathbf{X}'\\mathbf{e} = \\mathbf{0}$."
+      }
+     ],
+     "words": 22,
+     "symbols": [
+      "$y_i$, $x_i$",
+      "$b_1$, $b_2$",
+      "$\\hat{e}_i$",
+      "$SSR$",
+      "$\\mathbf{X}$",
+      "$\\mathbf{e}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "solution",
+   "heading": "Solution",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "solution-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "b_1 = \\bar{y} - b_2\\bar{x}, \\qquad b_2 = \\frac{\\sum (x_i - \\bar{x})(y_i - \\bar{y})}{\\sum (x_i - \\bar{x})^2}"
+      },
+      {
+       "t": "prose",
+       "md": "$b_2$ is the sample covariance over the sample variance of $x$ — the same structure as the population projection coefficient $\\mathrm{Cov}(x,y)/\\mathrm{Var}(x)$ in [Conditional Mean vs Linear Projection](note:conditional-mean-vs-linear-projection)."
+      },
+      {
+       "t": "interactive",
+       "widget": "ols-line-fitter",
+       "state": {
+        "b1": 80,
+        "b2": 10
+       },
+       "show": [
+        "points",
+        "line",
+        "ols",
+        "residuals",
+        "ssr",
+        "r2"
+       ],
+       "highlight": "ols",
+       "prompt": "The OLS line is $b_2 = 10.21$ and $b_1 = \\bar{y} - b_2\\bar{x} = 82.89$; it passes through $(\\bar{x}, \\bar{y}) = (19.59, 283.00)$. Your line is set to the values that generated these data, $\\beta_1 = 80$ and $\\beta_2 = 10$.",
+       "predict": {
+        "hide": [
+         "ols"
+        ],
+        "ask": "Your line is the true line that generated the data. In this sample, which line has the smaller $SSR$?",
+        "options": [
+         "The OLS line",
+         "The true line: it is the line that generated the data",
+         "Neither: they tie, because OLS is unbiased"
+        ],
+        "answer": 0,
+        "why": "OLS minimizes $SSR$ in this sample by construction, so no other line can beat it, not even the truth: the true line's $SSR$ is 0.7% above the minimum (317,860 against 315,724). OLS fits this sample's errors along with the signal, which is why $b_2 = 10.21$ rather than 10. Across samples it is right on average, $E[b_2 \\mid x] = \\beta_2$.",
+        "feedback": [
+         null,
+         "The true line describes the population. In this sample the errors average +7.07, not 0, and OLS follows them: no line has a lower $SSR$ in the sample than the OLS line, the truth included.",
+         "Unbiasedness is about the average of $b_2$ across many samples, not about fit in one. Here $b_2 = 10.21$, not 10, and its $SSR$ is lower than the true line's."
+        ]
+       }
+      }
+     ],
+     "words": 43,
+     "symbols": [
+      "$y_i$, $x_i$",
+      "$\\beta_1$, $\\beta_2$",
+      "$b_1$, $b_2$",
+      "$\\hat{e}_i$",
+      "$\\bar{x}$, $\\bar{y}$",
+      "$SSR$"
+     ]
+    },
+    {
+     "id": "solution-2",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Food expenditure regression - fitted line.png",
+       "alt": "Food expenditure regression - fitted line"
+      },
+      {
+       "t": "prose",
+       "md": "The lecture's food regression: $b_1 = 83.42$ and $b_2 = 10.21$ for 40 households, income in hundreds of dollars a week."
+      }
+     ],
+     "words": 15,
+     "symbols": [
+      "$b_1$, $b_2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "the-weighted-sum-representation",
+   "heading": "The weighted-sum representation",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-weighted-sum-representation-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The key algebraic step that makes everything else easy:"
+      },
+      {
+       "t": "math",
+       "tex": "b_2 = \\sum_{i=1}^{N} w_i y_i, \\qquad w_i = \\frac{x_i - \\bar{x}}{\\sum (x_i - \\bar{x})^2}"
+      },
+      {
+       "t": "prose",
+       "md": "Useful properties: $\\sum w_i = 0$, $\\sum w_i x_i = 1$, $\\sum w_i^2 = 1/\\sum(x_i-\\bar{x})^2$."
+      },
+      {
+       "t": "prose",
+       "md": "The weights depend only on $x$, so conditional on $x$, $b_2$ is a **linear** function of $y$ — which is exactly the class of estimators [Gauss-Markov Theorem](note:gauss-markov-theorem) compares against. Substituting the model:"
+      },
+      {
+       "t": "math",
+       "tex": "b_2 = \\beta_2 + \\sum_{i=1}^{N} w_i e_i"
+      }
+     ],
+     "words": 38,
+     "symbols": [
+      "$y_i$, $x_i$",
+      "$\\beta_1$, $\\beta_2$",
+      "$b_1$, $b_2$",
+      "$e_i$",
+      "$\\bar{x}$, $\\bar{y}$",
+      "$N$",
+      "$w_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "unbiasedness",
+   "heading": "Unbiasedness",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "unbiasedness-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Take expectations conditional on $x$ and apply [Strict Exogeneity](note:strict-exogeneity):"
+      },
+      {
+       "t": "math",
+       "tex": "E[b_2 \\mid x] = \\beta_2 + \\sum w_i E[e_i \\mid x] = \\beta_2"
+      },
+      {
+       "t": "prose",
+       "md": "Note this used **SR1, SR2 and SR5 only**: SR1 to substitute the model, SR5 so that $b_2$ exists ($\\sum(x_i-\\bar{x})^2 > 0$), and SR2 for $E[e_i \\mid x] = 0$ — conditioning on all of $x = (x_1,\\dots,x_N)$, which random sampling delivers from $E[e_i \\mid x_i] = 0$. [Homoskedasticity](note:homoskedasticity) plays no part here."
+      }
+     ],
+     "words": 42,
+     "symbols": [
+      "$y_i$, $x_i$",
+      "$\\beta_1$, $\\beta_2$",
+      "$b_1$, $b_2$",
+      "$e_i$",
+      "$\\bar{x}$, $\\bar{y}$",
+      "$w_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "variances",
+   "heading": "Variances",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "variances-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "\\mathrm{Var}(b_2) = \\frac{\\sigma^2}{\\sum (x_i - \\bar{x})^2}"
+      },
+      {
+       "t": "math",
+       "tex": "\\mathrm{Var}(b_1) = \\sigma^2\\,\\frac{\\sum x_i^2}{N\\sum (x_i - \\bar{x})^2}"
+      },
+      {
+       "t": "math",
+       "tex": "\\mathrm{Cov}(b_1, b_2) = -\\sigma^2\\,\\frac{\\bar{x}}{N\\sum (x_i - \\bar{x})^2}"
+      },
+      {
+       "t": "prose",
+       "md": "Three comparative statics:"
+      },
+      {
+       "t": "prose",
+       "md": "1. Larger $\\sigma^2$ → larger variances. More noise, less precision.\n2. Larger $\\sum(x_i-\\bar{x})^2$ → smaller variances. More spread in $x$ identifies the slope more sharply.\n3. Larger $N$ → smaller variances."
+      },
+      {
+       "t": "prose",
+       "md": "The sign of $\\mathrm{Cov}(b_1,b_2)$ is **opposite** to the sign of $\\bar{x}$. Intuition: with $\\bar{x}>0$, tilting the fitted line up at the mean forces the intercept down."
+      }
+     ],
+     "words": 50,
+     "symbols": [
+      "$y_i$, $x_i$",
+      "$b_1$, $b_2$",
+      "$\\bar{x}$, $\\bar{y}$",
+      "$N$",
+      "$\\sigma^2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Math background: [Unconstrained Optimization](note:unconstrained-optimization)\n- [SR Assumptions](note:sr-assumptions)\n- [OLS in Matrix Form](note:ols-in-matrix-form) — the same thing, generalised\n- [Sampling Distribution of OLS](note:sampling-distribution-of-ols) — what you do with these variances"
+      }
+     ],
+     "words": 28,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

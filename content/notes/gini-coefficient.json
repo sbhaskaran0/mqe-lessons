@@ -1,0 +1,278 @@
+{
+ "slug": "gini-coefficient",
+ "notation": [
+  {
+   "tex": "$G$",
+   "meaning": "Gini coefficient",
+   "kind": "Statistic",
+   "typical": "US tax-unit income ≈ 0.64 (2015)",
+   "keys": [
+    "G"
+   ]
+  },
+  {
+   "tex": "$A$",
+   "meaning": "Area between the line of equality and the Lorenz curve",
+   "kind": "Area",
+   "typical": "—",
+   "keys": [
+    "A"
+   ]
+  },
+  {
+   "tex": "$B$",
+   "meaning": "Area under the Lorenz curve",
+   "kind": "Area",
+   "typical": "$A + B = 1/2$",
+   "keys": [
+    "B"
+   ]
+  },
+  {
+   "tex": "$F_i$, $L_i$",
+   "meaning": "Cumulative population and income shares",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "F",
+    "L"
+   ]
+  },
+  {
+   "tex": "$z_i$, $z_j$",
+   "meaning": "Incomes of two people",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "z"
+   ]
+  },
+  {
+   "tex": "$n$",
+   "meaning": "Number of people",
+   "kind": "Count",
+   "typical": "—",
+   "keys": [
+    "n"
+   ]
+  },
+  {
+   "tex": "$\\mu$",
+   "meaning": "Mean income",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "mu"
+   ]
+  },
+  {
+   "tex": "$w_R$",
+   "meaning": "Reservation wage",
+   "kind": "Number",
+   "typical": "—",
+   "keys": [
+    "w"
+   ],
+   "from": "integration-by-parts"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The Gini coefficient turns a Lorenz curve into a single number between zero and one. Zero means everyone has the same income; one means a single person has everything. Geometrically it is the size of the gap between the Lorenz curve and the line of perfect equality. Another way to read it: pick two people at random, and the Gini is half their typical income gap relative to the average income."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the most widely reported inequality statistic, so knowing what it does and does not capture is essential for comparing countries and years.",
+       "folded": false
+      }
+     ],
+     "words": 98,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The most common single-number summary of the [Lorenz Curve](note:lorenz-curve)."
+      },
+      {
+       "t": "math",
+       "tex": "G = \\frac{A}{A+B}"
+      },
+      {
+       "t": "prose",
+       "md": "$A$ is the area between the 45° line of equality and the Lorenz curve; $B$ is the area under the Lorenz curve. Since $A + B = \\tfrac12$, equivalently $G = 1 - 2B$."
+      },
+      {
+       "t": "prose",
+       "md": "If all $z_i \\geq 0$, $G \\in [0,1]$: 0 is complete equality, 1 is one person holding everything. Often reported ×100 (e.g. 45.0)."
+      },
+      {
+       "t": "interactive",
+       "widget": "lognormal-inequality-explorer",
+       "lock": [
+        "mu"
+       ],
+       "show": [
+        "lorenz",
+        "equality",
+        "gini"
+       ],
+       "highlight": "gini",
+       "prompt": "The gap between the 45° line and the Lorenz curve is $A$, and $G = A/(A+B) = 1 - 2B$. Raise the spread of log wages and watch the gap and $G$ grow together.",
+       "predict": {
+        "hide": [
+         "gini"
+        ],
+        "ask": "Raise the spread and the Lorenz curve sags further below the 45° line. In $G = A/(A+B)$, which areas change?",
+        "options": [
+         "A grows and B shrinks by the same amount, because A + B = 1/2 always",
+         "A grows and B stays the same",
+         "Both grow, because the spread of incomes grows"
+        ],
+        "answer": 0,
+        "why": "$A + B$ is the triangle under the line of equality, $1/2$ for every distribution. As the curve sags, area moves from $B$ to $A$, so $G = A/(A+B) = 2A = 1 - 2B$ rises: from 0.28 at a log-wage spread of 0.5 to 0.52 at a spread of 1.",
+        "feedback": [
+         null,
+         "$A$ and $B$ together fill the triangle under the line of equality, so they always add to $1/2$. Whatever $A$ gains, $B$ loses.",
+         "The Lorenz curve uses income *shares*, so its square has area 1 and the triangle under the 45° line is $1/2$ whatever the incomes are. $A + B$ cannot grow."
+        ]
+       }
+      }
+     ],
+     "words": 75,
+     "symbols": [
+      "$G$",
+      "$A$",
+      "$B$",
+      "$z_i$, $z_j$",
+      "$\\mu$",
+      "$w_R$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "computing-it",
+   "heading": "Computing it",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "computing-it-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "From Lorenz points (trapezoid rule for $B$):"
+      },
+      {
+       "t": "math",
+       "tex": "G = 1 - \\sum_{i=1}^{n} (F_i - F_{i-1})(L_i + L_{i-1})"
+      },
+      {
+       "t": "prose",
+       "md": "Equivalent **mean absolute difference** form — the most intuitive:"
+      },
+      {
+       "t": "math",
+       "tex": "G = \\frac{\\sum_i \\sum_j |z_i - z_j|}{2n^2\\mu}"
+      },
+      {
+       "t": "prose",
+       "md": "The Gini is half the average absolute gap between two randomly drawn people, relative to the mean."
+      },
+      {
+       "t": "prose",
+       "md": "**Worked example**: for the nine incomes in [Lorenz Curve](note:lorenz-curve), both formulas give $G = 0.167$."
+      }
+     ],
+     "words": 43,
+     "symbols": [
+      "$G$",
+      "$B$",
+      "$F_i$, $L_i$",
+      "$z_i$, $z_j$",
+      "$n$",
+      "$\\mu$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "properties",
+   "heading": "Properties",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "properties-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Property | Gini |\n| --- | --- |\n| Scale invariant | Yes |\n| Transfer principle (rich → poor transfer lowers it) | Yes |\n| Most sensitive to | The **middle** of the distribution |\n| Subgroup decomposable | **No** — only with non-overlapping groups |"
+      },
+      {
+       "t": "prose",
+       "md": "See [Properties of Inequality Measures](note:properties-of-inequality-measures)."
+      }
+     ],
+     "words": 35,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "facts-using-it",
+   "heading": "Facts using it",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "facts-using-it-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [US Income Inequality Since 1917](note:us-income-inequality-since-1917) — the U-shape\n- [Cross-Country Gini Comparison](note:cross-country-gini-comparison)"
+      }
+     ],
+     "words": 12,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Math background: [Integration by Parts](note:integration-by-parts)\n- [Defining Inequality](note:defining-inequality)\n- [Within- and Between-Group Inequality](note:within-and-between-group-inequality) — why the Gini does not decompose"
+      }
+     ],
+     "words": 20,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

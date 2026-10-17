@@ -1,0 +1,257 @@
+{
+ "slug": "column-space",
+ "notation": [
+  {
+   "tex": "$A$",
+   "meaning": "Matrix with columns $\\mathbf{a}_1, \\ldots, \\mathbf{a}_k$",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "A"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{x}$",
+   "meaning": "Vector of weights on the columns",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(x)"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{b}$",
+   "meaning": "Target vector in $A\\mathbf{x} = \\mathbf{b}$",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(b)"
+   ]
+  },
+  {
+   "tex": "$k$",
+   "meaning": "Number of columns",
+   "kind": "Count",
+   "typical": "—",
+   "keys": [
+    "k"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{X}$, $\\mathbf{b}$, $\\hat{\\mathbf{y}}$",
+   "meaning": "Regressors, coefficients and fitted values in the regression reading",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(X)",
+    "bold(b)",
+    "hat(bold(y))"
+   ]
+  },
+  {
+   "tex": "$N$, $K$",
+   "meaning": "Observations and regressors",
+   "kind": "Counts",
+   "typical": "$N > K$ usually",
+   "keys": [
+    "N",
+    "K"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{a}$, $\\mathbf{b}$",
+   "meaning": "Column vectors",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(a)",
+    "bold(b)"
+   ],
+   "from": "matrix-algebra-identities"
+  },
+  {
+   "tex": "$\\mathbf{X}$, $\\mathbf{y}$, $\\mathbf{b}$",
+   "meaning": "Regressors, outcome and OLS coefficients in the examples",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(X)",
+    "bold(y)",
+    "bold(b)"
+   ],
+   "from": "matrix-algebra-identities"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Multiplying a matrix by a vector just mixes the matrix's columns together in some proportions. The column space is every result you can get that way — all the mixtures of the columns. A system of equations has a solution only if its target lies among those mixtures. In regression there are usually more observations than columns, so the actual outcome almost never lies there exactly, and least squares picks the closest point that does."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the geometric home of fitted values, and the reason adding a variable can never make a regression fit worse.",
+       "folded": false
+      }
+     ],
+     "words": 98,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "\\mathrm{col}(A) = \\{A\\mathbf{x} : \\mathbf{x}\\in\\mathbb{R}^k\\} = \\mathrm{span}(\\mathbf{a}_1,\\dots,\\mathbf{a}_k)"
+      },
+      {
+       "t": "prose",
+       "md": "**Key reframe**: a matrix times a vector is a linear combination of the matrix's columns,"
+      },
+      {
+       "t": "math",
+       "tex": "A\\mathbf{x} = x_1\\mathbf{a}_1 + x_2\\mathbf{a}_2 + \\dots + x_k\\mathbf{a}_k"
+      },
+      {
+       "t": "prose",
+       "md": "so the column space is everything you can build from the columns."
+      }
+     ],
+     "words": 27,
+     "symbols": [
+      "$A$",
+      "$\\mathbf{x}$",
+      "$k$",
+      "$\\mathbf{a}$, $\\mathbf{b}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "solving-equations",
+   "heading": "Solving equations",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "solving-equations-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$A\\mathbf{x} = \\mathbf{b}$ has a solution **iff** $\\mathbf{b} \\in \\mathrm{col}(A)$. With more equations than unknowns ($N > K$, the regression case) $\\mathbf{b}$ is almost never in the column space, so there is no exact solution — and least squares picks the point in $\\mathrm{col}(A)$ **closest** to $\\mathbf{b}$."
+      }
+     ],
+     "words": 34,
+     "symbols": [
+      "$A$",
+      "$\\mathbf{x}$",
+      "$\\mathbf{b}$",
+      "$\\mathbf{X}$, $\\mathbf{b}$, $\\hat{\\mathbf{y}}$",
+      "$N$, $K$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$A = \\begin{pmatrix}1&0\\\\0&1\\\\1&1\\end{pmatrix}$, a plane in $\\mathbb{R}^3$."
+      },
+      {
+       "t": "prose",
+       "md": "- $\\mathbf{b} = (1,2,3)'$: $\\mathbf{x} = (1,2)'$ gives $1\\cdot\\mathbf{a}_1 + 2\\cdot\\mathbf{a}_2 = \\mathbf{b}$ exactly, so $\\mathbf{b}\\in\\mathrm{col}(A)$.\n- $\\mathbf{b} = (1,2,4)'$: not in the plane. The least-squares solution is $\\mathbf{x} = (4/3, 7/3)'$, with residual sum of squares $1/3$."
+      }
+     ],
+     "words": 21,
+     "symbols": [
+      "$A$",
+      "$\\mathbf{x}$",
+      "$\\mathbf{b}$",
+      "$\\mathbf{X}$, $\\mathbf{b}$, $\\hat{\\mathbf{y}}$",
+      "$\\mathbf{a}$, $\\mathbf{b}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "regression-reading",
+   "heading": "Regression reading",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "regression-reading-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Fitted values $\\hat{\\mathbf{y}} = \\mathbf{X}\\mathbf{b}$ are a linear combination of the regressors, so $\\hat{\\mathbf{y}}\\in\\mathrm{col}(\\mathbf{X})$.\n- OLS chooses the $\\hat{\\mathbf{y}}$ in $\\mathrm{col}(\\mathbf{X})$ nearest to $\\mathbf{y}$: an orthogonal projection ([Projection Matrix and Residual Maker](note:projection-matrix-and-residual-maker)).\n- Adding a regressor enlarges the column space, so the fit can never get worse — why $R^2$ never falls when you add variables."
+      }
+     ],
+     "words": 48,
+     "symbols": [
+      "$\\mathbf{b}$",
+      "$\\mathbf{X}$, $\\mathbf{b}$, $\\hat{\\mathbf{y}}$",
+      "$\\mathbf{X}$, $\\mathbf{y}$, $\\mathbf{b}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Econometrics**: the geometry of [OLS in Matrix Form](note:ols-in-matrix-form) and [Projection Matrix and Residual Maker](note:projection-matrix-and-residual-maker)."
+      }
+     ],
+     "words": 15,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Linear Independence and Rank](note:linear-independence-and-rank)\n- [Inner Products and Orthogonality](note:inner-products-and-orthogonality)"
+      }
+     ],
+     "words": 10,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

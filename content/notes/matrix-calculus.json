@@ -1,0 +1,246 @@
+{
+ "slug": "matrix-calculus",
+ "notation": [
+  {
+   "tex": "$f(\\mathbf{x})$",
+   "meaning": "Scalar function of a $K\\times1$ vector",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "f"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{x}$, $\\mathbf{a}$",
+   "meaning": "Column vectors",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(x)",
+    "bold(a)"
+   ]
+  },
+  {
+   "tex": "$A$",
+   "meaning": "Square matrix",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "A"
+   ]
+  },
+  {
+   "tex": "$K$",
+   "meaning": "Length of the vector",
+   "kind": "Count",
+   "typical": "—",
+   "keys": [
+    "K"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{b}$, $\\mathbf{e}$",
+   "meaning": "OLS coefficients and residuals",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(b)",
+    "bold(e)"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{X}$, $\\mathbf{y}$",
+   "meaning": "Regressors and outcome",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "bold(X)",
+    "bold(y)"
+   ]
+  },
+  {
+   "tex": "$x_i$",
+   "meaning": "Input $i$",
+   "kind": "Variable",
+   "typical": "—",
+   "keys": [
+    "x"
+   ],
+   "from": "partial-derivatives-and-the-gradient"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Matrix calculus is ordinary differentiation done for many variables at once and written compactly. When a function depends on a whole vector of coefficients, its derivative is a vector of slopes, one per coefficient. Two rules — one for linear expressions, one for quadratic ones — mirror the familiar rules for ax and ax squared, and are enough to derive the least-squares formula in a few lines."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "Every estimator in econometrics is derived by setting a vector derivative to zero, so these rules are the price of admission for reading derivations.",
+       "folded": false
+      }
+     ],
+     "words": 92,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The derivative of a **scalar** $f(\\mathbf{x})$ with respect to a $K\\times1$ vector $\\mathbf{x}$ is the $K\\times1$ gradient — one partial derivative per element. Three rules cover almost all of econometrics."
+      },
+      {
+       "t": "table",
+       "md": "| Function (scalar) | Derivative w.r.t. $\\mathbf{x}$ | Scalar analogue |\n| --- | --- | --- |\n| $\\mathbf{a}'\\mathbf{x}$ (or $\\mathbf{x}'\\mathbf{a}$) | $\\mathbf{a}$ | $ax \\to a$ |\n| $\\mathbf{x}'A\\mathbf{x}$ | $(A + A')\\mathbf{x}$ | $ax^2 \\to 2ax$ |\n| $\\mathbf{x}'A\\mathbf{x}$, $A$ symmetric | $2A\\mathbf{x}$ | |"
+      },
+      {
+       "t": "prose",
+       "md": "Second derivative: $\\partial^2(\\mathbf{x}'A\\mathbf{x})/\\partial\\mathbf{x}\\,\\partial\\mathbf{x}' = A + A'$ (the [Hessian Matrix](note:hessian-matrix))."
+      }
+     ],
+     "words": 43,
+     "symbols": [
+      "$f(\\mathbf{x})$",
+      "$\\mathbf{x}$, $\\mathbf{a}$",
+      "$A$",
+      "$K$",
+      "$x_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "proof-sketch-of-the-quadratic-rule",
+   "heading": "Proof sketch of the quadratic rule",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "proof-sketch-of-the-quadratic-rule-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$\\mathbf{x}'A\\mathbf{x} = \\sum_i\\sum_j a_{ij}x_ix_j$. Differentiating with respect to $x_k$ picks up every term containing $x_k$: $\\sum_j a_{kj}x_j + \\sum_i a_{ik}x_i$, which is the $k$-th element of $A\\mathbf{x} + A'\\mathbf{x}$."
+      },
+      {
+       "t": "prose",
+       "md": "**Numerical check**: $A = \\begin{pmatrix}1&2\\\\0&3\\end{pmatrix}$, $\\mathbf{x} = (1,2)'$: the rule gives $(A + A')\\mathbf{x} = (6, 14)'$, and finite differences agree."
+      }
+     ],
+     "words": 24,
+     "symbols": [
+      "$\\mathbf{x}$, $\\mathbf{a}$",
+      "$A$",
+      "$x_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "the-ols-derivation",
+   "heading": "The OLS derivation",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-ols-derivation-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "\\mathbf{e}'\\mathbf{e} = \\mathbf{y}'\\mathbf{y} - 2\\mathbf{b}'\\mathbf{X}'\\mathbf{y} + \\mathbf{b}'\\mathbf{X}'\\mathbf{X}\\mathbf{b}"
+      },
+      {
+       "t": "prose",
+       "md": "- $\\mathbf{y}'\\mathbf{y}$ has no $\\mathbf{b}$: derivative $\\mathbf{0}$.\n- $-2\\mathbf{b}'(\\mathbf{X}'\\mathbf{y})$ is linear, $\\mathbf{a} = \\mathbf{X}'\\mathbf{y}$: derivative $-2\\mathbf{X}'\\mathbf{y}$.\n- $\\mathbf{b}'(\\mathbf{X}'\\mathbf{X})\\mathbf{b}$ is quadratic with symmetric $\\mathbf{X}'\\mathbf{X}$: derivative $2\\mathbf{X}'\\mathbf{X}\\mathbf{b}$."
+      },
+      {
+       "t": "prose",
+       "md": "Setting the sum to zero gives $\\mathbf{X}'\\mathbf{X}\\mathbf{b} = \\mathbf{X}'\\mathbf{y}$. The Hessian $2\\mathbf{X}'\\mathbf{X}$ is PD under full rank, so it is a minimum."
+      }
+     ],
+     "words": 32,
+     "symbols": [
+      "$\\mathbf{x}$, $\\mathbf{a}$",
+      "$\\mathbf{b}$, $\\mathbf{e}$",
+      "$\\mathbf{X}$, $\\mathbf{y}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Using $2A\\mathbf{x}$ when $A$ is not symmetric.\n- Layout conventions: some texts write gradients as rows. Pick column (\"denominator\") layout and check dimensions.\n- Writing $\\partial(\\mathbf{b}'\\mathbf{X}'\\mathbf{y})/\\partial\\mathbf{b} = \\mathbf{y}'\\mathbf{X}$ — that is the transpose of the right answer."
+      }
+     ],
+     "words": 32,
+     "symbols": [
+      "$\\mathbf{x}$, $\\mathbf{a}$",
+      "$A$",
+      "$\\mathbf{b}$, $\\mathbf{e}$",
+      "$\\mathbf{X}$, $\\mathbf{y}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Econometrics**: [OLS in Matrix Form](note:ols-in-matrix-form); GLS and MLE first-order conditions.\n- **Optimization**: vector first-order conditions in [Unconstrained Optimization](note:unconstrained-optimization)."
+      }
+     ],
+     "words": 19,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Quadratic Forms and Definiteness](note:quadratic-forms-and-definiteness)\n- [Partial Derivatives and the Gradient](note:partial-derivatives-and-the-gradient)"
+      }
+     ],
+     "words": 11,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

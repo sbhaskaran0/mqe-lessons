@@ -1,0 +1,79 @@
+{
+ "slug": "us-within-education-wage-variance-1973-2009",
+ "notation": [],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Inside each education group, the variance of log hourly wages rose in the early 1980s. From the mid-1980s it contracted for every group except college graduates: by the 2000s dropouts were below their 1970s level (≈0.12–0.13), while college graduates kept rising to ≈0.30.**"
+      },
+      {
+       "t": "prose",
+       "md": "Values read off the lecture chart, approximate."
+      },
+      {
+       "t": "table",
+       "md": "| Group | 1973 | Mid-1980s | 2000 | 2009 |\n| --- | --- | --- | --- | --- |\n| High-school dropouts (HSD) | ≈ 0.18 | ≈ 0.20 (peak) | ≈ 0.125 | ≈ 0.12 |\n| High-school graduates (HSG) | ≈ 0.17 | ≈ 0.20 (peak) | ≈ 0.155 | ≈ 0.165 |\n| Some college (SMC) | ≈ 0.175 | ≈ 0.225 (peak) | ≈ 0.195 | ≈ 0.205 |\n| College graduates and above (CLG+) | ≈ 0.265 | ≈ 0.25 | ≈ 0.275 | ≈ 0.30 |"
+      }
+     ],
+     "words": 113,
+     "symbols": []
+    },
+    {
+     "id": "intro-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "College graduates dipped to ≈0.21 around 1979 before rising."
+      }
+     ],
+     "words": 10,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "reading-it-correctly",
+   "heading": "Reading it correctly",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "reading-it-correctly-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Variance rises with education** (in the 2000s, the more educated the group, the more dispersed its wages).\n- **Composition**: the college share also rose, so total variance can rise even if no group's variance changes — see [Composition Adjustment](note:composition-adjustment) and [US Variance of Log Wages 1973-2009](note:us-variance-of-log-wages-1973-2009).\n- **The split pattern fits polarization**: compression inside low-education groups (mostly in the bottom half) and widening inside college groups (mostly in the top half) — see [Wage Polarization](note:wage-polarization)."
+      }
+     ],
+     "words": 74,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Within- and Between-Group Inequality](note:within-and-between-group-inequality) · [Current Population Survey (CPS)](note:current-population-survey-cps)\n- Paper: [Lemieux 2006 - Increasing Residual Wage Inequality](note:lemieux-2006-increasing-residual-wage-inequality)"
+      }
+     ],
+     "words": 18,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

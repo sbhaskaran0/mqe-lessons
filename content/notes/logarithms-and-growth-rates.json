@@ -1,0 +1,354 @@
+{
+ "slug": "logarithms-and-growth-rates",
+ "notation": [
+  {
+   "tex": "$y$, $X$, $Y$",
+   "meaning": "Variables",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "y",
+    "X",
+    "Y"
+   ]
+  },
+  {
+   "tex": "$\\Delta\\ln y$",
+   "meaning": "Change in the log of $y$",
+   "kind": "Number",
+   "typical": "≈ percentage change ÷ 100",
+   "keys": [
+    "~\\Delta\\lny"
+   ]
+  },
+  {
+   "tex": "$g$, $g_X$, $g_Y$",
+   "meaning": "Growth rates",
+   "kind": "Rates",
+   "typical": "e.g. 0.02",
+   "keys": [
+    "g"
+   ]
+  },
+  {
+   "tex": "$t$",
+   "meaning": "Time",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "t"
+   ]
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "Exponent on a power",
+   "kind": "Number",
+   "typical": "—",
+   "keys": [
+    "alpha"
+   ]
+  },
+  {
+   "tex": "$\\varepsilon$",
+   "meaning": "Elasticity, $d\\ln y/d\\ln x$",
+   "kind": "Number",
+   "typical": "—",
+   "keys": [
+    "varepsilon"
+   ]
+  },
+  {
+   "tex": "$\\lambda$",
+   "meaning": "Box-Cox power (log is $\\lambda = 0$)",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "lambda"
+   ]
+  },
+  {
+   "tex": "$\\sigma$",
+   "meaning": "Elasticity of substitution (appears in the uses list)",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "sigma"
+   ]
+  },
+  {
+   "tex": "$a$, $\\mathbf{x}$",
+   "meaning": "Point the approximation is built around",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "a",
+    "bold(x)"
+   ],
+   "from": "taylor-series-approximation"
+  },
+  {
+   "tex": "$x$, $\\mathbf{d}$",
+   "meaning": "Nearby value, or the step away from $\\mathbf{x}$",
+   "kind": "—",
+   "typical": "Small for accuracy",
+   "keys": [
+    "x",
+    "bold(d)"
+   ],
+   "from": "taylor-series-approximation"
+  },
+  {
+   "tex": "$e$",
+   "meaning": "Error term in the quadratic example",
+   "kind": "Unobserved",
+   "typical": "—",
+   "keys": [
+    "e"
+   ],
+   "from": "functional-forms-and-elasticities"
+  },
+  {
+   "tex": "$Y$, $X$, $p$, $q$, $a$, $b$",
+   "meaning": "Variables and powers in the bulging-rule regression",
+   "kind": "Data / parameters",
+   "typical": "—",
+   "keys": [
+    "Y",
+    "X",
+    "p",
+    "q",
+    "a",
+    "b"
+   ],
+   "from": "box-cox-and-power-transformations"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Logarithms turn multiplication into addition, and that makes them the natural language of growth. A change in the log of a variable is, for small changes, its percentage change; differences in logs add up over time and are symmetric, which percentages are not. Growth rates of products and powers become simple sums and multiples. And the elasticity — the percentage response of one variable to another — is just the slope in logs."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "Almost every growth rate, wage gap and elasticity in economics is computed or interpreted through logs.",
+       "folded": false
+      }
+     ],
+     "words": 90,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Natural log rules: $\\ln(ab) = \\ln a + \\ln b$, $\\ln(a/b) = \\ln a - \\ln b$, $\\ln a^k = k\\ln a$, $e^{\\ln a} = a$."
+      },
+      {
+       "t": "prose",
+       "md": "The key derivative:"
+      },
+      {
+       "t": "math",
+       "tex": "\\frac{d\\ln y}{dy} = \\frac1y \\quad\\Longrightarrow\\quad d\\ln y = \\frac{dy}{y}"
+      },
+      {
+       "t": "prose",
+       "md": "A change in a log **is** a proportional change."
+      }
+     ],
+     "words": 15,
+     "symbols": [
+      "$y$, $X$, $Y$",
+      "$a$, $\\mathbf{x}$",
+      "$e$",
+      "$Y$, $X$, $p$, $q$, $a$, $b$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "log-differences-vs-percentages",
+   "heading": "Log differences vs percentages",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "log-differences-vs-percentages-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "\\Delta\\ln y = \\ln\\frac{y_1}{y_0} \\approx \\frac{y_1 - y_0}{y_0} \\quad\\text{(small changes)}, \\qquad \\text{exact: } \\frac{y_1}{y_0} - 1 = e^{\\Delta\\ln y} - 1"
+      },
+      {
+       "t": "prose",
+       "md": "The approximation is the first Taylor term ([Taylor Series Approximation](note:taylor-series-approximation)). A log gap of 0.67 means $e^{0.67} - 1 = 95\\%$ higher, not 67%."
+      }
+     ],
+     "words": 20,
+     "symbols": [
+      "$y$, $X$, $Y$",
+      "$\\Delta\\ln y$",
+      "$e$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "why-economists-prefer-log-differences",
+   "heading": "Why economists prefer log differences",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "why-economists-prefer-log-differences-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Property | Log difference | Percentage change |\n| --- | --- | --- |\n| Additive over time | $\\ln(y_2/y_0) = \\ln(y_1/y_0) + \\ln(y_2/y_1)$ | Compounds instead |\n| Symmetric | Up then down by 0.1 returns to start | +10% then −10% does not |\n| Scale-free | Unchanged by units or inflation | Same |"
+      }
+     ],
+     "words": 35,
+     "symbols": [
+      "$y$, $X$, $Y$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "growth-rates",
+   "heading": "Growth rates",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "growth-rates-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "If $y_t$ grows continuously at rate $g$, $y_t = y_0e^{gt}$ and $d\\ln y/dt = g$. Doubling time is $\\ln 2/g \\approx 70/(g\\text{ in }\\%)$ — the **rule of 70**. At 2% the exact answer is $\\ln 2/0.02 = 34.66$ years (with annual compounding, $\\ln 2/\\ln 1.02 = 35.0$)."
+      }
+     ],
+     "words": 23,
+     "symbols": [
+      "$y$, $X$, $Y$",
+      "$g$, $g_X$, $g_Y$",
+      "$t$",
+      "$e$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "growth-rates-of-products-ratios-and-powers",
+   "heading": "Growth rates of products, ratios and powers",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "growth-rates-of-products-ratios-and-powers-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Because logs turn products into sums, growth rates (log differences) combine linearly:"
+      },
+      {
+       "t": "table",
+       "md": "| Variable | Growth rate |\n| --- | --- |\n| $XY$ | $g_X + g_Y$ |\n| $X/Y$ | $g_X - g_Y$ |\n| $X^{\\alpha}$ | $\\alpha\\,g_X$ |"
+      },
+      {
+       "t": "prose",
+       "md": "These are exact for log differences and continuous growth, and approximations for discrete percentage changes: if $X$ grows 3%, $X^{0.5}$ grows 1.489% (rule: 1.5%); if $X$ grows 2% and $Y$ 3%, $XY$ grows 5.06% (rule: 5%). Dropping the cross term $g_Xg_Y$ is a first-order [Taylor Series Approximation](note:taylor-series-approximation)."
+      }
+     ],
+     "words": 61,
+     "symbols": [
+      "$y$, $X$, $Y$",
+      "$g$, $g_X$, $g_Y$",
+      "$\\alpha$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "elasticities",
+   "heading": "Elasticities",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "elasticities-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "\\varepsilon = \\frac{d\\ln y}{d\\ln x} = \\frac{dy}{dx}\\cdot\\frac{x}{y}"
+      },
+      {
+       "t": "prose",
+       "md": "In a log-log relationship the elasticity is the slope."
+      }
+     ],
+     "words": 9,
+     "symbols": [
+      "$y$, $X$, $Y$",
+      "$\\varepsilon$",
+      "$x$, $\\mathbf{d}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Econometrics**: interpreting log-linear, linear-log and log-log models ([Functional Forms and Elasticities](note:functional-forms-and-elasticities)); [Box-Cox and Power Transformations](note:box-cox-and-power-transformations) with $\\lambda = 0$.\n- **Inequality / labor**: [Log Wage Gap](note:log-wage-gap), [Percentile Ratios](note:percentile-ratios), [Variance of Log Income](note:variance-of-log-income), the log-linear relative wage equation in the [Canonical Model of the Skill Premium](note:canonical-model-of-the-skill-premium), and $-1/\\sigma$ as an elasticity ([Elasticity of Substitution](note:elasticity-of-substitution)).\n- **Macro**: growth accounting ([Multivariable Chain Rule](note:multivariable-chain-rule))."
+      }
+     ],
+     "words": 56,
+     "symbols": [
+      "$\\lambda$",
+      "$\\sigma$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Convexity and Concavity](note:convexity-and-concavity) — $E[\\ln y] \\neq \\ln E[y]$"
+      }
+     ],
+     "words": 4,
+     "symbols": [
+      "$y$, $X$, $Y$"
+     ]
+    }
+   ]
+  }
+ ]
+}

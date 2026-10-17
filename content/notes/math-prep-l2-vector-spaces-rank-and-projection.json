@@ -1,0 +1,561 @@
+{
+ "slug": "math-prep-l2-vector-spaces-rank-and-projection",
+ "notation": [
+  {
+   "tex": "$\\mathbf{x}$",
+   "meaning": "Vector of weights on the columns",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(x)"
+   ],
+   "from": "column-space"
+  },
+  {
+   "tex": "$\\mathbf{b}$",
+   "meaning": "Target vector in $A\\mathbf{x} = \\mathbf{b}$",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(b)"
+   ],
+   "from": "column-space"
+  },
+  {
+   "tex": "$\\mathbf{X}$, $\\mathbf{b}$, $\\hat{\\mathbf{y}}$",
+   "meaning": "Regressors, coefficients and fitted values in the regression reading",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(X)",
+    "bold(b)",
+    "hat(bold(y))"
+   ],
+   "from": "column-space"
+  },
+  {
+   "tex": "$N$, $K$",
+   "meaning": "Observations and regressors",
+   "kind": "Counts",
+   "typical": "$N > K$ usually",
+   "keys": [
+    "N",
+    "K"
+   ],
+   "from": "column-space"
+  },
+  {
+   "tex": "$\\mathbf{a}_1, \\ldots, \\mathbf{a}_k$",
+   "meaning": "Vectors (e.g. columns of a data matrix)",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(a)"
+   ],
+   "from": "linear-independence-and-rank"
+  },
+  {
+   "tex": "$\\mathbf{a}'\\mathbf{b}$",
+   "meaning": "Inner (dot) product",
+   "kind": "Number",
+   "typical": "0 means orthogonal",
+   "keys": [
+    "~\\mathbfa'\\mathbfb"
+   ],
+   "from": "inner-products-and-orthogonality"
+  },
+  {
+   "tex": "$\\tilde{\\mathbf{x}}$, $\\tilde{\\mathbf{y}}$",
+   "meaning": "Demeaned data vectors",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "tilde(bold(x))",
+    "tilde(bold(y))"
+   ],
+   "from": "inner-products-and-orthogonality"
+  },
+  {
+   "tex": "$\\mathbf{X}$, $\\mathbf{e}$, $\\mathbf{z}$",
+   "meaning": "Regressors, residuals, instruments",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "bold(X)",
+    "bold(e)",
+    "bold(z)"
+   ],
+   "from": "inner-products-and-orthogonality"
+  },
+  {
+   "tex": "$\\mathbf{y}$, $\\hat{\\mathbf{y}}$",
+   "meaning": "Outcome and fitted values",
+   "kind": "Data / computed",
+   "typical": "—",
+   "keys": [
+    "bold(y)",
+    "hat(bold(y))"
+   ],
+   "from": "projection-matrix-and-residual-maker"
+  },
+  {
+   "tex": "$\\mathbf{P} = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$",
+   "meaning": "Projection (hat) matrix: turns $\\mathbf{y}$ into fitted values",
+   "kind": "Matrix ($n\\times n$)",
+   "typical": "Trace $K$",
+   "keys": [
+    "bold(P)"
+   ],
+   "from": "projection-matrix-and-residual-maker"
+  },
+  {
+   "tex": "$\\mathbf{M} = \\mathbf{I} - \\mathbf{P}$",
+   "meaning": "Residual maker: turns $\\mathbf{y}$ into residuals",
+   "kind": "Matrix ($n\\times n$)",
+   "typical": "Trace $n - K$",
+   "keys": [
+    "bold(M)"
+   ],
+   "from": "projection-matrix-and-residual-maker"
+  },
+  {
+   "tex": "$NI$, $S$, $T$",
+   "meaning": "Non-labor income, labor income and total income ($T = NI + S$) in the example",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "~NI",
+    "S",
+    "T"
+   ],
+   "from": "full-rank-and-identification"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Regression is a projection. $\\mathbf{X}\\mathbf{b}$ is a point in the column space of $\\mathbf{X}$; OLS picks the one closest to $\\mathbf{y}$; the residual is what is left, orthogonal to every regressor. Rank decides whether that point corresponds to a unique $\\mathbf{b}$.**"
+      }
+     ],
+     "words": 37,
+     "symbols": [
+      "$\\mathbf{b}$",
+      "$\\mathbf{X}$, $\\mathbf{b}$, $\\hat{\\mathbf{y}}$",
+      "$\\mathbf{y}$, $\\hat{\\mathbf{y}}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1-a-matrix-times-a-vector-is-a-combination-of-columns",
+   "heading": "1. A matrix times a vector is a combination of columns",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-a-matrix-times-a-vector-is-a-combination-of-columns-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Column Space](note:column-space): $\\mathbf{X}\\mathbf{b} = b_1\\mathbf{x}_1 + \\dots + b_K\\mathbf{x}_K$. Every possible fitted vector lives in $\\mathrm{col}(\\mathbf{X})$. With $N > K$, $\\mathbf{y}$ is almost never in it, so there is no exact fit — only a closest one."
+      }
+     ],
+     "words": 24,
+     "symbols": [
+      "$\\mathbf{x}$",
+      "$\\mathbf{b}$",
+      "$\\mathbf{X}$, $\\mathbf{b}$, $\\hat{\\mathbf{y}}$",
+      "$N$, $K$",
+      "$\\mathbf{y}$, $\\hat{\\mathbf{y}}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "2-rank-and-uniqueness",
+   "heading": "2. Rank and uniqueness",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-rank-and-uniqueness-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Linear Independence and Rank](note:linear-independence-and-rank): if the columns are independent, different $\\mathbf{b}$ give different fitted vectors, so the closest point pins down a unique $\\mathbf{b}$. If a column is a combination of others (total income = labor + non-labor income; all dummies plus a constant) the rank drops and $\\mathbf{b}$ is not identified — the [Full Rank and Identification](note:full-rank-and-identification) condition in [Econ 430 L7 The Classical Linear Regression Model](note:econ-430-l7-the-classical-linear-regression-model)."
+      }
+     ],
+     "words": 62,
+     "symbols": [
+      "$\\mathbf{b}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "3-orthogonality",
+   "heading": "3. Orthogonality",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "3-orthogonality-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Inner Products and Orthogonality](note:inner-products-and-orthogonality): \"closest\" means the residual is perpendicular to the column space, $\\mathbf{X}'\\mathbf{e} = \\mathbf{0}$ — exactly the normal equations. The same geometry says a correlation is the cosine of an angle, and Cauchy–Schwarz is why it lies in $[-1, 1]$."
+      }
+     ],
+     "words": 38,
+     "symbols": [
+      "$\\mathbf{X}$, $\\mathbf{b}$, $\\hat{\\mathbf{y}}$",
+      "$\\mathbf{X}$, $\\mathbf{e}$, $\\mathbf{z}$"
+     ]
+    },
+    {
+     "id": "3-orthogonality-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Which condition picks out the closest point $\\mathbf{X}\\mathbf{b}$ to $\\mathbf{y}$?",
+       "options": [
+        {
+         "md": "The residual is zero: $\\mathbf{e} = \\mathbf{0}$",
+         "correct": false,
+         "feedback": "With $N > K$, $\\mathbf{y}$ is almost never in $\\mathrm{col}(\\mathbf{X})$, so no $\\mathbf{b}$ fits exactly; the closest point still leaves a nonzero residual."
+        },
+        {
+         "md": "The residual is orthogonal to every column of $\\mathbf{X}$: $\\mathbf{X}'\\mathbf{e} = \\mathbf{0}$",
+         "correct": true
+        },
+        {
+         "md": "The columns of $\\mathbf{X}$ are orthogonal to each other",
+         "correct": false,
+         "feedback": "That is a property of the regressors, not of $\\mathbf{b}$, so it cannot pick out a point; correlated regressors still have a closest point."
+        },
+        {
+         "md": "The residual is orthogonal to $\\mathbf{y}$: $\\mathbf{y}'\\mathbf{e} = 0$",
+         "correct": false,
+         "feedback": "The residual is perpendicular to the column space, where the fitted vector lives, not to $\\mathbf{y}$ itself: $\\mathbf{y}$ is the fitted vector plus $\\mathbf{e}$, so it has a component along $\\mathbf{e}$."
+        }
+       ],
+       "why": "\"Closest\" means the residual $\\mathbf{e} = \\mathbf{y} - \\mathbf{X}\\mathbf{b}$ is perpendicular to the column space, so it is orthogonal to every column $\\mathbf{x}_k$: $\\mathbf{X}'\\mathbf{e} = \\mathbf{0}$. Those $K$ equations are exactly the normal equations.",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 33,
+     "symbols": [
+      "$\\mathbf{x}$",
+      "$\\mathbf{b}$",
+      "$\\mathbf{X}$, $\\mathbf{b}$, $\\hat{\\mathbf{y}}$",
+      "$N$, $K$",
+      "$\\mathbf{X}$, $\\mathbf{e}$, $\\mathbf{z}$",
+      "$\\mathbf{y}$, $\\hat{\\mathbf{y}}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "4-projection-matrices",
+   "heading": "4. Projection matrices",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "4-projection-matrices-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Projection Matrix and Residual Maker](note:projection-matrix-and-residual-maker): $\\mathbf{P} = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$ does the projecting and $\\mathbf{M} = \\mathbf{I} - \\mathbf{P}$ produces the residuals. The simplest case — projecting onto a single vector, or onto the constant — shows that demeaning a variable is itself a projection. Partialling out a trend in [Econ 424 L2 Between-Group Inequality](note:econ-424-l2-between-group-inequality) is the same operation with $\\mathbf{X}_1 = [\\mathbf{1}, t]$."
+      },
+      {
+       "t": "interactive",
+       "widget": "projection-onto-a-vector",
+       "prompt": "Slide a point along $\\mathbf{a}$ until the residual is as short as possible",
+       "status": "planned",
+       "purpose": "See that the closest point to b on the line through a is where the residual is orthogonal to a, and that it sits at t = (a.b)/(a.a)",
+       "objectives": [
+        3,
+        4
+       ]
+      }
+     ],
+     "words": 60,
+     "symbols": [
+      "$\\mathbf{X}$, $\\mathbf{b}$, $\\hat{\\mathbf{y}}$",
+      "$\\mathbf{a}_1, \\ldots, \\mathbf{a}_k$",
+      "$\\mathbf{P} = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$",
+      "$\\mathbf{M} = \\mathbf{I} - \\mathbf{P}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "self-check",
+   "heading": "Self-check",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "self-check-1",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "1. Is $\\mathbf{b} = (1,2,4)'$ in the column space of $\\begin{pmatrix}1&0\\\\0&1\\\\1&1\\end{pmatrix}$?",
+       "options": [
+        {
+         "md": "Yes: the weights $x = (1, 2)'$ reproduce it",
+         "correct": false,
+         "feedback": "$x = (1, 2)'$ matches the first two entries, but the third entry it gives is $1 + 2 = 3$, not 4. Every entry has to match."
+        },
+        {
+         "md": "Yes: two independent columns reach every vector with three entries",
+         "correct": false,
+         "feedback": "Two columns span only a plane inside three-dimensional space, so most vectors with three entries lie off it."
+        },
+        {
+         "md": "No: the weights that match the first two entries give the wrong third entry",
+         "correct": true
+        }
+       ],
+       "why": "No. Matching the first two rows needs $x = (1, 2)'$, which gives a third entry of 3, not 4. → [Column Space](note:column-space)",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 36,
+     "symbols": [
+      "$\\mathbf{b}$"
+     ]
+    },
+    {
+     "id": "self-check-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "1b. There is no exact fit, so take the closest one: the least-squares fit of $\\mathbf{b} = (1,2,4)'$ on the two columns of that matrix. What is its residual sum of squares?",
+       "answer": 0.3333333333333333,
+       "tol": 0.005,
+       "wrong": [
+        {
+         "answer": 1.0,
+         "tol": 0.0,
+         "md": "that is the miss from fitting the first two entries exactly with $x = (1, 2)'$; least squares spreads the miss over all three entries"
+        },
+        {
+         "answer": 0.577,
+         "tol": 0.005,
+         "md": "that is the length of the residual, $\\sqrt{1/3}$; the sum of squares is its square"
+        }
+       ],
+       "why": "The least-squares solution is $(4/3, 7/3)'$, so the fitted vector is $(4/3, 7/3, 11/3)'$ and the residual $(-1/3, -1/3, 1/3)'$, with residual sum of squares $3 \\times 1/9 = 1/3$. → [Column Space](note:column-space)",
+       "objectives": [
+        4
+       ]
+      }
+     ],
+     "words": 29,
+     "symbols": [
+      "$\\mathbf{b}$"
+     ]
+    },
+    {
+     "id": "self-check-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "2. What is the rank of $[\\mathbf{1},\\ NI,\\ S,\\ NI + S]$?",
+       "answer": 3.0,
+       "tol": 0.1,
+       "wrong": [
+        {
+         "answer": 4.0,
+         "tol": 0.0,
+         "md": "that counts the columns; the fourth is the sum of the second and third, so it adds no new direction"
+        }
+       ],
+       "why": "3: the fourth column is the sum of the second and third. → [Linear Independence and Rank](note:linear-independence-and-rank)",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 6,
+     "symbols": [
+      "$N$, $K$",
+      "$NI$, $S$, $T$"
+     ]
+    },
+    {
+     "id": "self-check-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "3. Project $\\mathbf{b} = (3, 1)'$ onto $\\mathbf{a} = (1, 1)'$. Which vector do you get?",
+       "options": [
+        {
+         "md": "$(4, 4)'$",
+         "correct": false,
+         "feedback": "That is $(\\mathbf{a}'\\mathbf{b})\\,\\mathbf{a}$ with $\\mathbf{a}'\\mathbf{b} = 4$: you still need to divide by $\\mathbf{a}'\\mathbf{a} = 2$."
+        },
+        {
+         "md": "$(2.83, 2.83)'$",
+         "correct": false,
+         "feedback": "That divides $\\mathbf{a}'\\mathbf{b} = 4$ by the length $\\lVert\\mathbf{a}\\rVert = \\sqrt{2}$; the projection divides by $\\mathbf{a}'\\mathbf{a} = 2$."
+        },
+        {
+         "md": "$(1, -1)'$",
+         "correct": false,
+         "feedback": "That is the residual, the part of $\\mathbf{b}$ orthogonal to $\\mathbf{a}$; the projection is the part along $\\mathbf{a}$."
+        },
+        {
+         "md": "$(2, 2)'$",
+         "correct": true
+        }
+       ],
+       "why": "$\\frac{\\mathbf{a}'\\mathbf{b}}{\\mathbf{a}'\\mathbf{a}}\\mathbf{a} = 2\\,(1,1)' = (2,2)'$; residual $(1,-1)'$, orthogonal to $\\mathbf{a}$. → [Projection Matrix and Residual Maker](note:projection-matrix-and-residual-maker)",
+       "objectives": [
+        4
+       ]
+      }
+     ],
+     "words": 8,
+     "symbols": [
+      "$\\mathbf{b}$",
+      "$\\mathbf{a}_1, \\ldots, \\mathbf{a}_k$",
+      "$\\mathbf{a}'\\mathbf{b}$"
+     ]
+    },
+    {
+     "id": "self-check-5",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "4. For $\\mathbf{x} = (1,2,3,4,5)'$ and $\\mathbf{y} = (2,1,4,3,6)'$, what is the cosine of the angle between the demeaned vectors?",
+       "answer": 0.822,
+       "tol": 0.002,
+       "wrong": [
+        {
+         "answer": 0.963,
+         "tol": 0.002,
+         "md": "that uses the raw vectors; demean both first (the means are 3 and 3.2)"
+        },
+        {
+         "answer": 1.0,
+         "tol": 0.0,
+         "md": "that divides $\\tilde{\\mathbf{x}}'\\tilde{\\mathbf{y}} = 10$ by $\\tilde{\\mathbf{x}}'\\tilde{\\mathbf{x}} = 10$ only; the cosine divides by both lengths, $\\lVert\\tilde{\\mathbf{x}}\\rVert\\lVert\\tilde{\\mathbf{y}}\\rVert$"
+        },
+        {
+         "answer": 2.5,
+         "tol": 0.0,
+         "md": "that is $\\tilde{\\mathbf{x}}'\\tilde{\\mathbf{y}}/4$, the sample covariance; the cosine divides by the two lengths instead"
+        }
+       ],
+       "why": "Demeaned, $\\tilde{\\mathbf{x}} = (-2,-1,0,1,2)'$ and $\\tilde{\\mathbf{y}} = (-1.2,-2.2,0.8,-0.2,2.8)'$, so $\\tilde{\\mathbf{x}}'\\tilde{\\mathbf{y}} = 10$, $\\lVert\\tilde{\\mathbf{x}}\\rVert = \\sqrt{10}$ and $\\lVert\\tilde{\\mathbf{y}}\\rVert = \\sqrt{14.8}$. The cosine is $10/\\sqrt{148} = 0.822$ — which is the sample correlation. → [Inner Products and Orthogonality](note:inner-products-and-orthogonality)",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 14,
+     "symbols": [
+      "$\\mathbf{x}$",
+      "$\\tilde{\\mathbf{x}}$, $\\tilde{\\mathbf{y}}$",
+      "$\\mathbf{y}$, $\\hat{\\mathbf{y}}$"
+     ]
+    },
+    {
+     "id": "self-check-6",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "5. Why can adding a regressor never lower $R^2$?",
+       "options": [
+        {
+         "md": "It enlarges the column space, so the closest point to $\\mathbf{y}$ can only get closer",
+         "correct": true
+        },
+        {
+         "md": "The new regressor's coefficient is never zero, so it always explains some extra variation",
+         "correct": false,
+         "feedback": "Its coefficient can be exactly zero, and then the fit is unchanged. The argument has to cover that case too."
+        },
+        {
+         "md": "The new column already lies in the old column space, so it cannot pull the fit away from $\\mathbf{y}$",
+         "correct": false,
+         "feedback": "A column inside the old column space is a combination of the old columns: the rank would not rise and the fit would not change at all. A new regressor usually adds a direction."
+        }
+       ],
+       "why": "It enlarges the column space, so the closest point to $\\mathbf{y}$ can only get closer. → [Column Space](note:column-space)",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 54,
+     "symbols": [
+      "$\\mathbf{y}$, $\\hat{\\mathbf{y}}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Read $\\mathbf{X}\\mathbf{b}$ as a linear combination of columns.\n2. Find the rank of a design matrix and spot exact linear dependence.\n3. Explain the normal equations as an orthogonality condition.\n4. Compute a projection onto a vector and onto a column space."
+      }
+     ],
+     "words": 42,
+     "symbols": [
+      "$\\mathbf{b}$",
+      "$\\mathbf{X}$, $\\mathbf{b}$, $\\hat{\\mathbf{y}}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "column-space",
+        "linear-independence-and-rank",
+        "inner-products-and-orthogonality",
+        "projection-matrix-and-residual-maker"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

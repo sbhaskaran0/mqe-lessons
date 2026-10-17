@@ -1,0 +1,285 @@
+{
+ "slug": "taylor-series-approximation",
+ "notation": [
+  {
+   "tex": "$f$",
+   "meaning": "Function being approximated",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "f"
+   ]
+  },
+  {
+   "tex": "$a$, $\\mathbf{x}$",
+   "meaning": "Point the approximation is built around",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "a",
+    "bold(x)"
+   ]
+  },
+  {
+   "tex": "$x$, $\\mathbf{d}$",
+   "meaning": "Nearby value, or the step away from $\\mathbf{x}$",
+   "kind": "—",
+   "typical": "Small for accuracy",
+   "keys": [
+    "x",
+    "bold(d)"
+   ]
+  },
+  {
+   "tex": "$\\nabla f$, $H$",
+   "meaning": "Gradient and Hessian",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "f",
+    "H"
+   ]
+  },
+  {
+   "tex": "$\\hat{\\theta}$, $\\theta$",
+   "meaning": "Estimator and true parameter in the delta method",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "hat(theta)",
+    "theta"
+   ]
+  },
+  {
+   "tex": "$V$",
+   "meaning": "Variance of $\\hat{\\theta}$",
+   "kind": "Number",
+   "typical": "—",
+   "keys": [
+    "V"
+   ]
+  },
+  {
+   "tex": "$g$",
+   "meaning": "Transformation of the estimator",
+   "kind": "Function",
+   "typical": "e.g. $\\sigma = -1/\\beta$",
+   "keys": [
+    "g"
+   ]
+  },
+  {
+   "tex": "$\\sigma$, $\\beta$",
+   "meaning": "Elasticity of substitution and the regression coefficient it is derived from",
+   "kind": "Parameters",
+   "typical": "—",
+   "keys": [
+    "sigma",
+    "beta"
+   ]
+  },
+  {
+   "tex": "$x$, $y$",
+   "meaning": "Inputs in the two-variable example",
+   "kind": "Variables",
+   "typical": "—",
+   "keys": [
+    "x",
+    "y"
+   ],
+   "from": "hessian-matrix"
+  },
+  {
+   "tex": "$h(x)$, $g(x)$, $E[y\\mid x]$",
+   "meaning": "Conditional mean: true average $y$ at each $x$",
+   "kind": "Population function",
+   "typical": "Any shape",
+   "keys": [
+    "h",
+    "g",
+    "~E[y\\midx]"
+   ],
+   "from": "conditional-mean-vs-linear-projection"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A Taylor approximation replaces a complicated curve, near a particular point, with something simple: first a straight line that matches the curve's height and slope there, then a parabola that also matches its curvature. Close to the point the approximation is excellent; far away it can be badly off. Much of economics quietly relies on the straight-line version — reading a log change as a percentage, or a regression line as a local slope."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It tells you when everyday approximations are safe, and underlies second-order conditions and the delta method for standard errors.",
+       "folded": false
+      }
+     ],
+     "words": 95,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "One variable, around $a$:"
+      },
+      {
+       "t": "math",
+       "tex": "f(x) = f(a) + f'(a)(x-a) + \\tfrac12 f''(a)(x-a)^2 + \\dots"
+      },
+      {
+       "t": "prose",
+       "md": "Many variables, around $\\mathbf{x}$, for a small step $\\mathbf{d}$:"
+      },
+      {
+       "t": "math",
+       "tex": "f(\\mathbf{x} + \\mathbf{d}) \\approx f(\\mathbf{x}) + \\nabla f(\\mathbf{x})'\\mathbf{d} + \\tfrac12\\,\\mathbf{d}'H(\\mathbf{x})\\,\\mathbf{d}"
+      },
+      {
+       "t": "prose",
+       "md": "([Partial Derivatives and the Gradient](note:partial-derivatives-and-the-gradient), [Hessian Matrix](note:hessian-matrix))"
+      }
+     ],
+     "words": 17,
+     "symbols": [
+      "$f$",
+      "$a$, $\\mathbf{x}$",
+      "$x$, $\\mathbf{d}$",
+      "$\\nabla f$, $H$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example-the-log-approximation",
+   "heading": "Worked example — the log approximation",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-the-log-approximation-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$\\ln(1+x) = x - \\tfrac{x^2}{2} + \\tfrac{x^3}{3} - \\dots$"
+      },
+      {
+       "t": "table",
+       "md": "| $x$ | $\\ln(1+x)$ | First order ($x$) | Second order ($x - x^2/2$) |\n| --- | --- | --- | --- |\n| 0.05 | 0.0488 | 0.05 | 0.0488 |\n| 0.10 | 0.0953 | 0.10 | 0.0950 |\n| 0.25 | 0.2231 | 0.25 | 0.2188 |\n| 0.50 | 0.4055 | 0.50 | 0.3750 |"
+      },
+      {
+       "t": "prose",
+       "md": "\"Log change ≈ percentage change\" is the first-order term, accurate only for small changes ([Logarithms and Growth Rates](note:logarithms-and-growth-rates))."
+      }
+     ],
+     "words": 57,
+     "symbols": [
+      "$x$, $\\mathbf{d}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "why-second-order-conditions-work",
+   "heading": "Why second-order conditions work",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "why-second-order-conditions-work-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "At a critical point $\\nabla f = \\mathbf{0}$, so $f(\\mathbf{x}+\\mathbf{d}) - f(\\mathbf{x}) \\approx \\tfrac12\\mathbf{d}'H\\mathbf{d}$. Its sign for every direction $\\mathbf{d}$ is the definiteness of $H$ ([Unconstrained Optimization](note:unconstrained-optimization))."
+      }
+     ],
+     "words": 16,
+     "symbols": [
+      "$f$",
+      "$a$, $\\mathbf{x}$",
+      "$x$, $\\mathbf{d}$",
+      "$\\nabla f$, $H$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "beyond-the-delta-method",
+   "heading": "Beyond: the delta method",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "beyond-the-delta-method-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "For an estimator $\\hat\\theta$ with variance $V$, $\\mathrm{Var}(g(\\hat\\theta)) \\approx g'(\\theta)^2\\,V$ — a first-order Taylor expansion. It gives standard errors for transformed estimates such as an elasticity or $\\sigma = -1/\\beta$."
+      }
+     ],
+     "words": 21,
+     "symbols": [
+      "$\\hat{\\theta}$, $\\theta$",
+      "$V$",
+      "$g$",
+      "$\\sigma$, $\\beta$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Econometrics**: the linear regression model as a first-order approximation to $E[y\\mid x]$ ([Conditional Mean vs Linear Projection](note:conditional-mean-vs-linear-projection)); the delta method for $\\hat\\sigma$ in the [Canonical Model of the Skill Premium](note:canonical-model-of-the-skill-premium).\n- **Inequality / labor**: interpreting log gaps as percentages ([Log Wage Gap](note:log-wage-gap)).\n- **Macro**: log-linearizing models around a steady state."
+      }
+     ],
+     "words": 47,
+     "symbols": [
+      "$x$, $\\mathbf{d}$",
+      "$x$, $y$",
+      "$h(x)$, $g(x)$, $E[y\\mid x]$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [L'Hôpital's Rule](note:lhopitals-rule)"
+      }
+     ],
+     "words": 4,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

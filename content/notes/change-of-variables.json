@@ -1,0 +1,318 @@
+{
+ "slug": "change-of-variables",
+ "notation": [
+  {
+   "tex": "$x$, $u$",
+   "meaning": "Original and new variable of integration",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "x",
+    "u"
+   ]
+  },
+  {
+   "tex": "$h$",
+   "meaning": "Substitution $x = h(u)$",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "h"
+   ]
+  },
+  {
+   "tex": "$J$",
+   "meaning": "Jacobian matrix of a multivariate transformation",
+   "kind": "Matrix",
+   "typical": "—",
+   "keys": [
+    "J"
+   ]
+  },
+  {
+   "tex": "$X$, $Y = g(X)$",
+   "meaning": "Random variable and its transformation",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "X",
+    "Y"
+   ]
+  },
+  {
+   "tex": "$f_X$, $f_Y$",
+   "meaning": "Their densities",
+   "kind": "Functions",
+   "typical": "—",
+   "keys": [
+    "f"
+   ]
+  },
+  {
+   "tex": "$W$, $Z = \\ln W$",
+   "meaning": "Wage and log wage",
+   "kind": "Random variables",
+   "typical": "—",
+   "keys": [
+    "W",
+    "Z"
+   ]
+  },
+  {
+   "tex": "$\\mu$, $\\sigma$",
+   "meaning": "Mean and standard deviation of log wages",
+   "kind": "Parameters",
+   "typical": "3, 0.5 in the example",
+   "keys": [
+    "mu",
+    "sigma"
+   ]
+  },
+  {
+   "tex": "$\\pi$",
+   "meaning": "The constant 3.14159… in the normal density",
+   "kind": "Constant",
+   "typical": "—",
+   "keys": [
+    "pi"
+   ]
+  },
+  {
+   "tex": "$y$",
+   "meaning": "Income or wage",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "y"
+   ],
+   "from": "variance-of-log-income"
+  },
+  {
+   "tex": "$g$, $s_g$",
+   "meaning": "Group and its population share",
+   "kind": "Index / weight",
+   "typical": "—",
+   "keys": [
+    "g",
+    "s"
+   ],
+   "from": "variance-of-log-income"
+  },
+  {
+   "tex": "$w$",
+   "meaning": "Wage in the example",
+   "kind": "Data",
+   "typical": "10 or 40",
+   "keys": [
+    "w"
+   ],
+   "from": "convexity-and-concavity"
+  },
+  {
+   "tex": "$e$",
+   "meaning": "Error term in the quadratic example",
+   "kind": "Unobserved",
+   "typical": "—",
+   "keys": [
+    "e"
+   ],
+   "from": "functional-forms-and-elasticities"
+  },
+  {
+   "tex": "$a, b, c, d$",
+   "meaning": "Integration limits",
+   "kind": "Numbers",
+   "typical": "—",
+   "keys": [
+    "a",
+    "b",
+    "c",
+    "d"
+   ],
+   "from": "double-integrals-and-fubinis-theorem"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Changing variables means re-expressing a problem in more convenient units — say, working with log wages instead of wages. When you stretch or squeeze the axis, probabilities have to be rescaled so they still add up to one, and that rescaling factor is the key to getting densities right. It explains, for example, why the average wage is higher than the wage of a typical worker when log wages follow a bell curve."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is how you derive the distribution of any transformed variable, and why exponentiating a predicted log does not give the predicted average.",
+       "folded": false
+      }
+     ],
+     "words": 98,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Integrals**: substituting $x = h(u)$,"
+      },
+      {
+       "t": "math",
+       "tex": "\\int f(x)\\,dx = \\int f\\big(h(u)\\big)\\,|h'(u)|\\,du"
+      },
+      {
+       "t": "prose",
+       "md": "In many dimensions the factor becomes $|\\det J|$, the absolute determinant of the Jacobian matrix of the transformation ([Invertibility and Determinants](note:invertibility-and-determinants)) — how much the map stretches volume."
+      }
+     ],
+     "words": 27,
+     "symbols": [
+      "$x$, $u$",
+      "$h$",
+      "$J$",
+      "$f_X$, $f_Y$",
+      "$a, b, c, d$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "densities-of-transformed-variables",
+   "heading": "Densities of transformed variables",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "densities-of-transformed-variables-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "If $Y = g(X)$ with $g$ monotone:"
+      },
+      {
+       "t": "math",
+       "tex": "f_Y(y) = f_X\\big(g^{-1}(y)\\big)\\left|\\frac{d g^{-1}(y)}{dy}\\right|"
+      },
+      {
+       "t": "prose",
+       "md": "Probability is conserved; the Jacobian factor corrects for stretching the axis."
+      }
+     ],
+     "words": 14,
+     "symbols": [
+      "$X$, $Y = g(X)$",
+      "$f_X$, $f_Y$",
+      "$y$",
+      "$g$, $s_g$",
+      "$a, b, c, d$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example-the-lognormal",
+   "heading": "Worked example — the lognormal",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-the-lognormal-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Wages are often modelled as lognormal: $\\ln W = Z \\sim N(\\mu, \\sigma^2)$. With $W = e^Z$, $g^{-1}(w) = \\ln w$ and $dg^{-1}/dw = 1/w$:"
+      },
+      {
+       "t": "math",
+       "tex": "f_W(w) = \\frac{1}{w\\,\\sigma\\sqrt{2\\pi}}\\exp\\left(-\\frac{(\\ln w - \\mu)^2}{2\\sigma^2}\\right)"
+      },
+      {
+       "t": "prose",
+       "md": "and its mean is $E[W] = e^{\\mu + \\sigma^2/2}$, not $e^{\\mu}$ (which is the median). With $\\mu = 3$, $\\sigma = 0.5$: $E[W] = 22.76$ while $e^3 = 20.09$. The gap grows with $\\sigma^2$, the [Variance of Log Income](note:variance-of-log-income): more inequality, larger mean–median gap. This is [Convexity and Concavity](note:convexity-and-concavity) (Jensen) made exact."
+      }
+     ],
+     "words": 42,
+     "symbols": [
+      "$f_X$, $f_Y$",
+      "$W$, $Z = \\ln W$",
+      "$\\mu$, $\\sigma$",
+      "$\\pi$",
+      "$g$, $s_g$",
+      "$w$",
+      "$e$",
+      "$a, b, c, d$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Forgetting the Jacobian factor, so the density no longer integrates to 1.\n- Forgetting the absolute value when $g$ is decreasing.\n- Exponentiating a predicted $\\ln y$ and calling it the predicted mean of $y$."
+      }
+     ],
+     "words": 32,
+     "symbols": [
+      "$y$",
+      "$g$, $s_g$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Inequality / labor**: lognormal wage distributions; mean vs median wages; what a [Log Wage Gap](note:log-wage-gap) implies for the ratio of mean wages.\n- **Econometrics**: retransformation in log models ([Functional Forms and Elasticities](note:functional-forms-and-elasticities), [Box-Cox and Power Transformations](note:box-cox-and-power-transformations)); deriving distributions of estimators."
+      }
+     ],
+     "words": 40,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Integration by Parts](note:integration-by-parts)\n- [Double Integrals and Fubini's Theorem](note:double-integrals-and-fubinis-theorem)"
+      }
+     ],
+     "words": 10,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

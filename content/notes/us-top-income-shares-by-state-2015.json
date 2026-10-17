@@ -1,0 +1,100 @@
+{
+ "slug": "us-top-income-shares-by-state-2015",
+ "notation": [],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**In 2015 the top 10% of US tax units received about half of all income, the top 1% about a fifth, and the top 0.1% about a tenth. New York and Florida top every list.**"
+      }
+     ],
+     "words": 36,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "national",
+   "heading": "National",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "national-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Group | Income share | Entry threshold |\n| --- | --- | --- |\n| Top 10% | 50.5% | \\$124,810 |\n| Top 1% | 22.0% | \\$442,900 |\n| Top 0.1% | 10.9% | \\$2,045,000 |"
+      },
+      {
+       "t": "prose",
+       "md": "State averages are lower (46.3%, 18.1%, 8.4%), because a few very unequal states pull the national figure up."
+      }
+     ],
+     "words": 49,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "most-unequal-states",
+   "heading": "Most unequal states",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "most-unequal-states-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Rank | Top 10% | Top 1% | Top 0.1% |\n| --- | --- | --- | --- |\n| 1 | Florida 61.5% | New York 32.9% | New York 18.3% |\n| 2 | New York 60.5% | Florida 30.4% | Florida 16.4% |\n| 3 | Nevada 55.7% | Connecticut 28.4% | Wyoming 15.5% |\n| 4 | Connecticut 55.2% | Nevada 26.4% | Nevada 15.2% |\n| 5 | Massachusetts 54.4% | Massachusetts 25.6% | Connecticut 15.0% |\n| 6 | California 54.0% | California 25.5% | Massachusetts 13.1% |"
+      }
+     ],
+     "words": 75,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "worth-noticing",
+   "heading": "Worth noticing",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worth-noticing-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Thresholds vary a lot: entering the top 1% takes \\$671k in Connecticut but \\$359k in Nevada.\n- Wyoming ranks 7th for the top 1% and 3rd for the top 0.1%, despite being absent from the top-10% list — top shares measure the very top, not the overall shape."
+      }
+     ],
+     "words": 49,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Top Income Shares](note:top-income-shares)\n- [IRS Individual Tax Data](note:irs-individual-tax-data)"
+      }
+     ],
+     "words": 9,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,199 @@
+{
+ "slug": "brazil-regional-wage-effects-of-1990s-tariff-cuts",
+ "notation": [
+  {
+   "tex": "$w_{rj}$",
+   "meaning": "Wage in industry $j$ for $r$'s workers",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "w"
+   ],
+   "from": "shift-share-exposure"
+  },
+  {
+   "tex": "$\\tau_i$",
+   "meaning": "Tariff on industry $i$",
+   "kind": "Exogenous (policy)",
+   "typical": "—",
+   "keys": [
+    "tau"
+   ],
+   "from": "shift-share-exposure"
+  },
+  {
+   "tex": "$\\beta_{ri}$",
+   "meaning": "Tariff-measure weight for region $r$, industry $i$",
+   "kind": "Data",
+   "typical": "0.67 and 0.33 in the example",
+   "keys": [
+    "beta"
+   ],
+   "from": "shift-share-exposure"
+  },
+  {
+   "tex": "$j$, $i$",
+   "meaning": "Industries (goods)",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "j",
+    "i"
+   ],
+   "from": "specific-factors-model"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Brazil cut import tariffs sharply in the early 1990s, with large differences across industries; because industries are unevenly spread across micro-regions, some regions faced much larger effective tariff cuts. Regions facing larger cuts saw larger relative wage declines: an elasticity of about 0.44.**"
+      }
+     ],
+     "words": 44,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "setting",
+   "heading": "Setting",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "setting-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Large cross-industry variation in tariff cuts and large cross-region variation in industrial structure.\n- **Exogeneity**: the reform aimed to lower and equalize tariffs, so tariff changes were almost entirely determined by pre-liberalization tariff levels and unrelated to pre-cut industry growth."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Brazil regional tariff changes 1990s.png",
+       "alt": "Brazil regional tariff changes 1990s"
+      }
+     ],
+     "words": 41,
+     "symbols": []
+    },
+    {
+     "id": "setting-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Regional tariff changes ranged from about −10% to +1.4% (map legend)."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Brazil regional wage changes 1990s.png",
+       "alt": "Brazil regional wage changes 1990s"
+      },
+      {
+       "t": "prose",
+       "md": "Normalized regional wage changes ranged from about −42% to +37% (map legend)."
+      }
+     ],
+     "words": 24,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "measure-and-regression",
+   "heading": "Measure and regression",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "measure-and-regression-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "RTC_r = \\sum_{i \\in \\text{traded}} \\beta_{ri}\\,d\\ln(1+\\tau_i), \\qquad d\\ln w_r = \\xi_0 + \\xi_1 RTC_r + [\\text{state effects}] + \\epsilon_r"
+      },
+      {
+       "t": "prose",
+       "md": "Weights $\\beta_{ri}$ are traded-industry labor shares divided by one minus the industry's national labor share, normalized to sum to one; non-traded industries get zero weight (see [Shift-Share Exposure](note:shift-share-exposure)). Here $\\tau_i$ is industry $i$'s tariff and $\\xi_1$ the wage elasticity."
+      }
+     ],
+     "words": 36,
+     "symbols": [
+      "$w_{rj}$",
+      "$\\tau_i$",
+      "$\\beta_{ri}$",
+      "$j$, $i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "results-table-1",
+   "heading": "Results (Table 1)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "results-table-1-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Brazil liberalization and local wages.png",
+       "alt": "Table - Brazil liberalization and local wages"
+      },
+      {
+       "t": "table",
+       "md": "| Specification | Without state indicators | With 27 state indicators |\n| --- | --- | --- |\n| Main | 0.404 (0.502) | **0.439 (0.146)\\*\\*\\*** |\n| No labor-share adjustment | 0.409 (0.475) | 0.439 (0.136)*** |\n| Non-traded price change set to zero | 2.715 (1.669) | 1.965 (0.777)** |\n| Non-traded-sector workers' wages | 0.417 (0.497) | 0.482 (0.140)*** |"
+      },
+      {
+       "t": "prose",
+       "md": "493 micro-regions (Manaus omitted); standard errors clustered by state (27)."
+      }
+     ],
+     "words": 66,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "reading-it-correctly",
+   "heading": "Reading it correctly",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "reading-it-correctly-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Sign**: the regional tariff change is negative for a cut, so a positive coefficient means larger cuts → larger wage declines. A region facing a 10% larger cut sees about 4.4% lower wages relative to others.\n- **The measure matters**: treating non-traded industries as having zero price change (as a naive employment-weighted average does) more than quadruples the estimate (1.97) — the paper's point about the \"correct measure\".\n- **Non-traded-sector workers lose too** (0.48): labor is mobile across sectors within a region, so the regional shock spreads to everyone in the region."
+      }
+     ],
+     "words": 94,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Shift-Share Exposure](note:shift-share-exposure) · [Specific-Factors Model](note:specific-factors-model) · [US Local Labor Market Effects of Chinese Imports 1990-2007](note:us-local-labor-market-effects-of-chinese-imports-1990-2007)\n- Paper: [Kovak 2013 - Regional Effects of Trade Reform](note:kovak-2013-regional-effects-of-trade-reform)"
+      }
+     ],
+     "words": 24,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

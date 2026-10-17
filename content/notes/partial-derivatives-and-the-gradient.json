@@ -1,0 +1,252 @@
+{
+ "slug": "partial-derivatives-and-the-gradient",
+ "notation": [
+  {
+   "tex": "$f(\\mathbf{x})$",
+   "meaning": "Function of several inputs",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "f"
+   ]
+  },
+  {
+   "tex": "$x_i$",
+   "meaning": "Input $i$",
+   "kind": "Variable",
+   "typical": "—",
+   "keys": [
+    "x"
+   ]
+  },
+  {
+   "tex": "$h$",
+   "meaning": "Small change in one input",
+   "kind": "Number",
+   "typical": "→ 0",
+   "keys": [
+    "h"
+   ]
+  },
+  {
+   "tex": "$\\nabla f$",
+   "meaning": "Gradient: vector of all partial derivatives",
+   "kind": "Vector",
+   "typical": "Zero at an interior optimum",
+   "keys": [
+    "f"
+   ]
+  },
+  {
+   "tex": "$Y$, $K$, $L$",
+   "meaning": "Output, capital, labor in the Cobb-Douglas example",
+   "kind": "—",
+   "typical": "$K = 8$, $L = 27$",
+   "keys": [
+    "Y",
+    "K",
+    "L"
+   ]
+  },
+  {
+   "tex": "$MPK$, $MPL$",
+   "meaning": "Marginal products of capital and labor",
+   "kind": "Partial derivatives",
+   "typical": "0.703, 0.486 in the example",
+   "keys": [
+    "~MPK",
+    "~MPL"
+   ]
+  },
+  {
+   "tex": "$\\beta_k$",
+   "meaning": "Regression coefficient = partial derivative of the conditional mean",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$y$, $x$",
+   "meaning": "Outcome and explanatory variable",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "y",
+    "x"
+   ],
+   "from": "functional-forms-and-elasticities"
+  },
+  {
+   "tex": "$\\mathbf{x}$, $\\mathbf{a}$",
+   "meaning": "Column vectors",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(x)",
+    "bold(a)"
+   ],
+   "from": "matrix-calculus"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A partial derivative measures how much an outcome changes when you nudge one input and hold every other input fixed — the mathematical version of all else equal. For a factory, it answers: how much more output from one more machine, with the same workers? Collect these effects for every input and you get the gradient, an arrow pointing in the direction where the outcome rises fastest. At the top of a hill, every partial derivative is zero."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "Marginal products, marginal effects in regression and first-order conditions for optimisation are all partial derivatives.",
+       "folded": false
+      }
+     ],
+     "words": 95,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "\\frac{\\partial f}{\\partial x_i} = \\lim_{h\\to0}\\frac{f(x_1,\\dots,x_i + h,\\dots,x_n) - f(\\mathbf{x})}{h}"
+      },
+      {
+       "t": "prose",
+       "md": "Differentiate with respect to one variable, treating every other variable as a constant. In economics this is **ceteris paribus**: the marginal effect of one input, holding the rest fixed."
+      },
+      {
+       "t": "prose",
+       "md": "The **gradient** stacks the partials into a column vector:"
+      },
+      {
+       "t": "math",
+       "tex": "\\nabla f(\\mathbf{x}) = \\left(\\frac{\\partial f}{\\partial x_1},\\dots,\\frac{\\partial f}{\\partial x_n}\\right)'"
+      },
+      {
+       "t": "prose",
+       "md": "It points in the direction of steepest increase, and is perpendicular to level sets (isoquants, indifference curves)."
+      }
+     ],
+     "words": 55,
+     "symbols": [
+      "$f(\\mathbf{x})$",
+      "$x_i$",
+      "$h$",
+      "$\\nabla f$",
+      "$\\mathbf{x}$, $\\mathbf{a}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example-cobb-douglas",
+   "heading": "Worked example — Cobb-Douglas",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-cobb-douglas-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$Y = K^{0.3}L^{0.7}$ at $K = 8$, $L = 27$: $Y = 18.74$."
+      },
+      {
+       "t": "math",
+       "tex": "MPK = \\frac{\\partial Y}{\\partial K} = 0.3\\left(\\frac{L}{K}\\right)^{0.7} = 0.703, \\qquad MPL = \\frac{\\partial Y}{\\partial L} = 0.7\\left(\\frac{K}{L}\\right)^{0.3} = 0.486"
+      },
+      {
+       "t": "prose",
+       "md": "Both marginal products depend only on the ratio $K/L$ — a consequence of [Homogeneous Functions and Euler's Theorem](note:homogeneous-functions-and-eulers-theorem)."
+      }
+     ],
+     "words": 17,
+     "symbols": [
+      "$Y$, $K$, $L$",
+      "$MPK$, $MPL$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Forgetting that \"holding others fixed\" is a choice: if $L$ responds to $K$ you need a total derivative ([Multivariable Chain Rule](note:multivariable-chain-rule)).\n- A regression coefficient is a partial derivative of the conditional mean only if the model is correctly specified."
+      }
+     ],
+     "words": 39,
+     "symbols": [
+      "$Y$, $K$, $L$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Labor / macro**: competitive wages equal marginal products in the [CES Production Function](note:ces-production-function).\n- **Econometrics**: in $E[y\\mid\\mathbf{x}] = \\mathbf{x}'\\boldsymbol{\\beta}$, $\\beta_k = \\partial E[y\\mid\\mathbf{x}]/\\partial x_k$; marginal effects in [Functional Forms and Elasticities](note:functional-forms-and-elasticities).\n- **Optimization**: first-order conditions set $\\nabla f = \\mathbf{0}$ ([Unconstrained Optimization](note:unconstrained-optimization))."
+      }
+     ],
+     "words": 30,
+     "symbols": [
+      "$f(\\mathbf{x})$",
+      "$x_i$",
+      "$\\nabla f$",
+      "$\\beta_k$",
+      "$y$, $x$",
+      "$\\mathbf{x}$, $\\mathbf{a}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Hessian Matrix](note:hessian-matrix)\n- [Matrix Calculus](note:matrix-calculus)"
+      }
+     ],
+     "words": 6,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

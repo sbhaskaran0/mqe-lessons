@@ -1,0 +1,355 @@
+{
+ "slug": "coefficient-of-determination",
+ "notation": [
+  {
+   "tex": "$y_i$, $\\hat{y}_i$",
+   "meaning": "Actual and fitted outcome",
+   "kind": "Data / computed",
+   "typical": "—",
+   "keys": [
+    "y",
+    "hat(y)"
+   ]
+  },
+  {
+   "tex": "$\\bar{y}$",
+   "meaning": "Sample mean of $y$",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "bar(y)"
+   ]
+  },
+  {
+   "tex": "$\\hat{e}_i$",
+   "meaning": "Residual $y_i - \\hat{y}_i$",
+   "kind": "Computed",
+   "typical": "—",
+   "keys": [
+    "hat(e)"
+   ]
+  },
+  {
+   "tex": "$TSS$",
+   "meaning": "Total sum of squares: variation of $y$ around $\\bar{y}$",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "~TSS"
+   ]
+  },
+  {
+   "tex": "$ESS$",
+   "meaning": "Explained sum of squares: variation of $\\hat{y}$ around $\\bar{y}$",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "~ESS"
+   ]
+  },
+  {
+   "tex": "$SSR$",
+   "meaning": "Sum of squared residuals: the variation left over",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "~SSR"
+   ]
+  },
+  {
+   "tex": "$R^2$",
+   "meaning": "Coefficient of determination",
+   "kind": "Statistic",
+   "typical": "0.385 for the food regression",
+   "keys": [
+    "R"
+   ]
+  },
+  {
+   "tex": "$\\bar{R}^2$",
+   "meaning": "Adjusted $R^2$",
+   "kind": "Statistic",
+   "typical": "0.369 for the food regression",
+   "keys": [
+    "bar(R)"
+   ]
+  },
+  {
+   "tex": "$N$, $K$",
+   "meaning": "Observations and estimated coefficients (intercept included)",
+   "kind": "Counts",
+   "typical": "40 and 2 in the food example",
+   "keys": [
+    "N",
+    "K"
+   ]
+  },
+  {
+   "tex": "$r_{xy}$",
+   "meaning": "Sample correlation between $x$ and $y$",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "r"
+   ]
+  },
+  {
+   "tex": "$t$, $F$",
+   "meaning": "The slope's $t$ statistic and the regression $F$ statistic",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "t",
+    "F"
+   ]
+  },
+  {
+   "tex": "$y_i$, $x_i$",
+   "meaning": "Outcome and explanatory variable for observation $i$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "y",
+    "x"
+   ],
+   "from": "ols-estimator"
+  },
+  {
+   "tex": "$b_1$, $b_2$",
+   "meaning": "OLS estimates of the intercept and slope",
+   "kind": "Estimators",
+   "typical": "—",
+   "keys": [
+    "b"
+   ],
+   "from": "ols-estimator"
+  },
+  {
+   "tex": "$\\bar{x}$, $\\bar{y}$",
+   "meaning": "Sample means",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "bar(x)",
+    "bar(y)"
+   ],
+   "from": "ols-estimator"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Food spending varies a lot from household to household. Some of that variation lines up with income and some does not. R-squared is the share of the variation that the regression line accounts for: zero means the line does no better than predicting the average for everyone, one means every point sits on the line. In the lecture's food example it is about 0.39, so income accounts for roughly two-fifths of the spread in food spending and everything else accounts for the rest. It says nothing about whether income causes the spending or whether the model's assumptions hold."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the most quoted fit statistic in every regression table, and the most misused: it cannot compare models with different dependent variables and it never falls when you add regressors.",
+       "folded": false
+      }
+     ],
+     "words": 133,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With an intercept in the model, the total variation of $y$ splits into an explained and a residual part:"
+      },
+      {
+       "t": "math",
+       "tex": "\\underbrace{\\sum_{i=1}^N (y_i - \\bar{y})^2}_{TSS} = \\underbrace{\\sum_{i=1}^N (\\hat{y}_i - \\bar{y})^2}_{ESS} + \\underbrace{\\sum_{i=1}^N \\hat{e}_i^{\\,2}}_{SSR}"
+      },
+      {
+       "t": "math",
+       "tex": "R^2 = \\frac{ESS}{TSS} = 1 - \\frac{SSR}{TSS}"
+      }
+     ],
+     "words": 18,
+     "symbols": [
+      "$y_i$, $\\hat{y}_i$",
+      "$\\bar{y}$",
+      "$\\hat{e}_i$",
+      "$TSS$",
+      "$ESS$",
+      "$SSR$",
+      "$R^2$",
+      "$N$, $K$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example-the-food-regression",
+   "heading": "Worked example: the food regression",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-the-food-regression-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "From the lecture's food regression ($N = 40$, $b_2 = 10.21$): $SSR = 304{,}505$ and $ESS = b_2^2\\sum(x_i - \\bar{x})^2 = 190{,}627$, so $TSS = 495{,}132$ and"
+      },
+      {
+       "t": "math",
+       "tex": "R^2 = \\frac{190{,}627}{495{,}132} = 0.385"
+      },
+      {
+       "t": "prose",
+       "md": "matching the printed \"R-squared: 0.385\". The printed $F = 23.79$ equals $t^2 = 4.877^2$: with one regressor the $F$ test and the two-sided $t$ test on the slope are the same test."
+      }
+     ],
+     "words": 33,
+     "symbols": [
+      "$TSS$",
+      "$ESS$",
+      "$SSR$",
+      "$R^2$",
+      "$N$, $K$",
+      "$t$, $F$",
+      "$y_i$, $x_i$",
+      "$b_1$, $b_2$",
+      "$\\bar{x}$, $\\bar{y}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "properties",
+   "heading": "Properties",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "properties-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. **Between 0 and 1** when the model has an intercept (then $\\sum \\hat{e}_i = 0$ and the split above holds).\n2. **It equals a squared correlation**: $R^2 = \\mathrm{corr}(y, \\hat{y})^2$, and in simple regression also $r_{xy}^2$.\n3. **It never falls when a regressor is added**, even a useless one, because the extra column can only reduce $SSR$. Adjusted $R^2$ penalizes this (formula beyond the lecture, which only prints it):"
+      },
+      {
+       "t": "math",
+       "tex": "\\bar{R}^2 = 1 - \\frac{SSR/(N-K)}{TSS/(N-1)} \\qquad \\text{food: } 1 - \\frac{304{,}505/38}{495{,}132/39} = 0.369"
+      },
+      {
+       "t": "prose",
+       "md": "4. **It has a sampling distribution.** Bootstrapping the food regression gives a 95% percentile interval for $R^2$ of about ≈ 0.15 to ≈ 0.60, read off the lecture's chart ([Bootstrapping OLS](note:bootstrapping-ols))."
+      }
+     ],
+     "words": 89,
+     "symbols": [
+      "$y_i$, $\\hat{y}_i$",
+      "$\\hat{e}_i$",
+      "$TSS$",
+      "$SSR$",
+      "$R^2$",
+      "$\\bar{R}^2$",
+      "$N$, $K$",
+      "$r_{xy}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "what-it-does-not-tell-you",
+   "heading": "What it does not tell you",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-it-does-not-tell-you-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Claim | Why it fails |\n| --- | --- |\n| \"High $R^2$, so $x$ causes $y$\" | $R^2$ is a correlation-based fit measure |\n| \"High $R^2$, so the estimates are unbiased\" | Unbiasedness rests on SR1, SR2 and SR5, not on fit |\n| \"Low $R^2$, so the slope is useless\" | The wage-on-experience regression has $R^2 = 0.013$ yet a slope with $t = 2.60$ |\n| \"The log model has higher $R^2$, so it fits better\" | Only valid with the **same** dependent variable: see [Functional Forms and Elasticities](note:functional-forms-and-elasticities) |"
+      }
+     ],
+     "words": 65,
+     "symbols": [
+      "$y_i$, $\\hat{y}_i$",
+      "$R^2$",
+      "$t$, $F$",
+      "$y_i$, $x_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Reading $R^2 = 0.385$ as \"38.5% of the predictions are right\" or \"income explains 38.5% of food spending causally\".\n- Comparing $R^2$ across $y$ and $\\ln y$.\n- Choosing a model by maximizing $R^2$: it always prefers more regressors. Use adjusted $R^2$, information criteria or [Cross-Validation](note:cross-validation)."
+      }
+     ],
+     "words": 40,
+     "symbols": [
+      "$y_i$, $\\hat{y}_i$",
+      "$R^2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Econometrics: every regression table; the overall $F$ test is a test of $R^2 = 0$.\n- Labor and inequality: $R^2$ of a regression on group dummies is the between-group share of variance ([Law of Total Variance](note:law-of-total-variance))."
+      }
+     ],
+     "words": 32,
+     "symbols": [
+      "$R^2$",
+      "$t$, $F$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [OLS Estimator](note:ols-estimator) · [Sampling Distribution of OLS](note:sampling-distribution-of-ols) · [Functional Forms and Elasticities](note:functional-forms-and-elasticities) · [Cross-Validation](note:cross-validation)"
+      }
+     ],
+     "words": 12,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

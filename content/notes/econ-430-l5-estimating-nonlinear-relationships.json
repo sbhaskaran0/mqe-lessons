@@ -1,0 +1,1123 @@
+{
+ "slug": "econ-430-l5-estimating-nonlinear-relationships",
+ "notation": [
+  {
+   "tex": "$y$, $x$",
+   "meaning": "Outcome and explanatory variable",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "y",
+    "x"
+   ],
+   "from": "functional-forms-and-elasticities"
+  },
+  {
+   "tex": "$\\beta_1$, $\\beta_2$",
+   "meaning": "Intercept and slope of the chosen form",
+   "kind": "Parameters",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ],
+   "from": "functional-forms-and-elasticities"
+  },
+  {
+   "tex": "$\\varepsilon$",
+   "meaning": "Elasticity: % change in $y$ for a 1% change in $x$ (not an error term here)",
+   "kind": "Derived quantity",
+   "typical": "—",
+   "keys": [
+    "varepsilon"
+   ],
+   "from": "functional-forms-and-elasticities"
+  },
+  {
+   "tex": "$PRICE$, $SQFT$",
+   "meaning": "House price and square footage in the quadratic example",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "~PRICE",
+    "~SQFT"
+   ],
+   "from": "functional-forms-and-elasticities"
+  },
+  {
+   "tex": "$\\alpha_1$, $\\alpha_2$",
+   "meaning": "Intercept and coefficient on $SQFT^2$",
+   "kind": "Parameters",
+   "typical": "$\\hat{\\alpha}_2 = 0.0154$",
+   "keys": [
+    "alpha"
+   ],
+   "from": "functional-forms-and-elasticities"
+  },
+  {
+   "tex": "$e$",
+   "meaning": "Error term in the quadratic example",
+   "kind": "Unobserved",
+   "typical": "—",
+   "keys": [
+    "e"
+   ],
+   "from": "functional-forms-and-elasticities"
+  },
+  {
+   "tex": "$\\lambda$",
+   "meaning": "Power parameter: 1 = no change, 0.5 = square root, 0 = log, −1 = reciprocal",
+   "kind": "Parameter, estimated",
+   "typical": "Round to a natural value",
+   "keys": [
+    "lambda"
+   ],
+   "from": "box-cox-and-power-transformations"
+  },
+  {
+   "tex": "$T_{BC}(x,\\lambda)$",
+   "meaning": "Box-Cox transform",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "T"
+   ],
+   "from": "box-cox-and-power-transformations"
+  },
+  {
+   "tex": "$L_0$, $\\hat{L}$",
+   "meaning": "Log-likelihoods at those values",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "L",
+    "hat(L)"
+   ],
+   "from": "box-cox-and-power-transformations"
+  },
+  {
+   "tex": "$\\chi^2_1$",
+   "meaning": "Chi-square distribution with 1 degree of freedom",
+   "kind": "Distribution",
+   "typical": "5% critical value ≈ 3.84",
+   "keys": [
+    "chi"
+   ],
+   "from": "box-cox-and-power-transformations"
+  },
+  {
+   "tex": "$Y$, $X$, $p$, $q$, $a$, $b$",
+   "meaning": "Variables and powers in the bulging-rule regression",
+   "kind": "Data / parameters",
+   "typical": "—",
+   "keys": [
+    "Y",
+    "X",
+    "p",
+    "q",
+    "a",
+    "b"
+   ],
+   "from": "box-cox-and-power-transformations"
+  },
+  {
+   "tex": "$\\bar{y}$",
+   "meaning": "Sample mean of $y$",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "bar(y)"
+   ],
+   "from": "coefficient-of-determination"
+  },
+  {
+   "tex": "$TSS$",
+   "meaning": "Total sum of squares: variation of $y$ around $\\bar{y}$",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "~TSS"
+   ],
+   "from": "coefficient-of-determination"
+  },
+  {
+   "tex": "$SSR$",
+   "meaning": "Sum of squared residuals: the variation left over",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "~SSR"
+   ],
+   "from": "coefficient-of-determination"
+  },
+  {
+   "tex": "$R^2$",
+   "meaning": "Coefficient of determination",
+   "kind": "Statistic",
+   "typical": "0.385 for the food regression",
+   "keys": [
+    "R"
+   ],
+   "from": "coefficient-of-determination"
+  },
+  {
+   "tex": "$N$, $K$",
+   "meaning": "Observations and estimated coefficients (intercept included)",
+   "kind": "Counts",
+   "typical": "40 and 2 in the food example",
+   "keys": [
+    "N",
+    "K"
+   ],
+   "from": "coefficient-of-determination"
+  },
+  {
+   "tex": "$t$, $F$",
+   "meaning": "The slope's $t$ statistic and the regression $F$ statistic",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "t",
+    "F"
+   ],
+   "from": "coefficient-of-determination"
+  },
+  {
+   "tex": "$JB$",
+   "meaning": "Jarque-Bera test statistic",
+   "kind": "Statistic",
+   "typical": "0 under perfect normality",
+   "keys": [
+    "~JB"
+   ],
+   "from": "error-normality-and-jarque-bera"
+  },
+  {
+   "tex": "$S$",
+   "meaning": "Skewness of the residuals (lopsidedness)",
+   "kind": "Statistic",
+   "typical": "0 for a normal",
+   "keys": [
+    "S"
+   ],
+   "from": "error-normality-and-jarque-bera"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**A regression must be linear in its parameters, not in its variables, so curves are fitted by transforming $y$, $x$ or both. Each form changes what the slope means: in a log-log model the coefficient is an elasticity, in a log-linear model it is a proportional change. Power transformations chosen by Box-Cox, or guided by a spread-level plot or the bulging rule, straighten curves, even out spreads and tame skew. On the food data the linear-log model says a 1% rise in income adds about \\$1.32 a week to food spending.**"
+      },
+      {
+       "t": "callout",
+       "kind": "info",
+       "title": "Source",
+       "md": "Section 5 of `Regression_Lecture1_Adv.ipynb` (see [Econ 430 L1 Univariate Characterizations](note:econ-430-l1-univariate-characterizations) for how the notebook maps to lectures).",
+       "folded": false
+      }
+     ],
+     "words": 111,
+     "symbols": [
+      "$y$, $x$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1-four-common-forms-and-the-elasticity",
+   "heading": "1. Four common forms and the elasticity",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-four-common-forms-and-the-elasticity-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The lecture's summary table lists the linear, log-linear, linear-log and log-log forms with their slopes and elasticities ([Functional Forms and Elasticities](note:functional-forms-and-elasticities)). Every row follows from one formula, $\\varepsilon = \\text{slope} \\times x/y$. A quadratic shows why the point of evaluation matters: in $PRICE = \\alpha_1 + \\alpha_2SQFT^2 + e$ the slope is $2\\alpha_2SQFT$, so both the slope and the elasticity change with house size. On 1,080 house sales the estimate is $\\widehat{PRICE} = 55{,}777 + 0.015421\\,SQFT^2$, giving a slope of \\$61.69 per square foot and an elasticity of 1.05 at 2,000 square feet."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/House price on squared living area - quadratic fit.png",
+       "alt": "House price on squared living area - quadratic fit"
+      }
+     ],
+     "words": 79,
+     "symbols": [
+      "$y$, $x$",
+      "$\\varepsilon$",
+      "$PRICE$, $SQFT$",
+      "$\\alpha_1$, $\\alpha_2$",
+      "$e$",
+      "$T_{BC}(x,\\lambda)$",
+      "$R^2$",
+      "$t$, $F$",
+      "$S$"
+     ]
+    },
+    {
+     "id": "1-four-common-forms-and-the-elasticity-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "Using the lecture's estimate $\\widehat{PRICE} = 55{,}777 + 0.015421\\,SQFT^2$, what is the elasticity of price with respect to living area at $SQFT = 3{,}000$? Give two decimal places.",
+       "answer": 1.43,
+       "tol": 0.01,
+       "wrong": [
+        {
+         "answer": 92.53,
+         "tol": 0.05,
+         "md": "that is the slope, $2\\widehat{\\alpha}_2SQFT$, in dollars per square foot; the elasticity multiplies it by $SQFT/\\widehat{PRICE}$"
+        },
+        {
+         "answer": 0.71,
+         "tol": 0.01,
+         "md": "that uses $\\widehat{\\alpha}_2SQFT$ as the slope; differentiating $SQFT^2$ gives $2\\,SQFT$"
+        },
+        {
+         "answer": 4.98,
+         "tol": 0.01,
+         "md": "that divides by the intercept alone, 55,777; use the predicted price at 3,000 square feet, 194,569"
+        }
+       ],
+       "why": "The slope is $2 \\times 0.015421 \\times 3{,}000 = 92.53$ dollars per square foot and the predicted price is $55{,}777 + 0.015421 \\times 9{,}000{,}000 = 194{,}569$. The elasticity is $92.53 \\times 3{,}000/194{,}569 = 1.43$: a 1% larger house sells for about 1.43% more. It sits between the lecture's 1.05 at 2,000 and 1.63 at 4,000 square feet.",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 20,
+     "symbols": [
+      "$PRICE$, $SQFT$",
+      "$T_{BC}(x,\\lambda)$",
+      "$R^2$",
+      "$t$, $F$",
+      "$S$"
+     ]
+    },
+    {
+     "id": "1-four-common-forms-and-the-elasticity-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "The estimated food-expenditure line has slope $b_2 = 10.21$, with income in \\$100 a week and food expenditure in \\$ a week. Mean income is 19.60 and mean food expenditure 283.57. What is the elasticity of food expenditure with respect to income at the means?",
+       "answer": 0.71,
+       "tol": 0.01,
+       "wrong": [
+        {
+         "answer": 10.21,
+         "tol": 0.0,
+         "md": "that is the slope, in dollars of food per \\$100 of income; the elasticity is unit-free, $b_2\\bar{x}/\\bar{y}$"
+        },
+        {
+         "answer": 147.7,
+         "tol": 0.5,
+         "md": "the ratio is upside down: the elasticity is $b_2\\,\\bar{x}/\\bar{y}$, not $b_2\\,\\bar{y}/\\bar{x}$"
+        },
+        {
+         "answer": 70.6,
+         "tol": 0.5,
+         "md": "that uses mean income in dollars (1,960) with a slope per \\$100; keep $\\bar{x}$ in the slope's units, 19.60"
+        },
+        {
+         "answer": 0.0071,
+         "tol": 0.0002,
+         "md": "that uses the slope per dollar (0.1021) with mean income in hundreds; keep the units matched"
+        }
+       ],
+       "why": "Elasticity at the means $= b_2\\,\\bar{x}/\\bar{y} = 10.21 \\times 19.60/283.57 = 0.71$. It is below 1, so food is a necessity: expenditure rises less than proportionately with income. The slope itself says a \\$100 rise in weekly income goes with \\$10.21 more weekly food spending, about 10 cents per extra dollar.",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 43,
+     "symbols": [
+      "$Y$, $X$, $p$, $q$, $a$, $b$",
+      "$\\bar{y}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "2-a-linear-log-model-of-food-spending",
+   "heading": "2. A linear-log model of food spending",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-a-linear-log-model-of-food-spending-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Fitting $y = \\beta_1 + \\beta_2\\ln x$ to the food data gives $b_2 = 132.17$ and $R^2 = 0.357$. The slope with respect to income is $b_2/x$, so it falls as income rises: \\$13.22 per extra \\$100 at an income of \\$1,000 a week. The residuals show no clear pattern and pass the Jarque-Bera test ($p = 0.905$)."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Food expenditure - linear-log fit with confidence band.png",
+       "alt": "Food expenditure - linear-log fit with confidence band"
+      }
+     ],
+     "words": 44,
+     "symbols": [
+      "$y$, $x$",
+      "$\\beta_1$, $\\beta_2$",
+      "$Y$, $X$, $p$, $q$, $a$, $b$",
+      "$R^2$"
+     ]
+    },
+    {
+     "id": "2-a-linear-log-model-of-food-spending-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "In the linear-log food model, $\\widehat{FOOD} = -97.19 + 132.17\\ln(INCOME)$, with food spending in dollars a week. What is the effect of a 1% rise in income?",
+       "options": [
+        {
+         "md": "Food spending rises by \\$132.17 a week",
+         "correct": false,
+         "feedback": "\\$132.17 is the effect of a one-unit rise in $\\ln(INCOME)$, which is a rise in income of about 172%, not 1%."
+        },
+        {
+         "md": "Food spending rises by 1.32%",
+         "correct": false,
+         "feedback": "Food spending is in levels, not logs, so the effect is in dollars. A percentage effect on $y$ needs $\\ln y$ on the left."
+        },
+        {
+         "md": "Food spending rises by about \\$1.32 a week",
+         "correct": true
+        },
+        {
+         "md": "Food spending rises by \\$13.22 a week",
+         "correct": false,
+         "feedback": "\\$13.22 is the effect of an extra \\$100 of income for a household at \\$1,000 a week, $b_2/x$ with $x = 10$; it is not a 1% change."
+        }
+       ],
+       "why": "A 1% rise in income raises $\\ln(INCOME)$ by about 0.01, so food spending rises by $0.01 \\times 132.17 = \\$1.32$ a week, at any income level. In dollars per \\$100 of income the effect is $b_2/x$, which is \\$13.22 at $x = 10$ and \\$6.61 at $x = 20$.",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 53,
+     "symbols": [
+      "$y$, $x$",
+      "$Y$, $X$, $p$, $q$, $a$, $b$",
+      "$N$, $K$",
+      "$t$, $F$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "3-why-take-logs",
+   "heading": "3. Why take logs",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "3-why-take-logs-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Logarithms compress variables that span orders of magnitude (GDP in the billions next to interest rates in hundredths), and they often cure an error variance that grows with the level of $y$. The assets of 248 Canadian firms are an extreme case: untransformed, the density is a spike near zero; in logs it is close to symmetric ([Box-Cox and Power Transformations](note:box-cox-and-power-transformations)). Infant mortality against GDP per capita is sharply curved in levels and close to a straight line in logs, where the OLS line and the lowess curve agree."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Infant mortality and GDP per capita - log-log.png",
+       "alt": "Infant mortality and GDP per capita - log-log"
+      }
+     ],
+     "words": 88,
+     "symbols": [
+      "$y$, $x$"
+     ]
+    },
+    {
+     "id": "3-why-take-logs-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "For a simple linear regression, which are good reasons to model $\\ln y$ instead of $y$? Tick all that apply.",
+       "options": [
+        {
+         "md": "$y$ is strongly right-skewed or spans several orders of magnitude, like firm assets",
+         "correct": true
+        },
+        {
+         "md": "Logging $y$ always raises $R^2$, which shows a better fit",
+         "correct": false,
+         "feedback": "It does not always raise $R^2$, and when it does the comparison is invalid: the $R^2$ of a $\\ln y$ model is a share of a different total variation."
+        },
+        {
+         "md": "The spread of $y$ grows with its level, so logs can stabilize the error variance",
+         "correct": true
+        },
+        {
+         "md": "The relationship is multiplicative, so effects are naturally proportional and the coefficients read as percentage changes or elasticities",
+         "correct": true
+        },
+        {
+         "md": "Logging $y$ makes OLS unbiased even when $E[e \\mid x] \\neq 0$",
+         "correct": false,
+         "feedback": "A transformation changes the functional form, not the exogeneity of $x$. If the error is correlated with $x$, the log model is biased too."
+        }
+       ],
+       "why": "Logs pull in a long right tail, turn a variance that grows with the level into a roughly constant one, and turn multiplicative relationships into additive ones whose slopes are percentage changes. They do nothing for bias from omitted variables, and $R^2$ across $y$ and $\\ln y$ is not comparable.",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 75,
+     "symbols": [
+      "$y$, $x$",
+      "$e$",
+      "$R^2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "4-reading-log-models",
+   "heading": "4. Reading log models",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "4-reading-log-models-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The table below is the lecture's summary for the three log forms. The percentage readings are approximations for small changes; the exact effect of a one-unit rise in $x$ in a log-linear model is $100(e^{\\beta_2} - 1)$ percent."
+      },
+      {
+       "t": "table",
+       "md": "| Model | Slope $dy/dx$ | Elasticity | Reading |\n| --- | --- | --- | --- |\n| Log-linear, $\\ln y = \\beta_1 + \\beta_2x$ | $\\beta_2y$ | $\\beta_2x$ | One more unit of $x$: about $100\\beta_2$% more $y$ |\n| Linear-log, $y = \\beta_1 + \\beta_2\\ln x$ | $\\beta_2/x$ | $\\beta_2/y$ | 1% more $x$: about $\\beta_2/100$ more units of $y$ |\n| Log-log, $\\ln y = \\beta_1 + \\beta_2\\ln x$ | $\\beta_2y/x$ | $\\beta_2$ | 1% more $x$: about $\\beta_2$% more $y$ |"
+      }
+     ],
+     "words": 61,
+     "symbols": [
+      "$y$, $x$",
+      "$\\beta_1$, $\\beta_2$",
+      "$e$"
+     ]
+    },
+    {
+     "id": "4-reading-log-models-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "Estimated: $\\ln(\\text{wage}) = 1.62 + 0.094\\,\\text{educ}$. By exactly what percentage does the predicted wage rise with one more year of education?",
+       "answer": 9.86,
+       "tol": 0.01,
+       "wrong": [
+        {
+         "answer": 9.4,
+         "tol": 0.05,
+         "md": "that is the approximation $100 \\times 0.094$; the exact effect is $100(e^{0.094} - 1)$"
+        },
+        {
+         "answer": 0.0986,
+         "tol": 0.001,
+         "md": "that is the proportional change; the question asks for a percentage"
+        },
+        {
+         "answer": 109.86,
+         "tol": 0.05,
+         "md": "that is the new predicted wage as a percentage of the old one; the rise is 9.86%"
+        }
+       ],
+       "why": "In a log-linear model the exact effect is $100(\\exp(0.094) - 1) = 9.86\\%$. The approximation $100 \\times 0.094 = 9.4\\%$ understates it, and the gap grows with the coefficient.",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 16,
+     "symbols": [
+      "$e$"
+     ]
+    },
+    {
+     "id": "4-reading-log-models-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "Estimated: $\\ln(\\text{price}) = 4.17 + 0.84\\ln(\\text{sqft})$. If square footage rises 10%, by exactly what percentage does the predicted price rise?",
+       "answer": 8.34,
+       "tol": 0.01,
+       "wrong": [
+        {
+         "answer": 8.4,
+         "tol": 0.03,
+         "md": "that is the elasticity approximation, $0.84 \\times 10\\%$; exactly, $1.1^{0.84} - 1$"
+        },
+        {
+         "answer": 8.76,
+         "tol": 0.03,
+         "md": "that treats 10% as a log change of 0.10; in logs a 10% rise is $\\ln 1.1 = 0.0953$, so the exact rise is $1.1^{0.84} - 1$"
+        },
+        {
+         "answer": 0.84,
+         "tol": 0.0,
+         "md": "that is the elasticity itself; apply it to the 10% change in square footage"
+        },
+        {
+         "answer": 0.0834,
+         "tol": 0.001,
+         "md": "that is the proportional change; the question asks for a percentage"
+        }
+       ],
+       "why": "In a log-log model the coefficient is the elasticity, 0.84, so a 10% rise is roughly 8.4%. Exactly: $1.1^{0.84} - 1 = 8.34\\%$. Price rises less than proportionately with size.",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 15,
+     "symbols": []
+    },
+    {
+     "id": "4-reading-log-models-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "The lecture's log-log food model is $\\widehat{\\ln(FOOD)} = 3.964 + 0.5559\\ln(INCOME)$, with food spending in dollars a week and income in hundreds of dollars a week. Mean food spending is 283.57 and mean income 19.60. Evaluate the slope $d\\,FOOD/d\\,INCOME$ at the means.",
+       "answer": 8.04,
+       "tol": 0.01,
+       "wrong": [
+        {
+         "answer": 0.5559,
+         "tol": 0.0,
+         "md": "that is the elasticity, which is constant in a log-log model; the slope is the elasticity times $\\bar{y}/\\bar{x}$"
+        },
+        {
+         "answer": 0.0384,
+         "tol": 0.0005,
+         "md": "the ratio is upside down: the slope is $b_2\\,\\bar{y}/\\bar{x}$, not $b_2\\,\\bar{x}/\\bar{y}$"
+        },
+        {
+         "answer": 10.21,
+         "tol": 0.005,
+         "md": "that is the slope of the linear model, not of this log-log model"
+        }
+       ],
+       "why": "In a log-log model $dy/dx = b_2\\,y/x$. At the means, $0.5559 \\times 283.57/19.60 = 8.04$: an extra \\$100 of weekly income goes with about \\$8.04 more food spending, a little less than the linear model's \\$10.21. The elasticity, 0.556, is the same at every point: food is a necessity.",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 38,
+     "symbols": [
+      "$y$, $x$",
+      "$Y$, $X$, $p$, $q$, $a$, $b$",
+      "$\\bar{y}$",
+      "$N$, $K$",
+      "$t$, $F$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "5-box-cox-power-transformations",
+   "heading": "5. Box-Cox power transformations",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "5-box-cox-power-transformations-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The Box-Cox family $x^{(\\lambda)} = (x^\\lambda - 1)/\\lambda$, with $\\ln x$ at $\\lambda = 0$, runs along a ladder of powers. The lecture standardizes GDP per capita after each rung: $\\lambda = 1$ and $0.5$ leave a long upper tail, $-0.5$ and $-1$ create a long lower one, and $\\lambda = 0$ is the most symmetric. The power is estimated by maximum likelihood and then rounded to a natural value, which a likelihood-ratio test checks: $T = 2(L_0 - \\hat{L})$ against a $\\chi^2_1$."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Ladder of powers - UN GDP per capita.png",
+       "alt": "Ladder of powers - UN GDP per capita"
+      },
+      {
+       "t": "prose",
+       "md": "For infant mortality (right-skewed, see its histogram in [Box-Cox and Power Transformations](note:box-cox-and-power-transformations)), the estimate is $\\lambda_0 = 0.047$ with 95% confidence interval $[-0.088, 0.182]$."
+      }
+     ],
+     "words": 77,
+     "symbols": [
+      "$y$, $x$",
+      "$\\lambda$",
+      "$T_{BC}(x,\\lambda)$",
+      "$L_0$, $\\hat{L}$",
+      "$\\chi^2_1$"
+     ]
+    },
+    {
+     "id": "5-box-cox-power-transformations-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "For infant mortality, Box-Cox gives $\\lambda_0 = 0.047$ with 95% confidence interval $[-0.088, 0.182]$, and likelihood-ratio tests give p-values of 0.50 for $\\lambda = 0$, $9 \\times 10^{-11}$ for $\\lambda = 0.5$ and about 0 for $\\lambda = 1$. Which transformation should be applied?",
+       "options": [
+        {
+         "md": "None: the estimate 0.047 is close to 0, so no transformation is needed",
+         "correct": false,
+         "feedback": "\"No transformation\" is $\\lambda = 1$, not $\\lambda = 0$; its test rejects with a p-value of about 0. A power near 0 means the log."
+        },
+        {
+         "md": "The power 0.047 itself, because it maximizes the likelihood",
+         "correct": false,
+         "feedback": "The maximum is estimated with noise; the convention is to round to a natural value that the data do not reject, which keeps the model simple and interpretable."
+        },
+        {
+         "md": "The square root, a compromise between the log and no transformation",
+         "correct": false,
+         "feedback": "The test of $\\lambda = 0.5$ rejects decisively ($p = 9 \\times 10^{-11}$), and 0.5 lies outside the confidence interval."
+        },
+        {
+         "md": "The log ($\\lambda = 0$): it lies inside the 95% interval and its test does not reject ($p = 0.50$), while 0.5 and 1 are rejected",
+         "correct": true
+        }
+       ],
+       "why": "A rounded power is acceptable if the data cannot reject it. $\\lambda = 0$ is inside $[-0.088, 0.182]$ and its LR test gives $T = 0.46$, $p = 0.50$, while $\\lambda = 0.5$ ($T = 41.96$) and $\\lambda = 1$ ($T = 172.81$) are rejected at any usual level. The interval and the test are two views of the same evidence: a value inside the 95% interval is one the 5% test does not reject.",
+       "objectives": [
+        4
+       ]
+      }
+     ],
+     "words": 84,
+     "symbols": [
+      "$\\lambda$",
+      "$T_{BC}(x,\\lambda)$",
+      "$Y$, $X$, $p$, $q$, $a$, $b$"
+     ]
+    },
+    {
+     "id": "5-box-cox-power-transformations-3",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "box-cox-ladder-explorer",
+       "prompt": "Step along the ladder of powers and watch skew, the Q-Q plot and the log-likelihood respond",
+       "status": "planned",
+       "purpose": "See what each Box-Cox power does to a right-skewed variable, and read the likelihood-ratio test of a rounded power off the profile log-likelihood",
+       "objectives": [
+        4
+       ]
+      },
+      {
+       "t": "prose",
+       "md": "For variables that can be negative, such as stock returns, the Yeo-Johnson transformation applies Box-Cox to $x + 1$ for $x \\geq 0$ and to $-x + 1$ with power $2 - \\lambda$ for $x < 0$. With several variables, each gets its own power: in the `Highway1` data the test that all four powers are 0 (all logs) gives $p = 0.198$, while \"no transformation\" is rejected with $p \\approx 10^{-26}$."
+      }
+     ],
+     "words": 67,
+     "symbols": [
+      "$y$, $x$",
+      "$\\lambda$",
+      "$Y$, $X$, $p$, $q$, $a$, $b$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "6-restricted-range-variables",
+   "heading": "6. Restricted-range variables",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "6-restricted-range-variables-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Proportions are confined to $[0, 1]$ and often pile up at one end. The arcsine square root, $\\sin^{-1}\\sqrt{x}$, stretches the ends and stabilizes the variance; the logit, $\\ln(x/(1 - x))$, maps the interval onto the whole real line. The lecture applies both to the share of women in each Prestige occupation, which clusters near 0."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Percent women in occupations - logit and arcsine square-root.png",
+       "alt": "Percent women in occupations - logit and arcsine square-root"
+      }
+     ],
+     "words": 49,
+     "symbols": [
+      "$y$, $x$"
+     ]
+    },
+    {
+     "id": "6-restricted-range-variables-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Some Prestige occupations have exactly 0% women. Why does the lecture adjust the shares before taking the logit, but not before the arcsine square root?",
+       "options": [
+        {
+         "md": "$\\ln(x/(1-x))$ is $-\\infty$ at $x = 0$, while $\\sin^{-1}\\sqrt{0} = 0$ is finite, so only the logit needs the shares pulled away from the boundary",
+         "correct": true
+        },
+        {
+         "md": "The arcsine square root is only defined for shares above 0.5",
+         "correct": false,
+         "feedback": "$\\sin^{-1}\\sqrt{x}$ is defined on all of $[0, 1]$, from 0 at $x = 0$ to $\\pi/2$ at $x = 1$."
+        },
+        {
+         "md": "The logit needs the shares in percent, and the adjustment converts them",
+         "correct": false,
+         "feedback": "Both transformations take proportions; the lecture divides the percentages by 100 first for both."
+        }
+       ],
+       "why": "The logit sends 0 to $-\\infty$ and 1 to $+\\infty$, so an exact 0 has no finite value. The lecture shrinks the shares towards the middle, $0.025 + 0.95x$, before the logit. The arcsine square root is finite at both ends ($0$ and $\\pi/2$), so it needs no adjustment.",
+       "objectives": [
+        5
+       ]
+      }
+     ],
+     "words": 66,
+     "symbols": [
+      "$y$, $x$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "7-equalizing-spread-across-groups",
+   "heading": "7. Equalizing spread across groups",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "7-equalizing-spread-across-groups-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "When groups with larger medians also have larger spreads, as in the Ornstein boxplots of L1, a power below 1 evens them out. Tukey's spread-level plot regresses the log of each group's hinge spread on the log of its median; the suggested power is 1 minus the slope."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Spread-level plot - Ornstein interlocks by nation.png",
+       "alt": "Spread-level plot - Ornstein interlocks by nation"
+      }
+     ],
+     "words": 48,
+     "symbols": []
+    },
+    {
+     "id": "7-equalizing-spread-across-groups-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "The spread-level plot of interlocks + 1 by nation has a fitted slope of 0.847. What power transformation does it suggest? Give three decimal places.",
+       "answer": 0.153,
+       "tol": 0.002,
+       "wrong": [
+        {
+         "answer": 0.847,
+         "tol": 0.002,
+         "md": "that is the slope itself; the suggested power is $1 - \\text{slope}$"
+        },
+        {
+         "answer": 1.847,
+         "tol": 0.002,
+         "md": "that adds the slope to 1; a spread that rises with the level calls for a power below 1"
+        },
+        {
+         "answer": -0.847,
+         "tol": 0.002,
+         "md": "that is the negative of the slope; the suggestion is $1 - \\text{slope}$"
+        }
+       ],
+       "why": "$1 - 0.847 = 0.153$. Because 0.153 is close to 0, the lecture uses the log, $\\log_{10}(1 + \\text{interlocks})$, after which the four boxes have similar spreads. A slope of 1 (spread proportional to level) would point exactly to the log; a slope of 0 (no relation) to no transformation.",
+       "objectives": [
+        5
+       ]
+      }
+     ],
+     "words": 25,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "8-transformations-toward-linearity",
+   "heading": "8. Transformations toward linearity",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "8-transformations-toward-linearity-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "To straighten a curve, transform $x$, $y$ or both: fit $Y^q = \\beta_1 + \\beta_2X^p + e$. Mosteller and Tukey's bulging rule says which way to move on the ladder of powers, based on which way the scatter bulges. The lecture simulates the four bulge directions, then fits data generated with $p = 2$, $q = 1$: regressing $Y$ on $X^2$ turns the curve into a straight line."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Bulging rule - four simulated curvature patterns.png",
+       "alt": "Bulging rule - four simulated curvature patterns"
+      }
+     ],
+     "words": 51,
+     "symbols": [
+      "$y$, $x$",
+      "$\\beta_1$, $\\beta_2$",
+      "$e$",
+      "$Y$, $X$, $p$, $q$, $a$, $b$"
+     ]
+    },
+    {
+     "id": "8-transformations-toward-linearity-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "A scatter rises slowly at first and then more and more steeply (convex and increasing), like the lecture's generated data. Which transformation of $x$ alone does the bulging rule suggest?",
+       "options": [
+        {
+         "md": "$x^2$: move $x$ up the ladder, in the direction of the bulge",
+         "correct": true
+        },
+        {
+         "md": "$\\sqrt{x}$: move $x$ down the ladder",
+         "correct": false,
+         "feedback": "Moving $x$ down the ladder (roots, logs) straightens a curve that rises steeply first and then flattens, the concave case."
+        },
+        {
+         "md": "$1/x$",
+         "correct": false,
+         "feedback": "A reciprocal is further down the ladder still, and it reverses the order of $x$; it straightens curves that flatten out, not ones that steepen."
+        }
+       ],
+       "why": "The curve bulges toward large $x$ and low $y$ (lower right). The rule moves a variable up the ladder in the direction the curve bulges along that axis, so $x$ goes up: $x^2$ spreads out the large values of $x$, where $y$ climbs fastest. That is the lecture's $p = 2$, $q = 1$ example. (Moving $y$ down, for instance to $\\ln y$, would work too, which is why this question restricts the choice to $x$.)",
+       "objectives": [
+        5
+       ]
+      }
+     ],
+     "words": 43,
+     "symbols": [
+      "$y$, $x$",
+      "$Y$, $X$, $p$, $q$, $a$, $b$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "9-choosing-a-functional-form",
+   "heading": "9. Choosing a functional form",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "9-choosing-a-functional-form-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The lecture's criteria: a form consistent with economic theory, that fits the data well and that satisfies the regression assumptions; in practice you do the best you can with all three. It then fits four forms and compares them."
+      },
+      {
+       "t": "table",
+       "md": "| Data | Model | Slope coefficient | $R^2$ | Jarque-Bera p-value |\n| --- | --- | --- | --- | --- |\n| Food | Linear | 10.21 | 0.385 | 0.969 |\n| Food | Linear-log | 132.17 | 0.357 | 0.905 |\n| Food | Log-log | 0.556 | 0.445 | 0.017 |\n| Wage | Linear | 1.98 | 0.175 | ≈ 0 |\n| Wage | Log-linear | 0.0904 | 0.178 | ≈ 0 |"
+      }
+     ],
+     "words": 88,
+     "symbols": [
+      "$R^2$"
+     ]
+    },
+    {
+     "id": "9-choosing-a-functional-form-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "In the table above, which comparison of $R^2$ values is valid?",
+       "options": [
+        {
+         "md": "Food log-log (0.445) against food linear (0.385): the log-log model fits better",
+         "correct": false,
+         "feedback": "The log-log $R^2$ is a share of the variation in $\\ln(FOOD)$, the linear one a share of the variation in $FOOD$. Different totals, so the two cannot be ranked."
+        },
+        {
+         "md": "Food linear (0.385) against food linear-log (0.357): same dependent variable, so the linear form fits slightly better",
+         "correct": true
+        },
+        {
+         "md": "Wage log-linear (0.178) against wage linear (0.175): the log model fits slightly better",
+         "correct": false,
+         "feedback": "Same problem: $\\ln(WAGE)$ against $WAGE$. The tiny gap means nothing either way."
+        },
+        {
+         "md": "Food log-log (0.445) against wage log-linear (0.178): both have a log on the left",
+         "correct": false,
+         "feedback": "These are different data and different dependent variables; a log on both left-hand sides does not make the totals the same."
+        }
+       ],
+       "why": "$R^2 = 1 - SSR/TSS$, and $TSS$ is the variation of whatever is on the left-hand side. Only models with the same dependent variable share a $TSS$: here the linear and linear-log food models, both with $FOOD$ in dollars. To compare across $y$ and $\\ln y$, compare predictions on a common scale, for example by cross-validation.",
+       "objectives": [
+        6
+       ]
+      }
+     ],
+     "words": 74,
+     "symbols": [
+      "$y$, $x$",
+      "$T_{BC}(x,\\lambda)$",
+      "$TSS$",
+      "$SSR$",
+      "$R^2$",
+      "$t$, $F$",
+      "$S$"
+     ]
+    },
+    {
+     "id": "9-choosing-a-functional-form-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "A colleague reports $R^2 = 0.61$ for a log-linear model and $R^2 = 0.54$ for the linear model, and concludes the log-linear model fits better. Is that right?",
+       "options": [
+        {
+         "md": "Yes: a higher $R^2$ means a better fit",
+         "correct": false,
+         "feedback": "Only for the same dependent variable. $R^2$ is a share of the total variation in $\\ln y$ in one model and in $y$ in the other, so the two shares are of different totals."
+        },
+        {
+         "md": "No: the dependent variables differ ($\\ln y$ against $y$), so the two $R^2$ values are not comparable",
+         "correct": true
+        },
+        {
+         "md": "No: $R^2$ always favours the model with more parameters",
+         "correct": false,
+         "feedback": "That is true when regressors are added for the same dependent variable, but both models here have one regressor. The problem is that the dependent variables differ."
+        }
+       ],
+       "why": "$R^2$ is the share of the variation in the **dependent variable** that the model explains. Here the dependent variables differ, so the total sums of squares differ and the comparison is meaningless. Compare predictive error in common units (cross-validated RMSE after back-transforming), residual diagnostics, or theory.",
+       "objectives": [
+        6
+       ]
+      }
+     ],
+     "words": 50,
+     "symbols": [
+      "$y$, $x$",
+      "$R^2$"
+     ]
+    },
+    {
+     "id": "9-choosing-a-functional-form-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "The log-log food model's residuals have $N = 40$, skewness $S = -0.906$ and kurtosis $K = 4.273$. Compute the Jarque-Bera statistic $JB = \\frac{N}{6}\\left(S^2 + \\frac{(K-3)^2}{4}\\right)$. Give two decimal places.",
+       "answer": 8.17,
+       "tol": 0.02,
+       "wrong": [
+        {
+         "answer": 16.28,
+         "tol": 0.02,
+         "md": "that leaves out the 4 in $(K-3)^2/4$"
+        },
+        {
+         "answer": 35.9,
+         "tol": 0.02,
+         "md": "that uses $K$ in place of $K - 3$; the kurtosis term measures the departure from a normal's 3"
+        },
+        {
+         "answer": 5.47,
+         "tol": 0.02,
+         "md": "that keeps only the skewness term"
+        }
+       ],
+       "why": "$S^2 = 0.821$ and $(K - 3)^2/4 = 1.273^2/4 = 0.405$, so $JB = \\frac{40}{6}(0.821 + 0.405) = 6.667 \\times 1.226 = 8.17$, matching the table's 8.177. Against $\\chi^2_2$ (5% critical value 5.99) the p-value is 0.017: normality is rejected at 5% for the log-log model, while the linear ($p = 0.969$) and linear-log ($p = 0.905$) models' residuals are consistent with it.",
+       "objectives": [
+        6
+       ]
+      }
+     ],
+     "words": 17,
+     "symbols": [
+      "$\\chi^2_1$",
+      "$Y$, $X$, $p$, $q$, $a$, $b$",
+      "$N$, $K$",
+      "$JB$",
+      "$S$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "math-refresher",
+   "heading": "Math refresher",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "math-refresher-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Math Prep L7 Approximations Logs and Series](note:math-prep-l7-approximations-logs-and-series) — log changes as percentage changes; L'Hôpital for $\\lambda \\to 0$ in Box-Cox\n- [Math Prep L4 Multivariable Differentiation](note:math-prep-l4-multivariable-differentiation) — slopes and elasticities by the chain rule"
+      }
+     ],
+     "words": 31,
+     "symbols": [
+      "$\\lambda$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Interpret the slope coefficient in linear, log-linear, linear-log and log-log models, including the exact percentage effect in a log-linear model.\n2. Compute the slope and the elasticity at a given point (a quadratic, a log-log model at the means, a linear model at the means).\n3. Give reasons for modelling $\\ln y$ instead of $y$, and say what logging cannot fix.\n4. Choose a Box-Cox power from its estimate, confidence interval and likelihood-ratio tests.\n5. Choose a transformation for a restricted-range variable, for spreads that rise with the level (spread-level plot) or for curvature (bulging rule).\n6. Compare functional forms correctly: $R^2$ only across models with the same dependent variable, and residual normality with the Jarque-Bera test."
+      }
+     ],
+     "words": 114,
+     "symbols": [
+      "$y$, $x$",
+      "$R^2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "functional-forms-and-elasticities",
+        "box-cox-and-power-transformations",
+        "coefficient-of-determination",
+        "error-normality-and-jarque-bera"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

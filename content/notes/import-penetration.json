@@ -1,0 +1,257 @@
+{
+ "slug": "import-penetration",
+ "notation": [
+  {
+   "tex": "$j$",
+   "meaning": "Industry",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "j"
+   ]
+  },
+  {
+   "tex": "$M_j$, $E_j$",
+   "meaning": "Imports and exports of industry $j$'s goods",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "M",
+    "E"
+   ]
+  },
+  {
+   "tex": "$Y_j$",
+   "meaning": "Domestic output (shipments) of industry $j$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "Y"
+   ]
+  },
+  {
+   "tex": "$Y_j + M_j - E_j$",
+   "meaning": "Domestic absorption: domestic use of the good",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "~Y_j+M_j-E_j"
+   ]
+  },
+  {
+   "tex": "$IP_j$",
+   "meaning": "Import penetration ratio",
+   "kind": "Statistic in [0, 1]",
+   "typical": "US imports from China ≈ 0.002 (1987) to ≈ 0.047 (2007) overall",
+   "keys": [
+    "~IP_j"
+   ]
+  },
+  {
+   "tex": "$\\Delta M^{UC}_{j,\\tau}$",
+   "meaning": "Change in imports from China to the US between the base year and year $\\tau$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "~\\DeltaM^UC_j,\\tau"
+   ]
+  },
+  {
+   "tex": "$\\tau$",
+   "meaning": "End year of the exposure period",
+   "kind": "Index",
+   "typical": "often 2007",
+   "keys": [
+    "tau"
+   ]
+  },
+  {
+   "tex": "subscript $0$",
+   "meaning": "Base (initial) year",
+   "kind": "Index",
+   "typical": "1991",
+   "keys": []
+  },
+  {
+   "tex": "$L_{ri}$, $L_r$",
+   "meaning": "Employment of region $r$ in industry $i$, and in total",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "L"
+   ],
+   "from": "shift-share-exposure"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Import penetration answers a simple question: of everything a country uses of a good, how much comes from abroad? Take all the toys sold in the US. Some were made at home and sold at home; some were imported. Domestic use is what was produced at home, plus imports, minus what was shipped abroad. Import penetration is the imported part of that total. When imports from one country, such as China, rise fast relative to an industry's initial size, that industry faces stiff new competition — which is why the change in this ratio is the standard measure of an industry's exposure."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It turns raw trade flows into a comparable measure of competitive pressure across industries of very different sizes.",
+       "folded": false
+      }
+     ],
+     "words": 122,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "IP_j = \\frac{M_j}{Y_j + M_j - E_j}"
+      },
+      {
+       "t": "prose",
+       "md": "The change in exposure to one source (e.g. China, UC) is usually measured over a fixed initial absorption:"
+      },
+      {
+       "t": "math",
+       "tex": "\\Delta IP_{j,\\tau} = \\frac{\\Delta M^{UC}_{j,\\tau}}{Y_{j,0} + M_{j,0} - E_{j,0}}"
+      }
+     ],
+     "words": 19,
+     "symbols": [
+      "$M_j$, $E_j$",
+      "$Y_j$",
+      "$Y_j + M_j - E_j$",
+      "$IP_j$",
+      "$\\Delta M^{UC}_{j,\\tau}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "An industry produces 100, imports 20 and exports 10: absorption is 110 and import penetration is $20/110 = 18.2\\%$. If imports from China then rise by 11, the change in exposure is $11/110 = 10$ percentage points. Across US manufacturing industries over 1991–2007, the 75th-percentile industry saw a 7.3 pp rise and the 25th-percentile industry 0.6 pp."
+      }
+     ],
+     "words": 54,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "why-fix-the-denominator-at-its-initial-value",
+   "heading": "Why fix the denominator at its initial value",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "why-fix-the-denominator-at-its-initial-value-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Domestic output responds to import competition — it is the outcome being studied. Dividing by current absorption would let the outcome leak into the exposure measure. Using initial (or lagged) absorption keeps the measure a pure function of the import change."
+      }
+     ],
+     "words": 40,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "variants",
+   "heading": "Variants",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "variants-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Measure | Normalized by | Use |\n| --- | --- | --- |\n| $\\Delta IP_j$ | Initial absorption | Industry exposure |\n| $\\Delta M_j / L_j$ | Initial employment | Imports per worker, aggregated to regions with employment shares ([Shift-Share Exposure](note:shift-share-exposure)) |"
+      }
+     ],
+     "words": 24,
+     "symbols": [
+      "$M_j$, $E_j$",
+      "$IP_j$",
+      "$L_{ri}$, $L_r$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Using the import level rather than its share of absorption, which makes large industries look more exposed.\n- Forgetting exports: absorption subtracts what is shipped abroad."
+      }
+     ],
+     "words": 27,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Trade: industry-level exposure to import competition; building regional and worker-level exposure measures and their instruments ([Shift-Share Instrument](note:shift-share-instrument))."
+      }
+     ],
+     "words": 18,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Shift-Share Exposure](note:shift-share-exposure) · [Shift-Share Instrument](note:shift-share-instrument)"
+      }
+     ],
+     "words": 5,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

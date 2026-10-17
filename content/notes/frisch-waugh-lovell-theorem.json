@@ -1,0 +1,227 @@
+{
+ "slug": "frisch-waugh-lovell-theorem",
+ "notation": [
+  {
+   "tex": "$\\mathbf{y}$",
+   "meaning": "Outcome",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "bold(y)"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{X}_1$",
+   "meaning": "Control variables (e.g. constant and time trend)",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "bold(X)"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{X}_2$",
+   "meaning": "Variables of interest",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "bold(X)"
+   ]
+  },
+  {
+   "tex": "$\\boldsymbol{\\beta}_1$, $\\boldsymbol{\\beta}_2$",
+   "meaning": "Their coefficients",
+   "kind": "Parameters",
+   "typical": "—",
+   "keys": [
+    "bold(beta)"
+   ]
+  },
+  {
+   "tex": "$\\hat{\\boldsymbol{\\beta}}_2$",
+   "meaning": "OLS estimate of $\\boldsymbol{\\beta}_2$",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "hat(bold(beta))"
+   ]
+  },
+  {
+   "tex": "$\\boldsymbol{\\varepsilon}$",
+   "meaning": "Error",
+   "kind": "Unobserved",
+   "typical": "—",
+   "keys": [
+    "bold(varepsilon)"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{M}_1$",
+   "meaning": "Residual maker for $\\mathbf{X}_1$: strips out what $\\mathbf{X}_1$ explains",
+   "kind": "Matrix",
+   "typical": "—",
+   "keys": [
+    "bold(M)"
+   ]
+  },
+  {
+   "tex": "$t$",
+   "meaning": "Time trend",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "t"
+   ]
+  },
+  {
+   "tex": "$\\beta = -1/\\sigma$",
+   "meaning": "Coefficient on log relative supply",
+   "kind": "Estimated",
+   "typical": "−0.44",
+   "keys": [
+    "beta"
+   ],
+   "from": "canonical-model-of-the-skill-premium"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The Frisch-Waugh-Lovell theorem explains what it means to control for something in a regression. The coefficient on one variable, in a regression that also includes others, is exactly what you get by first stripping out of both the outcome and that variable everything the other variables can explain, and then regressing what is left on what is left. Controlling for a trend, for example, is the same as detrending both series first."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It shows which variation actually identifies a coefficient, and underlies detrending, fixed effects and the partial-regression plots used in practice.",
+       "folded": false
+      }
+     ],
+     "words": 95,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "In the regression"
+      },
+      {
+       "t": "math",
+       "tex": "\\mathbf{y} = \\mathbf{X}_1\\boldsymbol{\\beta}_1 + \\mathbf{X}_2\\boldsymbol{\\beta}_2 + \\boldsymbol{\\varepsilon}"
+      },
+      {
+       "t": "prose",
+       "md": "the OLS estimate of $\\boldsymbol{\\beta}_2$ equals the estimate from regressing **residualised $\\mathbf{y}$** on **residualised $\\mathbf{X}_2$**, where both are residuals from regressions on $\\mathbf{X}_1$:"
+      },
+      {
+       "t": "math",
+       "tex": "\\hat{\\boldsymbol{\\beta}}_2 = (\\mathbf{X}_2'\\mathbf{M}_1\\mathbf{X}_2)^{-1}\\mathbf{X}_2'\\mathbf{M}_1\\mathbf{y}, \\qquad \\mathbf{M}_1 = \\mathbf{I} - \\mathbf{X}_1(\\mathbf{X}_1'\\mathbf{X}_1)^{-1}\\mathbf{X}_1'"
+      },
+      {
+       "t": "prose",
+       "md": "$\\mathbf{M}_1$ is the residual maker for $\\mathbf{X}_1$ — see [Projection Matrix and Residual Maker](note:projection-matrix-and-residual-maker). Because $\\mathbf{M}_1$ is symmetric and idempotent, you can residualise just $\\mathbf{X}_2$, or both; the coefficient is the same."
+      },
+      {
+       "t": "prose",
+       "md": "The proof is one block of the partitioned inverse — see [Partitioned Matrices](note:partitioned-matrices)."
+      }
+     ],
+     "words": 61,
+     "symbols": [
+      "$\\mathbf{y}$",
+      "$\\mathbf{X}_1$",
+      "$\\mathbf{X}_2$",
+      "$\\boldsymbol{\\beta}_1$, $\\boldsymbol{\\beta}_2$",
+      "$\\hat{\\boldsymbol{\\beta}}_2$",
+      "$\\boldsymbol{\\varepsilon}$",
+      "$\\mathbf{M}_1$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "intuition",
+   "heading": "Intuition",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "intuition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "\"Controlling for $\\mathbf{X}_1$\" means using only the variation in $\\mathbf{y}$ and $\\mathbf{X}_2$ that $\\mathbf{X}_1$ cannot explain."
+      }
+     ],
+     "words": 12,
+     "symbols": [
+      "$\\mathbf{y}$",
+      "$\\mathbf{X}_1$",
+      "$\\mathbf{X}_2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "detrending-is-fwl",
+   "heading": "Detrending is FWL",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "detrending-is-fwl-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Set $\\mathbf{X}_1 = [\\mathbf{1}, t]$. Including a linear trend in a regression gives exactly the same slope as first detrending both variables and then regressing one on the other."
+      },
+      {
+       "t": "prose",
+       "md": "That is why, in the [Canonical Model of the Skill Premium](note:canonical-model-of-the-skill-premium), the identifying assumption is about **deviations from trend**: only detrended variation in relative supply identifies $\\beta$."
+      }
+     ],
+     "words": 51,
+     "symbols": [
+      "$\\mathbf{X}_1$",
+      "$\\mathbf{X}_2$",
+      "$t$",
+      "$\\beta = -1/\\sigma$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Math background: [Partitioned Matrices](note:partitioned-matrices)\n- [OLS in Matrix Form](note:ols-in-matrix-form)\n- [Projection Matrix and Residual Maker](note:projection-matrix-and-residual-maker)"
+      }
+     ],
+     "words": 16,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,744 @@
+{
+ "slug": "econ-430-l1-univariate-characterizations",
+ "notation": [
+  {
+   "tex": "$n$",
+   "meaning": "Number of observations",
+   "kind": "Count",
+   "typical": "—",
+   "keys": [
+    "n"
+   ],
+   "from": "eda-for-regression"
+  },
+  {
+   "tex": "$k$",
+   "meaning": "Number of histogram bins",
+   "kind": "Choice",
+   "typical": "Sturges: $1 + \\log_2 n$",
+   "keys": [
+    "k"
+   ],
+   "from": "eda-for-regression"
+  },
+  {
+   "tex": "$Q_1$, $Q_3$",
+   "meaning": "First and third quartiles; $Q_3 - Q_1$ is the interquartile range",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "Q"
+   ],
+   "from": "eda-for-regression"
+  },
+  {
+   "tex": "$\\hat{p}(x)$",
+   "meaning": "Kernel density estimate at $x$",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "hat(p)"
+   ],
+   "from": "eda-for-regression"
+  },
+  {
+   "tex": "$K(\\cdot)$",
+   "meaning": "Kernel function (usually the normal density)",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "K"
+   ],
+   "from": "eda-for-regression"
+  },
+  {
+   "tex": "$h$",
+   "meaning": "Bandwidth: how much the density is smoothed",
+   "kind": "Choice",
+   "typical": "Larger = smoother",
+   "keys": [
+    "h"
+   ],
+   "from": "eda-for-regression"
+  },
+  {
+   "tex": "$x_i$",
+   "meaning": "Observation $i$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "x"
+   ],
+   "from": "eda-for-regression"
+  },
+  {
+   "tex": "$X$, $x_i$",
+   "meaning": "Random variable; observation $i$ of it",
+   "kind": "Random variable / data",
+   "typical": "—",
+   "keys": [
+    "X",
+    "x"
+   ],
+   "from": "skewness-and-kurtosis"
+  },
+  {
+   "tex": "$\\mu$, $\\bar{x}$",
+   "meaning": "Population mean; sample mean",
+   "kind": "Parameter / statistic",
+   "typical": "—",
+   "keys": [
+    "mu",
+    "bar(x)"
+   ],
+   "from": "skewness-and-kurtosis"
+  },
+  {
+   "tex": "$\\sigma$",
+   "meaning": "Standard deviation",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "sigma"
+   ],
+   "from": "skewness-and-kurtosis"
+  },
+  {
+   "tex": "$S$",
+   "meaning": "Skewness: third standardized moment",
+   "kind": "Statistic",
+   "typical": "0 for any symmetric distribution",
+   "keys": [
+    "S"
+   ],
+   "from": "skewness-and-kurtosis"
+  },
+  {
+   "tex": "$\\ln L$",
+   "meaning": "Maximized log-likelihood of a fitted family",
+   "kind": "Statistic",
+   "typical": "Higher is better",
+   "keys": [
+    "L"
+   ],
+   "from": "cullen-frey-graph"
+  },
+  {
+   "tex": "$AIC$",
+   "meaning": "Akaike information criterion, $2k - 2\\ln L$",
+   "kind": "Statistic",
+   "typical": "Lower is better",
+   "keys": [
+    "~AIC"
+   ],
+   "from": "cullen-frey-graph"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Look at every variable on its own before regressing anything. Six tools each answer a different question about one variable: what range and missing values it has, what shape its distribution takes, how heavy its tails are and which standard distribution it resembles. In the lecture's Prestige data, income has a mean of 6,798 against a median of 5,930 and a skewness of 2.16: a long right tail that every one of the tools picks up.**"
+      },
+      {
+       "t": "callout",
+       "kind": "info",
+       "title": "Source",
+       "md": "The course notebook `Regression_Lecture1_Adv.ipynb` is labelled \"Lecture 1\" but covers seven lectures, one per major heading. This note is its section 1. L2 to L7 cover sections 2 to 6 and the appendix.",
+       "folded": false
+      }
+     ],
+     "words": 116,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "1-summary-statistics",
+   "heading": "1. Summary statistics",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-summary-statistics-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The first pass is a table: count, mean, standard deviation, quartiles, minimum and maximum, plus [Skewness and Kurtosis](note:skewness-and-kurtosis), and a count of missing values. On 100 simulated standard normal draws the table shows what \"normal\" looks like: mean 0.08, skewness 0.014 and kurtosis 0.125. Skew shows up as a gap between the mean and the median. A lognormal distribution, the textbook model of right-skewed incomes, shows which way the gap runs."
+      },
+      {
+       "t": "interactive",
+       "widget": "lognormal-inequality-explorer",
+       "state": {
+        "mu": 3,
+        "sigma": 1
+       },
+       "lock": [
+        "mu"
+       ],
+       "show": [
+        "density",
+        "mean",
+        "median"
+       ],
+       "prompt": "Predict where the mean of a strongly right-skewed distribution sits relative to its median",
+       "predict": {
+        "hide": [
+         "mean",
+         "median"
+        ],
+        "ask": "This lognormal has $\\mu = 3$ and $\\sigma = 1$, so its density has a long right tail. Where does the mean sit relative to the median?",
+        "options": [
+         "At the median: the curve has a single peak, so mean and median coincide",
+         "Below the median: most of the mass sits at low values",
+         "Above the median, by a factor of about 1.65"
+        ],
+        "answer": 2,
+        "why": "The median of a lognormal is $e^{\\mu} = e^3 = 20.09$ and the mean is $e^{\\mu + \\sigma^2/2} = e^{3.5} = 33.12$, a ratio of $e^{0.5} = 1.65$. The long right tail pulls the mean above the median, as income's mean of 6,798 sits above its median of 5,930 in the Prestige data. Then slide $\\sigma$: the gap grows with the skew.",
+        "feedback": [
+         "Mean and median coincide for symmetric distributions. Here the right tail is long, and the mean weights those large values in full.",
+         "Most observations are indeed low, which is why the median is low. The few very large values pull the mean up, not down.",
+         null
+        ]
+       },
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 88,
+     "symbols": [
+      "$\\mu$, $\\bar{x}$",
+      "$\\sigma$"
+     ]
+    },
+    {
+     "id": "1-summary-statistics-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "On the Prestige data (102 occupations) the table flags two things at once: the `type` column has 4 missing values, and income is right-skewed, with its mean of 6,798 above its median of 5,930.5, skewness 2.16 and kurtosis 6.47."
+      }
+     ],
+     "words": 44,
+     "symbols": []
+    },
+    {
+     "id": "1-summary-statistics-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "The lecture's table for 100 simulated standard normal draws reports skewness 0.014 and kurtosis 0.125, computed with `scipy.stats`. What does the kurtosis figure say about the tails?",
+       "options": [
+        {
+         "md": "They are far lighter than a normal's, because a normal has kurtosis 3",
+         "correct": false,
+         "feedback": "`scipy.stats.kurtosis` reports excess kurtosis, $K - 3$, by default. On that scale a normal scores 0, so 0.125 is close to normal, not far below it."
+        },
+        {
+         "md": "They are close to a normal's: the figure is excess kurtosis, and a normal scores 0 on that scale",
+         "correct": true
+        },
+        {
+         "md": "They are heavier than a normal's, because any positive kurtosis means heavy tails",
+         "correct": false,
+         "feedback": "On the excess scale only clearly positive values signal heavy tails. With 100 draws, 0.125 is well within sampling noise around 0."
+        }
+       ],
+       "why": "Kurtosis $K = E[(X-\\mu)^4]/\\sigma^4$ equals 3 for a normal, and `scipy.stats.kurtosis` subtracts that 3. So 0.125 means $K \\approx 3.125$, essentially normal, as it should be for normal draws. The statsmodels regression summary and Jarque-Bera report $K$ itself, so always check which scale a table uses.",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 75,
+     "symbols": [
+      "$K(\\cdot)$",
+      "$X$, $x_i$",
+      "$\\mu$, $\\bar{x}$",
+      "$\\sigma$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "2-histograms",
+   "heading": "2. Histograms",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-histograms-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A histogram shows outliers, shape, range and clustering. The number of bins matters. Sturges' rule, $k = 1 + \\log_2 n$, depends only on the sample size; the Freedman-Diaconis rule uses the interquartile range, so it adapts to the spread and is not thrown off by outliers. On 1,000 normal and 1,000 exponential draws, Sturges gives 11 bins for both, while FD gives more and shows the exponential's sharp peak at zero ([EDA for Regression](note:eda-for-regression))."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Histogram bin rules - Sturges vs Freedman-Diaconis.png",
+       "alt": "Histogram bin rules - Sturges vs Freedman-Diaconis"
+      }
+     ],
+     "words": 71,
+     "symbols": [
+      "$n$",
+      "$k$"
+     ]
+    },
+    {
+     "id": "2-histograms-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "Sturges' rule sets the number of histogram bins to $k = 1 + \\log_2 n$. With $n = 200$ observations, what is $k$ before rounding? Give two decimal places.",
+       "answer": 8.64,
+       "tol": 0.01,
+       "wrong": [
+        {
+         "answer": 7.64,
+         "tol": 0.01,
+         "md": "that is $\\log_2 200$ alone; Sturges adds 1"
+        },
+        {
+         "answer": 6.3,
+         "tol": 0.01,
+         "md": "that uses the natural log; the rule uses base 2, $\\log_2 200 = \\ln 200/\\ln 2 = 7.64$"
+        },
+        {
+         "answer": 3.3,
+         "tol": 0.01,
+         "md": "that uses the base-10 log; the rule uses base 2"
+        }
+       ],
+       "why": "$\\log_2 200 = \\ln 200/\\ln 2 = 5.298/0.693 = 7.64$, so $k = 1 + 7.64 = 8.64$, which rounds up to 9 bins. Sturges grows only with $\\log n$: doubling the sample adds one bin.",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 19,
+     "symbols": [
+      "$n$",
+      "$k$"
+     ]
+    },
+    {
+     "id": "2-histograms-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "The Freedman-Diaconis rule in the lecture gives $n^{1/3}(\\max - \\min)/(2(Q_3 - Q_1))$ bins. For Prestige income, $n = 102$, the minimum is 611, the maximum 25,879, $Q_1 = 4{,}106$ and $Q_3 = 8{,}187.25$. How many bins does it give, before rounding?",
+       "answer": 14.46,
+       "tol": 0.05,
+       "wrong": [
+        {
+         "answer": 28.93,
+         "tol": 0.05,
+         "md": "that leaves out the 2 in the denominator, $2(Q_3 - Q_1)$"
+        },
+        {
+         "answer": 7.67,
+         "tol": 0.05,
+         "md": "that is Sturges' $1 + \\log_2 102$, not Freedman-Diaconis"
+        },
+        {
+         "answer": 13.9,
+         "tol": 0.05,
+         "md": "that uses the standard deviation, 4,246, in place of the interquartile range"
+        }
+       ],
+       "why": "The range is $25{,}879 - 611 = 25{,}268$, the interquartile range $8{,}187.25 - 4{,}106 = 4{,}081.25$ and $102^{1/3} = 4.67$. So $4.67 \\times 25{,}268/(2 \\times 4{,}081.25) = 14.46$: about twice the 7.67 bins Sturges gives, because income's range is wide relative to its middle half.",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 28,
+     "symbols": [
+      "$n$",
+      "$Q_1$, $Q_3$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "3-density-estimation",
+   "heading": "3. Density estimation",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "3-density-estimation-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A [kernel density estimate](note:kernel-density-estimation) smooths the histogram: it places a small bump on every observation and adds them up, $\\widehat{p}(x) = \\frac{1}{nh}\\sum K((x - x_i)/h)$. The bandwidth $h$ controls the smoothness. In the lecture's plot of 1,000 exponential draws, the default bandwidth (red) is compared with half of it (blue dashed), and a rug plot marks every observation."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Kernel density estimate - two bandwidths on exponential data.png",
+       "alt": "Kernel density estimate - two bandwidths on exponential data"
+      }
+     ],
+     "words": 52,
+     "symbols": [
+      "$n$",
+      "$\\hat{p}(x)$",
+      "$K(\\cdot)$",
+      "$h$",
+      "$x_i$"
+     ]
+    },
+    {
+     "id": "3-density-estimation-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "In the lecture's density plot, the blue dashed curve halves the default bandwidth (`bw_adjust=0.5`). Compared with the red default curve, what does it do?",
+       "options": [
+        {
+         "md": "It is smoother, because each observation's bump is narrower and so overlaps less",
+         "correct": false,
+         "feedback": "Narrower bumps overlap less, which makes the sum *more* jagged, not smoother: each observation's position shows through."
+        },
+        {
+         "md": "It is unchanged except near zero: the bandwidth only matters at the boundary",
+         "correct": false,
+         "feedback": "The bandwidth sets the width of every bump, so it changes the curve everywhere, including the wiggles in the tail."
+        },
+        {
+         "md": "It follows the data more closely, with a sharper peak near zero and more wiggles in the tail: less bias but more variance",
+         "correct": true
+        }
+       ],
+       "why": "Each observation contributes a bump of width $h$. Halving $h$ lets the estimate track local detail, which reduces the smoothing bias (the peak at zero is less flattened) but raises the variance (random clumps of draws show up as bumps). A larger $h$ does the reverse.",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 76,
+     "symbols": [
+      "$h$"
+     ]
+    },
+    {
+     "id": "3-density-estimation-3",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "kernel-density-bandwidth-explorer",
+       "prompt": "Slide the bandwidth and watch a density estimate move from spiky to over-smoothed",
+       "status": "planned",
+       "purpose": "See the bias-variance trade-off of the bandwidth h: small h follows noise, large h flattens real features, compared against the true density",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 13,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "4-quantile-plots",
+   "heading": "4. Quantile plots",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "4-quantile-plots-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A [Q-Q Plot](note:q-q-plot) compares a variable's quantiles with those of a reference distribution, the normal by default. On a straight line the reference fits; the bends at the ends say how it fails. Prestige income bends above the line at both ends: right skew. Split by occupation type the plots straighten, so much of the skew comes from pooling groups with different income levels. The standardized residuals of a regression of prestige on income, education and type lie close to the line."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/QQ plot - Prestige income.png",
+       "alt": "QQ plot - Prestige income"
+      }
+     ],
+     "words": 82,
+     "symbols": []
+    },
+    {
+     "id": "4-quantile-plots-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "A Q-Q plot of a variable against the normal shows the points on the line in the middle, but at both ends the points sit above the line, so the plot curves upward like a bowl. What does that say about the distribution?",
+       "options": [
+        {
+         "md": "Heavy tails on both sides: more extreme values than a normal in both directions",
+         "correct": false,
+         "feedback": "Heavy tails bend the two ends in opposite directions: below the line on the left, above it on the right. Here both ends are above."
+        },
+        {
+         "md": "Right skew: a compressed left tail and a stretched right tail, as with Prestige income",
+         "correct": true
+        },
+        {
+         "md": "Left skew: a long left tail",
+         "correct": false,
+         "feedback": "A long left tail puts the smallest observations *below* what the normal predicts, so the left end would fall below the line, and the plot would be concave."
+        },
+        {
+         "md": "Light tails: fewer extreme values than a normal",
+         "correct": false,
+         "feedback": "Light tails also bend the ends in opposite directions, above on the left and below on the right."
+        }
+       ],
+       "why": "Above the line means larger than the normal predicts at that rank. At the left end the smallest values are not as small as a normal's (a short left tail); at the right end the largest are much larger (a long right tail). That is right skew, matching income's skewness of 2.16: the top incomes reach about 25,000 where the normal line predicts about 16,000.",
+       "objectives": [
+        4
+       ]
+      }
+     ],
+     "words": 86,
+     "symbols": []
+    },
+    {
+     "id": "4-quantile-plots-3",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "q-q-plot-shape-explorer",
+       "prompt": "Change a distribution's skew and tails and see how each bends the Q-Q plot",
+       "status": "planned",
+       "purpose": "Learn the four Q-Q signatures (right skew, left skew, heavy tails, light tails) by generating them",
+       "objectives": [
+        4
+       ]
+      }
+     ],
+     "words": 14,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "5-boxplots",
+   "heading": "5. Boxplots",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "5-boxplots-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A boxplot shows the median, the quartiles (the box), the whiskers and the outliers beyond them. Its strength is comparing groups side by side. On the Ornstein data (interlocking directorships of 248 Canadian firms) the Canadian-controlled firms have the widest box and the most outliers, US-controlled firms the lowest median. A plot of means with standard-deviation bars hides that skew and even runs below zero for a count."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Parallel boxplots - Ornstein interlocks by nation.png",
+       "alt": "Parallel boxplots - Ornstein interlocks by nation"
+      }
+     ],
+     "words": 68,
+     "symbols": []
+    },
+    {
+     "id": "5-boxplots-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "In the lecture's spread-level table (interlocks + 1), the medians and hinge spreads (interquartile ranges) are Canada 13 and 24, Other 15.5 and 20, UK 9 and 10, US 6 and 11. What pattern do the boxplots show, and what does it suggest?",
+       "options": [
+        {
+         "md": "The spreads are roughly equal, so no transformation is needed",
+         "correct": false,
+         "feedback": "The hinge spreads run from 10 to 24, more than a factor of two, and the boxplots show the Canadian box far taller than the UK's."
+        },
+        {
+         "md": "Groups with higher medians have larger spreads, which suggests a variance-stabilizing power transformation such as the log",
+         "correct": true
+        },
+        {
+         "md": "The US has the most outliers, so its observations should be dropped",
+         "correct": false,
+         "feedback": "Canada has the most outliers. And outliers in a skewed count are a reason to transform, not to delete data."
+        }
+       ],
+       "why": "The two groups with the highest medians, Canada (13) and Other (15.5), have spreads of 24 and 20; the UK (9) and US (6) have spreads of 10 and 11. Spread rising with level is the signature that a power below 1 will even out the boxes. L5's spread-level plot turns the pattern into a number: a power of about 0.15, so a log.",
+       "objectives": [
+        5
+       ]
+      }
+     ],
+     "words": 82,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "6-the-cullen-frey-graph",
+   "heading": "6. The Cullen-Frey graph",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "6-the-cullen-frey-graph-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The [Cullen-Frey Graph](note:cullen-frey-graph) places a sample on the plane of squared skewness and kurtosis, where the normal and uniform are points, the gamma and lognormal are lines and the beta is a region. Bootstrapped replicates show how uncertain the position is. The lecture applies it to serving sizes in the `groundbeef` data (skewness 0.735, kurtosis 3.55), then fits the nearby families by maximum likelihood: gamma has the highest log-likelihood (−1,253.6) and lowest AIC (2,511.3), ahead of Weibull (2,514.4) and lognormal (2,526.6)."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Cullen-Frey graph - groundbeef serving sizes.png",
+       "alt": "Cullen-Frey graph - groundbeef serving sizes"
+      }
+     ],
+     "words": 91,
+     "symbols": []
+    },
+    {
+     "id": "6-the-cullen-frey-graph-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "The Cullen-Frey graph's horizontal axis is the squared skewness. The `groundbeef` serving sizes have skewness 0.735 and kurtosis 3.55. At what horizontal position does the observation sit? Give three decimal places.",
+       "answer": 0.541,
+       "tol": 0.002,
+       "wrong": [
+        {
+         "answer": 0.735,
+         "tol": 0.002,
+         "md": "that is the skewness itself; the axis is its square"
+        },
+        {
+         "answer": 3.55,
+         "tol": 0.002,
+         "md": "that is the kurtosis, which goes on the vertical axis"
+        },
+        {
+         "answer": 1.471,
+         "tol": 0.002,
+         "md": "that doubles the skewness instead of squaring it"
+        }
+       ],
+       "why": "$0.735^2 = 0.541$, so the point is $(0.541, 3.55)$. At $S^2 = 0.541$ the gamma line is at $K = 3 + 1.5 \\times 0.541 = 3.81$, so the sample lies just below the gamma line, inside the beta region: gamma, Weibull and lognormal are the natural candidates to fit.",
+       "objectives": [
+        6
+       ]
+      }
+     ],
+     "words": 33,
+     "symbols": [
+      "$K(\\cdot)$",
+      "$S$"
+     ]
+    },
+    {
+     "id": "6-the-cullen-frey-graph-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "The lecture fits three two-parameter families to the serving sizes. Their AICs are 2,514.4 (Weibull), 2,526.6 (lognormal) and 2,511.3 (gamma). Which fits best, and why can AIC be compared directly here?",
+       "options": [
+        {
+         "md": "Lognormal: it has the largest AIC",
+         "correct": false,
+         "feedback": "Lower AIC is better: $AIC = 2k - 2\\ln L$ rises as the log-likelihood falls."
+        },
+        {
+         "md": "They cannot be ranked without a hypothesis test",
+         "correct": false,
+         "feedback": "AIC is designed to rank non-nested models without a test. Here all three also have the same number of parameters."
+        },
+        {
+         "md": "Gamma: it has the lowest AIC, and with two parameters each the AIC ranking is the same as the log-likelihood ranking",
+         "correct": true
+        }
+       ],
+       "why": "$AIC = 2k - 2\\ln L$. With $k = 2$ for every family, the penalty $2k = 4$ is the same for all three, so the ranking follows $\\ln L$: gamma −1,253.6, Weibull −1,255.2, lognormal −1,261.3. The four comparison plots agree: the lognormal over-predicts the upper tail.",
+       "objectives": [
+        6
+       ]
+      }
+     ],
+     "words": 72,
+     "symbols": [
+      "$k$",
+      "$\\ln L$",
+      "$AIC$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "math-refresher",
+   "heading": "Math refresher",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "math-refresher-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Math Prep L7 Approximations Logs and Series](note:math-prep-l7-approximations-logs-and-series) — logs, used to read skewed variables and the lognormal\n- [Math Prep L8 Integration for Probability](note:math-prep-l8-integration-for-probability) — densities, moments and expected values"
+      }
+     ],
+     "words": 29,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Read a summary-statistics table: spot missing values and skew from the mean against the median, and read skewness and (excess) kurtosis.\n2. Compute and compare the Sturges and Freedman-Diaconis bin counts.\n3. Explain how the bandwidth of a kernel density estimate trades bias against variance.\n4. Read a Q-Q plot: name the pattern for right skew, left skew, heavy tails and light tails.\n5. Use parallel boxplots to compare a variable across groups and spot spread rising with level.\n6. Place a sample on the Cullen-Frey graph and rank fitted distributions by log-likelihood or AIC."
+      }
+     ],
+     "words": 96,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "eda-for-regression",
+        "skewness-and-kurtosis",
+        "kernel-density-estimation",
+        "q-q-plot",
+        "cullen-frey-graph"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

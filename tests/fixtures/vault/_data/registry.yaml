@@ -1,0 +1,20 @@
+# Chart-ready datasets for the MQE lesson player - one entry per file in exports/.
+# Written by _data/mqe_export.py (the last cell of each notebook) and checked by `_meta/vault_tool.py check`.
+# Titles and units may be edited by hand; the sha256 must keep matching the file.
+toy-saving-rates:
+  title: Toy saving rates by country group, 2000–2020
+  file: exports/toy-saving-rates.csv
+  notebook: notebooks/toy-saving.ipynb
+  raw_inputs:
+  - C:/toy/survey.csv
+  data_source: '[[Toy Survey]]'
+  columns:
+    year:
+      unit: year
+    group:
+      unit: group
+    rate:
+      unit: share of income
+  period: 2000–2020
+  generated: '2026-10-13'
+  sha256: 0f711cfc320b1b433409a6e3476816010df8bbbd4d6fe3e18c6dd414ecdd844c

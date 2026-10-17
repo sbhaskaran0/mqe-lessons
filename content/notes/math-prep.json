@@ -1,0 +1,130 @@
+{
+ "slug": "math-prep",
+ "notation": [
+  {
+   "tex": "$\\mathbf{b}$",
+   "meaning": "Target vector in $A\\mathbf{x} = \\mathbf{b}$",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(b)"
+   ],
+   "from": "column-space"
+  },
+  {
+   "tex": "$\\mathbf{X}$, $\\mathbf{b}$, $\\hat{\\mathbf{y}}$",
+   "meaning": "Regressors, coefficients and fitted values in the regression reading",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(X)",
+    "bold(b)",
+    "hat(bold(y))"
+   ],
+   "from": "column-space"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A refresher, not a first course. It assumes Calc 2 and a first course in linear algebra, so it skips mechanics (differentiating, integrating, multiplying matrices) and goes straight to the results the MQE courses actually lean on — each one tied to where it shows up."
+      }
+     ],
+     "words": 45,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "how-to-use-it",
+   "heading": "How to use it",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "how-to-use-it-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Open a unit and try its **Self-check** first; each question folds open to reveal the answer.\n2. If you get one wrong or it takes more than a couple of minutes, read the linked concept note.\n3. If you get them all, skip the unit."
+      }
+     ],
+     "words": 46,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "units",
+   "heading": "Units",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "units-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Unit | Topics | Needed for |\n| --- | --- | --- |\n| [Math Prep L1 Matrix Algebra Essentials](note:math-prep-l1-matrix-algebra-essentials) | Identities, inverses, determinants, partitioned matrices, trace | Every matrix derivation in [Econ 430 L7 The Classical Linear Regression Model](note:econ-430-l7-the-classical-linear-regression-model) |\n| [Math Prep L2 Vector Spaces Rank and Projection](note:math-prep-l2-vector-spaces-rank-and-projection) | Column space, rank, orthogonality, projection | OLS geometry, identification, FWL in [Econ 424 L2 Between-Group Inequality](note:econ-424-l2-between-group-inequality) |\n| [Math Prep L3 Eigenvalues and Quadratic Forms](note:math-prep-l3-eigenvalues-and-quadratic-forms) | Eigenvalues, spectral decomposition, definiteness | Second-order conditions, $\\mathbf{X}'\\mathbf{X}$, GLS later |\n| [Math Prep L4 Multivariable Differentiation](note:math-prep-l4-multivariable-differentiation) | Partials, chain rule, Hessian, implicit functions, homogeneity | CES wages and the skill premium; comparative statics |\n| [Math Prep L5 Matrix Calculus](note:math-prep-l5-matrix-calculus) | Derivatives of linear and quadratic forms | Deriving $\\mathbf{b} = (\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{y}$ |\n| [Math Prep L6 Optimization](note:math-prep-l6-optimization) | FOC/SOC, convexity and Jensen, Lagrangians, envelope theorem | Least squares, MLE, any micro or labor model |\n| [Math Prep L7 Approximations Logs and Series](note:math-prep-l7-approximations-logs-and-series) | Taylor, logs and growth rates, L'Hôpital, geometric series | Interpreting log models and log gaps; Box-Cox; CES limits |\n| [Math Prep L8 Integration for Probability](note:math-prep-l8-integration-for-probability) | Integration by parts, change of variables, Leibniz rule, double integrals | Expectations, lognormal wages, Gini integrals, LIE proofs |"
+      }
+     ],
+     "words": 169,
+     "symbols": [
+      "$\\mathbf{b}$",
+      "$\\mathbf{X}$, $\\mathbf{b}$, $\\hat{\\mathbf{y}}$"
+     ]
+    },
+    {
+     "id": "units-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The Concept Index lists a study order for every course; prerequisites from this course appear there in italics wherever an Econ concept needs them."
+      }
+     ],
+     "words": 24,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "course-arc-so-far",
+   "heading": "Course arc so far",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "course-arc-so-far-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The first units build the tools a regression derivation needs. [Math Prep L1 Matrix Algebra Essentials](note:math-prep-l1-matrix-algebra-essentials) gives the rules for products, inverses, blocks and the [Trace of a Matrix](note:trace-of-a-matrix). [Math Prep L2 Vector Spaces Rank and Projection](note:math-prep-l2-vector-spaces-rank-and-projection) reads OLS as a projection onto the [Column Space](note:column-space), with [Linear Independence and Rank](note:linear-independence-and-rank) deciding uniqueness. [Math Prep L3 Eigenvalues and Quadratic Forms](note:math-prep-l3-eigenvalues-and-quadratic-forms) adds [Quadratic Forms and Definiteness](note:quadratic-forms-and-definiteness), which tells you a critical point is a minimum."
+      }
+     ],
+     "words": 74,
+     "symbols": []
+    },
+    {
+     "id": "course-arc-so-far-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Math Prep L4 Multivariable Differentiation](note:math-prep-l4-multivariable-differentiation) moves to calculus: partials, the [Hessian Matrix](note:hessian-matrix) and comparative statics. [Math Prep L5 Matrix Calculus](note:math-prep-l5-matrix-calculus) combines it with the matrix units to derive the OLS formula, and [Math Prep L6 Optimization](note:math-prep-l6-optimization) generalizes to constraints, with [Constrained Optimization and Lagrange Multipliers](note:constrained-optimization-and-lagrange-multipliers) and the [Envelope Theorem](note:envelope-theorem). [Math Prep L7 Approximations Logs and Series](note:math-prep-l7-approximations-logs-and-series) covers [Logarithms and Growth Rates](note:logarithms-and-growth-rates) and the series behind interpretation, and [Math Prep L8 Integration for Probability](note:math-prep-l8-integration-for-probability) handles expectations, with [Integration by Parts](note:integration-by-parts) and the [Leibniz Integral Rule](note:leibniz-integral-rule)."
+      },
+      {
+       "t": "prose",
+       "md": "Together the units run from algebra and geometry (L1–L3) to calculus and optimization (L4–L6) to approximation and integration (L7–L8), the tools the econometrics and economics courses use."
+      }
+     ],
+     "words": 114,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

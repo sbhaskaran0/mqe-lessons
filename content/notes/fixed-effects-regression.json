@@ -1,0 +1,270 @@
+{
+ "slug": "fixed-effects-regression",
+ "notation": [
+  {
+   "tex": "$y_{it}$",
+   "meaning": "Outcome for unit $i$ in period $t$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "y"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{x}_{it}$",
+   "meaning": "Regressors that vary within units over time",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "bold(x)"
+   ]
+  },
+  {
+   "tex": "$\\beta$",
+   "meaning": "Coefficients of interest",
+   "kind": "Parameter",
+   "typical": "2 in the example",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$\\alpha_i$",
+   "meaning": "Unit fixed effect: everything permanent about unit $i$",
+   "kind": "Parameter (one per unit)",
+   "typical": "—",
+   "keys": [
+    "alpha"
+   ]
+  },
+  {
+   "tex": "$\\delta_t$",
+   "meaning": "Time fixed effect: shocks common to all units in $t$",
+   "kind": "Parameter (one per period)",
+   "typical": "—",
+   "keys": [
+    "delta"
+   ]
+  },
+  {
+   "tex": "$\\varepsilon_{it}$",
+   "meaning": "Error",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "varepsilon"
+   ]
+  },
+  {
+   "tex": "$\\bar{y}_i$",
+   "meaning": "Unit $i$'s average over time",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "bar(y)"
+   ]
+  },
+  {
+   "tex": "$\\ddot{y}_{it}$, $\\ddot{\\mathbf{x}}_{it}$",
+   "meaning": "Within-unit deviations from the unit's average",
+   "kind": "Data (transformed)",
+   "typical": "—",
+   "keys": [
+    "ddot(y)",
+    "ddot(bold(x))"
+   ]
+  },
+  {
+   "tex": "$x$",
+   "meaning": "Observed value",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "x"
+   ],
+   "from": "classical-measurement-error"
+  },
+  {
+   "tex": "$\\hat\\beta$",
+   "meaning": "OLS slope using the observed $x$",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "hat(beta)"
+   ],
+   "from": "classical-measurement-error"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Firms, regions and industries differ in countless permanent ways we cannot measure — management quality, location, technology. If those hidden traits are related to both the cause and the outcome, a simple regression mixes them up. Fixed effects solve this by comparing each unit only with itself over time: what happens to a firm's wages when *its own* imports rise? Every permanent trait drops out because it does not change. Adding year effects does the same for shocks that hit every unit in a given year. The price is that only changes within units are used, and anything that changes over time and is correlated with the cause is still a problem."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It removes a whole class of omitted-variable bias — everything permanent about each unit — at the cost of a single assumption about what does not change.",
+       "folded": false
+      }
+     ],
+     "words": 139,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With unit effects $\\alpha_i$ and time effects $\\delta_t$:"
+      },
+      {
+       "t": "math",
+       "tex": "y_{it} = \\mathbf{x}_{it}'\\beta + \\alpha_i + \\delta_t + \\varepsilon_{it}"
+      },
+      {
+       "t": "prose",
+       "md": "By the [Frisch-Waugh-Lovell Theorem](note:frisch-waugh-lovell-theorem), including a dummy for each unit gives the same $\\hat\\beta$ as OLS on demeaned data:"
+      },
+      {
+       "t": "math",
+       "tex": "\\ddot{y}_{it} = \\ddot{\\mathbf{x}}_{it}'\\beta + \\ddot{\\varepsilon}_{it}, \\qquad \\ddot{y}_{it} = y_{it} - \\bar{y}_i"
+      }
+     ],
+     "words": 24,
+     "symbols": [
+      "$y_{it}$",
+      "$\\mathbf{x}_{it}$",
+      "$\\beta$",
+      "$\\alpha_i$",
+      "$\\delta_t$",
+      "$\\varepsilon_{it}$",
+      "$\\bar{y}_i$",
+      "$\\ddot{y}_{it}$, $\\ddot{\\mathbf{x}}_{it}$",
+      "$\\hat\\beta$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Two firms, two years:"
+      },
+      {
+       "t": "table",
+       "md": "| Firm | Year | $x$ (imports) | $y$ (outcome) |\n| --- | --- | --- | --- |\n| A | 1 | 1 | 5 |\n| A | 2 | 3 | 9 |\n| B | 1 | 4 | 2 |\n| B | 2 | 6 | 6 |"
+      },
+      {
+       "t": "prose",
+       "md": "Pooled OLS gives a slope of **−0.08**: firm B has more imports but a much lower outcome level, for reasons unrelated to imports. Within each firm, a 2-unit rise in $x$ comes with a 4-unit rise in $y$, so the fixed-effects slope is **2**. The permanent difference between A and B was driving the pooled result."
+      }
+     ],
+     "words": 83,
+     "symbols": [
+      "$y_{it}$",
+      "$x$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "what-it-does-and-does-not-fix",
+   "heading": "What it does and does not fix",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-it-does-and-does-not-fix-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Problem | Fixed effects |\n| --- | --- |\n| Permanent unobserved differences across units | Removed by $\\alpha_i$ |\n| Shocks common to all units in a year | Removed by $\\delta_t$ |\n| Unobservables that change over time within a unit (e.g. a firm's productivity this year) | **Not** removed — needs an instrument or other design |\n| Regressors that never change within a unit | Cannot be estimated (absorbed by $\\alpha_i$) |\n| Measurement error in $x$ | Often made worse: within-unit variation is smaller, so noise is a larger share ([Classical Measurement Error](note:classical-measurement-error)) |"
+      }
+     ],
+     "words": 76,
+     "symbols": [
+      "$\\alpha_i$",
+      "$\\delta_t$",
+      "$x$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Believing fixed effects make a regression causal. Time-varying confounders remain: highly productive firm-years both trade more and pay more.\n- Including a time-invariant regressor and expecting a coefficient for it.\n- Forgetting that standard errors should usually be clustered by unit, since errors for the same unit are correlated over time ([Clustered Standard Errors](note:clustered-standard-errors))."
+      }
+     ],
+     "words": 55,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Panel data everywhere: firms over time, regions over time, workers over time.\n- The backbone of [Difference-in-Differences](note:difference-in-differences) with unit and time effects."
+      }
+     ],
+     "words": 23,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Frisch-Waugh-Lovell Theorem](note:frisch-waugh-lovell-theorem) · [Indicator Variables](note:indicator-variables) · [Difference-in-Differences](note:difference-in-differences) · [Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls)"
+      }
+     ],
+     "words": 10,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

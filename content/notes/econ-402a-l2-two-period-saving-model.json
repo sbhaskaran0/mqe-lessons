@@ -1,0 +1,1419 @@
+{
+ "slug": "econ-402a-l2-two-period-saving-model",
+ "notation": [
+  {
+   "tex": "$y_1$, $y_2$",
+   "meaning": "Income in periods 1 and 2",
+   "kind": "Exogenous",
+   "typical": "180, 216",
+   "keys": [
+    "y"
+   ],
+   "from": "two-period-consumption-saving-model"
+  },
+  {
+   "tex": "$c_1$, $c_2$",
+   "meaning": "Consumption in periods 1 and 2",
+   "kind": "Choice",
+   "typical": "200, 192",
+   "keys": [
+    "c"
+   ],
+   "from": "two-period-consumption-saving-model"
+  },
+  {
+   "tex": "$s = y_1 - c_1$",
+   "meaning": "Saving *amount* (negative = borrowing) — not the saving *rate* $s$ of the Solow model",
+   "kind": "Choice",
+   "typical": "−20",
+   "keys": [
+    "s"
+   ],
+   "from": "two-period-consumption-saving-model"
+  },
+  {
+   "tex": "$r$",
+   "meaning": "Interest rate",
+   "kind": "Exogenous to the consumer; endogenous in equilibrium",
+   "typical": "0.2",
+   "keys": [
+    "r"
+   ],
+   "from": "two-period-consumption-saving-model"
+  },
+  {
+   "tex": "$U(c_1, c_2)$",
+   "meaning": "Lifetime utility",
+   "kind": "Function",
+   "typical": "$\\ln c_1 + \\beta\\ln c_2$",
+   "keys": [
+    "U"
+   ],
+   "from": "two-period-consumption-saving-model"
+  },
+  {
+   "tex": "$\\beta$",
+   "meaning": "Discount factor",
+   "kind": "Parameter in (0, 1]",
+   "typical": "0.8",
+   "keys": [
+    "beta"
+   ],
+   "from": "two-period-consumption-saving-model"
+  },
+  {
+   "tex": "$k_1$, $k_2$",
+   "meaning": "Capital in each period (capital version)",
+   "kind": "State / choice",
+   "typical": "—",
+   "keys": [
+    "k"
+   ],
+   "from": "two-period-consumption-saving-model"
+  },
+  {
+   "tex": "$f(k)$, $f'(k)$",
+   "meaning": "Output and marginal product of capital (capital version)",
+   "kind": "Functions",
+   "typical": "—",
+   "keys": [
+    "f"
+   ],
+   "from": "two-period-consumption-saving-model"
+  },
+  {
+   "tex": "$\\lambda$",
+   "meaning": "Lagrange multiplier on the lifetime budget",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "lambda"
+   ],
+   "from": "consumption-euler-equation"
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "Capital share in $f(k) = k^{\\alpha}$ (capital version)",
+   "kind": "Parameter",
+   "typical": "1/3",
+   "keys": [
+    "alpha"
+   ],
+   "from": "consumption-euler-equation"
+  },
+  {
+   "tex": "$\\mathcal{L}$",
+   "meaning": "Lagrangian",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "cal(L)"
+   ],
+   "from": "constrained-optimization-and-lagrange-multipliers"
+  },
+  {
+   "tex": "$A$",
+   "meaning": "Total factor productivity (technology)",
+   "kind": "Exogenous; constant in the basic model",
+   "typical": "1 in the example",
+   "keys": [
+    "A"
+   ],
+   "from": "solow-growth-model"
+  },
+  {
+   "tex": "$\\delta$",
+   "meaning": "Depreciation rate: share of capital worn out each period",
+   "kind": "Parameter",
+   "typical": "0.1 in the example (≈ 0.05 in data)",
+   "keys": [
+    "delta"
+   ],
+   "from": "solow-growth-model"
+  },
+  {
+   "tex": "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$",
+   "meaning": "Steady-state values (an overbar always means steady state)",
+   "kind": "Endogenous",
+   "typical": "25, 5, 2.5 in the example",
+   "keys": [
+    "bar(k)",
+    "bar(y)",
+    "bar(c)"
+   ],
+   "from": "solow-growth-model"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Solow assumed a fixed saving rate; this lecture makes saving a choice. A consumer who lives two periods chooses consumption so that the value of one more unit today equals the value of saving it and consuming one plus interest tomorrow: MRS = 1 + r. Three forces drive the choice — consumption smoothing, impatience and the interest rate. With several consumers, the interest rate adjusts until savers' supply equals borrowers' demand; in the professor's example it is 0%, rising to 33.3% when one consumer's future income rises. When saving builds capital instead, the marginal product of capital plays the interest rate's role.**"
+      }
+     ],
+     "words": 101,
+     "symbols": []
+    },
+    {
+     "id": "intro-2",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "info",
+       "title": "Sources",
+       "md": "This summary follows the professor's **written notes**, with the typed notes' worked example, exercise and capital extension added (sections 7, 10 and 11). The model is a simplified version of [Fisher 1930 - The Theory of Interest](note:fisher-1930-the-theory-of-interest).\n**Notation:** here $s$ is the saving *amount*, $y_1 - c_1$ (negative when borrowing), not the saving *rate* $s$ of the Solow model.",
+       "folded": false
+      }
+     ],
+     "words": 55,
+     "symbols": [
+      "$y_1$, $y_2$",
+      "$c_1$, $c_2$",
+      "$s = y_1 - c_1$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1-where-this-fits",
+   "heading": "1. Where this fits",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-where-this-fits-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Today's version: fixed income, two periods, saving earns interest. Next time: saving generates capital, capital generates income, and the course returns to an infinite horizon — the bridge back to growth models like the [Solow Growth Model](note:solow-growth-model)."
+      }
+     ],
+     "words": 36,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "2-setup-and-budget-constraints",
+   "heading": "2. Setup and budget constraints",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-setup-and-budget-constraints-1",
+     "blocks": [
+      {
+       "t": "quote",
+       "md": "Paper summary: [Fisher 1930 - The Theory of Interest](note:fisher-1930-the-theory-of-interest)",
+       "papers": [
+        "fisher-1930-the-theory-of-interest"
+       ]
+      },
+      {
+       "t": "prose",
+       "md": "The consumer receives income $y_1$ and $y_2$ (an endowment, in units of the consumption good) and decides how much to save ($s > 0$) or borrow ($s < 0$) in period 1 at interest rate $r$. Period 1: $y_1 = c_1 + s$. Period 2: $y_2 + (1+r)s = c_2$. Substituting out $s$ gives one lifetime budget: the present value of income equals the present value of consumption ([Intertemporal Budget Constraint](note:intertemporal-budget-constraint))."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Two-period saving model - period and lifetime budget constraints.png",
+       "alt": "Two-period saving model - period and lifetime budget constraints"
+      }
+     ],
+     "words": 60,
+     "symbols": [
+      "$y_1$, $y_2$",
+      "$c_1$, $c_2$",
+      "$s = y_1 - c_1$",
+      "$r$"
+     ]
+    },
+    {
+     "id": "2-setup-and-budget-constraints-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Combine $y_1 = c_1 + s$ and $y_2 + (1+r)s = c_2$ by eliminating $s$. Which equation results?",
+       "options": [
+        {
+         "md": "$c_1 + c_2 = y_1 + y_2$",
+         "correct": false,
+         "feedback": "That drops the interest: a unit saved returns $1+r$ units tomorrow, so period-2 amounts must be divided by $1+r$ before they are added to period-1 amounts."
+        },
+        {
+         "md": "$c_1 + (1+r)c_2 = y_1 + (1+r)y_2$",
+         "correct": false,
+         "feedback": "That compounds tomorrow's amounts instead of discounting them. Substituting $s = y_1 - c_1$ gives $c_2 = y_2 + (1+r)(y_1 - c_1)$, and dividing by $1+r$ puts $c_2$ and $y_2$ *over* $1+r$."
+        },
+        {
+         "md": "$c_1 + \\frac{c_2}{1+r} = y_1 + \\frac{y_2}{1+r}$",
+         "correct": true
+        },
+        {
+         "md": "$c_1 + \\frac{c_2}{1+r} = y_1 + y_2$",
+         "correct": false,
+         "feedback": "Period-2 income arrives tomorrow just like period-2 consumption, so it is discounted the same way: $y_2$ also appears as $\\frac{y_2}{1+r}$."
+        }
+       ],
+       "why": "Period 1 gives $s = y_1 - c_1$. Substituting into period 2 gives $c_2 = y_2 + (1+r)(y_1 - c_1)$; divide by $1+r$ and collect consumption on the left. Present value of consumption equals present value of income: in the typed-notes example both sides are 360, since $200 + 192/1.2 = 180 + 216/1.2$.",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 7,
+     "symbols": [
+      "$y_1$, $y_2$",
+      "$c_1$, $c_2$",
+      "$s = y_1 - c_1$",
+      "$r$"
+     ]
+    },
+    {
+     "id": "2-setup-and-budget-constraints-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "A consumer with incomes $y_1 = 180$ and $y_2 = 216$ faces $r = 0.2$ and chooses $c_1 = 200$. Using the two period budget constraints, what is $c_2$?",
+       "answer": 192.0,
+       "tol": 0.5,
+       "vary": [
+        {
+         "sym": "y_2",
+         "lo": 180.0,
+         "hi": 240.0,
+         "step": 4.0
+        },
+        {
+         "sym": "r",
+         "lo": 0.1,
+         "hi": 0.3,
+         "step": 0.05
+        }
+       ],
+       "compute": "y_2 + (1+r)(y_1 - c_1)",
+       "bindings": [
+        {
+         "sym": "y_1",
+         "value": 180.0,
+         "span": "$y_1 = 180$"
+        },
+        {
+         "sym": "y_2",
+         "value": 216.0,
+         "span": "$y_2 = 216$"
+        },
+        {
+         "sym": "r",
+         "value": 0.2,
+         "span": "$r = 0.2$"
+        },
+        {
+         "sym": "c_1",
+         "value": 200.0,
+         "span": "$c_1 = 200$"
+        }
+       ],
+       "wrongCompute": [
+        {
+         "tex": "y_2 + y_1 - c_1",
+         "md": "that repays the loan without interest: borrowing $c_1 - y_1$ today costs $(1+r)(c_1 - y_1)$ tomorrow"
+        },
+        {
+         "tex": "y_2 + (1+r)(c_1 - y_1)",
+         "md": "that treats the borrowing as saving: $s = y_1 - c_1$ is negative here, so it lowers $c_2$"
+        },
+        {
+         "tex": "y_2 + \\frac{y_1 - c_1}{1+r}",
+         "md": "that discounts the repayment; a loan is repaid with interest, so $s$ is multiplied by $1+r$"
+        }
+       ],
+       "why": "Period 1 gives $s = y_1 - c_1$, which is negative: the consumer borrows. Period 2 gives $c_2 = y_2 + (1+r)s$, so the loan is repaid with interest out of period-2 income. With the typed-notes numbers the consumer borrows 20 and repays $1.2 \\times 20 = 24$, so $c_2 = 216 - 24 = 192$.",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 16,
+     "symbols": [
+      "$y_1$, $y_2$",
+      "$c_1$, $c_2$",
+      "$s = y_1 - c_1$",
+      "$r$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "3-the-consumers-problem",
+   "heading": "3. The consumer's problem",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "3-the-consumers-problem-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The consumer maximizes $U(c_1, c_2)$ subject to the lifetime budget, using a Lagrangian ([Constrained Optimization and Lagrange Multipliers](note:constrained-optimization-and-lagrange-multipliers)). Dividing the first two first-order conditions removes the multiplier and leaves the key condition:"
+      },
+      {
+       "t": "math",
+       "tex": "\\frac{\\partial U/\\partial c_1}{\\partial U/\\partial c_2} = 1 + r"
+      },
+      {
+       "t": "prose",
+       "md": "The left side is the [Marginal Rate of Substitution](note:marginal-rate-of-substitution) between today and tomorrow; this is the [Consumption Euler Equation](note:consumption-euler-equation)."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Two-period saving model - Lagrangian and first-order conditions.png",
+       "alt": "Two-period saving model - Lagrangian and first-order conditions"
+      }
+     ],
+     "words": 49,
+     "symbols": [
+      "$c_1$, $c_2$",
+      "$r$",
+      "$U(c_1, c_2)$"
+     ]
+    },
+    {
+     "id": "3-the-consumers-problem-2",
+     "blocks": [
+      {
+       "t": "derive",
+       "title": "Derive the optimality condition from the Lagrangian",
+       "objectives": [
+        2
+       ],
+       "symbols": [
+        "U_1",
+        "U_2",
+        "\\lambda",
+        "r \\in (0.01, 0.5)"
+       ],
+       "inherited": [
+        {
+         "tex": "$c_1$, $c_2$",
+         "typical": "200, 192 in the example",
+         "from": "consumption-euler-equation"
+        },
+        {
+         "tex": "$U(c_1, c_2)$",
+         "typical": "$\\ln c_1 + \\beta\\ln c_2$",
+         "from": "consumption-euler-equation"
+        },
+        {
+         "tex": "$r$",
+         "typical": "0.2",
+         "from": "consumption-euler-equation"
+        },
+        {
+         "tex": "$\\lambda$",
+         "typical": "—",
+         "from": "consumption-euler-equation"
+        },
+        {
+         "tex": "$y_1$, $y_2$",
+         "typical": "180, 216",
+         "from": "consumption-euler-equation"
+        }
+       ],
+       "unknowns": [
+        "$U_1$",
+        "$U_2$"
+       ],
+       "dims": [],
+       "data": [],
+       "matrices": [],
+       "define": [],
+       "given": [],
+       "steps": [
+        {
+         "md": "Write $U_1$ for $\\partial U/\\partial c_1$ and $U_2$ for $\\partial U/\\partial c_2$. With $\\mathcal{L} = U(c_1, c_2) + \\lambda\\left(y_1 + \\frac{y_2}{1+r} - c_1 - \\frac{c_2}{1+r}\\right)$, setting $\\partial\\mathcal{L}/\\partial c_1 = 0$ gives: $U_1 = \\lambda$",
+         "tex": "U_1 = \\lambda",
+         "justify": {
+          "prompt": "Why does the condition for $c_1$ read $U_1 = \\lambda$?",
+          "options": [
+           {
+            "md": "At the optimum the budget holds with equality, which is what $\\partial\\mathcal{L}/\\partial\\lambda = 0$ says",
+            "correct": false
+           },
+           {
+            "md": "$c_1$ enters the lifetime budget with coefficient 1, so $\\partial\\mathcal{L}/\\partial c_1 = U_1 - \\lambda$",
+            "correct": true
+           },
+           {
+            "md": "Utility is linear in $c_1$, so its derivative is the constant $\\lambda$",
+            "correct": false
+           }
+          ]
+         }
+        },
+        {
+         "md": "Setting $\\partial\\mathcal{L}/\\partial c_2 = 0$ gives: $U_2 = \\frac{\\lambda}{1+r}$",
+         "tex": "U_2 = \\frac{\\lambda}{1+r}",
+         "justify": {
+          "prompt": "Where does the factor $\\frac{1}{1+r}$ come from?",
+          "options": [
+           {
+            "md": "Future utility is discounted, and the discount factor equals $\\frac{1}{1+r}$",
+            "correct": false
+           },
+           {
+            "md": "Saving one unit returns $1+r$, so $\\partial\\mathcal{L}/\\partial c_2 = (1+r)U_2 - \\lambda$",
+            "correct": false
+           },
+           {
+            "md": "$c_2$ enters the lifetime budget as $\\frac{c_2}{1+r}$: one unit of period-2 consumption costs $\\frac{1}{1+r}$ in period-1 units",
+            "correct": true
+           }
+          ]
+         }
+        },
+        {
+         "md": "Divide the first condition by the second; $\\lambda$ cancels: $\\frac{U_1}{U_2} = 1 + r$",
+         "tex": "\\frac{U_1}{U_2} = 1 + r"
+        }
+       ],
+       "accept": [
+        "U_1 = (1+r)U_2"
+       ],
+       "reject": [
+        {
+         "tex": "\\frac{U_1}{U_2} = \\frac{1}{1+r}",
+         "md": "that inverts the price: $U_2 = \\frac{\\lambda}{1+r}$, so dividing $U_1 = \\lambda$ by it multiplies by $1+r$"
+        },
+        {
+         "tex": "U_1 = U_2",
+         "md": "that drops the interest rate; marginal utilities are equal only when $r = 0$"
+        },
+        {
+         "tex": "\\frac{U_1}{U_2} = r",
+         "md": "the price of today's consumption is the gross return: one unit saved buys $1+r$ units tomorrow, not $r$"
+        }
+       ]
+      }
+     ],
+     "words": 24,
+     "symbols": [
+      "$y_1$, $y_2$",
+      "$c_1$, $c_2$",
+      "$r$",
+      "$U(c_1, c_2)$",
+      "$\\lambda$",
+      "$\\mathcal{L}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "4-reading-mrs-1-r",
+   "heading": "4. Reading MRS = 1 + r",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "4-reading-mrs-1-r-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Rewrite it as $\\partial U/\\partial c_1 = (1+r)\\,\\partial U/\\partial c_2$: the benefit of consuming one more unit today equals the benefit of saving it, which buys $1+r$ units tomorrow. If $\\partial U/\\partial c_1 > (1+r)\\,\\partial U/\\partial c_2$ (MRS $> 1+r$), the consumer should raise $c_1$, lower $c_2$ and save less."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Two-period saving model - reading MRS equals 1 plus r.png",
+       "alt": "Two-period saving model - reading MRS equals 1 plus r"
+      }
+     ],
+     "words": 31,
+     "symbols": [
+      "$c_1$, $c_2$",
+      "$r$",
+      "$U(c_1, c_2)$"
+     ]
+    },
+    {
+     "id": "4-reading-mrs-1-r-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "At a consumer's current plan, $\\partial U/\\partial c_1 = 0.5$ and $\\partial U/\\partial c_2 = 0.4$, and the interest rate is $r = 0.2$. What should the consumer do?",
+       "options": [
+        {
+         "md": "Save more: the MRS of 1.25 is above $1 + r$, so saving is the better deal",
+         "correct": false,
+         "feedback": "MRS $= 1.25$ means one unit today is worth 1.25 units tomorrow, but saving it buys only $1 + r = 1.2$. Consuming the unit today is the better deal."
+        },
+        {
+         "md": "Raise $c_1$, lower $c_2$ and save less",
+         "correct": true
+        },
+        {
+         "md": "Nothing: today's marginal utility is higher only because saving earns interest, which is what the optimum requires",
+         "correct": false,
+         "feedback": "The optimum needs $\\partial U/\\partial c_1 = (1+r)\\,\\partial U/\\partial c_2 = 1.2 \\times 0.4 = 0.48$, but here it is 0.5, so the plan is not optimal."
+        },
+        {
+         "md": "Raise both $c_1$ and $c_2$",
+         "correct": false,
+         "feedback": "The lifetime budget binds: one more unit of $c_1$ costs $1 + r = 1.2$ units of $c_2$, so both cannot rise."
+        }
+       ],
+       "why": "The MRS is $0.5/0.4 = 1.25 > 1 + r = 1.2$. A unit consumed today adds 0.5 to utility; saved, it buys 1.2 units tomorrow, which add only $1.2 \\times 0.4 = 0.48$. So the consumer should consume more today and save less.",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 56,
+     "symbols": [
+      "$c_1$, $c_2$",
+      "$r$",
+      "$U(c_1, c_2)$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "5-log-utility-and-consumption-smoothing",
+   "heading": "5. Log utility and consumption smoothing",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "5-log-utility-and-consumption-smoothing-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With $U = \\ln c_1 + \\beta\\ln c_2$, where $\\beta$ is the [Discount Factor](note:discount-factor) ($0 < \\beta \\le 1$), the MRS is $c_2/(\\beta c_1)$. With $r = 0$ and $\\beta = 1$ the condition becomes $c_1 = c_2$: the consumer smooths perfectly. Income of 1,000 then 200 is consumed as 600 and 600."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Two-period saving model - log utility and consumption smoothing.png",
+       "alt": "Two-period saving model - log utility and consumption smoothing"
+      }
+     ],
+     "words": 30,
+     "symbols": [
+      "$c_1$, $c_2$",
+      "$r$",
+      "$U(c_1, c_2)$",
+      "$\\beta$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "6-impatience-and-the-interest-rate",
+   "heading": "6. Impatience and the interest rate",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "6-impatience-and-the-interest-rate-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Discount factor**: as $\\beta$ falls, period-2 consumption is worth less, so the consumer raises $c_1$ and saves less ($c_2 = \\beta c_1$ when $r = 0$).\n- **Interest rate**: with log utility and $y_2 > 0$, as $r$ rises, saving earns a better return, so the consumer saves more ($c_2 = \\beta(1+r)c_1$)."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Two-period saving model - discount factor and interest rate effects.png",
+       "alt": "Two-period saving model - discount factor and interest rate effects"
+      }
+     ],
+     "words": 37,
+     "symbols": [
+      "$y_1$, $y_2$",
+      "$c_1$, $c_2$",
+      "$r$",
+      "$\\beta$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "7-solving-for-optimal-consumption",
+   "heading": "7. Solving for optimal consumption",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "7-solving-for-optimal-consumption-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Substituting $c_2 = \\beta(1+r)c_1$ into the budget gives"
+      },
+      {
+       "t": "math",
+       "tex": "c_1 = \\frac{y_1}{1+\\beta} + \\frac{y_2}{(1+\\beta)(1+r)}, \\qquad s = y_1 - c_1"
+      }
+     ],
+     "words": 5,
+     "symbols": [
+      "$y_1$, $y_2$",
+      "$c_1$, $c_2$",
+      "$s = y_1 - c_1$",
+      "$r$",
+      "$\\beta$"
+     ]
+    },
+    {
+     "id": "7-solving-for-optimal-consumption-2",
+     "blocks": [
+      {
+       "t": "derive",
+       "title": "Solve for optimal $c_1$ with log utility",
+       "objectives": [
+        3
+       ],
+       "symbols": [
+        "y_1",
+        "y_2",
+        "r \\in (0.01, 0.5)",
+        "\\beta \\in (0.5, 1)"
+       ],
+       "inherited": [
+        {
+         "tex": "$y_1$, $y_2$",
+         "typical": "180, 216",
+         "from": "two-period-consumption-saving-model"
+        },
+        {
+         "tex": "$c_1$, $c_2$",
+         "typical": "200, 192",
+         "from": "two-period-consumption-saving-model"
+        },
+        {
+         "tex": "$r$",
+         "typical": "0.2",
+         "from": "two-period-consumption-saving-model"
+        },
+        {
+         "tex": "$U(c_1, c_2)$",
+         "typical": "$\\ln c_1 + \\beta\\ln c_2$",
+         "from": "two-period-consumption-saving-model"
+        },
+        {
+         "tex": "$\\beta$",
+         "typical": "0.8",
+         "from": "two-period-consumption-saving-model"
+        }
+       ],
+       "unknowns": [
+        "$c_1$",
+        "$c_2$"
+       ],
+       "dims": [],
+       "data": [],
+       "matrices": [],
+       "define": [],
+       "given": [
+        "c_1 + \\frac{c_2}{1+r} = y_1 + \\frac{y_2}{1+r}"
+       ],
+       "steps": [
+        {
+         "md": "With $U = \\ln c_1 + \\beta\\ln c_2$, the condition MRS $= 1 + r$ reads $\\frac{c_2}{\\beta c_1} = 1 + r$",
+         "tex": "\\frac{c_2}{\\beta c_1} = 1 + r",
+         "justify": {
+          "prompt": "Why is the MRS $c_2/(\\beta c_1)$?",
+          "options": [
+           {
+            "md": "$\\partial U/\\partial c_1 = 1/c_1$ and $\\partial U/\\partial c_2 = \\beta/c_2$, and the MRS is their ratio",
+            "correct": true
+           },
+           {
+            "md": "It is the ratio of the utilities, $\\ln c_2/(\\beta\\ln c_1)$, simplified",
+            "correct": false
+           },
+           {
+            "md": "$\\partial U/\\partial c_1 = \\beta/c_1$ and $\\partial U/\\partial c_2 = 1/c_2$",
+            "correct": false
+           }
+          ]
+         }
+        },
+        {
+         "md": "Rearrange the Euler equation: $c_2 = \\beta(1+r)c_1$",
+         "tex": "c_2 = \\beta(1+r)c_1"
+        },
+        {
+         "md": "Substitute into the lifetime budget and solve: $c_1 = \\frac{y_1}{1+\\beta} + \\frac{y_2}{(1+\\beta)(1+r)}$",
+         "tex": "c_1 = \\frac{y_1}{1+\\beta} + \\frac{y_2}{(1+\\beta)(1+r)}",
+         "hint": "$\\frac{c_2}{1+r} = \\beta c_1$, so the left side of the budget becomes $(1+\\beta)c_1$."
+        }
+       ],
+       "accept": [
+        "(1+\\beta)c_1 = y_1 + \\frac{y_2}{1+r}"
+       ],
+       "reject": [
+        {
+         "tex": "c_1 = \\frac{y_1 + y_2}{1+\\beta}",
+         "md": "future income is worth less today: discount it, $y_2/(1+r)$, before adding it to $y_1$"
+        },
+        {
+         "tex": "c_1 = \\frac{y_1}{2} + \\frac{y_2}{2(1+r)}",
+         "md": "that is the $\\beta = 1$ case; with $c_2/(1+r) = \\beta c_1$ the budget's left side is $(1+\\beta)c_1$, not $2c_1$"
+        },
+        {
+         "tex": "c_2 = \\frac{(1+r)c_1}{\\beta}",
+         "md": "from $c_2/(\\beta c_1) = 1 + r$, multiply both sides by $\\beta c_1$: $\\beta$ goes on top"
+        },
+        {
+         "tex": "c_1 + (1+r)c_2 = y_1 + (1+r)y_2",
+         "md": "tomorrow's amounts are discounted, divided by $1+r$, to put them in today's units"
+        }
+       ]
+      }
+     ],
+     "words": 22,
+     "symbols": [
+      "$y_1$, $y_2$",
+      "$c_1$, $c_2$",
+      "$r$",
+      "$U(c_1, c_2)$",
+      "$\\beta$"
+     ]
+    },
+    {
+     "id": "7-solving-for-optimal-consumption-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "*Typed-notes example:* $r = 0.2$, $\\beta = 0.8$, $y_1 = 180$, $y_2 = 216$ → $c_1 = 200$, $c_2 = 192$. The consumer borrows 20 to raise period-1 consumption from 180 to 200, then repays 24. Income is higher tomorrow, so smoothing pushes toward borrowing."
+      },
+      {
+       "t": "interactive",
+       "widget": "two-period-consumption-choice",
+       "state": {
+        "y1": 216,
+        "y2": 180,
+        "r": 0.2,
+        "beta": 0.8
+       },
+       "lock": [
+        "y1",
+        "y2",
+        "beta"
+       ],
+       "show": [
+        "budget",
+        "ic_opt",
+        "ic_end",
+        "endowment",
+        "optimum",
+        "mrs_out"
+       ],
+       "highlight": "optimum",
+       "prompt": "Say whether this consumer saves or borrows, then find the interest rate at which they do neither",
+       "goal": {
+        "when": "abs(s) < 1",
+        "success": "At $r \\approx 0.04$ saving is about zero: the optimum sits on the endowment, and the indifference curve through $(y_1, y_2)$ just touches the budget line. Exactly, $1 + r = y_2/(\\beta y_1) = 180/172.8 = 25/24$, so $r = 1/24 \\approx 0.042$. For the typed-notes incomes $y_1 = 180$, $y_2 = 216$ the same condition gives $1 + r = 216/144 = 1.5$, so $r = 0.5$.",
+        "hint": "Saving earns $1 + r$. Make it earn less and watch the budget line pivot around the endowment: the optimum slides along it toward $(y_1, y_2)$."
+       },
+       "predict": {
+        "hide": [
+         "optimum",
+         "ic_opt"
+        ],
+        "ask": "The typed-notes incomes are swapped: $y_1 = 216$, $y_2 = 180$, with $r = 0.2$ and $\\beta = 0.8$. Before the optimum is shown: does the consumer save or borrow?",
+        "options": [
+         "Save: the optimum lies left of the endowment",
+         "Borrow, because $\\beta < 1$ makes the consumer impatient",
+         "Neither: the optimum is the endowment"
+        ],
+        "answer": 0,
+        "why": "$c_1 = \\frac{216}{1.8} + \\frac{180}{1.8 \\times 1.2} = 120 + 83.33 = 203.33 < 216$, so the consumer saves $s = 12.67$ and consumes $c_2 = 0.8 \\times 1.2 \\times 203.33 = 195.2$ tomorrow. Income is higher today, so smoothing pushes toward saving, and $r = 0.2$ rewards it; impatience ($\\beta = 0.8$) pulls the other way but is weaker here.",
+        "feedback": [
+         null,
+         "Impatience does pull toward borrowing, but it is not the only force. At the endowment the MRS is $y_2/(\\beta y_1) = 180/172.8 = 1.04$, below $1 + r = 1.2$: giving up a unit today buys 1.2 tomorrow, worth more than the 1.04 needed to compensate. Income is now higher today, and saving pays 20%.",
+         "That needs MRS $= 1 + r$ at the endowment, $y_2/(\\beta y_1) = 1 + r$. Here $y_2/(\\beta y_1) = 1.04$, not 1.2, so moving consumption to period 2 still raises utility."
+        ]
+       },
+       "objectives": [
+        3,
+        4
+       ]
+      }
+     ],
+     "words": 43,
+     "symbols": [
+      "$y_1$, $y_2$",
+      "$c_1$, $c_2$",
+      "$s = y_1 - c_1$",
+      "$r$",
+      "$U(c_1, c_2)$",
+      "$\\beta$"
+     ]
+    },
+    {
+     "id": "7-solving-for-optimal-consumption-4",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Two-period saving model - solving for optimal consumption.png",
+       "alt": "Two-period saving model - solving for optimal consumption"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "8-equilibrium-market-clearing",
+   "heading": "8. Equilibrium: market clearing",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "8-equilibrium-market-clearing-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "One consumer can borrow at any given rate, but an economy cannot consume more than it has. With two consumers A and B, one's saving is the other's borrowing: $s^A + s^B = 0$, or $c_1^A + c_1^B = y_1^A + y_1^B$ ([Market Clearing](note:market-clearing)). Plugging in each consumer's $c_1$ and solving:"
+      },
+      {
+       "t": "math",
+       "tex": "1 + r = \\frac{y_2^A + y_2^B}{\\beta\\,(y_1^A + y_1^B)}"
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Two-period saving model - market clearing with two consumers.png",
+       "alt": "Two-period saving model - market clearing with two consumers"
+      }
+     ],
+     "words": 38,
+     "symbols": [
+      "$y_1$, $y_2$",
+      "$c_1$, $c_2$",
+      "$s = y_1 - c_1$",
+      "$r$",
+      "$\\beta$",
+      "$A$"
+     ]
+    },
+    {
+     "id": "8-equilibrium-market-clearing-2",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Two-period saving model - solving for the equilibrium interest rate.png",
+       "alt": "Two-period saving model - solving for the equilibrium interest rate"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "9-what-moves-the-interest-rate",
+   "heading": "9. What moves the interest rate",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "9-what-moves-the-interest-rate-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Change | Desire to save / borrow | Result | Interest rate |\n| --- | --- | --- | --- |\n| $y_2$ ↑ | More borrowing, less saving | Excess demand for borrowing | ↑ |\n| $y_1$ ↑ | More saving, less borrowing | Excess supply of saving | ↓ |\n| $\\beta$ ↑ (more patience) | Save more, borrow less | Excess supply of saving | ↓ |"
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Two-period saving model - income shocks and the interest rate.png",
+       "alt": "Two-period saving model - income shocks and the interest rate"
+      }
+     ],
+     "words": 38,
+     "symbols": [
+      "$y_1$, $y_2$",
+      "$\\beta$"
+     ]
+    },
+    {
+     "id": "9-what-moves-the-interest-rate-2",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Two-period saving model - patience and the interest rate.png",
+       "alt": "Two-period saving model - patience and the interest rate"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    },
+    {
+     "id": "9-what-moves-the-interest-rate-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Starting from an equilibrium, period-1 income falls for both consumers while everything else stays the same. What happens to the interest rate?",
+       "options": [
+        {
+         "md": "It rises: at the old $r$ consumers want to save less or borrow more, so there is excess demand for borrowing",
+         "correct": true
+        },
+        {
+         "md": "It falls: with less income, consumers can afford to borrow less",
+         "correct": false,
+         "feedback": "Lower income today makes consumers want to move consumption toward today, which means borrowing more, not less: smoothing raises the demand for loans."
+        },
+        {
+         "md": "It does not change: aggregate saving is zero in equilibrium both before and after",
+         "correct": false,
+         "feedback": "Aggregate saving is zero in every equilibrium; the interest rate is what moves to restore it. At the old $r$, desired saving now adds up to less than zero."
+        },
+        {
+         "md": "It rises, because poorer consumers become less patient",
+         "correct": false,
+         "feedback": "The direction is right but the reason is not: $\\beta$ is a fixed parameter here and does not change. The rate rises because smoothing pushes both consumers toward borrowing."
+        }
+       ],
+       "why": "From market clearing, $1 + r = \\frac{y_2^A + y_2^B}{\\beta\\,(y_1^A + y_1^B)}$: lower period-1 income shrinks the denominator, so $r$ rises. It is the mirror image of the $y_1$ ↑ row of the table: excess demand for borrowing, not excess supply of saving.",
+       "objectives": [
+        6
+       ]
+      }
+     ],
+     "words": 75,
+     "symbols": [
+      "$y_1$, $y_2$",
+      "$r$",
+      "$\\beta$",
+      "$A$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "10-worked-examples",
+   "heading": "10. Worked examples",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "10-worked-examples-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Baseline**: A has income (200, 100), B has (100, 200), $\\beta = 1$. Then $c_1^A = 100 + 50/(1+r)$ and $c_1^B = 50 + 100/(1+r)$. Market clearing, $150 + 150/(1+r) = 300$, gives **$r = 0$**: A saves 50, B borrows 50, and everyone consumes 150 in both periods. Their smoothing desires are mirror images. *(Typed notes: at an arbitrary $r = 25\\%$, A wants to save 60 but B wants to borrow only 30 — excess saving — so $r$ must fall.)*"
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Two-period saving model - two-consumer example with a zero interest rate.png",
+       "alt": "Two-period saving model - two-consumer example with a zero interest rate"
+      }
+     ],
+     "words": 56,
+     "symbols": [
+      "$c_1$, $c_2$",
+      "$r$",
+      "$\\beta$",
+      "$A$"
+     ]
+    },
+    {
+     "id": "10-worked-examples-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "Keep the baseline incomes, A $(200, 100)$ and B $(100, 200)$, but give both consumers $\\beta = 0.9$. What is the equilibrium interest rate, in percent?",
+       "answer": 11.1,
+       "tol": 0.1,
+       "wrong": [
+        {
+         "answer": -10.0,
+         "tol": 0.0,
+         "md": "that puts $\\beta$ in the numerator; market clearing gives $1 + r = \\frac{y_2^A + y_2^B}{\\beta\\,(y_1^A + y_1^B)}$, so $\\beta$ divides"
+        },
+        {
+         "answer": 0.0,
+         "tol": 0.0,
+         "md": "that is the $\\beta = 1$ baseline; less patient consumers want to borrow more and save less, so the rate must change"
+        },
+        {
+         "answer": 10.0,
+         "tol": 0.0,
+         "md": "that is $1 - \\beta$; the exact rate is $1/\\beta - 1 = 1/0.9 - 1$"
+        }
+       ],
+       "why": "Total period-1 income is $200 + 100 = 300$ and total period-2 income is $100 + 200 = 300$. Market clearing gives $1 + r = \\frac{300}{0.9 \\times 300} = 1.111$, so $r = 11.1\\%$, up from 0 in the baseline.",
+       "objectives": [
+        5
+       ]
+      }
+     ],
+     "words": 19,
+     "symbols": [
+      "$y_1$, $y_2$",
+      "$r$",
+      "$\\beta$",
+      "$A$"
+     ]
+    },
+    {
+     "id": "10-worked-examples-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**A's future income rises to 200**: at $r = 0$, A would no longer save ($s^A = 0$) but B still wants to borrow 50. The rate must rise until A saves and B borrows less: $1 + r = 400/300$, so **$r = 33.3\\%$**, with A saving 25 and B borrowing 25."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Two-period saving model - higher future income raises r to 33 percent.png",
+       "alt": "Two-period saving model - higher future income raises r to 33 percent"
+      },
+      {
+       "t": "prose",
+       "md": "*Typed-notes exercise:* with the baseline incomes but $\\beta = 0.9$ for both, $1 + r = 300/(0.9 \\times 300)$, so $r = 11.1\\%$. Less patient consumers want to borrow more and save less, so the rate must rise."
+      }
+     ],
+     "words": 64,
+     "symbols": [
+      "$s = y_1 - c_1$",
+      "$r$",
+      "$\\beta$",
+      "$A$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "11-saving-with-capital-typed-notes",
+   "heading": "11. Saving with capital (typed notes)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "11-saving-with-capital-typed-notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Replace the bond with capital: output $f(k_1)$ is consumed or invested, $f(k_1) = c_1 + k_2$, and capital fully depreciates, so $c_2 = f(k_2)$. The same Lagrangian steps give MRS $= f'(k_2)$. The marginal product of capital acts exactly like the interest rate: a higher MPK makes investing (saving) more attractive, a lower MPK favors consuming today. This connects the Fisher consumption-saving choice to the role of saving in the Solow model and the MPK conditions of the [Golden Rule Saving Rate](note:golden-rule-saving-rate)."
+      }
+     ],
+     "words": 71,
+     "symbols": [
+      "$c_1$, $c_2$",
+      "$k_1$, $k_2$",
+      "$f(k)$, $f'(k)$"
+     ]
+    },
+    {
+     "id": "11-saving-with-capital-typed-notes-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "In the capital version, investing one more unit in period 1 raises $k_2$ by one. By how much does period-2 consumption rise?",
+       "options": [
+        {
+         "md": "$f'(k_2) - 1$",
+         "correct": false,
+         "feedback": "Capital fully depreciates, so the invested unit is not returned on top of output: period-2 consumption is all of $f(k_2)$, and it rises by $f'(k_2)$. The net return $f'(k_2) - 1$ plays the role of $r$, not $1 + r$."
+        },
+        {
+         "md": "$f'(k_1)$",
+         "correct": false,
+         "feedback": "$k_1$ is already in place; the unit invested today becomes part of $k_2$ and produces next period, so its return is the marginal product at $k_2$."
+        },
+        {
+         "md": "$\\frac{f(k_2)}{k_2}$",
+         "correct": false,
+         "feedback": "That is the average product of capital; one extra unit adds the marginal product $f'(k_2)$, not the average."
+        },
+        {
+         "md": "$f'(k_2)$",
+         "correct": true
+        }
+       ],
+       "why": "Since $c_2 = f(k_2)$, one more unit of $k_2$ adds $f'(k_2)$ to $c_2$, and it costs one unit of $c_1$ because $f(k_1) = c_1 + k_2$. Giving up a unit today buys $f'(k_2)$ units tomorrow, just as saving a unit buys $1 + r$, so the optimum sets MRS $= f'(k_2)$. A higher MPK makes investing (saving) more attractive, as a higher interest rate does.",
+       "objectives": [
+        7
+       ]
+      }
+     ],
+     "words": 21,
+     "symbols": [
+      "$c_1$, $c_2$",
+      "$r$",
+      "$k_1$, $k_2$",
+      "$f(k)$, $f'(k)$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "putting-it-together",
+   "heading": "Putting it together",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "putting-it-together-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "These questions combine this lecture with [Econ 402A L1 Solow Growth Model](note:econ-402a-l1-solow-growth-model): its fixed saving rate, steady state and golden rule."
+      }
+     ],
+     "words": 21,
+     "symbols": []
+    },
+    {
+     "id": "putting-it-together-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "In §11 capital fully depreciates, which is $\\delta = 1$ in L1's notation. Suppose $k_2$ sat at L1's golden-rule capital stock. What interest rate $r$ in the bond model would its marginal product correspond to?",
+       "options": [
+        {
+         "md": "$r = 1$, that is 100%, because the golden rule sets the MPK equal to $\\delta = 1$",
+         "correct": false,
+         "feedback": "The MPK is 1, but in §11 $f'(k_2)$ plays the role of $1 + r$, not $r$: a unit invested returns $f'(k_2)$ in total, so the net return is $f'(k_2) - 1 = 0$."
+        },
+        {
+         "md": "$r = \\alpha$, because the golden-rule saving rate is the capital share",
+         "correct": false,
+         "feedback": "$s = \\alpha$ is L1's golden-rule *saving rate*, a share of output. The interest-rate analogue is the return on capital, which the golden rule pins down through $f'(\\bar{k}) = \\delta$."
+        },
+        {
+         "md": "$r = 0$, because the golden-rule MPK is $\\delta = 1$ and $f'(k_2)$ plays the role of $1 + r$",
+         "correct": true
+        },
+        {
+         "md": "$r = 1/\\beta - 1$, because the golden rule is where an impatient consumer chooses to be",
+         "correct": false,
+         "feedback": "$\\beta$ does not enter the golden rule: it maximizes steady-state consumption, with $f'(\\bar{k}) = \\delta$. The rate $1/\\beta - 1$ is §8's market-clearing rate $1 + r = (y_2^A + y_2^B)/(\\beta(y_1^A + y_1^B))$ when total income is the same in both periods, as in §10's $\\beta = 0.9$ exercise."
+        }
+       ],
+       "why": "L1's golden rule sets $f'(\\bar{k}) = \\delta$, so with full depreciation the MPK is 1. §11 of this lecture shows that giving up a unit today buys $f'(k_2)$ units tomorrow, as saving buys $1 + r$ in the bond model. So $1 + r = 1$ and $r = 0$.",
+       "objectives": [
+        7
+       ]
+      }
+     ],
+     "words": 73,
+     "symbols": [
+      "$y_1$, $y_2$",
+      "$s = y_1 - c_1$",
+      "$r$",
+      "$\\beta$",
+      "$k_1$, $k_2$",
+      "$f(k)$, $f'(k)$",
+      "$\\alpha$",
+      "$A$",
+      "$\\delta$",
+      "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$"
+     ]
+    },
+    {
+     "id": "putting-it-together-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "In §11's capital version, take log utility, $U = \\ln c_1 + \\beta\\ln c_2$, so the MRS is $c_2/(\\beta c_1)$. Suppose the optimum has $c_1 = c_2$, with $\\beta = 0.9$. What is the marginal product $f'(k_2)$?",
+       "answer": 1.111,
+       "tol": 0.005,
+       "wrong": [
+        {
+         "answer": 1.0,
+         "tol": 0.005,
+         "md": "that is L1's golden rule with full depreciation, $f' = \\delta = 1$; the consumer's condition is MRS $= f'(k_2)$, and the MRS involves $\\beta$"
+        },
+        {
+         "answer": 0.9,
+         "tol": 0.005,
+         "md": "that inverts the MRS: it is $c_2/(\\beta c_1) = 1/\\beta$, not $\\beta c_2/c_1$"
+        },
+        {
+         "answer": 0.111,
+         "tol": 0.005,
+         "md": "that is the net return $f'(k_2) - 1$, the analogue of $r$; the question asks for $f'(k_2)$ itself, the analogue of $1 + r$"
+        }
+       ],
+       "why": "§11 gives MRS $= f'(k_2)$, and with $c_1 = c_2$ the MRS is $1/\\beta = 1/0.9 = 1.111$. L1's golden rule with $\\delta = 1$ would need $f'(k_2) = 1$. The MPK is higher here, and because the MPK falls as capital rises (diminishing returns, L1), the impatient consumer holds less capital than the golden-rule stock.",
+       "objectives": [
+        7
+       ]
+      }
+     ],
+     "words": 21,
+     "symbols": [
+      "$c_1$, $c_2$",
+      "$r$",
+      "$U(c_1, c_2)$",
+      "$\\beta$",
+      "$k_1$, $k_2$",
+      "$f(k)$, $f'(k)$",
+      "$\\delta$"
+     ]
+    },
+    {
+     "id": "putting-it-together-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "A log-utility consumer from §7 has $y_2 = 0$ and $\\beta = 0.9$. Suppose a Solow economy from L1, with $\\alpha = 1/3$, $\\delta = 0.05$ and $A = 1$, saved the same fraction of its output as this consumer saves of $y_1$. Compared with the golden rule, this economy:",
+       "options": [
+        {
+         "md": "Saves too little: its saving rate is below $\\alpha$, so saving more would raise steady-state consumption",
+         "correct": false,
+         "feedback": "With $y_2 = 0$, §7 gives $c_1 = y_1/(1+\\beta)$, so the consumer saves $\\beta/(1+\\beta) = 0.9/1.9 = 0.474$ of $y_1$, which is above $\\alpha = 1/3$."
+        },
+        {
+         "md": "Saves too much: its saving rate is above $\\alpha$, so saving less would raise steady-state consumption",
+         "correct": true
+        },
+        {
+         "md": "Sits exactly at the golden rule: a saving rate chosen by an optimizing consumer maximizes steady-state consumption",
+         "correct": false,
+         "feedback": "The consumer's saving rate here depends only on $\\beta$, while the golden-rule rate is $s = \\alpha$ whatever $\\beta$ is. Nothing makes them equal: 0.474 against 0.333."
+        },
+        {
+         "md": "Cannot be compared without knowing $r$, because saving depends on the interest rate",
+         "correct": false,
+         "feedback": "In general it does, but with $y_2 = 0$ the term in $1 + r$ drops out of §7's formula: $c_1 = y_1/(1+\\beta)$ at any $r$."
+        }
+       ],
+       "why": "From §7 of this lecture, $y_2 = 0$ gives $c_1 = y_1/(1+\\beta)$, a saving rate of $\\beta/(1+\\beta) = 0.474$. L1's golden rule is $s = \\alpha = 1/3$. With $s = 0.474$, L1's steady state has $f'(\\bar{k}) = \\alpha\\delta/s = 0.035$, below $\\delta = 0.05$: the last unit of capital adds less output than it costs to maintain. Steady-state consumption is 1.620, against 1.721 at the golden rule. This is a thought experiment: L1 takes $s$ as given, so the consumer's 0.474 is borrowed only as a number. Neither lecture says an optimizing economy would choose it."
+      }
+     ],
+     "words": 93,
+     "symbols": [
+      "$y_1$, $y_2$",
+      "$c_1$, $c_2$",
+      "$s = y_1 - c_1$",
+      "$r$",
+      "$\\beta$",
+      "$f(k)$, $f'(k)$",
+      "$\\alpha$",
+      "$A$",
+      "$\\delta$",
+      "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cross-course-links",
+   "heading": "Cross-course links",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "cross-course-links-1",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "tip",
+       "title": "Shared tools",
+       "md": "- Lagrangians and \"ratio of marginal utilities = price ratio\" are the same tools as consumer choice in micro ([Constrained Optimization and Lagrange Multipliers](note:constrained-optimization-and-lagrange-multipliers)).\n- The MRS is the consumption analogue of the substitution elasticities in the Econ 424 CES model ([Elasticity of Substitution](note:elasticity-of-substitution)).",
+       "folded": false
+      }
+     ],
+     "words": 45,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "math-refresher",
+   "heading": "Math refresher",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "math-refresher-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Math Prep L6 Optimization](note:math-prep-l6-optimization) — Lagrangians and first-order conditions\n- [Math Prep L7 Approximations Logs and Series](note:math-prep-l7-approximations-logs-and-series) — log utility and present values\n- [Math Prep L4 Multivariable Differentiation](note:math-prep-l4-multivariable-differentiation) — marginal utilities as partial derivatives"
+      }
+     ],
+     "words": 33,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Write the period budget constraints and combine them into the lifetime budget constraint.\n2. Set up the Lagrangian, derive MRS = 1 + r, and explain what each side means.\n3. Solve for $c_1$, $c_2$ and $s$ with log utility, and say whether the consumer saves or borrows.\n4. Explain the three forces — smoothing, impatience, interest rate — and sign the effect of $\\beta$ and $r$ on saving.\n5. Impose market clearing with two consumers and solve for the equilibrium interest rate.\n6. Explain why $r$ rises when future income or impatience rises, and falls when current income or patience rises.\n7. Show that with capital the optimality condition becomes MRS $= f'(k_2)$, and explain why MPK acts like an interest rate."
+      }
+     ],
+     "words": 112,
+     "symbols": [
+      "$c_1$, $c_2$",
+      "$s = y_1 - c_1$",
+      "$r$",
+      "$\\beta$",
+      "$k_1$, $k_2$",
+      "$f(k)$, $f'(k)$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "papers-in-this-lecture",
+   "heading": "Papers in this lecture",
+   "role": "papers",
+   "steps": [
+    {
+     "id": "papers-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "papers",
+       "items": [
+        "fisher-1930-the-theory-of-interest"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "two-period-consumption-saving-model",
+        "intertemporal-budget-constraint",
+        "marginal-rate-of-substitution",
+        "consumption-euler-equation",
+        "discount-factor",
+        "market-clearing",
+        "constrained-optimization-and-lagrange-multipliers",
+        "partial-derivatives-and-the-gradient"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

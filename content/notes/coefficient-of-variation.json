@@ -1,0 +1,160 @@
+{
+ "slug": "coefficient-of-variation",
+ "notation": [
+  {
+   "tex": "$CV$",
+   "meaning": "Coefficient of variation",
+   "kind": "Statistic",
+   "typical": "0.31 in the example",
+   "keys": [
+    "~CV"
+   ]
+  },
+  {
+   "tex": "$\\sigma$",
+   "meaning": "Standard deviation of income",
+   "kind": "Statistic",
+   "typical": "4.36 in the example",
+   "keys": [
+    "sigma"
+   ]
+  },
+  {
+   "tex": "$\\mu$",
+   "meaning": "Mean income",
+   "kind": "Statistic",
+   "typical": "13.89 in the example",
+   "keys": [
+    "mu"
+   ]
+  },
+  {
+   "tex": "$V$",
+   "meaning": "Variance of log income",
+   "kind": "Statistic",
+   "typical": "0.0857 in the example",
+   "keys": [
+    "V"
+   ],
+   "from": "variance-of-log-income"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The coefficient of variation measures spread relative to the average. The standard deviation alone depends on units — if every income doubled, it would double too, even though nobody would say inequality had doubled. Dividing by the mean fixes that: a coefficient of 0.3 means incomes typically differ from the average by about thirty percent, whatever the currency or price level."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It lets you compare dispersion across groups, countries or years with different average incomes.",
+       "folded": false
+      }
+     ],
+     "words": 78,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The standard deviation divided by the mean."
+      },
+      {
+       "t": "math",
+       "tex": "CV = \\frac{\\sigma}{\\mu}"
+      }
+     ],
+     "words": 7,
+     "symbols": [
+      "$CV$",
+      "$\\sigma$",
+      "$\\mu$",
+      "$V$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "why-not-just-the-standard-deviation",
+   "heading": "Why not just the standard deviation?",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "why-not-just-the-standard-deviation-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The SD depends on the units. If every income doubles, the SD doubles, but nobody would say inequality doubled. Dividing by the mean makes the measure **scale invariant**."
+      },
+      {
+       "t": "prose",
+       "md": "**Worked example**: for the nine wages in [Defining Inequality](note:defining-inequality), population SD = 4.36 and mean = 13.89, so $CV = 0.31$."
+      }
+     ],
+     "words": 46,
+     "symbols": [
+      "$CV$",
+      "$V$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "properties",
+   "heading": "Properties",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "properties-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Property | CV |\n| --- | --- |\n| Scale invariant | Yes |\n| Transfer principle | Yes |\n| Sensitivity | Equal weight everywhere — so in practice dominated by the **top**, where deviations are large |\n| Decomposable | Its square, $\\tfrac12 CV^2$, is a member of the decomposable generalized-entropy family |"
+      }
+     ],
+     "words": 36,
+     "symbols": [
+      "$CV$",
+      "$V$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Variance of Log Income](note:variance-of-log-income) — the log-scale alternative\n- [Properties of Inequality Measures](note:properties-of-inequality-measures)"
+      }
+     ],
+     "words": 13,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

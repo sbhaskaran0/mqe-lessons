@@ -1,0 +1,937 @@
+{
+ "slug": "econ-424-l3-total-and-within-group-inequality",
+ "notation": [
+  {
+   "tex": "$g$",
+   "meaning": "Group (e.g. education level)",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "g"
+   ],
+   "from": "within-and-between-group-inequality"
+  },
+  {
+   "tex": "$s_g$",
+   "meaning": "Population share of group $g$",
+   "kind": "Weight",
+   "typical": "Sums to 1",
+   "keys": [
+    "s"
+   ],
+   "from": "within-and-between-group-inequality"
+  },
+  {
+   "tex": "$w_h$, $w_\\ell$",
+   "meaning": "Wages of high- and low-ability workers",
+   "kind": "Exogenous price",
+   "typical": "—",
+   "keys": [
+    "w"
+   ],
+   "from": "within-and-between-group-inequality"
+  },
+  {
+   "tex": "$\\zeta$",
+   "meaning": "Ability premium $w_h/w_\\ell$",
+   "kind": "Exogenous price",
+   "typical": "2 → 3 in the example",
+   "keys": [
+    "zeta"
+   ],
+   "from": "within-and-between-group-inequality"
+  },
+  {
+   "tex": "$a_C$, $a_N$",
+   "meaning": "Share of high-ability workers in each education group",
+   "kind": "Parameter, $a_C > a_N$",
+   "typical": "0.6 and 0.2 in the example",
+   "keys": [
+    "a"
+   ],
+   "from": "within-and-between-group-inequality"
+  },
+  {
+   "tex": "$\\kappa$",
+   "meaning": "College premium: ratio of mean wages, college over non-college",
+   "kind": "Statistic",
+   "typical": "1.33 → 1.57 in the example",
+   "keys": [
+    "kappa"
+   ],
+   "from": "within-and-between-group-inequality"
+  },
+  {
+   "tex": "$u$",
+   "meaning": "Measurement error",
+   "kind": "Exogenous noise",
+   "typical": "Mean 0",
+   "keys": [
+    "u"
+   ],
+   "from": "classical-measurement-error"
+  },
+  {
+   "tex": "$p$, $y$",
+   "meaning": "Percentile and year",
+   "kind": "Indices",
+   "typical": "—",
+   "keys": [
+    "p",
+    "y"
+   ],
+   "from": "percentile-ratios"
+  },
+  {
+   "tex": "$D_i$ (e.g. $UTOWN$, $FEMALE$)",
+   "meaning": "Indicator: 1 if observation $i$ is in the group, 0 otherwise",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "D",
+    "~UTOWN",
+    "~FEMALE"
+   ],
+   "from": "indicator-variables"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Between-group and within-group inequality are linked whenever the groups we observe (education) are imperfect measures of the skill that is actually paid. Using the variance of log wages, which splits exactly into within and between parts, the lecture shows that US inequality rose across the board in the 1980s (variance ≈0.185 → ≈0.23), that about two-thirds of it is within groups, and that after the 1980s the story splits: within-group inequality fell for less-educated workers and rose for college graduates. Holding the education mix fixed, the variance in 2001 was the same as in 1979. Along the whole distribution, this is wage polarization: the 90-50 gap keeps rising while the 50-10 gap falls.**"
+      }
+     ],
+     "words": 114,
+     "symbols": []
+    },
+    {
+     "id": "intro-2",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "info",
+       "title": "Notation in this lecture",
+       "md": "The slides write $s_H$, $s_L$ for the share of high-ability workers among high- and low-education workers, and $w_H$, $w_L$ for high- and low-ability wages. [Within- and Between-Group Inequality](note:within-and-between-group-inequality) writes these as $a_C$, $a_N$ and $w_h$, $w_\\ell$ to avoid a clash with group population shares. $\\kappa$ is the college premium and $\\zeta = w_H/w_L$ the ability premium.",
+       "folded": false
+      }
+     ],
+     "words": 48,
+     "symbols": [
+      "$s_g$",
+      "$w_h$, $w_\\ell$",
+      "$\\zeta$",
+      "$a_C$, $a_N$",
+      "$\\kappa$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1-should-between-and-within-group-inequality-move-together",
+   "heading": "1. Should between- and within-group inequality move together?",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-should-between-and-within-group-inequality-move-together-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The lecture opens with a thought experiment. Suppose wages depend only on unobserved **ability**, not on education, but education and ability are correlated: a share $s_H$ of college workers and a smaller share $s_L < s_H$ of non-college workers are high ability. The college premium is then a ratio of mixtures,"
+      },
+      {
+       "t": "math",
+       "tex": "\\kappa = \\frac{s_H\\zeta + (1 - s_H)}{s_L\\zeta + (1 - s_L)}, \\qquad \\frac{d\\kappa}{d\\zeta} = \\frac{s_H - s_L}{(s_L\\zeta + 1 - s_L)^2} > 0 ."
+      }
+     ],
+     "words": 47,
+     "symbols": [
+      "$s_g$",
+      "$\\zeta$",
+      "$\\kappa$"
+     ]
+    },
+    {
+     "id": "1-should-between-and-within-group-inequality-move-together-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A rise in the ability premium $\\zeta$ raises the measured college premium (between-group) *and* the wage spread inside each education group (within-group), because each group mixes both ability types. So here the two move together. The lecture stresses that this is only because of the assumptions: in reality they need not. The general lesson, worked out in [Within- and Between-Group Inequality](note:within-and-between-group-inequality), is that they are connected when education measures true skill with error. See also [Skill Premium](note:skill-premium)."
+      }
+     ],
+     "words": 76,
+     "symbols": [
+      "$\\zeta$"
+     ]
+    },
+    {
+     "id": "1-should-between-and-within-group-inequality-move-together-3",
+     "blocks": [
+      {
+       "t": "derive",
+       "title": "Show that $d\\kappa/d\\zeta > 0$",
+       "objectives": [
+        1
+       ],
+       "symbols": [
+        "s_H \\in (0.5, 0.95)",
+        "s_L \\in (0.05, 0.45)",
+        "\\zeta \\in (1, 4)"
+       ],
+       "inherited": [
+        {
+         "tex": "$s_g$",
+         "typical": "Sums to 1",
+         "from": "within-and-between-group-inequality"
+        },
+        {
+         "tex": "$\\zeta$",
+         "typical": "2 → 3 in the example",
+         "from": "within-and-between-group-inequality"
+        },
+        {
+         "tex": "$\\kappa$",
+         "typical": "1.33 → 1.57 in the example",
+         "from": "within-and-between-group-inequality"
+        }
+       ],
+       "unknowns": [
+        "$D$"
+       ],
+       "dims": [],
+       "data": [],
+       "matrices": [],
+       "define": [],
+       "given": [],
+       "steps": [
+        {
+         "md": "$\\kappa$ is a ratio $u/v$ with $u = s_H\\zeta + 1 - s_H$ and $v = s_L\\zeta + 1 - s_L$, so by the quotient rule $\\frac{d\\kappa}{d\\zeta} = \\frac{u'v - uv'}{v^2}$",
+         "tex": "\\frac{d\\kappa}{d\\zeta} = \\frac{u'v - uv'}{v^2}",
+         "justify": {
+          "prompt": "What are $u'$ and $v'$, the derivatives with respect to $\\zeta$?",
+          "options": [
+           {
+            "md": "$u' = s_H$ and $v' = s_L$",
+            "correct": true
+           },
+           {
+            "md": "$u' = s_H - 1$ and $v' = s_L - 1$",
+            "correct": false
+           },
+           {
+            "md": "$u' = 1$ and $v' = 1$",
+            "correct": false
+           }
+          ]
+         }
+        },
+        {
+         "md": "Write $D$ for $d\\kappa/d\\zeta$. Apply the rule and simplify the numerator: $D = \\frac{s_H - s_L}{(s_L\\zeta + 1 - s_L)^2}$",
+         "tex": "D = \\frac{s_H - s_L}{(s_L\\zeta + 1 - s_L)^2}",
+         "hint": "In $s_H(s_L\\zeta + 1 - s_L) - (s_H\\zeta + 1 - s_H)s_L$ the $s_Hs_L\\zeta$ terms cancel, and so do the $s_Hs_L$ terms."
+        },
+        {
+         "md": "Sign it: $\\frac{s_H - s_L}{(s_L\\zeta + 1 - s_L)^2} > 0$",
+         "tex": "\\frac{s_H - s_L}{(s_L\\zeta + 1 - s_L)^2} > 0",
+         "justify": {
+          "prompt": "Why is $d\\kappa/d\\zeta > 0$?",
+          "options": [
+           {
+            "md": "College workers are more likely to be high ability, $s_H > s_L$, and the denominator is a square",
+            "correct": true
+           },
+           {
+            "md": "Because $\\zeta > 1$",
+            "correct": false
+           },
+           {
+            "md": "Because $\\kappa > 1$",
+            "correct": false
+           }
+          ]
+         }
+        }
+       ],
+       "accept": [
+        "D(s_L\\zeta + 1 - s_L)^2 = s_H - s_L"
+       ],
+       "reject": [
+        {
+         "tex": "D = \\frac{s_H - s_L}{s_L\\zeta + 1 - s_L}",
+         "md": "the quotient rule divides by $v^2$, so the denominator is squared"
+        },
+        {
+         "tex": "D = \\frac{s_L - s_H}{(s_L\\zeta + 1 - s_L)^2}",
+         "md": "the order is $u'v - uv'$: the numerator's derivative comes first, which gives $s_H - s_L$"
+        },
+        {
+         "tex": "D = \\frac{s_H}{s_L}",
+         "md": "that is $u'/v'$; the derivative of a ratio is not the ratio of the derivatives"
+        }
+       ]
+      }
+     ],
+     "words": 23,
+     "symbols": [
+      "$s_g$",
+      "$\\zeta$",
+      "$\\kappa$",
+      "$u$",
+      "$D_i$ (e.g. $UTOWN$, $FEMALE$)"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "2-measuring-within-group-inequality",
+   "heading": "2. Measuring within-group inequality",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-measuring-within-group-inequality-1",
+     "blocks": [
+      {
+       "t": "quote",
+       "md": "Paper summary: [Lemieux 2006 - Increasing Residual Wage Inequality](note:lemieux-2006-increasing-residual-wage-inequality)",
+       "papers": [
+        "lemieux-2006-increasing-residual-wage-inequality"
+       ]
+      },
+      {
+       "t": "prose",
+       "md": "From here on the measure is the [Variance of Log Income](note:variance-of-log-income) (of wages). Its key property is decomposability: total variance = within-group variance (each group's variance weighted by its population share) + between-group variance (spread of group means), which is the [Law of Total Variance](note:law-of-total-variance) applied to groups. The analysis extends one of the two main points of Lemieux (2006), \"Increasing Residual Wage Inequality: Composition Effects, Noisy Data, or Rising Demand for Skill?\"; his other point — use the right dataset — is discussed but not shown."
+      }
+     ],
+     "words": 92,
+     "symbols": []
+    },
+    {
+     "id": "2-measuring-within-group-inequality-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "College workers are 40% of the workforce, with mean log wage 3.0 and variance of log wages 0.30; non-college workers are 60%, with mean 2.5 and variance 0.15. What is the total variance of log wages?",
+       "answer": 0.27,
+       "tol": 0.002,
+       "wrong": [
+        {
+         "answer": 0.21,
+         "tol": 0.002,
+         "md": "that is only the within part, $0.4 \\times 0.30 + 0.6 \\times 0.15$; add the spread of the group means"
+        },
+        {
+         "answer": 0.285,
+         "tol": 0.002,
+         "md": "that averages the two group variances equally, giving 0.225; each is weighted by its population share"
+        },
+        {
+         "answer": 0.46,
+         "tol": 0.005,
+         "md": "that adds the squared gap in means, $0.5^2 = 0.25$, unweighted; the between part weights each group's squared distance from the overall mean 2.7 by its share"
+        }
+       ],
+       "why": "The overall mean is $0.4 \\times 3.0 + 0.6 \\times 2.5 = 2.7$. Within: $0.4 \\times 0.30 + 0.6 \\times 0.15 = 0.21$. Between: $0.4 \\times 0.3^2 + 0.6 \\times 0.2^2 = 0.06$. Total $0.27$, of which the within part is $0.21/0.27 \\approx 78\\%$.",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 40,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "3-the-data-why-the-dataset-matters-for-dispersion",
+   "heading": "3. The data: why the dataset matters for dispersion",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "3-the-data-why-the-dataset-matters-for-dispersion-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The lecture uses the combined **May CPS (1973–78) and MORG CPS (1979 on)**, in the cleaned version from Acemoglu and Autor. Unlike the March CPS, which asks about last year's annual earnings, May/MORG give point-in-time usual hourly or weekly earnings. March hourly wages must be built as annual earnings ÷ (weeks × usual hours), hours last year are not available before 1976, and the hours estimates are noisy. For *average* wages the two sources agree — by the law of large numbers, noise has little effect on means in large samples — but noise does not average out of a variance: see [Classical Measurement Error](note:classical-measurement-error). Details in [Current Population Survey (CPS)](note:current-population-survey-cps)."
+      }
+     ],
+     "words": 109,
+     "symbols": []
+    },
+    {
+     "id": "3-the-data-why-the-dataset-matters-for-dispersion-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Why do the March CPS and May/MORG agree on *average* wages but not on wage *dispersion*?",
+       "options": [
+        {
+         "md": "Noise in March wages pushes the mean up too, just by less than it pushes up the variance",
+         "correct": false,
+         "feedback": "Noise of this kind has mean zero, so it leaves the mean unbiased; only the variance picks it up."
+        },
+        {
+         "md": "March hourly wages are built as annual earnings ÷ (weeks × usual hours), and the noisy hours add their own variance; noise averages out of a mean but not out of a variance",
+         "correct": true
+        },
+        {
+         "md": "May/MORG samples are larger, so their variance is estimated more precisely",
+         "correct": false,
+         "feedback": "Sample size changes how precise each estimate is, not which way it is off. The March variance is too high because of noise in hours, however large the sample."
+        }
+       ],
+       "why": "In large samples the noise in March hourly wages averages out of the mean, by the law of large numbers, so both sources give similar averages. But noise adds its own variance to the measured variance and never averages out of it, so the March CPS overstates dispersion. May/MORG instead ask for usual hourly or weekly earnings at a point in time, not last year's annual totals.",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 78,
+     "symbols": []
+    },
+    {
+     "id": "3-the-data-why-the-dataset-matters-for-dispersion-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A second data problem: the CPS, Census and ACS all **top-code** income, so the measured variance is below the true variance and changes at the very top are invisible ([Top Coding](note:top-coding)). Tax data such as [IRS Individual Tax Data](note:irs-individual-tax-data) get around this but are hard to access."
+      }
+     ],
+     "words": 47,
+     "symbols": []
+    },
+    {
+     "id": "3-the-data-why-the-dataset-matters-for-dispersion-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "A survey records every wage above the top code as the top code itself. How does the measured variance of log wages compare with the true one?",
+       "options": [
+        {
+         "md": "Higher: the cap piles many workers onto one value at the top",
+         "correct": false,
+         "feedback": "Piling them onto the cap moves the highest wages *down*, toward everyone else, which shrinks the spread rather than adding to it."
+        },
+        {
+         "md": "About right: top-coded workers are a small share of the sample",
+         "correct": false,
+         "feedback": "They are few, but they are the furthest from the mean and the variance weights squared distances, so pulling them in lowers it. And growth above the cap never shows up at all."
+        },
+        {
+         "md": "Lower, and tax data have the same cap, so no source can see the top",
+         "correct": false,
+         "feedback": "Tax data such as IRS individual returns are not top-coded; the lecture names them as the way around the problem, though they are hard to access."
+        },
+        {
+         "md": "Lower, and any growth in wages above the cap is invisible",
+         "correct": true
+        }
+       ],
+       "why": "Recording every wage above the cap as the cap pulls the top tail in toward the rest, so the measured variance is below the true one; and when top wages grow, the recorded value stays at the cap. Tax data (IRS returns) avoid this, as do the uncapped Social Security earnings records used later in the lecture.",
+       "objectives": [
+        4
+       ]
+      }
+     ],
+     "words": 76,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "4-total-variance-is-decomposable",
+   "heading": "4. Total variance is decomposable",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "4-total-variance-is-decomposable-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With 128 groups (4 education × 2 gender × 2 race × 8 age), the between share B/T averages about 0.33 — so within-group inequality is important, although less so the finer the groups (more characteristics move variance from \"within\" to \"between\"). The lecture also replots the same series with a different vertical scale to show how presentation choices change the visual impression. Numbers in [US Variance of Log Wages 1973-2009](note:us-variance-of-log-wages-1973-2009)."
+      }
+     ],
+     "words": 69,
+     "symbols": []
+    },
+    {
+     "id": "4-total-variance-is-decomposable-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Suppose the 128 cells (education × gender × race × age) were merged into just the 4 education groups. What happens to the between-group share B/T of the same total variance?",
+       "options": [
+        {
+         "md": "It falls, or at most stays the same: wage gaps between cells inside an education group now count as within-group",
+         "correct": true
+        },
+        {
+         "md": "It rises: with fewer, larger groups each group mean is measured more precisely",
+         "correct": false,
+         "feedback": "B/T is not about how precisely the means are measured. Merging cells averages their means together, so the gaps between them move into the within part."
+        },
+        {
+         "md": "It stays the same: the total variance has not changed, so neither has its split",
+         "correct": false,
+         "feedback": "The total is fixed, but the split depends on the grouping: the gender, race and age gaps inside each education group switch from between to within."
+        },
+        {
+         "md": "It rises: dropping gender, race and age from the grouping removes those sources of inequality from the total",
+         "correct": false,
+         "feedback": "Nobody's wage changes, so the total is the same. Those gaps are still there, now counted inside the education groups."
+        }
+       ],
+       "why": "Merging replaces each cell's mean by its education group's mean, so differences between cells in the same education group stop counting as between and become within. With 128 cells B/T averages about 0.33; with only 4 groups it can be no larger. In regression terms B/T is the $R^2$ on group dummies, and dropping dummies cannot raise $R^2$.",
+       "objectives": [
+        8
+       ]
+      }
+     ],
+     "words": 95,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "5-total-variance-over-time",
+   "heading": "5. Total variance over time",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "5-total-variance-over-time-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Total variance (not yet composition-adjusted) combines within and between inequality. It dips to ≈0.185 around 1979, climbs to ≈0.23 by 1988, falls back to ≈0.20 by around 2000 and rises to ≈0.22 by 2009. Two questions follow: were the 1980s also exceptional for within-group inequality (as they were for between-group, see the college premium in the previous lecture)? And is the higher post-1980s level driven by wages or by composition?"
+      }
+     ],
+     "words": 74,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "6-within-group-inequality-by-education",
+   "heading": "6. Within-group inequality by education",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "6-within-group-inequality-by-education-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Splitting by four education groups: the early 1980s were exceptional for within-group inequality too — it rose in every group. But from the mid-1980s there was a large contraction for all groups except college graduates. For the lowest education groups, within-group inequality in the 2000s is *below* its 1970s level (dropouts ≈0.12–0.13), while for college graduates it climbs to ≈0.30. See [US Within-Education Wage Variance 1973-2009](note:us-within-education-wage-variance-1973-2009)."
+      }
+     ],
+     "words": 69,
+     "symbols": []
+    },
+    {
+     "id": "6-within-group-inequality-by-education-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Which describes the within-education variance of log wages from the 1970s to the 2000s?",
+       "options": [
+        {
+         "md": "It rose in all four groups throughout, most for college graduates",
+         "correct": false,
+         "feedback": "The rise in every group belongs to the early 1980s. From the mid-1980s it fell for all groups except college graduates, and for dropouts it ended *below* its 1970s level (≈0.12–0.13)."
+        },
+        {
+         "md": "It rose only for college graduates; the other groups stayed flat",
+         "correct": false,
+         "feedback": "The early-1980s rise happened in all four groups, not just among college graduates, and the less-educated groups then fell rather than staying flat."
+        },
+        {
+         "md": "It rose in every group in the early 1980s; from the mid-1980s it fell for all but college graduates, whose variance kept rising to ≈0.30",
+         "correct": true
+        },
+        {
+         "md": "It fell in every group in the 1980s and rose in every group afterwards",
+         "correct": false,
+         "feedback": "That reverses the timing: the 1980s rise was in every group, and afterwards the groups went different ways."
+        }
+       ],
+       "why": "The early 1980s were exceptional for within-group inequality as well as for the college premium: it rose in every education group. After the mid-1980s it contracted for every group except college graduates (for dropouts to ≈0.12–0.13, below the 1970s level), while for college graduates it climbed to ≈0.30.",
+       "objectives": [
+        6
+       ]
+      }
+     ],
+     "words": 76,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "7-how-much-is-composition",
+   "heading": "7. How much is composition?",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "7-how-much-is-composition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Two facts combine: variance is higher for the more educated, and the share of the more educated has risen. So total variance could rise simply because the workforce shifted toward high-variance groups. Holding education shares fixed ([Composition Adjustment](note:composition-adjustment) applied to the variance), the answer is striking: the composition-adjusted variance in **2001 equals 1979**, and 2009 is not exceptional at all — it looks like the early 1970s."
+      }
+     ],
+     "words": 66,
+     "symbols": []
+    },
+    {
+     "id": "7-how-much-is-composition-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "What does \"the composition-adjusted variance in 2001 equals 1979\" tell you?",
+       "options": [
+        {
+         "md": "Wage inequality did not change inside any education group between 1979 and 2001",
+         "correct": false,
+         "feedback": "Within-group inequality did change: it fell for the less educated and rose for college graduates. Equality at fixed shares means the wage changes add up to no net change in the total, not that nothing moved."
+        },
+        {
+         "md": "The rise in the unadjusted variance after 1979 came from the workforce shifting toward more-educated, higher-variance groups, not from a net change in wage dispersion at a fixed education mix",
+         "correct": true
+        },
+        {
+         "md": "The unadjusted variance was also the same in 2001 as in 1979",
+         "correct": false,
+         "feedback": "Unadjusted, the variance went from ≈0.185 in 1979 to ≈0.20 around 2000. Only with education shares held fixed are the two years equal."
+        },
+        {
+         "md": "Composition adjustment removes the between-group part, so only within-group variance is being compared",
+         "correct": false,
+         "feedback": "Holding shares fixed keeps both parts of the variance; it only stops the weight on each group from moving."
+        }
+       ],
+       "why": "The adjustment holds each education group's share at a fixed value, so only wages inside and between groups can move the variance. Since that variance is the same in 2001 as in 1979, the rise from ≈0.185 to ≈0.20 in the raw series is composition: more workers in the more-educated groups, which have higher variance.",
+       "objectives": [
+        5
+       ]
+      }
+     ],
+     "words": 79,
+     "symbols": []
+    },
+    {
+     "id": "7-how-much-is-composition-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "College workers are 20% of the workforce in 1979 and 35% in 2001. In 2001 college workers have mean log wage 3.1 and variance of log wages 0.26; non-college workers have mean 2.6 and variance 0.13. Holding the 1979 shares fixed, what is the composition-adjusted variance of log wages in 2001?",
+       "answer": 0.196,
+       "tol": 0.002,
+       "wrong": [
+        {
+         "answer": 0.232,
+         "tol": 0.002,
+         "md": "that is the unadjusted 2001 variance, at the 2001 shares 0.35 and 0.65; the adjustment puts back the 1979 shares 0.2 and 0.8"
+        },
+        {
+         "answer": 0.156,
+         "tol": 0.002,
+         "md": "that is only the within part, $0.2 \\times 0.26 + 0.8 \\times 0.13$; add the between part, $0.04$"
+        },
+        {
+         "answer": 0.213,
+         "tol": 0.002,
+         "md": "that fixes the shares in the within part but uses the 2001 shares in the between part ($0.35 \\times 0.65 \\times 0.5^2 \\approx 0.057$); both parts use the 1979 shares"
+        }
+       ],
+       "why": "At the 1979 shares the mean log wage is $0.2 \\times 3.1 + 0.8 \\times 2.6 = 2.7$. Within: $0.2 \\times 0.26 + 0.8 \\times 0.13 = 0.156$. Between: $0.2 \\times 0.4^2 + 0.8 \\times 0.1^2 = 0.04$. Total $0.196$, against $0.232$ at the 2001 shares: the gap of about $0.036$ is pure composition.",
+       "objectives": [
+        5
+       ]
+      }
+     ],
+     "words": 55,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "8-summary-so-far",
+   "heading": "8. Summary so far",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "8-summary-so-far-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Between- and within-group inequality are connected when there is measurement error in the grouping variable.\n- Within-group inequality in the US is important; how important depends on how finely groups are cut and on the quality of measurement.\n- The 1980s saw a pervasive rise in both between- and within-group inequality.\n- Afterwards between-group inequality keeps rising, while within-group is more nuanced: falling for low education, rising for high."
+      },
+      {
+       "t": "prose",
+       "md": "Can other cuts of the data explain this nuanced pattern?"
+      }
+     ],
+     "words": 80,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "9-changes-along-the-full-distribution",
+   "heading": "9. Changes along the full distribution",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "9-changes-along-the-full-distribution-1",
+     "blocks": [
+      {
+       "t": "quote",
+       "md": "Paper summary: [Acemoglu and Autor 2011 - Skills, Tasks and Technologies](note:acemoglu-and-autor-2011-skills-tasks-and-technologies) · [Song et al 2019 - Firming Up Inequality](note:song-et-al-2019-firming-up-inequality)",
+       "papers": [
+        "acemoglu-and-autor-2011-skills-tasks-and-technologies",
+        "song-et-al-2019-firming-up-inequality"
+       ]
+      },
+      {
+       "t": "prose",
+       "md": "- **March CPS, full-time full-year workers, 1963–2008**: large gains at the 90th percentile relative to the median. Judge the 50-10 gap with caution, because full-time full-year samples leave out many low-wage part-time and part-year workers. See [US Wage Percentiles 1963-2008](note:us-wage-percentiles-1963-2008).\n- **May/MORG, all workers, 1974–2008**: a pervasive rise in inequality in the 1980s; afterwards the top *and* the bottom gain relative to the middle. By gender, growth at each percentile relative to the median is a rising line for 1974–88 and a U (males) or a flat-then-rising line (females) for 1988–2008. See [US Wage Growth by Percentile 1974-2008](note:us-wage-growth-by-percentile-1974-2008)."
+      }
+     ],
+     "words": 122,
+     "symbols": []
+    },
+    {
+     "id": "9-changes-along-the-full-distribution-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **SSA Master Earnings File, 1982–2012** (all US wage earners, no top coding; Song et al., \"Firming Up Inequality\"): growth rises steadily with the percentile, with the 99th percentile up ≈0.52 log points. See [US Earnings Growth by Percentile 1982-2012](note:us-earnings-growth-by-percentile-1982-2012) and [SSA Master Earnings File](note:ssa-master-earnings-file)."
+      }
+     ],
+     "words": 47,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "10-the-pattern-is-wage-polarization",
+   "heading": "10. The pattern is wage polarization",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "10-the-pattern-is-wage-polarization-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The nuanced within-group pattern — falling dispersion for low education, rising for high — is consistent with [Wage Polarization](note:wage-polarization): a rise in the 90-50 gap together with a fall in the 50-10 gap. Less-educated workers sit mostly in the lower half, where wages compressed; college workers sit mostly in the upper half, where wages spread out (gaps measured with [Percentile Ratios](note:percentile-ratios))."
+      }
+     ],
+     "words": 59,
+     "symbols": []
+    },
+    {
+     "id": "10-the-pattern-is-wage-polarization-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "A growth-by-percentile chart shows each percentile's log wage growth relative to the median, $g(p)$. Which pattern is wage polarization?",
+       "options": [
+        {
+         "md": "$g(10) = -0.10$, $g(90) = +0.20$",
+         "correct": false,
+         "feedback": "The 90-50 gap widens, but so does the 50-10 gap (the 10th falls 0.10 behind the median): inequality rising at every point, as in 1974–88."
+        },
+        {
+         "md": "$g(10) = -0.05$, $g(90) = -0.05$",
+         "correct": false,
+         "feedback": "Both tails lose ground to the middle: the 90-50 gap narrows by 0.05, the opposite of polarization at the top."
+        },
+        {
+         "md": "$g(10) = +0.05$, $g(90) = +0.20$",
+         "correct": true
+        },
+        {
+         "md": "$g(10) = +0.05$, $g(90) = -0.10$",
+         "correct": false,
+         "feedback": "The 50-10 gap narrows, but so does the 90-50 gap: that is compression at both ends, not polarization."
+        }
+       ],
+       "why": "The 90-50 gap changes by $g(90)$ and the 50-10 gap by $-g(10)$. Polarization needs the first to rise and the second to fall: here $+0.20$ and $-0.05$. Both tails gain on the middle, a U shape like the one for men after 1988.",
+       "objectives": [
+        7
+       ]
+      }
+     ],
+     "words": 18,
+     "symbols": [
+      "$g$",
+      "$p$, $y$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cross-course-links",
+   "heading": "Cross-course links",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "cross-course-links-1",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "tip",
+       "title": "Econometrics in this lecture",
+       "md": "- Noise in hourly wages inflates the variance but not the mean — [Classical Measurement Error](note:classical-measurement-error), the same mechanism that causes attenuation bias in regressions.\n- The within-group variance is the residual variance from regressing log wages on a full set of group dummies ([Indicator Variables](note:indicator-variables)), and B/T is that regression's $R^2$.",
+       "folded": false
+      }
+     ],
+     "words": 55,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "math-refresher",
+   "heading": "Math refresher",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "math-refresher-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Math Prep L7 Approximations Logs and Series](note:math-prep-l7-approximations-logs-and-series) — log wages, log changes as percentage changes\n- [Math Prep L8 Integration for Probability](note:math-prep-l8-integration-for-probability) — expectations and variances; the variance decomposition"
+      }
+     ],
+     "words": 28,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Derive the college premium $\\kappa$ in the unobserved-ability model and show $d\\kappa/d\\zeta > 0$; explain why within-group inequality rises too.\n2. Compute total, within and between variance of log wages from a small grouped table.\n3. Explain why May/MORG data are better than the March CPS for wage *dispersion* but give similar *averages*.\n4. Explain how top coding biases the variance and hides changes at the top, and name data that avoid it.\n5. Compute a composition-adjusted variance and interpret \"2001 equals 1979\".\n6. Describe the timing: a pervasive rise in the 1980s, then falling within-group inequality for the less educated and rising for college graduates.\n7. Define wage polarization using the 90-50 and 50-10 gaps and read a growth-by-percentile chart."
+      }
+     ],
+     "words": 119,
+     "symbols": [
+      "$\\zeta$",
+      "$\\kappa$"
+     ]
+    },
+    {
+     "id": "what-to-be-able-to-do-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "8. Explain why the \"within share\" depends on how finely groups are defined."
+      }
+     ],
+     "words": 13,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "papers-in-this-lecture",
+   "heading": "Papers in this lecture",
+   "role": "papers",
+   "steps": [
+    {
+     "id": "papers-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "papers",
+       "items": [
+        "lemieux-2006-increasing-residual-wage-inequality",
+        "acemoglu-and-autor-2011-skills-tasks-and-technologies",
+        "song-et-al-2019-firming-up-inequality"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "within-and-between-group-inequality",
+        "variance-of-log-income",
+        "law-of-total-variance",
+        "composition-adjustment",
+        "classical-measurement-error",
+        "top-coding",
+        "wage-polarization",
+        "percentile-ratios",
+        "skill-premium"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "facts-and-data-in-this-lecture",
+   "heading": "Facts and data in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "facts-and-data-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "facts",
+       "items": [
+        "us-variance-of-log-wages-1973-2009",
+        "us-within-education-wage-variance-1973-2009",
+        "us-wage-percentiles-1963-2008",
+        "us-wage-growth-by-percentile-1974-2008",
+        "us-earnings-growth-by-percentile-1982-2012",
+        "current-population-survey-cps",
+        "ssa-master-earnings-file",
+        "irs-individual-tax-data"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

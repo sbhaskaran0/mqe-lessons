@@ -1,0 +1,141 @@
+/* Design tokens: the single source for colour, type and spacing. Pages, charts and widgets read these
+   variables; nothing hard-codes a colour. Dark mode follows the OS unless the user picks a theme
+   (html[data-theme="light" | "dark"]). */
+
+:root {
+  --font-text: "Source Serif 4", "Iowan Old Style", Georgia, serif;
+  --font-ui: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Code", Consolas, monospace;
+
+  --text-xs: 0.78rem;
+  --text-sm: 0.875rem;
+  --text-md: 1.0625rem;   /* reading size */
+  --text-lg: 1.25rem;
+  --text-xl: 1.6rem;
+  --leading: 1.65;
+  --measure: 640px;       /* step column max width */
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --radius: 10px;
+  --radius-sm: 6px;
+  --touch: 44px;          /* minimum touch target (slider thumbs, buttons) */
+
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --dur: 220ms;
+
+  /* light */
+  --bg: #fbfaf7;
+  --surface: #ffffff;
+  --surface-2: #f3f1ec;
+  --border: #e3dfd6;
+  --text: #22201c;
+  --text-2: #5d584f;
+  --text-3: #6b665c;
+  --accent: #2f5bd3;
+  --accent-soft: #e6ecfb;
+  --success: #2a7449;
+  --success-soft: #e3f3e9;
+  --danger: #b4372f;
+  --danger-soft: #f8e5e3;
+  --warn: #8a5e00;
+  --warn-soft: #fbf0d6;
+  --why: #7a4fc4;          /* "Why it matters" highlight */
+  --why-soft: #f0e9fb;
+  --focus: #2f5bd3;
+
+  /* shadows and scrims are near-black in both themes: mixed from --text they would turn light in dark mode */
+  --shadow-color: #0d0c0a;
+  --shadow-a: 8%;
+  --shadow-a-lg: 22%;
+  --scrim: rgb(13 12 10 / 0.32);
+  --scrim-soft: rgb(13 12 10 / 0.18);
+
+  /* charts and widgets: series colours in order, plus axis/grid */
+  --chart-1: #2f5bd3;
+  --chart-2: #d8622a;
+  --chart-3: #2e8b6e;
+  --chart-4: #9b4fc4;
+  --chart-5: #ab8319;
+  --chart-6: #c03f6d;
+  --chart-axis: #8b857a;
+  --chart-grid: #ebe7df;
+  --chart-highlight: #f2b705;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #15161a;
+    --surface: #1d1f24;
+    --surface-2: #25282e;
+    --border: #34373e;
+    --text: #e9e7e2;
+    --text-2: #b4b0a8;
+    --text-3: #9a968e;
+    --accent: #7ea2ff;
+    --accent-soft: #232d48;
+    --success: #6cc493;
+    --success-soft: #1d3327;
+    --danger: #ef8a80;
+    --danger-soft: #3a2220;
+    --warn: #e2b54c;
+    --warn-soft: #3a2f16;
+    --why: #b896f2;
+    --why-soft: #2c2440;
+    --focus: #7ea2ff;
+    --shadow-color: #000000;
+    --shadow-a: 40%;
+    --shadow-a-lg: 60%;
+    --scrim: rgb(0 0 0 / 0.6);
+    --scrim-soft: rgb(0 0 0 / 0.4);
+    --chart-1: #7ea2ff;
+    --chart-2: #f08a52;
+    --chart-3: #5cc49f;
+    --chart-4: #c08cf0;
+    --chart-5: #e2bf4c;
+    --chart-6: #f07aa2;
+    --chart-axis: #8a867e;
+    --chart-grid: #2c2f36;
+    --chart-highlight: #ffd34d;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #15161a;
+  --surface: #1d1f24;
+  --surface-2: #25282e;
+  --border: #34373e;
+  --text: #e9e7e2;
+  --text-2: #b4b0a8;
+  --text-3: #9a968e;
+  --accent: #7ea2ff;
+  --accent-soft: #232d48;
+  --success: #6cc493;
+  --success-soft: #1d3327;
+  --danger: #ef8a80;
+  --danger-soft: #3a2220;
+  --warn: #e2b54c;
+  --warn-soft: #3a2f16;
+  --why: #b896f2;
+  --why-soft: #2c2440;
+  --focus: #7ea2ff;
+  --shadow-color: #000000;
+  --shadow-a: 40%;
+  --shadow-a-lg: 60%;
+  --scrim: rgb(0 0 0 / 0.6);
+  --scrim-soft: rgb(0 0 0 / 0.4);
+  --chart-1: #7ea2ff;
+  --chart-2: #f08a52;
+  --chart-3: #5cc49f;
+  --chart-4: #c08cf0;
+  --chart-5: #e2bf4c;
+  --chart-6: #f07aa2;
+  --chart-axis: #8a867e;
+  --chart-grid: #2c2f36;
+  --chart-highlight: #ffd34d;
+}

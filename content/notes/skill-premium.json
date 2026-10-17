@@ -1,0 +1,166 @@
+{
+ "slug": "skill-premium",
+ "notation": [
+  {
+   "tex": "$w_{Ht}$",
+   "meaning": "Wage per efficiency unit of college (high-skill) labor in year $t$",
+   "kind": "Price, endogenous",
+   "typical": "—",
+   "keys": [
+    "w"
+   ]
+  },
+  {
+   "tex": "$w_{Lt}$",
+   "meaning": "Wage per efficiency unit of non-college (low-skill) labor in year $t$",
+   "kind": "Price, endogenous",
+   "typical": "—",
+   "keys": [
+    "w"
+   ]
+  },
+  {
+   "tex": "$\\ln(w_{Ht}/w_{Lt})$",
+   "meaning": "The skill premium, as a log gap",
+   "kind": "Endogenous",
+   "typical": "≈ 0.39 (1963) to ≈ 0.67 (2008)",
+   "keys": []
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The skill premium is how much more college-educated workers are paid than workers without a degree, for the same amount and kind of work. If a typical graduate earns about twice what a typical high-school graduate earns, the premium is large; if they earn about the same, it is small. Economists measure it carefully so that it reflects the price the labor market puts on skill, rather than changes in who happens to be in each group."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the most-studied pay gap between groups of workers, and its rise since 1980 explains a large part of the growth in US wage inequality.",
+       "folded": false
+      }
+     ],
+     "words": 106,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The relative wage of skilled to unskilled workers — in practice, **college vs non-college**, measured as a composition-adjusted [Log Wage Gap](note:log-wage-gap):"
+      },
+      {
+       "t": "math",
+       "tex": "\\ln\\left(\\frac{w_{Ht}}{w_{Lt}}\\right)"
+      },
+      {
+       "t": "prose",
+       "md": "where $w_{Ht}$ and $w_{Lt}$ are prices per efficiency unit of college and non-college labour ([Composition Adjustment](note:composition-adjustment), [Efficiency Units of Labor](note:efficiency-units-of-labor))."
+      }
+     ],
+     "words": 38,
+     "symbols": [
+      "$w_{Ht}$",
+      "$w_{Lt}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "why-it-is-central",
+   "heading": "Why it is central",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "why-it-is-central-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "It is the most-studied form of between-group inequality, and its rise since 1980 accounts for a large part of the rise in overall US wage inequality. See [US Skill Premium Since 1963](note:us-skill-premium-since-1963)."
+      }
+     ],
+     "words": 32,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "what-determines-it",
+   "heading": "What determines it",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-determines-it-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Wages are prices of labour, determined by"
+      },
+      {
+       "t": "prose",
+       "md": "1. **Markets**: [Relative Supply and Demand](note:relative-supply-and-demand) for skilled labour\n2. **Institutions**: minimum wages, unions, pay norms"
+      },
+      {
+       "t": "prose",
+       "md": "The lecture starts with markets only. Then the premium falls when relative supply rises and rises when relative demand rises — and the [Canonical Model of the Skill Premium](note:canonical-model-of-the-skill-premium) formalises the race between the two."
+      }
+     ],
+     "words": 57,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "generalising-skill",
+   "heading": "Generalising \"skill\"",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "generalising-skill-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The same two-group framework works for any split: women vs men, Black vs white workers, young vs old. Only the interpretation changes."
+      }
+     ],
+     "words": 22,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Canonical Model of the Skill Premium](note:canonical-model-of-the-skill-premium)\n- [Within- and Between-Group Inequality](note:within-and-between-group-inequality)"
+      }
+     ],
+     "words": 12,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

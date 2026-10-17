@@ -1,0 +1,229 @@
+{
+ "slug": "us-manufacturing-employment-effects-of-pntr-1990-2007",
+ "notation": [
+  {
+   "tex": "$\\theta$",
+   "meaning": "Effect of treatment (per unit of $D_i$ if continuous)",
+   "kind": "Parameter",
+   "typical": "−0.47 in the PNTR example",
+   "keys": [
+    "theta"
+   ],
+   "from": "difference-in-differences"
+  },
+  {
+   "tex": "$\\delta_i$, $\\delta_t$",
+   "meaning": "Unit and time fixed effects",
+   "kind": "Parameters",
+   "typical": "—",
+   "keys": [
+    "delta"
+   ],
+   "from": "difference-in-differences"
+  },
+  {
+   "tex": "$\\mathbf{x}_{it}$, $\\gamma$",
+   "meaning": "Controls and their coefficients",
+   "kind": "Data / parameters",
+   "typical": "—",
+   "keys": [
+    "bold(x)",
+    "gamma"
+   ],
+   "from": "difference-in-differences"
+  },
+  {
+   "tex": "$\\varepsilon_{it}$",
+   "meaning": "Error",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "varepsilon"
+   ],
+   "from": "difference-in-differences"
+  },
+  {
+   "tex": "$\\alpha_i$",
+   "meaning": "Unit fixed effect: everything permanent about unit $i$",
+   "kind": "Parameter (one per unit)",
+   "typical": "—",
+   "keys": [
+    "alpha"
+   ],
+   "from": "fixed-effects-regression"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**When China joined the WTO and the US granted it permanent normal trade relations (PNTR), the threat of tariffs jumping back to Smoot-Hawley levels disappeared. Industries where that threat had been largest — the biggest \"NTR gap\" — lost the most employment afterwards, and the losses kept growing through 2007.**"
+      }
+     ],
+     "words": 48,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "the-policy",
+   "heading": "The policy",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-policy-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Since 1980 US imports from China paid the low Normal Trade Relations (NTR) tariffs reserved for WTO members — but only through **annual renewals** that were uncertain and politically contentious.\n- Without renewal, tariffs would jump to the much higher non-NTR rates (Smoot-Hawley, 1930).\n- With China's WTO accession, the US granted PNTR (effective 2001), removing that risk.\n- The size of the risk varied by industry: $\\text{NTR Gap}_i = \\text{Non-NTR rate}_i - \\text{NTR rate}_i$."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Distribution of NTR gaps across US industries 1999.png",
+       "alt": "Distribution of NTR gaps across US industries 1999"
+      }
+     ],
+     "words": 67,
+     "symbols": []
+    },
+    {
+     "id": "the-policy-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "NTR gaps across manufacturing industries in 1999 peak around 0.35; the 25th percentile is 0.23 and the 75th 0.40."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/China NTR uncertainty index 1989-2013.png",
+       "alt": "China NTR uncertainty index 1989-2013"
+      },
+      {
+       "t": "prose",
+       "md": "Newspaper coverage of China's NTR status spiked in the early 1990s and again around 2000, then vanished after PNTR."
+      }
+     ],
+     "words": 41,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "specification",
+   "heading": "Specification",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "specification-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "OLS on industry-year log employment, 1990–2007: $\\ln(\\text{Emp}_{it}) = \\theta\\,\\text{Post}_t \\times \\text{NTRGap}_i + \\text{Post}_t \\times \\mathbf{X}_i'\\gamma + \\mathbf{X}_{it}'\\lambda + \\delta_t + \\delta_i + \\alpha + \\varepsilon_{it}$, with industry and year fixed effects, weighted by 1990 employment, standard errors clustered by industry ([Difference-in-Differences](note:difference-in-differences))."
+      }
+     ],
+     "words": 23,
+     "symbols": [
+      "$\\theta$",
+      "$\\delta_i$, $\\delta_t$",
+      "$\\mathbf{x}_{it}$, $\\gamma$",
+      "$\\varepsilon_{it}$",
+      "$\\alpha_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "baseline-results-table-1",
+   "heading": "Baseline results (Table 1)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "baseline-results-table-1-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - PNTR and US manufacturing employment baseline results.png",
+       "alt": "Table - PNTR and US manufacturing employment baseline results"
+      },
+      {
+       "t": "table",
+       "md": "| | (1) | (2) | (3) |\n| --- | --- | --- | --- |\n| Post × NTR gap | −0.714 (0.193) | −0.601 (0.191) | **−0.469 (0.147)** |\n| Controls | Fixed effects only | + 1990 capital and skill intensity | + full set (contract intensity, Chinese tariffs, subsidies, licensing, advanced technology, MFA exposure, NTR rate, union membership) |\n| Implied impact of PNTR | −0.229 | −0.193 | −0.151 |\n| Observations | 5,700 | 5,700 | 5,700 |"
+      },
+      {
+       "t": "prose",
+       "md": "**Magnitude**: moving an industry from the 25th (0.23) to the 75th (0.40) percentile NTR gap implies a relative employment loss of $-0.47 \\times (0.40 - 0.23) = -0.08$ log points."
+      }
+     ],
+     "words": 89,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "event-study",
+   "heading": "Event study",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "event-study-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/PNTR effect on US manufacturing employment event study.png",
+       "alt": "PNTR effect on US manufacturing employment event study"
+      },
+      {
+       "t": "prose",
+       "md": "With baseline controls, the year-by-year coefficients are near zero before 2001 and turn negative right after PNTR; by 2007 the 90% confidence interval is roughly −0.25 to −1.1 (read off the chart). Without controls the decline is steeper. **The effect is felt quickly, and it grows over time.**"
+      }
+     ],
+     "words": 50,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "reading-it-correctly",
+   "heading": "Reading it correctly",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "reading-it-correctly-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Identification from uncertainty**: tariffs did not actually fall in 2001; what changed was the removal of the risk that they would rise. Industries with large gaps gained most certainty, encouraging firms to invest in Chinese supply chains.\n- **Relative effects**: the design compares high- and low-gap industries; it does not measure the aggregate fall in manufacturing.\n- **Pre-trends**: flat pre-2001 coefficients support parallel trends."
+      }
+     ],
+     "words": 65,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Difference-in-Differences](note:difference-in-differences) · [Fixed Effects Regression](note:fixed-effects-regression) · [Longitudinal Business Database (LBD)](note:longitudinal-business-database-lbd) · [US Manufacturing Employment 1939-2015](note:us-manufacturing-employment-1939-2015)\n- Paper: [Pierce and Schott 2016 - The Surprisingly Swift Decline of US Manufacturing Employment](note:pierce-and-schott-2016-the-surprisingly-swift-decline-of-us-manufacturing-employment)"
+      }
+     ],
+     "words": 28,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

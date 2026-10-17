@@ -1,0 +1,201 @@
+{
+ "slug": "autor-dorn-and-hanson-2013-the-china-syndrome",
+ "notation": [],
+ "sections": [
+  {
+   "id": "key-takeaways",
+   "heading": "Key takeaways",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "key-takeaways-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. **Local labor markets bear trade shocks unevenly.** Regions specialized in industries where Chinese imports surged lost manufacturing employment: −0.60 pp of the working-age population per $1,000 of exposure per worker.\n2. **Displaced workers do not move or get re-absorbed.** Population barely responds; instead unemployment, labor-force exit and disability receipt rise. Losses stay local.\n3. **Wages fall outside manufacturing too.** Average weekly wages fall about 0.76 log points per $1,000 of exposure, and non-college employment falls in non-manufacturing — local spillovers."
+      }
+     ],
+     "words": 84,
+     "symbols": []
+    },
+    {
+     "id": "key-takeaways-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "4. **In magnitudes**, the 75th- versus 25th-percentile exposed zone (a 1.06 difference) loses 4.5% more manufacturing employees and sees 0.8% lower weekly earnings. The paper also extrapolates to about a quarter of the aggregate US manufacturing decline (beyond the lecture), a step that needs extra assumptions."
+      }
+     ],
+     "words": 49,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "research-question",
+   "heading": "Research question",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "research-question-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Did the rise of imports from China harm workers in the US local labor markets most exposed to it, relative to others?"
+      }
+     ],
+     "words": 22,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "data-and-setting",
+   "heading": "Data and setting",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "data-and-setting-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "722 [Commuting Zone](note:commuting-zone)s, changes over 1990–2000 and 2000–2007; Census/ACS labor outcomes; trade flows by industry. US imports from China grew more than twelvefold over 1991–2007 ([US Imports from China 1991-2007](note:us-imports-from-china-1991-2007))."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/US imports from China and manufacturing employment 1987-2007.png",
+       "alt": "US imports from China and manufacturing employment 1987-2007"
+      }
+     ],
+     "words": 34,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "empirical-strategy",
+   "heading": "Empirical strategy",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "empirical-strategy-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Exposure**: change in US imports from China per worker in each industry, weighted by the zone's employment shares — a [Shift-Share Exposure](note:shift-share-exposure) measure motivated by the immobile-factor model.\n- **Instrument**: the same construction using other high-income countries' imports from China and lagged employment shares — a [Shift-Share Instrument](note:shift-share-instrument) — because US imports also respond to US demand and supply shocks. Estimated by [2SLS](note:instrumental-variables-and-2sls).\n- **Controls**: start-of-period manufacturing share (exposure is summed over manufacturing only) and other regional characteristics; errors [clustered](note:clustered-standard-errors) by state."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/US commuting zone exposure to Chinese imports 1990-2007.png",
+       "alt": "US commuting zone exposure to Chinese imports 1990-2007"
+      }
+     ],
+     "words": 80,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "results",
+   "heading": "Results",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "results-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - China shock and manufacturing employment by commuting zone.png",
+       "alt": "Table - China shock and manufacturing employment by commuting zone"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    },
+    {
+     "id": "results-2",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - China shock and employment status by commuting zone.png",
+       "alt": "Table - China shock and employment status by commuting zone"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    },
+    {
+     "id": "results-3",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - China shock and wages by commuting zone.png",
+       "alt": "Table - China shock and wages by commuting zone"
+      },
+      {
+       "t": "prose",
+       "md": "Full coefficient tables and the 75th-vs-25th calculations are in [US Local Labor Market Effects of Chinese Imports 1990-2007](note:us-local-labor-market-effects-of-chinese-imports-1990-2007)."
+      }
+     ],
+     "words": 18,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "caveats",
+   "heading": "Caveats",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "caveats-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **The lecture says these results are \"now considered problematic\"** and leaves the critique to the first assignment.\n- Concerns raised in later work (beyond the lecture): demand shocks correlated across rich countries (threatening the exclusion restriction), pre-existing trends in exposed regions, the incomplete-shares problem, and standard errors that understate uncertainty in shift-share designs.\n- All effects are **relative**: they say nothing directly about the aggregate effect of Chinese imports on US workers."
+      }
+     ],
+     "words": 73,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "in-econ-424-l5-international-trade-empirics",
+   "heading": "In Econ 424 L5 International Trade Empirics",
+   "role": "paper-in-lesson",
+   "steps": [
+    {
+     "id": "in-econ-424-l5-international-trade-empirics-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The lecture's first and longest example. It turns the theory lecture's prediction — a region's wage change is its share-weighted exposure to price changes — into a regression, replacing unobserved price changes with import growth per worker and income shares with employment shares. It frames the \"big question\" the design can answer: harm *relative to other workers*, not harm overall. Be able to write the exposure measure and instrument, justify the manufacturing-share control, and convert coefficients into the 75th-vs-25th magnitudes."
+      }
+     ],
+     "words": 78,
+     "symbols": []
+    }
+   ],
+   "lesson": "econ-424-l5-international-trade-empirics"
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Shift-Share Exposure](note:shift-share-exposure) · [Shift-Share Instrument](note:shift-share-instrument) · [Commuting Zone](note:commuting-zone) · [Import Penetration](note:import-penetration) · [Specific-Factors Model](note:specific-factors-model)"
+      }
+     ],
+     "words": 11,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

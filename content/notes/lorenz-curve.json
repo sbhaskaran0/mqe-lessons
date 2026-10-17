@@ -1,0 +1,242 @@
+{
+ "slug": "lorenz-curve",
+ "notation": [
+  {
+   "tex": "$z_i$",
+   "meaning": "Income of person $i$, sorted from lowest to highest",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "z"
+   ]
+  },
+  {
+   "tex": "$n$",
+   "meaning": "Number of people",
+   "kind": "Count",
+   "typical": "—",
+   "keys": [
+    "n"
+   ]
+  },
+  {
+   "tex": "$F_i = i/n$",
+   "meaning": "Cumulative population share (horizontal axis)",
+   "kind": "Statistic",
+   "typical": "0 to 1",
+   "keys": [
+    "F"
+   ]
+  },
+  {
+   "tex": "$S_i$",
+   "meaning": "Total income of person $i$ and everyone poorer",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "S"
+   ]
+  },
+  {
+   "tex": "$L_i = S_i/S_n$",
+   "meaning": "Cumulative income share (vertical axis)",
+   "kind": "Statistic",
+   "typical": "0 to 1",
+   "keys": [
+    "L"
+   ]
+  },
+  {
+   "tex": "$x$",
+   "meaning": "Size of the top group, as a share of the population",
+   "kind": "Choice",
+   "typical": "0.10, 0.01, 0.001",
+   "keys": [
+    "x"
+   ],
+   "from": "top-income-shares"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A Lorenz curve is a picture of how income is shared out. Line everyone up from poorest to richest, then plot what share of total income goes to the poorest ten percent, twenty percent, and so on. If everyone earned the same, the curve would be a straight diagonal line. The more the curve sags below that line, the more unequal the distribution. It shows the whole distribution at once, but it is a picture, not a single number."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the foundation of the Gini coefficient and top income shares, and comparing two curves can settle whether one distribution is unambiguously more equal.",
+       "folded": false
+      }
+     ],
+     "words": 107,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A graphical representation of an entire distribution — **not** a measure of inequality."
+      },
+      {
+       "t": "prose",
+       "md": "It plots the share of total income held by the bottom $x\\%$ of the population, for every $x \\in [0,1]$."
+      }
+     ],
+     "words": 28,
+     "symbols": [
+      "$x$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "construction",
+   "heading": "Construction",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "construction-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Index $n$ people by income $z_i$, sorted so $z_{i+1} \\geq z_i$."
+      },
+      {
+       "t": "math",
+       "tex": "F_i = \\frac{i}{n}, \\qquad L_i = \\frac{S_i}{S_n}, \\qquad S_i = \\sum_{j=1}^{i} z_j"
+      },
+      {
+       "t": "prose",
+       "md": "$F_i$ is the cumulative population share (x-axis); $L_i$ is the cumulative income share (y-axis). The Lorenz curve is the piecewise-linear function through $(F_i, L_i)$ for $i = 0,\\dots,n$, with $F_0 = L_0 = 0$."
+      }
+     ],
+     "words": 28,
+     "symbols": [
+      "$z_i$",
+      "$n$",
+      "$F_i = i/n$",
+      "$S_i$",
+      "$L_i = S_i/S_n$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Incomes 10, 10, 10, 11, 12, 13, 17, 20, 22; total $S_n = 125$."
+      },
+      {
+       "t": "table",
+       "md": "| $z_i$ | $i$ | $F_i$ | $S_i$ | $L_i$ |\n| --- | --- | --- | --- | --- |\n| 10 | 1 | 0.11 | 10 | 0.08 |\n| 10 | 2 | 0.22 | 20 | 0.16 |\n| 10 | 3 | 0.33 | 30 | 0.24 |\n| 11 | 4 | 0.44 | 41 | 0.33 |\n| 12 | 5 | 0.56 | 53 | 0.42 |\n| 13 | 6 | 0.67 | 66 | 0.53 |\n| 17 | 7 | 0.78 | 83 | 0.66 |\n| 20 | 8 | 0.89 | 103 | 0.82 |\n| 22 | 9 | 1.00 | 125 | 1.00 |"
+      }
+     ],
+     "words": 79,
+     "symbols": [
+      "$z_i$",
+      "$F_i = i/n$",
+      "$S_i$",
+      "$L_i = S_i/S_n$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "properties",
+   "heading": "Properties",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "properties-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Always starts at (0,0), ends at (1,1), is increasing and convex.\n- Perfect equality is the 45° line. The further the curve bows below it, the more unequal.\n- It is **scale invariant**: doubling everyone's income leaves it unchanged."
+      }
+     ],
+     "words": 42,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "why-it-is-not-a-measure",
+   "heading": "Why it is not a measure",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "why-it-is-not-a-measure-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "It carries a lot of information but does not give a single number, and it is hard to judge the size of changes. The lecture's example: US Lorenz curves for 2004 and 2014 lie almost on top of each other, even though the Gini rose."
+      }
+     ],
+     "words": 45,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "lorenz-dominance-beyond-the-lecture-standard-result",
+   "heading": "Lorenz dominance (beyond the lecture — standard result)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "lorenz-dominance-beyond-the-lecture-standard-result-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "If curve A lies everywhere on or above curve B, A is unambiguously more equal: **every** measure satisfying the transfer principle ranks A as more equal. If the curves **cross**, reasonable measures can disagree. That is why there is no single \"correct\" inequality measure. See [Properties of Inequality Measures](note:properties-of-inequality-measures)."
+      }
+     ],
+     "words": 49,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Math background: [Integration by Parts](note:integration-by-parts)\n- [Gini Coefficient](note:gini-coefficient) — the area-based summary of this curve\n- [Top Income Shares](note:top-income-shares) — read off the right end of this curve"
+      }
+     ],
+     "words": 27,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,253 @@
+{
+ "slug": "gauss-markov-theorem",
+ "notation": [
+  {
+   "tex": "$b_2$",
+   "meaning": "OLS slope",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "b"
+   ]
+  },
+  {
+   "tex": "$\\beta_2$",
+   "meaning": "True slope",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$\\tilde{\\beta}_2 = \\sum a_iy_i$",
+   "meaning": "Any competing linear estimator",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "tilde(beta)"
+   ]
+  },
+  {
+   "tex": "$a_i$",
+   "meaning": "Weights of the competing estimator",
+   "kind": "Depend only on $x$",
+   "typical": "—",
+   "keys": [
+    "a"
+   ]
+  },
+  {
+   "tex": "$w_i$",
+   "meaning": "OLS weights",
+   "kind": "Depend only on $x$",
+   "typical": "—",
+   "keys": [
+    "w"
+   ]
+  },
+  {
+   "tex": "$d_i = a_i - w_i$",
+   "meaning": "How far the competitor's weights differ from OLS",
+   "kind": "—",
+   "typical": "All zero for OLS",
+   "keys": [
+    "d"
+   ]
+  },
+  {
+   "tex": "$\\sigma^2$",
+   "meaning": "Error variance",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "sigma"
+   ]
+  },
+  {
+   "tex": "$y_i$, $x_i$",
+   "meaning": "Outcome and explanatory variable for observation $i$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "y",
+    "x"
+   ],
+   "from": "ols-estimator"
+  },
+  {
+   "tex": "$e_i$",
+   "meaning": "True error: everything else affecting $y_i$",
+   "kind": "Unobserved",
+   "typical": "—",
+   "keys": [
+    "e"
+   ],
+   "from": "ols-estimator"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The Gauss-Markov theorem says that, under the classic regression assumptions, least squares is the most precise estimator in a natural class: among all methods that are simple weighted averages of the outcomes and that hit the true value on average, none has less scatter from sample to sample. It does not need the errors to follow a bell curve. It does need the errors to have equal spread and to be unrelated to each other."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the formal justification for using least squares by default, and it tells you exactly when a better estimator might exist.",
+       "folded": false
+      }
+     ],
+     "words": 100,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Under SR1–SR5 — **not** SR6 — the OLS estimators $b_1$ and $b_2$ have the smallest variance among all **linear, unbiased** estimators of $\\beta_1$ and $\\beta_2$. They are **BLUE**: Best Linear Unbiased Estimators."
+      }
+     ],
+     "words": 27,
+     "symbols": [
+      "$b_2$",
+      "$\\beta_2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "learn-the-three-qualifiers",
+   "heading": "Learn the three qualifiers",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "learn-the-three-qualifiers-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "This is what gets tested, not the phrase."
+      },
+      {
+       "t": "prose",
+       "md": "- **Best** means minimum variance, nothing more.\n- **Linear** restricts the comparison class to estimators of the form $\\sum a_i y_i$ with weights not depending on $y$. A *nonlinear* estimator can beat OLS.\n- **Unbiased** excludes biased estimators that may have lower MSE — ridge, for instance.\n- Normality is **not** required. [Homoskedasticity](note:homoskedasticity) **is**."
+      }
+     ],
+     "words": 57,
+     "symbols": [
+      "$a_i$",
+      "$y_i$, $x_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "the-proof",
+   "heading": "The proof",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-proof-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Let $\\tilde{\\beta}_2 = \\sum a_i y_i$ be any linear estimator with weights not depending on $y$. Unbiasedness for all $\\beta_1,\\beta_2$ requires"
+      },
+      {
+       "t": "math",
+       "tex": "\\sum a_i = 0, \\qquad \\sum a_i x_i = 1"
+      },
+      {
+       "t": "prose",
+       "md": "which are exactly the conditions the OLS weights $w_i$ satisfy (see [OLS Estimator](note:ols-estimator)). Write $a_i = w_i + d_i$. The restrictions force $\\sum d_i = 0$ and $\\sum d_i x_i = 0$, which together imply $\\sum w_i d_i = 0$. Then"
+      },
+      {
+       "t": "math",
+       "tex": "\\mathrm{Var}(\\tilde{\\beta}_2) = \\sigma^2\\sum a_i^2 = \\sigma^2\\left(\\sum w_i^2 + 2\\sum w_i d_i + \\sum d_i^2\\right) = \\mathrm{Var}(b_2) + \\sigma^2\\sum d_i^2 \\;\\geq\\; \\mathrm{Var}(b_2)"
+      },
+      {
+       "t": "prose",
+       "md": "with equality only if every $d_i = 0$."
+      },
+      {
+       "t": "callout",
+       "kind": "important",
+       "title": "Where homoskedasticity (and no error correlation) enters",
+       "md": "At the step $\\mathrm{Var}(\\sum a_i y_i) = \\sigma^2\\sum a_i^2$. It needs SR4 (no error correlation), so the covariance cross-terms $a_ia_j\\,\\mathrm{cov}(e_i,e_j)$ vanish, and SR3 (homoskedasticity), so every $\\mathrm{Var}(e_i) = \\sigma^2$. Without constant variance you get $\\sum a_i^2\\sigma_i^2$, and with correlated errors the cross-terms stay; either way the OLS weights are not optimal — GLS/WLS is.",
+       "folded": false
+      },
+      {
+       "t": "prose",
+       "md": "Normality is never used: the whole argument is about first and second moments only."
+      }
+     ],
+     "words": 103,
+     "symbols": [
+      "$b_2$",
+      "$\\beta_2$",
+      "$\\tilde{\\beta}_2 = \\sum a_iy_i$",
+      "$a_i$",
+      "$w_i$",
+      "$d_i = a_i - w_i$",
+      "$\\sigma^2$",
+      "$y_i$, $x_i$",
+      "$e_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "why-we-care",
+   "heading": "Why we care",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "why-we-care-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "When comparing two linear unbiased estimators, you always want the one with smaller variance, because that rule gives higher probability of an estimate close to the true parameter."
+      }
+     ],
+     "words": 28,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Math background: [Inner Products and Orthogonality](note:inner-products-and-orthogonality)\n- [SR Assumptions](note:sr-assumptions)\n- [OLS Estimator](note:ols-estimator)\n- [Sampling Distribution of OLS](note:sampling-distribution-of-ols)"
+      }
+     ],
+     "words": 18,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

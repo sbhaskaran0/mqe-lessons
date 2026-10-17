@@ -1,0 +1,217 @@
+{
+ "slug": "solow-golden-rule-explorer",
+ "notation": [
+  {
+   "tex": "$A$",
+   "meaning": "Total factor productivity (technology)",
+   "kind": "Exogenous; constant in the basic model",
+   "typical": "1 in the example",
+   "keys": [
+    "A"
+   ],
+   "from": "solow-growth-model"
+  },
+  {
+   "tex": "$y = Y/L$, $k = K/L$, $c = C/L$",
+   "meaning": "Output, capital and consumption per worker",
+   "kind": "Endogenous; $k$ is the state variable",
+   "typical": "—",
+   "keys": [
+    "y",
+    "k",
+    "c"
+   ],
+   "from": "solow-growth-model"
+  },
+  {
+   "tex": "$s$",
+   "meaning": "Saving rate — assumed, not chosen optimally",
+   "kind": "Parameter in (0, 1)",
+   "typical": "0.5 in the example (≈ 0.2 in data)",
+   "keys": [
+    "s"
+   ],
+   "from": "solow-growth-model"
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "Capital share: exponent on $K$",
+   "kind": "Parameter in (0, 1)",
+   "typical": "0.5 in the example (≈ 1/3 in data)",
+   "keys": [
+    "alpha"
+   ],
+   "from": "solow-growth-model"
+  },
+  {
+   "tex": "$\\delta$",
+   "meaning": "Depreciation rate: share of capital worn out each period",
+   "kind": "Parameter",
+   "typical": "0.1 in the example (≈ 0.05 in data)",
+   "keys": [
+    "delta"
+   ],
+   "from": "solow-growth-model"
+  },
+  {
+   "tex": "$f(k) = Ak^{\\alpha}$",
+   "meaning": "Output per worker as a function of capital per worker",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "f"
+   ],
+   "from": "solow-growth-model"
+  },
+  {
+   "tex": "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$",
+   "meaning": "Steady-state values (an overbar always means steady state)",
+   "kind": "Endogenous",
+   "typical": "25, 5, 2.5 in the example",
+   "keys": [
+    "bar(k)",
+    "bar(y)",
+    "bar(c)"
+   ],
+   "from": "solow-growth-model"
+  },
+  {
+   "tex": "$k^*, y^*, c^*$",
+   "meaning": "Golden-rule steady-state capital, output, consumption",
+   "kind": "Endogenous",
+   "typical": "7.13, 1.92, 1.28 per effective worker in the growth example; 25, 5, 2.5 per worker in the basic example",
+   "keys": [
+    "k*",
+    "y*",
+    "c*"
+   ],
+   "from": "golden-rule-saving-rate"
+  },
+  {
+   "tex": "$sf(k)$",
+   "meaning": "Actual investment per worker: the share of output saved",
+   "kind": "Function (concave curve)",
+   "typical": "—",
+   "keys": [
+    "~sf(k)"
+   ],
+   "from": "solow-diagram"
+  },
+  {
+   "tex": "$\\delta k$",
+   "meaning": "Depreciation per worker: capital worn out each period",
+   "kind": "Function (straight line)",
+   "typical": "—",
+   "keys": [
+    "~\\deltak"
+   ],
+   "from": "solow-diagram"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "solow-golden-rule-explorer"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$A$",
+      "$y = Y/L$, $k = K/L$, $c = C/L$",
+      "$s$",
+      "$\\alpha$",
+      "$\\delta$",
+      "$f(k) = Ak^{\\alpha}$",
+      "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$",
+      "$k^*, y^*, c^*$",
+      "$sf(k)$",
+      "$\\delta k$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Reproduces the professor's handwritten figure `Solow diagram - consumption at different saving rates.png`: output $f(k)$, the line $\\delta k$, investment curves for different saving rates, and the dashed line with slope $\\delta$ that touches $f(k)$ at the golden-rule capital stock $k^{*}$."
+      }
+     ],
+     "words": 36,
+     "symbols": [
+      "$y = Y/L$, $k = K/L$, $c = C/L$",
+      "$\\delta$",
+      "$f(k) = Ak^{\\alpha}$",
+      "$k^*, y^*, c^*$",
+      "$\\delta k$"
+     ]
+    },
+    {
+     "id": "notes-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Purpose.** Find the saving rate that maximizes steady-state consumption without being told the answer. In steady state $sf(\\bar{k}) = \\delta\\bar{k}$, so $\\bar{c} = f(\\bar{k}) - \\delta\\bar{k}$: the vertical gap between the output curve and the depreciation line at $\\bar{k}$. Moving $s$ slides $\\bar{k}$ along the axis; the gap is widest at $k^{*}$, where $f'(k^{*}) = \\delta$. With Cobb-Douglas that happens at $s = \\alpha$.\n- **The MPK rule.** The readout $f'(\\bar{k}) - \\delta$ is positive when the economy saves too little (saving more raises $\\bar{c}$) and negative when it saves too much.\n- **Model.** Basic model per worker, $f(k) = Ak^{\\alpha}$, $k^{*} = (\\alpha A/\\delta)^{1/(1-\\alpha)}$; see [Golden Rule Saving Rate](note:golden-rule-saving-rate). The widget is a view of [Solow Model Per Worker](note:solow-model-per-worker), which computes $\\bar{c}$ as $(1-s)\\bar{y}$: the same number as $f(\\bar{k}) - \\delta\\bar{k}$ in every steady state, so the gap drawn here is $\\bar{c}$ exactly."
+      }
+     ],
+     "words": 110,
+     "symbols": [
+      "$A$",
+      "$y = Y/L$, $k = K/L$, $c = C/L$",
+      "$s$",
+      "$\\alpha$",
+      "$\\delta$",
+      "$f(k) = Ak^{\\alpha}$",
+      "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$",
+      "$k^*, y^*, c^*$"
+     ]
+    },
+    {
+     "id": "notes-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Elements.** Panel `diagram`: curves `output`, `saving`, `depreciation`, `tangent`; points `steady`, `golden`; lines `cbar_gap`, `cgold_gap`. Panel `objective`: curve `cbar_s` ($\\bar{c}$ against $s$, swept, with a draggable dot at the current $s$) and point `peak` at $(\\alpha, c^{*})$. Readouts `cbar_out`, `cgold_out`, `mpk_out`, `rule_out`. A placement shows the `objective` panel only if its `show` names `objective` and the marks it wants.\n- **Goal it supports.** `abs(s - alpha) < 0.006`: with the slider step of 0.01 this holds only at the grid point nearest $\\alpha$."
+      }
+     ],
+     "words": 86,
+     "symbols": [
+      "$s$",
+      "$\\alpha$",
+      "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$",
+      "$k^*, y^*, c^*$"
+     ]
+    },
+    {
+     "id": "notes-4",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Tests.** The notes' example ($\\bar{c}$ is 2.1 at $s = 0.3$, 2.5 at $s = 0.5$ and 2.4 at both $s = 0.4$ and $s = 0.6$) and revision questions 6 and 7, computed independently in Python. The `objective` panel's tests read the swept curve at fixed $s$ values (`cbar_s@0.3`); with $\\alpha = 1/2$ it is $10s(1-s)$, topping out at 2.5 where $s = \\alpha$."
+      }
+     ],
+     "words": 52,
+     "symbols": [
+      "$s$",
+      "$\\alpha$",
+      "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$"
+     ]
+    }
+   ]
+  }
+ ]
+}

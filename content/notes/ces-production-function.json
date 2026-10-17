@@ -1,0 +1,252 @@
+{
+ "slug": "ces-production-function",
+ "notation": [
+  {
+   "tex": "$Y$",
+   "meaning": "Output",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "Y"
+   ]
+  },
+  {
+   "tex": "$L$, $H$",
+   "meaning": "Low-skill and high-skill labor (or any two inputs)",
+   "kind": "Inputs",
+   "typical": "—",
+   "keys": [
+    "L",
+    "H"
+   ]
+  },
+  {
+   "tex": "$A_L$, $A_H$",
+   "meaning": "Productivity of each input (factor-augmenting technology)",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "A"
+   ]
+  },
+  {
+   "tex": "$\\sigma$",
+   "meaning": "Elasticity of substitution between $L$ and $H$",
+   "kind": "Parameter > 0",
+   "typical": "≈ 1.4–2.6 for college vs non-college",
+   "keys": [
+    "sigma"
+   ]
+  },
+  {
+   "tex": "$\\rho = (\\sigma-1)/\\sigma$",
+   "meaning": "Substitution parameter used in derivations",
+   "kind": "Derived parameter",
+   "typical": "—",
+   "keys": [
+    "rho"
+   ]
+  },
+  {
+   "tex": "$w_L$, $w_H$",
+   "meaning": "Wages, equal to marginal products under competition",
+   "kind": "Prices, endogenous",
+   "typical": "—",
+   "keys": [
+    "w"
+   ]
+  },
+  {
+   "tex": "$p$",
+   "meaning": "Output price",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "p"
+   ]
+  },
+  {
+   "tex": "$a$",
+   "meaning": "Weight on $L$ in the weighted form used for the Cobb-Douglas limit",
+   "kind": "Parameter",
+   "typical": "0.5 in the example",
+   "keys": [
+    "a"
+   ]
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A CES production function describes how two inputs — say skilled and unskilled workers — combine to produce output, with a single dial that controls how easily one can stand in for the other. Turn the dial up and the two are near-perfect substitutes, like two brands of the same tool. Turn it down and they must be used together in fixed proportions, like drivers and trucks. Cobb-Douglas is the setting in the middle."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "That one dial, the elasticity of substitution, decides how wages respond when one input becomes more plentiful — the heart of the skill-premium model.",
+       "folded": false
+      }
+     ],
+     "words": 98,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "Y = \\left[(A_L L)^{\\frac{\\sigma-1}{\\sigma}} + (A_H H)^{\\frac{\\sigma-1}{\\sigma}}\\right]^{\\frac{\\sigma}{\\sigma-1}}"
+      },
+      {
+       "t": "prose",
+       "md": "- $\\sigma > 0$ is the [Elasticity of Substitution](note:elasticity-of-substitution) between $L$ and $H$ — constant everywhere, hence the name.\n- $A_L, A_H$ are [Factor-Augmenting Technology](note:factor-augmenting-technology) terms: $A_H H$ is skilled labour in efficiency units."
+      }
+     ],
+     "words": 24,
+     "symbols": [
+      "$Y$",
+      "$L$, $H$",
+      "$A_L$, $A_H$",
+      "$\\sigma$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "special-cases",
+   "heading": "Special cases",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "special-cases-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| $\\sigma$ | Form | Meaning |\n| --- | --- | --- |\n| $\\to\\infty$ | $Y = A_L L + A_H H$ | Perfect substitutes |\n| $= 1$ | [Cobb-Douglas Production Function](note:cobb-douglas-production-function) — the limit, by [L'Hôpital's Rule](note:lhopitals-rule), of the weighted form $[a(A_L L)^\\rho + (1-a)(A_H H)^\\rho]^{1/\\rho}$ (without the weights the bracket above has no finite nonzero limit as $\\rho \\to 0$) | Factor shares constant |\n| $\\to 0$ | Leontief, $\\min(A_L L, A_H H)$ | Perfect complements |"
+      }
+     ],
+     "words": 38,
+     "symbols": [
+      "$Y$",
+      "$L$, $H$",
+      "$A_L$, $A_H$",
+      "$\\sigma$",
+      "$\\rho = (\\sigma-1)/\\sigma$",
+      "$a$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "competitive-wages",
+   "heading": "Competitive wages",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "competitive-wages-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With output price $p$ and competitive labour markets, each factor earns its marginal product:"
+      },
+      {
+       "t": "math",
+       "tex": "w_L = p\\frac{\\partial Y}{\\partial L} = pA_L^{\\frac{\\sigma-1}{\\sigma}}\\left(\\frac{L}{Y}\\right)^{-\\frac{1}{\\sigma}}, \\qquad w_H = p\\frac{\\partial Y}{\\partial H} = pA_H^{\\frac{\\sigma-1}{\\sigma}}\\left(\\frac{H}{Y}\\right)^{-\\frac{1}{\\sigma}}"
+      },
+      {
+       "t": "prose",
+       "md": "Dividing, $p$ and $Y$ cancel — and because CES has constant returns, the ratio depends only on $H/L$ ([Homogeneous Functions and Euler's Theorem](note:homogeneous-functions-and-eulers-theorem)):"
+      },
+      {
+       "t": "math",
+       "tex": "\\frac{w_H}{w_L} = \\left(\\frac{A_H}{A_L}\\right)^{\\frac{\\sigma-1}{\\sigma}}\\left(\\frac{H}{L}\\right)^{-\\frac{1}{\\sigma}}"
+      },
+      {
+       "t": "math",
+       "tex": "\\ln\\frac{w_H}{w_L} = \\frac{\\sigma-1}{\\sigma}\\ln\\frac{A_H}{A_L} - \\frac{1}{\\sigma}\\ln\\frac{H}{L}"
+      },
+      {
+       "t": "prose",
+       "md": "That log-linear relative wage equation is the core of the [Canonical Model of the Skill Premium](note:canonical-model-of-the-skill-premium)."
+      }
+     ],
+     "words": 48,
+     "symbols": [
+      "$Y$",
+      "$L$, $H$",
+      "$A_L$, $A_H$",
+      "$\\sigma$",
+      "$w_L$, $w_H$",
+      "$p$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "deriving-the-marginal-product-worth-doing-once",
+   "heading": "Deriving the marginal product (worth doing once)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "deriving-the-marginal-product-worth-doing-once-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Let $\\rho = (\\sigma-1)/\\sigma$, so $Y = [(A_LL)^\\rho + (A_HH)^\\rho]^{1/\\rho}$. By the chain rule ([Multivariable Chain Rule](note:multivariable-chain-rule)),"
+      },
+      {
+       "t": "math",
+       "tex": "\\frac{\\partial Y}{\\partial L} = \\tfrac{1}{\\rho}[\\cdot]^{\\frac1\\rho - 1}\\cdot \\rho A_L^\\rho L^{\\rho-1} = Y^{1-\\rho}A_L^{\\rho}L^{\\rho-1} = A_L^{\\rho}\\left(\\frac{L}{Y}\\right)^{\\rho-1}"
+      },
+      {
+       "t": "prose",
+       "md": "and $\\rho - 1 = -1/\\sigma$."
+      }
+     ],
+     "words": 10,
+     "symbols": [
+      "$Y$",
+      "$L$, $H$",
+      "$A_L$, $A_H$",
+      "$\\sigma$",
+      "$\\rho = (\\sigma-1)/\\sigma$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Math background: [Partial Derivatives and the Gradient](note:partial-derivatives-and-the-gradient) · [Homogeneous Functions and Euler's Theorem](note:homogeneous-functions-and-eulers-theorem) · [L'Hôpital's Rule](note:lhopitals-rule)\n- [Elasticity of Substitution](note:elasticity-of-substitution)\n- [Factor-Augmenting Technology](note:factor-augmenting-technology)"
+      }
+     ],
+     "words": 23,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "slug": "us-earnings-growth-by-percentile-1982-2012",
+ "notation": [],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**In administrative earnings data with no top coding, growth since 1982 rises steadily with the percentile. By 2012 the 99th percentile was up about 0.52 log points, the 90th about 0.35, the median about 0.17 and the 25th about 0.13.**"
+      },
+      {
+       "t": "prose",
+       "md": "Change in log earnings since 1982, read off the lecture chart, approximate."
+      },
+      {
+       "t": "table",
+       "md": "| Percentile | Late 1980s | ≈ 2000 | 2012 |\n| --- | --- | --- | --- |\n| 99th | ≈ +0.1 to +0.2 (spike in 1988) | ≈ +0.4 | ≈ +0.52 |\n| 90th | ≈ +0.05 | ≈ +0.27 | ≈ +0.35 |\n| 50th | ≈ 0 | ≈ +0.15 | ≈ +0.17 |\n| 25th | ≈ −0.05 | ≈ +0.12 | ≈ +0.13 |"
+      }
+     ],
+     "words": 98,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "reading-it-correctly",
+   "heading": "Reading it correctly",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "reading-it-correctly-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **The very top pulls away** — the 99th percentile gains most. Surveys cannot show this because of [Top Coding](note:top-coding).\n- **Below the median the lines move together after the late 1990s**: the 50–25 gap barely changes, consistent with [Wage Polarization](note:wage-polarization) (the top half drives rising inequality).\n- **Earnings, not wages**: annual earnings mix hourly pay and hours worked; there is no hours information in these records."
+      }
+     ],
+     "words": 67,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [SSA Master Earnings File](note:ssa-master-earnings-file) · [Percentile Ratios](note:percentile-ratios) · [Wage Polarization](note:wage-polarization)\n- Paper: [Song et al 2019 - Firming Up Inequality](note:song-et-al-2019-firming-up-inequality)"
+      }
+     ],
+     "words": 19,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

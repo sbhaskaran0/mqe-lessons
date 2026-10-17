@@ -1,0 +1,72 @@
+{
+ "slug": "us-skill-premium-since-1963",
+ "notation": [],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**The composition-adjusted college premium rose in the 1960s, fell through the 1970s to a low around 1979–80, then rose steadily for three decades before flattening after about 2010.**"
+      },
+      {
+       "t": "prose",
+       "md": "Values read off the charts, approximate."
+      },
+      {
+       "t": "table",
+       "md": "| Year | Log college/HS wage gap (Autor series) | Change since 1963 (lecture's series) |\n| --- | --- | --- |\n| 1963 | ≈ 0.39 | 0 |\n| ≈ 1971 | ≈ 0.46 | ≈ +0.03 |\n| ≈ 1979–80 | ≈ 0.39 | ≈ −0.06 (low point) |\n| ≈ 1990 | ≈ 0.55 | ≈ +0.10 |\n| 2000 | ≈ 0.64 | ≈ +0.19 |\n| 2008 | ≈ 0.67 | ≈ +0.23 |\n| 2017 | — | ≈ +0.25 |"
+      },
+      {
+       "t": "prose",
+       "md": "A log gap of 0.67 means college workers earn about $e^{0.67} - 1 \\approx 95\\%$ more ([Log Wage Gap](note:log-wage-gap))."
+      }
+     ],
+     "words": 101,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "why-it-matters",
+   "heading": "Why it matters",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "why-it-matters-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Relative supply of college labour rose **throughout** this period ([US Relative Skill Supply Since 1963](note:us-relative-skill-supply-since-1963)). The 1970s fall and post-1980 rise are the two episodes the [Canonical Model of the Skill Premium](note:canonical-model-of-the-skill-premium) has to explain."
+      }
+     ],
+     "words": 35,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Skill Premium](note:skill-premium)\n- [Composition Adjustment](note:composition-adjustment)\n- Paper: [Katz and Murphy 1992 - Changes in Relative Wages](note:katz-and-murphy-1992-changes-in-relative-wages)"
+      }
+     ],
+     "words": 17,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,209 @@
+{
+ "slug": "math-prep-l1-matrix-algebra-essentials",
+ "notation": [],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Four tools carry almost all of the matrix algebra in econometrics: the reversal rules for transposes and inverses, the conditions for an inverse to exist, the partitioned inverse, and the trace. With them you can read $\\mathbf{b} = (\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{y}$, $\\mathrm{Var}(\\mathbf{b}) = \\sigma^2(\\mathbf{X}'\\mathbf{X})^{-1}$ and $E[\\mathbf{e}'\\mathbf{e}] = (n-K)\\sigma^2$ line by line.**"
+      }
+     ],
+     "words": 40,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "1-order-matters-and-products-reverse",
+   "heading": "1. Order matters, and products reverse",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-order-matters-and-products-reverse-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Matrix Algebra Identities](note:matrix-algebra-identities): $(AB)' = B'A'$ and $(AB)^{-1} = B^{-1}A^{-1}$. These are why $X'X$ is symmetric and why its inverse is too. Write dimensions under every term — it catches most mistakes."
+      }
+     ],
+     "words": 24,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "2-when-does-an-inverse-exist",
+   "heading": "2. When does an inverse exist?",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-when-does-an-inverse-exist-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Invertibility and Determinants](note:invertibility-and-determinants): for a square matrix, a nonzero determinant, full rank, independent columns and no zero eigenvalue are all the same condition. In regression the square matrix is $\\mathbf{X}'\\mathbf{X}$, invertible exactly when the regressors are not linearly dependent — the identification condition in [Econ 430 L1 Simple Linear Regression](note:econ-430-l1-simple-linear-regression)."
+      }
+     ],
+     "words": 48,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "3-working-in-blocks",
+   "heading": "3. Working in blocks",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "3-working-in-blocks-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Partitioned Matrices](note:partitioned-matrices): split $\\mathbf{X} = [\\mathbf{X}_1\\ \\mathbf{X}_2]$ and the partitioned inverse hands you $(\\mathbf{X}_2'\\mathbf{M}_1\\mathbf{X}_2)^{-1}$ — the algebra of the [Frisch-Waugh-Lovell Theorem](note:frisch-waugh-lovell-theorem), which is how [Econ 424 L2 Between-Group Inequality](note:econ-424-l2-between-group-inequality) justifies detrending."
+      }
+     ],
+     "words": 25,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "4-the-trace",
+   "heading": "4. The trace",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "4-the-trace-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Trace of a Matrix](note:trace-of-a-matrix): the cyclic property turns a scalar quadratic form into a trace, so $E[\\boldsymbol{\\varepsilon}'\\mathbf{M}\\boldsymbol{\\varepsilon}] = \\sigma^2\\mathrm{tr}(\\mathbf{M})$. For an idempotent matrix trace equals rank, which is where $N - K$ in $\\widehat{\\sigma}^2$ comes from ([Sampling Distribution of OLS](note:sampling-distribution-of-ols))."
+      }
+     ],
+     "words": 33,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "self-check",
+   "heading": "Self-check",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "self-check-1",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "question",
+       "title": "1. Invert $\\begin{pmatrix}1&2\\\\3&4\\end{pmatrix}$.",
+       "md": "$\\frac{1}{-2}\\begin{pmatrix}4&-2\\\\-3&1\\end{pmatrix} = \\begin{pmatrix}-2&1\\\\1.5&-0.5\\end{pmatrix}$. → [Matrix Algebra Identities](note:matrix-algebra-identities)",
+       "folded": true
+      },
+      {
+       "t": "callout",
+       "kind": "question",
+       "title": "2. Is $\\begin{pmatrix}2&1\\\\4&2\\end{pmatrix}$ invertible?",
+       "md": "No: the determinant is $4 - 4 = 0$; the second column is half the first. → [Invertibility and Determinants](note:invertibility-and-determinants)",
+       "folded": true
+      },
+      {
+       "t": "callout",
+       "kind": "question",
+       "title": "3. Simplify $\\big((X'X)^{-1}X'\\big)'$.",
+       "md": "$X(X'X)^{-1}$, using $(AB)' = B'A'$ and the symmetry of $(X'X)^{-1}$. → [Matrix Algebra Identities](note:matrix-algebra-identities)",
+       "folded": true
+      },
+      {
+       "t": "callout",
+       "kind": "question",
+       "title": "4. $\\mathbf{P}$ is a $5\\times5$ projection onto a 2-dimensional subspace. What is $\\mathrm{tr}(\\mathbf{I} - \\mathbf{P})$?",
+       "md": "$5 - 2 = 3$: trace is linear, and for an idempotent matrix trace equals rank. → [Trace of a Matrix](note:trace-of-a-matrix)",
+       "folded": true
+      },
+      {
+       "t": "callout",
+       "kind": "question",
+       "title": "5. True or false: $\\mathrm{tr}(ABC) = \\mathrm{tr}(ACB)$.",
+       "md": "False in general. The trace is cyclic, $\\mathrm{tr}(ABC) = \\mathrm{tr}(BCA) = \\mathrm{tr}(CAB)$, but you cannot swap two factors. → [Trace of a Matrix](note:trace-of-a-matrix)",
+       "folded": true
+      }
+     ],
+     "words": 78,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Transpose and invert products without reversing the order wrongly.\n2. State the equivalent conditions for invertibility, and connect them to identification.\n3. Use the partitioned inverse to get the block of $(\\mathbf{X}'\\mathbf{X})^{-1}$ for a subset of regressors.\n4. Use the cyclic trace property to compute $E[\\boldsymbol{\\varepsilon}'\\mathbf{M}\\boldsymbol{\\varepsilon}]$."
+      }
+     ],
+     "words": 45,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "matrix-algebra-identities",
+        "invertibility-and-determinants",
+        "partitioned-matrices",
+        "trace-of-a-matrix"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "facts-and-data-in-this-lecture",
+   "heading": "Facts and data in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "facts-and-data-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "facts",
+       "items": [
+        "math-prep-l2-vector-spaces-rank-and-projection",
+        "math-prep"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

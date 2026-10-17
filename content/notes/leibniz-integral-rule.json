@@ -1,0 +1,247 @@
+{
+ "slug": "leibniz-integral-rule",
+ "notation": [
+  {
+   "tex": "$t$",
+   "meaning": "Variable you differentiate with respect to",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "t"
+   ]
+  },
+  {
+   "tex": "$a(t)$, $b(t)$",
+   "meaning": "Lower and upper limits that depend on $t$",
+   "kind": "Functions",
+   "typical": "—",
+   "keys": [
+    "a",
+    "b"
+   ]
+  },
+  {
+   "tex": "$f(x, t)$",
+   "meaning": "Integrand",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "f"
+   ]
+  },
+  {
+   "tex": "$q$",
+   "meaning": "Order quantity in the newsvendor example",
+   "kind": "Choice",
+   "typical": "Optimum 60",
+   "keys": [
+    "q"
+   ]
+  },
+  {
+   "tex": "$p$, $c$",
+   "meaning": "Selling price and unit cost",
+   "kind": "Parameters",
+   "typical": "10, 4",
+   "keys": [
+    "p",
+    "c"
+   ]
+  },
+  {
+   "tex": "$D$",
+   "meaning": "Uncertain demand",
+   "kind": "Random variable",
+   "typical": "Uniform(0, 100)",
+   "keys": [
+    "D"
+   ]
+  },
+  {
+   "tex": "$F$, $f$",
+   "meaning": "Demand's CDF and density",
+   "kind": "Functions",
+   "typical": "—",
+   "keys": [
+    "F",
+    "f"
+   ]
+  },
+  {
+   "tex": "$\\pi(q)$",
+   "meaning": "Expected profit",
+   "kind": "Function",
+   "typical": "180 at the optimum",
+   "keys": [
+    "pi"
+   ]
+  },
+  {
+   "tex": "$x_i$",
+   "meaning": "Input $i$",
+   "kind": "Variable",
+   "typical": "—",
+   "keys": [
+    "x"
+   ],
+   "from": "partial-derivatives-and-the-gradient"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The Leibniz rule tells you how to differentiate an integral when the thing you are choosing appears in its limits, inside it, or both. Moving a limit adds or removes a sliver at the edge; changing the integrand shifts the whole area. In economics this comes up whenever a decision sets a cut-off — how much stock to order before demand is known, or the lowest wage offer worth accepting — and you need the first-order condition."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is how you optimise expected values when the choice variable determines what counts as a good or bad outcome.",
+       "folded": false
+      }
+     ],
+     "words": 98,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "\\frac{d}{dt}\\int_{a(t)}^{b(t)} f(x,t)\\,dx = f\\big(b(t),t\\big)\\,b'(t) - f\\big(a(t),t\\big)\\,a'(t) + \\int_{a(t)}^{b(t)}\\frac{\\partial f(x,t)}{\\partial t}\\,dx"
+      },
+      {
+       "t": "prose",
+       "md": "Three effects: moving the upper limit, moving the lower limit, and changing the integrand itself."
+      },
+      {
+       "t": "prose",
+       "md": "Special case (fundamental theorem of calculus): $\\dfrac{d}{dt}\\int_a^t f(x)\\,dx = f(t)$ — e.g. the density is the derivative of the CDF."
+      }
+     ],
+     "words": 31,
+     "symbols": [
+      "$t$",
+      "$a(t)$, $b(t)$",
+      "$f(x, t)$",
+      "$F$, $f$",
+      "$x_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example-the-newsvendor",
+   "heading": "Worked example — the newsvendor",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-the-newsvendor-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Order $q$ units at cost $c$, sell at price $p$, demand $D$ with CDF $F$. Expected profit:"
+      },
+      {
+       "t": "math",
+       "tex": "\\pi(q) = p\\left[\\int_0^q x f(x)\\,dx + q\\big(1 - F(q)\\big)\\right] - cq"
+      },
+      {
+       "t": "prose",
+       "md": "Differentiating with Leibniz: the boundary term $q f(q)$ from the first integral cancels with $-qf(q)$ from differentiating the second term, leaving"
+      },
+      {
+       "t": "math",
+       "tex": "\\pi'(q) = p\\big(1 - F(q)\\big) - c = 0 \\quad\\Longrightarrow\\quad F(q^*) = \\frac{p - c}{p}"
+      },
+      {
+       "t": "prose",
+       "md": "With $p = 10$, $c = 4$ and $D \\sim \\text{Uniform}(0, 100)$: $F(q^*) = 0.6$, so $q^* = 60$ and expected profit is 180 (a grid search agrees)."
+      }
+     ],
+     "words": 42,
+     "symbols": [
+      "$f(x, t)$",
+      "$q$",
+      "$p$, $c$",
+      "$D$",
+      "$F$, $f$",
+      "$\\pi(q)$",
+      "$x_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Forgetting the boundary terms when the limits depend on $t$.\n- Applying it when the integrand's partial derivative is not continuous."
+      }
+     ],
+     "words": 21,
+     "symbols": [
+      "$t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Labor / search**: choosing a reservation wage or an education cutoff, where the choice variable sets an integration limit.\n- **Micro / IO**: expected-profit maximization under uncertainty; auctions.\n- **Econometrics**: differentiating expected log-likelihoods; deriving densities from CDFs."
+      }
+     ],
+     "words": 36,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Integration by Parts](note:integration-by-parts)\n- [Unconstrained Optimization](note:unconstrained-optimization)"
+      }
+     ],
+     "words": 7,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

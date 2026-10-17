@@ -1,0 +1,573 @@
+{
+ "slug": "math-prep-l1-matrix-algebra-essentials",
+ "notation": [
+  {
+   "tex": "$A$, $B$, $C$",
+   "meaning": "Matrices of conformable sizes",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "A",
+    "B",
+    "C"
+   ],
+   "from": "matrix-algebra-identities"
+  },
+  {
+   "tex": "$\\mathbf{a}$, $\\mathbf{b}$",
+   "meaning": "Column vectors",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(a)",
+    "bold(b)"
+   ],
+   "from": "matrix-algebra-identities"
+  },
+  {
+   "tex": "$m$, $n$, $p$",
+   "meaning": "Matrix dimensions",
+   "kind": "Counts",
+   "typical": "—",
+   "keys": [
+    "m",
+    "n",
+    "p"
+   ],
+   "from": "matrix-algebra-identities"
+  },
+  {
+   "tex": "$\\mathbf{X}$, $\\mathbf{y}$, $\\mathbf{b}$",
+   "meaning": "Regressors, outcome and OLS coefficients in the examples",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(X)",
+    "bold(y)",
+    "bold(b)"
+   ],
+   "from": "matrix-algebra-identities"
+  },
+  {
+   "tex": "$N$, $K$",
+   "meaning": "Observations and regressors",
+   "kind": "Counts",
+   "typical": "—",
+   "keys": [
+    "N",
+    "K"
+   ],
+   "from": "matrix-algebra-identities"
+  },
+  {
+   "tex": "$\\sigma^2$",
+   "meaning": "Error variance",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "sigma"
+   ],
+   "from": "matrix-algebra-identities"
+  },
+  {
+   "tex": "$E$, $F$",
+   "meaning": "Blocks of a partitioned vector",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "E",
+    "F"
+   ],
+   "from": "partitioned-matrices"
+  },
+  {
+   "tex": "$\\mathbf{M}_1$",
+   "meaning": "Residual maker for $\\mathbf{X}_1$",
+   "kind": "Matrix",
+   "typical": "—",
+   "keys": [
+    "bold(M)"
+   ],
+   "from": "partitioned-matrices"
+  },
+  {
+   "tex": "$\\boldsymbol{\\varepsilon}$",
+   "meaning": "Random error vector",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(varepsilon)"
+   ],
+   "from": "trace-of-a-matrix"
+  },
+  {
+   "tex": "$b_k$",
+   "meaning": "OLS estimate of coefficient $k$",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "b"
+   ],
+   "from": "sampling-distribution-of-ols"
+  },
+  {
+   "tex": "$\\widehat{\\sigma}^2$",
+   "meaning": "Estimate of $\\sigma^2$: residual sum of squares over $N - K$",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "hat(sigma)"
+   ],
+   "from": "sampling-distribution-of-ols"
+  },
+  {
+   "tex": "$\\hat{e}_i$, $\\mathbf{e}$",
+   "meaning": "Residuals",
+   "kind": "Computed",
+   "typical": "—",
+   "keys": [
+    "hat(e)",
+    "bold(e)"
+   ],
+   "from": "sampling-distribution-of-ols"
+  },
+  {
+   "tex": "$\\mathbf{M}$, $\\mathbf{P}$, $\\mathbf{X}$",
+   "meaning": "Residual maker, projection matrix, regressor matrix",
+   "kind": "Matrices",
+   "typical": "—",
+   "keys": [
+    "bold(M)",
+    "bold(P)",
+    "bold(X)"
+   ],
+   "from": "sampling-distribution-of-ols"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Four tools carry almost all of the matrix algebra in econometrics: the reversal rules for transposes and inverses, the conditions for an inverse to exist, the partitioned inverse, and the trace. With them you can read $\\mathbf{b} = (\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{y}$, $\\mathrm{Var}(\\mathbf{b}) = \\sigma^2(\\mathbf{X}'\\mathbf{X})^{-1}$ and $E[\\mathbf{e}'\\mathbf{e}] = (n-K)\\sigma^2$ line by line.**"
+      }
+     ],
+     "words": 40,
+     "symbols": [
+      "$\\mathbf{a}$, $\\mathbf{b}$",
+      "$m$, $n$, $p$",
+      "$\\mathbf{X}$, $\\mathbf{y}$, $\\mathbf{b}$",
+      "$N$, $K$",
+      "$\\sigma^2$",
+      "$E$, $F$",
+      "$\\hat{e}_i$, $\\mathbf{e}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1-order-matters-and-products-reverse",
+   "heading": "1. Order matters, and products reverse",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-order-matters-and-products-reverse-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Matrix Algebra Identities](note:matrix-algebra-identities): $(AB)' = B'A'$ and $(AB)^{-1} = B^{-1}A^{-1}$. These are why $X'X$ is symmetric and why its inverse is too. Write dimensions under every term — it catches most mistakes."
+      }
+     ],
+     "words": 24,
+     "symbols": [
+      "$A$, $B$, $C$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "2-when-does-an-inverse-exist",
+   "heading": "2. When does an inverse exist?",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-when-does-an-inverse-exist-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Invertibility and Determinants](note:invertibility-and-determinants): for a square matrix, a nonzero determinant, full rank, independent columns and no zero eigenvalue are all the same condition. In regression the square matrix is $\\mathbf{X}'\\mathbf{X}$, invertible exactly when the regressors are not linearly dependent — the identification condition in [Econ 430 L7 The Classical Linear Regression Model](note:econ-430-l7-the-classical-linear-regression-model)."
+      }
+     ],
+     "words": 50,
+     "symbols": [
+      "$\\mathbf{X}$, $\\mathbf{y}$, $\\mathbf{b}$"
+     ]
+    },
+    {
+     "id": "2-when-does-an-inverse-exist-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "One regressor column of $\\mathbf{X}$ is exactly twice another. What does that do to $\\mathbf{X}'\\mathbf{X}$?",
+       "options": [
+        {
+         "md": "Nothing: $\\mathbf{X}'\\mathbf{X}$ is symmetric, so it is still invertible",
+         "correct": false,
+         "feedback": "Symmetry does not give an inverse. $\\mathbf{X}'\\mathbf{X}$ is invertible exactly when the regressors are not linearly dependent, and here they are."
+        },
+        {
+         "md": "$\\mathbf{X}$ is no longer invertible, but $\\mathbf{X}'\\mathbf{X}$ still is",
+         "correct": false,
+         "feedback": "$\\mathbf{X}$ is $N\\times K$ and not square, so it has no inverse either way. The condition is on $\\mathbf{X}'\\mathbf{X}$, and it fails here because the columns are dependent."
+        },
+        {
+         "md": "Its determinant is 0 and it has a zero eigenvalue, so $(\\mathbf{X}'\\mathbf{X})^{-1}$ does not exist and $\\mathbf{b}$ is not identified",
+         "correct": true
+        }
+       ],
+       "why": "A column that is twice another makes the regressors linearly dependent. Dependent columns, a zero determinant, less than full rank and a zero eigenvalue are all the same condition, so $\\mathbf{X}'\\mathbf{X}$ has no inverse and $\\mathbf{b} = (\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{y}$ cannot be computed: the identification condition fails.",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 46,
+     "symbols": [
+      "$\\mathbf{a}$, $\\mathbf{b}$",
+      "$\\mathbf{X}$, $\\mathbf{y}$, $\\mathbf{b}$",
+      "$N$, $K$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "3-working-in-blocks",
+   "heading": "3. Working in blocks",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "3-working-in-blocks-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Partitioned Matrices](note:partitioned-matrices): split $\\mathbf{X} = [\\mathbf{X}_1\\ \\mathbf{X}_2]$ and the partitioned inverse hands you $(\\mathbf{X}_2'\\mathbf{M}_1\\mathbf{X}_2)^{-1}$ — the algebra of the [Frisch-Waugh-Lovell Theorem](note:frisch-waugh-lovell-theorem), which is how [Econ 424 L2 Between-Group Inequality](note:econ-424-l2-between-group-inequality) justifies detrending."
+      }
+     ],
+     "words": 25,
+     "symbols": [
+      "$\\mathbf{X}$, $\\mathbf{y}$, $\\mathbf{b}$",
+      "$\\mathbf{M}_1$"
+     ]
+    },
+    {
+     "id": "3-working-in-blocks-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "With $\\mathbf{X} = [\\mathbf{X}_1\\ \\mathbf{X}_2]$ and $\\mathrm{Var}(\\mathbf{b}) = \\sigma^2(\\mathbf{X}'\\mathbf{X})^{-1}$, what is $\\mathrm{Var}(\\mathbf{b}_2)$?",
+       "options": [
+        {
+         "md": "$\\sigma^2(\\mathbf{X}_2'\\mathbf{M}_1\\mathbf{X}_2)^{-1}$",
+         "correct": true
+        },
+        {
+         "md": "$\\sigma^2(\\mathbf{X}_2'\\mathbf{X}_2)^{-1}$",
+         "correct": false,
+         "feedback": "That inverts the $\\mathbf{X}_2$ block of $\\mathbf{X}'\\mathbf{X}$. The block of the inverse is not in general the inverse of the block: the partitioned inverse brings in $\\mathbf{M}_1$, the residual maker for $\\mathbf{X}_1$."
+        },
+        {
+         "md": "$\\sigma^2\\mathbf{X}_2'\\mathbf{M}_1\\mathbf{X}_2$",
+         "correct": false,
+         "feedback": "The right matrix, but not inverted: the $\\mathbf{X}_2$ block of $(\\mathbf{X}'\\mathbf{X})^{-1}$ is the inverse $(\\mathbf{X}_2'\\mathbf{M}_1\\mathbf{X}_2)^{-1}$."
+        }
+       ],
+       "why": "$\\mathrm{Var}(\\mathbf{b}_2)$ is the $\\mathbf{X}_2$ block of $\\sigma^2(\\mathbf{X}'\\mathbf{X})^{-1}$, and the partitioned inverse gives that block of $(\\mathbf{X}'\\mathbf{X})^{-1}$ as $(\\mathbf{X}_2'\\mathbf{M}_1\\mathbf{X}_2)^{-1}$. So $\\mathrm{Var}(\\mathbf{b}_2) = \\sigma^2(\\mathbf{X}_2'\\mathbf{M}_1\\mathbf{X}_2)^{-1}$.",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 4,
+     "symbols": [
+      "$\\mathbf{a}$, $\\mathbf{b}$",
+      "$\\mathbf{X}$, $\\mathbf{y}$, $\\mathbf{b}$",
+      "$\\sigma^2$",
+      "$\\mathbf{M}_1$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "4-the-trace",
+   "heading": "4. The trace",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "4-the-trace-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Trace of a Matrix](note:trace-of-a-matrix): the cyclic property turns a scalar quadratic form into a trace, so $E[\\boldsymbol{\\varepsilon}'\\mathbf{M}\\boldsymbol{\\varepsilon}] = \\sigma^2\\mathrm{tr}(\\mathbf{M})$. For an idempotent matrix trace equals rank, which is where $N - K$ in $\\widehat{\\sigma}^2$ comes from ([Sampling Distribution of OLS](note:sampling-distribution-of-ols))."
+      }
+     ],
+     "words": 33,
+     "symbols": [
+      "$N$, $K$",
+      "$\\sigma^2$",
+      "$E$, $F$",
+      "$\\mathbf{M}_1$",
+      "$\\boldsymbol{\\varepsilon}$",
+      "$\\widehat{\\sigma}^2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "self-check",
+   "heading": "Self-check",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "self-check-1",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "1. Invert $\\begin{pmatrix}1&2\\\\3&4\\end{pmatrix}$.",
+       "options": [
+        {
+         "md": "$\\begin{pmatrix}4&-2\\\\-3&1\\end{pmatrix}$",
+         "correct": false,
+         "feedback": "That swaps the diagonal and negates the off-diagonal, but it still has to be divided by the determinant $1 \\cdot 4 - 2 \\cdot 3 = -2$."
+        },
+        {
+         "md": "$\\begin{pmatrix}-2&1.5\\\\1&-0.5\\end{pmatrix}$",
+         "correct": false,
+         "feedback": "That is the transpose of the inverse, $(A^{-1})' = (A')^{-1}$: the two off-diagonal entries are in each other's places."
+        },
+        {
+         "md": "$\\begin{pmatrix}2&-1\\\\-1.5&0.5\\end{pmatrix}$",
+         "correct": false,
+         "feedback": "The determinant is $ad - bc = 4 - 6 = -2$, not $+2$, so every sign here is flipped: multiplying back gives $-I$, not $I$."
+        },
+        {
+         "md": "$\\begin{pmatrix}-2&1\\\\1.5&-0.5\\end{pmatrix}$",
+         "correct": true
+        }
+       ],
+       "why": "$\\frac{1}{-2}\\begin{pmatrix}4&-2\\\\-3&1\\end{pmatrix} = \\begin{pmatrix}-2&1\\\\1.5&-0.5\\end{pmatrix}$. → [Matrix Algebra Identities](note:matrix-algebra-identities)",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 2,
+     "symbols": [
+      "$A$, $B$, $C$",
+      "$b_k$"
+     ]
+    },
+    {
+     "id": "self-check-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "2. Is $\\begin{pmatrix}2&1\\\\4&2\\end{pmatrix}$ invertible, and why?",
+       "options": [
+        {
+         "md": "No: its determinant is zero",
+         "correct": true
+        },
+        {
+         "md": "Yes: none of its entries is zero",
+         "correct": false,
+         "feedback": "Zero entries don't decide it. The determinant $2 \\cdot 2 - 1 \\cdot 4 = 0$ does, and the second column is half the first."
+        },
+        {
+         "md": "Yes: its determinant is $2 \\cdot 2 + 1 \\cdot 4 = 8$",
+         "correct": false,
+         "feedback": "The $2\\times2$ determinant is a difference, $ad - bc = 4 - 4 = 0$."
+        },
+        {
+         "md": "No: it is not symmetric",
+         "correct": false,
+         "feedback": "Symmetry has nothing to do with it: $\\begin{pmatrix}1&2\\\\3&4\\end{pmatrix}$ in question 1 is not symmetric either, and it has an inverse."
+        }
+       ],
+       "why": "No: the determinant is $4 - 4 = 0$; the second column is half the first. → [Invertibility and Determinants](note:invertibility-and-determinants)",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 26,
+     "symbols": [
+      "$b_k$"
+     ]
+    },
+    {
+     "id": "self-check-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "3. Simplify $\\big((X'X)^{-1}X'\\big)'$.",
+       "options": [
+        {
+         "md": "$(X'X)^{-1}X$",
+         "correct": false,
+         "feedback": "That transposes each factor but keeps their order. $(AB)' = B'A'$ reverses it; as written, the $K\\times K$ matrix $(X'X)^{-1}$ times the $N\\times K$ matrix $X$ doesn't even conform."
+        },
+        {
+         "md": "$X(X'X)^{-1}$",
+         "correct": true
+        },
+        {
+         "md": "$X'(X'X)^{-1}$",
+         "correct": false,
+         "feedback": "The order is reversed, but $X'$ must be transposed too: $(X')' = X$. As written, the $K\\times N$ matrix $X'$ times the $K\\times K$ matrix $(X'X)^{-1}$ doesn't conform."
+        }
+       ],
+       "why": "$X(X'X)^{-1}$, using $(AB)' = B'A'$ and the symmetry of $(X'X)^{-1}$. → [Matrix Algebra Identities](note:matrix-algebra-identities)",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 2,
+     "symbols": [
+      "$A$, $B$, $C$",
+      "$N$, $K$"
+     ]
+    },
+    {
+     "id": "self-check-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "4. $\\mathbf{P}$ is a $5\\times5$ projection onto a 2-dimensional subspace. What is $\\mathrm{tr}(\\mathbf{I} - \\mathbf{P})$?",
+       "answer": 3.0,
+       "tol": 0.01,
+       "wrong": [
+        {
+         "answer": 2.0,
+         "tol": 0.0,
+         "md": "that is $\\mathrm{tr}(\\mathbf{P})$, the rank of $\\mathbf{P}$; the question asks for the trace of $\\mathbf{I} - \\mathbf{P}$"
+        },
+        {
+         "answer": 5.0,
+         "tol": 0.0,
+         "md": "that is $\\mathrm{tr}(\\mathbf{I})$ alone; subtract $\\mathrm{tr}(\\mathbf{P}) = 2$"
+        },
+        {
+         "answer": 7.0,
+         "tol": 0.0,
+         "md": "the trace of a difference is the difference of the traces: $5 - 2$, not $5 + 2$"
+        }
+       ],
+       "why": "$5 - 2 = 3$: trace is linear, and for an idempotent matrix trace equals rank. → [Trace of a Matrix](note:trace-of-a-matrix)",
+       "objectives": [
+        4
+       ]
+      }
+     ],
+     "words": 10,
+     "symbols": [
+      "$\\mathbf{M}$, $\\mathbf{P}$, $\\mathbf{X}$"
+     ]
+    },
+    {
+     "id": "self-check-5",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "5. True or false: $\\mathrm{tr}(ABC) = \\mathrm{tr}(ACB)$.",
+       "options": [
+        {
+         "md": "True: the trace lets you reorder the factors freely",
+         "correct": false,
+         "feedback": "Only cyclic shifts are allowed: $ABC \\to BCA \\to CAB$. $ACB$ is not one of them."
+        },
+        {
+         "md": "False in general: only cyclic reorderings keep the trace",
+         "correct": true
+        },
+        {
+         "md": "True: apply $\\mathrm{tr}(BC) = \\mathrm{tr}(CB)$ to the last two factors",
+         "correct": false,
+         "feedback": "The swap works on a whole product, $\\mathrm{tr}(A(BC)) = \\mathrm{tr}((BC)A)$. It does not let you swap $B$ and $C$ while $A$ stays in front."
+        }
+       ],
+       "why": "False in general. The trace is cyclic, $\\mathrm{tr}(ABC) = \\mathrm{tr}(BCA) = \\mathrm{tr}(CAB)$, but you cannot swap two factors. → [Trace of a Matrix](note:trace-of-a-matrix)",
+       "objectives": [
+        4
+       ]
+      }
+     ],
+     "words": 29,
+     "symbols": [
+      "$A$, $B$, $C$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Transpose and invert products without reversing the order wrongly.\n2. State the equivalent conditions for invertibility, and connect them to identification.\n3. Use the partitioned inverse to get the block of $(\\mathbf{X}'\\mathbf{X})^{-1}$ for a subset of regressors.\n4. Use the cyclic trace property to compute $E[\\boldsymbol{\\varepsilon}'\\mathbf{M}\\boldsymbol{\\varepsilon}]$."
+      }
+     ],
+     "words": 45,
+     "symbols": [
+      "$\\mathbf{X}$, $\\mathbf{y}$, $\\mathbf{b}$",
+      "$E$, $F$",
+      "$\\mathbf{M}_1$",
+      "$\\boldsymbol{\\varepsilon}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "matrix-algebra-identities",
+        "invertibility-and-determinants",
+        "partitioned-matrices",
+        "trace-of-a-matrix"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

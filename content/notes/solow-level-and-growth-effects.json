@@ -1,0 +1,270 @@
+{
+ "slug": "solow-level-and-growth-effects",
+ "notation": [
+  {
+   "tex": "$Y, K, L, C$",
+   "meaning": "Output, capital, labor, consumption (economy-wide totals)",
+   "kind": "Endogenous ($L$ exogenous)",
+   "typical": "—",
+   "keys": [
+    "Y",
+    "K",
+    "L",
+    "C"
+   ],
+   "from": "solow-model-with-technological-progress"
+  },
+  {
+   "tex": "$s$",
+   "meaning": "Saving rate",
+   "kind": "Parameter in (0, 1)",
+   "typical": "≈ 0.2",
+   "keys": [
+    "s"
+   ],
+   "from": "solow-model-with-technological-progress"
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "Capital share",
+   "kind": "Parameter in (0, 1)",
+   "typical": "≈ 1/3",
+   "keys": [
+    "alpha"
+   ],
+   "from": "solow-model-with-technological-progress"
+  },
+  {
+   "tex": "$\\delta$",
+   "meaning": "Depreciation rate",
+   "kind": "Parameter",
+   "typical": "≈ 0.05",
+   "keys": [
+    "delta"
+   ],
+   "from": "solow-model-with-technological-progress"
+  },
+  {
+   "tex": "$\\eta$",
+   "meaning": "Population (labor) growth rate; often written $n$",
+   "kind": "Parameter",
+   "typical": "≈ 0.01",
+   "keys": [
+    "eta"
+   ],
+   "from": "solow-model-with-technological-progress"
+  },
+  {
+   "tex": "$\\gamma$",
+   "meaning": "Growth rate of TFP $A$",
+   "kind": "Parameter",
+   "typical": "≈ 0.02",
+   "keys": [
+    "gamma"
+   ],
+   "from": "solow-model-with-technological-progress"
+  },
+  {
+   "tex": "$\\tilde{A} = A^{1/(1-\\alpha)}$",
+   "meaning": "Labor-augmenting technology",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "tilde(A)"
+   ],
+   "from": "solow-model-with-technological-progress"
+  },
+  {
+   "tex": "$\\tilde{\\gamma} = \\gamma/(1-\\alpha)$",
+   "meaning": "Growth rate of $\\tilde{A}$",
+   "kind": "Parameter",
+   "typical": "≈ 0.03",
+   "keys": [
+    "tilde(gamma)"
+   ],
+   "from": "solow-model-with-technological-progress"
+  },
+  {
+   "tex": "$\\tilde{k}, \\tilde{y}, \\tilde{c}$",
+   "meaning": "Capital, output and consumption per effective worker (divided by $\\tilde{A}L$)",
+   "kind": "Endogenous; $\\tilde{k}$ is the state variable",
+   "typical": "—",
+   "keys": [
+    "tilde(k)",
+    "tilde(y)",
+    "tilde(c)"
+   ],
+   "from": "solow-model-with-technological-progress"
+  },
+  {
+   "tex": "$k, y, c$",
+   "meaning": "The same per worker (divided by $L$)",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "k",
+    "y",
+    "c"
+   ],
+   "from": "solow-model-with-technological-progress"
+  },
+  {
+   "tex": "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$",
+   "meaning": "Steady-state values per effective worker",
+   "kind": "Endogenous",
+   "typical": "3.31, 1.49, 1.19 in the example",
+   "keys": [
+    "bar(k)",
+    "bar(y)",
+    "bar(c)"
+   ],
+   "from": "solow-model-with-technological-progress"
+  },
+  {
+   "tex": "$g_X$",
+   "meaning": "Growth rate of a variable $X$",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "g"
+   ],
+   "from": "solow-model-with-technological-progress"
+  },
+  {
+   "tex": "$t$",
+   "meaning": "Time period",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "t"
+   ],
+   "from": "solow-growth-model"
+  },
+  {
+   "tex": "$t^{*}$",
+   "meaning": "Date a shock hits",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "t*"
+   ],
+   "from": "solow-diagram"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "solow-level-and-growth-effects"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$Y, K, L, C$",
+      "$s$",
+      "$\\alpha$",
+      "$\\delta$",
+      "$\\eta$",
+      "$\\gamma$",
+      "$\\tilde{A} = A^{1/(1-\\alpha)}$",
+      "$\\tilde{\\gamma} = \\gamma/(1-\\alpha)$",
+      "$\\tilde{k}, \\tilde{y}, \\tilde{c}$",
+      "$k, y, c$",
+      "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$",
+      "$g_X$",
+      "$t^{*}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Reproduces the professor's handwritten log-path figures: `Log growth paths - rise in population growth, capital per worker.png` ($\\ln\\tilde{k}$ plus $\\ln\\tilde{A}$ equals $\\ln k$, after a rise in $\\eta$), `Log growth paths - rise in population growth, aggregate capital.png`, and the time paths in `Solow diagram - fall in technology growth with log growth paths.png`."
+      }
+     ],
+     "words": 52,
+     "symbols": [
+      "$\\eta$",
+      "$\\tilde{A} = A^{1/(1-\\alpha)}$",
+      "$\\tilde{k}, \\tilde{y}, \\tilde{c}$",
+      "$k, y, c$"
+     ]
+    },
+    {
+     "id": "notes-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Purpose.** Separate level effects from growth effects. A rise in $\\eta$ lowers $\\bar{k}$, so $\\ln\\tilde{k}$ falls to a new flat level while $\\ln\\tilde{A}$ keeps its slope $\\tilde{\\gamma}$: $\\ln k$ ends parallel to its old path but lower, a level effect. A fall in $\\gamma$ raises $\\bar{k}$ but flattens $\\ln\\tilde{A}$, so $\\ln k$ bends to a flatter slope, a growth effect.\n- **Model.** The notes' stationarized law of motion $\\tilde{k}_{t+1}(1 + \\tilde{\\gamma} + \\eta) = s\\tilde{k}_t^{\\alpha} + (1-\\delta)\\tilde{k}_t$, with $\\tilde{\\gamma} = \\gamma/(1-\\alpha)$ and steady state $\\bar{k} = (s/(\\delta + \\eta + \\tilde{\\gamma}))^{1/(1-\\alpha)}$; see [Solow Model with Technological Progress](note:solow-model-with-technological-progress) and [Balanced Growth Path](note:balanced-growth-path). The path starts on the old balanced growth path, $\\tilde{k}_0 = \\bar{k}_1$."
+      }
+     ],
+     "words": 80,
+     "symbols": [
+      "$s$",
+      "$\\alpha$",
+      "$\\delta$",
+      "$\\eta$",
+      "$\\gamma$",
+      "$\\tilde{A} = A^{1/(1-\\alpha)}$",
+      "$\\tilde{\\gamma} = \\gamma/(1-\\alpha)$",
+      "$\\tilde{k}, \\tilde{y}, \\tilde{c}$",
+      "$k, y, c$",
+      "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$"
+     ]
+    },
+    {
+     "id": "notes-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Logs and growth rates.** $\\tilde{A}_t$ and $L_t$ grow by the factors $1 + \\tilde{\\gamma}$ and $1 + \\eta$ each period (normalized to 1 at $t = 0$), so the growth panel shows exactly $\\tilde{\\gamma}$ for $k$ on a balanced growth path. Aggregate growth is $(1 + \\tilde{\\gamma})(1 + \\eta) - 1$, which the notes approximate by $\\tilde{\\gamma} + \\eta$ (0.0403 against 0.04 in the example): the same small $\\tilde{\\gamma}\\eta$ term they drop from the law of motion.\n- **Shocks as parameters.** As in the notes, the shock is $\\eta_1 \\to \\eta_2$ or $\\gamma_1 \\to \\gamma_2$ at date $t^{*}$; $t^{*}$ is the first period with the new rates.\n- **Elements.** Series `ktilde`, `target`, `lnktilde`, `lnAtilde`, `lnk`, `lnk_old`, `lnL`, `lnK`, `gk`, `gK`; panels `effective`, `logs`, `aggregate`, `growth`; readouts `gt1_out`, `gt2_out`, `kbar1_out`, `kbar2_out`, `shift_out`."
+      }
+     ],
+     "words": 108,
+     "symbols": [
+      "$Y, K, L, C$",
+      "$\\eta$",
+      "$\\gamma$",
+      "$\\tilde{A} = A^{1/(1-\\alpha)}$",
+      "$\\tilde{\\gamma} = \\gamma/(1-\\alpha)$",
+      "$k, y, c$",
+      "$t$",
+      "$t^{*}$"
+     ]
+    },
+    {
+     "id": "notes-4",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Notation.** As in the notes, $\\bar{k}$ here is the steady state of capital per **effective** worker, $\\tilde{k}$. That is why the widget is a view of its own model, [Solow Model Per Effective Worker](note:solow-model-per-effective-worker), not of the basic one: $\\tilde{\\gamma}$, the break-even rate, $\\bar{k}_1$, $\\bar{k}_2$ and the law of motion are that model's, evaluated at the rates before or after the shock.\n- **Tests.** The notes' example ($\\tilde{\\gamma} = 0.03$, $\\bar{k} = 3.31$, $\\bar{y} = 1.49$, $\\bar{c} = 1.19$), the rise in $\\eta$ ($\\bar{k} = 2.83$, about 0.16 log points lower) and the fall in $\\gamma$ ($\\bar{k} = 4.35$), computed independently in Python."
+      }
+     ],
+     "words": 80,
+     "symbols": [
+      "$\\eta$",
+      "$\\gamma$",
+      "$\\tilde{\\gamma} = \\gamma/(1-\\alpha)$",
+      "$\\tilde{k}, \\tilde{y}, \\tilde{c}$",
+      "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$"
+     ]
+    }
+   ]
+  }
+ ]
+}

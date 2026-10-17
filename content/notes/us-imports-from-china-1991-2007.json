@@ -1,0 +1,92 @@
+{
+ "slug": "us-imports-from-china-1991-2007",
+ "notation": [],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**US imports from China grew more than twelvefold between 1991/92 and 2007, from \\$26 billion to \\$330 billion (2007 dollars), far faster than US exports to China or imports from anywhere else. Eight other high-income countries saw almost the same surge.**"
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/US imports from China and manufacturing employment 1987-2007.png",
+       "alt": "US imports from China and manufacturing employment 1987-2007"
+      }
+     ],
+     "words": 42,
+     "symbols": []
+    },
+    {
+     "id": "intro-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "China's import penetration ratio rose from ≈0.002 (1987) to ≈0.047 (2007), while the share of the US working-age population employed in manufacturing fell from ≈0.135 to ≈0.083 (read off the chart)."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Trade with China, US and other high-income countries 1991-2007.png",
+       "alt": "Table - Trade with China, US and other high-income countries 1991-2007"
+      }
+     ],
+     "words": 35,
+     "symbols": []
+    },
+    {
+     "id": "intro-3",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Billions of 2007 US$ | Imports from China | Exports to China | Imports from other low-income | Imports from Mexico/CAFTA | Imports from rest of world |\n| --- | --- | --- | --- | --- | --- |\n| **US** 1991/92 | 26.3 | 10.3 | 7.7 | 38.5 | 322.4 |\n| US 2000 | 121.6 | 23.0 | 22.8 | 151.6 | 650.0 |\n| US 2007 | 330.0 | 57.4 | 45.4 | 183.0 | 763.1 |\n| US growth 1991–2007 | **1,156%** | 456% | 491% | 375% | 137% |\n| **Eight other developed** 1991/92 | 28.2 | 26.6 | 9.2 | 2.8 | 723.6 |\n| Eight other developed 2007 | 262.8 | 196.9 | 31.0 | 11.6 | 1,329.8 |\n| Growth 1991–2007 | **832%** | 639% | 236% | 316% | 84% |"
+      }
+     ],
+     "words": 114,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "reading-it-correctly",
+   "heading": "Reading it correctly",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "reading-it-correctly-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Imports, not trade overall**: the US trade relationship with China became very unbalanced — imports grew far faster than exports.\n- **Common across rich countries**: other developed countries' imports from China grew almost as fast. That common component is what the [Shift-Share Instrument](note:shift-share-instrument) exploits — it reflects China's own growth rather than US demand.\n- Exports to China are reported from 1992, the first year available."
+      }
+     ],
+     "words": 65,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Import Penetration](note:import-penetration) · [US Manufacturing Employment 1939-2015](note:us-manufacturing-employment-1939-2015) · [US Local Labor Market Effects of Chinese Imports 1990-2007](note:us-local-labor-market-effects-of-chinese-imports-1990-2007)\n- Paper: [Autor, Dorn and Hanson 2013 - The China Syndrome](note:autor-dorn-and-hanson-2013-the-china-syndrome)"
+      }
+     ],
+     "words": 27,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

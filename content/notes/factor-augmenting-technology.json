@@ -1,0 +1,271 @@
+{
+ "slug": "factor-augmenting-technology",
+ "notation": [
+  {
+   "tex": "$A_H$, $A_L$",
+   "meaning": "Productivity of high- and low-skill labor",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "A"
+   ]
+  },
+  {
+   "tex": "$H$, $L$",
+   "meaning": "Quantities of high- and low-skill labor",
+   "kind": "Inputs",
+   "typical": "—",
+   "keys": [
+    "H",
+    "L"
+   ]
+  },
+  {
+   "tex": "$w_H$, $w_L$",
+   "meaning": "Their wages",
+   "kind": "Prices",
+   "typical": "—",
+   "keys": [
+    "w"
+   ]
+  },
+  {
+   "tex": "$\\sigma$",
+   "meaning": "Elasticity of substitution between the two",
+   "kind": "Parameter",
+   "typical": "≈ 1.4–2.6",
+   "keys": [
+    "sigma"
+   ]
+  },
+  {
+   "tex": "$A$",
+   "meaning": "Total factor productivity in the Hicks-neutral form",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "A"
+   ]
+  },
+  {
+   "tex": "$K$",
+   "meaning": "Capital",
+   "kind": "Input",
+   "typical": "—",
+   "keys": [
+    "K"
+   ]
+  },
+  {
+   "tex": "$F(\\cdot)$",
+   "meaning": "General production function",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "F"
+   ]
+  },
+  {
+   "tex": "$\\tilde{A} = A^{1/(1-\\alpha)}$",
+   "meaning": "TFP rewritten as labor-augmenting productivity",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "tilde(A)"
+   ]
+  },
+  {
+   "tex": "$\\gamma$",
+   "meaning": "Growth rate of TFP",
+   "kind": "Parameter",
+   "typical": "≈ 0.02",
+   "keys": [
+    "gamma"
+   ]
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "Capital share in Cobb-Douglas",
+   "kind": "Parameter",
+   "typical": "≈ 1/3",
+   "keys": [
+    "alpha"
+   ]
+  },
+  {
+   "tex": "$w_H/w_L$",
+   "meaning": "Relative wage: the skill premium as a ratio",
+   "kind": "Endogenous",
+   "typical": "US college/high-school ≈ 1.48 (1963) to ≈ 1.95 (2008), from log gaps 0.39 and 0.67",
+   "keys": [
+    "~w_H/w_L"
+   ],
+   "from": "relative-supply-and-demand"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Factor-augmenting technology makes one particular input more productive, as if you had more of it. Better software can make each skilled worker do the work of two; better machines can make each unskilled worker more productive. Whether a gain for one input raises or lowers its pay depends on how easily the inputs substitute for each other — a surprising result. Growth models use the version that boosts labor, because it lets the economy grow at a steady pace."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the formal meaning of skill-biased technical change and of technological progress in growth models.",
+       "folded": false
+      }
+     ],
+     "words": 97,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "In the [CES Production Function](note:ces-production-function), $A_H$ and $A_L$ multiply the labour inputs: $A_H H$ is skilled labour measured in **efficiency units**. A rise in $A_H$ makes each skilled worker do the work of more skilled workers."
+      }
+     ],
+     "words": 31,
+     "symbols": [
+      "$A_H$, $A_L$",
+      "$H$, $L$",
+      "$A$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "does-skill-augmenting-technology-raise-the-skill-premium",
+   "heading": "Does skill-augmenting technology raise the skill premium?",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "does-skill-augmenting-technology-raise-the-skill-premium-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "\\frac{\\partial \\ln(w_H/w_L)}{\\partial \\ln(A_H/A_L)} = \\frac{\\sigma - 1}{\\sigma}"
+      },
+      {
+       "t": "prose",
+       "md": "- **$\\sigma > 1$**: yes. Skilled workers become more productive and firms substitute toward them. This is **skill-biased technical change**.\n- **$\\sigma < 1$**: **no** — the premium *falls*. With complements, more productive skilled workers mean you need fewer of them to pair with unskilled labour.\n- **$\\sigma = 1$**: no effect (Cobb-Douglas)."
+      },
+      {
+       "t": "prose",
+       "md": "That counter-intuitive $\\sigma < 1$ case is a classic exam question. \"Skill-augmenting\" and \"skill-biased\" are the same thing **only** when $\\sigma > 1$."
+      }
+     ],
+     "words": 60,
+     "symbols": [
+      "$A_H$, $A_L$",
+      "$w_H$, $w_L$",
+      "$\\sigma$",
+      "$A$",
+      "$w_H/w_L$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "not-observed-directly",
+   "heading": "Not observed directly",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "not-observed-directly-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "We can construct $w_{Ht}/w_{Lt}$ and $H_t/L_t$ from data, but **not** $A_{Ht}/A_{Lt}$. The [Canonical Model of the Skill Premium](note:canonical-model-of-the-skill-premium) handles this by assuming relative technology follows a time trend plus noise."
+      }
+     ],
+     "words": 27,
+     "symbols": [
+      "$A_H$, $A_L$",
+      "$H$, $L$",
+      "$w_H$, $w_L$",
+      "$A$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "types-of-technical-change",
+   "heading": "Types of technical change",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "types-of-technical-change-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Type | Production function | Augments |\n| --- | --- | --- |\n| Hicks-neutral | $A\\,F(K, L)$ | All inputs equally (TFP) |\n| Harrod-neutral (labor-augmenting) | $F(K, AL)$ | Labor |\n| Solow-neutral (capital-augmenting) | $F(AK, L)$ | Capital |"
+      },
+      {
+       "t": "prose",
+       "md": "With a [Cobb-Douglas Production Function](note:cobb-douglas-production-function) the three are interchangeable: $AK^{\\alpha}L^{1-\\alpha} = K^{\\alpha}(A^{1/(1-\\alpha)}L)^{1-\\alpha}$, so TFP growing at $\\gamma$ is labor-augmenting growth at $\\gamma/(1-\\alpha)$. Outside Cobb-Douglas they differ — exactly the point of the $\\sigma > 1$ condition above."
+      },
+      {
+       "t": "prose",
+       "md": "Growth models write technology as labor-augmenting so that dividing by effective labor $\\tilde{A}L$ removes all trend growth ([Balanced Growth Path](note:balanced-growth-path))."
+      },
+      {
+       "t": "callout",
+       "kind": "note",
+       "title": "Beyond the notes",
+       "md": "Uzawa's theorem: for a balanced growth path to exist with a general production function, technical change must be labor-augmenting.",
+       "folded": false
+      }
+     ],
+     "words": 87,
+     "symbols": [
+      "$A_H$, $A_L$",
+      "$H$, $L$",
+      "$\\sigma$",
+      "$A$",
+      "$K$",
+      "$F(\\cdot)$",
+      "$\\tilde{A} = A^{1/(1-\\alpha)}$",
+      "$\\gamma$",
+      "$\\alpha$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Math background: [Partial Derivatives and the Gradient](note:partial-derivatives-and-the-gradient)\n- [Elasticity of Substitution](note:elasticity-of-substitution)\n- [Relative Supply and Demand](note:relative-supply-and-demand) — technology is a relative demand shifter\n- [Solow Model with Technological Progress](note:solow-model-with-technological-progress) — growth theory's labor-augmenting rewrite"
+      }
+     ],
+     "words": 33,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

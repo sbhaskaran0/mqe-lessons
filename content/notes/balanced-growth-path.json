@@ -1,0 +1,355 @@
+{
+ "slug": "balanced-growth-path",
+ "notation": [
+  {
+   "tex": "$X$",
+   "meaning": "Any economy-wide total ($K$, $Y$, $C$)",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "X"
+   ]
+  },
+  {
+   "tex": "$x = X/L$",
+   "meaning": "Per-worker version",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "x"
+   ]
+  },
+  {
+   "tex": "$\\tilde{x} = X/(\\tilde{A}L)$",
+   "meaning": "Per-effective-worker version",
+   "kind": "Endogenous; constant on the BGP",
+   "typical": "—",
+   "keys": [
+    "tilde(x)"
+   ]
+  },
+  {
+   "tex": "$L$, $\\eta$",
+   "meaning": "Labor and its growth rate",
+   "kind": "Exogenous",
+   "typical": "$\\eta \\approx 0.01$",
+   "keys": [
+    "L",
+    "eta"
+   ]
+  },
+  {
+   "tex": "$\\tilde{A}$, $\\tilde{\\gamma}$",
+   "meaning": "Labor-augmenting technology and its growth rate",
+   "kind": "Exogenous",
+   "typical": "$\\tilde{\\gamma} \\approx 0.03$",
+   "keys": [
+    "tilde(A)",
+    "tilde(gamma)"
+   ]
+  },
+  {
+   "tex": "$\\gamma$, $\\alpha$",
+   "meaning": "TFP growth and the capital share",
+   "kind": "Parameters",
+   "typical": "0.02, 1/3",
+   "keys": [
+    "gamma",
+    "alpha"
+   ]
+  },
+  {
+   "tex": "$s$, $\\delta$",
+   "meaning": "Saving rate and depreciation rate (level-effect examples)",
+   "kind": "Parameters",
+   "typical": "0.2, 0.05",
+   "keys": [
+    "s",
+    "delta"
+   ]
+  },
+  {
+   "tex": "$\\delta$, $\\eta$, $k$",
+   "meaning": "Depreciation, population growth and capital per worker in the growth-model picture",
+   "kind": "Parameters / state",
+   "typical": "≈ 0.05, ≈ 0.01",
+   "keys": [
+    "delta",
+    "eta",
+    "k"
+   ],
+   "from": "steady-state"
+  },
+  {
+   "tex": "$c$, $\\rho$",
+   "meaning": "Intercept and persistence in the AR(1) example",
+   "kind": "Parameters",
+   "typical": "Stable if $\\lvert\\rho\\rvert < 1$",
+   "keys": [
+    "c",
+    "rho"
+   ],
+   "from": "steady-state"
+  },
+  {
+   "tex": "$y$, $X$, $Y$",
+   "meaning": "Variables",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "y",
+    "X",
+    "Y"
+   ],
+   "from": "logarithms-and-growth-rates"
+  },
+  {
+   "tex": "$Y, K, L, C$",
+   "meaning": "Output, capital, labor, consumption (economy-wide totals)",
+   "kind": "Endogenous ($L$ exogenous)",
+   "typical": "—",
+   "keys": [
+    "Y",
+    "K",
+    "L",
+    "C"
+   ],
+   "from": "solow-model-with-technological-progress"
+  },
+  {
+   "tex": "$\\tilde{k}, \\tilde{y}, \\tilde{c}$",
+   "meaning": "Capital, output and consumption per effective worker (divided by $\\tilde{A}L$)",
+   "kind": "Endogenous; $\\tilde{k}$ is the state variable",
+   "typical": "—",
+   "keys": [
+    "tilde(k)",
+    "tilde(y)",
+    "tilde(c)"
+   ],
+   "from": "solow-model-with-technological-progress"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "In a growing economy almost everything keeps rising — output, the capital stock, wages — so there is no fixed resting point in the raw numbers. A balanced growth path is the growing-economy version of a resting point: every variable grows at its own steady, constant pace, so the ratios between them stay put. The way to find it is to measure everything relative to what is growing — for example output per effective worker, which stays constant while the totals climb."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is how growth models line up with the data, and it shows which growth rates are permanent and which are only temporary.",
+       "folded": false
+      }
+     ],
+     "words": 105,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Growing economies have no steady state in levels. The trick is to **stationarize**: divide every variable by whatever is growing, find the steady state of the normalized system, then read growth rates back out. A balanced growth path is that normalized steady state, seen in levels."
+      }
+     ],
+     "words": 46,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "three-kinds-of-variables",
+   "heading": "Three kinds of variables",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "three-kinds-of-variables-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With labor $L$ growing at $\\eta$ and labor-augmenting technology $\\tilde{A}$ growing at $\\tilde{\\gamma}$:"
+      },
+      {
+       "t": "table",
+       "md": "| Variable type | Notation | Example | Growth rate on the BGP |\n| --- | --- | --- | --- |\n| Per effective worker | $\\tilde{x} = X/(\\tilde{A}L)$ | $\\tilde{k}$, $\\tilde{y}$, $\\tilde{c}$ | 0 |\n| Per worker | $x = X/L = \\tilde{x}\\tilde{A}$ | $k$, $y$, $c$ | $\\tilde{\\gamma}$ |\n| Aggregate | $X = \\tilde{x}\\tilde{A}L$ | $K$, $Y$, $C$ | $\\tilde{\\gamma} + \\eta$ |"
+      },
+      {
+       "t": "prose",
+       "md": "The growth rates follow from \"the growth rate of a product is the sum of growth rates\" ([Logarithms and Growth Rates](note:logarithms-and-growth-rates))."
+      }
+     ],
+     "words": 50,
+     "symbols": [
+      "$X$",
+      "$x = X/L$",
+      "$\\tilde{x} = X/(\\tilde{A}L)$",
+      "$L$, $\\eta$",
+      "$\\tilde{A}$, $\\tilde{\\gamma}$",
+      "$\\delta$, $\\eta$, $k$",
+      "$c$, $\\rho$",
+      "$y$, $X$, $Y$",
+      "$Y, K, L, C$",
+      "$\\tilde{k}, \\tilde{y}, \\tilde{c}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "reading-the-charts",
+   "heading": "Reading the charts",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "reading-the-charts-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Plotted on a log scale, each variable on a BGP is a straight line whose slope is its growth rate. Off the BGP (during transitional dynamics), per-worker growth is above $\\tilde{\\gamma}$ if the economy is below its steady state and below $\\tilde{\\gamma}$ if above."
+      }
+     ],
+     "words": 42,
+     "symbols": [
+      "$\\tilde{A}$, $\\tilde{\\gamma}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "building-growth-paths-from-logs",
+   "heading": "Building growth paths from logs",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "building-growth-paths-from-logs-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Because $k = \\tilde{k}\\tilde{A}$ and $K = \\tilde{k}\\tilde{A}L$, logs turn products into sums:"
+      },
+      {
+       "t": "math",
+       "tex": "\\ln k = \\ln\\tilde{k} + \\ln\\tilde{A}, \\qquad \\ln K = \\ln\\tilde{k} + \\ln\\tilde{A} + \\ln L"
+      },
+      {
+       "t": "prose",
+       "md": "Draw each piece against time and add them: $\\ln\\tilde{k}$ is flat on the balanced growth path, $\\ln\\tilde{A}$ is a line with slope $\\tilde{\\gamma}$, $\\ln L$ a line with slope $\\eta$. Any shock is then read off as a change in the pieces."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Log growth paths - rise in population growth, capital per worker.png",
+       "alt": "Log growth paths - rise in population growth, capital per worker",
+       "caption": "Hand-drawn: after a rise in population growth, $\\ln\\tilde{k}$ falls to a lower level; adding $\\ln\\tilde{A}$ (unchanged slope) gives a per-worker path that grows more slowly for a while and then runs parallel to, but below, the old path."
+      }
+     ],
+     "words": 79,
+     "symbols": [
+      "$L$, $\\eta$",
+      "$\\tilde{A}$, $\\tilde{\\gamma}$",
+      "$\\delta$, $\\eta$, $k$",
+      "$Y, K, L, C$",
+      "$\\tilde{k}, \\tilde{y}, \\tilde{c}$"
+     ]
+    },
+    {
+     "id": "building-growth-paths-from-logs-2",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Log growth paths - rise in population growth, aggregate capital.png",
+       "alt": "Log growth paths - rise in population growth, aggregate capital",
+       "caption": "Adding $\\ln L$, whose slope rises from $\\eta_1$ to $\\eta_2$, makes aggregate capital eventually grow faster, at $\\tilde{\\gamma} + \\eta_2$."
+      },
+      {
+       "t": "table",
+       "md": "| Effect | What changes | Example |\n| --- | --- | --- |\n| **Level effect** | Per-worker path shifts up or down, same long-run slope | $s$, $\\delta$, $\\eta$, a one-off loss of capital |\n| **Growth effect** | Per-worker long-run slope changes | $\\gamma$ (technology growth) |"
+      }
+     ],
+     "words": 44,
+     "symbols": [
+      "$L$, $\\eta$",
+      "$\\tilde{A}$, $\\tilde{\\gamma}$",
+      "$\\gamma$, $\\alpha$",
+      "$s$, $\\delta$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$\\gamma = 2\\%$ TFP growth with $\\alpha = 1/3$ gives $\\tilde{\\gamma} = 0.02/(2/3) = 3\\%$ labor-augmenting growth. With $\\eta = 1\\%$: output per worker grows 3%, aggregate output 4%."
+      }
+     ],
+     "words": 15,
+     "symbols": [
+      "$L$, $\\eta$",
+      "$\\tilde{A}$, $\\tilde{\\gamma}$",
+      "$\\gamma$, $\\alpha$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "why-it-matters",
+   "heading": "Why it matters",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "why-it-matters-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Long-run growth in living standards (per-worker output) comes **only** from technology in the [Solow Model with Technological Progress](note:solow-model-with-technological-progress); saving and population affect levels, not long-run growth rates."
+      }
+     ],
+     "words": 27,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Steady State](note:steady-state)\n- [Efficiency Units of Labor](note:efficiency-units-of-labor) — $\\tilde{A}L$ is labor in efficiency units"
+      }
+     ],
+     "words": 13,
+     "symbols": [
+      "$L$, $\\eta$",
+      "$\\tilde{A}$, $\\tilde{\\gamma}$"
+     ]
+    }
+   ]
+  }
+ ]
+}

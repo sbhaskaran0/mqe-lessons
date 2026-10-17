@@ -1,0 +1,462 @@
+{
+ "slug": "projection-matrix-and-residual-maker",
+ "notation": [
+  {
+   "tex": "$\\mathbf{X}$",
+   "meaning": "Regressor matrix",
+   "kind": "Data ($n\\times K$)",
+   "typical": "—",
+   "keys": [
+    "bold(X)"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{y}$, $\\hat{\\mathbf{y}}$",
+   "meaning": "Outcome and fitted values",
+   "kind": "Data / computed",
+   "typical": "—",
+   "keys": [
+    "bold(y)",
+    "hat(bold(y))"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{P} = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$",
+   "meaning": "Projection (hat) matrix: turns $\\mathbf{y}$ into fitted values",
+   "kind": "Matrix ($n\\times n$)",
+   "typical": "Trace $K$",
+   "keys": [
+    "bold(P)"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{M} = \\mathbf{I} - \\mathbf{P}$",
+   "meaning": "Residual maker: turns $\\mathbf{y}$ into residuals",
+   "kind": "Matrix ($n\\times n$)",
+   "typical": "Trace $n - K$",
+   "keys": [
+    "bold(M)"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{e}$",
+   "meaning": "Residuals",
+   "kind": "Computed",
+   "typical": "—",
+   "keys": [
+    "bold(e)"
+   ]
+  },
+  {
+   "tex": "$\\boldsymbol{\\beta}$, $\\boldsymbol{\\varepsilon}$",
+   "meaning": "True coefficients and errors",
+   "kind": "Parameter / unobserved",
+   "typical": "—",
+   "keys": [
+    "bold(beta)",
+    "bold(varepsilon)"
+   ]
+  },
+  {
+   "tex": "$\\sigma^2$",
+   "meaning": "Error variance",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "sigma"
+   ]
+  },
+  {
+   "tex": "$n$, $K$",
+   "meaning": "Observations and regressors",
+   "kind": "Counts",
+   "typical": "—",
+   "keys": [
+    "n",
+    "K"
+   ]
+  },
+  {
+   "tex": "$h_i$",
+   "meaning": "Leverage: $i$-th diagonal element of $\\mathbf{P}$",
+   "kind": "Statistic",
+   "typical": "Average $K/n$",
+   "keys": [
+    "h"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{a}$, $\\mathbf{b}$, $\\mathbf{p}$",
+   "meaning": "Vectors in the one-vector projection example",
+   "kind": "Vectors",
+   "typical": "—",
+   "keys": [
+    "bold(a)",
+    "bold(b)",
+    "bold(p)"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{1}$, $\\bar{y}$",
+   "meaning": "Column of ones and the sample mean",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bar(y)"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{x}$",
+   "meaning": "Vector of weights on the columns",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(x)"
+   ],
+   "from": "column-space"
+  },
+  {
+   "tex": "$\\mathbf{a}'\\mathbf{b}$",
+   "meaning": "Inner (dot) product",
+   "kind": "Number",
+   "typical": "0 means orthogonal",
+   "keys": [
+    "~\\mathbfa'\\mathbfb"
+   ],
+   "from": "inner-products-and-orthogonality"
+  },
+  {
+   "tex": "$\\widehat{\\sigma}^2$",
+   "meaning": "Estimate of $\\sigma^2$: residual sum of squares over $N - K$",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "hat(sigma)"
+   ],
+   "from": "sampling-distribution-of-ols"
+  },
+  {
+   "tex": "$p$, $n$",
+   "meaning": "Number of parameters and of observations",
+   "kind": "Counts",
+   "typical": "—",
+   "keys": [
+    "p",
+    "n"
+   ],
+   "from": "regression-diagnostics"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Least squares can be pictured as dropping a perpendicular. The outcome is a point in space, and all the predictions the regressors could possibly make form a flat surface. The fitted values are the point on that surface closest to the outcome, and the residuals are the perpendicular gap between them. Two matrices do this job: one projects any outcome onto the surface to give fitted values, the other produces what is left over."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "This geometry explains why residuals are uncorrelated with every regressor, where degrees of freedom come from, and how controlling for variables works.",
+       "folded": false
+      }
+     ],
+     "words": 99,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The geometry behind [OLS in Matrix Form](note:ols-in-matrix-form). Two matrices do all the work."
+      },
+      {
+       "t": "math",
+       "tex": "\\mathbf{P} = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}', \\qquad \\mathbf{M} = \\mathbf{I} - \\mathbf{P}"
+      },
+      {
+       "t": "prose",
+       "md": "- $\\mathbf{P}$ is the **projection (hat) matrix**: $\\hat{\\mathbf{y}} = \\mathbf{P}\\mathbf{y}$ is the orthogonal projection of $\\mathbf{y}$ onto the column space of $\\mathbf{X}$.\n- $\\mathbf{M}$ is the **residual maker**: $\\mathbf{e} = \\mathbf{y} - \\mathbf{X}\\mathbf{b} = \\mathbf{M}\\mathbf{y}$."
+      },
+      {
+       "t": "math",
+       "tex": "\\boxed{\\mathbf{y} = \\mathbf{P}\\mathbf{y} + \\mathbf{M}\\mathbf{y}} \\quad (\\text{projection} + \\text{residual})"
+      }
+     ],
+     "words": 34,
+     "symbols": [
+      "$\\mathbf{X}$",
+      "$\\mathbf{y}$, $\\hat{\\mathbf{y}}$",
+      "$\\mathbf{P} = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$",
+      "$\\mathbf{M} = \\mathbf{I} - \\mathbf{P}$",
+      "$\\mathbf{e}$",
+      "$\\mathbf{a}$, $\\mathbf{b}$, $\\mathbf{p}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "properties",
+   "heading": "Properties",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "properties-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Property | Statement | Why it matters |\n| --- | --- | --- |\n| Decomposition | $\\mathbf{y} = \\mathbf{P}\\mathbf{y} + \\mathbf{M}\\mathbf{y}$ | Fit plus residual, and the pieces are orthogonal |\n| Symmetry | $\\mathbf{P} = \\mathbf{P}'$, $\\mathbf{M} = \\mathbf{M}'$ | Needed in variance derivations |\n| Idempotency | $\\mathbf{P}\\mathbf{P} = \\mathbf{P}$, $\\mathbf{M}\\mathbf{M} = \\mathbf{M}$ | Projecting twice changes nothing — the geometric content |\n| Annihilation | $\\mathbf{M}\\mathbf{X} = \\mathbf{0}$ | **Fundamental.** Regressing a column of $\\mathbf{X}$ on $\\mathbf{X}$ gives a perfect fit and zero residuals |\n| Orthogonality | $\\mathbf{P}\\mathbf{M} = \\mathbf{M}\\mathbf{P} = \\mathbf{0}$ | Fitted space and residual space are orthogonal complements |\n| Singularity | $\\mathbf{M}^{-1}$ does not exist | $\\mathbf{M}$ has rank $n-K$, not $n$ |\n| Traces | $\\mathrm{trace}(\\mathbf{P}) = K$, $\\mathrm{trace}(\\mathbf{M}) = n-K$ | This is where the degrees of freedom come from |"
+      }
+     ],
+     "words": 70,
+     "symbols": [
+      "$\\mathbf{X}$",
+      "$\\mathbf{y}$, $\\hat{\\mathbf{y}}$",
+      "$\\mathbf{P} = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$",
+      "$\\mathbf{M} = \\mathbf{I} - \\mathbf{P}$",
+      "$n$, $K$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "proving-the-properties",
+   "heading": "Proving the properties",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "proving-the-properties-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Symmetry**: $\\mathbf{M}' = \\mathbf{I} - [\\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}']' = \\mathbf{I} - \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}' = \\mathbf{M}$, using that $(\\mathbf{X}'\\mathbf{X})^{-1}$ is symmetric."
+      },
+      {
+       "t": "prose",
+       "md": "**Idempotency**: $\\mathbf{P}\\mathbf{P} = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}' = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}' = \\mathbf{P}$. Then $\\mathbf{M}\\mathbf{M} = \\mathbf{I} - 2\\mathbf{P} + \\mathbf{P}\\mathbf{P} = \\mathbf{I} - \\mathbf{P} = \\mathbf{M}$."
+      },
+      {
+       "t": "prose",
+       "md": "**Annihilation**: $\\mathbf{M}\\mathbf{X} = \\mathbf{X} - \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{X} = \\mathbf{X} - \\mathbf{X} = \\mathbf{0}$."
+      }
+     ],
+     "words": 8,
+     "symbols": [
+      "$\\mathbf{X}$",
+      "$\\mathbf{P} = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$",
+      "$\\mathbf{M} = \\mathbf{I} - \\mathbf{P}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "why-mx-0-is-the-fundamental-result",
+   "heading": "Why MX = 0 is the fundamental result",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "why-mx-0-is-the-fundamental-result-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "It gives"
+      },
+      {
+       "t": "math",
+       "tex": "\\mathbf{M}\\mathbf{y} = \\mathbf{M}\\mathbf{X}\\boldsymbol{\\beta} + \\mathbf{M}\\boldsymbol{\\varepsilon} = \\mathbf{M}\\boldsymbol{\\varepsilon}"
+      },
+      {
+       "t": "prose",
+       "md": "The OLS residual vector is the projection of the **disturbances** onto the orthogonal complement of $\\mathbf{X}$'s column space. That single line is the source of $E[\\mathbf{e}'\\mathbf{e}] = (n-K)\\sigma^2$ and hence the unbiasedness of $\\widehat{\\sigma}^2$ — see [Sampling Distribution of OLS](note:sampling-distribution-of-ols)."
+      }
+     ],
+     "words": 37,
+     "symbols": [
+      "$\\mathbf{X}$",
+      "$\\mathbf{y}$, $\\hat{\\mathbf{y}}$",
+      "$\\mathbf{M} = \\mathbf{I} - \\mathbf{P}$",
+      "$\\mathbf{e}$",
+      "$\\boldsymbol{\\beta}$, $\\boldsymbol{\\varepsilon}$",
+      "$\\sigma^2$",
+      "$n$, $K$",
+      "$\\widehat{\\sigma}^2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "trace-rank-and-degrees-of-freedom",
+   "heading": "Trace, rank and degrees of freedom",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "trace-rank-and-degrees-of-freedom-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$\\mathbf{M}$ is idempotent and symmetric, so its rank equals its trace:"
+      },
+      {
+       "t": "math",
+       "tex": "\\mathrm{trace}(\\mathbf{M}) = \\mathrm{trace}(\\mathbf{I}_n) - \\mathrm{trace}\\big(\\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\big) = n - \\mathrm{trace}\\big((\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{X}\\big) = n - \\mathrm{trace}(\\mathbf{I}_K) = n - K"
+      },
+      {
+       "t": "prose",
+       "md": "using the cyclic property of the [Trace of a Matrix](note:trace-of-a-matrix). Then"
+      },
+      {
+       "t": "math",
+       "tex": "E[\\mathbf{e}'\\mathbf{e}] = E[\\boldsymbol{\\varepsilon}'\\mathbf{M}\\boldsymbol{\\varepsilon}] = \\mathrm{trace}\\big(\\mathbf{M}\\,E[\\boldsymbol{\\varepsilon}\\boldsymbol{\\varepsilon}']\\big) = \\sigma^2\\,\\mathrm{trace}(\\mathbf{M}) = \\sigma^2(n-K)"
+      }
+     ],
+     "words": 21,
+     "symbols": [
+      "$\\mathbf{X}$",
+      "$\\mathbf{M} = \\mathbf{I} - \\mathbf{P}$",
+      "$\\mathbf{e}$",
+      "$\\boldsymbol{\\beta}$, $\\boldsymbol{\\varepsilon}$",
+      "$\\sigma^2$",
+      "$n$, $K$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "leverage",
+   "heading": "Leverage",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "leverage-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$h_i$, the $i$-th diagonal element of $\\mathbf{P}$, is the **leverage** of observation $i$ — how far $\\mathbf{x}_i$ sits from the centre of the design space. Since $\\mathrm{trace}(\\mathbf{P}) = K$, the leverages sum to $K$ and average $K/n$. That is where the $2K/n$ cut-off in [Regression Diagnostics](note:regression-diagnostics) comes from (written there as $2p/n$, with $p = K$ parameters)."
+      }
+     ],
+     "words": 42,
+     "symbols": [
+      "$\\mathbf{P} = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$",
+      "$n$, $K$",
+      "$h_i$",
+      "$\\mathbf{x}$",
+      "$p$, $n$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "results-when-x-contains-a-constant",
+   "heading": "Results when X contains a constant",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "results-when-x-contains-a-constant-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With $\\mathbf{X} = [\\mathbf{1}, \\mathbf{x}_2, \\dots, \\mathbf{x}_K]$ and $\\mathbf{X}'\\mathbf{e} = \\mathbf{0}$, the first column gives $\\mathbf{1}'\\mathbf{e} = 0$ — residuals sum to zero. And"
+      },
+      {
+       "t": "math",
+       "tex": "\\mathbf{1}'\\mathbf{y} = \\mathbf{1}'\\mathbf{X}\\mathbf{b} + \\mathbf{1}'\\mathbf{e} = \\mathbf{1}'\\mathbf{X}\\mathbf{b} \\;\\Longrightarrow\\; \\bar{y} = \\bar{\\mathbf{x}}'\\mathbf{b}"
+      },
+      {
+       "t": "prose",
+       "md": "The regression line passes through the means. Neither holds without a constant."
+      }
+     ],
+     "words": 23,
+     "symbols": [
+      "$\\mathbf{X}$",
+      "$\\mathbf{y}$, $\\hat{\\mathbf{y}}$",
+      "$\\mathbf{e}$",
+      "$\\mathbf{a}$, $\\mathbf{b}$, $\\mathbf{p}$",
+      "$\\mathbf{1}$, $\\bar{y}$",
+      "$\\mathbf{x}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "projection-onto-a-single-vector",
+   "heading": "Projection onto a single vector",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "projection-onto-a-single-vector-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The simplest projection, and the building block of the general one. Projecting $\\mathbf{b}$ onto the line through $\\mathbf{a}$:"
+      },
+      {
+       "t": "math",
+       "tex": "\\mathbf{p} = \\frac{\\mathbf{a}'\\mathbf{b}}{\\mathbf{a}'\\mathbf{a}}\\,\\mathbf{a}, \\qquad \\mathbf{b} - \\mathbf{p} \\perp \\mathbf{a}"
+      },
+      {
+       "t": "prose",
+       "md": "Example: $\\mathbf{a} = (1,1)'$, $\\mathbf{b} = (3,1)'$ gives $\\mathbf{p} = (2,2)'$ and residual $(1,-1)'$, which is orthogonal to $\\mathbf{a}$ ([Inner Products and Orthogonality](note:inner-products-and-orthogonality))."
+      },
+      {
+       "t": "prose",
+       "md": "Two special cases worth knowing:"
+      },
+      {
+       "t": "prose",
+       "md": "- **Regression through the origin**: the slope is $\\mathbf{a}'\\mathbf{b}/\\mathbf{a}'\\mathbf{a}$ — this formula with $\\mathbf{a} = \\mathbf{x}$.\n- **Regression on a constant**: with $\\mathbf{a} = \\mathbf{1}$, $\\mathbf{p} = \\bar{y}\\,\\mathbf{1}$. The projection onto the constant is the mean, and $\\mathbf{M}_{\\mathbf{1}}\\mathbf{y} = \\mathbf{y} - \\bar{y}\\mathbf{1}$ is the demeaned variable. Demeaning *is* partialling out a constant."
+      },
+      {
+       "t": "prose",
+       "md": "The general $\\mathbf{P} = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$ does the same thing onto the whole [Column Space](note:column-space) of $\\mathbf{X}$."
+      }
+     ],
+     "words": 81,
+     "symbols": [
+      "$\\mathbf{X}$",
+      "$\\mathbf{y}$, $\\hat{\\mathbf{y}}$",
+      "$\\mathbf{P} = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$",
+      "$\\mathbf{M} = \\mathbf{I} - \\mathbf{P}$",
+      "$\\mathbf{a}$, $\\mathbf{b}$, $\\mathbf{p}$",
+      "$\\mathbf{1}$, $\\bar{y}$",
+      "$\\mathbf{x}$",
+      "$\\mathbf{a}'\\mathbf{b}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Math background: [Column Space](note:column-space) · [Inner Products and Orthogonality](note:inner-products-and-orthogonality) · [Trace of a Matrix](note:trace-of-a-matrix) · [Eigenvalues and Eigenvectors](note:eigenvalues-and-eigenvectors)\n- [OLS in Matrix Form](note:ols-in-matrix-form)\n- [Full Rank and Identification](note:full-rank-and-identification)\n- [Conditional Mean vs Linear Projection](note:conditional-mean-vs-linear-projection)"
+      }
+     ],
+     "words": 32,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

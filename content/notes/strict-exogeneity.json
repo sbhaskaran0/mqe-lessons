@@ -1,0 +1,269 @@
+{
+ "slug": "strict-exogeneity",
+ "notation": [
+  {
+   "tex": "$e_i$",
+   "meaning": "Error for observation $i$",
+   "kind": "Unobserved",
+   "typical": "—",
+   "keys": [
+    "e"
+   ]
+  },
+  {
+   "tex": "$x_i$, $\\mathbf{x}_i$",
+   "meaning": "Regressor(s) for observation $i$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "x",
+    "bold(x)"
+   ]
+  },
+  {
+   "tex": "$\\boldsymbol{\\varepsilon}$",
+   "meaning": "Stacked errors",
+   "kind": "Unobserved",
+   "typical": "—",
+   "keys": [
+    "bold(varepsilon)"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{X}$",
+   "meaning": "All regressors for all observations",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "bold(X)"
+   ]
+  },
+  {
+   "tex": "$\\beta_2$",
+   "meaning": "Slope coefficient",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$y_i$",
+   "meaning": "Outcome for observation $i$ (e.g. food spending)",
+   "kind": "Random variable",
+   "typical": "—",
+   "keys": [
+    "y"
+   ],
+   "from": "simple-linear-regression-model"
+  },
+  {
+   "tex": "$E[y\\mid x]$, $\\mu_{y\\mid x}$",
+   "meaning": "Average of $y$ at a given $x$ (the regression function)",
+   "kind": "Population quantity",
+   "typical": "—",
+   "keys": [
+    "~E[y\\midx]",
+    "mu"
+   ],
+   "from": "simple-linear-regression-model"
+  },
+  {
+   "tex": "$\\varepsilon$",
+   "meaning": "Projection error: $y - \\alpha - \\beta x$",
+   "kind": "Random variable",
+   "typical": "Uncorrelated with $x$ by construction",
+   "keys": [
+    "varepsilon"
+   ],
+   "from": "conditional-mean-vs-linear-projection"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Strict exogeneity is the assumption that the explanatory variable tells you nothing about the unseen factors lumped into the error. If income is the explanatory variable, knowing someone's income should not help you predict the other things that drive their food spending. When it holds, the regression slope reflects the variable itself; when it fails — because something left out moves with the variable — the slope picks up the influence of the hidden factor too, and the estimate is biased."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the one assumption whose failure makes the regression answer wrong on average, which is why most of econometrics is about defending it or working around it.",
+       "folded": false
+      }
+     ],
+     "words": 110,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**SR2.** The substantive assumption of the [Simple Linear Regression Model](note:simple-linear-regression-model), and the only one whose failure causes **bias**."
+      },
+      {
+       "t": "math",
+       "tex": "E[e_i \\mid x_i] = 0"
+      },
+      {
+       "t": "prose",
+       "md": "Equivalently, $E[y \\mid x] = \\beta_1 + \\beta_2 x$ — the conditional mean really is the line."
+      },
+      {
+       "t": "prose",
+       "md": "Terminology: this per-observation condition is, strictly speaking, **zero conditional mean** (contemporaneous exogeneity). *Strict* exogeneity is the stronger $E[e_i \\mid x_1,\\dots,x_N] = 0$ — see the matrix version below. Under random sampling the observations are independent, so the first implies the second; that is why the two are often given one name, and it is the conditional-on-all-$x$ form that the unbiasedness proof uses."
+      }
+     ],
+     "words": 82,
+     "symbols": [
+      "$e_i$",
+      "$x_i$, $\\mathbf{x}_i$",
+      "$\\beta_2$",
+      "$y_i$",
+      "$E[y\\mid x]$, $\\mu_{y\\mid x}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "two-implications",
+   "heading": "Two implications",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "two-implications-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. $E[e_i] = 0$ — the errors are centred.\n2. $\\mathrm{cov}(e_i, x_i) = 0$ — $x$ carries no information about the error."
+      },
+      {
+       "t": "prose",
+       "md": "The second is the one that matters. Income cannot be used to predict the unobserved \"everything else\" term."
+      }
+     ],
+     "words": 30,
+     "symbols": [
+      "$e_i$",
+      "$x_i$, $\\mathbf{x}_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "the-matrix-version-is-stronger",
+   "heading": "The matrix version is stronger",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-matrix-version-is-stronger-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The appendix distinguishes two statements:"
+      },
+      {
+       "t": "math",
+       "tex": "E[\\boldsymbol{\\varepsilon} \\mid \\mathbf{X}] = \\mathbf{0} \\quad \\text{is stronger than} \\quad E[\\varepsilon_i \\mid \\mathbf{x}_i] = 0"
+      },
+      {
+       "t": "prose",
+       "md": "The second says $\\mathbf{x}_i$ gives no information about the mean of $\\varepsilon_i$. The first says **no** $\\mathbf{x}_j$ gives information about $E[\\varepsilon_i]$ — not the $i$-th observation, and not any other observation either. That matters for panel and time-series work later."
+      }
+     ],
+     "words": 40,
+     "symbols": [
+      "$x_i$, $\\mathbf{x}_i$",
+      "$\\boldsymbol{\\varepsilon}$",
+      "$\\mathbf{X}$",
+      "$\\varepsilon$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "zero-conditional-mean-implies-zero-covariance",
+   "heading": "Zero conditional mean implies zero covariance",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "zero-conditional-mean-implies-zero-covariance-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "One line, by the law of iterated expectations:"
+      },
+      {
+       "t": "math",
+       "tex": "\\mathrm{Cov}[\\mathbf{X}, \\varepsilon] = \\mathrm{Cov}\\big[\\mathbf{X},\\, E[\\varepsilon \\mid \\mathbf{X}]\\big] = 0"
+      },
+      {
+       "t": "prose",
+       "md": "The converse does **not** hold: $\\mathrm{Cov}(x,\\varepsilon) = 0$ is weaker and holds automatically for the linear projection — see [Conditional Mean vs Linear Projection](note:conditional-mean-vs-linear-projection). This distinction is the single most commonly botched point in this material."
+      }
+     ],
+     "words": 40,
+     "symbols": [
+      "$x_i$, $\\mathbf{x}_i$",
+      "$\\mathbf{X}$",
+      "$\\varepsilon$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "how-it-fails",
+   "heading": "How it fails",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "how-it-fails-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Omitted variables correlated with $x$ (e.g. omitting $x^2$ when it belongs)\n- Measurement error in $x$\n- Simultaneity / reverse causation\n- Selection on the outcome"
+      }
+     ],
+     "words": 24,
+     "symbols": [
+      "$x_i$, $\\mathbf{x}_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [SR Assumptions](note:sr-assumptions)\n- [Full Rank and Identification](note:full-rank-and-identification)"
+      }
+     ],
+     "words": 8,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

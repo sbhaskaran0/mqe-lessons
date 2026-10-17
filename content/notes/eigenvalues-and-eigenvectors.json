@@ -1,0 +1,267 @@
+{
+ "slug": "eigenvalues-and-eigenvectors",
+ "notation": [
+  {
+   "tex": "$A$",
+   "meaning": "Square matrix",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "A"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{v}$",
+   "meaning": "Eigenvector: a direction $A$ only stretches",
+   "kind": "Vector",
+   "typical": "Nonzero",
+   "keys": [
+    "bold(v)"
+   ]
+  },
+  {
+   "tex": "$\\lambda$",
+   "meaning": "Eigenvalue: the stretch factor",
+   "kind": "Number",
+   "typical": "—",
+   "keys": [
+    "lambda"
+   ]
+  },
+  {
+   "tex": "$I$",
+   "meaning": "Identity matrix",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "I"
+   ]
+  },
+  {
+   "tex": "$\\det(A - \\lambda I)$",
+   "meaning": "Characteristic polynomial",
+   "kind": "Polynomial",
+   "typical": "Roots are eigenvalues",
+   "keys": []
+  },
+  {
+   "tex": "$\\mathbf{x}$",
+   "meaning": "Vector",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(x)"
+   ],
+   "from": "invertibility-and-determinants"
+  },
+  {
+   "tex": "$\\mathbf{M}$",
+   "meaning": "Residual maker",
+   "kind": "Matrix",
+   "typical": "Trace $n - K$",
+   "keys": [
+    "bold(M)"
+   ],
+   "from": "trace-of-a-matrix"
+  },
+  {
+   "tex": "$\\mathbf{X}$",
+   "meaning": "Regressor matrix",
+   "kind": "Data ($n\\times K$)",
+   "typical": "—",
+   "keys": [
+    "bold(X)"
+   ],
+   "from": "projection-matrix-and-residual-maker"
+  },
+  {
+   "tex": "$\\mathbf{P} = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$",
+   "meaning": "Projection (hat) matrix: turns $\\mathbf{y}$ into fitted values",
+   "kind": "Matrix ($n\\times n$)",
+   "typical": "Trace $K$",
+   "keys": [
+    "bold(P)"
+   ],
+   "from": "projection-matrix-and-residual-maker"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Most directions get both stretched and turned when a matrix acts on them, but a few special directions only get stretched. Those are the eigenvectors, and the amount of stretch along each is its eigenvalue. Together they summarise what a matrix does: their sum is the trace, their product is the determinant, a zero eigenvalue means the matrix cannot be inverted, and their sizes tell you whether a dynamic system settles down or explodes."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "They show up whenever you need to know whether a matrix is invertible, positive definite or stable.",
+       "folded": false
+      }
+     ],
+     "words": 94,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "A\\mathbf{v} = \\lambda\\mathbf{v}, \\qquad \\mathbf{v}\\neq\\mathbf{0}"
+      },
+      {
+       "t": "prose",
+       "md": "$\\mathbf{v}$ is a direction that $A$ only stretches (by $\\lambda$), never rotates."
+      }
+     ],
+     "words": 9,
+     "symbols": [
+      "$A$",
+      "$\\mathbf{v}$",
+      "$\\lambda$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "finding-them",
+   "heading": "Finding them",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "finding-them-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$A\\mathbf{v} = \\lambda\\mathbf{v} \\iff (A - \\lambda I)\\mathbf{v} = \\mathbf{0}$ has a nonzero solution $\\iff$ $A - \\lambda I$ is singular:"
+      },
+      {
+       "t": "math",
+       "tex": "\\det(A - \\lambda I) = 0"
+      },
+      {
+       "t": "prose",
+       "md": "the **characteristic equation**. Then solve $(A - \\lambda I)\\mathbf{v} = \\mathbf{0}$ for each root."
+      }
+     ],
+     "words": 14,
+     "symbols": [
+      "$A$",
+      "$\\mathbf{v}$",
+      "$\\lambda$",
+      "$I$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$A = \\begin{pmatrix}2&1\\\\1&2\\end{pmatrix}$: $\\det(A - \\lambda I) = (2-\\lambda)^2 - 1 = 0$, so $\\lambda = 3$ or $1$."
+      },
+      {
+       "t": "prose",
+       "md": "- $\\lambda = 3$: $\\mathbf{v} \\propto (1, 1)'$\n- $\\lambda = 1$: $\\mathbf{v} \\propto (1, -1)'$"
+      },
+      {
+       "t": "prose",
+       "md": "Check: trace $4 = 3 + 1$; determinant $3 = 3\\times1$. The eigenvectors are orthogonal, as they always are for a symmetric matrix with distinct eigenvalues (for a repeated eigenvalue they can be chosen orthogonal)."
+      }
+     ],
+     "words": 31,
+     "symbols": [
+      "$A$",
+      "$\\mathbf{v}$",
+      "$\\lambda$",
+      "$I$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "properties",
+   "heading": "Properties",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "properties-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Property | Statement |\n| --- | --- |\n| Trace | $\\sum\\lambda_i = \\mathrm{tr}(A)$ ([Trace of a Matrix](note:trace-of-a-matrix)) |\n| Determinant | $\\prod\\lambda_i = \\det(A)$ — so singular iff some $\\lambda = 0$ |\n| Powers / inverse | $A^k$ has eigenvalues $\\lambda^k$; $A^{-1}$ has $1/\\lambda$ |\n| Symmetric $A$ | All eigenvalues real; eigenvectors for distinct eigenvalues orthogonal, and an orthogonal set can always be chosen ([Spectral Decomposition](note:spectral-decomposition)) |\n| Idempotent $A$ | $\\lambda \\in \\{0, 1\\}$, since $\\lambda^2 = \\lambda$ |"
+      }
+     ],
+     "words": 40,
+     "symbols": [
+      "$A$",
+      "$\\lambda$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Econometrics**: the eigenvalues of $\\mathbf{P}$ and $\\mathbf{M}$ are 0s and 1s, so trace = rank ([Projection Matrix and Residual Maker](note:projection-matrix-and-residual-maker)); definiteness of $\\mathbf{X}'\\mathbf{X}$ ([Quadratic Forms and Definiteness](note:quadratic-forms-and-definiteness)); near-zero eigenvalues of $\\mathbf{X}'\\mathbf{X}$ signal multicollinearity.\n- **Time series / dynamics**: a system $\\mathbf{x}_t = A\\mathbf{x}_{t-1}$ is stable iff all $|\\lambda| < 1$ ([Geometric Series](note:geometric-series))."
+      }
+     ],
+     "words": 41,
+     "symbols": [
+      "$A$",
+      "$\\lambda$",
+      "$\\mathbf{x}$",
+      "$\\mathbf{M}$",
+      "$\\mathbf{X}$",
+      "$\\mathbf{P} = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Spectral Decomposition](note:spectral-decomposition)\n- [Invertibility and Determinants](note:invertibility-and-determinants)"
+      }
+     ],
+     "words": 7,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

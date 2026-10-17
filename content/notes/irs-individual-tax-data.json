@@ -1,0 +1,78 @@
+{
+ "slug": "irs-individual-tax-data",
+ "notation": [],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Income reported on individual tax returns. The source behind long-run US Gini and top-share series."
+      }
+     ],
+     "words": 15,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "strengths",
+   "heading": "Strengths",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "strengths-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Covers the **top** of the distribution well, unlike surveys\n- Available back to **1913–1917**, the longest US income series"
+      }
+     ],
+     "words": 21,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "weaknesses",
+   "heading": "Weaknesses",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "weaknesses-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- The unit is the **tax unit**, not the person or household\n- Only covers **filers**; non-filers are missing at the bottom, especially early on\n- Only **taxable income** concepts, which change with tax law\n- Behavioural responses: when tax rates change, reported income can shift without real income changing"
+      }
+     ],
+     "words": 50,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [US Income Inequality Since 1917](note:us-income-inequality-since-1917)\n- [US Top Income Shares by State 2015](note:us-top-income-shares-by-state-2015)\n- [Current Population Survey (CPS)](note:current-population-survey-cps) — the survey-based complement"
+      }
+     ],
+     "words": 22,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

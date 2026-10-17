@@ -1,0 +1,568 @@
+{
+ "slug": "math-prerequisites-for-econ-430",
+ "notation": [
+  {
+   "tex": "$\\mathbf{X}$",
+   "meaning": "Regressor matrix",
+   "kind": "Data ($N\\times K$)",
+   "typical": "—",
+   "keys": [
+    "bold(X)"
+   ],
+   "from": "full-rank-and-identification"
+  },
+  {
+   "tex": "$\\boldsymbol{\\beta}$, $\\boldsymbol{\\gamma}$",
+   "meaning": "Two candidate coefficient vectors",
+   "kind": "Parameters",
+   "typical": "—",
+   "keys": [
+    "bold(beta)",
+    "bold(gamma)"
+   ],
+   "from": "full-rank-and-identification"
+  },
+  {
+   "tex": "$\\boldsymbol{\\delta} = \\boldsymbol{\\beta} - \\boldsymbol{\\gamma}$",
+   "meaning": "Their difference; full rank means $\\mathbf{X}\\boldsymbol{\\delta} = \\mathbf{0}$ only if $\\boldsymbol{\\delta} = \\mathbf{0}$",
+   "kind": "Vector",
+   "typical": "—",
+   "keys": [
+    "bold(delta)"
+   ],
+   "from": "full-rank-and-identification"
+  },
+  {
+   "tex": "$N$, $K$",
+   "meaning": "Observations and regressors",
+   "kind": "Counts",
+   "typical": "Need $N \\geq K$",
+   "keys": [
+    "N",
+    "K"
+   ],
+   "from": "full-rank-and-identification"
+  },
+  {
+   "tex": "$NI$, $S$, $T$",
+   "meaning": "Non-labor income, labor income and total income ($T = NI + S$) in the example",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "~NI",
+    "S",
+    "T"
+   ],
+   "from": "full-rank-and-identification"
+  },
+  {
+   "tex": "$a$",
+   "meaning": "Any amount shifted between coefficients in the example",
+   "kind": "Number",
+   "typical": "—",
+   "keys": [
+    "a"
+   ],
+   "from": "full-rank-and-identification"
+  },
+  {
+   "tex": "$\\boldsymbol{\\varepsilon}$, $y$",
+   "meaning": "Error and outcome",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(varepsilon)",
+    "y"
+   ],
+   "from": "full-rank-and-identification"
+  },
+  {
+   "tex": "$\\mathbf{y}$, $\\hat{\\mathbf{y}}$",
+   "meaning": "Outcome and fitted values",
+   "kind": "Data / computed",
+   "typical": "—",
+   "keys": [
+    "bold(y)",
+    "hat(bold(y))"
+   ],
+   "from": "projection-matrix-and-residual-maker"
+  },
+  {
+   "tex": "$\\mathbf{P} = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$",
+   "meaning": "Projection (hat) matrix: turns $\\mathbf{y}$ into fitted values",
+   "kind": "Matrix ($n\\times n$)",
+   "typical": "Trace $K$",
+   "keys": [
+    "bold(P)"
+   ],
+   "from": "projection-matrix-and-residual-maker"
+  },
+  {
+   "tex": "$\\mathbf{M} = \\mathbf{I} - \\mathbf{P}$",
+   "meaning": "Residual maker: turns $\\mathbf{y}$ into residuals",
+   "kind": "Matrix ($n\\times n$)",
+   "typical": "Trace $n - K$",
+   "keys": [
+    "bold(M)"
+   ],
+   "from": "projection-matrix-and-residual-maker"
+  },
+  {
+   "tex": "$\\mathbf{e}$",
+   "meaning": "Residuals",
+   "kind": "Computed",
+   "typical": "—",
+   "keys": [
+    "bold(e)"
+   ],
+   "from": "projection-matrix-and-residual-maker"
+  },
+  {
+   "tex": "$\\sigma^2$",
+   "meaning": "Error variance",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "sigma"
+   ],
+   "from": "projection-matrix-and-residual-maker"
+  },
+  {
+   "tex": "$h_i$",
+   "meaning": "Leverage: $i$-th diagonal element of $\\mathbf{P}$",
+   "kind": "Statistic",
+   "typical": "Average $K/n$",
+   "keys": [
+    "h"
+   ],
+   "from": "projection-matrix-and-residual-maker"
+  },
+  {
+   "tex": "$\\mathbf{a}$, $\\mathbf{b}$, $\\mathbf{p}$",
+   "meaning": "Vectors in the one-vector projection example",
+   "kind": "Vectors",
+   "typical": "—",
+   "keys": [
+    "bold(a)",
+    "bold(b)",
+    "bold(p)"
+   ],
+   "from": "projection-matrix-and-residual-maker"
+  },
+  {
+   "tex": "$x_i$, $\\mathbf{x}_i$",
+   "meaning": "Regressor(s) for observation $i$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "x",
+    "bold(x)"
+   ],
+   "from": "strict-exogeneity"
+  },
+  {
+   "tex": "$\\widehat{\\sigma}^2$",
+   "meaning": "Estimate of $\\sigma^2$ from the residuals",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "hat(sigma)"
+   ],
+   "from": "homoskedasticity"
+  },
+  {
+   "tex": "$\\mathbf{I}$",
+   "meaning": "Identity matrix",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(I)"
+   ],
+   "from": "homoskedasticity"
+  },
+  {
+   "tex": "$h(x)$, $g(x)$, $E[y\\mid x]$",
+   "meaning": "Conditional mean: true average $y$ at each $x$",
+   "kind": "Population function",
+   "typical": "Any shape",
+   "keys": [
+    "h",
+    "g",
+    "~E[y\\midx]"
+   ],
+   "from": "conditional-mean-vs-linear-projection"
+  },
+  {
+   "tex": "$b_k$",
+   "meaning": "OLS estimate of coefficient $k$",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "b"
+   ],
+   "from": "sampling-distribution-of-ols"
+  },
+  {
+   "tex": "$t$",
+   "meaning": "Test statistic $(b_k - \\beta_k)/se(b_k)$",
+   "kind": "Statistic",
+   "typical": "≈ ±2 is the 5% threshold in large samples",
+   "keys": [
+    "t"
+   ],
+   "from": "sampling-distribution-of-ols"
+  },
+  {
+   "tex": "$Z$, $V$",
+   "meaning": "A standard normal and an independent chi-square variable",
+   "kind": "Random variables",
+   "typical": "—",
+   "keys": [
+    "Z",
+    "V"
+   ],
+   "from": "sampling-distribution-of-ols"
+  },
+  {
+   "tex": "$\\chi^2_\\nu$, $\\nu$",
+   "meaning": "Chi-square distribution and its degrees of freedom",
+   "kind": "Distribution",
+   "typical": "—",
+   "keys": [
+    "chi",
+    "nu"
+   ],
+   "from": "sampling-distribution-of-ols"
+  },
+  {
+   "tex": "$\\lambda$",
+   "meaning": "Power parameter: 1 = no change, 0.5 = square root, 0 = log, −1 = reciprocal",
+   "kind": "Parameter, estimated",
+   "typical": "Round to a natural value",
+   "keys": [
+    "lambda"
+   ],
+   "from": "box-cox-and-power-transformations"
+  },
+  {
+   "tex": "$L_0$, $\\hat{L}$",
+   "meaning": "Log-likelihoods at those values",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "L",
+    "hat(L)"
+   ],
+   "from": "box-cox-and-power-transformations"
+  },
+  {
+   "tex": "$Y$, $X$, $p$, $q$, $a$, $b$",
+   "meaning": "Variables and powers in the bulging-rule regression",
+   "kind": "Data / parameters",
+   "typical": "—",
+   "keys": [
+    "Y",
+    "X",
+    "p",
+    "q",
+    "a",
+    "b"
+   ],
+   "from": "box-cox-and-power-transformations"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "tip",
+       "title": "Now a full course",
+       "md": "Every linear algebra and calculus topic below has worked notes and self-checks in [Math Prep](note:math-prep): [Math Prep L1 Matrix Algebra Essentials](note:math-prep-l1-matrix-algebra-essentials), [Math Prep L2 Vector Spaces Rank and Projection](note:math-prep-l2-vector-spaces-rank-and-projection), [Math Prep L3 Eigenvalues and Quadratic Forms](note:math-prep-l3-eigenvalues-and-quadratic-forms), [Math Prep L5 Matrix Calculus](note:math-prep-l5-matrix-calculus), [Math Prep L6 Optimization](note:math-prep-l6-optimization) and [Math Prep L7 Approximations Logs and Series](note:math-prep-l7-approximations-logs-and-series). The probability topics (Tier 1 item 3, Tier 2) are not covered there yet.",
+       "folded": false
+      }
+     ],
+     "words": 71,
+     "symbols": []
+    },
+    {
+     "id": "intro-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The applied lectures, [Econ 430 L1 Univariate Characterizations](note:econ-430-l1-univariate-characterizations) to [Econ 430 L6 Indicator Variables and the OLS Workflow](note:econ-430-l6-indicator-variables-and-the-ols-workflow), need almost no new mathematics. The matrix appendix, [Econ 430 L7 The Classical Linear Regression Model](note:econ-430-l7-the-classical-linear-regression-model), needs linear algebra you must be **fluent** in, not merely familiar with. Revise in this order."
+      }
+     ],
+     "words": 50,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "tier-1-highest-return",
+   "heading": "Tier 1 — highest return",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "tier-1-highest-return-1",
+     "heading": "1. Linear algebra: vector spaces and projection",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The single biggest lever. The appendix is unreadable as anything but symbol-pushing without it, and readable almost immediately with it."
+      },
+      {
+       "t": "prose",
+       "md": "- Column space, span, linear independence, rank, rank-nullity. What $\\mathbf{X}\\boldsymbol{\\delta} = \\mathbf{0}$ means geometrically → [Full Rank and Identification](note:full-rank-and-identification)\n- Orthogonality and orthogonal complements. Why $\\mathbf{X}'\\mathbf{e} = \\mathbf{0}$ says the residual is perpendicular to every regressor\n- Orthogonal projection onto a subspace, and that $\\mathbf{P} = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$ is *the* projection matrix onto $\\mathrm{col}(\\mathbf{X})$ → [Projection Matrix and Residual Maker](note:projection-matrix-and-residual-maker)\n- Idempotent and symmetric matrices, and why **trace = rank** for an idempotent matrix — literally where $N-K$ comes from\n- Matrix inverse: existence conditions, and why $(\\mathbf{X}'\\mathbf{X})^{-1}$ fails exactly when columns are linearly dependent"
+      }
+     ],
+     "words": 98,
+     "symbols": [
+      "$\\mathbf{X}$",
+      "$\\boldsymbol{\\delta} = \\boldsymbol{\\beta} - \\boldsymbol{\\gamma}$",
+      "$N$, $K$",
+      "$\\mathbf{P} = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$",
+      "$\\mathbf{e}$"
+     ]
+    },
+    {
+     "id": "tier-1-highest-return-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Source**: Strang, *Linear Algebra and Its Applications*, chapters on orthogonality and projections. Or 3Blue1Brown's *Essence of Linear Algebra* for geometric intuition first. Two or three focused sessions is enough."
+      }
+     ],
+     "words": 29,
+     "symbols": []
+    },
+    {
+     "id": "tier-1-highest-return-3",
+     "heading": "2. Matrix calculus",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The lecture calls its derivation \"a digression on multivariate calculus\" and then moves fast. Three results and nothing more:"
+      },
+      {
+       "t": "math",
+       "tex": "\\frac{\\partial (\\mathbf{a}'\\mathbf{b})}{\\partial \\mathbf{b}} = \\mathbf{a}, \\qquad \\frac{\\partial (\\mathbf{b}'\\mathbf{A}\\mathbf{b})}{\\partial \\mathbf{b}} = 2\\mathbf{A}\\mathbf{b} \\;(\\mathbf{A}\\text{ symmetric})"
+      },
+      {
+       "t": "math",
+       "tex": "\\frac{\\partial (\\mathbf{y}-\\mathbf{X}\\mathbf{b})'(\\mathbf{y}-\\mathbf{X}\\mathbf{b})}{\\partial \\mathbf{b}} = -2\\mathbf{X}'(\\mathbf{y}-\\mathbf{X}\\mathbf{b})"
+      },
+      {
+       "t": "prose",
+       "md": "Also: dimension checking (scalar w.r.t. $K\\times1$ gives $K\\times1$), and second-order conditions — $\\mathbf{X}'\\mathbf{X}$ positive definite is what makes the OLS critical point a minimum. The lecture states the FOCs and never checks the SOC; an exam might ask."
+      }
+     ],
+     "words": 55,
+     "symbols": [
+      "$\\mathbf{X}$",
+      "$N$, $K$",
+      "$\\mathbf{y}$, $\\hat{\\mathbf{y}}$",
+      "$\\mathbf{a}$, $\\mathbf{b}$, $\\mathbf{p}$"
+     ]
+    },
+    {
+     "id": "tier-1-highest-return-4",
+     "heading": "3. Conditional expectation algebra",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The probability equivalent of Tier 1, and where most conceptual exam questions live."
+      },
+      {
+       "t": "prose",
+       "md": "- **Law of iterated expectations**: $E[E[y\\mid x]] = E[y]$. Used constantly, including the one-line proof in [Strict Exogeneity](note:strict-exogeneity)\n- **Law of total variance**: $\\mathrm{Var}[y] = E[\\mathrm{Var}[y\\mid x]] + \\mathrm{Var}[E[y\\mid x]]$. Used in [Homoskedasticity](note:homoskedasticity)\n- **Conditional mean as MSE-minimising predictor**: prove $\\arg\\min_h E[(y - h(x))^2] = E[y\\mid x]$. Do this once by hand and [Conditional Mean vs Linear Projection](note:conditional-mean-vs-linear-projection) becomes obvious\n- **Cov and Var properties**: bilinearity, $\\mathrm{Var}(a+bX) = b^2\\mathrm{Var}(X)$, $\\mathrm{Cov}(X,a) = 0$. The projection derivation is nothing but these"
+      }
+     ],
+     "words": 68,
+     "symbols": [
+      "$a$",
+      "$\\boldsymbol{\\varepsilon}$, $y$",
+      "$h_i$",
+      "$x_i$, $\\mathbf{x}_i$",
+      "$h(x)$, $g(x)$, $E[y\\mid x]$",
+      "$b_k$",
+      "$Y$, $X$, $p$, $q$, $a$, $b$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "tier-2-needed-for-the-inference-questions",
+   "heading": "Tier 2 — needed for the inference questions",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "tier-2-needed-for-the-inference-questions-1",
+     "heading": "4. Distribution theory for the t statistic",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Be able to say *why* the statistic is $t$ rather than normal:"
+      },
+      {
+       "t": "prose",
+       "md": "- If $Z\\sim N(0,1)$ and $V\\sim\\chi^2_\\nu$ independently, then $Z/\\sqrt{V/\\nu}\\sim t_\\nu$\n- $(N-2)\\widehat{\\sigma}^2/\\sigma^2 \\sim \\chi^2_{N-2}$, independent of $b_2$ — a consequence of $\\mathbf{P}\\mathbf{M} = \\mathbf{0}$\n- Chi-square as a sum of squared standard normals, and why df drop by one per estimated parameter / linear restriction"
+      }
+     ],
+     "words": 42,
+     "symbols": [
+      "$N$, $K$",
+      "$\\mathbf{P} = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$",
+      "$\\mathbf{M} = \\mathbf{I} - \\mathbf{P}$",
+      "$\\sigma^2$",
+      "$\\widehat{\\sigma}^2$",
+      "$b_k$",
+      "$t$",
+      "$Z$, $V$",
+      "$\\chi^2_\\nu$, $\\nu$"
+     ]
+    },
+    {
+     "id": "tier-2-needed-for-the-inference-questions-2",
+     "heading": "5. Linear transformations of normal random vectors",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "If $\\boldsymbol{\\varepsilon}\\sim N(\\mathbf{0},\\sigma^2\\mathbf{I})$ then $\\mathbf{A}\\boldsymbol{\\varepsilon}\\sim N(\\mathbf{0},\\sigma^2\\mathbf{A}\\mathbf{A}')$. Since $\\mathbf{b} = \\boldsymbol{\\beta} + (\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\boldsymbol{\\varepsilon}$, the [Sampling Distribution of OLS](note:sampling-distribution-of-ols) is a one-line consequence. Same machinery gives the forecast-error variance."
+      }
+     ],
+     "words": 18,
+     "symbols": [
+      "$\\mathbf{X}$",
+      "$\\boldsymbol{\\beta}$, $\\boldsymbol{\\gamma}$",
+      "$N$, $K$",
+      "$\\boldsymbol{\\varepsilon}$, $y$",
+      "$\\sigma^2$",
+      "$\\mathbf{a}$, $\\mathbf{b}$, $\\mathbf{p}$",
+      "$\\mathbf{I}$"
+     ]
+    },
+    {
+     "id": "tier-2-needed-for-the-inference-questions-3",
+     "heading": "6. The Central Limit Theorem, stated precisely",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The lecture leans on \"the CLT makes this approximately correct for large $N$\" repeatedly. Know the actual statement, and what it does **not** give you: it gives asymptotic normality of the estimator; it does **not** fix bias, heteroskedasticity, or misspecification."
+      }
+     ],
+     "words": 39,
+     "symbols": [
+      "$N$, $K$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "tier-3-lighter-but-asked-about",
+   "heading": "Tier 3 — lighter, but asked about",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "tier-3-lighter-but-asked-about-1",
+     "heading": "7. Maximum likelihood and the likelihood ratio test",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "For [Box-Cox and Power Transformations](note:box-cox-and-power-transformations): what a log-likelihood is, that $T = 2(L_0 - \\hat{L})$ is asymptotically $\\chi^2$ with df equal to the number of restrictions, and why. You do **not** need the full asymptotic theory of MLE for this lecture."
+      }
+     ],
+     "words": 35,
+     "symbols": [
+      "$NI$, $S$, $T$",
+      "$\\chi^2_\\nu$, $\\nu$",
+      "$L_0$, $\\hat{L}$"
+     ]
+    },
+    {
+     "id": "tier-3-lighter-but-asked-about-2",
+     "heading": "8. Calculus for the transformations",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Two items. **L'Hôpital's rule**, to show $(x^\\lambda - 1)/\\lambda \\to \\ln x$ as $\\lambda\\to0$. And the **chain rule** on log and power functions, which is all the elasticity derivations are: $d(\\ln y)/dx = (1/y)(dy/dx)$ generates every row of the table in [Functional Forms and Elasticities](note:functional-forms-and-elasticities) — derive it rather than memorising four rows."
+      }
+     ],
+     "words": 42,
+     "symbols": [
+      "$\\boldsymbol{\\varepsilon}$, $y$",
+      "$x_i$, $\\mathbf{x}_i$",
+      "$\\lambda$"
+     ]
+    },
+    {
+     "id": "tier-3-lighter-but-asked-about-3",
+     "heading": "9. Optimisation basics",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Unconstrained minimisation of a convex quadratic: FOC, SOC, uniqueness. Enough to say why least squares has exactly one solution when $\\mathbf{X}$ has full rank."
+      }
+     ],
+     "words": 23,
+     "symbols": [
+      "$\\mathbf{X}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "what-you-can-safely-skip",
+   "heading": "What you can safely skip",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-you-can-safely-skip-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Measure-theoretic probability** — not used anywhere in this lecture\n- **Eigenvalues and eigendecomposition** — not needed here, though they return for GLS, principal components and asymptotic theory later in the course\n- **Asymptotic theory beyond the CLT statement** — no consistency proofs, no plim algebra in this lecture\n- **Numerical linear algebra** (QR, SVD) — how software actually inverts $\\mathbf{X}'\\mathbf{X}$ is not examinable here"
+      }
+     ],
+     "words": 60,
+     "symbols": [
+      "$\\mathbf{X}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "if-you-only-have-one-evening",
+   "heading": "If you only have one evening",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "if-you-only-have-one-evening-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Derive $\\mathbf{b} = (\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{y}$ from scratch\n2. Prove $\\mathbf{M}\\mathbf{X} = \\mathbf{0}$ and $\\mathbf{M}\\mathbf{M} = \\mathbf{M}$\n3. Derive the four rows of the functional-form table by differentiating"
+      },
+      {
+       "t": "prose",
+       "md": "Those three cover most of what the hard questions can touch."
+      }
+     ],
+     "words": 29,
+     "symbols": [
+      "$\\mathbf{X}$",
+      "$\\mathbf{y}$, $\\hat{\\mathbf{y}}$",
+      "$\\mathbf{M} = \\mathbf{I} - \\mathbf{P}$",
+      "$\\mathbf{a}$, $\\mathbf{b}$, $\\mathbf{p}$"
+     ]
+    }
+   ]
+  }
+ ]
+}

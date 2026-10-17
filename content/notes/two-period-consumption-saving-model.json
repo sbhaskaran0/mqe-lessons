@@ -1,0 +1,334 @@
+{
+ "slug": "two-period-consumption-saving-model",
+ "notation": [
+  {
+   "tex": "$y_1$, $y_2$",
+   "meaning": "Income in periods 1 and 2",
+   "kind": "Exogenous",
+   "typical": "180, 216",
+   "keys": [
+    "y"
+   ]
+  },
+  {
+   "tex": "$c_1$, $c_2$",
+   "meaning": "Consumption in periods 1 and 2",
+   "kind": "Choice",
+   "typical": "200, 192",
+   "keys": [
+    "c"
+   ]
+  },
+  {
+   "tex": "$s = y_1 - c_1$",
+   "meaning": "Saving *amount* (negative = borrowing) — not the saving *rate* $s$ of the Solow model",
+   "kind": "Choice",
+   "typical": "−20",
+   "keys": [
+    "s"
+   ]
+  },
+  {
+   "tex": "$r$",
+   "meaning": "Interest rate",
+   "kind": "Exogenous to the consumer; endogenous in equilibrium",
+   "typical": "0.2",
+   "keys": [
+    "r"
+   ]
+  },
+  {
+   "tex": "$U(c_1, c_2)$",
+   "meaning": "Lifetime utility",
+   "kind": "Function",
+   "typical": "$\\ln c_1 + \\beta\\ln c_2$",
+   "keys": [
+    "U"
+   ]
+  },
+  {
+   "tex": "$\\beta$",
+   "meaning": "Discount factor",
+   "kind": "Parameter in (0, 1]",
+   "typical": "0.8",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$k_1$, $k_2$",
+   "meaning": "Capital in each period (capital version)",
+   "kind": "State / choice",
+   "typical": "—",
+   "keys": [
+    "k"
+   ]
+  },
+  {
+   "tex": "$f(k)$, $f'(k)$",
+   "meaning": "Output and marginal product of capital (capital version)",
+   "kind": "Functions",
+   "typical": "—",
+   "keys": [
+    "f"
+   ]
+  },
+  {
+   "tex": "$A$",
+   "meaning": "Total factor productivity (technology)",
+   "kind": "Exogenous; constant in the basic model",
+   "typical": "1 in the example",
+   "keys": [
+    "A"
+   ],
+   "from": "solow-growth-model"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The simplest model of why people save. A person lives for two periods and gets some income in each. They can save part of today's income and earn interest, or borrow against tomorrow's income and pay interest. Three forces decide what they do. They like smooth consumption, so if income is high today and low tomorrow they save. They are impatient, which pushes them to consume now. And a higher interest rate makes saving more rewarding. In a whole economy, savers and borrowers must match, so the interest rate moves until they do."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It explains saving as a choice rather than an assumption, and shows how interest rates are set by people's incomes and patience.",
+       "folded": false
+      }
+     ],
+     "words": 118,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A consumer with income $y_1$, $y_2$ chooses $c_1$, $c_2$ to maximize lifetime utility subject to the [Intertemporal Budget Constraint](note:intertemporal-budget-constraint):"
+      },
+      {
+       "t": "math",
+       "tex": "\\max_{c_1, c_2} U(c_1, c_2) \\quad\\text{s.t.}\\quad y_1 + \\frac{y_2}{1+r} = c_1 + \\frac{c_2}{1+r}"
+      },
+      {
+       "t": "prose",
+       "md": "The solution satisfies MRS $= 1+r$ (the [Consumption Euler Equation](note:consumption-euler-equation)); in equilibrium $r$ satisfies [Market Clearing](note:market-clearing)."
+      }
+     ],
+     "words": 28,
+     "symbols": [
+      "$y_1$, $y_2$",
+      "$c_1$, $c_2$",
+      "$r$",
+      "$U(c_1, c_2)$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "the-three-forces-behind-saving",
+   "heading": "The three forces behind saving",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-three-forces-behind-saving-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Force | Captured by | Effect |\n| --- | --- | --- |\n| **Consumption smoothing** | Diminishing [Marginal Rate of Substitution](note:marginal-rate-of-substitution) | Save when income is high now relative to later; borrow when it is low now |\n| **Impatience** | [Discount Factor](note:discount-factor) $\\beta$ | Lower $\\beta$ → consume more now, save less |\n| **Interest rate** | Gross return $1+r$ | Higher $r$ → better return on saving → save more |"
+      },
+      {
+       "t": "prose",
+       "md": "**Pure smoothing**: with $r = 0$ and $\\beta = 1$, log utility gives $c_1 = c_2$. Income of 1,000 then 200 is consumed as 600 and 600."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Two-period saving model - log utility and consumption smoothing.png",
+       "alt": "Two-period saving model - log utility and consumption smoothing"
+      }
+     ],
+     "words": 68,
+     "symbols": [
+      "$c_1$, $c_2$",
+      "$r$",
+      "$\\beta$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "solution-with-log-utility",
+   "heading": "Solution with log utility",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "solution-with-log-utility-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "c_2 = \\beta(1+r)c_1, \\qquad c_1 = \\frac{y_1}{1+\\beta} + \\frac{y_2}{(1+\\beta)(1+r)}"
+      },
+      {
+       "t": "prose",
+       "md": "**Worked example**: $r = 0.2$, $\\beta = 0.8$, $y_1 = 180$, $y_2 = 216$ → $c_1 = 200$, $c_2 = 192$: borrow 20 today, repay 24 tomorrow."
+      }
+     ],
+     "words": 8,
+     "symbols": [
+      "$y_1$, $y_2$",
+      "$c_1$, $c_2$",
+      "$r$",
+      "$\\beta$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "equilibrium",
+   "heading": "Equilibrium",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "equilibrium-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With two consumers and log utility, the interest rate that clears the loan market is"
+      },
+      {
+       "t": "math",
+       "tex": "1 + r = \\frac{y_2^A + y_2^B}{\\beta\\,(y_1^A + y_1^B)}"
+      },
+      {
+       "t": "table",
+       "md": "| Example | Incomes (A; B) | $\\beta$ | $r$ | Saving (A; B) |\n| --- | --- | --- | --- | --- |\n| Baseline | (200, 100); (100, 200) | 1 | 0% | 50; −50 |\n| A's future income ↑ | (200, 200); (100, 200) | 1 | 33.3% | 25; −25 |\n| Less patience | (200, 100); (100, 200) | 0.9 | 11.1% | 47.4; −47.4 |"
+      },
+      {
+       "t": "prose",
+       "md": "Here the superscripts $A$, $B$ index consumers."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Two-period saving model - two-consumer example with a zero interest rate.png",
+       "alt": "Two-period saving model - two-consumer example with a zero interest rate"
+      }
+     ],
+     "words": 67,
+     "symbols": [
+      "$y_1$, $y_2$",
+      "$r$",
+      "$\\beta$",
+      "$A$"
+     ]
+    },
+    {
+     "id": "equilibrium-2",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Two-period saving model - higher future income raises r to 33 percent.png",
+       "alt": "Two-period saving model - higher future income raises r to 33 percent",
+       "caption": "Hand-drawn: the baseline example clears at r = 0; raising A's future income to 200 pushes r to 33.3%."
+      }
+     ],
+     "words": 19,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "with-capital",
+   "heading": "With capital",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "with-capital-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Replace the bond with capital that fully depreciates: $f(k_1) = c_1 + k_2$ and $c_2 = f(k_2)$. The optimality condition becomes MRS $= f'(k_2)$: the marginal product of capital acts as the interest rate. This links the saving *choice* here to the saving *assumption* of the [Solow Growth Model](note:solow-growth-model)."
+      }
+     ],
+     "words": 39,
+     "symbols": [
+      "$c_1$, $c_2$",
+      "$k_1$, $k_2$",
+      "$f(k)$, $f'(k)$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Assuming everyone saves: the sign of saving depends on the income profile, patience and $r$.\n- Treating $r$ as given in equilibrium questions: with several consumers, $r$ adjusts.\n- Forgetting that a higher $r$ in this lecture's framing raises saving (the substitution effect); income effects can push the other way for savers (beyond the lecture)."
+      }
+     ],
+     "words": 52,
+     "symbols": [
+      "$r$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Macro: foundations of consumption and saving, interest-rate determination, the bridge to infinite-horizon (Ramsey) models."
+      }
+     ],
+     "words": 15,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Intertemporal Budget Constraint](note:intertemporal-budget-constraint) · [Consumption Euler Equation](note:consumption-euler-equation) · [Market Clearing](note:market-clearing) · [Discount Factor](note:discount-factor) · [Marginal Rate of Substitution](note:marginal-rate-of-substitution)"
+      }
+     ],
+     "words": 15,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}
