@@ -1,6 +1,6 @@
 {
  "schema": "mqe-lessons/1",
- "generated_at": "2026-10-18T19:42:29Z",
+ "generated_at": "2026-10-18T20:10:42Z",
  "vault": {
   "notes": 198,
   "errors": 0,
@@ -1328,8 +1328,8 @@
    "interactives": [],
    "checks": 0,
    "words": 216,
-   "created": "2026-10-18T19:32:11Z",
-   "updated": "2026-10-18T19:33:36Z"
+   "created": "2026-10-18T20:06:21Z",
+   "updated": "2026-10-18T20:06:21Z"
   },
   "brazil-regional-wage-effects-of-1990s-tariff-cuts": {
    "slug": "brazil-regional-wage-effects-of-1990s-tariff-cuts",
@@ -5447,7 +5447,7 @@
     "q-q-plot-shape-explorer"
    ],
    "checks": 8,
-   "words": 1267,
+   "words": 1259,
    "objectives": [
     {
      "n": 1,
@@ -5480,8 +5480,8 @@
      "tested": 2
     }
    ],
-   "created": "2026-10-18T19:33:46Z",
-   "updated": "2026-10-18T19:34:56Z"
+   "created": "2026-10-18T20:03:07Z",
+   "updated": "2026-10-18T20:03:07Z"
   },
   "econ-430-l2-bivariate-characterizations": {
    "slug": "econ-430-l2-bivariate-characterizations",
@@ -5539,7 +5539,7 @@
     "lowess-span-explorer"
    ],
    "checks": 4,
-   "words": 709,
+   "words": 714,
    "objectives": [
     {
      "n": 1,
@@ -5562,8 +5562,8 @@
      "tested": 1
     }
    ],
-   "created": "2026-10-18T19:34:47Z",
-   "updated": "2026-10-18T19:34:47Z"
+   "created": "2026-10-18T20:03:03Z",
+   "updated": "2026-10-18T20:03:03Z"
   },
   "econ-430-l3-the-method-of-least-squares": {
    "slug": "econ-430-l3-the-method-of-least-squares",
@@ -5787,7 +5787,7 @@
     "ols-sampling-distribution"
    ],
    "checks": 6,
-   "words": 1105,
+   "words": 1128,
    "objectives": [
     {
      "n": 1,
@@ -5815,8 +5815,8 @@
      "tested": 2
     }
    ],
-   "created": "2026-10-18T19:33:23Z",
-   "updated": "2026-10-18T19:33:23Z"
+   "created": "2026-10-18T19:51:12Z",
+   "updated": "2026-10-18T19:51:12Z"
   },
   "econ-430-l5-estimating-nonlinear-relationships": {
    "slug": "econ-430-l5-estimating-nonlinear-relationships",
@@ -5919,8 +5919,8 @@
      "tested": 3
     }
    ],
-   "created": "2026-10-18T19:32:01Z",
-   "updated": "2026-10-18T19:33:36Z"
+   "created": "2026-10-18T20:06:22Z",
+   "updated": "2026-10-18T20:06:22Z"
   },
   "econ-430-l6-indicator-variables-and-the-ols-workflow": {
    "slug": "econ-430-l6-indicator-variables-and-the-ols-workflow",
@@ -6013,7 +6013,7 @@
     "leverage-and-influence-explorer"
    ],
    "checks": 7,
-   "words": 1325,
+   "words": 1333,
    "objectives": [
     {
      "n": 1,
@@ -6046,8 +6046,8 @@
      "tested": 1
     }
    ],
-   "created": "2026-10-18T19:35:03Z",
-   "updated": "2026-10-18T19:35:03Z"
+   "created": "2026-10-18T20:07:08Z",
+   "updated": "2026-10-18T20:07:08Z"
   },
   "econ-430-l7-the-classical-linear-regression-model": {
    "slug": "econ-430-l7-the-classical-linear-regression-model",
@@ -9474,9 +9474,9 @@
    "figures": [],
    "interactives": [],
    "checks": 0,
-   "words": 236,
-   "created": "2026-10-18T19:34:10Z",
-   "updated": "2026-10-18T19:36:50Z"
+   "words": 249,
+   "created": "2026-10-18T20:03:13Z",
+   "updated": "2026-10-18T20:03:13Z"
   },
   "kernel-density-estimation": {
    "slug": "kernel-density-estimation",
@@ -9542,9 +9542,9 @@
    ],
    "interactives": [],
    "checks": 0,
-   "words": 432,
-   "created": "2026-10-17T19:26:06Z",
-   "updated": "2026-10-17T19:26:06Z"
+   "words": 430,
+   "created": "2026-10-18T20:03:12Z",
+   "updated": "2026-10-18T20:03:12Z"
   },
   "kovak-2013-regional-effects-of-trade-reform": {
    "slug": "kovak-2013-regional-effects-of-trade-reform",
@@ -9971,7 +9971,7 @@
    "title": "Leverage and Influence Explorer",
    "type": "interactive",
    "path": "Interactives/Leverage and Influence Explorer.md",
-   "summary": "Thirty simulated points plus one draggable extra point: its leverage, studentized residual, Cook distance and pull on the OLS slope, against the 2p/n and |t| = 2 cut-offs.",
+   "summary": "Thirty simulated points plus one draggable extra point: its leverage, externally studentized residual, Cook distance and pull on the OLS slope, against the 2p/n and |t| = 2 cut-offs.",
    "domain": "econometrics",
    "domains": [
     "econometrics"
@@ -10009,9 +10009,9 @@
    "figures": [],
    "interactives": [],
    "checks": 0,
-   "words": 385,
-   "created": "2026-10-18T19:42:21Z",
-   "updated": "2026-10-18T19:42:21Z"
+   "words": 455,
+   "created": "2026-10-18T20:06:53Z",
+   "updated": "2026-10-18T20:06:53Z"
   },
   "lhopitals-rule": {
    "slug": "lhopitals-rule",
@@ -11232,8 +11232,8 @@
      "tested": 3
     }
    ],
-   "created": "2026-10-18T19:31:34Z",
-   "updated": "2026-10-18T19:31:34Z"
+   "created": "2026-10-18T19:51:06Z",
+   "updated": "2026-10-18T19:51:06Z"
   },
   "math-prep-l3-eigenvalues-and-quadratic-forms": {
    "slug": "math-prep-l3-eigenvalues-and-quadratic-forms",
@@ -11646,7 +11646,7 @@
    ],
    "checks": 6,
    "derives": 1,
-   "words": 475,
+   "words": 487,
    "objectives": [
     {
      "n": 1,
@@ -11674,8 +11674,8 @@
      "tested": 2
     }
    ],
-   "created": "2026-10-18T18:18:55Z",
-   "updated": "2026-10-18T18:18:55Z"
+   "created": "2026-10-18T19:51:11Z",
+   "updated": "2026-10-18T19:51:11Z"
   },
   "math-prep-l8-integration-for-probability": {
    "slug": "math-prep-l8-integration-for-probability",
@@ -12935,8 +12935,8 @@
    "interactives": [],
    "checks": 0,
    "words": 170,
-   "created": "2026-10-18T19:33:21Z",
-   "updated": "2026-10-18T19:33:21Z"
+   "created": "2026-10-18T19:51:08Z",
+   "updated": "2026-10-18T19:51:08Z"
   },
   "projection-matrix-and-residual-maker": {
    "slug": "projection-matrix-and-residual-maker",
@@ -13380,9 +13380,9 @@
    "figures": [],
    "interactives": [],
    "checks": 0,
-   "words": 165,
-   "created": "2026-10-18T19:34:17Z",
-   "updated": "2026-10-18T19:34:17Z"
+   "words": 163,
+   "created": "2026-10-18T20:03:11Z",
+   "updated": "2026-10-18T20:03:11Z"
   },
   "quadratic-form-explorer": {
    "slug": "quadratic-form-explorer",
@@ -16204,8 +16204,8 @@
    "interactives": [],
    "checks": 0,
    "words": 109,
-   "created": "2026-10-18T18:19:45Z",
-   "updated": "2026-10-18T18:19:52Z"
+   "created": "2026-10-18T19:51:33Z",
+   "updated": "2026-10-18T19:51:33Z"
   },
   "taylor-series-approximation": {
    "slug": "taylor-series-approximation",
@@ -18764,8 +18764,8 @@
        "T_now": 0.464463,
        "Tnow": 0.464463,
        "loglik@0": -608.551,
-       "cutoff.first": -610.238,
-       "cutoff.last": -610.238,
+       "cutoff.first": -610.239,
+       "cutoff.last": -610.239,
        "hist.n": 32,
        "density.n": 101,
        "here.n": 1,
@@ -19278,7 +19278,7 @@
      {
       "id": "t_now",
       "expr": "at(\"t\", x31)",
-      "label": "Studentized residual t",
+      "label": "Externally studentized residual t",
       "format": ".2f"
      },
      {
@@ -19363,7 +19363,9 @@
       },
       "y": {
        "column": "y",
-       "label": "Studentized residual t"
+       "label": "Externally studentized residual t (beyond ±8 leaves the panel)",
+       "min": -8,
+       "max": 8
       },
       "series": [
        {
@@ -19437,7 +19439,7 @@
        },
        {
         "id": "t",
-        "label": "Studentized residual t",
+        "label": "Externally studentized residual t",
         "where": {
          "series": "t",
          "y31": {
@@ -19475,12 +19477,12 @@
       "expect": {
        "h_now": 0.5683,
        "h31": 0.5683,
-       "t_now": -0.158,
+       "t_now": -0.155,
        "cook_now": 0.0164,
        "d31": 0.0164,
        "slope_now": 0.4912,
        "slope_base": 0.4976,
-       "rl_pt.first": -0.158,
+       "rl_pt.first": -0.155,
        "rl_base.n": 30,
        "base.n": 30,
        "h.n": 51,
@@ -19499,11 +19501,11 @@
       },
       "expect": {
        "h_now": 0.5683,
-       "t_now": -4.2,
+       "t_now": -6.595,
        "cook_now": 11.612,
        "slope_now": 0.2234,
        "fit_with@0": 3.6138,
-       "rl_pt.first": -4.2
+       "rl_pt.first": -6.595
       },
       "tol": 0.0006
      },
@@ -19514,7 +19516,7 @@
       },
       "expect": {
        "h_now": 0.0323,
-       "t_now": 4.057,
+       "t_now": 6.063,
        "cook_now": 0.275,
        "slope_now": 0.5006
       },
@@ -20918,7 +20920,9 @@
       },
       "y": {
        "column": "y",
-       "label": "Speed (mph)"
+       "label": "Speed (mph)",
+       "min": 0,
+       "max": 30
       },
       "series": [
        {
@@ -21438,7 +21442,7 @@
      "df": {
       "tex": "n",
       "label": "t degrees of freedom",
-      "min": 2,
+      "min": 3,
       "max": 30,
       "step": 1,
       "default": 3
@@ -21544,17 +21548,6 @@
        "qq.first": -3.37225,
        "qq.last": 3.37225,
        "ref.n": 2
-      },
-      "tol": 0.0001
-     },
-     {
-      "params": {
-       "family": 3,
-       "s": 0.5,
-       "df": 2
-      },
-      "expect": {
-       "q99.first": 5.75327
       },
       "tol": 0.0001
      },
@@ -25608,9 +25601,9 @@
    },
    "period": "simulated: numpy random.seed(10) replay of Regression_Lecture1_Adv.ipynb cells 3-19",
    "generated": "2026-10-18",
-   "sha256": "541bcca56a63d68341ceefcddbee1969256c6369dffbe5ca3cdc20cb82809983",
+   "sha256": "06de73cbf42a03e8b889cf5cdaa2c961b42d13eb413be45f941a659da38aeca3",
    "notebook": "notebooks/econ430-l1-kde-bandwidth.ipynb",
-   "description": "Precomputed for the Kernel Density Bandwidth Explorer widget in Econ 430 L1, not a data source. n = 1000 draws from an exponential with mean 0.5 (the lecture's x3, replayed from random.seed(10)); true density 2e^(-2x). Tidy long table: a blank h matches every slider value. kde rows hold a Gaussian KDE at each h in [0.01, 0.5] step 0.005 on 300 grid points over [-0.2, 3.5]; ise integrates its squared error against the true density (trapezoid on that grid). Constants h_scott = 1.06 x 0.5 x 1000^(-1/5) = 0.13313, h_opt (argmin of ise) and ise_min sit at x = 0."
+   "description": "Precomputed for the Kernel Density Bandwidth Explorer widget in Econ 430 L1, not a data source. n = 1000 draws from an exponential with mean 0.5 (the lecture's x3, replayed from random.seed(10)); true density 2e^(-2x). Tidy long table: a blank h matches every slider value. kde rows hold a Gaussian KDE at each h in [0.01, 0.5] step 0.005 on 300 grid points over [-0.2, 3.5]; ise integrates its squared error against the true density (trapezoid on that grid). Constants at x = 0: h_scott = 0.13313 is the normal-reference rule with the TRUE sd (1.06 x 0.5 x n^(-1/5)) and is NOT the lecture's seaborn default; h_seaborn is the seaborn/scipy 'scott' bandwidth, sample sd x n^(-1/5) = 0.121 (exact value in the table, equal to gaussian_kde's factor x sd); h_opt (argmin of ise) and ise_min."
   },
   "econ430-l1-qq-shapes": {
    "id": "econ430-l1-qq-shapes",
@@ -25638,9 +25631,9 @@
     }
    },
    "generated": "2026-10-18",
-   "sha256": "c5750d9f6e51f818c99ca544f555374a71a859f0d772fc62877403b9c3dd59c1",
+   "sha256": "81676ecd9929de3793d6c21bc8fa7827b3f9b06be28943d7e08052effbe1a3a8",
    "notebook": "notebooks/econ430-l1-qq-shapes.ipynb",
-   "description": "Precomputed for the Q-Q Plot Shape Explorer widget in Econ 430 L1, not a data source; computed with scipy.stats, not from the lecture notebook. n = 100 plotting positions p_i = (i - 0.5)/n; x = Phi^-1(p_i), y = the family's quantile standardized to mean 0 and sd 1 (lognormal by its exact mean and sd, t by sqrt(df/(df-2)), uniform by (u - 1/2) sqrt(12)). df = 2 has infinite variance, so that one position is scaled by IQR/1.349 instead. Lognormal rows are keyed by s, t rows by df; a blank s or df matches every value. q01, q50 and q99 are single points at p = 0.01, 0.5, 0.99; ref is the 45-degree line. The brief's t(3) q99_std of 2.627 does not reproduce: 4.541/sqrt(3) = 2.622."
+   "description": "Precomputed for the Q-Q Plot Shape Explorer widget in Econ 430 L1, not a data source; computed with scipy.stats, not from the lecture notebook. n = 100 plotting positions p_i = (i - 0.5)/n; x = Phi^-1(p_i), y = the family's quantile standardized to mean 0 and sd 1 (lognormal by its exact mean and sd, t by sqrt(df/(df-2)), uniform by (u - 1/2) sqrt(12)). df starts at 3 because df = 2 has infinite variance. Lognormal rows are keyed by s, t rows by df; a blank s or df matches every value. q01, q50 and q99 are single points at p = 0.01, 0.5, 0.99; ref is the 45-degree line. The brief's t(3) q99_std of 2.627 does not reproduce: 4.541/sqrt(3) = 2.622."
   },
   "econ430-l2-lowess-span": {
    "id": "econ430-l2-lowess-span",
@@ -25719,9 +25712,9 @@
    },
    "period": "UN member states, infant mortality per 1000 live births (carData::UN), 207 non-missing",
    "generated": "2026-10-18",
-   "sha256": "d2f6830550a1d0198883b87622e9b811e23cacd8ff3ba29b18dd8db062b40652",
+   "sha256": "752e550cb73f27ff42be0f2f0aafb0e163a0b77baf36c84559e76d5bbfbdfbbd",
    "notebook": "notebooks/econ430-l5-boxcox-ladder.ipynb",
-   "description": "Precomputed for the Box-Cox Ladder Explorer widget in Econ 430 L5, not a data source. carData::UN infantMortality with missing values dropped (n = 207). For each lambda in -1..1.5 step 0.05: the scipy Box-Cox transform standardized as in the lecture (preprocessing.scale), histogram on fixed bins over [-4, 4] (density = count/(n x width); the few values beyond +-4 are not binned) and a gaussian_kde on a 101-point grid. loglik is scipy.stats.boxcox_llf, lambda0 = 0.04678 the MLE, T = 2(L(lambda0) - L(lambda)): 0.4645 at 0, 41.9583 at 0.5, 172.814 at 1, as in the lecture; cutoff is L(lambda0) - 1.92. A blank lam matches every value."
+   "description": "Precomputed for the Box-Cox Ladder Explorer widget in Econ 430 L5, not a data source. carData::UN infantMortality with missing values dropped (n = 207). For each lambda in -1..1.5 step 0.05: the scipy Box-Cox transform standardized as in the lecture (preprocessing.scale), histogram on fixed bins over [-4, 4] (density = count/(n x width); the few values beyond +-4 are not binned) and a gaussian_kde on a 101-point grid. loglik is scipy.stats.boxcox_llf, lambda0 = 0.04678 the MLE, T = 2(L(lambda0) - L(lambda)): 0.4645 at 0, 41.9583 at 0.5, 172.814 at 1, as in the lecture; cutoff is L(lambda0) - chi2.ppf(0.95, 1)/2 = L(lambda0) - 1.9207. A blank lam matches every value."
   },
   "econ430-l6-leverage-influence": {
    "id": "econ430-l6-leverage-influence",
@@ -25747,9 +25740,9 @@
    },
    "period": "simulated: numpy default_rng(0), 30 points y = 2 + 0.5x + N(0,1), x ~ U(0,10)",
    "generated": "2026-10-18",
-   "sha256": "fa97115f7e2b8035222defb84bea29c690428a9b440f2d0f8491df9eafa5d446",
+   "sha256": "a8339a166c3911f0466300c1fc376c65d91b5d6f182bea39f307190891886e69",
    "notebook": "notebooks/econ430-l6-leverage-influence.ipynb",
-   "description": "Precomputed for the Leverage and Influence Explorer widget in Econ 430 L6, not a data source. 30 simulated points from np.random.default_rng(0) (x ~ U(0,10), then y = 2 + 0.5x + N(0,1); seed chosen as the first with slope within 0.05 of 0.5, mean x in 4.6-5.4 and no base |t| > 2) plus one point (x31, y31) on x31 0-25 step 0.5 and y31 -5..25 step 0.5. fit_with is the OLS line through all 31 points; h, t (internally studentized) and cook are statsmodels get_influence() for the 31st point, checked against closed forms. h, t and cook are keyed by y31 with x = x31. rl is the 31st point's (leverage, studentized residual); rl_base holds the 30 base points at their positions in the 30-point fit (static; the full 31-point panel did not fit the size limit). lev_cutoff = 2p/n = 4/31 = 0.129. ref_t_hi, ref_t_lo (y = +-2, x 0 to 0.6) and ref_h (x = 4/31, y -6 to 6) are the reference lines of the residual-leverage panel."
+   "description": "Precomputed for the Leverage and Influence Explorer widget in Econ 430 L6, not a data source. 30 simulated points from np.random.default_rng(0) (x ~ U(0,10), then y = 2 + 0.5x + N(0,1); seed chosen as the first with slope within 0.05 of 0.5, mean x in 4.6-5.4 and no base |t| > 2) plus one point (x31, y31) on x31 0-25 step 0.5 and y31 -5..25 step 0.5. fit_with is the OLS line through all 31 points; h, t (externally studentized, resid_studentized_external) and cook (statsmodels, internal-residual formula) are statsmodels get_influence() for the 31st point, checked against closed forms. h, t and cook are keyed by y31 with x = x31. rl is the 31st point's (leverage, externally studentized residual); rl_base holds the 30 base points at their positions in the 30-point fit (static; the full 31-point panel did not fit the size limit). lev_cutoff = 2p/n = 4/31 = 0.129. ref_t_hi, ref_t_lo (y = +-2, x 0 to 0.6) and ref_h (x = 4/31, y +-24) are the reference lines of the residual-leverage panel."
   },
   "us-skill-premium-supply-1963-2017": {
    "id": "us-skill-premium-supply-1963-2017",

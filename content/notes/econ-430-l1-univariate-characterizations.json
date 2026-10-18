@@ -470,11 +470,6 @@
         "h_now"
        ],
        "prompt": "Slide the bandwidth and compare the density estimate with the true density",
-       "goal": {
-        "when": "err < 0.05",
-        "success": "The ISE is below 0.05 only for $h$ between 0.015 and 0.045, with its minimum, 0.0385, at $h = 0.02$ (0.110 at the lecture's 0.12). Below 0.015 the variance takes over: at $h = 0.01$ the ISE rises to 0.055.",
-        "hint": "Move $h$ below the default and watch the marker on the ISE curve. It falls, but not all the way to the smallest bandwidth."
-       },
        "predict": {
         "hide": [
          "error",
@@ -489,7 +484,7 @@
          "Well above the default, near 0.3, because more smoothing averages out the noise"
         ],
         "answer": 1,
-        "why": "The ISE is 0.0385 at $h = 0.02$, 0.0573 at 0.06 and 0.110 at 0.12. The exponential jumps from 0 to 2 at $x = 0$, and a smooth kernel smears mass below 0, where the true density is 0. The ISE counts that leak (0.0131 of it at $h = 0.02$, 0.0485 at $h = 0.12$), so over the whole grid small $h$ wins. Counting only $x \\ge 0$, the best $h$ would be 0.04. Now slide $h$ and watch the marker on the ISE curve.",
+        "why": "The ISE is 0.0385 at $h = 0.02$, 0.0573 at 0.06 and 0.110 at 0.12 (trapezoid on the plotted grid). The exponential jumps from 0 to 2 at $x = 0$, and a smooth kernel cannot follow the jump: it spills mass below 0, where the true density is 0, and falls short just above 0. Both errors grow with $h$: the part below 0 alone is 0.0131 at $h = 0.02$ and 0.0485 at 0.12, and even counting only $x \\ge 0$ the best $h$ is 0.04, a third of the default. With 1,000 draws a narrow kernel costs little variance, so small $h$ wins until about 0.02. At $h = 0.01$ the ISE rises again to 0.055. Now slide $h$ and watch the marker on the ISE curve.",
         "feedback": [
          "At $h = 0.12$ the ISE is 0.110, 2.9 times the smallest value on the grid (0.0385). The default is a rule of thumb for roughly normal data, not an optimum for this density.",
          null,
@@ -569,7 +564,7 @@
          "Left end above the line, right end below it"
         ],
         "answer": 1,
-        "why": "The $t$ with 3 degrees of freedom has 0.99 quantile 4.541, which divided by its standard deviation $\\sqrt{3} = 1.732$ gives 2.622, against 2.326 for the normal. By symmetry the 0.01 point is at $-2.622$. So the left end falls below the line and the right end rises above it: an S shape, the signature of heavy tails. Slide the degrees of freedom: at 30 the 0.99 point is back to 2.37, near the line, and at 2 it is 5.75 (with infinite variance, that one is scaled by IQR/1.349 instead).",
+        "why": "The $t$ with 3 degrees of freedom has 0.99 quantile 4.541, which divided by its standard deviation $\\sqrt{3} = 1.732$ gives 2.622, against 2.326 for the normal. By symmetry the 0.01 point is at $-2.622$. So the left end falls below the line and the right end rises above it: an S shape, the signature of heavy tails. Slide the degrees of freedom: at 30 the 0.99 point is back to 2.37, near the line.",
         "feedback": [
          "That is the signature of right skew. The $t$ is symmetric, so its two ends mirror each other: the 0.01 quantile is exactly minus the 0.99 quantile, and they cannot both lie above the line.",
          null,
@@ -594,7 +589,7 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "Next, move from a symmetric heavy-tailed shape to a skewed one: the lognormal is the lecture's model of right-skewed income."
+       "md": "Next, look for the reverse of heavy tails."
       },
       {
        "t": "interactive",
@@ -605,6 +600,7 @@
         "df": 3
        },
        "lock": [
+        "s",
         "df"
        ],
        "show": [
@@ -614,18 +610,18 @@
         "q50",
         "q99"
        ],
-       "prompt": "Generate a Q-Q plot whose two ends both bend above the line",
+       "prompt": "Generate a Q-Q plot whose left end bends above the line and right end below it",
        "goal": {
-        "when": "family == 2 and s > 0.54",
-        "success": "The lognormal with $s = 0.55$ puts the 0.99 point at 3.52 against the line's 2.33, and the 0.01 point at $-1.28$ against $-2.33$: both ends above the line, a compressed left tail and a stretched right tail. That is right skew.",
-        "hint": "Which family is skewed? The degrees of freedom only matter for the $t$, and the shape $s$ only for the lognormal. Choose the family, then raise $s$ until the rightmost marked point is above 3.5."
+        "when": "family == 4",
+        "success": "The uniform puts the 0.99 point at 1.70 against the line's 2.33 and the 0.01 point at $-1.70$ against $-2.33$: left end above, right end below. A uniform has nothing beyond its bounds, so it has fewer extreme values than a normal: light tails.",
+        "hint": "Heavy tails bent the ends away from the line. You want the reverse. Which family has fewer extreme values than the normal?"
        },
        "objectives": [
         4
        ]
       }
      ],
-     "words": 32,
+     "words": 24,
      "symbols": [
       "$n$",
       "$F^{-1}(\\cdot)$",

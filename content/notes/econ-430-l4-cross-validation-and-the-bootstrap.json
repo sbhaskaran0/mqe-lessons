@@ -256,7 +256,7 @@
        "widget": "polynomial-degree-and-cross-validation",
        "state": {
         "degree": 1,
-        "fold": 1
+        "fold": 5
        },
        "show": [
         "data",
@@ -288,7 +288,7 @@
          "It stays about the same, because one extra term is a small change"
         ],
         "answer": 1,
-        "why": "The CV RMSE rises from 3.64 to 4.46 mph while the in-sample RMSE falls from 3.09 to 2.82. The extra term fits the shape of the 40 training cars, including noise, and that does not carry over to the 10 held-out cars.",
+        "why": "The CV RMSE rises from 3.64 to 4.46 mph while the in-sample RMSE falls from 3.09 to 2.82. Most of the rise is fold 5, the 10 fastest cars (3.83 → 8.41): the folds are unshuffled blocks of cars sorted by speed, so the curve fitted to the other 40 has to extrapolate to them, and its bend misses. In-sample error cannot show this.",
         "feedback": [
          "In-sample error does fall, from 3.09 to 2.82, but CV scores the fit on cars it was not fitted to, and there the squared term does not help.",
          null,
@@ -324,7 +324,7 @@
        "t": "callout",
        "kind": "warning",
        "title": "Correction to the lecture notebook",
-       "md": "The notebook's cell builds the polynomial terms from `speed` and then predicts `speed`, so degrees 1 to 3 fit perfectly and its plot shows a CV RMSE of 0. The figure and table below recompute the intended model, speed on powers of stopping distance, with the same unshuffled 5-fold split. The lecture's conclusion survives.",
+       "md": "The notebook's cell builds the polynomial terms from `speed` and then predicts `speed`, so degrees 1 to 3 fit perfectly: its plot shows a CV RMSE of 0 there, and its 0.18 and 0.64 at degrees 4 and 5 are rounding error from the huge raw powers. The figure and table below recompute the intended model, speed on powers of stopping distance, with the same unshuffled 5-fold split; on that split the lecture's conclusion survives.",
        "folded": false
       },
       {
@@ -333,7 +333,7 @@
        "alt": "CV RMSE by polynomial degree - speed on stopping distance"
       }
      ],
-     "words": 59,
+     "words": 82,
      "symbols": []
     },
     {

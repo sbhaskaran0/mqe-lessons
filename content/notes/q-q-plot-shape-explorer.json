@@ -90,10 +90,10 @@
       },
       {
        "t": "prose",
-       "md": "- **Construction.** $n = 100$ plotting positions $p_i = (i - 0.5)/n$; $x = \\Phi^{-1}(p_i)$; $y$ is the family's quantile at $p_i$ standardized to mean 0, sd 1: lognormal by its exact mean and sd, Student $t$ by $\\sqrt{\\nu/(\\nu - 2)}$, uniform by $(u - \\tfrac12)\\sqrt{12}$.\n- **Degrees of freedom 2.** The variance is infinite, so that one position is scaled by $\\mathrm{IQR}/1.349$ instead; its $q_{0.99}$ is 5.75.\n- **The $t$ with 3 degrees of freedom.** The 0.99 quantile is 4.541, divided by $\\sqrt{3} = 1.732$ gives 2.622 (the normal's is 2.326). The brief's 2.627 was a typo.\n- **Which sliders apply.** `s` only affects the lognormal and `df` only the Student t; the normal and uniform ignore both."
+       "md": "- **Construction.** $n = 100$ plotting positions $p_i = (i - 0.5)/n$; $x = \\Phi^{-1}(p_i)$; $y$ is the family's quantile at $p_i$ standardized to mean 0, sd 1: lognormal by its exact mean and sd, Student $t$ by $\\sqrt{\\nu/(\\nu - 2)}$, uniform by $(u - \\tfrac12)\\sqrt{12}$.\n- **Degrees of freedom.** Start at 3, the smallest with a finite variance, so every position is scaled by $\\sqrt{\\nu/(\\nu-2)}$.\n- **The $t$ with 3 degrees of freedom.** The 0.99 quantile is 4.541, divided by $\\sqrt{3} = 1.732$ gives 2.622 (the normal's is 2.326). The brief's 2.627 was a typo.\n- **Which sliders apply.** `s` only affects the lognormal and `df` only the Student t; the normal and uniform ignore both."
       }
      ],
-     "words": 118,
+     "words": 116,
      "symbols": [
       "$x_{(i)}$",
       "$n$",

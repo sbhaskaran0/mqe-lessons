@@ -756,18 +756,18 @@
         "slope_base"
        ],
        "highlight": "pt",
-       "prompt": "Drag the extra point off the line, far to the right and then near $\\bar{x}$, until the solid line's slope falls below 0.30 (the dashed line's is 0.4976). In the residual-leverage panel only the extra point moves; the 30 base points stay at their positions in the 30-point fit.",
+       "prompt": "Drag the extra point off the line, far to the right and then near $\\bar{x}$, until the green line (with the extra point) has a slope below 0.30 (the orange line, without it, has slope 0.4976). In the residual-leverage panel only the extra point moves; the 30 base points stay at their positions in the 30-point fit.",
        "goal": {
         "when": "slope_with < 0.30",
-        "success": "The slope is below 0.30: the line has been pulled from 0.4976 towards the extra point. Every position that does this is far off the line ($|t|$ above 3.6) and at least 3.3 units from $\\bar{x} = 5.34$. At $(25, 5)$ the point has $h = 0.568$, $t = -4.20$ and $D = 11.6$, and the slope is 0.2234. The same kind of miss near $\\bar{x}$, at $(5.5, 11)$, has $t = 4.06$ but $h = 0.032$ and $D = 0.28$, and leaves the slope at 0.5006.",
-        "hint": "Try the same miss in two places, far right of the data and near $\\bar{x}$, and watch the solid line against the dashed one. Only one of the two places tilts it."
+        "success": "The slope is below 0.30: the line has been pulled from 0.4976 towards the extra point. Every position that does this is far off the line ($|t|$ above 4.9) and at least 3.3 units from $\\bar{x} = 5.34$. At $(25, 5)$ the point has $h = 0.568$, $t = -6.59$ and $D = 11.6$, and the slope is 0.2234. The same kind of miss near $\\bar{x}$, at $(5.5, 11)$, has $t = 6.06$ but $h = 0.032$ and $D = 0.28$, and leaves the slope at 0.5006.",
+        "hint": "Try the same miss in two places, far right of the data and near $\\bar{x}$, and watch the green line against the orange one. Only one of the two places tilts it."
        },
        "objectives": [
         5
        ]
       }
      ],
-     "words": 96,
+     "words": 104,
      "symbols": [
       "$\\boldsymbol{\\varepsilon}$, $y$",
       "$x_{(i)}$",

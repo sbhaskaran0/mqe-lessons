@@ -175,11 +175,11 @@
         "p_second"
        ],
        "highlight": "first_line",
-       "prompt": "Move away from the expansion point and watch the Taylor approximations of $\\ln(1+x)$ drift",
+       "prompt": "Move $x$ away from 0 and watch the Taylor approximations of $\\ln(1+x)$ drift, then find a rise $x > 0$ at which the line $x$ and $\\ln(1+x)$ differ by about 0.005",
        "goal": {
-        "when": "err1 > 0.0045 and err1 < 0.0055",
-        "success": "The first-order error $x - \\ln(1+x)$ is about half a percentage point: at $x = 0.1$ it is $0.1 - 0.0953 = 0.0047$. At $x = 0.5$ it is 0.0945, twenty times larger.",
-        "hint": "Compute $x - \\ln(1+x)$ yourself. It grows with $|x|$, and it is 0.0047 at one of the small values you may try."
+        "when": "g > 0 and err1 > 0.0045 and err1 < 0.0055",
+        "success": "The first-order error $x - \\ln(1+x)$ is about half a percentage point: at $x = 0.1$ it is $0.1 - 0.0953 = 0.0047$, close to $x^2/2 = 0.005$. At $x = 0.5$ it is 0.0945, twenty times larger.",
+        "hint": "The second-order term says the gap is about $x^2/2$. Which $x$ makes that 0.005? Set it, since no readout will show the gap."
        },
        "predict": {
         "hide": [
@@ -207,7 +207,7 @@
        ]
       }
      ],
-     "words": 73,
+     "words": 85,
      "symbols": [
       "$f$",
       "$a$, $\\mathbf{x}$",

@@ -336,15 +336,15 @@
         ],
         "ask": "For $\\mathbf{a} = (2, 1)$ and $\\mathbf{b} = (1, 3)$: which $t$ puts the point $t\\mathbf{a}$ closest to $\\mathbf{b}$?",
         "options": [
-         "$t = 1$, so $\\mathbf{p} = (2, 1)$",
          "$t = 5$, so $\\mathbf{p} = (10, 5)$",
+         "$t = 1$, so $\\mathbf{p} = (2, 1)$",
          "$t = 2.236$, so $\\mathbf{p} = (4.47, 2.24)$"
         ],
-        "answer": 0,
+        "answer": 1,
         "why": "The closest point makes the residual orthogonal to $\\mathbf{a}$: $\\mathbf{a}'(\\mathbf{b} - t\\mathbf{a}) = 5 - 5t = 0$, so $t = \\mathbf{a}'\\mathbf{b}/\\mathbf{a}'\\mathbf{a} = 5/5 = 1$ and $\\mathbf{p} = (2, 1)$, with residual $(-1, 2)$ of length 2.236.",
         "feedback": [
-         null,
          "That is $\\mathbf{a}'\\mathbf{b} = 5$ without dividing by $\\mathbf{a}'\\mathbf{a} = 5$. The point $(10, 5)$ is far beyond $\\mathbf{b}$: the residual is $(-9, -2)$, of length 9.22.",
+         null,
          "That divides $\\mathbf{a}'\\mathbf{b} = 5$ by the length $\\lVert\\mathbf{a}\\rVert = \\sqrt{5}$ instead of by $\\mathbf{a}'\\mathbf{a} = 5$. The residual is $(-3.47, 0.76)$, of length 3.56, longer than the 2.24 at $t = 1$."
         ]
        },

@@ -92,15 +92,26 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "- **The ISE.** The integral of $(\\widehat{p} - p)^2$ over the whole grid $-0.2$ to $3.5$ (trapezoid, 300 points), so the part of the estimate that leaks below 0, where the true density is 0, counts. Its minimum on this grid is 0.0385 at $h = 0.02$. On $x \\ge 0$ alone the best $h$ would be 0.04 (ISE 0.0113).\n- **Elements.** Panels `density` and `error`; series `hist`, `kde`, `truth`, `rug`, `ise`, `h_now`; readout `ise_now`; derived `err`. The table's constants `h_scott`, `h_opt` and `ise_min` are not plotted: `ise.min` carries the minimum.\n- **Marker.** `h_now` is the one `ise` row whose x equals the current `h`, drawn as a point, so it rides along the ISE curve."
+       "md": "- **The ISE.** All ISE values here are computed on the plotted 300-point grid (a trapezoid). The integral of $(\\widehat{p} - p)^2$ over the whole grid $-0.2$ to $3.5$ (trapezoid, 300 points), so the part of the estimate that leaks below 0, where the true density is 0, counts. Its minimum on this grid is 0.0385 at $h = 0.02$. On $x \\ge 0$ alone the best $h$ would be 0.04 (ISE 0.0113).\n- **Elements.** Panels `density` and `error`; series `hist`, `kde`, `truth`, `rug`, `ise`, `h_now`; readout `ise_now`; derived `err`. The table's constants `h_scott`, `h_opt` and `ise_min` are not plotted: `ise.min` carries the minimum."
       }
      ],
-     "words": 114,
+     "words": 101,
      "symbols": [
       "$x_i$",
       "$\\widehat{p}(x)$",
       "$h$"
      ]
+    },
+    {
+     "id": "notes-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Marker.** `h_now` is the one `ise` row whose x equals the current `h`, drawn as a point, so it rides along the ISE curve."
+      }
+     ],
+     "words": 26,
+     "symbols": []
     }
    ]
   }

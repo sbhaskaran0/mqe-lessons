@@ -33,17 +33,6 @@
    "from": "box-cox-and-power-transformations"
   },
   {
-   "tex": "$\\lambda_0$, $\\hat{\\lambda}$",
-   "meaning": "Maximum-likelihood value and a candidate rounded value",
-   "kind": "Estimates",
-   "typical": "e.g. 0.0013 vs 0",
-   "keys": [
-    "lambda",
-    "hat(lambda)"
-   ],
-   "from": "box-cox-and-power-transformations"
-  },
-  {
    "tex": "$L_0$, $\\hat{L}$",
    "meaning": "Log-likelihoods at those values",
    "kind": "Statistics",
@@ -110,14 +99,13 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "- **Distribution panel.** The histogram uses 32 fixed bins of width 0.25 over $[-4, 4]$, with density equal to the count over $n$ times the bin width, and the line is a Gaussian kernel density. A few extreme values lie outside $[-4, 4]$ at $\\lambda = -1$ and $\\lambda = 1.5$ and are not binned. Skewness runs from $1.29$ at $\\lambda = 1$ to $-0.09$ at $\\lambda = 0$ and $-1.70$ at $\\lambda = -1$.\n- **Profile log-likelihood panel.** $L(\\lambda)$ is `scipy.stats.boxcox_llf`. It peaks at $\\hat\\lambda = 0.0468$ with $L = -608.318$. The cut-off line sits at $L(\\hat\\lambda) - 1.92 = -610.238$, because the likelihood-ratio statistic $T = 2(L(\\hat\\lambda) - L(\\lambda))$ is compared with $\\chi^2_1$ (5% critical value 3.84, half of it 1.92). The point on the curve marks the current $\\lambda$."
+       "md": "- **Distribution panel.** The histogram uses 32 fixed bins of width 0.25 over $[-4, 4]$, with density equal to the count over $n$ times the bin width, and the line is a Gaussian kernel density. A few extreme values lie outside $[-4, 4]$ at $\\lambda = -1$ and $\\lambda = 1.5$ and are not binned. Skewness runs from $1.29$ at $\\lambda = 1$ to $-0.09$ at $\\lambda = 0$ and $-1.70$ at $\\lambda = -1$.\n- **Profile log-likelihood panel.** $L(\\lambda)$ is `scipy.stats.boxcox_llf`. It peaks at $\\lambda_0 = 0.0468$ with $L = -608.318$. The cut-off line sits at $L(\\lambda_0) - 1.9207 = -610.239$, because the likelihood-ratio statistic $T = 2(L(\\lambda_0) - L(\\lambda))$ is compared with $\\chi^2_1$ (5% critical value 3.84, half of it 1.92). The point on the curve marks the current $\\lambda$."
       }
      ],
      "words": 96,
      "symbols": [
       "$\\lambda$",
       "$T_{BC}(x,\\lambda)$",
-      "$\\lambda_0$, $\\hat{\\lambda}$",
       "$L_0$, $\\hat{L}$",
       "$\\chi^2_1$"
      ]

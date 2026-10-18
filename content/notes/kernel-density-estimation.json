@@ -188,10 +188,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "The lecture draws 1,000 values from an exponential distribution with mean 0.5. A common rule of thumb (Scott's rule, which seaborn uses by default; beyond the lecture) sets $h = 1.06\\,\\widehat{\\sigma}\\,n^{-1/5}$. With $\\widehat{\\sigma} \\approx 0.5$ and $n = 1000$, $h \\approx 1.06 \\times 0.5 \\times 0.251 = 0.133$; `bw_adjust=0.5` halves it to about 0.067."
+       "md": "The lecture draws 1,000 values from an exponential distribution with mean 0.5. seaborn's default (scipy's \"scott\" factor) sets $h = \\widehat{\\sigma}\\,n^{-1/5}$; with $\\widehat{\\sigma} = 0.482$ and $n = 1000$, $h = 0.121$, and `bw_adjust=0.5` halves it to 0.060. The textbook normal-reference rule $1.06\\,\\widehat{\\sigma}\\,n^{-1/5}$ would give 0.128."
       }
      ],
-     "words": 42,
+     "words": 40,
      "symbols": [
       "$n$",
       "$h$",

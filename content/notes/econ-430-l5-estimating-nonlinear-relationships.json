@@ -657,7 +657,7 @@
        "goal": {
         "when": "abs(lam) < 0.001 and at(\"T\", lam) < 3.84",
         "success": "At $\\lambda = 0$ the log-likelihood is $-608.55$, above the cut-off $-610.24$: $T = 0.46 < 3.84$, so the log is not rejected. The neighbouring rounded powers $\\pm 0.5$ and $1$ fall far below the line.",
-        "hint": "Slide $\\lambda$ down from 1 and watch the point on the curve in the right-hand panel: a power is not rejected only while the curve is above the cut-off line. Then pick the rounded value (a multiple of 0.5) under that part of the curve."
+        "hint": "Slide $\\lambda$ down from 1 and watch the point on the profile log-likelihood curve: a power is not rejected only while the curve is above the cut-off line. Then pick the rounded value (a multiple of 0.5) under that part of the curve."
        },
        "predict": {
         "hide": [
@@ -665,14 +665,14 @@
         ],
         "ask": "Infant mortality is right-skewed and starts here untransformed ($\\lambda = 1$). Is $\\lambda = 0.5$, the square root, inside the 95% region, one the likelihood-ratio test does not reject?",
         "options": [
-         "Yes: it is closer to the log than to no transformation",
+         "Yes: the square root already halves the skewness",
          "Only just: it sits right at the edge of the region",
          "No: it is well outside the region"
         ],
         "answer": 2,
-        "why": "The profile log-likelihood peaks at $L = -608.32$ near $\\lambda = 0.047$ and the 95% region is everything above $-610.24$ (1.92 below the peak). At $\\lambda = 0.5$, $L = -629.30$, so $T = 41.96 \\gg 3.84$ and the power is rejected.",
+        "why": "The profile log-likelihood peaks at $L = -608.32$ near $\\lambda = 0.047$ and the 95% region is everything above $-610.24$ (1.92 below the peak, half the 5% critical value 3.84). At $\\lambda = 0.5$, $L = -629.30$, so $T = 41.96 \\gg 3.84$ and the power is rejected.",
         "feedback": [
-         "Distance along the ladder does not decide it: the test compares log-likelihoods. At $\\lambda = 0.5$, $L = -629.30$, which is 19.06 below the cut-off of $-610.24$.",
+         "It does halve the skewness, from 1.29 to 0.65, but the test compares log-likelihoods: at $\\lambda = 0.5$, $L = -629.30$, which is 19.06 below the cut-off of $-610.24$.",
          "It is nowhere near the edge. $T = 2(-608.32 + 629.30) = 41.96$ against the 5% critical value 3.84, so the curve is more than 19 log-likelihood units under the line.",
          null
         ]
