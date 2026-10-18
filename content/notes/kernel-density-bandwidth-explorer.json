@@ -1,0 +1,108 @@
+{
+ "slug": "kernel-density-bandwidth-explorer",
+ "notation": [
+  {
+   "tex": "$x_i$",
+   "meaning": "Observation $i$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "x"
+   ],
+   "from": "kernel-density-estimation"
+  },
+  {
+   "tex": "$n$",
+   "meaning": "Number of observations",
+   "kind": "Count",
+   "typical": "1,000 in the lecture's example",
+   "keys": [
+    "n"
+   ],
+   "from": "kernel-density-estimation"
+  },
+  {
+   "tex": "$\\widehat{p}(x)$",
+   "meaning": "Estimated density at $x$",
+   "kind": "Statistic",
+   "typical": "Integrates to 1",
+   "keys": [
+    "hat(p)"
+   ],
+   "from": "kernel-density-estimation"
+  },
+  {
+   "tex": "$h$",
+   "meaning": "Bandwidth: the width of each bump",
+   "kind": "Choice",
+   "typical": "Larger = smoother",
+   "keys": [
+    "h"
+   ],
+   "from": "kernel-density-estimation"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "kernel-density-bandwidth-explorer"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$h$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A precomputed chart: every curve is looked up from `econ430-l1-kde-bandwidth` at the current bandwidth, nothing is recomputed in the browser."
+      },
+      {
+       "t": "prose",
+       "md": "- **The sample.** The lecture's own 1,000 draws from an exponential with mean 0.5 (cell 19, replayed from `random.seed(10)`; sample mean 0.4875, sd 0.4816). The true density is $2e^{-2x}$ for $x \\ge 0$. The histogram has 28 bins of width 0.110 on the density scale.\n- **The reference bandwidth.** The lecture's seaborn call used $h = n^{-1/5}s = 0.121$ (default 0.12 here), and its blue dashed curve used half of that, 0.060. The brief's 0.133 is Scott's rule with the true sd 0.5 (1.06 × 0.5 × 1000^(−1/5)), a different rule, so it is not the lecture's value."
+      }
+     ],
+     "words": 122,
+     "symbols": [
+      "$x_i$",
+      "$n$",
+      "$h$"
+     ]
+    },
+    {
+     "id": "notes-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **The ISE.** The integral of $(\\widehat{p} - p)^2$ over the whole grid $-0.2$ to $3.5$ (trapezoid, 300 points), so the part of the estimate that leaks below 0, where the true density is 0, counts. Its minimum on this grid is 0.0385 at $h = 0.02$. On $x \\ge 0$ alone the best $h$ would be 0.04 (ISE 0.0113).\n- **Elements.** Panels `density` and `error`; series `hist`, `kde`, `truth`, `rug`, `ise`, `h_now`; readout `ise_now`; derived `err`. The table's constants `h_scott`, `h_opt` and `ise_min` are not plotted: `ise.min` carries the minimum.\n- **Marker.** `h_now` is the one `ise` row whose x equals the current `h`, drawn as a point, so it rides along the ISE curve."
+      }
+     ],
+     "words": 114,
+     "symbols": [
+      "$x_i$",
+      "$\\widehat{p}(x)$",
+      "$h$"
+     ]
+    }
+   ]
+  }
+ ]
+}

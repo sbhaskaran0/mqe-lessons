@@ -1,10 +1,10 @@
 {
  "schema": "mqe-lessons/1",
- "generated_at": "2026-10-18T19:20:33Z",
+ "generated_at": "2026-10-18T19:42:29Z",
  "vault": {
-  "notes": 191,
+  "notes": 198,
   "errors": 0,
-  "warnings": 17
+  "warnings": 3
  },
  "courses": [
   {
@@ -117,6 +117,7 @@
    "notes": [
     "bootstrapping-ols",
     "box-cox-and-power-transformations",
+    "box-cox-ladder-explorer",
     "classical-measurement-error",
     "clustered-standard-errors",
     "coefficient-of-determination",
@@ -136,14 +137,19 @@
     "hypothesis-tests-on-regression-coefficients",
     "indicator-variables",
     "instrumental-variables-and-2sls",
+    "kernel-density-bandwidth-explorer",
+    "leverage-and-influence-explorer",
     "lowess-smoother",
+    "lowess-span-explorer",
     "ols-estimator",
     "ols-in-matrix-form",
     "ols-line-fitter",
     "ols-sampling-distribution",
     "ols-sampling-model",
+    "polynomial-degree-and-cross-validation",
     "projection-matrix-and-residual-maker",
     "q-q-plot",
+    "q-q-plot-shape-explorer",
     "regression-diagnostics",
     "sampling-distribution-of-ols",
     "shift-share-exposure",
@@ -337,6 +343,7 @@
     "multivariable-chain-rule",
     "partial-derivatives-and-the-gradient",
     "partitioned-matrices",
+    "projection-onto-a-vector",
     "quadratic-form-explorer",
     "quadratic-forms-and-definiteness",
     "spectral-decomposition",
@@ -476,6 +483,12 @@
    "indicator-variables"
   ],
   "data": [
+   "box-cox-ladder-explorer",
+   "kernel-density-bandwidth-explorer",
+   "leverage-and-influence-explorer",
+   "lowess-span-explorer",
+   "polynomial-degree-and-cross-validation",
+   "q-q-plot-shape-explorer",
    "us-skill-premium-chart"
   ],
   "derivation": [
@@ -511,12 +524,19 @@
    "sampling-distribution-of-ols"
   ],
   "interactive": [
+   "box-cox-ladder-explorer",
    "envelope-theorem-and-job-switching",
+   "kernel-density-bandwidth-explorer",
+   "leverage-and-influence-explorer",
    "log-change-taylor-expansion",
    "lognormal-inequality-explorer",
+   "lowess-span-explorer",
    "ols-line-fitter",
    "ols-sampling-distribution",
    "ols-sampling-model",
+   "polynomial-degree-and-cross-validation",
+   "projection-onto-a-vector",
+   "q-q-plot-shape-explorer",
    "quadratic-form-explorer",
    "shift-share-wage-exposure-explorer",
    "solow-convergence-and-shocks",
@@ -542,6 +562,7 @@
    "envelope-theorem-and-job-switching",
    "log-change-taylor-expansion",
    "ols-sampling-model",
+   "projection-onto-a-vector",
    "quadratic-form-explorer",
    "shift-share-wage-exposure-explorer",
    "simple-linear-regression-model",
@@ -1192,6 +1213,10 @@
       "note": "econ-430-l6-indicator-variables-and-the-ols-workflow"
      },
      {
+      "kind": "illustrates",
+      "note": "box-cox-ladder-explorer"
+     },
+     {
       "kind": "related",
       "note": "bootstrapping-ols"
      },
@@ -1261,6 +1286,50 @@
    "words": 776,
    "created": "2026-10-17T19:26:06Z",
    "updated": "2026-10-17T19:29:37Z"
+  },
+  "box-cox-ladder-explorer": {
+   "slug": "box-cox-ladder-explorer",
+   "name": "Box-Cox Ladder Explorer",
+   "title": "Box-Cox Ladder Explorer",
+   "type": "interactive",
+   "path": "Interactives/Box-Cox Ladder Explorer.md",
+   "summary": "The Box-Cox ladder for UN infant mortality (n = 207), precomputed for each power from -1 to 1.5. The histogram swings from right-skewed to left-skewed, and the profile log-likelihood shows which rounded powers stay inside the 95% region.",
+   "domain": "econometrics",
+   "domains": [
+    "econometrics"
+   ],
+   "tags": [
+    "interactive",
+    "data"
+   ],
+   "aliases": [],
+   "requires": [],
+   "lessons": [
+    "econ-430-l5-estimating-nonlinear-relationships"
+   ],
+   "courses": [
+    "Econ 430"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "illustrates",
+      "note": "box-cox-and-power-transformations"
+     }
+    ],
+    "in": [
+     {
+      "kind": "shows",
+      "note": "econ-430-l5-estimating-nonlinear-relationships"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 216,
+   "created": "2026-10-18T19:32:11Z",
+   "updated": "2026-10-18T19:33:36Z"
   },
   "brazil-regional-wage-effects-of-1990s-tariff-cuts": {
    "slug": "brazil-regional-wage-effects-of-1990s-tariff-cuts",
@@ -3233,6 +3302,10 @@
      {
       "kind": "covers",
       "note": "econ-430-l6-indicator-variables-and-the-ols-workflow"
+     },
+     {
+      "kind": "illustrates",
+      "note": "polynomial-degree-and-cross-validation"
      },
      {
       "kind": "related",
@@ -5348,7 +5421,15 @@
      },
      {
       "kind": "shows",
+      "note": "kernel-density-bandwidth-explorer"
+     },
+     {
+      "kind": "shows",
       "note": "lognormal-inequality-explorer"
+     },
+     {
+      "kind": "shows",
+      "note": "q-q-plot-shape-explorer"
      }
     ],
     "in": []
@@ -5361,10 +5442,12 @@
     "assets/Attachments/Cullen-Frey graph - groundbeef serving sizes.png"
    ],
    "interactives": [
-    "lognormal-inequality-explorer"
+    "lognormal-inequality-explorer",
+    "kernel-density-bandwidth-explorer",
+    "q-q-plot-shape-explorer"
    ],
    "checks": 8,
-   "words": 1235,
+   "words": 1267,
    "objectives": [
     {
      "n": 1,
@@ -5379,12 +5462,12 @@
     {
      "n": 3,
      "md": "Explain how the bandwidth of a kernel density estimate trades bias against variance.",
-     "tested": 1
+     "tested": 2
     },
     {
      "n": 4,
      "md": "Read a Q-Q plot: name the pattern for right skew, left skew, heavy tails and light tails.",
-     "tested": 1
+     "tested": 3
     },
     {
      "n": 5,
@@ -5397,8 +5480,8 @@
      "tested": 2
     }
    ],
-   "created": "2026-10-17T19:26:01Z",
-   "updated": "2026-10-17T19:26:01Z"
+   "created": "2026-10-18T19:33:46Z",
+   "updated": "2026-10-18T19:34:56Z"
   },
   "econ-430-l2-bivariate-characterizations": {
    "slug": "econ-430-l2-bivariate-characterizations",
@@ -5434,6 +5517,10 @@
      {
       "kind": "part_of",
       "note": "econ-430"
+     },
+     {
+      "kind": "shows",
+      "note": "lowess-span-explorer"
      }
     ],
     "in": [
@@ -5448,19 +5535,21 @@
     "assets/Attachments/Scatterplot by occupation type - prestige on income.png",
     "assets/Attachments/Vocabulary on education - jittered with OLS line and lowess.png"
    ],
-   "interactives": [],
+   "interactives": [
+    "lowess-span-explorer"
+   ],
    "checks": 4,
-   "words": 658,
+   "words": 709,
    "objectives": [
     {
      "n": 1,
      "md": "Read a scatterplot with an OLS line and a lowess curve, and say what it means when they diverge.",
-     "tested": 1
+     "tested": 2
     },
     {
      "n": 2,
      "md": "Explain what a lowess smoother computes and how its span controls smoothness.",
-     "tested": 1
+     "tested": 2
     },
     {
      "n": 3,
@@ -5473,8 +5562,8 @@
      "tested": 1
     }
    ],
-   "created": "2026-10-17T19:26:01Z",
-   "updated": "2026-10-17T19:26:01Z"
+   "created": "2026-10-18T19:34:47Z",
+   "updated": "2026-10-18T19:34:47Z"
   },
   "econ-430-l3-the-method-of-least-squares": {
    "slug": "econ-430-l3-the-method-of-least-squares",
@@ -5672,6 +5761,10 @@
      {
       "kind": "shows",
       "note": "ols-sampling-distribution"
+     },
+     {
+      "kind": "shows",
+      "note": "polynomial-degree-and-cross-validation"
      }
     ],
     "in": [
@@ -5690,6 +5783,7 @@
     "assets/Attachments/Food expenditure - bootstrap distribution of R-squared.png"
    ],
    "interactives": [
+    "polynomial-degree-and-cross-validation",
     "ols-sampling-distribution"
    ],
    "checks": 6,
@@ -5708,7 +5802,7 @@
     {
      "n": 3,
      "md": "Use cross-validation to choose model complexity, and explain why in-sample fit cannot.",
-     "tested": 1
+     "tested": 2
     },
     {
      "n": 4,
@@ -5721,8 +5815,8 @@
      "tested": 2
     }
    ],
-   "created": "2026-10-17T19:32:52Z",
-   "updated": "2026-10-17T19:32:52Z"
+   "created": "2026-10-18T19:33:23Z",
+   "updated": "2026-10-18T19:33:23Z"
   },
   "econ-430-l5-estimating-nonlinear-relationships": {
    "slug": "econ-430-l5-estimating-nonlinear-relationships",
@@ -5766,6 +5860,10 @@
      {
       "kind": "part_of",
       "note": "econ-430"
+     },
+     {
+      "kind": "shows",
+      "note": "box-cox-ladder-explorer"
      }
     ],
     "in": [
@@ -5784,9 +5882,11 @@
     "assets/Attachments/Spread-level plot - Ornstein interlocks by nation.png",
     "assets/Attachments/Bulging rule - four simulated curvature patterns.png"
    ],
-   "interactives": [],
+   "interactives": [
+    "box-cox-ladder-explorer"
+   ],
    "checks": 14,
-   "words": 1527,
+   "words": 1528,
    "objectives": [
     {
      "n": 1,
@@ -5806,7 +5906,7 @@
     {
      "n": 4,
      "md": "Choose a Box-Cox power from its estimate, confidence interval and likelihood-ratio tests.",
-     "tested": 1
+     "tested": 2
     },
     {
      "n": 5,
@@ -5819,8 +5919,8 @@
      "tested": 3
     }
    ],
-   "created": "2026-10-17T19:26:02Z",
-   "updated": "2026-10-17T19:32:41Z"
+   "created": "2026-10-18T19:32:01Z",
+   "updated": "2026-10-18T19:33:36Z"
   },
   "econ-430-l6-indicator-variables-and-the-ols-workflow": {
    "slug": "econ-430-l6-indicator-variables-and-the-ols-workflow",
@@ -5888,6 +5988,10 @@
      {
       "kind": "part_of",
       "note": "econ-430"
+     },
+     {
+      "kind": "shows",
+      "note": "leverage-and-influence-explorer"
      }
     ],
     "in": [
@@ -5905,9 +6009,11 @@
     "assets/Attachments/Wage histogram - before and after Box-Cox.png",
     "assets/Attachments/Wage on experience - bootstrap distribution of the slope.png"
    ],
-   "interactives": [],
+   "interactives": [
+    "leverage-and-influence-explorer"
+   ],
    "checks": 7,
-   "words": 1275,
+   "words": 1325,
    "objectives": [
     {
      "n": 1,
@@ -5932,7 +6038,7 @@
     {
      "n": 5,
      "md": "Read the diagnostic plots: residuals against predicted values, the normal probability plot, and the leverage and influence plots with their cut-offs.",
-     "tested": 2
+     "tested": 4
     },
     {
      "n": 6,
@@ -5940,8 +6046,8 @@
      "tested": 1
     }
    ],
-   "created": "2026-10-17T19:26:02Z",
-   "updated": "2026-10-17T19:26:02Z"
+   "created": "2026-10-18T19:35:03Z",
+   "updated": "2026-10-18T19:35:03Z"
   },
   "econ-430-l7-the-classical-linear-regression-model": {
    "slug": "econ-430-l7-the-classical-linear-regression-model",
@@ -8714,6 +8820,10 @@
       "note": "math-prep-l2-vector-spaces-rank-and-projection"
      },
      {
+      "kind": "illustrates",
+      "note": "projection-onto-a-vector"
+     },
+     {
       "kind": "related",
       "note": "column-space"
      },
@@ -8735,8 +8845,8 @@
    "interactives": [],
    "checks": 0,
    "words": 2124,
-   "created": "2026-10-05T18:40:32Z",
-   "updated": "2026-10-06T04:44:45Z"
+   "created": "2026-10-18T19:33:51Z",
+   "updated": "2026-10-18T19:33:51Z"
   },
   "instrumental-variables-and-2sls": {
    "slug": "instrumental-variables-and-2sls",
@@ -9324,6 +9434,50 @@
    "created": "2026-10-08T16:40:33Z",
    "updated": "2026-10-08T16:41:06Z"
   },
+  "kernel-density-bandwidth-explorer": {
+   "slug": "kernel-density-bandwidth-explorer",
+   "name": "Kernel Density Bandwidth Explorer",
+   "title": "Kernel Density Bandwidth Explorer",
+   "type": "interactive",
+   "path": "Interactives/Kernel Density Bandwidth Explorer.md",
+   "summary": "A kernel density estimate of the lecture's 1,000 exponential draws at every bandwidth from 0.01 to 0.5, against the histogram, the true density and the rug, with the integrated squared error (ISE) curve beside it.",
+   "domain": "econometrics",
+   "domains": [
+    "econometrics"
+   ],
+   "tags": [
+    "interactive",
+    "data"
+   ],
+   "aliases": [],
+   "requires": [],
+   "lessons": [
+    "econ-430-l1-univariate-characterizations"
+   ],
+   "courses": [
+    "Econ 430"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "illustrates",
+      "note": "kernel-density-estimation"
+     }
+    ],
+    "in": [
+     {
+      "kind": "shows",
+      "note": "econ-430-l1-univariate-characterizations"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 236,
+   "created": "2026-10-18T19:34:10Z",
+   "updated": "2026-10-18T19:36:50Z"
+  },
   "kernel-density-estimation": {
    "slug": "kernel-density-estimation",
    "name": "Kernel Density Estimation",
@@ -9368,6 +9522,10 @@
      {
       "kind": "covers",
       "note": "econ-430-l1-univariate-characterizations"
+     },
+     {
+      "kind": "illustrates",
+      "note": "kernel-density-bandwidth-explorer"
      },
      {
       "kind": "related",
@@ -9806,6 +9964,54 @@
    "words": 473,
    "created": "2026-10-08T16:40:33Z",
    "updated": "2026-10-08T16:41:06Z"
+  },
+  "leverage-and-influence-explorer": {
+   "slug": "leverage-and-influence-explorer",
+   "name": "Leverage and Influence Explorer",
+   "title": "Leverage and Influence Explorer",
+   "type": "interactive",
+   "path": "Interactives/Leverage and Influence Explorer.md",
+   "summary": "Thirty simulated points plus one draggable extra point: its leverage, studentized residual, Cook distance and pull on the OLS slope, against the 2p/n and |t| = 2 cut-offs.",
+   "domain": "econometrics",
+   "domains": [
+    "econometrics"
+   ],
+   "tags": [
+    "interactive",
+    "data"
+   ],
+   "aliases": [],
+   "requires": [],
+   "lessons": [
+    "econ-430-l6-indicator-variables-and-the-ols-workflow"
+   ],
+   "courses": [
+    "Econ 430"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "illustrates",
+      "note": "regression-diagnostics"
+     },
+     {
+      "kind": "illustrates",
+      "note": "simple-linear-regression-model"
+     }
+    ],
+    "in": [
+     {
+      "kind": "shows",
+      "note": "econ-430-l6-indicator-variables-and-the-ols-workflow"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 385,
+   "created": "2026-10-18T19:42:21Z",
+   "updated": "2026-10-18T19:42:21Z"
   },
   "lhopitals-rule": {
    "slug": "lhopitals-rule",
@@ -10579,6 +10785,10 @@
       "note": "econ-430-l2-bivariate-characterizations"
      },
      {
+      "kind": "illustrates",
+      "note": "lowess-span-explorer"
+     },
+     {
       "kind": "related",
       "note": "eda-for-regression"
      },
@@ -10597,6 +10807,50 @@
    "words": 363,
    "created": "2026-10-17T19:26:06Z",
    "updated": "2026-10-17T19:26:06Z"
+  },
+  "lowess-span-explorer": {
+   "slug": "lowess-span-explorer",
+   "name": "Lowess Span Explorer",
+   "title": "Lowess Span Explorer",
+   "type": "interactive",
+   "path": "Interactives/Lowess Span Explorer.md",
+   "summary": "Prestige on income for the 102 Prestige occupations, with the OLS line, the robust lowess curve at every span from 0.1 to 1, and the local weighted line and highlighted window at 32 evenly spaced window centres.",
+   "domain": "econometrics",
+   "domains": [
+    "econometrics"
+   ],
+   "tags": [
+    "interactive",
+    "data"
+   ],
+   "aliases": [],
+   "requires": [],
+   "lessons": [
+    "econ-430-l2-bivariate-characterizations"
+   ],
+   "courses": [
+    "Econ 430"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "illustrates",
+      "note": "lowess-smoother"
+     }
+    ],
+    "in": [
+     {
+      "kind": "shows",
+      "note": "econ-430-l2-bivariate-characterizations"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 381,
+   "created": "2026-10-18T19:35:07Z",
+   "updated": "2026-10-18T19:35:07Z"
   },
   "marginal-rate-of-substitution": {
    "slug": "marginal-rate-of-substitution",
@@ -10937,6 +11191,10 @@
      {
       "kind": "part_of",
       "note": "math-prep"
+     },
+     {
+      "kind": "shows",
+      "note": "projection-onto-a-vector"
      }
     ],
     "in": [
@@ -10947,9 +11205,11 @@
     ]
    },
    "figures": [],
-   "interactives": [],
+   "interactives": [
+    "projection-onto-a-vector"
+   ],
    "checks": 7,
-   "words": 443,
+   "words": 442,
    "objectives": [
     {
      "n": 1,
@@ -10964,16 +11224,16 @@
     {
      "n": 3,
      "md": "Explain the normal equations as an orthogonality condition.",
-     "tested": 2
+     "tested": 3
     },
     {
      "n": 4,
      "md": "Compute a projection onto a vector and onto a column space.",
-     "tested": 2
+     "tested": 3
     }
    ],
-   "created": "2026-10-17T19:25:22Z",
-   "updated": "2026-10-17T19:25:46Z"
+   "created": "2026-10-18T19:31:34Z",
+   "updated": "2026-10-18T19:31:34Z"
   },
   "math-prep-l3-eigenvalues-and-quadratic-forms": {
    "slug": "math-prep-l3-eigenvalues-and-quadratic-forms",
@@ -12634,6 +12894,50 @@
    "created": "2026-10-08T16:40:34Z",
    "updated": "2026-10-08T16:41:06Z"
   },
+  "polynomial-degree-and-cross-validation": {
+   "slug": "polynomial-degree-and-cross-validation",
+   "name": "Polynomial Degree and Cross-Validation",
+   "title": "Polynomial Degree and Cross-Validation",
+   "type": "interactive",
+   "path": "Interactives/Polynomial Degree and Cross-Validation.md",
+   "summary": "Cars data, speed on powers of stopping distance, degrees 1 to 5. In-sample RMSE falls while 5-fold CV RMSE rises from 3.64 to 6.41 mph.",
+   "domain": "econometrics",
+   "domains": [
+    "econometrics"
+   ],
+   "tags": [
+    "interactive",
+    "data"
+   ],
+   "aliases": [],
+   "requires": [],
+   "lessons": [
+    "econ-430-l4-cross-validation-and-the-bootstrap"
+   ],
+   "courses": [
+    "Econ 430"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "illustrates",
+      "note": "cross-validation"
+     }
+    ],
+    "in": [
+     {
+      "kind": "shows",
+      "note": "econ-430-l4-cross-validation-and-the-bootstrap"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 170,
+   "created": "2026-10-18T19:33:21Z",
+   "updated": "2026-10-18T19:33:21Z"
+  },
   "projection-matrix-and-residual-maker": {
    "slug": "projection-matrix-and-residual-maker",
    "name": "Projection Matrix and Residual Maker",
@@ -12719,6 +13023,10 @@
       "note": "math-prep-l2-vector-spaces-rank-and-projection"
      },
      {
+      "kind": "illustrates",
+      "note": "projection-onto-a-vector"
+     },
+     {
       "kind": "related",
       "note": "column-space"
      },
@@ -12778,6 +13086,54 @@
    "words": 447,
    "created": "2026-10-17T19:26:06Z",
    "updated": "2026-10-17T19:26:06Z"
+  },
+  "projection-onto-a-vector": {
+   "slug": "projection-onto-a-vector",
+   "name": "Projection Onto a Vector",
+   "title": "Projection Onto a Vector",
+   "type": "interactive",
+   "path": "Interactives/Projection Onto a Vector.md",
+   "summary": "Slide the weight t on a vector a to move the point t·a along its line, and see that the point closest to b is where the residual is orthogonal to a, at t = (a·b)/(a·a).",
+   "domain": "mathematics",
+   "domains": [
+    "mathematics"
+   ],
+   "tags": [
+    "interactive",
+    "model"
+   ],
+   "aliases": [],
+   "requires": [],
+   "lessons": [
+    "math-prep-l2-vector-spaces-rank-and-projection"
+   ],
+   "courses": [
+    "Math Prep"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "illustrates",
+      "note": "inner-products-and-orthogonality"
+     },
+     {
+      "kind": "illustrates",
+      "note": "projection-matrix-and-residual-maker"
+     }
+    ],
+    "in": [
+     {
+      "kind": "shows",
+      "note": "math-prep-l2-vector-spaces-rank-and-projection"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 148,
+   "created": "2026-10-18T19:33:52Z",
+   "updated": "2026-10-18T19:33:52Z"
   },
   "properties-of-inequality-measures": {
    "slug": "properties-of-inequality-measures",
@@ -12948,6 +13304,10 @@
       "note": "econ-430-l6-indicator-variables-and-the-ols-workflow"
      },
      {
+      "kind": "illustrates",
+      "note": "q-q-plot-shape-explorer"
+     },
+     {
       "kind": "related",
       "note": "cullen-frey-graph"
      },
@@ -12979,6 +13339,50 @@
    "words": 535,
    "created": "2026-10-17T19:26:06Z",
    "updated": "2026-10-17T19:26:06Z"
+  },
+  "q-q-plot-shape-explorer": {
+   "slug": "q-q-plot-shape-explorer",
+   "name": "Q-Q Plot Shape Explorer",
+   "title": "Q-Q Plot Shape Explorer",
+   "type": "interactive",
+   "path": "Interactives/Q-Q Plot Shape Explorer.md",
+   "summary": "Normal Q-Q plots for four distribution families (normal, lognormal, Student t, uniform), each standardized to mean 0 and sd 1, with points at p = 0.01, 0.5 and 0.99 and the 45-degree line.",
+   "domain": "econometrics",
+   "domains": [
+    "econometrics"
+   ],
+   "tags": [
+    "interactive",
+    "data"
+   ],
+   "aliases": [],
+   "requires": [],
+   "lessons": [
+    "econ-430-l1-univariate-characterizations"
+   ],
+   "courses": [
+    "Econ 430"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "illustrates",
+      "note": "q-q-plot"
+     }
+    ],
+    "in": [
+     {
+      "kind": "shows",
+      "note": "econ-430-l1-univariate-characterizations"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 165,
+   "created": "2026-10-18T19:34:17Z",
+   "updated": "2026-10-18T19:34:17Z"
   },
   "quadratic-form-explorer": {
    "slug": "quadratic-form-explorer",
@@ -13241,6 +13645,10 @@
      {
       "kind": "covers",
       "note": "econ-430-l6-indicator-variables-and-the-ols-workflow"
+     },
+     {
+      "kind": "illustrates",
+      "note": "leverage-and-influence-explorer"
      },
      {
       "kind": "related",
@@ -14029,6 +14437,10 @@
      {
       "kind": "covers",
       "note": "econ-430-l3-the-method-of-least-squares"
+     },
+     {
+      "kind": "illustrates",
+      "note": "leverage-and-influence-explorer"
      },
      {
       "kind": "illustrates",
@@ -18174,6 +18586,244 @@
   }
  },
  "widgets": {
+  "box-cox-ladder-explorer": {
+   "slug": "box-cox-ladder-explorer",
+   "name": "Box-Cox Ladder Explorer",
+   "type": "data-chart",
+   "spec": {
+    "type": "data-chart",
+    "title": "Box-Cox ladder of powers, UN infant mortality",
+    "dataset": "econ430-l5-boxcox-ladder",
+    "params": {
+     "lam": {
+      "tex": "\\lambda",
+      "label": "Power",
+      "min": -1,
+      "max": 1.5,
+      "step": 0.05,
+      "default": 1
+     }
+    },
+    "derived": {
+     "Tnow": "at(\"T\", lam)",
+     "skewnow": "at(\"skew\", lam)"
+    },
+    "readouts": [
+     {
+      "id": "T_now",
+      "expr": "at(\"T\", lam)",
+      "label": "LR statistic T",
+      "format": ".2f"
+     },
+     {
+      "id": "skew_now",
+      "expr": "at(\"skew\", lam)",
+      "label": "Skewness of the transformed values",
+      "format": ".2f"
+     }
+    ],
+    "panels": [
+     {
+      "id": "dist",
+      "title": "Standardized transformed values",
+      "x": {
+       "column": "x",
+       "label": "Standardized value"
+      },
+      "y": {
+       "column": "y",
+       "label": "Density"
+      },
+      "series": [
+       {
+        "id": "hist",
+        "label": "Histogram",
+        "mark": "bar",
+        "where": {
+         "series": "hist",
+         "lam": {
+          "param": "lam"
+         }
+        }
+       },
+       {
+        "id": "density",
+        "label": "Density",
+        "mark": "line",
+        "where": {
+         "series": "density",
+         "lam": {
+          "param": "lam"
+         }
+        }
+       }
+      ]
+     },
+     {
+      "id": "curve",
+      "title": "Profile log-likelihood",
+      "x": {
+       "column": "x",
+       "label": "Power λ"
+      },
+      "y": {
+       "column": "y",
+       "label": "Log-likelihood"
+      },
+      "series": [
+       {
+        "id": "loglik",
+        "label": "Log-likelihood L(λ)",
+        "mark": "line",
+        "where": {
+         "series": "loglik"
+        }
+       },
+       {
+        "id": "cutoff",
+        "label": "95% cut-off",
+        "mark": "line",
+        "where": {
+         "series": "cutoff"
+        }
+       },
+       {
+        "id": "here",
+        "label": "Current λ",
+        "mark": "point",
+        "where": {
+         "series": "loglik",
+         "x": {
+          "param": "lam"
+         }
+        }
+       }
+      ],
+      "annotations": [
+       {
+        "id": "mle",
+        "x": 0.0468,
+        "y": -608.318,
+        "label": "Maximum at λ = 0.047"
+       }
+      ]
+     },
+     {
+      "id": "stats",
+      "title": "LR statistic and skewness",
+      "x": {
+       "column": "x",
+       "label": "Power λ"
+      },
+      "y": {
+       "column": "y",
+       "label": "T, skewness"
+      },
+      "series": [
+       {
+        "id": "T",
+        "label": "LR statistic T",
+        "mark": "line",
+        "where": {
+         "series": "T"
+        }
+       },
+       {
+        "id": "skew",
+        "label": "Skewness",
+        "mark": "line",
+        "where": {
+         "series": "skew"
+        }
+       },
+       {
+        "id": "lambda0",
+        "label": "MLE power",
+        "mark": "point",
+        "where": {
+         "series": "lambda0"
+        }
+       },
+       {
+        "id": "L0",
+        "label": "Maximum log-likelihood",
+        "mark": "point",
+        "where": {
+         "series": "L0"
+        }
+       }
+      ]
+     }
+    ],
+    "tests": [
+     {
+      "params": {
+       "lam": 0
+      },
+      "expect": {
+       "T_now": 0.464463,
+       "Tnow": 0.464463,
+       "loglik@0": -608.551,
+       "cutoff.first": -610.238,
+       "cutoff.last": -610.238,
+       "hist.n": 32,
+       "density.n": 101,
+       "here.n": 1,
+       "lambda0@0": 0.0467762,
+       "L0@0": -608.318
+      },
+      "tol": 0.001
+     },
+     {
+      "params": {
+       "lam": 0.5
+      },
+      "expect": {
+       "T_now": 41.9583,
+       "loglik@0.5": -629.298
+      },
+      "tol": 0.001
+     },
+     {
+      "params": {
+       "lam": 1
+      },
+      "expect": {
+       "T_now": 172.814,
+       "skew_now": 1.29018,
+       "loglik@1": -694.726
+      },
+      "tol": 0.001
+     },
+     {
+      "params": {
+       "lam": -1
+      },
+      "expect": {
+       "T_now": 221.964,
+       "skew_now": -1.70325,
+       "loglik@-1": -719.3
+      },
+      "tol": 0.001
+     }
+    ]
+   },
+   "illustrates": [
+    "box-cox-and-power-transformations"
+   ],
+   "notation": [
+    {
+     "tex": "$\\lambda$",
+     "meaning": "Power parameter: 1 = no change, 0.5 = square root, 0 = log, −1 = reciprocal",
+     "kind": "Parameter, estimated",
+     "typical": "Round to a natural value",
+     "keys": [
+      "lambda"
+     ],
+     "from": "box-cox-and-power-transformations"
+    }
+   ]
+  },
   "envelope-theorem-and-job-switching": {
    "slug": "envelope-theorem-and-job-switching",
    "name": "Envelope Theorem and Job Switching",
@@ -18413,6 +19063,489 @@
       "f"
      ],
      "from": "envelope-theorem"
+    }
+   ]
+  },
+  "kernel-density-bandwidth-explorer": {
+   "slug": "kernel-density-bandwidth-explorer",
+   "name": "Kernel Density Bandwidth Explorer",
+   "type": "data-chart",
+   "spec": {
+    "type": "data-chart",
+    "title": "Kernel density estimate of 1,000 exponential draws, by bandwidth",
+    "dataset": "econ430-l1-kde-bandwidth",
+    "params": {
+     "h": {
+      "tex": "h",
+      "label": "Bandwidth",
+      "min": 0.01,
+      "max": 0.5,
+      "step": 0.005,
+      "default": 0.12
+     }
+    },
+    "derived": {
+     "err": "at(\"ise\", h)",
+     "kde05": "at(\"kde\", 0.5)",
+     "truth05": "at(\"truth\", 0.5)"
+    },
+    "readouts": [
+     {
+      "id": "ise_now",
+      "expr": "at(\"ise\", h)",
+      "label": "ISE at this h",
+      "format": ".4f"
+     }
+    ],
+    "panels": [
+     {
+      "id": "density",
+      "title": "Density estimate",
+      "x": {
+       "column": "x",
+       "label": "x"
+      },
+      "y": {
+       "column": "y",
+       "label": "Density"
+      },
+      "series": [
+       {
+        "id": "hist",
+        "label": "Histogram",
+        "mark": "bar",
+        "where": {
+         "series": "hist"
+        }
+       },
+       {
+        "id": "kde",
+        "label": "Kernel density estimate",
+        "where": {
+         "series": "kde",
+         "h": {
+          "param": "h"
+         }
+        }
+       },
+       {
+        "id": "truth",
+        "label": "True density 2e^(-2x)",
+        "where": {
+         "series": true
+        }
+       },
+       {
+        "id": "rug",
+        "label": "Draws",
+        "mark": "rug",
+        "where": {
+         "series": "rug"
+        }
+       }
+      ]
+     },
+     {
+      "id": "error",
+      "title": "Integrated squared error against bandwidth",
+      "x": {
+       "column": "x",
+       "label": "Bandwidth h"
+      },
+      "y": {
+       "column": "y",
+       "label": "ISE"
+      },
+      "series": [
+       {
+        "id": "ise",
+        "label": "ISE",
+        "where": {
+         "series": "ise"
+        }
+       },
+       {
+        "id": "h_now",
+        "label": "Current h",
+        "mark": "point",
+        "where": {
+         "series": "ise",
+         "x": {
+          "param": "h"
+         }
+        }
+       }
+      ]
+     }
+    ],
+    "tests": [
+     {
+      "params": {
+       "h": 0.12
+      },
+      "expect": {
+       "err": 0.110066,
+       "ise_now": 0.110066,
+       "kde05": 0.764695,
+       "kde.max": 1.27508,
+       "truth05": 0.735815,
+       "hist.n": 28,
+       "rug.n": 1000,
+       "ise.n": 99,
+       "ise.min": 0.038491
+      },
+      "tol": 0.0001
+     },
+     {
+      "params": {
+       "h": 0.06
+      },
+      "expect": {
+       "err": 0.057323,
+       "kde05": 0.782421,
+       "kde.max": 1.62787
+      },
+      "tol": 0.0001
+     },
+     {
+      "params": {
+       "h": 0.02
+      },
+      "expect": {
+       "err": 0.038491,
+       "kde.max": 2.07363
+      },
+      "tol": 0.0001
+     }
+    ]
+   },
+   "illustrates": [
+    "kernel-density-estimation"
+   ],
+   "notation": [
+    {
+     "tex": "$h$",
+     "meaning": "Bandwidth: the width of each bump",
+     "kind": "Choice",
+     "typical": "Larger = smoother",
+     "keys": [
+      "h"
+     ],
+     "from": "kernel-density-estimation"
+    }
+   ]
+  },
+  "leverage-and-influence-explorer": {
+   "slug": "leverage-and-influence-explorer",
+   "name": "Leverage and Influence Explorer",
+   "type": "data-chart",
+   "spec": {
+    "type": "data-chart",
+    "title": "Leverage, outlier and influence of one extra point",
+    "dataset": "econ430-l6-leverage-influence",
+    "params": {
+     "x31": {
+      "tex": "x_{31}",
+      "label": "Extra point: x",
+      "min": 0,
+      "max": 25,
+      "step": 0.5,
+      "default": 25
+     },
+     "y31": {
+      "tex": "y_{31}",
+      "label": "Extra point: y",
+      "min": -5,
+      "max": 25,
+      "step": 0.5,
+      "default": 14.5
+     }
+    },
+    "derived": {
+     "h31": "at(\"h\", x31)",
+     "t31": "at(\"t\", x31)",
+     "d31": "at(\"cook\", x31)",
+     "slope_with": "(at(\"fit_with\", 25) - at(\"fit_with\", 0)) / 25",
+     "slope_alone": "(at(\"fit_without\", 25) - at(\"fit_without\", 0)) / 25"
+    },
+    "readouts": [
+     {
+      "id": "h_now",
+      "expr": "at(\"h\", x31)",
+      "label": "Leverage h of the extra point",
+      "format": ".3f"
+     },
+     {
+      "id": "t_now",
+      "expr": "at(\"t\", x31)",
+      "label": "Studentized residual t",
+      "format": ".2f"
+     },
+     {
+      "id": "cook_now",
+      "expr": "at(\"cook\", x31)",
+      "label": "Cook's distance D",
+      "format": ".3f"
+     },
+     {
+      "id": "slope_now",
+      "expr": "(at(\"fit_with\", 25) - at(\"fit_with\", 0)) / 25",
+      "label": "Slope with the extra point",
+      "format": ".4f"
+     },
+     {
+      "id": "slope_base",
+      "expr": "(at(\"fit_without\", 25) - at(\"fit_without\", 0)) / 25",
+      "label": "Slope of the 30 points alone",
+      "format": ".4f"
+     }
+    ],
+    "panels": [
+     {
+      "id": "scatter",
+      "title": "The data and the fitted line",
+      "x": {
+       "column": "x",
+       "label": "x"
+      },
+      "y": {
+       "column": "y",
+       "label": "y"
+      },
+      "series": [
+       {
+        "id": "base",
+        "label": "30 base points",
+        "mark": "point",
+        "where": {
+         "series": "base"
+        }
+       },
+       {
+        "id": "fit_without",
+        "label": "OLS line without the extra point",
+        "mark": "line",
+        "where": {
+         "series": "fit_without"
+        }
+       },
+       {
+        "id": "fit_with",
+        "label": "OLS line with the extra point",
+        "mark": "line",
+        "where": {
+         "series": "fit_with",
+         "x31": {
+          "param": "x31"
+         },
+         "y31": {
+          "param": "y31"
+         }
+        }
+       },
+       {
+        "id": "pt",
+        "label": "Extra point (drag it)",
+        "drag": {
+         "x": "x31",
+         "y": "y31"
+        }
+       }
+      ]
+     },
+     {
+      "id": "rl",
+      "title": "Residual against leverage",
+      "mark": "point",
+      "x": {
+       "column": "x",
+       "label": "Leverage h"
+      },
+      "y": {
+       "column": "y",
+       "label": "Studentized residual t"
+      },
+      "series": [
+       {
+        "id": "rl_base",
+        "label": "30 base points (30-point fit)",
+        "where": {
+         "series": "rl_base"
+        }
+       },
+       {
+        "id": "rl_pt",
+        "label": "Extra point",
+        "where": {
+         "series": "rl",
+         "x31": {
+          "param": "x31"
+         },
+         "y31": {
+          "param": "y31"
+         }
+        }
+       },
+       {
+        "id": "ref_h",
+        "label": "Leverage cut-off 2p/n = 0.129",
+        "mark": "line",
+        "where": {
+         "series": "ref_h"
+        }
+       },
+       {
+        "id": "ref_t_hi",
+        "label": "t = 2",
+        "mark": "line",
+        "where": {
+         "series": "ref_t_hi"
+        }
+       },
+       {
+        "id": "ref_t_lo",
+        "label": "t = -2",
+        "mark": "line",
+        "where": {
+         "series": "ref_t_lo"
+        }
+       }
+      ]
+     },
+     {
+      "id": "along",
+      "title": "The extra point's h, t and D as it slides along x (at the current y)",
+      "mark": "line",
+      "x": {
+       "column": "x",
+       "label": "x of the extra point"
+      },
+      "y": {
+       "column": "y",
+       "label": "h, t or D"
+      },
+      "series": [
+       {
+        "id": "h",
+        "label": "Leverage h",
+        "where": {
+         "series": "h",
+         "y31": {
+          "param": "y31"
+         }
+        }
+       },
+       {
+        "id": "t",
+        "label": "Studentized residual t",
+        "where": {
+         "series": "t",
+         "y31": {
+          "param": "y31"
+         }
+        }
+       },
+       {
+        "id": "cook",
+        "label": "Cook's distance D",
+        "where": {
+         "series": "cook",
+         "y31": {
+          "param": "y31"
+         }
+        }
+       },
+       {
+        "id": "lev_cutoff",
+        "label": "Leverage cut-off 2p/n (at x = 0)",
+        "mark": "point",
+        "where": {
+         "series": "lev_cutoff"
+        }
+       }
+      ]
+     }
+    ],
+    "tests": [
+     {
+      "params": {
+       "x31": 25,
+       "y31": 14.5
+      },
+      "expect": {
+       "h_now": 0.5683,
+       "h31": 0.5683,
+       "t_now": -0.158,
+       "cook_now": 0.0164,
+       "d31": 0.0164,
+       "slope_now": 0.4912,
+       "slope_base": 0.4976,
+       "rl_pt.first": -0.158,
+       "rl_base.n": 30,
+       "base.n": 30,
+       "h.n": 51,
+       "fit_without@25": 14.7292,
+       "lev_cutoff@0": 0.129032,
+       "ref_h.n": 2,
+       "ref_t_hi@0": 2,
+       "ref_t_lo@0": -2
+      },
+      "tol": 0.0006
+     },
+     {
+      "params": {
+       "x31": 25,
+       "y31": 5
+      },
+      "expect": {
+       "h_now": 0.5683,
+       "t_now": -4.2,
+       "cook_now": 11.612,
+       "slope_now": 0.2234,
+       "fit_with@0": 3.6138,
+       "rl_pt.first": -4.2
+      },
+      "tol": 0.0006
+     },
+     {
+      "params": {
+       "x31": 5.5,
+       "y31": 11
+      },
+      "expect": {
+       "h_now": 0.0323,
+       "t_now": 4.057,
+       "cook_now": 0.275,
+       "slope_now": 0.5006
+      },
+      "tol": 0.0006
+     }
+    ]
+   },
+   "illustrates": [
+    "regression-diagnostics",
+    "simple-linear-regression-model"
+   ],
+   "notation": [
+    {
+     "tex": "$y_i$",
+     "meaning": "Outcome for observation $i$ (e.g. food spending)",
+     "kind": "Random variable",
+     "typical": "—",
+     "keys": [
+      "y"
+     ],
+     "from": "simple-linear-regression-model"
+    },
+    {
+     "tex": "$x_i$",
+     "meaning": "Explanatory variable (e.g. income)",
+     "kind": "Observed",
+     "typical": "—",
+     "keys": [
+      "x"
+     ],
+     "from": "simple-linear-regression-model"
     }
    ]
   },
@@ -18753,6 +19886,214 @@
       "w"
      ],
      "from": "percentile-ratios"
+    }
+   ]
+  },
+  "lowess-span-explorer": {
+   "slug": "lowess-span-explorer",
+   "name": "Lowess Span Explorer",
+   "type": "data-chart",
+   "spec": {
+    "type": "data-chart",
+    "title": "Lowess of prestige on income, by span and window centre",
+    "dataset": "econ430-l2-lowess-span",
+    "params": {
+     "frac": {
+      "tex": "f",
+      "label": "Span (share of points in each window)",
+      "min": 0.1,
+      "max": 1,
+      "step": 0.05,
+      "default": 0.65
+     },
+     "i0": {
+      "tex": "x_0",
+      "label": "Window centre (1 = lowest income, 32 = highest)",
+      "min": 1,
+      "max": 32,
+      "step": 1,
+      "default": 29
+     }
+    },
+    "derived": {
+     "gap_top": "at(\"lowess\", 25879) - at(\"ols\", 25879)"
+    },
+    "readouts": [
+     {
+      "id": "centre",
+      "expr": "at(\"x0\", i0)",
+      "label": "Window centre income ($)",
+      "format": ",.0f"
+     }
+    ],
+    "panels": [
+     {
+      "id": "fit",
+      "title": "Prestige on income",
+      "x": {
+       "column": "x",
+       "label": "Income (dollars)"
+      },
+      "y": {
+       "column": "y",
+       "label": "Prestige score"
+      },
+      "series": [
+       {
+        "id": "data",
+        "label": "Occupations",
+        "mark": "point",
+        "where": {
+         "series": "data"
+        }
+       },
+       {
+        "id": "ols",
+        "label": "OLS line",
+        "mark": "line",
+        "where": {
+         "series": "ols"
+        }
+       },
+       {
+        "id": "lowess",
+        "label": "Lowess curve",
+        "mark": "line",
+        "where": {
+         "series": "lowess",
+         "frac": {
+          "param": "frac"
+         }
+        }
+       },
+       {
+        "id": "window",
+        "label": "Points in the window",
+        "mark": "point",
+        "where": {
+         "series": "window",
+         "frac": {
+          "param": "frac"
+         },
+         "i0": {
+          "param": "i0"
+         }
+        }
+       },
+       {
+        "id": "local",
+        "label": "Local weighted line",
+        "mark": "line",
+        "where": {
+         "series": "local",
+         "frac": {
+          "param": "frac"
+         },
+         "i0": {
+          "param": "i0"
+         }
+        }
+       }
+      ]
+     },
+     {
+      "id": "centres",
+      "title": "Window centres",
+      "mark": "point",
+      "x": {
+       "column": "x",
+       "label": "Centre index"
+      },
+      "y": {
+       "column": "y",
+       "label": "Centre income (dollars)"
+      },
+      "series": [
+       {
+        "id": "x0",
+        "label": "Centre income",
+        "where": {
+         "series": "x0"
+        }
+       }
+      ]
+     }
+    ],
+    "tests": [
+     {
+      "params": {
+       "frac": 0.65,
+       "i0": 29
+      },
+      "expect": {
+       "centre": 11030,
+       "ols@611": 28.9111,
+       "ols@25879": 102.107,
+       "lowess@25879": 83.0435,
+       "lowess.n": 102,
+       "data.n": 102,
+       "window.n": 66,
+       "local.first": 38.5899,
+       "local.last": 79.8824,
+       "gap_top": -19.0635
+      },
+      "tol": 0.0005
+     },
+     {
+      "params": {
+       "frac": 1,
+       "i0": 29
+      },
+      "expect": {
+       "lowess@25879": 90.7768,
+       "window.n": 102,
+       "local.first": 23.3313,
+       "local.last": 118.875,
+       "gap_top": -11.3302
+      },
+      "tol": 0.0005
+     },
+     {
+      "params": {
+       "frac": 0.1,
+       "i0": 5
+      },
+      "expect": {
+       "centre": 3161,
+       "lowess@25879": 78.9257,
+       "window.n": 10,
+       "local.first": 19.3391,
+       "local.last": 56.7853,
+       "gap_top": -23.1813
+      },
+      "tol": 0.0005
+     }
+    ]
+   },
+   "illustrates": [
+    "lowess-smoother"
+   ],
+   "notation": [
+    {
+     "tex": "$x_i$, $y_i$",
+     "meaning": "Regressor and outcome for observation $i$",
+     "kind": "Data",
+     "typical": "—",
+     "keys": [
+      "x",
+      "y"
+     ],
+     "from": "lowess-smoother"
+    },
+    {
+     "tex": "$f$",
+     "meaning": "Span: share of the data in each local window",
+     "kind": "Choice",
+     "typical": "2/3 in statsmodels (seaborn's default)",
+     "keys": [
+      "f"
+     ],
+     "from": "lowess-smoother"
     }
    ]
   },
@@ -19520,6 +20861,776 @@
       "K"
      ],
      "from": "sampling-distribution-of-ols"
+    }
+   ]
+  },
+  "polynomial-degree-and-cross-validation": {
+   "slug": "polynomial-degree-and-cross-validation",
+   "name": "Polynomial Degree and Cross-Validation",
+   "type": "data-chart",
+   "spec": {
+    "type": "data-chart",
+    "title": "Polynomial degree, in-sample error and 5-fold cross-validation (cars)",
+    "dataset": "econ430-l4-poly-cv",
+    "params": {
+     "degree": {
+      "tex": "\\mathrm{deg}",
+      "label": "Polynomial degree",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 1
+     },
+     "fold": {
+      "tex": "k",
+      "label": "Held-out fold",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 1
+     }
+    },
+    "derived": {
+     "cv": "at(\"cv_rmse\", degree)",
+     "train": "at(\"train_rmse\", degree)"
+    },
+    "readouts": [
+     {
+      "id": "cv_now",
+      "expr": "at(\"cv_rmse\", degree)",
+      "label": "5-fold CV RMSE (mph)",
+      "format": ".2f"
+     },
+     {
+      "id": "train_now",
+      "expr": "at(\"train_rmse\", degree)",
+      "label": "In-sample RMSE (mph)",
+      "format": ".2f"
+     }
+    ],
+    "panels": [
+     {
+      "id": "scatter",
+      "title": "Speed against stopping distance",
+      "x": {
+       "column": "x",
+       "label": "Stopping distance (feet)"
+      },
+      "y": {
+       "column": "y",
+       "label": "Speed (mph)"
+      },
+      "series": [
+       {
+        "id": "data",
+        "label": "Cars",
+        "mark": "point",
+        "where": {
+         "series": "data"
+        }
+       },
+       {
+        "id": "heldout",
+        "label": "Held-out fold",
+        "mark": "point",
+        "where": {
+         "series": "heldout",
+         "fold": {
+          "param": "fold"
+         }
+        }
+       },
+       {
+        "id": "fit",
+        "label": "Full-sample fit",
+        "mark": "line",
+        "where": {
+         "series": "fit",
+         "degree": {
+          "param": "degree"
+         }
+        }
+       },
+       {
+        "id": "fold_fit",
+        "label": "Fit without the held-out fold",
+        "mark": "line",
+        "where": {
+         "series": "fold_fit",
+         "degree": {
+          "param": "degree"
+         },
+         "fold": {
+          "param": "fold"
+         }
+        }
+       }
+      ]
+     },
+     {
+      "id": "errors",
+      "title": "RMSE against degree",
+      "x": {
+       "column": "x",
+       "label": "Polynomial degree"
+      },
+      "y": {
+       "column": "y",
+       "label": "RMSE (mph)"
+      },
+      "series": [
+       {
+        "id": "cv_rmse",
+        "label": "5-fold CV RMSE",
+        "mark": "line",
+        "where": {
+         "series": "cv_rmse"
+        }
+       },
+       {
+        "id": "train_rmse",
+        "label": "In-sample RMSE",
+        "mark": "line",
+        "where": {
+         "series": "train_rmse"
+        }
+       },
+       {
+        "id": "cv_now_pt",
+        "label": "CV RMSE at this degree",
+        "mark": "point",
+        "where": {
+         "series": "cv_rmse",
+         "x": {
+          "param": "degree"
+         }
+        }
+       },
+       {
+        "id": "train_now_pt",
+        "label": "In-sample RMSE at this degree",
+        "mark": "point",
+        "where": {
+         "series": "train_rmse",
+         "x": {
+          "param": "degree"
+         }
+        }
+       }
+      ]
+     }
+    ],
+    "tests": [
+     {
+      "params": {
+       "degree": 1,
+       "fold": 1
+      },
+      "expect": {
+       "cv_now": 3.640865,
+       "train_now": 3.091994,
+       "cv": 3.640865,
+       "train": 3.091994,
+       "fit@120": 28.152,
+       "fold_fit@120": 25.805,
+       "heldout.n": 10,
+       "data.n": 50,
+       "cv_rmse.n": 5
+      },
+      "tol": 0.0005
+     },
+     {
+      "params": {
+       "degree": 2,
+       "fold": 1
+      },
+      "expect": {
+       "cv_now": 4.462082,
+       "train_now": 2.818192
+      },
+      "tol": 0.0005
+     },
+     {
+      "params": {
+       "degree": 5,
+       "fold": 5
+      },
+      "expect": {
+       "cv_now": 6.409581,
+       "train_now": 2.740025,
+       "fold_fit@120": 63.3851,
+       "fit@120": 24.1753,
+       "cv_rmse.max": 6.409581
+      },
+      "tol": 0.0005
+     }
+    ]
+   },
+   "illustrates": [
+    "cross-validation"
+   ],
+   "notation": [
+    {
+     "tex": "$K$ (or $k$)",
+     "meaning": "Number of folds the data are split into",
+     "kind": "Choice",
+     "typical": "5 or 10",
+     "keys": [
+      "K",
+      "k"
+     ],
+     "from": "cross-validation"
+    }
+   ]
+  },
+  "projection-onto-a-vector": {
+   "slug": "projection-onto-a-vector",
+   "name": "Projection Onto a Vector",
+   "type": "panels",
+   "spec": {
+    "type": "panels",
+    "title": "Projecting b onto the line through a",
+    "params": {
+     "a1": {
+      "tex": "\\mathbf{a}_1",
+      "label": "First component of a",
+      "min": -4,
+      "max": 4,
+      "step": 0.5,
+      "default": 2
+     },
+     "a2": {
+      "tex": "\\mathbf{a}_2",
+      "label": "Second component of a",
+      "min": -4,
+      "max": 4,
+      "step": 0.5,
+      "default": 1
+     },
+     "b1": {
+      "tex": "\\mathbf{b}_1",
+      "label": "First component of b",
+      "min": -4,
+      "max": 4,
+      "step": 0.5,
+      "default": 1
+     },
+     "b2": {
+      "tex": "\\mathbf{b}_2",
+      "label": "Second component of b",
+      "min": -4,
+      "max": 4,
+      "step": 0.5,
+      "default": 3
+     },
+     "t": {
+      "tex": "t",
+      "label": "Weight t on a (the point is t a)",
+      "min": -1,
+      "max": 6,
+      "step": 0.05,
+      "default": 0
+     }
+    },
+    "derived": {
+     "p1": "t*a1",
+     "p2": "t*a2",
+     "e1": "b1 - p1",
+     "e2": "b2 - p2",
+     "dot": "a1*e1 + a2*e2",
+     "dist": "sqrt(e1^2 + e2^2)",
+     "aa": "a1^2 + a2^2",
+     "tstar": "aa > 1e-9 ? (a1*b1 + a2*b2)/aa : 0"
+    },
+    "panels": [
+     {
+      "kind": "vector",
+      "id": "plane",
+      "title": "The line through a, and the point on it closest to b",
+      "aspect": "equal",
+      "x": {
+       "label": "First component",
+       "min": -4,
+       "max": 12
+      },
+      "y": {
+       "label": "Second component",
+       "min": -4,
+       "max": 8
+      },
+      "lines": [
+       {
+        "id": "a_line",
+        "from": [
+         "-a1",
+         "-a2"
+        ],
+        "to": [
+         "6*a1",
+         "6*a2"
+        ],
+        "label": "The line through a (t from -1 to 6)",
+        "style": "dotted"
+       }
+      ],
+      "arrows": [
+       {
+        "id": "a_vec",
+        "from": [
+         0,
+         0
+        ],
+        "to": [
+         "a1",
+         "a2"
+        ],
+        "tex": "\\mathbf{a}",
+        "label": "The vector a"
+       },
+       {
+        "id": "b_vec",
+        "from": [
+         0,
+         0
+        ],
+        "to": [
+         "b1",
+         "b2"
+        ],
+        "tex": "\\mathbf{b}",
+        "label": "The vector b"
+       },
+       {
+        "id": "p_vec",
+        "from": [
+         0,
+         0
+        ],
+        "to": [
+         "p1",
+         "p2"
+        ],
+        "tex": "\\mathbf{p}",
+        "label": "The point p = t a on the line"
+       },
+       {
+        "id": "e_vec",
+        "from": [
+         "p1",
+         "p2"
+        ],
+        "to": [
+         "b1",
+         "b2"
+        ],
+        "tex": "\\mathbf{e}",
+        "label": "The residual e = b - p, from p to b",
+        "style": "dashed"
+       }
+      ],
+      "points": [
+       {
+        "id": "p_pt",
+        "x": "p1",
+        "y": "p2",
+        "tex": "\\mathbf{p}",
+        "label": "The point t a"
+       }
+      ]
+     }
+    ],
+    "readouts": [
+     {
+      "id": "dot_out",
+      "tex": "\\mathbf{a}'\\mathbf{e}",
+      "label": "Inner product of a and the residual: zero when e is orthogonal to a",
+      "expr": "dot",
+      "format": ".3f"
+     },
+     {
+      "id": "dist_out",
+      "tex": "\\lVert\\mathbf{e}\\rVert",
+      "label": "Length of the residual: the distance from p to b",
+      "expr": "dist",
+      "format": ".3f"
+     },
+     {
+      "id": "tstar_out",
+      "label": "Weight at the closest point, a'b / a'a",
+      "expr": "tstar",
+      "format": ".3f"
+     }
+    ],
+    "tests": [
+     {
+      "params": {
+       "a1": 2,
+       "a2": 1,
+       "b1": 1,
+       "b2": 3,
+       "t": 1
+      },
+      "expect": {
+       "tstar": 1,
+       "p1": 2,
+       "p2": 1,
+       "e1": -1,
+       "e2": 2,
+       "dot": 0,
+       "dist": 2.236068
+      },
+      "tol": 1e-06
+     },
+     {
+      "params": {
+       "a1": 2,
+       "a2": 1,
+       "b1": 1,
+       "b2": 3,
+       "t": 0
+      },
+      "expect": {
+       "dot": 5,
+       "dist": 3.162278,
+       "tstar": 1
+      },
+      "tol": 1e-06
+     },
+     {
+      "params": {
+       "a1": 2,
+       "a2": 1,
+       "b1": 1,
+       "b2": 3,
+       "t": 5
+      },
+      "expect": {
+       "p1": 10,
+       "p2": 5,
+       "e1": -9,
+       "e2": -2,
+       "dot": -20,
+       "dist": 9.219544
+      },
+      "tol": 1e-06
+     },
+     {
+      "params": {
+       "a1": 1,
+       "a2": 1,
+       "b1": 3,
+       "b2": 1,
+       "t": 2
+      },
+      "expect": {
+       "tstar": 2,
+       "p1": 2,
+       "p2": 2,
+       "e1": 1,
+       "e2": -1,
+       "dot": 0,
+       "dist": 1.414214
+      },
+      "tol": 1e-06
+     },
+     {
+      "params": {
+       "a1": 0,
+       "a2": 0,
+       "b1": 1,
+       "b2": 3,
+       "t": 1
+      },
+      "expect": {
+       "tstar": 0,
+       "p1": 0,
+       "p2": 0,
+       "dot": 0,
+       "dist": 3.162278
+      },
+      "tol": 1e-06
+     }
+    ]
+   },
+   "illustrates": [
+    "inner-products-and-orthogonality",
+    "projection-matrix-and-residual-maker"
+   ],
+   "notation": [
+    {
+     "tex": "$\\mathbf{a}$, $\\mathbf{b}$",
+     "meaning": "Vectors",
+     "kind": "—",
+     "typical": "—",
+     "keys": [
+      "bold(a)",
+      "bold(b)"
+     ],
+     "from": "inner-products-and-orthogonality"
+    },
+    {
+     "tex": "$t$",
+     "meaning": "Weight on $\\mathbf{a}$: the point $t\\mathbf{a}$ on the line through $\\mathbf{a}$",
+     "kind": "Number",
+     "typical": "closest to $\\mathbf{b}$ at $t = \\mathbf{a}'\\mathbf{b}/\\mathbf{a}'\\mathbf{a}$",
+     "keys": [
+      "t"
+     ],
+     "from": "inner-products-and-orthogonality"
+    },
+    {
+     "tex": "$\\mathbf{X}$, $\\mathbf{e}$, $\\mathbf{z}$",
+     "meaning": "Regressors, residuals, instruments",
+     "kind": "Data",
+     "typical": "—",
+     "keys": [
+      "bold(X)",
+      "bold(e)",
+      "bold(z)"
+     ],
+     "from": "inner-products-and-orthogonality"
+    },
+    {
+     "tex": "$\\mathbf{a}$, $\\mathbf{b}$, $\\mathbf{p}$",
+     "meaning": "Vectors in the one-vector projection example",
+     "kind": "Vectors",
+     "typical": "—",
+     "keys": [
+      "bold(a)",
+      "bold(b)",
+      "bold(p)"
+     ],
+     "from": "projection-matrix-and-residual-maker"
+    }
+   ]
+  },
+  "q-q-plot-shape-explorer": {
+   "slug": "q-q-plot-shape-explorer",
+   "name": "Q-Q Plot Shape Explorer",
+   "type": "data-chart",
+   "spec": {
+    "type": "data-chart",
+    "title": "Q-Q plot against the normal, by distribution family",
+    "dataset": "econ430-l1-qq-shapes",
+    "params": {
+     "family": {
+      "tex": "F",
+      "label": "Family",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "default": 1,
+      "labels": {
+       "1": "Normal",
+       "2": "Lognormal",
+       "3": "Student t",
+       "4": "Uniform"
+      }
+     },
+     "s": {
+      "tex": "s",
+      "label": "Lognormal shape",
+      "min": 0.1,
+      "max": 1.2,
+      "step": 0.05,
+      "default": 0.5
+     },
+     "df": {
+      "tex": "n",
+      "label": "t degrees of freedom",
+      "min": 2,
+      "max": 30,
+      "step": 1,
+      "default": 3
+     }
+    },
+    "x": {
+     "column": "x",
+     "label": "Standard normal quantile z"
+    },
+    "y": {
+     "column": "y",
+     "label": "Standardized quantile of the family"
+    },
+    "series": [
+     {
+      "id": "ref",
+      "label": "45-degree line",
+      "where": {
+       "series": "ref"
+      }
+     },
+     {
+      "id": "qq",
+      "label": "Q-Q points",
+      "mark": "point",
+      "where": {
+       "series": "qq",
+       "family": {
+        "param": "family"
+       },
+       "s": {
+        "param": "s"
+       },
+       "df": {
+        "param": "df"
+       }
+      }
+     },
+     {
+      "id": "q01",
+      "label": "p = 0.01",
+      "mark": "point",
+      "where": {
+       "series": "q01",
+       "family": {
+        "param": "family"
+       },
+       "s": {
+        "param": "s"
+       },
+       "df": {
+        "param": "df"
+       }
+      }
+     },
+     {
+      "id": "q50",
+      "label": "p = 0.5",
+      "mark": "point",
+      "where": {
+       "series": "q50",
+       "family": {
+        "param": "family"
+       },
+       "s": {
+        "param": "s"
+       },
+       "df": {
+        "param": "df"
+       }
+      }
+     },
+     {
+      "id": "q99",
+      "label": "p = 0.99",
+      "mark": "point",
+      "where": {
+       "series": "q99",
+       "family": {
+        "param": "family"
+       },
+       "s": {
+        "param": "s"
+       },
+       "df": {
+        "param": "df"
+       }
+      }
+     }
+    ],
+    "tests": [
+     {
+      "params": {
+       "family": 3,
+       "s": 0.5,
+       "df": 3
+      },
+      "expect": {
+       "q99.first": 2.62158,
+       "q01.first": -2.62158,
+       "q50.first": 0,
+       "qq.n": 100,
+       "qq.first": -3.37225,
+       "qq.last": 3.37225,
+       "ref.n": 2
+      },
+      "tol": 0.0001
+     },
+     {
+      "params": {
+       "family": 3,
+       "s": 0.5,
+       "df": 2
+      },
+      "expect": {
+       "q99.first": 5.75327
+      },
+      "tol": 0.0001
+     },
+     {
+      "params": {
+       "family": 1,
+       "s": 0.5,
+       "df": 3
+      },
+      "expect": {
+       "q99.first": 2.32635,
+       "q01.first": -2.32635
+      },
+      "tol": 0.0001
+     },
+     {
+      "params": {
+       "family": 2,
+       "s": 0.7,
+       "df": 3
+      },
+      "expect": {
+       "q99.first": 3.7584,
+       "q01.first": -1.06442,
+       "q50.first": -0.273265
+      },
+      "tol": 0.0001
+     },
+     {
+      "params": {
+       "family": 4,
+       "s": 0.5,
+       "df": 3
+      },
+      "expect": {
+       "q99.first": 1.69741,
+       "q01.first": -1.69741
+      },
+      "tol": 0.0001
+     }
+    ]
+   },
+   "illustrates": [
+    "q-q-plot"
+   ],
+   "notation": [
+    {
+     "tex": "$n$",
+     "meaning": "Number of observations",
+     "kind": "Count",
+     "typical": "—",
+     "keys": [
+      "n"
+     ],
+     "from": "q-q-plot"
+    },
+    {
+     "tex": "$F^{-1}(\\cdot)$",
+     "meaning": "Quantile function of the reference distribution",
+     "kind": "Function",
+     "typical": "Standard normal by default",
+     "keys": [
+      "F"
+     ],
+     "from": "q-q-plot"
+    },
+    {
+     "tex": "$\\bar{x}$, $s$",
+     "meaning": "Sample mean and standard deviation, for the reference line",
+     "kind": "Statistics",
+     "typical": "—",
+     "keys": [
+      "bar(x)",
+      "s"
+     ],
+     "from": "q-q-plot"
     }
    ]
   },
@@ -23636,9 +25747,9 @@
    },
    "period": "simulated: numpy default_rng(0), 30 points y = 2 + 0.5x + N(0,1), x ~ U(0,10)",
    "generated": "2026-10-18",
-   "sha256": "7317f28224c2f808188ecb2e6960087b482e7be9585c0fba10defe0ce1c623b9",
+   "sha256": "fa97115f7e2b8035222defb84bea29c690428a9b440f2d0f8491df9eafa5d446",
    "notebook": "notebooks/econ430-l6-leverage-influence.ipynb",
-   "description": "Precomputed for the Leverage and Influence Explorer widget in Econ 430 L6, not a data source. 30 simulated points from np.random.default_rng(0) (x ~ U(0,10), then y = 2 + 0.5x + N(0,1); seed chosen as the first with slope within 0.05 of 0.5, mean x in 4.6-5.4 and no base |t| > 2) plus one point (x31, y31) on x31 0-25 step 0.5 and y31 -5..25 step 0.5. fit_with is the OLS line through all 31 points; h, t (internally studentized) and cook are statsmodels get_influence() for the 31st point, checked against closed forms. h, t and cook are keyed by y31 with x = x31. rl is the 31st point's (leverage, studentized residual); rl_base holds the 30 base points at their positions in the 30-point fit (static; the full 31-point panel did not fit the size limit). lev_cutoff = 2p/n = 4/31 = 0.129."
+   "description": "Precomputed for the Leverage and Influence Explorer widget in Econ 430 L6, not a data source. 30 simulated points from np.random.default_rng(0) (x ~ U(0,10), then y = 2 + 0.5x + N(0,1); seed chosen as the first with slope within 0.05 of 0.5, mean x in 4.6-5.4 and no base |t| > 2) plus one point (x31, y31) on x31 0-25 step 0.5 and y31 -5..25 step 0.5. fit_with is the OLS line through all 31 points; h, t (internally studentized) and cook are statsmodels get_influence() for the 31st point, checked against closed forms. h, t and cook are keyed by y31 with x = x31. rl is the 31st point's (leverage, studentized residual); rl_base holds the 30 base points at their positions in the 30-point fit (static; the full 31-point panel did not fit the size limit). lev_cutoff = 2p/n = 4/31 = 0.129. ref_t_hi, ref_t_lo (y = +-2, x 0 to 0.6) and ref_h (x = 4/31, y -6 to 6) are the reference lines of the residual-leverage panel."
   },
   "us-skill-premium-supply-1963-2017": {
    "id": "us-skill-premium-supply-1963-2017",

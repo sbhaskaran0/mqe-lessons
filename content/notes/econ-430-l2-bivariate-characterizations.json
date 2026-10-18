@@ -21,6 +21,16 @@
     "y"
    ],
    "from": "lowess-smoother"
+  },
+  {
+   "tex": "$f$",
+   "meaning": "Span: share of the data in each local window",
+   "kind": "Choice",
+   "typical": "2/3 in statsmodels (seaborn's default)",
+   "keys": [
+    "f"
+   ],
+   "from": "lowess-smoother"
   }
  ],
  "sections": [
@@ -144,19 +154,58 @@
      "id": "1-scatterplots-with-a-line-and-a-smoother-4",
      "blocks": [
       {
+       "t": "prose",
+       "md": "The widget below draws the same scatter with the window moved by hand: the highlighted points are the ones one local line is fitted to."
+      },
+      {
        "t": "interactive",
        "widget": "lowess-span-explorer",
-       "prompt": "Fit a lowess curve by changing its span, and compare it with the OLS line",
-       "status": "planned",
-       "purpose": "See lowess as many local weighted lines, and see the span trade-off: large span approaches the OLS line, small span chases noise",
+       "state": {
+        "frac": 0.65,
+        "i0": 29
+       },
+       "show": [
+        "data",
+        "ols",
+        "lowess",
+        "window",
+        "local",
+        "centre"
+       ],
+       "highlight": "window",
+       "prompt": "Drag the window centre along the incomes, then change the span. The lowess here is the robust version that the lecture's plot draws (statsmodels with span 2/3), so the slider starts at 0.65, the grid position nearest 2/3.",
+       "predict": {
+        "hide": [
+         "lowess",
+         "local"
+        ],
+        "ask": "The lowess curve is hidden. Starting from a span of 0.65, you raise it to 1, so every window holds all 102 occupations. Does the lowess curve move towards the OLS line or away from it?",
+        "options": [
+         "Away from the OLS line: a wider window follows the data more closely",
+         "Onto the OLS line exactly: every window then holds all 102 points",
+         "Towards the OLS line, but not onto it",
+         "No change: the span only changes which points are highlighted"
+        ],
+        "answer": 2,
+        "why": "Over the 102 incomes the mean absolute gap between the lowess curve and the OLS line is 5.30 at span 0.1, 3.64 at 0.65 and 2.61 at 1, and the largest gap, at the highest income, shrinks from 19.06 to 11.33 between 0.65 and 1. The curve is closer to the line at 95 of the 102 incomes. It does not reach the line: with all 102 points in every window the weights (tricube and robustness) still differ from one centre to the next, so the local lines differ, and the curve stays 11.33 below the line at an income of 25,879. Now drag the centre and move the span to see the local line tilt and the window change.",
+        "feedback": [
+         "It is the other way round. A wider window averages over more occupations, so each local line follows the bends less. Over the 102 incomes the mean absolute gap to the OLS line is 3.64 at span 0.65 and falls to 2.61 at span 1; at span 0.1, the narrowest window, it is 5.30.",
+         "Close, but not exactly. Every window holds all 102 points, yet the tricube weights still count occupations near the centre most, and the robustness weights cut the weight on large residuals. So each window gives a different line, and a different height at its centre. At span 1 the mean absolute gap is still 2.61 and the largest is 11.33, at the highest income.",
+         null,
+         "The curve is the joined heights of the local lines, and a wider window changes every one of those lines. The mean absolute gap to the OLS line moves from 3.64 at span 0.65 to 2.61 at span 1."
+        ]
+       },
        "objectives": [
         1,
         2
        ]
       }
      ],
-     "words": 15,
-     "symbols": []
+     "words": 66,
+     "symbols": [
+      "$x_i$",
+      "$f$"
+     ]
     }
    ]
   },

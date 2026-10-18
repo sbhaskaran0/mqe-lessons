@@ -1,0 +1,123 @@
+{
+ "slug": "projection-onto-a-vector",
+ "notation": [
+  {
+   "tex": "$\\mathbf{a}$, $\\mathbf{b}$",
+   "meaning": "Vectors",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(a)",
+    "bold(b)"
+   ],
+   "from": "inner-products-and-orthogonality"
+  },
+  {
+   "tex": "$\\mathbf{a}'\\mathbf{b}$",
+   "meaning": "Inner (dot) product",
+   "kind": "Number",
+   "typical": "0 means orthogonal",
+   "keys": [
+    "~\\mathbfa'\\mathbfb"
+   ],
+   "from": "inner-products-and-orthogonality"
+  },
+  {
+   "tex": "$t$",
+   "meaning": "Weight on $\\mathbf{a}$: the point $t\\mathbf{a}$ on the line through $\\mathbf{a}$",
+   "kind": "Number",
+   "typical": "closest to $\\mathbf{b}$ at $t = \\mathbf{a}'\\mathbf{b}/\\mathbf{a}'\\mathbf{a}$",
+   "keys": [
+    "t"
+   ],
+   "from": "inner-products-and-orthogonality"
+  },
+  {
+   "tex": "$\\mathbf{X}$, $\\mathbf{e}$, $\\mathbf{z}$",
+   "meaning": "Regressors, residuals, instruments",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "bold(X)",
+    "bold(e)",
+    "bold(z)"
+   ],
+   "from": "inner-products-and-orthogonality"
+  },
+  {
+   "tex": "$\\mathbf{a}$, $\\mathbf{b}$, $\\mathbf{p}$",
+   "meaning": "Vectors in the one-vector projection example",
+   "kind": "Vectors",
+   "typical": "—",
+   "keys": [
+    "bold(a)",
+    "bold(b)",
+    "bold(p)"
+   ],
+   "from": "projection-matrix-and-residual-maker"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "projection-onto-a-vector"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$\\mathbf{a}$, $\\mathbf{b}$",
+      "$t$",
+      "$\\mathbf{X}$, $\\mathbf{e}$, $\\mathbf{z}$",
+      "$\\mathbf{a}$, $\\mathbf{b}$, $\\mathbf{p}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Purpose.** See that the point $t\\mathbf{a}$ closest to $\\mathbf{b}$ is where the residual $\\mathbf{e} = \\mathbf{b} - t\\mathbf{a}$ is orthogonal to $\\mathbf{a}$, and that this happens at $t^{*} = \\mathbf{a}'\\mathbf{b}/\\mathbf{a}'\\mathbf{a}$, as in [Inner Products and Orthogonality](note:inner-products-and-orthogonality) and [Projection Matrix and Residual Maker](note:projection-matrix-and-residual-maker).\n- **Model.** Its own (no shared model): $\\mathbf{p} = t\\mathbf{a}$, $\\mathbf{e} = \\mathbf{b} - \\mathbf{p}$, `dot` $= \\mathbf{a}'\\mathbf{e}$, `dist` $= \\lVert\\mathbf{e}\\rVert$. The slider $t$ moves $\\mathbf{p}$ along the line; there is no drag.\n- **Elements.** Panel `plane`: line `a_line`, arrows `a_vec`, `b_vec`, `p_vec`, `e_vec` (the residual, drawn from $\\mathbf{p}$ to $\\mathbf{b}$) and point `p_pt`. Readouts `dot_out`, `dist_out`, `tstar_out`.\n- **Zero vector.** $\\mathbf{a} = (0, 0)$ would divide by $\\mathbf{a}'\\mathbf{a} = 0$ in `tstar`; the derived value `aa` guards it (`tstar` is 0 there). The placement also locks $\\mathbf{a}$ and $\\mathbf{b}$."
+      }
+     ],
+     "words": 106,
+     "symbols": [
+      "$\\mathbf{a}$, $\\mathbf{b}$",
+      "$\\mathbf{a}'\\mathbf{b}$",
+      "$t$",
+      "$\\mathbf{X}$, $\\mathbf{e}$, $\\mathbf{z}$",
+      "$\\mathbf{a}$, $\\mathbf{b}$, $\\mathbf{p}$"
+     ]
+    },
+    {
+     "id": "notes-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Goal it supports.** `abs(dot) < 0.2`. Here `dot` $= 5 - 5t$, so on the 0.05 grid only $t = 1$ satisfies it (at $t = 0.95$ and $1.05$ the value is 0.25).\n- **Tests.** The brief's numbers for $\\mathbf{a} = (2, 1)$, $\\mathbf{b} = (1, 3)$ at $t = 0, 1, 5$, the L2 self-check 3 projection, and the zero-vector guard."
+      }
+     ],
+     "words": 42,
+     "symbols": [
+      "$\\mathbf{a}$, $\\mathbf{b}$",
+      "$t$"
+     ]
+    }
+   ]
+  }
+ ]
+}

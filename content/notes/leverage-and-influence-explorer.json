@@ -1,0 +1,187 @@
+{
+ "slug": "leverage-and-influence-explorer",
+ "notation": [
+  {
+   "tex": "$h_i$",
+   "meaning": "Leverage of observation $i$: how unusual its regressors are",
+   "kind": "Statistic",
+   "typical": "Flag if $> 2p/n$",
+   "keys": [
+    "h"
+   ],
+   "from": "regression-diagnostics"
+  },
+  {
+   "tex": "$t_i$",
+   "meaning": "Studentised residual: how badly observation $i$ is fitted",
+   "kind": "Statistic",
+   "typical": "Flag if $\\lvert t_i\\rvert > 2$",
+   "keys": [
+    "t"
+   ],
+   "from": "regression-diagnostics"
+  },
+  {
+   "tex": "$p$, $n$",
+   "meaning": "Number of parameters and of observations",
+   "kind": "Counts",
+   "typical": "—",
+   "keys": [
+    "p",
+    "n"
+   ],
+   "from": "regression-diagnostics"
+  },
+  {
+   "tex": "$D_i$",
+   "meaning": "Cook's distance: how much all fitted values move when observation $i$ is dropped",
+   "kind": "Statistic",
+   "typical": "Large relative to $4/n$",
+   "keys": [
+    "D"
+   ],
+   "from": "regression-diagnostics"
+  },
+  {
+   "tex": "$y_i$",
+   "meaning": "Outcome for observation $i$ (e.g. food spending)",
+   "kind": "Random variable",
+   "typical": "—",
+   "keys": [
+    "y"
+   ],
+   "from": "simple-linear-regression-model"
+  },
+  {
+   "tex": "$x_i$",
+   "meaning": "Explanatory variable (e.g. income)",
+   "kind": "Observed",
+   "typical": "—",
+   "keys": [
+    "x"
+   ],
+   "from": "simple-linear-regression-model"
+  },
+  {
+   "tex": "$e_i$",
+   "meaning": "Error: everything else affecting $y_i$",
+   "kind": "Unobserved",
+   "typical": "Mean zero",
+   "keys": [
+    "e"
+   ],
+   "from": "simple-linear-regression-model"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "leverage-and-influence-explorer"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$y_i$",
+      "$x_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A precomputed chart: nothing is fitted in the browser. Every line and number is looked up from `econ430-l6-leverage-influence` by the position of the draggable point (`x31`, `y31`), on a 0.5 grid (51 × 61 positions). Provenance: `_data/registry.yaml` and the notebook `econ430-l6-leverage-influence.ipynb`, which fits OLS with `statsmodels` at every grid position, reads `get_influence()` (leverage, internally studentized residual, Cook's distance) and checks them against the closed forms $h = 1/n + (x_{31}-\\bar{x})^2/S_{xx}$, $t = e/(s\\sqrt{1-h})$ and $D = t^2 h/(p(1-h))$."
+      }
+     ],
+     "words": 70,
+     "symbols": [
+      "$h_i$",
+      "$t_i$",
+      "$p$, $n$",
+      "$D_i$",
+      "$x_i$",
+      "$e_i$"
+     ]
+    },
+    {
+     "id": "notes-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **The data.** Thirty points from `default_rng(0)`: $y = 2 + 0.5x + N(0,1)$, $x \\sim U(0,10)$. Their fit is $\\hat{y} = 2.2888 + 0.4976x$, $\\bar{x} = 5.34$; no base point has $|t| > 2$, so only the extra point can be an outlier. Then $n = 31$, $p = 2$ and the leverage cut-off is $2p/n = 4/31 = 0.129$.\n- **The residual-leverage panel moves one point only.** The 30 base points sit at their leverage and residual in the 30-point fit (series `rl_base`, static). Adding the 31st point really moves them a little; that motion is not in the table, because a full 31-point panel at 3,111 positions would be over 2 MB. The extra point `rl_pt` is live."
+      }
+     ],
+     "words": 94,
+     "symbols": [
+      "$t_i$",
+      "$p$, $n$",
+      "$y_i$",
+      "$x_i$"
+     ]
+    },
+    {
+     "id": "notes-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Reference lines.** Three two-row table series drawn as lines in the `rl` panel: `ref_h` (vertical at $h = 4/31 = 0.129$, $t$ from −6 to 6) and `ref_t_hi`, `ref_t_lo` (horizontal at $t = \\pm 2$). `lev_cutoff` (the single row $2p/n = 0.129$) sits in the `along` panel so that a test can read it.\n- **The third panel** (`along`) holds `h`, `t` and `cook` so that the readouts can look them up with `at(\"h\", x31)`. A lesson placement leaves it out of `show`.\n- **Three positions.**"
+      }
+     ],
+     "words": 81,
+     "symbols": [
+      "$h_i$",
+      "$t_i$",
+      "$p$, $n$"
+     ]
+    },
+    {
+     "id": "notes-4",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Position | $x_{31}$ | $y_{31}$ | $h$ | $t$ | $D$ | Slope with the point |\n| --- | --- | --- | --- | --- | --- | --- |\n| Far right, on the line | 25 | 14.5 | 0.568 | −0.158 | 0.016 | 0.4912 |\n| Far right, off the line | 25 | 5 | 0.568 | −4.200 | 11.612 | 0.2234 |\n| Near $\\bar{x}$, off the line | 5.5 | 11 | 0.032 | 4.057 | 0.275 | 0.5006 |"
+      },
+      {
+       "t": "prose",
+       "md": "The first is high-leverage only, the second is high-leverage, an outlier and influential, the third is an outlier with low leverage and a small $D$. The slope without the extra point is 0.4976."
+      }
+     ],
+     "words": 91,
+     "symbols": [
+      "$h_i$",
+      "$t_i$",
+      "$D_i$",
+      "$y_i$",
+      "$x_i$"
+     ]
+    },
+    {
+     "id": "notes-5",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Elements.** Panels `scatter`, `rl`, `along`; series `base`, `fit_without`, `fit_with`, `pt`, `rl_base`, `rl_pt`, `ref_h`, `ref_t_hi`, `ref_t_lo`, `h`, `t`, `cook`, `lev_cutoff`. Readouts `h_now`, `t_now`, `cook_now`, `slope_now`, `slope_base`; derived `h31`, `t31`, `d31`, `slope_with`, `slope_alone`."
+      }
+     ],
+     "words": 49,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

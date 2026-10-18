@@ -42,6 +42,7 @@ class CleanVault(FixtureTest):
         self.assertEqual(warnings, [
             f"warn  {GOLDEN_RULE}: planned: spec: panels[0]: missing 'y' (line 29)",
             f"warn  {GOLDEN_RULE}: planned: spec: panels[0]: missing 'curves' (line 29)",
+            f"warn  {LECTURE}: interactive callout at line 130: brief needs 'route: expression | precomputed' (older brief: add it before building)",
             f"warn  {LECTURE}: interactive callout at line 130: brief number {{cbar: 2.5}} is not in Toy Golden Rule's tests",
         ], out)                                    # generated notes (Concept Index, Model Library, Backlog) need no inbound links
 

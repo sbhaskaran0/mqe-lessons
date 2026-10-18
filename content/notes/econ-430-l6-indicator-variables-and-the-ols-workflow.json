@@ -189,6 +189,17 @@
    "from": "q-q-plot"
   },
   {
+   "tex": "$\\bar{x}$, $s$",
+   "meaning": "Sample mean and standard deviation, for the reference line",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "bar(x)",
+    "s"
+   ],
+   "from": "q-q-plot"
+  },
+  {
    "tex": "$B$",
    "meaning": "Number of bootstrap repetitions",
    "kind": "Choice",
@@ -662,27 +673,109 @@
      "id": "5-diagnostic-plots-5",
      "blocks": [
       {
+       "t": "interactive",
+       "widget": "leverage-and-influence-explorer",
+       "state": {
+        "x31": 25,
+        "y31": 14.5
+       },
+       "lock": [
+        "x31",
+        "y31"
+       ],
+       "show": [
+        "scatter",
+        "rl",
+        "h_now",
+        "t_now",
+        "cook_now",
+        "slope_now",
+        "slope_base"
+       ],
+       "highlight": "pt",
+       "prompt": "Add one point far to the right of the data, essentially on the fitted line",
+       "predict": {
+        "hide": [
+         "fit_with",
+         "rl",
+         "h_now",
+         "t_now",
+         "cook_now",
+         "slope_now"
+        ],
+        "ask": "The 30 data points have $x$ between 0 and 10, with $\\bar{x} = 5.34$. A 31st point is added at $x = 25$, $y = 14.5$, where the line fitted to the other 30 passes through $y = 14.73$. Which description fits this point?",
+        "options": [
+         "Influential: it is far away from the other points",
+         "An outlier: its $x$ is extreme",
+         "High-leverage only: unusual in $x$, but it fits the line",
+         "None of the three: it lies on the line, so nothing about it is unusual"
+        ],
+        "answer": 2,
+        "why": "Leverage depends on $x$ only: $h = 0.568$ against the cut-off $4/31 = 0.129$. The residual is tiny, $t = -0.16$, so it is not an outlier, and $D = 0.016$: the slope moves only from 0.4976 to 0.4912. Unusual in $x$ and well fitted gives high leverage without influence. In the residual-leverage panel only the extra point moves; the 30 base points stay at their positions in the 30-point fit.",
+        "feedback": [
+         "Distance alone does not make a point influential. Influence needs a poor fit as well, and this point is fitted almost perfectly: its Cook distance is $D = 0.016$, and adding it moves the slope only from 0.4976 to 0.4912.",
+         "An outlier is defined by its residual, not by its $x$. This point lies on the line, with studentized residual $t = -0.16$, far inside $\\pm 2$.",
+         null,
+         "Lying on the line is about the residual; leverage is about $x$ alone. Its leverage is $h = 0.568$, far above the cut-off $2p/n = 4/31 = 0.129$."
+        ]
+       },
+       "objectives": [
+        5
+       ]
+      }
+     ],
+     "words": 15,
+     "symbols": [
+      "$D_i$ (e.g. $UTOWN$, $FEMALE$)",
+      "$\\boldsymbol{\\varepsilon}$, $y$",
+      "$h_i$",
+      "$t_i$",
+      "$p$, $n$",
+      "$x_{(i)}$"
+     ]
+    },
+    {
+     "id": "5-diagnostic-plots-6",
+     "blocks": [
+      {
        "t": "prose",
        "md": "High leverage alone is harmless: a point far out in $x$ that sits on the line is fitted well and moves nothing. An observation is influential when it is unusual in $x$ and badly fitted at the same time, so that dropping it would visibly move the line."
       },
       {
        "t": "interactive",
        "widget": "leverage-and-influence-explorer",
-       "prompt": "Drag one observation and see how leverage, its residual and its influence move the line",
-       "status": "planned",
-       "purpose": "Separate the three ideas: leverage (unusual x), outlier (badly fitted y) and influence (moves the fit), and see the 2p/n and |t| > 2 cut-offs at work",
+       "state": {
+        "x31": 25,
+        "y31": 14.5
+       },
+       "show": [
+        "scatter",
+        "rl",
+        "h_now",
+        "t_now",
+        "slope_base"
+       ],
+       "highlight": "pt",
+       "prompt": "Drag the extra point off the line, far to the right and then near $\\bar{x}$, until the solid line's slope falls below 0.30 (the dashed line's is 0.4976). In the residual-leverage panel only the extra point moves; the 30 base points stay at their positions in the 30-point fit.",
+       "goal": {
+        "when": "slope_with < 0.30",
+        "success": "The slope is below 0.30: the line has been pulled from 0.4976 towards the extra point. Every position that does this is far off the line ($|t|$ above 3.6) and at least 3.3 units from $\\bar{x} = 5.34$. At $(25, 5)$ the point has $h = 0.568$, $t = -4.20$ and $D = 11.6$, and the slope is 0.2234. The same kind of miss near $\\bar{x}$, at $(5.5, 11)$, has $t = 4.06$ but $h = 0.032$ and $D = 0.28$, and leaves the slope at 0.5006.",
+        "hint": "Try the same miss in two places, far right of the data and near $\\bar{x}$, and watch the solid line against the dashed one. Only one of the two places tilts it."
+       },
        "objectives": [
         5
        ]
       }
      ],
-     "words": 61,
+     "words": 96,
      "symbols": [
-      "$x_{(i)}$"
+      "$\\boldsymbol{\\varepsilon}$, $y$",
+      "$x_{(i)}$",
+      "$\\bar{x}$, $s$"
      ]
     },
     {
-     "id": "5-diagnostic-plots-6",
+     "id": "5-diagnostic-plots-7",
      "blocks": [
       {
        "t": "prose",

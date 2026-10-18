@@ -145,9 +145,24 @@ class Placements(unittest.TestCase):
 
     def test_a_planned_block_with_no_widget_checks_only_its_shape(self):
         self.assertEqual(vt.validate_block({"widget": "W", "status": "planned", "lock": ["anything"]}, None), [])
-        self.assertIn("brief: unknown key 'colour' (allowed: purpose, model, panels, learner, goal, predict, numbers, added)",
+        self.assertIn("brief: unknown key 'colour' (allowed: purpose, model, panels, learner, goal, predict, numbers, added, route, source, grid, table)",
                       vt.validate_block({"widget": "W", "brief": {"colour": 1}}, None))
         self.assertIn("brief.numbers[0]: missing 'expect'", vt.validate_block({"widget": "W", "brief": {"numbers": [{"params": {}}]}}, None))
+
+    def test_a_brief_declares_its_route(self):
+        from datetime import date
+        issues = lambda **b: vt._brief_issues({"brief": b}, None, None, "W")
+        new, old = date(2026, 10, 18), date(2026, 10, 16)
+        self.assertEqual(issues(route="expression", added=new), [])
+        self.assertEqual(issues(route="precomputed", source="nb cells 1-2", grid={"h": "0.5..1.5 step 0.5"}, table=["kde: h"]), [])
+        self.assertEqual(issues(added=new), [(True, "W: brief needs 'route: expression | precomputed'")])
+        self.assertEqual(issues(added=old), [(False, "W: brief needs 'route: expression | precomputed' (older brief: add it before building)")])
+        self.assertEqual(issues(route="live"), [(True, "W: brief.route 'live' must be 'expression' or 'precomputed'")])
+        self.assertEqual(issues(route="precomputed", grid={"h": "x"}),
+                         [(True, "W: 'route: precomputed' brief needs 'source:'"), (True, "W: 'route: precomputed' brief needs 'table:'")])
+        self.assertEqual(issues(route="expression", source="nb"), [(True, "W: brief.source belongs to 'route: precomputed'")])
+        self.assertEqual(vt._brief_issues({"brief": {"added": old}}, None, None, "W", planned=False), [])   # live widget: history
+        self.assertIn("brief.grid must be a mapping", vt.validate_block({"widget": "W", "brief": {"grid": "h"}}, None))
 
 
 class Rubric(unittest.TestCase):

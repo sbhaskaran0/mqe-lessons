@@ -114,6 +114,27 @@
    "from": "skewness-and-kurtosis"
   },
   {
+   "tex": "$F^{-1}(\\cdot)$",
+   "meaning": "Quantile function of the reference distribution",
+   "kind": "Function",
+   "typical": "Standard normal by default",
+   "keys": [
+    "F"
+   ],
+   "from": "q-q-plot"
+  },
+  {
+   "tex": "$\\bar{x}$, $s$",
+   "meaning": "Sample mean and standard deviation, for the reference line",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "bar(x)",
+    "s"
+   ],
+   "from": "q-q-plot"
+  },
+  {
    "tex": "$\\ln L$",
    "meaning": "Maximized log-likelihood of a fitted family",
    "kind": "Statistic",
@@ -437,16 +458,55 @@
       {
        "t": "interactive",
        "widget": "kernel-density-bandwidth-explorer",
-       "prompt": "Slide the bandwidth and watch a density estimate move from spiky to over-smoothed",
-       "status": "planned",
-       "purpose": "See the bias-variance trade-off of the bandwidth h: small h follows noise, large h flattens real features, compared against the true density",
+       "state": {
+        "h": 0.12
+       },
+       "show": [
+        "hist",
+        "kde",
+        "truth",
+        "rug",
+        "ise",
+        "h_now"
+       ],
+       "prompt": "Slide the bandwidth and compare the density estimate with the true density",
+       "goal": {
+        "when": "err < 0.05",
+        "success": "The ISE is below 0.05 only for $h$ between 0.015 and 0.045, with its minimum, 0.0385, at $h = 0.02$ (0.110 at the lecture's 0.12). Below 0.015 the variance takes over: at $h = 0.01$ the ISE rises to 0.055.",
+        "hint": "Move $h$ below the default and watch the marker on the ISE curve. It falls, but not all the way to the smallest bandwidth."
+       },
+       "predict": {
+        "hide": [
+         "error",
+         "ise",
+         "h_now"
+        ],
+        "ask": "These are the lecture's 1,000 exponential draws, whose true density is $2e^{-2x}$. The lecture's default bandwidth is $h = 0.12$. The integrated squared error (ISE) measures the gap between the estimate and the true density over the whole grid, from $-0.2$ to $3.5$. Which bandwidth gives the smallest ISE?",
+        "options": [
+         "About 0.12: the default is chosen to track the data well",
+         "Far below the default, near 0.02",
+         "About 0.06, half the default",
+         "Well above the default, near 0.3, because more smoothing averages out the noise"
+        ],
+        "answer": 1,
+        "why": "The ISE is 0.0385 at $h = 0.02$, 0.0573 at 0.06 and 0.110 at 0.12. The exponential jumps from 0 to 2 at $x = 0$, and a smooth kernel smears mass below 0, where the true density is 0. The ISE counts that leak (0.0131 of it at $h = 0.02$, 0.0485 at $h = 0.12$), so over the whole grid small $h$ wins. Counting only $x \\ge 0$, the best $h$ would be 0.04. Now slide $h$ and watch the marker on the ISE curve.",
+        "feedback": [
+         "At $h = 0.12$ the ISE is 0.110, 2.9 times the smallest value on the grid (0.0385). The default is a rule of thumb for roughly normal data, not an optimum for this density.",
+         null,
+         "At $h = 0.06$ the ISE is 0.0573, still 1.5 times the minimum, and it keeps falling as $h$ shrinks to 0.02.",
+         "At $h = 0.3$ the ISE is 0.234, more than twice its value at 0.12: the estimate's peak is flattened to 0.86 against the true 2."
+        ]
+       },
        "objectives": [
         3
        ]
       }
      ],
-     "words": 13,
-     "symbols": []
+     "words": 12,
+     "symbols": [
+      "$h$",
+      "$x_i$"
+     ]
     }
    ]
   },
@@ -473,6 +533,107 @@
     },
     {
      "id": "4-quantile-plots-2",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "q-q-plot-shape-explorer",
+       "state": {
+        "family": 3,
+        "s": 0.5,
+        "df": 3
+       },
+       "lock": [
+        "family",
+        "s"
+       ],
+       "show": [
+        "ref",
+        "qq",
+        "q01",
+        "q50",
+        "q99"
+       ],
+       "prompt": "Predict how the Q-Q plot of a Student t distribution bends at its two ends",
+       "predict": {
+        "hide": [
+         "qq",
+         "q01",
+         "q50",
+         "q99"
+        ],
+        "ask": "Take a Student $t$ distribution with 3 degrees of freedom, standardized to mean 0 and standard deviation 1 and plotted against the standard normal quantiles, with the 45-degree line as the normal reference. Which way do the two ends of its Q-Q plot bend?",
+        "options": [
+         "Both ends above the line",
+         "Left end below the line, right end above it",
+         "Both ends below the line",
+         "Left end above the line, right end below it"
+        ],
+        "answer": 1,
+        "why": "The $t$ with 3 degrees of freedom has 0.99 quantile 4.541, which divided by its standard deviation $\\sqrt{3} = 1.732$ gives 2.622, against 2.326 for the normal. By symmetry the 0.01 point is at $-2.622$. So the left end falls below the line and the right end rises above it: an S shape, the signature of heavy tails. Slide the degrees of freedom: at 30 the 0.99 point is back to 2.37, near the line, and at 2 it is 5.75 (with infinite variance, that one is scaled by IQR/1.349 instead).",
+        "feedback": [
+         "That is the signature of right skew. The $t$ is symmetric, so its two ends mirror each other: the 0.01 quantile is exactly minus the 0.99 quantile, and they cannot both lie above the line.",
+         null,
+         "For a symmetric distribution the ends sit on opposite sides of the line. The $t$ has more mass far out than the normal, so its 0.99 quantile, 2.62, lies above the line at 2.33.",
+         "That is the light-tailed pattern, as for the uniform, whose 0.99 quantile is 1.70, below the normal's 2.33. The $t$ has more extreme values than the normal, not fewer."
+        ]
+       },
+       "objectives": [
+        4
+       ]
+      }
+     ],
+     "words": 15,
+     "symbols": [
+      "$n$",
+      "$F^{-1}(\\cdot)$",
+      "$\\bar{x}$, $s$"
+     ]
+    },
+    {
+     "id": "4-quantile-plots-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Next, move from a symmetric heavy-tailed shape to a skewed one: the lognormal is the lecture's model of right-skewed income."
+      },
+      {
+       "t": "interactive",
+       "widget": "q-q-plot-shape-explorer",
+       "state": {
+        "family": 1,
+        "s": 0.5,
+        "df": 3
+       },
+       "lock": [
+        "df"
+       ],
+       "show": [
+        "ref",
+        "qq",
+        "q01",
+        "q50",
+        "q99"
+       ],
+       "prompt": "Generate a Q-Q plot whose two ends both bend above the line",
+       "goal": {
+        "when": "family == 2 and s > 0.54",
+        "success": "The lognormal with $s = 0.55$ puts the 0.99 point at 3.52 against the line's 2.33, and the 0.01 point at $-1.28$ against $-2.33$: both ends above the line, a compressed left tail and a stretched right tail. That is right skew.",
+        "hint": "Which family is skewed? The degrees of freedom only matter for the $t$, and the shape $s$ only for the lognormal. Choose the family, then raise $s$ until the rightmost marked point is above 3.5."
+       },
+       "objectives": [
+        4
+       ]
+      }
+     ],
+     "words": 32,
+     "symbols": [
+      "$n$",
+      "$F^{-1}(\\cdot)$",
+      "$\\bar{x}$, $s$"
+     ]
+    },
+    {
+     "id": "4-quantile-plots-4",
      "blocks": [
       {
        "t": "check",
@@ -506,23 +667,6 @@
       }
      ],
      "words": 86,
-     "symbols": []
-    },
-    {
-     "id": "4-quantile-plots-3",
-     "blocks": [
-      {
-       "t": "interactive",
-       "widget": "q-q-plot-shape-explorer",
-       "prompt": "Change a distribution's skew and tails and see how each bends the Q-Q plot",
-       "status": "planned",
-       "purpose": "Learn the four Q-Q signatures (right skew, left skew, heavy tails, light tails) by generating them",
-       "objectives": [
-        4
-       ]
-      }
-     ],
-     "words": 14,
      "symbols": []
     }
    ]

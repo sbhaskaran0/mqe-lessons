@@ -643,16 +643,46 @@
        "md": "The Box-Cox family $x^{(\\lambda)} = (x^\\lambda - 1)/\\lambda$, with $\\ln x$ at $\\lambda = 0$, runs along a ladder of powers. The lecture standardizes GDP per capita after each rung: $\\lambda = 1$ and $0.5$ leave a long upper tail, $-0.5$ and $-1$ create a long lower one, and $\\lambda = 0$ is the most symmetric. The power is estimated by maximum likelihood and then rounded to a natural value, which a likelihood-ratio test checks: $T = 2(L_0 - \\hat{L})$ against a $\\chi^2_1$."
       },
       {
-       "t": "figure",
-       "src": "assets/Attachments/Ladder of powers - UN GDP per capita.png",
-       "alt": "Ladder of powers - UN GDP per capita"
-      },
-      {
-       "t": "prose",
-       "md": "For infant mortality (right-skewed, see its histogram in [Box-Cox and Power Transformations](note:box-cox-and-power-transformations)), the estimate is $\\lambda_0 = 0.047$ with 95% confidence interval $[-0.088, 0.182]$."
+       "t": "interactive",
+       "widget": "box-cox-ladder-explorer",
+       "state": {
+        "lam": 1
+       },
+       "show": [
+        "dist",
+        "curve"
+       ],
+       "highlight": "cutoff",
+       "prompt": "Step along the ladder for infant mortality, then find the rounded power the data do not reject",
+       "goal": {
+        "when": "abs(lam) < 0.001 and at(\"T\", lam) < 3.84",
+        "success": "At $\\lambda = 0$ the log-likelihood is $-608.55$, above the cut-off $-610.24$: $T = 0.46 < 3.84$, so the log is not rejected. The neighbouring rounded powers $\\pm 0.5$ and $1$ fall far below the line.",
+        "hint": "Slide $\\lambda$ down from 1 and watch the point on the curve in the right-hand panel: a power is not rejected only while the curve is above the cut-off line. Then pick the rounded value (a multiple of 0.5) under that part of the curve."
+       },
+       "predict": {
+        "hide": [
+         "curve"
+        ],
+        "ask": "Infant mortality is right-skewed and starts here untransformed ($\\lambda = 1$). Is $\\lambda = 0.5$, the square root, inside the 95% region, one the likelihood-ratio test does not reject?",
+        "options": [
+         "Yes: it is closer to the log than to no transformation",
+         "Only just: it sits right at the edge of the region",
+         "No: it is well outside the region"
+        ],
+        "answer": 2,
+        "why": "The profile log-likelihood peaks at $L = -608.32$ near $\\lambda = 0.047$ and the 95% region is everything above $-610.24$ (1.92 below the peak). At $\\lambda = 0.5$, $L = -629.30$, so $T = 41.96 \\gg 3.84$ and the power is rejected.",
+        "feedback": [
+         "Distance along the ladder does not decide it: the test compares log-likelihoods. At $\\lambda = 0.5$, $L = -629.30$, which is 19.06 below the cut-off of $-610.24$.",
+         "It is nowhere near the edge. $T = 2(-608.32 + 629.30) = 41.96$ against the 5% critical value 3.84, so the curve is more than 19 log-likelihood units under the line.",
+         null
+        ]
+       },
+       "objectives": [
+        4
+       ]
       }
      ],
-     "words": 77,
+     "words": 75,
      "symbols": [
       "$y$, $x$",
       "$\\lambda$",
@@ -663,6 +693,24 @@
     },
     {
      "id": "5-box-cox-power-transformations-2",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Ladder of powers - UN GDP per capita.png",
+       "alt": "Ladder of powers - UN GDP per capita"
+      },
+      {
+       "t": "prose",
+       "md": "For infant mortality (right-skewed, see its histogram in [Box-Cox and Power Transformations](note:box-cox-and-power-transformations)), the estimate is $\\lambda_0 = 0.047$ with 95% confidence interval $[-0.088, 0.182]$."
+      }
+     ],
+     "words": 19,
+     "symbols": [
+      "$\\lambda$"
+     ]
+    },
+    {
+     "id": "5-box-cox-power-transformations-3",
      "blocks": [
       {
        "t": "check",
@@ -703,24 +751,14 @@
      ]
     },
     {
-     "id": "5-box-cox-power-transformations-3",
+     "id": "5-box-cox-power-transformations-4",
      "blocks": [
-      {
-       "t": "interactive",
-       "widget": "box-cox-ladder-explorer",
-       "prompt": "Step along the ladder of powers and watch skew, the Q-Q plot and the log-likelihood respond",
-       "status": "planned",
-       "purpose": "See what each Box-Cox power does to a right-skewed variable, and read the likelihood-ratio test of a rounded power off the profile log-likelihood",
-       "objectives": [
-        4
-       ]
-      },
       {
        "t": "prose",
        "md": "For variables that can be negative, such as stock returns, the Yeo-Johnson transformation applies Box-Cox to $x + 1$ for $x \\geq 0$ and to $-x + 1$ with power $2 - \\lambda$ for $x < 0$. With several variables, each gets its own power: in the `Highway1` data the test that all four powers are 0 (all logs) gives $p = 0.198$, while \"no transformation\" is rejected with $p \\approx 10^{-26}$."
       }
      ],
-     "words": 67,
+     "words": 51,
      "symbols": [
       "$y$, $x$",
       "$\\lambda$",

@@ -252,16 +252,73 @@
        "md": "Cross-validation is most useful for choosing between models. The lecture fits polynomials of degree 1 to 5 in stopping distance to predict speed and compares their CV errors. In-sample error can only fall as terms are added; the CV error is what reveals overfitting."
       },
       {
+       "t": "interactive",
+       "widget": "polynomial-degree-and-cross-validation",
+       "state": {
+        "degree": 1,
+        "fold": 1
+       },
+       "show": [
+        "data",
+        "fit",
+        "fold_fit",
+        "heldout",
+        "cv_rmse",
+        "train_rmse",
+        "cv_now_pt",
+        "train_now_pt",
+        "cv_now",
+        "train_now"
+       ],
+       "highlight": "heldout",
+       "prompt": "Step the degree from 1 to 2 and compare the two error curves",
+       "predict": {
+        "hide": [
+         "cv_rmse",
+         "train_rmse",
+         "cv_now_pt",
+         "train_now_pt",
+         "cv_now",
+         "train_now"
+        ],
+        "ask": "The line of degree 1 has 5-fold CV RMSE 3.64 mph and in-sample RMSE 3.09 mph. Add a squared term (degree 2). What happens to the CV RMSE?",
+        "options": [
+         "It falls, because the curve can bend to follow the cars more closely",
+         "It rises",
+         "It stays about the same, because one extra term is a small change"
+        ],
+        "answer": 1,
+        "why": "The CV RMSE rises from 3.64 to 4.46 mph while the in-sample RMSE falls from 3.09 to 2.82. The extra term fits the shape of the 40 training cars, including noise, and that does not carry over to the 10 held-out cars.",
+        "feedback": [
+         "In-sample error does fall, from 3.09 to 2.82, but CV scores the fit on cars it was not fitted to, and there the squared term does not help.",
+         null,
+         "It moves by 0.82 mph, from 3.64 to 4.46, a large change relative to the 0.27 mph fall in in-sample RMSE."
+        ]
+       },
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 57,
+     "symbols": [
+      "$K$ (or $k$)"
+     ]
+    },
+    {
+     "id": "2-choosing-model-complexity-2",
+     "blocks": [
+      {
        "t": "figure",
        "src": "assets/Attachments/Speed against stopping distance.png",
        "alt": "Speed against stopping distance"
       }
      ],
-     "words": 44,
+     "words": 0,
      "symbols": []
     },
     {
-     "id": "2-choosing-model-complexity-2",
+     "id": "2-choosing-model-complexity-3",
      "blocks": [
       {
        "t": "callout",
@@ -280,7 +337,7 @@
      "symbols": []
     },
     {
-     "id": "2-choosing-model-complexity-3",
+     "id": "2-choosing-model-complexity-4",
      "blocks": [
       {
        "t": "check",
@@ -312,24 +369,14 @@
      "symbols": []
     },
     {
-     "id": "2-choosing-model-complexity-4",
+     "id": "2-choosing-model-complexity-5",
      "blocks": [
       {
        "t": "prose",
        "md": "Stepping the degree up one at a time shows the two errors pulling apart: the fitted curve bends to pass near more of the 50 cars and swings wildly at the edges of the data."
-      },
-      {
-       "t": "interactive",
-       "widget": "polynomial-degree-and-cross-validation",
-       "prompt": "Raise the polynomial degree and watch in-sample error fall while cross-validated error rises",
-       "status": "planned",
-       "purpose": "See overfitting as the gap between in-sample and out-of-sample error as model complexity grows",
-       "objectives": [
-        3
-       ]
       }
      ],
-     "words": 48,
+     "words": 35,
      "symbols": []
     }
    ]

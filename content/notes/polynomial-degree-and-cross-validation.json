@@ -1,0 +1,78 @@
+{
+ "slug": "polynomial-degree-and-cross-validation",
+ "notation": [
+  {
+   "tex": "$K$ (or $k$)",
+   "meaning": "Number of folds the data are split into",
+   "kind": "Choice",
+   "typical": "5 or 10",
+   "keys": [
+    "K",
+    "k"
+   ],
+   "from": "cross-validation"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "polynomial-degree-and-cross-validation"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$K$ (or $k$)"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A precomputed chart for [Cross-Validation](note:cross-validation) on the R `cars` data (50 cars; speed regressed on powers of standardized stopping distance), read from `econ430-l4-poly-cv`. Folds are the unshuffled blocks of 10 cars, as `KFold(5)` in the lecture's `cross_val_score`."
+      }
+     ],
+     "words": 40,
+     "symbols": []
+    },
+    {
+     "id": "notes-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Left panel.** The 50 cars, the full-sample polynomial at the chosen degree, the 10 cars of the chosen fold (`heldout`) and the fit on the other 40 (`fold_fit`).\n- **Right panel.** In-sample RMSE (`train_rmse`, the full-sample fit) and CV RMSE (`cv_rmse`, the mean of the five fold RMSEs) against degree: CV 3.64, 4.46, 4.17, 4.60, 6.41 and in-sample 3.09, 2.82, 2.77, 2.77, 2.74 mph.\n- **Not the lecture notebook's cell 69.** That cell regresses speed on powers of speed (CV RMSE about 0 at degrees 1 to 3); this table uses stopping distance, as the lecture's correction callout states."
+      }
+     ],
+     "words": 113,
+     "symbols": []
+    },
+    {
+     "id": "notes-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Elements.** Series `data`, `heldout`, `fit`, `fold_fit`, `cv_rmse`, `train_rmse`; readouts `cv_now`, `train_now`."
+      }
+     ],
+     "words": 17,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

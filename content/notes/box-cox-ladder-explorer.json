@@ -1,0 +1,142 @@
+{
+ "slug": "box-cox-ladder-explorer",
+ "notation": [
+  {
+   "tex": "$x$ (or $y$)",
+   "meaning": "Variable being transformed (must be positive for Box-Cox)",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "x",
+    "y"
+   ],
+   "from": "box-cox-and-power-transformations"
+  },
+  {
+   "tex": "$\\lambda$",
+   "meaning": "Power parameter: 1 = no change, 0.5 = square root, 0 = log, −1 = reciprocal",
+   "kind": "Parameter, estimated",
+   "typical": "Round to a natural value",
+   "keys": [
+    "lambda"
+   ],
+   "from": "box-cox-and-power-transformations"
+  },
+  {
+   "tex": "$T_{BC}(x,\\lambda)$",
+   "meaning": "Box-Cox transform",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "T"
+   ],
+   "from": "box-cox-and-power-transformations"
+  },
+  {
+   "tex": "$\\lambda_0$, $\\hat{\\lambda}$",
+   "meaning": "Maximum-likelihood value and a candidate rounded value",
+   "kind": "Estimates",
+   "typical": "e.g. 0.0013 vs 0",
+   "keys": [
+    "lambda",
+    "hat(lambda)"
+   ],
+   "from": "box-cox-and-power-transformations"
+  },
+  {
+   "tex": "$L_0$, $\\hat{L}$",
+   "meaning": "Log-likelihoods at those values",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "L",
+    "hat(L)"
+   ],
+   "from": "box-cox-and-power-transformations"
+  },
+  {
+   "tex": "$\\chi^2_1$",
+   "meaning": "Chi-square distribution with 1 degree of freedom",
+   "kind": "Distribution",
+   "typical": "5% critical value ≈ 3.84",
+   "keys": [
+    "chi"
+   ],
+   "from": "box-cox-and-power-transformations"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "box-cox-ladder-explorer"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$\\lambda$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A precomputed chart: every curve is looked up from `econ430-l5-boxcox-ladder` by the slider `lam`. The data are `carData::UN` infant mortality per 1000 live births, with the missing values dropped (n = 207). For each power $\\lambda$ from $-1$ to $1.5$ in steps of 0.05 the notebook applies the Box-Cox transform $(x^\\lambda - 1)/\\lambda$ (the log at $\\lambda = 0$), standardizes it as the lecture does, and bins it."
+      }
+     ],
+     "words": 60,
+     "symbols": [
+      "$x$ (or $y$)",
+      "$\\lambda$"
+     ]
+    },
+    {
+     "id": "notes-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Distribution panel.** The histogram uses 32 fixed bins of width 0.25 over $[-4, 4]$, with density equal to the count over $n$ times the bin width, and the line is a Gaussian kernel density. A few extreme values lie outside $[-4, 4]$ at $\\lambda = -1$ and $\\lambda = 1.5$ and are not binned. Skewness runs from $1.29$ at $\\lambda = 1$ to $-0.09$ at $\\lambda = 0$ and $-1.70$ at $\\lambda = -1$.\n- **Profile log-likelihood panel.** $L(\\lambda)$ is `scipy.stats.boxcox_llf`. It peaks at $\\hat\\lambda = 0.0468$ with $L = -608.318$. The cut-off line sits at $L(\\hat\\lambda) - 1.92 = -610.238$, because the likelihood-ratio statistic $T = 2(L(\\hat\\lambda) - L(\\lambda))$ is compared with $\\chi^2_1$ (5% critical value 3.84, half of it 1.92). The point on the curve marks the current $\\lambda$."
+      }
+     ],
+     "words": 96,
+     "symbols": [
+      "$\\lambda$",
+      "$T_{BC}(x,\\lambda)$",
+      "$\\lambda_0$, $\\hat{\\lambda}$",
+      "$L_0$, $\\hat{L}$",
+      "$\\chi^2_1$"
+     ]
+    },
+    {
+     "id": "notes-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Statistics panel.** $T$ and the skewness against $\\lambda$, used for the readouts and the goal. $T = 0.4645$ at $\\lambda = 0$, $41.9583$ at $0.5$ and $172.814$ at $1$, as in the lecture. Among the rounded powers $-1, -0.5, 0, 0.5, 1$ only $\\lambda = 0$ has $T < 3.84$; on the slider grid the not-rejected powers are $-0.05$ to $0.15$.\n- **Elements.** Panels `dist`, `curve`, `stats`; series `hist`, `density`, `loglik`, `cutoff`, `here`, `T`, `skew`, `lambda0`, `L0`; annotation `mle`; readouts `T_now`, `skew_now`."
+      }
+     ],
+     "words": 60,
+     "symbols": [
+      "$\\lambda$",
+      "$T_{BC}(x,\\lambda)$"
+     ]
+    }
+   ]
+  }
+ ]
+}

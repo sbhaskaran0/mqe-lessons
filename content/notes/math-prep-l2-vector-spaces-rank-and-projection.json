@@ -65,6 +65,16 @@
    "from": "inner-products-and-orthogonality"
   },
   {
+   "tex": "$t$",
+   "meaning": "Weight on $\\mathbf{a}$: the point $t\\mathbf{a}$ on the line through $\\mathbf{a}$",
+   "kind": "Number",
+   "typical": "closest to $\\mathbf{b}$ at $t = \\mathbf{a}'\\mathbf{b}/\\mathbf{a}'\\mathbf{a}$",
+   "keys": [
+    "t"
+   ],
+   "from": "inner-products-and-orthogonality"
+  },
+  {
    "tex": "$\\tilde{\\mathbf{x}}$, $\\tilde{\\mathbf{y}}$",
    "meaning": "Demeaned data vectors",
    "kind": "Data",
@@ -115,6 +125,18 @@
    "typical": "Trace $n - K$",
    "keys": [
     "bold(M)"
+   ],
+   "from": "projection-matrix-and-residual-maker"
+  },
+  {
+   "tex": "$\\mathbf{a}$, $\\mathbf{b}$, $\\mathbf{p}$",
+   "meaning": "Vectors in the one-vector projection example",
+   "kind": "Vectors",
+   "typical": "—",
+   "keys": [
+    "bold(a)",
+    "bold(b)",
+    "bold(p)"
    ],
    "from": "projection-matrix-and-residual-maker"
   },
@@ -278,21 +300,71 @@
       {
        "t": "interactive",
        "widget": "projection-onto-a-vector",
-       "prompt": "Slide a point along $\\mathbf{a}$ until the residual is as short as possible",
-       "status": "planned",
-       "purpose": "See that the closest point to b on the line through a is where the residual is orthogonal to a, and that it sits at t = (a.b)/(a.a)",
+       "state": {
+        "a1": 2,
+        "a2": 1,
+        "b1": 1,
+        "b2": 3,
+        "t": 0
+       },
+       "lock": [
+        "a1",
+        "a2",
+        "b1",
+        "b2"
+       ],
+       "show": [
+        "a_line",
+        "a_vec",
+        "b_vec",
+        "p_vec",
+        "e_vec",
+        "p_pt"
+       ],
+       "highlight": "e_vec",
+       "prompt": "Set $t$ so that the point $t\\mathbf{a}$ is as close to $\\mathbf{b}$ as possible",
+       "goal": {
+        "when": "abs(dot) < 0.2",
+        "success": "At $t = 1$ the point is $\\mathbf{p} = (2, 1)$ and the residual $\\mathbf{e} = (-1, 2)$ is orthogonal to $\\mathbf{a}$: $\\mathbf{a}'\\mathbf{e} = 0$. It is the shortest residual, of length 2.236, against 3.162 at $t = 0$.",
+        "hint": "Slide $t$ until the dashed residual meets the line through $\\mathbf{a}$ at a right angle."
+       },
+       "predict": {
+        "hide": [
+         "p_vec",
+         "e_vec",
+         "p_pt"
+        ],
+        "ask": "For $\\mathbf{a} = (2, 1)$ and $\\mathbf{b} = (1, 3)$: which $t$ puts the point $t\\mathbf{a}$ closest to $\\mathbf{b}$?",
+        "options": [
+         "$t = 1$, so $\\mathbf{p} = (2, 1)$",
+         "$t = 5$, so $\\mathbf{p} = (10, 5)$",
+         "$t = 2.236$, so $\\mathbf{p} = (4.47, 2.24)$"
+        ],
+        "answer": 0,
+        "why": "The closest point makes the residual orthogonal to $\\mathbf{a}$: $\\mathbf{a}'(\\mathbf{b} - t\\mathbf{a}) = 5 - 5t = 0$, so $t = \\mathbf{a}'\\mathbf{b}/\\mathbf{a}'\\mathbf{a} = 5/5 = 1$ and $\\mathbf{p} = (2, 1)$, with residual $(-1, 2)$ of length 2.236.",
+        "feedback": [
+         null,
+         "That is $\\mathbf{a}'\\mathbf{b} = 5$ without dividing by $\\mathbf{a}'\\mathbf{a} = 5$. The point $(10, 5)$ is far beyond $\\mathbf{b}$: the residual is $(-9, -2)$, of length 9.22.",
+         "That divides $\\mathbf{a}'\\mathbf{b} = 5$ by the length $\\lVert\\mathbf{a}\\rVert = \\sqrt{5}$ instead of by $\\mathbf{a}'\\mathbf{a} = 5$. The residual is $(-3.47, 0.76)$, of length 3.56, longer than the 2.24 at $t = 1$."
+        ]
+       },
        "objectives": [
         3,
         4
        ]
       }
      ],
-     "words": 60,
+     "words": 59,
      "symbols": [
+      "$\\mathbf{b}$",
       "$\\mathbf{X}$, $\\mathbf{b}$, $\\hat{\\mathbf{y}}$",
       "$\\mathbf{a}_1, \\ldots, \\mathbf{a}_k$",
+      "$\\mathbf{a}'\\mathbf{b}$",
+      "$t$",
+      "$\\mathbf{X}$, $\\mathbf{e}$, $\\mathbf{z}$",
       "$\\mathbf{P} = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$",
-      "$\\mathbf{M} = \\mathbf{I} - \\mathbf{P}$"
+      "$\\mathbf{M} = \\mathbf{I} - \\mathbf{P}$",
+      "$\\mathbf{a}$, $\\mathbf{b}$, $\\mathbf{p}$"
      ]
     }
    ]

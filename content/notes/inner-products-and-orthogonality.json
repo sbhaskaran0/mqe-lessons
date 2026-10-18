@@ -21,6 +21,15 @@
    ]
   },
   {
+   "tex": "$t$",
+   "meaning": "Weight on $\\mathbf{a}$: the point $t\\mathbf{a}$ on the line through $\\mathbf{a}$",
+   "kind": "Number",
+   "typical": "closest to $\\mathbf{b}$ at $t = \\mathbf{a}'\\mathbf{b}/\\mathbf{a}'\\mathbf{a}$",
+   "keys": [
+    "t"
+   ]
+  },
+  {
    "tex": "$\\lVert\\mathbf{a}\\rVert$",
    "meaning": "Length (norm) of $\\mathbf{a}$",
    "kind": "Number",
@@ -207,16 +216,6 @@
     "k"
    ],
    "from": "column-space"
-  },
-  {
-   "tex": "$t$",
-   "meaning": "Time trend",
-   "kind": "Data",
-   "typical": "—",
-   "keys": [
-    "t"
-   ],
-   "from": "frisch-waugh-lovell-theorem"
   },
   {
    "tex": "$Q$",
@@ -632,10 +631,10 @@
      ],
      "words": 94,
      "symbols": [
+      "$t$",
       "$V$, $V^\\perp$",
       "$\\mathbf{X}$, $\\mathbf{e}$, $\\mathbf{z}$",
       "$n$, $K$",
-      "$t$",
       "$z$",
       "$\\hat{\\sigma}$",
       "$\\mathbf{x}$, $\\mathbf{v}$"

@@ -1,0 +1,117 @@
+{
+ "slug": "q-q-plot-shape-explorer",
+ "notation": [
+  {
+   "tex": "$x_{(i)}$",
+   "meaning": "The $i$-th smallest observation (order statistic)",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "x"
+   ],
+   "from": "q-q-plot"
+  },
+  {
+   "tex": "$n$",
+   "meaning": "Number of observations",
+   "kind": "Count",
+   "typical": "—",
+   "keys": [
+    "n"
+   ],
+   "from": "q-q-plot"
+  },
+  {
+   "tex": "$p_i$",
+   "meaning": "Plotting position: the share of the sample at or below rank $i$",
+   "kind": "Number in (0, 1)",
+   "typical": "$(i - 0.5)/n$",
+   "keys": [
+    "p"
+   ],
+   "from": "q-q-plot"
+  },
+  {
+   "tex": "$F^{-1}(\\cdot)$",
+   "meaning": "Quantile function of the reference distribution",
+   "kind": "Function",
+   "typical": "Standard normal by default",
+   "keys": [
+    "F"
+   ],
+   "from": "q-q-plot"
+  },
+  {
+   "tex": "$\\bar{x}$, $s$",
+   "meaning": "Sample mean and standard deviation, for the reference line",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "bar(x)",
+    "s"
+   ],
+   "from": "q-q-plot"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "q-q-plot-shape-explorer"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$n$",
+      "$F^{-1}(\\cdot)$",
+      "$\\bar{x}$, $s$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A precomputed chart: every point is looked up from `econ430-l1-qq-shapes` (computed with `scipy.stats`, not from the lecture notebook)."
+      },
+      {
+       "t": "prose",
+       "md": "- **Construction.** $n = 100$ plotting positions $p_i = (i - 0.5)/n$; $x = \\Phi^{-1}(p_i)$; $y$ is the family's quantile at $p_i$ standardized to mean 0, sd 1: lognormal by its exact mean and sd, Student $t$ by $\\sqrt{\\nu/(\\nu - 2)}$, uniform by $(u - \\tfrac12)\\sqrt{12}$.\n- **Degrees of freedom 2.** The variance is infinite, so that one position is scaled by $\\mathrm{IQR}/1.349$ instead; its $q_{0.99}$ is 5.75.\n- **The $t$ with 3 degrees of freedom.** The 0.99 quantile is 4.541, divided by $\\sqrt{3} = 1.732$ gives 2.622 (the normal's is 2.326). The brief's 2.627 was a typo.\n- **Which sliders apply.** `s` only affects the lognormal and `df` only the Student t; the normal and uniform ignore both."
+      }
+     ],
+     "words": 118,
+     "symbols": [
+      "$x_{(i)}$",
+      "$n$",
+      "$p_i$"
+     ]
+    },
+    {
+     "id": "notes-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Elements.** Series `ref`, `qq`, `q01`, `q50`, `q99`. Read the `q01` and `q99` points against the line: below on the left and above on the right is heavy tails; above on both is right skew; above on the left and below on the right is light tails."
+      }
+     ],
+     "words": 47,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

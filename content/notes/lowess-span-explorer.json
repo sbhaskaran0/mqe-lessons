@@ -1,0 +1,115 @@
+{
+ "slug": "lowess-span-explorer",
+ "notation": [
+  {
+   "tex": "$x_i$, $y_i$",
+   "meaning": "Regressor and outcome for observation $i$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "x",
+    "y"
+   ],
+   "from": "lowess-smoother"
+  },
+  {
+   "tex": "$f$",
+   "meaning": "Span: share of the data in each local window",
+   "kind": "Choice",
+   "typical": "2/3 in statsmodels (seaborn's default)",
+   "keys": [
+    "f"
+   ],
+   "from": "lowess-smoother"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "lowess-span-explorer"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$x_i$, $y_i$",
+      "$f$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A precomputed chart: every curve and window is looked up from `econ430-l2-lowess-span` at the current span and centre, nothing is recomputed in the browser. Prestige on income for the 102 occupations of the Prestige data (`carData::Prestige`, Canada 1971), the lecture's scatterplot."
+      },
+      {
+       "t": "prose",
+       "md": "- **Which lowess.** The robust lowess that `sns.regplot(lowess=True)` draws: statsmodels `lowess` with `frac` = 2/3, `it` = 3 (three bisquare robustness reweightings) and `delta` = 0 (a local fit at every observation). The slider's 0.65 is the grid position nearest the lecture's 2/3. The notebook's port of the algorithm matches statsmodels' fitted values to 5e-13 at all 19 spans."
+      }
+     ],
+     "words": 104,
+     "symbols": []
+    },
+    {
+     "id": "notes-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **The local line.** At a window centre it is the weighted least-squares line through the window, with weights tricube (distance to the centre over the window radius) times the final robustness weights. Its height at the centre is the lowess value there. The weights are not in the table, so the window is shown as highlighted points, not sized by weight.\n- **The window.** It holds the `int(frac × 102)` nearest points: 66 at span 0.65, 10 at 0.1, all 102 at 1. Near the ends it is lopsided: at span 0.65 the highest centre (income 25,879) uses incomes from 4,753 up."
+      }
+     ],
+     "words": 108,
+     "symbols": []
+    },
+    {
+     "id": "notes-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **The centres.** `i0` indexes 32 evenly spaced positions in the sorted incomes (611, 1,890, 2,847, ... 12,480, 17,498, 25,879); the `x0` series gives each one's income, and the `centre` readout reads it.\n- **The OLS line.** Slope 0.0028968, intercept 27.1412."
+      }
+     ],
+     "words": 47,
+     "symbols": []
+    },
+    {
+     "id": "notes-4",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Gap to OLS.** Over the 102 incomes the mean absolute gap between the lowess curve and the OLS line is 5.30 at span 0.1, 3.64 at 0.65 and 2.61 at 1. The largest gap is at the highest income: 23.18, 19.06 and 11.33. Even at span 1 the curve is not the OLS line. The derived `gap_top` is the lowess minus OLS at the highest income and is used by the tests only."
+      }
+     ],
+     "words": 83,
+     "symbols": []
+    },
+    {
+     "id": "notes-5",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Elements.** Panels `fit` and `centres`; series `data`, `ols`, `lowess`, `window`, `local`, `x0`; readout `centre`; derived `gap_top`. Panel `centres` exists so that `at(\"x0\", i0)` has a series to read, and a placement leaves it off the screen."
+      }
+     ],
+     "words": 39,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}
