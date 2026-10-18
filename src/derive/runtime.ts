@@ -223,7 +223,7 @@ export interface CheckOptions {
 }
 
 /** Previous lines: the givens, the justify steps already reached, and the student's accepted lines. */
-function pathState(rt: DeriveRuntime, state: DeriveState): PathState {
+export function pathState(rt: DeriveRuntime, state: DeriveState): PathState {
   const next = rt.milestones[state.reached] ?? rt.steps.length;
   const shown = rt.steps.filter((s) => s.justify && s.statement && s.index < next).map((s) => s.statement!);
   const typed: Statement[] = [];
@@ -242,7 +242,8 @@ function nextHint(rt: DeriveRuntime, reached: number): string | undefined {
   return i === undefined ? undefined : rt.steps[i]!.hint;
 }
 
-/** Classify one typed line: target, milestone k, valid-no-progress (with a hint) or error (with a message). Errors
+/** Classify one typed line: target, milestone k, valid (a correct new line), valid-no-progress (a repeat, with a
+ *  hint) or error (with a message). Only the target sets `done`; any true line joins `lines`. Errors
  *  leave the state unchanged. */
 export function check(rt: DeriveRuntime, state: DeriveState, input: string, opts: CheckOptions = {}): CheckResult {
   if (!rt.milestones.length) {

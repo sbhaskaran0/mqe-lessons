@@ -2,7 +2,7 @@
 // (and where each should land on the path) and the common errors it must reject.
 import { calloutToIR, type DeriveBlockIR, type DeriveCallout, parseDeriveCallout } from "../../src/derive";
 
-export type Expect = "target" | `milestone ${number}` | "valid-no-progress";
+export type Expect = "target" | `milestone ${number}` | "valid" | "valid-no-progress";
 
 export interface Fixture {
   name: string;
@@ -180,7 +180,8 @@ ${matrixHeader}
     ["MX = X - X(X'X)^{-1}X'X", "milestone 1"],
     ["MX = IX - PX", "milestone 1"],
     ["M = I - P", "valid-no-progress"],
-    ["MM = M", "valid-no-progress"],
+    // True only because of the definitions, so a line of the proof (M = M′ is a tautology, M = I − P the given).
+    ["MM = M", "valid"],
   ],
   reject: [
     ["M = I - X'(XX')^{-1}X", 0],

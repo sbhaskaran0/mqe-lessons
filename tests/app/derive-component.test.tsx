@@ -150,10 +150,10 @@ describe("Derive: verdicts", () => {
     expect(gateOpen(progress.get(), { key: KEY, kind: "derive" })).toBe(false);
   });
 
-  it("says a true line that goes nowhere is no progress, gently, with the step's hint when there is one", async () => {
+  it("says a line the learner already has is a repeat, gently, with the step's hint when there is one", async () => {
     mount(long());
     await typeLine("k_(t+1) = sA k_t^α + (1−δ) k_t");
-    await waitFor(() => expect(verdict().textContent).toMatch(/true, but it doesn't get you closer/));
+    await waitFor(() => expect(verdict().textContent).toContain("True, but you already have that."));
     expect(verdict().querySelector("[data-ok='neutral']")).toBeTruthy();
     expect(verdict().textContent).toContain("Hint");
     expect(verdict().textContent).toContain("steady state");
@@ -191,6 +191,56 @@ describe("Derive: verdicts", () => {
     await waitFor(() => expect(verdict().querySelector(".derive-chip")).toBeTruthy());
     fireEvent.click(verdict().querySelector(".derive-chip")!);
     expect(((await input()) as HTMLInputElement).value).toBe("k_t = 1");
+  });
+});
+
+describe("Derive: the learner's own route (the Econ 402A golden-rule block)", () => {
+  // The real exported block: a justify step, then k̄ = (αA/δ)^{1/(1−α)}, then the target s = α.
+  const golden = () => {
+    const body = NoteBody.parse(JSON.parse(readFileSync(path.resolve(__dirname, "../../content/notes/econ-402a-l1-solow-growth-model.json"), "utf8")));
+    return body.sections.flatMap((s) => s.steps).flatMap((st) => st.blocks).find((b): b is DeriveBlock => b.t === "derive" && b.title.includes("golden rule"))!;
+  };
+  const STEP2 = "kbar=(alpha*A/delta)^(1/(1-alpha))";
+
+  it("calls the powered form of the answer correct, shows the checker's \"Now solve for s\", and keeps the gate shut", async () => {
+    mount(golden());
+    await typeLine(STEP2);
+    await waitFor(() => expect(verdict().textContent).toContain("that is step 2 of 3"));
+    await typeLine("((alpha*A)/delta)^(1/(1-alpha))=((s*A)/delta)^(1/(1-alpha))");
+    await waitFor(() => expect(verdict().textContent).toContain("Correct. Keep going."));
+    expect(verdict().textContent).toContain("That's equivalent to the answer. Now solve for");
+    expect(verdict().querySelector(".derive-line-note .katex")).toBeTruthy();
+    expect(verdict().querySelector("[data-ok='true']")).toBeTruthy();
+    expect(verdict().textContent).not.toMatch(/doesn't get you closer/);
+    expect(screen.getByRole("list", { name: "Your lines" }).children).toHaveLength(2);
+    expect(record()).toMatchObject({ result: "open", state: { reached: 1, done: false } });
+    expect(gateOpen(progress.get(), { key: KEY, kind: "derive" })).toBe(false);
+  });
+
+  it("says a restatement of a line on the page is a repeat", async () => {
+    mount(golden());
+    await typeLine(STEP2);
+    await waitFor(() => expect(verdict().textContent).toContain("that is step 2 of 3"));
+    await typeLine("(alpha A/delta)^(1/(1-alpha)) = kbar");
+    await waitFor(() => expect(verdict().textContent).toContain("True, but you already have that."));
+    expect(verdict().querySelector("[data-ok='neutral']")).toBeTruthy();
+  });
+
+  it("says where a wrong line goes wrong, as maths, without giving the step away", async () => {
+    mount(golden());
+    await typeLine("(delta/(alpha*A))^(1/(-alpha-1))=kbar");
+    await waitFor(() => expect(verdict().textContent).toContain("Check the exponent: yours simplifies to"));
+    expect(verdict().querySelector("[data-ok='false'] .katex")).toBeTruthy();
+    expect(verdict().textContent).not.toContain("$");
+    expect(record()).toMatchObject({ state: { lines: [], reached: 0 } });
+  });
+
+  it("accepts the author's unsolved accept form as the target", async () => {
+    mount(golden());
+    await typeLine(STEP2);
+    await waitFor(() => expect(verdict().textContent).toContain("that is step 2 of 3"));
+    await typeLine("alpha*A=s*A");
+    await waitFor(() => expect(record()?.state.done).toBe(true));
   });
 });
 

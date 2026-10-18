@@ -7,17 +7,20 @@
 import { children, type Node, type Statement, withChildren } from "./ast";
 import type { SymbolTable } from "./symbols";
 
-/** Canonical spelling: x^{-1} → inv(x), −(number) → number, and transposes pushed down to the symbols
- *  ((AB)' → B'A', (A⁻¹)' → (A')⁻¹, (A')' → A, s' → s for a scalar), so a transposed spelling of a definition's
- *  right-hand side reads the same as the plain one. Every rewrite is an identity, so structural equality stays sound. */
+/** Canonical spelling: x^{-1} → inv(x), (2A)⁻¹ → ½A⁻¹, −(number) → number, and transposes pushed down to the
+ *  symbols ((AB)' → B'A', (A⁻¹)' → (A')⁻¹, (A')' → A, s' → s for a scalar), so a transposed or scaled spelling of a
+ *  definition's right-hand side reads the same as the plain one. Every rewrite is an identity, so structural equality
+ *  stays sound. */
 export function canon(n: Node, table: SymbolTable): Node {
   const c = withChildren(n, children(n).map((k) => canon(k, table)));
   switch (c.t) {
     case "pow": {
       const b = c.b;
-      if (b.t === "num" && b.v === -1) return { t: "fn", fn: "inv", a: c.a };
+      if (b.t === "num" && b.v === -1) return numberOutOfInverse({ t: "fn", fn: "inv", a: c.a }, table);
       return c;
     }
+    case "fn":
+      return c.fn === "inv" ? numberOutOfInverse(c, table) : c;
     case "neg":
       return c.a.t === "num" ? { t: "num", v: -c.a.v } : c;
     case "tr":
@@ -28,6 +31,16 @@ export function canon(n: Node, table: SymbolTable): Node {
 }
 
 const SCALAR_KINDS = new Set(["scalar", "dim", "mean", "const", "data"]);
+
+/** (cA)⁻¹ → (1/c)A⁻¹ for a nonzero number c, so the number can be set aside when folding. */
+function numberOutOfInverse(n: Extract<Node, { t: "fn" }>, table: SymbolTable): Node {
+  if (n.a.t !== "mul") return n;
+  const { coef, chain } = factors(n.a, table);
+  if (!coef.length || !chain.length || !coef.every((k) => k.t === "num")) return n;
+  const v = coef.reduce((p, k) => p * (k as { v: number }).v, 1);
+  if (v === 0 || !Number.isFinite(v)) return n;
+  return { t: "mul", a: { t: "num", v: 1 / v }, b: { t: "fn", fn: "inv", a: buildMul(chain) } };
+}
 
 /** The canonical form of a' for an already-canonical a. */
 function pushTranspose(a: Node, table: SymbolTable): Node {

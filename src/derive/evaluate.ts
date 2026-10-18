@@ -39,6 +39,9 @@ export function add(a: Val, b: Val, sign = 1): Val {
   const sa = scalarOf(a);
   const sb = scalarOf(b);
   if (sa !== undefined && sb !== undefined) return sa + sign * sb;
+  // A bare 0 is the zero of any shape, as on either side of a matrix equation (MX − 0 = 0).
+  if (b === 0) return a;
+  if (a === 0) return scale(b, sign);
   if (isEye(a) && isEye(b)) return { eye: true, s: a.s + sign * b.s, ...(a.n ?? b.n) !== undefined ? { n: a.n ?? b.n } : {} };
   if (isMat(a) && isMat(b)) return addM(a, b, sign);
   if (isEye(a) && isMat(b)) return addM(materialize(a, b.r), b, sign);

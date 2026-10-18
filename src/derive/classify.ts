@@ -3,14 +3,22 @@
 //   target             equivalent to the last step and in its form (solved for the unknown when the target is
 //                      `k̄ = …`), or the same step as an author `accept:` form;
 //   milestone(k)       equivalent to step k, beyond the furthest step reached so far (skipping ahead is fine);
-//   valid-no-progress  true, but equivalent to a line already accepted or a step already reached;
-//   error              none of the above; carries the message of the first matching `reject:` form.
+//   valid              true and new: on the student's own route, not a restatement of a line they already have
+//                      (a line equivalent to the answer but not yet solved gets "Now solve for …");
+//   valid-no-progress  true, but a restatement of a given, an accepted line or a step already reached, or an
+//                      identity that holds whatever the values;
+//   error              none of the above; carries the message of the first matching `reject:` form, else where the
+//                      line seems to go wrong (diagnose.ts), else a generic message.
 //
 // Equivalence is by solution set, so in a rearrangement derivation every step after the substitution is equivalent
 // to every other (sAk̄^α = δk̄ and k̄ = (sA/δ)^{1/(1−α)} hold for the same k̄). What separates "done" from "on the
-// way" is the target's form, which is why `target` checks it and the other steps are matched highest first.
+// way" is the target's form, which is why `target` checks it and the other steps are matched highest first. Only
+// the solved form and the author's accept forms (up to scaling both sides by a factor free of the unknown) finish:
+// any other form of the answer is a correct `valid` line one move short. "Repeat" is finer than equivalence: a line
+// is a repeat only when it restates one already on the page (`sameLine`), so taking logs of a reached step is new.
 import { type Equation, isEquation, type Node, type Statement, symbolsOf } from "./ast";
-import { type Equivalence, equivalent, impliedBy, probe, sameStep, solveVariable } from "./equivalence";
+import { diagnose } from "./diagnose";
+import { type Equivalence, equivalent, impliedBy, probe, sameLine, sameStep, solveVariable } from "./equivalence";
 import { sameStatement } from "./fold";
 import { toLatex } from "./latex";
 import { ParseError, parseStatement } from "./parse";
@@ -37,7 +45,8 @@ export interface PathState {
 export type Verdict =
   | { kind: "target"; latex: string }
   | { kind: "milestone"; step: number; latex: string; hint?: string }
-  | { kind: "valid-no-progress"; latex: string; hint?: string }
+  | { kind: "valid"; latex: string; hint?: string }
+  | { kind: "valid-no-progress"; latex: string; hint: string }
   | { kind: "error"; latex?: string; message: string; reject?: number; suggestions?: string[] };
 
 export interface ClassifyOptions {
@@ -112,16 +121,30 @@ function classifyOnce(d: Derivation, input: string | Statement, state: PathState
     }
     if (!oneSided && e.direction) oneSided = e;
   }
-  const solveHint = toTarget.equivalent ? hintSolve(target, unknowns, table) : undefined;
+  const solve = toTarget.equivalent ? solveFor(target, unknowns, table) : undefined;
+  const solveHint = solve ? `That's equivalent to the answer. Now solve for ${solve}.` : undefined;
   if (step > state.reached) return { kind: "milestone", step, latex, ...(solveHint ? { hint: solveHint } : {}) };
-  if (toTarget.equivalent) return { kind: "valid-no-progress", latex, ...(solveHint ? { hint: solveHint } : {}) };
-  if (step > 0 || state.lines.some((l) => eq(l).equivalent)) return { kind: "valid-no-progress", latex };
-  if (isEquation(cand) && probe(cand, table, opts.seed ?? 1).identity)
+  // True from here on. A restatement of a line already on the page is no progress; anything else is a new line on
+  // the student's own route, even when it matches no authored step.
+  const repeat = () => [...state.lines, ...d.steps.slice(0, state.reached)].some((l) => sameLine(cand, l, table, unknowns, opts.seed));
+  if (toTarget.equivalent || step > 0 || state.lines.some((l) => eq(l).equivalent)) {
+    if (repeat()) return { kind: "valid-no-progress", latex, hint: solve ? `${REPEAT} Now solve for ${solve}.` : REPEAT };
+    return { kind: "valid", latex, ...(solveHint ? { hint: solveHint } : {}) };
+  }
+  if (isEquation(cand) && probe(cand, table, opts.seed ?? 1).identity) {
+    // In a proof of an identity (MX = 0, D = 4NΣ(xᵢ − x̄)²) every true line holds whatever the values: one that
+    // holds only because of the definitions (MM = M, ln D = ln(…)) is a line of the proof. A tautology (k̄ = k̄,
+    // M = M′) says nothing either way.
+    const seed = opts.seed ?? 1;
+    if (isEquation(target) && table.ofKind("defined").length && probe(target, table, seed).identity && !probe(cand, table, seed, "all").identity)
+      return repeat() ? { kind: "valid-no-progress", latex, hint: REPEAT } : { kind: "valid", latex };
     return { kind: "valid-no-progress", latex, hint: "That's true, but it holds whatever the values, so it doesn't move the derivation on." };
-  if (impliedBy(cand, state.lines, table, unknowns, opts.seed))
-    return { kind: "valid-no-progress", latex, hint: "That follows from the earlier lines, but it isn't one of the steps toward the answer." };
-  return rejectOrError(d, cand, latex, oneSided ? oneSidedMessage(oneSided, table) : undefined, opts);
+  }
+  if (impliedBy(cand, state.lines, table, unknowns, opts.seed)) return { kind: "valid", latex };
+  return rejectOrError(d, cand, latex, oneSided ? oneSidedMessage(oneSided, table) : undefined, opts, state);
 }
+
+const REPEAT = "True, but you already have that.";
 
 /** A step that only goes one way. When the extra (or lost) solution is a fixed value, name it. */
 function oneSidedMessage(e: Equivalence, table: SymbolTable): string {
@@ -172,17 +195,21 @@ function probeFails(cand: Statement, table: SymbolTable, seed = 1): boolean {
   return isEquation(cand) && probe(cand, table, seed).problem !== undefined;
 }
 
-function hintSolve(target: Statement, unknowns: string[], table: SymbolTable): string | undefined {
+/** The unknown the target is solved for, as inline maths, if it is solved for one. */
+function solveFor(target: Statement, unknowns: string[], table: SymbolTable): string | undefined {
   if (!isEquation(target)) return undefined;
   const u = isolated(target, unknowns);
-  return u ? `That's equivalent to the answer. Now solve for $${table.latex(u)}$.` : undefined;
+  return u ? `$${table.latex(u)}$` : undefined;
 }
 
-function rejectOrError(d: Derivation, cand: Statement, latex: string, problem: string | undefined, opts: ClassifyOptions): Verdict {
+/** An author `reject:` message first, then the checker's own reason, then where the line seems to go wrong compared
+ *  with the next step and the target (never quoting them), then the generic message. */
+function rejectOrError(d: Derivation, cand: Statement, latex: string, problem: string | undefined, opts: ClassifyOptions, state?: PathState): Verdict {
   const unknowns = unknownsOf(d);
   const i = d.reject.findIndex(
     (r) => sameStatement(cand, r.form, d.table) || equivalent(cand, r.form, d.table, { ...(opts.seed !== undefined ? { seed: opts.seed } : {}), solveFor: unknowns }).equivalent,
   );
   if (i >= 0) return { kind: "error", latex, message: d.reject[i]!.message, reject: i };
-  return { kind: "error", latex, message: problem ?? "That doesn't follow from the previous lines." };
+  const slip = problem || !state ? undefined : diagnose(cand, [...d.steps.slice(state.reached), ...d.accept], d.table, opts.seed);
+  return { kind: "error", latex, message: problem ?? slip ?? "That doesn't follow from the previous lines." };
 }

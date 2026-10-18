@@ -1,8 +1,9 @@
 // The derivation exercise (E2): the learner types the lines of a derivation, one at a time, and the checker
-// (src/derive, loaded on first use) says whether each line is a step on the way, a true line that goes nowhere, or
-// wrong. Any valid line is accepted ("attempt the whole derivation"); "Step by step" names the next step in words.
-// Justify steps are multiple-choice questions about a line shown on screen. The record lives in the progress store, so
-// reloading keeps the lines; the step's Continue gate opens once the exercise is finished, given up or skipped.
+// (src/derive, loaded on first use) says whether each line is a step on the way, a correct line on the learner's own
+// route, a true line they already have, or wrong. Any valid line is accepted ("attempt the whole derivation"); "Step
+// by step" names the next step in words. Justify steps are multiple-choice questions about a line shown on screen.
+// The record lives in the progress store, so reloading keeps the lines; the step's Continue gate opens once the
+// exercise is finished (the target typed), given up or skipped.
 import { useEffect, useId, useMemo, useRef, useState, type FormEvent } from "react";
 import { Md } from "../app/Md";
 import { Icon } from "../app/ui";
@@ -449,19 +450,34 @@ function VerdictView({ v, block, rt, onSuggest }: { v: Verdict; block: DeriveBlo
         <Icon name="check" size={18} /> That is the target.
       </p>
     );
+  // The checker's own note on a true line ("Now solve for s") is shown with it.
+  const note = (v.kind === "milestone" || v.kind === "valid") && v.hint ? <p className="derive-line-note"><Say text={v.hint} /></p> : null;
   if (v.kind === "milestone") {
     const idx = v.index ?? rt.milestones[v.step - 1] ?? 0;
     return (
-      <p className="derive-verdict-line" data-ok="true">
-        <Icon name="check" size={18} /> Good: that is step {idx + 1} of {block.steps.length}.
-      </p>
+      <>
+        <p className="derive-verdict-line" data-ok="true">
+          <Icon name="check" size={18} /> Good: that is step {idx + 1} of {block.steps.length}.
+        </p>
+        {note}
+      </>
     );
   }
+  // A correct line on the learner's own route that matches no step: encouraged, never "no progress".
+  if (v.kind === "valid")
+    return (
+      <>
+        <p className="derive-verdict-line" data-ok="true">
+          <Icon name="check" size={18} /> Correct. Keep going.
+        </p>
+        {note}
+      </>
+    );
   if (v.kind === "valid-no-progress")
     return (
       <>
         <p className="derive-verdict-line" data-ok="neutral">
-          That is true, but it doesn't get you closer yet. Try a different move.
+          <Say text={v.hint} />
         </p>
         {v.stepHint ? (
           <p className="derive-line-note">

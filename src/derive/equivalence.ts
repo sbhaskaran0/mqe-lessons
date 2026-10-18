@@ -79,8 +79,9 @@ interface Probe {
   problem?: string;
 }
 
-/** Evaluate at a few random points: does it hold everywhere, is it scalar, can it be evaluated at all? */
-export function probe(eq: Equation, table: SymbolTable, seed: number): Probe {
+/** Evaluate at a few random points: does it hold everywhere, is it scalar, can it be evaluated at all? With `relax`,
+ *  the definitions are perturbed first (sample.ts), so a statement true only because of them no longer holds. */
+export function probe(eq: Equation, table: SymbolTable, seed: number, relax?: "leaf" | "all"): Probe {
   const r = rng(seed ^ 0x5bd1e995);
   let finite = 0;
   let zero = 0;
@@ -89,7 +90,7 @@ export function probe(eq: Equation, table: SymbolTable, seed: number): Probe {
     let res: Val;
     let mag: number;
     try {
-      [res, mag] = residualMag(eq, sampleEnv(table, r), table);
+      [res, mag] = residualMag(eq, sampleEnv(table, r, relax ? { relax } : {}), table);
     } catch (e) {
       if (e instanceof EvalError) return { identity: false, scalar: false, problem: e.message };
       throw e;
@@ -486,6 +487,51 @@ export function sameStep(a: Statement, b: Statement, table: SymbolTable, v: stri
         throw e;
       }
       if (!Number.isFinite(ra) || !Number.isFinite(rb) || rb === 0) continue;
+      const l = ra / rb;
+      if (lambda === undefined) lambda = l;
+      else if (Math.abs(l - lambda) > 1e-6 * Math.abs(lambda)) return false;
+      checked++;
+    }
+  }
+  return checked >= 6;
+}
+
+/** A restatement of the same line: swapped sides, terms moved across, or both sides scaled by a factor free of the
+ *  unknowns. With the parameters fixed, one residual is a constant multiple of the other as every unknown in them
+ *  varies together. Taking logs, a reciprocal, a power or multiplying by an unknown changes the line, so it is new
+ *  even when the solution set is the same. Statements with no scalar unknown fall back to equivalence. */
+export function sameLine(a: Statement, b: Statement, table: SymbolTable, unknowns: string[], seed = 1): boolean {
+  if (sameStatement(a, b, table)) return true;
+  if (!isEquation(a) || !isEquation(b)) return false;
+  const sa = symbolsOf(a);
+  const sb = symbolsOf(b);
+  const vars = unknowns.filter((u) => (sa.has(u) || sb.has(u)) && table.get(u)?.kind === "scalar");
+  const fallback = () => equivalent(a, b, table, { seed, solveFor: unknowns }).equivalent;
+  if (!vars.length) return fallback();
+  if (vars.some((u) => !sa.has(u) || !sb.has(u))) return false;
+  const r: Rng = rng(seed ^ 0x1b873593);
+  let checked = 0;
+  for (let t = 0; t < 6; t++) {
+    const env = sampleEnv(table, r);
+    let lambda: number | undefined;
+    for (let k = 0; k < 5; k++) {
+      for (const u of vars) env.vals.set(u, sampleScalar(table.get(u)!.domain, r));
+      let ra: Val, rb: Val, ma: number, mb: number;
+      try {
+        [ra, ma] = residualMag(a, env, table);
+        [rb, mb] = residualMag(b, env, table);
+      } catch (e) {
+        if (e instanceof EvalError) return false;
+        throw e;
+      }
+      if (typeof ra !== "number" || typeof rb !== "number") return fallback();
+      if (!Number.isFinite(ra) || !Number.isFinite(rb)) continue;
+      const za = Math.abs(ra) <= TOL * ma;
+      const zb = Math.abs(rb) <= TOL * mb;
+      if (za || zb) {
+        if (za !== zb) return false;
+        continue;
+      }
       const l = ra / rb;
       if (lambda === undefined) lambda = l;
       else if (Math.abs(l - lambda) > 1e-6 * Math.abs(lambda)) return false;

@@ -1,7 +1,7 @@
 // The three E0 derivations end to end: every accept form lands where it should on the path, every reject form is an
 // error with the author's message, and the path state moves as a student works through.
 import { describe, expect, it } from "vitest";
-import { classify, startState, type Verdict } from "../../src/derive";
+import { classify, parseStatement, startState, type Verdict } from "../../src/derive";
 import { fixtures, ols, residualMaker, solow } from "./fixtures";
 
 const label = (v: Verdict) => (v.kind === "milestone" ? `milestone ${v.step}` : v.kind);
@@ -37,9 +37,23 @@ describe("the path", () => {
     expect(classify(d, "kbar = (sA/delta)^(1/(1-alpha))", startState(d)).kind).toBe("target");
   });
 
-  it("says when a line is equivalent to the answer but not yet solved", () => {
+  it("says when a line is equivalent to the answer but not yet solved: correct, and one move short", () => {
     const v = classify(d, "(1-alpha) ln(kbar) = ln(s A / delta)", { lines: [...d.given], reached: 2 });
-    expect(v).toMatchObject({ kind: "valid-no-progress", hint: String.raw`That's equivalent to the answer. Now solve for $\bar{k}$.` });
+    expect(v).toMatchObject({ kind: "valid", hint: String.raw`That's equivalent to the answer. Now solve for $\bar{k}$.` });
+    // Typed again, it is a repeat, and still says what to do next.
+    const lines = [...d.given, parseStatement("(1-alpha) ln(kbar) = ln(s A / delta)", d.table)];
+    expect(classify(d, "ln(kbar) (1-alpha) = ln(s A / delta)", { lines, reached: 2 })).toMatchObject({
+      kind: "valid-no-progress",
+      hint: String.raw`True, but you already have that. Now solve for $\bar{k}$.`,
+    });
+  });
+
+  it("calls a restatement of a line on the page a repeat, and a new move on it a correct line", () => {
+    const at2 = { lines: [...d.given], reached: 2 };
+    expect(classify(d, "delta kbar = s A kbar^alpha", at2)).toMatchObject({ kind: "valid-no-progress", hint: expect.stringMatching(/^True, but you already have that\./) });
+    expect(classify(d, "2 s A kbar^alpha - 2 delta kbar = 0", at2).kind).toBe("valid-no-progress");
+    expect(classify(d, "ln s + ln A + alpha ln kbar = ln delta + ln kbar", at2).kind).toBe("valid");
+    expect(classify(d, "s A kbar^alpha kbar = delta kbar^2", at2).kind).toBe("valid");
   });
 
   it("treats tautologies as true but not progress", () => {
@@ -60,9 +74,9 @@ describe("the path", () => {
 
   it("accepts true consequences of the whole system that are not authored steps", () => {
     const o = ols.callout.derivation;
-    const hint = "That follows from the earlier lines, but it isn't one of the steps toward the answer.";
-    expect(classify(o, "sum((1 + x_i)(y_i - b_1 - b_2 x_i)) = 0")).toMatchObject({ kind: "valid-no-progress", hint });
-    expect(classify(o, "b_1 = ybar - xbar sum((x-xbar)(y-ybar))/sum((x-xbar)^2)")).toMatchObject({ kind: "valid-no-progress", hint });
+    // Correct lines on the student's own route: encouraged, not "no progress".
+    expect(classify(o, "sum((1 + x_i)(y_i - b_1 - b_2 x_i)) = 0").kind).toBe("valid");
+    expect(classify(o, "b_1 = ybar - xbar sum((x-xbar)(y-ybar))/sum((x-xbar)^2)").kind).toBe("valid");
     expect(classify(o, "b_1 = ybar - xbar sum(x y)/sum(x^2)").kind).toBe("error");
   });
 
