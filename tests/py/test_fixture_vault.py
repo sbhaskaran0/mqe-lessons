@@ -62,7 +62,7 @@ class CleanVault(FixtureTest):
         widget = next(n for n in graph["nodes"] if n["id"] == "Toy Convergence")
         self.assertEqual((widget["type"], widget["widget"], widget["lessons"]), ("interactive", "view", ["Toy 101 L1 Growth"]))
         index = (self.vault / "_meta/Concept Index.md").read_text(encoding="utf-8")
-        self.assertIn("· 4 interactives ·", index)
+        self.assertIn("· 5 interactives ·", index)
         self.assertIn("| [[Toy Convergence]] |", index)
 
     def test_export(self):
@@ -71,9 +71,9 @@ class CleanVault(FixtureTest):
         self.assertEqual(status, 0, log)
         index = json.loads((out / "index.json").read_text(encoding="utf-8"))
         self.assertEqual(index["schema"], "mqe-lessons/1")
-        self.assertEqual(len(index["notes"]), 13)                      # every typed note but the meta index
+        self.assertEqual(len(index["notes"]), 15)                      # every typed note but the meta index
         # the planned Toy Golden Rule is a note, but not a widget, until it is built
-        self.assertEqual(sorted(index["widgets"]), ["toy-convergence", "toy-saving-chart", "toy-steady-state-explorer"])
+        self.assertEqual(sorted(index["widgets"]), ["toy-bandwidth-lookup", "toy-convergence", "toy-saving-chart", "toy-steady-state-explorer"])
         explorer = index["widgets"]["toy-steady-state-explorer"]
         self.assertEqual(explorer["spec"]["compare_figure"], "assets/Attachments/Toy diagram.png")
         self.assertEqual({r["tex"] for r in explorer["notation"]} >= {"$s$", "$\\delta$", "$\\bar{k}$, $\\bar{c}$"}, True)

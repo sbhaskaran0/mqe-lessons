@@ -1,0 +1,85 @@
+{
+ "slug": "log-change-taylor-expansion",
+ "notation": [
+  {
+   "tex": "$f$",
+   "meaning": "Function being approximated",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "f"
+   ],
+   "from": "taylor-series-approximation"
+  },
+  {
+   "tex": "$a$, $\\mathbf{x}$",
+   "meaning": "Point the approximation is built around",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "a",
+    "bold(x)"
+   ],
+   "from": "taylor-series-approximation"
+  },
+  {
+   "tex": "$x$, $\\mathbf{d}$",
+   "meaning": "Nearby value, or the step away from $\\mathbf{x}$",
+   "kind": "—",
+   "typical": "Small for accuracy",
+   "keys": [
+    "x",
+    "bold(d)"
+   ],
+   "from": "taylor-series-approximation"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "log-change-taylor-expansion"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$x$, $\\mathbf{d}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The model behind [Taylor Approximation of Log Change](note:taylor-approximation-of-log-change), which names this note and adds the panel. Place that view, not this note."
+      },
+      {
+       "t": "prose",
+       "md": "- **Model.** $f(x) = \\ln(1+x)$ expanded around $a = 0$: $f(0) = 0$, $f'(0) = 1$, $f''(0) = -1$, so the first-order approximation is $x$ and the second-order one is $x - x^2/2$. The slider `g` is the percentage change as a decimal; `x` is the free variable the curves are drawn over.\n- **Errors.** `err1` $= x - \\ln(1+x)$ is positive for every $x \\neq 0$ on the slider range (the line lies above the log); `err2` is smaller and changes sign.\n- **Tests.** The lecture's numbers at $x = 0.1$ and $x = 0.5$, plus one curve check, computed in Python."
+      }
+     ],
+     "words": 93,
+     "symbols": [
+      "$f$",
+      "$a$, $\\mathbf{x}$",
+      "$x$, $\\mathbf{d}$"
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -21,6 +21,9 @@ const Param = z
     label: z.string().optional(),
     unit: z.string().optional(),
     format: z.string().optional(),
+    /** Text for slider positions (1: normal, 2: lognormal). When every position has one, the slider is a segmented
+     *  control; the value stays a number for goals and tests. JSON writes the numeric YAML keys as strings. */
+    labels: z.record(z.string(), z.string()).optional(),
   })
   .refine((p) => p.min < p.max, "min must be below max")
   .refine((p) => p.min <= p.default && p.default <= p.max, "default must lie in [min, max]");
@@ -297,29 +300,54 @@ export const ScatterFit = z
   })
   .refine((s) => (s.dataset === undefined) !== (s.generate === undefined), "needs exactly one of: dataset, generate");
 
-export const DataChart = z.strictObject({
-  type: z.literal("data-chart"),
-  ...common,
-  dataset: z.string(),
-  mark: z.enum(["line", "bar", "area", "point"]).optional(),
-  x: z.strictObject({ column: z.string(), kind: z.enum(["number", "time", "band"]).optional(), ...Axis }),
-  y: z.strictObject({ column: z.string(), ...Axis }),
-  series: z
-    .array(
-      z.strictObject({
-        id: ElementId,
-        label: z.string().optional(),
-        tex: Tex.optional(),
-        column: z.string().optional(),
-        where: z.record(z.string(), z.union([z.string(), z.number(), z.boolean()])).optional(),
-        color: z.string().optional(),
-      }),
-    )
-    .optional(),
-  annotations: z
-    .array(z.strictObject({ id: ElementId, x: z.union([z.string(), z.number()]), y: z.number().optional(), label: z.string() }))
-    .optional(),
+export const CHART_MARKS = ["line", "bar", "area", "point", "rug"] as const;
+const ChartMark = z.enum(CHART_MARKS);
+/** A filter value: a literal the column must equal, or `{param: p}`: the slider position p is at (a blank cell matches
+ *  any position). */
+export const WhereValue = z.union([z.string(), z.number(), z.boolean(), z.strictObject({ param: Id })]);
+export const ChartSeries = z.strictObject({
+  id: ElementId,
+  label: z.string().optional(),
+  tex: Tex.optional(),
+  column: z.string().optional(),
+  where: z.record(z.string(), WhereValue).optional(),
+  color: z.string().optional(),
+  /** Overrides the panel's (or the spec's) mark for this series. */
+  mark: ChartMark.optional(),
+  /** One point at the params' values, no rows: dragging it sets them (snapped to their steps). */
+  drag: z.strictObject({ x: Id, y: Id }).optional(),
 });
+export const ChartX = z.strictObject({ column: z.string(), kind: z.enum(["number", "time", "band"]).optional(), ...Axis });
+export const ChartY = z.strictObject({ column: z.string(), ...Axis });
+export const ChartAnnotation = z.strictObject({ id: ElementId, x: z.union([z.string(), z.number()]), y: z.number().optional(), label: z.string() });
+/** One chart of a data-chart with `panels`: its own axes and series; params, readouts and goal are the widget's. */
+export const ChartPanel = z.strictObject({
+  id: ElementId,
+  title: z.string().optional(),
+  mark: ChartMark.optional(),
+  x: ChartX,
+  y: ChartY,
+  series: z.array(ChartSeries).optional(),
+  annotations: z.array(ChartAnnotation).optional(),
+});
+
+export const DataChart = z
+  .strictObject({
+    type: z.literal("data-chart"),
+    ...common,
+    dataset: z.string(),
+    mark: ChartMark.optional(),
+    x: ChartX.optional(),
+    y: ChartY.optional(),
+    series: z.array(ChartSeries).optional(),
+    annotations: z.array(ChartAnnotation).optional(),
+    /** 2-3 charts sharing the params; replaces x, y, series and annotations. */
+    panels: z.array(ChartPanel).min(2).max(3).optional(),
+  })
+  .refine(
+    (s) => (s.panels ? [s.x, s.y, s.series, s.annotations].every((v) => v === undefined) : s.x !== undefined && s.y !== undefined),
+    "needs x and y, or panels (which replace x, y, series and annotations)",
+  );
 
 export const DIST_VIEWS = ["histogram", "density", "lorenz", "cdf"] as const;
 export const DIST_MEASURES = ["gini", "p90p10", "p50p10", "p90p50", "varlog", "mean", "median", "cv", "top10"] as const;
@@ -390,7 +418,9 @@ export function widgetParts(spec: WidgetSpec): { params: string[]; elements: str
       elements = (spec.panels ?? []).flatMap((p) => [p.id, ...panelMarks(p)]);
       break;
     case "data-chart":
-      elements = [...ids(spec.series), ...ids(spec.annotations)];
+      elements = spec.panels
+        ? spec.panels.flatMap((p) => [p.id, ...ids(p.series), ...ids(p.annotations)])
+        : [...ids(spec.series), ...ids(spec.annotations)];
       break;
     case "custom":
       elements = [...(spec.elements ?? [])];

@@ -18,3 +18,20 @@ toy-saving-rates:
   period: 2000–2020
   generated: '2026-10-13'
   sha256: 0f711cfc320b1b433409a6e3476816010df8bbbd4d6fe3e18c6dd414ecdd844c
+toy-kde-lookup:
+  title: Toy kernel density estimates by bandwidth and kernel
+  file: exports/toy-kde-lookup.csv
+  data_source: '[[Toy Survey]]'
+  columns:
+    series:
+      unit: series
+    h:
+      unit: bandwidth
+    kernel:
+      unit: kernel
+    x:
+      unit: income
+    y:
+      unit: density
+  generated: '2026-10-18'
+  sha256: a69ea49ec2f4a07c70c5ea280ed10fbb60703dfbcfce3b6bf6b6cf63a2fb7920

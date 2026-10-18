@@ -97,6 +97,8 @@ const TYPES = Object.fromEntries((WidgetSpec as unknown as { options: Schema[] }
 const PANEL_PARTS: Record<string, unknown> = {
   rebind: spec.Rebind,
   var: (def(spec.Panels as unknown as Schema).shape!.vars as Schema),
+  // a data-chart series' dragged point (inside series, which may sit inside panels)
+  "data-chart.drag": def(spec.ChartSeries as unknown as Schema).shape!.drag,
   shock: spec.Shock,
   "panel.curve": spec.CurvePanel,
   "panel.path": spec.PathPanel,

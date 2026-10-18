@@ -1,0 +1,94 @@
+{
+ "slug": "taylor-approximation-of-log-change",
+ "notation": [
+  {
+   "tex": "$f$",
+   "meaning": "Function being approximated",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "f"
+   ],
+   "from": "taylor-series-approximation"
+  },
+  {
+   "tex": "$a$, $\\mathbf{x}$",
+   "meaning": "Point the approximation is built around",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "a",
+    "bold(x)"
+   ],
+   "from": "taylor-series-approximation"
+  },
+  {
+   "tex": "$x$, $\\mathbf{d}$",
+   "meaning": "Nearby value, or the step away from $\\mathbf{x}$",
+   "kind": "—",
+   "typical": "Small for accuracy",
+   "keys": [
+    "x",
+    "bold(d)"
+   ],
+   "from": "taylor-series-approximation"
+  },
+  {
+   "tex": "$y$, $X$, $Y$",
+   "meaning": "Variables",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "y",
+    "X",
+    "Y"
+   ],
+   "from": "logarithms-and-growth-rates"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "taylor-approximation-of-log-change"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$x$, $\\mathbf{d}$",
+      "$y$, $X$, $Y$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Purpose.** Judge first- and second-order Taylor accuracy: $\\ln(1+x) \\approx x$ is close at 10% and poor at 50%, and adding $-x^2/2$ helps.\n- **Model.** A view of [Log Change Taylor Expansion](note:log-change-taylor-expansion) ($f(x) = \\ln(1+x)$ around $a = 0$). The slider `g` moves the three points along their curves.\n- **Elements.** Panel `taylor`: curves `ln_curve`, `first_line`, `second_curve`; points `p_ln`, `p_first`, `p_second`; line `gap` (the first-order error). Readouts `lnc_out`, `err1_out`, `err2_out`.\n- **Goal it supports.** `err1 > 0.0045 and err1 < 0.0055` with the readouts and the gap hidden: the 0.005 grid meets it at $x = -0.1, -0.095, 0.1, 0.105$.\n- **Tests.** The lecture's numbers at $x = 0.1$ and $0.5$ and the goal's grid points, computed in Python."
+      }
+     ],
+     "words": 109,
+     "symbols": [
+      "$f$",
+      "$a$, $\\mathbf{x}$",
+      "$x$, $\\mathbf{d}$"
+     ]
+    }
+   ]
+  }
+ ]
+}

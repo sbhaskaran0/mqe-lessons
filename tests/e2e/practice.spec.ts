@@ -12,7 +12,7 @@ const index = JSON.parse(readFileSync(path.join(CONTENT, "index.json"), "utf8"))
 const body = (slug: string) => JSON.parse(readFileSync(path.join(CONTENT, "notes", `${slug}.json`), "utf8")) as NoteBody;
 
 const SETS = [
-  { slug: "econ-430-l1-practice-questions", course: "econ-430" },
+  { slug: "econ-430-simple-linear-regression-practice-questions", course: "econ-430" },
   { slug: "econ-402a-l1-solow-revision-lesson", course: "econ-402a" },
 ] as const;
 

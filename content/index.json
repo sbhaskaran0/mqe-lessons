@@ -1,10 +1,10 @@
 {
  "schema": "mqe-lessons/1",
- "generated_at": "2026-10-17T21:18:59Z",
+ "generated_at": "2026-10-18T19:20:33Z",
  "vault": {
-  "notes": 189,
+  "notes": 191,
   "errors": 0,
-  "warnings": 19
+  "warnings": 17
  },
  "courses": [
   {
@@ -330,6 +330,7 @@
     "lhopitals-rule",
     "leibniz-integral-rule",
     "linear-independence-and-rank",
+    "log-change-taylor-expansion",
     "logarithms-and-growth-rates",
     "matrix-algebra-identities",
     "matrix-calculus",
@@ -340,6 +341,7 @@
     "quadratic-forms-and-definiteness",
     "spectral-decomposition",
     "steady-state",
+    "taylor-approximation-of-log-change",
     "taylor-series-approximation",
     "trace-of-a-matrix",
     "unconstrained-optimization"
@@ -510,6 +512,7 @@
   ],
   "interactive": [
    "envelope-theorem-and-job-switching",
+   "log-change-taylor-expansion",
    "lognormal-inequality-explorer",
    "ols-line-fitter",
    "ols-sampling-distribution",
@@ -522,6 +525,7 @@
    "solow-model-per-effective-worker",
    "solow-model-per-worker",
    "solow-steady-state-explorer",
+   "taylor-approximation-of-log-change",
    "two-period-consumer-model",
    "two-period-consumption-choice",
    "us-skill-premium-chart"
@@ -536,6 +540,7 @@
   ],
   "model": [
    "envelope-theorem-and-job-switching",
+   "log-change-taylor-expansion",
    "ols-sampling-model",
    "quadratic-form-explorer",
    "shift-share-wage-exposure-explorer",
@@ -546,6 +551,7 @@
    "solow-model-per-effective-worker",
    "solow-model-per-worker",
    "solow-steady-state-explorer",
+   "taylor-approximation-of-log-change",
    "two-period-consumer-model",
    "two-period-consumption-choice"
   ],
@@ -9960,6 +9966,45 @@
    "created": "2026-10-04T21:50:23Z",
    "updated": "2026-10-06T04:44:45Z"
   },
+  "log-change-taylor-expansion": {
+   "slug": "log-change-taylor-expansion",
+   "name": "Log Change Taylor Expansion",
+   "title": "Log Change Taylor Expansion",
+   "type": "interactive",
+   "path": "Interactives/Log Change Taylor Expansion.md",
+   "summary": "ln(1 + x) expanded around a = 0 as one shared model - the exact log change, its first-order approximation x, its second-order approximation x - x²/2, and the error of each.",
+   "domain": "mathematics",
+   "domains": [
+    "mathematics"
+   ],
+   "tags": [
+    "interactive",
+    "model"
+   ],
+   "aliases": [],
+   "requires": [],
+   "lessons": [],
+   "courses": [],
+   "edges": {
+    "out": [
+     {
+      "kind": "illustrates",
+      "note": "logarithms-and-growth-rates"
+     },
+     {
+      "kind": "illustrates",
+      "note": "taylor-series-approximation"
+     }
+    ],
+    "in": []
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 93,
+   "created": "2026-10-18T18:21:07Z",
+   "updated": "2026-10-18T18:21:07Z"
+  },
   "log-wage-gap": {
    "slug": "log-wage-gap",
    "name": "Log Wage Gap",
@@ -10184,6 +10229,14 @@
      {
       "kind": "covers",
       "note": "math-prep-l7-approximations-logs-and-series"
+     },
+     {
+      "kind": "illustrates",
+      "note": "log-change-taylor-expansion"
+     },
+     {
+      "kind": "illustrates",
+      "note": "taylor-approximation-of-log-change"
      },
      {
       "kind": "related",
@@ -11314,6 +11367,10 @@
      {
       "kind": "part_of",
       "note": "math-prep"
+     },
+     {
+      "kind": "shows",
+      "note": "taylor-approximation-of-log-change"
      }
     ],
     "in": [
@@ -11324,7 +11381,9 @@
     ]
    },
    "figures": [],
-   "interactives": [],
+   "interactives": [
+    "taylor-approximation-of-log-change"
+   ],
    "checks": 6,
    "derives": 1,
    "words": 475,
@@ -11332,7 +11391,7 @@
     {
      "n": 1,
      "md": "Write first- and second-order Taylor approximations and judge their accuracy.",
-     "tested": 1
+     "tested": 2
     },
     {
      "n": 2,
@@ -11355,8 +11414,8 @@
      "tested": 2
     }
    ],
-   "created": "2026-10-17T19:25:22Z",
-   "updated": "2026-10-17T19:25:46Z"
+   "created": "2026-10-18T18:18:55Z",
+   "updated": "2026-10-18T18:18:55Z"
   },
   "math-prep-l8-integration-for-probability": {
    "slug": "math-prep-l8-integration-for-probability",
@@ -15688,6 +15747,54 @@
    "created": "2026-10-17T19:26:06Z",
    "updated": "2026-10-17T19:26:06Z"
   },
+  "taylor-approximation-of-log-change": {
+   "slug": "taylor-approximation-of-log-change",
+   "name": "Taylor Approximation of Log Change",
+   "title": "Taylor Approximation of Log Change",
+   "type": "interactive",
+   "path": "Interactives/Taylor Approximation of Log Change.md",
+   "summary": "Move the percentage change x away from zero and watch the first-order line and second-order parabola drift from ln(1 + x); the gap between the line and the log grows fast beyond a few percent.",
+   "domain": "mathematics",
+   "domains": [
+    "mathematics"
+   ],
+   "tags": [
+    "interactive",
+    "model"
+   ],
+   "aliases": [],
+   "requires": [],
+   "lessons": [
+    "math-prep-l7-approximations-logs-and-series"
+   ],
+   "courses": [
+    "Math Prep"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "illustrates",
+      "note": "logarithms-and-growth-rates"
+     },
+     {
+      "kind": "illustrates",
+      "note": "taylor-series-approximation"
+     }
+    ],
+    "in": [
+     {
+      "kind": "shows",
+      "note": "math-prep-l7-approximations-logs-and-series"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 109,
+   "created": "2026-10-18T18:19:45Z",
+   "updated": "2026-10-18T18:19:52Z"
+  },
   "taylor-series-approximation": {
    "slug": "taylor-series-approximation",
    "name": "Taylor Series Approximation",
@@ -15756,6 +15863,14 @@
      {
       "kind": "covers",
       "note": "math-prep-l7-approximations-logs-and-series"
+     },
+     {
+      "kind": "illustrates",
+      "note": "log-change-taylor-expansion"
+     },
+     {
+      "kind": "illustrates",
+      "note": "taylor-approximation-of-log-change"
      },
      {
       "kind": "related",
@@ -18298,6 +18413,127 @@
       "f"
      ],
      "from": "envelope-theorem"
+    }
+   ]
+  },
+  "log-change-taylor-expansion": {
+   "slug": "log-change-taylor-expansion",
+   "name": "Log Change Taylor Expansion",
+   "type": "panels",
+   "spec": {
+    "type": "panels",
+    "title": "Taylor expansion of ln(1 + x) around zero",
+    "params": {
+     "g": {
+      "tex": "x",
+      "label": "Percentage change (decimal)",
+      "min": -0.5,
+      "max": 1,
+      "step": 0.005,
+      "default": 0.3
+     }
+    },
+    "vars": {
+     "x": {
+      "tex": "x",
+      "label": "Percentage change (decimal)"
+     }
+    },
+    "derived": {
+     "lnc": "log(1+g)",
+     "first": "g",
+     "second": "g - g^2/2",
+     "err1": "g - log(1+g)",
+     "err2": "g - g^2/2 - log(1+g)"
+    },
+    "equations": {
+     "lncurve": "log(1+x)",
+     "firstcurve": "x",
+     "secondcurve": "x - x^2/2"
+    },
+    "panels": [],
+    "readouts": [
+     {
+      "id": "lnc_out",
+      "tex": "\\ln(1+x)",
+      "label": "Log change",
+      "expr": "lnc",
+      "format": ".4f"
+     },
+     {
+      "id": "err1_out",
+      "tex": "x - \\ln(1+x)",
+      "label": "First-order error",
+      "expr": "err1",
+      "format": ".4f"
+     },
+     {
+      "id": "err2_out",
+      "tex": "x - x^2/2 - \\ln(1+x)",
+      "label": "Second-order error",
+      "expr": "err2",
+      "format": ".4f"
+     }
+    ],
+    "tests": [
+     {
+      "params": {
+       "g": 0.1
+      },
+      "expect": {
+       "lnc": 0.09531,
+       "first": 0.1,
+       "second": 0.095,
+       "err1": 0.00469,
+       "err2": -0.00031
+      },
+      "tol": 1e-06
+     },
+     {
+      "params": {
+       "g": 0.5
+      },
+      "expect": {
+       "lnc": 0.405465,
+       "first": 0.5,
+       "second": 0.375,
+       "err1": 0.094535,
+       "err2": -0.030465
+      },
+      "tol": 1e-06
+     },
+     {
+      "params": {
+       "g": -0.1
+      },
+      "at": {
+       "x": 0.5
+      },
+      "expect": {
+       "err1": 0.005361,
+       "lncurve": 0.405465,
+       "firstcurve": 0.5,
+       "secondcurve": 0.375
+      },
+      "tol": 1e-06
+     }
+    ]
+   },
+   "illustrates": [
+    "taylor-series-approximation",
+    "logarithms-and-growth-rates"
+   ],
+   "notation": [
+    {
+     "tex": "$x$, $\\mathbf{d}$",
+     "meaning": "Nearby value, or the step away from $\\mathbf{x}$",
+     "kind": "—",
+     "typical": "Small for accuracy",
+     "keys": [
+      "x",
+      "bold(d)"
+     ],
+     "from": "taylor-series-approximation"
     }
    ]
   },
@@ -22345,6 +22581,233 @@
     }
    ]
   },
+  "taylor-approximation-of-log-change": {
+   "slug": "taylor-approximation-of-log-change",
+   "name": "Taylor Approximation of Log Change",
+   "type": "panels",
+   "model": "log-change-taylor-expansion",
+   "spec": {
+    "type": "panels",
+    "title": "Taylor approximations of ln(1 + x)",
+    "params": {
+     "g": {
+      "tex": "x",
+      "label": "Percentage change (decimal)",
+      "min": -0.5,
+      "max": 1,
+      "step": 0.005,
+      "default": 0.3
+     }
+    },
+    "vars": {
+     "x": {
+      "tex": "x",
+      "label": "Percentage change (decimal)"
+     }
+    },
+    "derived": {
+     "lnc": "log(1+g)",
+     "first": "g",
+     "second": "g - g^2/2",
+     "err1": "g - log(1+g)",
+     "err2": "g - g^2/2 - log(1+g)"
+    },
+    "equations": {
+     "lncurve": "log(1+x)",
+     "firstcurve": "x",
+     "secondcurve": "x - x^2/2"
+    },
+    "panels": [
+     {
+      "kind": "curve",
+      "id": "taylor",
+      "x": {
+       "var": "x",
+       "tex": "x",
+       "label": "Percentage change (decimal)",
+       "min": -0.5,
+       "max": 1
+      },
+      "y": {
+       "tex": "y",
+       "label": "Log change and approximations",
+       "min": -1,
+       "max": 1.1
+      },
+      "curves": [
+       {
+        "id": "ln_curve",
+        "expr": "lncurve",
+        "tex": "\\ln(1+x)",
+        "label": "Log change ln(1 + x)"
+       },
+       {
+        "id": "first_line",
+        "expr": "firstcurve",
+        "tex": "x",
+        "label": "First-order approximation x",
+        "style": "dashed"
+       },
+       {
+        "id": "second_curve",
+        "expr": "secondcurve",
+        "tex": "x - x^2/2",
+        "label": "Second-order approximation",
+        "style": "dotted"
+       }
+      ],
+      "points": [
+       {
+        "id": "p_ln",
+        "x": "g",
+        "y": "lnc",
+        "tex": "\\ln(1+x)",
+        "label": "Log change at the slider"
+       },
+       {
+        "id": "p_first",
+        "x": "g",
+        "y": "first",
+        "tex": "x",
+        "label": "First-order value"
+       },
+       {
+        "id": "p_second",
+        "x": "g",
+        "y": "second",
+        "tex": "x - x^2/2",
+        "label": "Second-order value"
+       }
+      ],
+      "lines": [
+       {
+        "id": "gap",
+        "from": [
+         "g",
+         "lnc"
+        ],
+        "to": [
+         "g",
+         "first"
+        ],
+        "tex": "x - \\ln(1+x)",
+        "label": "First-order error",
+        "style": "dashed"
+       }
+      ]
+     }
+    ],
+    "readouts": [
+     {
+      "id": "lnc_out",
+      "tex": "\\ln(1+x)",
+      "label": "Log change",
+      "expr": "lnc",
+      "format": ".4f"
+     },
+     {
+      "id": "err1_out",
+      "tex": "x - \\ln(1+x)",
+      "label": "First-order error",
+      "expr": "err1",
+      "format": ".4f"
+     },
+     {
+      "id": "err2_out",
+      "tex": "x - x^2/2 - \\ln(1+x)",
+      "label": "Second-order error",
+      "expr": "err2",
+      "format": ".4f"
+     }
+    ],
+    "tests": [
+     {
+      "params": {
+       "g": 0.1
+      },
+      "expect": {
+       "lnc": 0.09531,
+       "first": 0.1,
+       "second": 0.095,
+       "err1": 0.00469,
+       "err1_out": 0.00469,
+       "ln_curve@0.5": 0.405465,
+       "second_curve@0.5": 0.375
+      },
+      "tol": 1e-06
+     },
+     {
+      "params": {
+       "g": 0.5
+      },
+      "expect": {
+       "lnc": 0.405465,
+       "first": 0.5,
+       "second": 0.375,
+       "err1": 0.094535,
+       "err1_out": 0.094535
+      },
+      "tol": 1e-06
+     },
+     {
+      "params": {
+       "g": -0.1
+      },
+      "expect": {
+       "err1": 0.005361
+      },
+      "tol": 1e-06
+     },
+     {
+      "params": {
+       "g": -0.095
+      },
+      "expect": {
+       "err1": 0.00482
+      },
+      "tol": 1e-06
+     },
+     {
+      "params": {
+       "g": 0.105
+      },
+      "expect": {
+       "err1": 0.005155
+      },
+      "tol": 1e-06
+     }
+    ]
+   },
+   "illustrates": [
+    "taylor-series-approximation",
+    "logarithms-and-growth-rates"
+   ],
+   "notation": [
+    {
+     "tex": "$x$, $\\mathbf{d}$",
+     "meaning": "Nearby value, or the step away from $\\mathbf{x}$",
+     "kind": "—",
+     "typical": "Small for accuracy",
+     "keys": [
+      "x",
+      "bold(d)"
+     ],
+     "from": "taylor-series-approximation"
+    },
+    {
+     "tex": "$y$, $X$, $Y$",
+     "meaning": "Variables",
+     "kind": "—",
+     "typical": "—",
+     "keys": [
+      "y",
+      "X",
+      "Y"
+     ],
+     "from": "logarithms-and-growth-rates"
+    }
+   ]
+  },
   "two-period-consumer-model": {
    "slug": "two-period-consumer-model",
    "name": "Two-Period Consumer Model",
@@ -23013,6 +23476,170 @@
   }
  },
  "datasets": {
+  "econ430-l1-kde-bandwidth": {
+   "id": "econ430-l1-kde-bandwidth",
+   "title": "Kernel density estimate of 1000 exponential draws, by bandwidth (precomputed for the widget)",
+   "src": "assets/data/exports/econ430-l1-kde-bandwidth.csv",
+   "format": "csv",
+   "columns": {
+    "series": {
+     "unit": "hist | kde | true | rug | ise | h_scott | h_opt | ise_min"
+    },
+    "h": {
+     "unit": "bandwidth, data units (blank = all h)"
+    },
+    "x": {
+     "unit": "value of the variable, or bandwidth for the ise series"
+    },
+    "y": {
+     "unit": "density (hist, kde, true), 0 (rug), integrated squared error (ise)"
+    }
+   },
+   "period": "simulated: numpy random.seed(10) replay of Regression_Lecture1_Adv.ipynb cells 3-19",
+   "generated": "2026-10-18",
+   "sha256": "541bcca56a63d68341ceefcddbee1969256c6369dffbe5ca3cdc20cb82809983",
+   "notebook": "notebooks/econ430-l1-kde-bandwidth.ipynb",
+   "description": "Precomputed for the Kernel Density Bandwidth Explorer widget in Econ 430 L1, not a data source. n = 1000 draws from an exponential with mean 0.5 (the lecture's x3, replayed from random.seed(10)); true density 2e^(-2x). Tidy long table: a blank h matches every slider value. kde rows hold a Gaussian KDE at each h in [0.01, 0.5] step 0.005 on 300 grid points over [-0.2, 3.5]; ise integrates its squared error against the true density (trapezoid on that grid). Constants h_scott = 1.06 x 0.5 x 1000^(-1/5) = 0.13313, h_opt (argmin of ise) and ise_min sit at x = 0."
+  },
+  "econ430-l1-qq-shapes": {
+   "id": "econ430-l1-qq-shapes",
+   "title": "Q-Q plot shapes by distribution family (precomputed for the widget)",
+   "src": "assets/data/exports/econ430-l1-qq-shapes.csv",
+   "format": "csv",
+   "columns": {
+    "series": {
+     "unit": "qq | q01 | q50 | q99 | ref"
+    },
+    "family": {
+     "unit": "1 normal, 2 lognormal, 3 t, 4 uniform (blank = all)"
+    },
+    "s": {
+     "unit": "lognormal shape (sdlog); blank = not applicable"
+    },
+    "df": {
+     "unit": "t degrees of freedom; blank = not applicable"
+    },
+    "x": {
+     "unit": "standard normal quantile z"
+    },
+    "y": {
+     "unit": "family quantile standardized to mean 0, sd 1"
+    }
+   },
+   "generated": "2026-10-18",
+   "sha256": "c5750d9f6e51f818c99ca544f555374a71a859f0d772fc62877403b9c3dd59c1",
+   "notebook": "notebooks/econ430-l1-qq-shapes.ipynb",
+   "description": "Precomputed for the Q-Q Plot Shape Explorer widget in Econ 430 L1, not a data source; computed with scipy.stats, not from the lecture notebook. n = 100 plotting positions p_i = (i - 0.5)/n; x = Phi^-1(p_i), y = the family's quantile standardized to mean 0 and sd 1 (lognormal by its exact mean and sd, t by sqrt(df/(df-2)), uniform by (u - 1/2) sqrt(12)). df = 2 has infinite variance, so that one position is scaled by IQR/1.349 instead. Lognormal rows are keyed by s, t rows by df; a blank s or df matches every value. q01, q50 and q99 are single points at p = 0.01, 0.5, 0.99; ref is the 45-degree line. The brief's t(3) q99_std of 2.627 does not reproduce: 4.541/sqrt(3) = 2.622."
+  },
+  "econ430-l2-lowess-span": {
+   "id": "econ430-l2-lowess-span",
+   "title": "Prestige on income: OLS line, lowess by span, and local weighted fits (precomputed for the widget)",
+   "src": "assets/data/exports/econ430-l2-lowess-span.csv",
+   "format": "csv",
+   "columns": {
+    "series": {
+     "unit": "data | ols | lowess | window | local | x0"
+    },
+    "frac": {
+     "unit": "lowess span, fraction of the points in each window (blank = all)"
+    },
+    "i0": {
+     "unit": "window-centre index 1..32 into evenly spaced sorted incomes (blank = all)"
+    },
+    "x": {
+     "unit": "income, dollars (x0 series: the i0 value)"
+    },
+    "y": {
+     "unit": "prestige score (x0 series: the centre's income)"
+    }
+   },
+   "period": "Prestige data, 102 occupations (Canada, 1971)",
+   "generated": "2026-10-18",
+   "sha256": "d9b52a79dc3ab65a0bfd2c91fc65419646d6d24092dd61ca2b6980eac83171be",
+   "notebook": "notebooks/econ430-l2-lowess-span.ipynb",
+   "description": "Precomputed for the Lowess Span Explorer widget in Econ 430 L2, not a data source. carData::Prestige (Rdatasets), prestige on income. lowess = statsmodels lowess(prestige, income, frac) with it=3 (robust) and delta=0, which is what seaborn regplot(lowess=True) calls at frac=2/3; window/local rows are the points and the weighted local line (final robustness x tricube weights) at 32 evenly spaced sorted-income centres (i0 = 1..32, centre incomes in the x0 series), reproduced from a numpy port of the statsmodels algorithm that matches its fitted values to 1e-6. OLS slope 0.002897, intercept 27.14. A blank frac or i0 matches every value."
+  },
+  "econ430-l4-poly-cv": {
+   "id": "econ430-l4-poly-cv",
+   "title": "Cars: speed on stopping distance, polynomial fits and 5-fold cross-validation (precomputed for the widget)",
+   "src": "assets/data/exports/econ430-l4-poly-cv.csv",
+   "format": "csv",
+   "columns": {
+    "series": {
+     "unit": "data | fit | fold_fit | heldout | cv_rmse | train_rmse"
+    },
+    "degree": {
+     "unit": "polynomial degree (blank = all)"
+    },
+    "fold": {
+     "unit": "held-out fold, unshuffled KFold(5) (blank = all)"
+    },
+    "x": {
+     "unit": "stopping distance, feet (cv_rmse/train_rmse series: polynomial degree)"
+    },
+    "y": {
+     "unit": "speed, mph (cv_rmse/train_rmse series: RMSE, mph)"
+    }
+   },
+   "period": "1920s cars data (R datasets::cars), 50 cars",
+   "generated": "2026-10-18",
+   "sha256": "b6c9810531e8d206cad7be3d77a9dd0d7fe7d76010cccbd9f01b183d2a93345b",
+   "notebook": "notebooks/econ430-l4-poly-cv.ipynb",
+   "description": "Precomputed for the Polynomial Degree and Cross-Validation widget in Econ 430 L4, not a data source. datasets::cars (Rdatasets): speed regressed on powers of standardized stopping distance, degrees 1 to 5, with unshuffled KFold(5) as in the lecture's cross_val_score. fit = full-sample polynomial; fold_fit = fit on the other 4 folds; heldout = the fold's cars; cv_rmse is the mean of the 5 fold RMSEs, train_rmse the RMSE of the full-sample fit. Degree 1: 3.6409 / 3.092; degree 2: 4.4621 / 2.8182; degree 5: 6.4096 / 2.74. The lecture's literal cell 69 regresses speed on powers of speed and is degenerate; this uses dist as in cell 68."
+  },
+  "econ430-l5-boxcox-ladder": {
+   "id": "econ430-l5-boxcox-ladder",
+   "title": "UN infant mortality: Box-Cox ladder of powers, histograms, densities and profile log-likelihood (precomputed for the widget)",
+   "src": "assets/data/exports/econ430-l5-boxcox-ladder.csv",
+   "format": "csv",
+   "columns": {
+    "series": {
+     "unit": "hist | density | loglik | cutoff | T | skew | lambda0 | L0"
+    },
+    "lam": {
+     "unit": "Box-Cox power lambda (blank = all)"
+    },
+    "x": {
+     "unit": "standardized transformed value (hist, density); lambda (loglik, T, skew, cutoff); 0 for constants"
+    },
+    "y": {
+     "unit": "density (hist, density); log-likelihood (loglik, cutoff, L0); LR statistic (T); skewness (skew); lambda (lambda0)"
+    }
+   },
+   "period": "UN member states, infant mortality per 1000 live births (carData::UN), 207 non-missing",
+   "generated": "2026-10-18",
+   "sha256": "d2f6830550a1d0198883b87622e9b811e23cacd8ff3ba29b18dd8db062b40652",
+   "notebook": "notebooks/econ430-l5-boxcox-ladder.ipynb",
+   "description": "Precomputed for the Box-Cox Ladder Explorer widget in Econ 430 L5, not a data source. carData::UN infantMortality with missing values dropped (n = 207). For each lambda in -1..1.5 step 0.05: the scipy Box-Cox transform standardized as in the lecture (preprocessing.scale), histogram on fixed bins over [-4, 4] (density = count/(n x width); the few values beyond +-4 are not binned) and a gaussian_kde on a 101-point grid. loglik is scipy.stats.boxcox_llf, lambda0 = 0.04678 the MLE, T = 2(L(lambda0) - L(lambda)): 0.4645 at 0, 41.9583 at 0.5, 172.814 at 1, as in the lecture; cutoff is L(lambda0) - 1.92. A blank lam matches every value."
+  },
+  "econ430-l6-leverage-influence": {
+   "id": "econ430-l6-leverage-influence",
+   "title": "Leverage, studentized residual and Cook's distance of one draggable point (precomputed for the widget)",
+   "src": "assets/data/exports/econ430-l6-leverage-influence.csv",
+   "format": "csv",
+   "columns": {
+    "series": {
+     "unit": "base | fit_with | fit_without | h | t | cook | rl | rl_base | lev_cutoff"
+    },
+    "x31": {
+     "unit": "x of the draggable point (blank = all)"
+    },
+    "y31": {
+     "unit": "y of the draggable point (blank = all)"
+    },
+    "x": {
+     "unit": "x, or leverage (rl, rl_base), or x31 (h, t, cook), or 0 (lev_cutoff)"
+    },
+    "y": {
+     "unit": "y, or studentized residual (rl, rl_base, t), leverage (h), Cook's distance (cook), cut-off (lev_cutoff)"
+    }
+   },
+   "period": "simulated: numpy default_rng(0), 30 points y = 2 + 0.5x + N(0,1), x ~ U(0,10)",
+   "generated": "2026-10-18",
+   "sha256": "7317f28224c2f808188ecb2e6960087b482e7be9585c0fba10defe0ce1c623b9",
+   "notebook": "notebooks/econ430-l6-leverage-influence.ipynb",
+   "description": "Precomputed for the Leverage and Influence Explorer widget in Econ 430 L6, not a data source. 30 simulated points from np.random.default_rng(0) (x ~ U(0,10), then y = 2 + 0.5x + N(0,1); seed chosen as the first with slope within 0.05 of 0.5, mean x in 4.6-5.4 and no base |t| > 2) plus one point (x31, y31) on x31 0-25 step 0.5 and y31 -5..25 step 0.5. fit_with is the OLS line through all 31 points; h, t (internally studentized) and cook are statsmodels get_influence() for the 31st point, checked against closed forms. h, t and cook are keyed by y31 with x = x31. rl is the 31st point's (leverage, studentized residual); rl_base holds the 30 base points at their positions in the 30-point fit (static; the full 31-point panel did not fit the size limit). lev_cutoff = 2p/n = 4/31 = 0.129."
+  },
   "us-skill-premium-supply-1963-2017": {
    "id": "us-skill-premium-supply-1963-2017",
    "title": "US college skill premium and relative college supply, change since 1963 (≈, read off the lecture figures)",

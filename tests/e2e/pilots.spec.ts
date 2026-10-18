@@ -11,7 +11,7 @@ import { REPO } from "../helpers";
 import { reviewMode, watchProblems } from "./util";
 
 const SOLOW = "econ-402a-l1-solow-growth-model";
-const OLS = "econ-430-l1-simple-linear-regression";
+const OLS = "econ-430-l3-the-method-of-least-squares";
 const SCREENS = path.join(REPO, "test-results", "screens");
 
 // Values verify_pilots.py recomputes in Python (and the widgets' own `tests` pin): the notes' example economy
@@ -333,19 +333,19 @@ test("Pilot A: coming back to a step whose goal was met shows the success state"
   expect((await stored(page)).checkpoints[key("5-investment-vs-depreciation-2", "interactive")]).toEqual(first);
 });
 
-test("Pilot B: Econ 430 L1, fit the line by hand until the SSR goal fires, then reveal OLS", async ({ page }) => {
+test("Pilot B: Econ 430 L3, fit the line by hand until the SSR goal fires, then reveal OLS", async ({ page }) => {
   test.setTimeout(120_000);
   const problems = watchProblems(page);
   const { ids, key, nth } = lesson(OLS);
   const [right, wrong] = [nth("check", 0), nth("check", 1)]; // the derivations between the checks are not counted
   const derive = nth("derive");
   await page.goto(`#/lesson/${OLS}`);
-  await continueTo(page, ids, "the-one-paragraph-summary-1");
+  await continueTo(page, ids, "2-least-squares-1");
   const fit = pane(page).locator('.widget-slot[data-widget="ols-line-fitter"]');
   await mounted(fit);
   await expect(cont(page)).toHaveAttribute("aria-disabled", "true");
   await fitByHand(page, fit);
-  await expect(step(page, "the-one-paragraph-summary-1").locator('.goal[data-state="met"]')).toContainText("Goal reached");
+  await expect(step(page, "2-least-squares-1").locator('.goal[data-state="met"]')).toContainText("Goal reached");
   await expect(cont(page)).not.toHaveAttribute("aria-disabled", "true");
 
   await press(fit.getByRole("button", { name: "Reveal OLS" }));
@@ -382,7 +382,7 @@ test("Pilot B: Econ 430 L1, fit the line by hand until the SSR goal fires, then 
   await continueTo(page, ids, wrong);
   await answerMcq(step(page, wrong).locator(".check"), 1, "Not quite.");
   const p = await stored(page);
-  expect(p.checkpoints[key("the-one-paragraph-summary-1", "interactive")]).toMatchObject({ kind: "goal", result: "met" });
+  expect(p.checkpoints[key("2-least-squares-1", "interactive")]).toMatchObject({ kind: "goal", result: "met" });
   expect(p.checks[key(right, "check")]).toMatchObject({ result: "correct" });
   expect(p.checks[key(wrong, "check")]).toMatchObject({ result: "incorrect" });
   expect(p.derives?.[key(derive, "derive")]).toMatchObject({ result: "done" });
@@ -465,7 +465,7 @@ test("Pilot B at phone width: fit the line inline @phone", async ({ page }) => {
   const problems = watchProblems(page);
   await page.goto(`#/lesson/${OLS}`);
   await reviewMode(page);
-  const fit = step(page, "the-one-paragraph-summary-1").locator('.widget-slot[data-widget="ols-line-fitter"]');
+  const fit = step(page, "2-least-squares-1").locator('.widget-slot[data-widget="ols-line-fitter"]');
   await fit.scrollIntoViewIfNeeded();
   await fitByHand(page, fit);
   await fit.getByRole("button", { name: "Reveal OLS" }).click();
@@ -486,10 +486,10 @@ test("a widget's note page shows it in explore mode, with where it is used", asy
   const used = page.locator(".used-in");
   await expect(used.getByRole("heading", { name: "Used in" })).toBeVisible();
   await expect(used.locator(".used-in-note").first()).toContainText("Simple Linear Regression");
-  const stepLink = used.getByRole("link", { name: "The one-paragraph summary" });
-  await expect(stepLink).toHaveAttribute("href", `#/lesson/${OLS}?at=the-one-paragraph-summary-1`);
+  const stepLink = used.getByRole("link", { name: "2. Least squares" });
+  await expect(stepLink).toHaveAttribute("href", `#/lesson/${OLS}?at=2-least-squares-1`);
   await stepLink.click();
-  await expect(step(page, "the-one-paragraph-summary-1")).toBeVisible();
+  await expect(step(page, "2-least-squares-1")).toBeVisible();
   await expect(pane(page).locator('.widget-slot[data-widget="ols-line-fitter"]')).toBeVisible();
   expect(problems.list).toEqual([]);
 });

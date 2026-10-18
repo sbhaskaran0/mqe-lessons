@@ -35,7 +35,7 @@ class DataStatus(unittest.TestCase):
     def test_clean(self):
         code, out = self.status()
         self.assertEqual(code, 0, out)
-        self.assertIn("1 dataset(s), 0 stale, 0 hash mismatch(es), 0 missing export(s)", out)
+        self.assertIn("2 dataset(s), 0 stale, 0 hash mismatch(es), 0 missing export(s)", out)
 
     def test_missing_raw_input_is_informational(self):
         code, out = self.status()

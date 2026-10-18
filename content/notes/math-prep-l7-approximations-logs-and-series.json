@@ -161,9 +161,47 @@
       {
        "t": "interactive",
        "widget": "taylor-approximation-of-log-change",
+       "state": {
+        "g": 0.5
+       },
+       "lock": [],
+       "show": [
+        "taylor",
+        "ln_curve",
+        "first_line",
+        "second_curve",
+        "p_ln",
+        "p_first",
+        "p_second"
+       ],
+       "highlight": "first_line",
        "prompt": "Move away from the expansion point and watch the Taylor approximations of $\\ln(1+x)$ drift",
-       "status": "planned",
-       "purpose": "Judge first- and second-order Taylor accuracy: ln(1+x) ≈ x is close at 10% and poor at 50%; adding −x²/2 helps",
+       "goal": {
+        "when": "err1 > 0.0045 and err1 < 0.0055",
+        "success": "The first-order error $x - \\ln(1+x)$ is about half a percentage point: at $x = 0.1$ it is $0.1 - 0.0953 = 0.0047$. At $x = 0.5$ it is 0.0945, twenty times larger.",
+        "hint": "Compute $x - \\ln(1+x)$ yourself. It grows with $|x|$, and it is 0.0047 at one of the small values you may try."
+       },
+       "predict": {
+        "hide": [
+         "ln_curve",
+         "second_curve",
+         "p_ln",
+         "p_second"
+        ],
+        "ask": "At $x = 0.5$ (a 50% change), is the log change $\\ln(1+x)$ above or below 0.50?",
+        "options": [
+         "Above 0.50: the log change exceeds the percentage change",
+         "Equal to 0.50: the log change is the percentage change",
+         "Below 0.50"
+        ],
+        "answer": 2,
+        "why": "The curve $\\ln(1+x)$ is concave, so it lies below its tangent line $x$ away from 0. At $x = 0.5$, $\\ln 1.5 = 0.405$, which is 0.095 below 0.50.",
+        "feedback": [
+         "The log compresses large increases: $\\ln(1+x)$ grows more slowly than $x$ once $x > 0$, so it falls below the line, not above it.",
+         "They agree only at $x = 0$, where the line touches the curve. The line is the tangent there, and the curve bends away from it.",
+         null
+        ]
+       },
        "objectives": [
         1
        ]
@@ -173,7 +211,8 @@
      "symbols": [
       "$f$",
       "$a$, $\\mathbf{x}$",
-      "$x$, $\\mathbf{d}$"
+      "$x$, $\\mathbf{d}$",
+      "$y$, $X$, $Y$"
      ]
     }
    ]

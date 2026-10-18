@@ -17,7 +17,7 @@ describe("fixture vault export", () => {
   it("validates with no errors, widgets and datasets included", () => {
     const r = validateContent(fixture);
     expect(r.errors).toEqual([]);
-    expect(r.stats).toMatchObject({ notes: 13, widgets: 3, datasets: 1 });
+    expect(r.stats).toMatchObject({ notes: 15, widgets: 4, datasets: 2 });
   });
 
   it("parses into the typed IR", () => {

@@ -1,18 +1,20 @@
 // Validates an export directory (content/ by default): every file against the zod IR, every reference
 // (slugs, assets, notation chips, widget ids) against what the export actually contains, and every widget's
 // expressions and `tests` with the same evaluator the player uses.
-import { existsSync, readdirSync, readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import path from "node:path";
 import type { z } from "zod";
 import { Index, NoteBody, type Block, type Derive, type NoteMeta } from "./ir";
 import { selfTestParams } from "./params";
 import { selfTestDerive } from "./validate/derive-adapter";
 import { parseTable, type Table } from "./widgets/data/table";
-import { checkExpr, checkView, checkWidget, compile, type DataLookup, defaults, FUNCTIONS, scopes, withDerived } from "./widgets/expr";
+import { checkExpr, checkView, checkWidget, compile, type DataLookup, defaults, functionsOf, lookupProblems, scopes, withDerived } from "./widgets/expr";
 import { type WidgetSpec, widgetParts } from "./widgets/spec";
 
 export type Report = { errors: string[]; notes: string[]; stats: { notes: number; steps: number; widgets: number; datasets: number; assets: number } };
 
+/** Largest dataset file a widget may fetch. */
+export const MAX_DATASET_MB = 3;
 const NOTE_LINK = /\]\(note:([a-z0-9-]+)(?:#[^)]*)?\)/g;
 const ASSET_LINK = /\]\(<(assets\/[^>]+)>\)/g;
 
@@ -68,6 +70,9 @@ export function validateContent(dir: string): Report {
       const meta = index.datasets[id];
       let table: Table | undefined;
       if (meta && existsSync(path.join(dir, meta.src))) {
+        // The player fetches the whole file when a widget mounts; a precomputed table stays well under this.
+        const mb = statSync(path.join(dir, meta.src)).size / 1e6;
+        if (mb > MAX_DATASET_MB) errors.push(`datasets.${id}: ${meta.src} is ${mb.toFixed(1)} MB, over the ${MAX_DATASET_MB} MB a widget may fetch`);
         try {
           table = parseTable(readFileSync(path.join(dir, meta.src), "utf8"), meta.format);
         } catch (e) {
@@ -216,7 +221,7 @@ function checkDerive(where: string, key: string, b: Derive, { slug, markdown, er
  *  with an unlocked slider is worth knowing about (they could reach the answer without computing it). */
 function readoutIssues(spec: WidgetSpec, view: { state?: Record<string, number>; lock?: string[] }, readout: string): { errors: string[]; notes: string[] } {
   const expr = spec.readouts?.find((r) => r.id === readout)?.expr;
-  if (expr === undefined || checkExpr(expr, scopes(spec).base).errors.length) return { errors: [], notes: [] };
+  if (expr === undefined || checkExpr(expr, scopes(spec).base, functionsOf(spec)).errors.length) return { errors: [], notes: [] };
   const valueAt = (params: Record<string, number>) => {
     try {
       return compile(expr)(withDerived(spec, params));
@@ -317,7 +322,7 @@ function checkBlock(where: string, key: string, b: Block, index: z.infer<typeof 
       for (const k of [...(b.show ?? []), ...(b.highlight ? [b.highlight] : []), ...(b.predict?.hide ?? [])]) {
         if (!elements.includes(k)) errors.push(`${where}: '${k}' is not an element of ${b.widget}`);
       }
-      const goalErrors = b.goal ? checkExpr(b.goal.when, scopes(entry.spec).goal, FUNCTIONS.base).errors : [];
+      const goalErrors = b.goal ? [...checkExpr(b.goal.when, scopes(entry.spec).goal, functionsOf(entry.spec)).errors, ...lookupProblems(entry.spec, [["", b.goal.when]])] : [];
       errors.push(...goalErrors.map((e) => `${where}: goal.when ${e}`));
       if (b.goal) {
         markdown(where, b.goal.success);

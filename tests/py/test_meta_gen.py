@@ -109,7 +109,7 @@ class ModelLibrary(MetaTest):
     def test_sync_writes_it_and_check_reports_it_stale(self):
         text = (self.vault / LIBRARY).read_text(encoding="utf-8")
         self.assertTrue(text.startswith("---\ntype: meta\n---\n# Model Library\n"))
-        self.assertIn("**0 models · 3 views · 1 other widgets.**", text)
+        self.assertIn("**0 models · 3 views · 2 other widgets.**", text)
         self.assertIn("### [[Toy Golden Rule]] (planned)", text)
         self.assertIn("- **Panel `diagram` (curve):** x = `k`; curves `output` $f(k)$, `saving` $sf(k)$, "
                       "`depreciation` $\\delta k$; regions `consumption`; points `steady` $\\bar{k}$", text)

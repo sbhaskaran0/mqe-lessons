@@ -2,8 +2,9 @@
 // x / state variable and dataset columns. `npm run validate` and the widget runtime share this module, so a spec
 // that validates is evaluated the same way on screen.
 import type { MathNode } from "mathjs";
-import type { DistributionSpec } from "./core/types";
-import { chartData, chartValue, locate } from "./data-chart/series";
+import type { DataChartSpec, DistributionSpec } from "./core/types";
+import { cellPosition, lastPosition } from "./core/grid";
+import { chartSet, chartValue, gridProblems, locate, plotsOf, seriesAt } from "./data-chart/series";
 import { numbers, type Table } from "./data/table";
 import { type Dist, empirical, FAMILIES, type FamilyParams, parametric } from "./distribution/measures";
 import { math, normalFrom, rng } from "./math";
@@ -45,14 +46,21 @@ export const FUNCTIONS = {
   series: ["growth"],
   /** Reductions across replications, only in a sampler's `summaries`. */
   aggregate: AGGREGATES,
+  /** A data-chart series read at the current params, at("id", x): derived values, readouts, goals. */
+  lookup: ["at"],
 } as const;
+
+/** The functions a spec's derived values, readouts and goals may call: a data-chart may also read its series. */
+export function functionsOf(spec: WidgetSpec): readonly string[] {
+  return spec.type === "data-chart" ? [...FUNCTIONS.base, ...FUNCTIONS.lookup] : FUNCTIONS.base;
+}
 
 /** How many arguments each function takes, [fewest, most]. mathjs only finds a wrong count when it evaluates the
  *  call, and some (normcdf()) quietly give NaN instead. */
 const ARITY: Record<string, readonly [number, number]> = {
   log: [1, 2], exp: [1, 1], sqrt: [1, 1], abs: [1, 1], min: [1, Infinity], max: [1, Infinity], normcdf: [1, 3],
   sin: [1, 1], cos: [1, 1], atan2: [2, 2],
-  normal: [0, 2], uniform: [0, 2], growth: [1, 1], mean: [1, 1], sd: [1, 1], quantile: [2, 2], share: [1, 1],
+  normal: [0, 2], uniform: [0, 2], growth: [1, 1], mean: [1, 1], sd: [1, 1], quantile: [2, 2], share: [1, 1], at: [2, 2],
 };
 
 function arityProblem(name: string, given: number): string | undefined {
@@ -71,23 +79,33 @@ const CONSTANTS = new Set(["pi", "e"]);
 
 export type Scope = Record<string, number>;
 
-/** Problems with one expression, and the names it reads. */
+const isAt = (n: MathNode | undefined | null) => n?.type === "FunctionNode" && (n as unknown as { fn: { name?: string } }).fn.name === "at";
+const textOf = (n: MathNode | undefined): string | undefined => {
+  const v = n?.type === "ConstantNode" ? (n as unknown as { value: unknown }).value : undefined;
+  return typeof v === "string" ? v : undefined;
+};
+
+/** Problems with one expression, the names it reads, and the series its at() calls name. */
 export function checkExpr(src: Expr, names: Iterable<string>, functions: Iterable<string> = FUNCTIONS.base) {
   const errors: string[] = [];
   const symbols = new Set<string>();
-  if (typeof src === "number") return { errors: Number.isFinite(src) ? errors : ["is not a finite number"], symbols };
+  const lookups = new Set<string>();
+  if (typeof src === "number") return { errors: Number.isFinite(src) ? errors : ["is not a finite number"], symbols, lookups };
   let node: MathNode;
   try {
     node = math.parse(src);
   } catch (e) {
-    return { errors: [`does not parse: ${(e as Error).message}`], symbols };
+    return { errors: [`does not parse: ${(e as Error).message}`], symbols, lookups };
   }
   const known = new Set(names);
   const fns = new Set(functions);
   node.traverse((n, path, parent) => {
     if (!NODE_TYPES.has(n.type)) errors.push(`${n.type.replace(/Node$/, "").toLowerCase()} syntax is not allowed`);
     if (n.type === "ConstantNode" && typeof (n as unknown as { value: unknown }).value !== "number") {
-      errors.push("only numbers may appear as constants");
+      // at("series", x) names its series in quotes: the one place text may appear
+      const text = textOf(n);
+      if (text !== undefined && isAt(parent) && path === "args[0]") lookups.add(text);
+      else errors.push("only numbers may appear as constants");
     }
     if (n.type === "OperatorNode") {
       const fn = (n as unknown as { fn: string }).fn;
@@ -97,8 +115,10 @@ export function checkExpr(src: Expr, names: Iterable<string>, functions: Iterabl
       const name = (n as unknown as { fn: { name?: string } }).fn.name ?? "?";
       if (!fns.has(name)) errors.push(`function ${name}() is not allowed here`);
       else {
-        const bad = arityProblem(name, (n as unknown as { args: MathNode[] }).args.length);
+        const args = (n as unknown as { args: MathNode[] }).args;
+        const bad = arityProblem(name, args.length);
         if (bad) errors.push(bad);
+        else if (name === "at" && textOf(args[0]) === undefined) errors.push('at() takes a series id in quotes first: at("series", x)');
       }
     } else if (n.type === "SymbolNode" && !(parent?.type === "FunctionNode" && path === "fn")) {
       const name = (n as unknown as { name: string }).name;
@@ -106,7 +126,7 @@ export function checkExpr(src: Expr, names: Iterable<string>, functions: Iterabl
       if (!known.has(name) && !CONSTANTS.has(name)) errors.push(`unknown name '${name}'`);
     }
   });
-  return { errors, symbols };
+  return { errors, symbols, lookups };
 }
 
 const compiled = new Map<string, (scope: Scope) => number>();
@@ -258,11 +278,35 @@ function modelOf(spec: WidgetSpec): Model {
   return m;
 }
 
+// The table each data-chart reads, bound by whoever loaded it (the widget, `validate`): at() in any expression of the
+// spec then reads its series. Without one, at() throws DatasetNotLoaded.
+const boundTables = new WeakMap<WidgetSpec, Table>();
+
+/** Makes `table` the one at() reads for `spec`. */
+export function bindTable(spec: WidgetSpec, table: Table | undefined): void {
+  if (table && spec.type === "data-chart") boundTables.set(spec, table);
+}
+
+/** Fixed values and params, plus at() for a data-chart: its series read at these params. The function rides in the
+ *  scope (mathjs looks a called name up there first), so every evaluator that copies the scope can call it. */
+function baseScope(spec: WidgetSpec, params: Scope): Scope {
+  const scope: Scope = { ...modelOf(spec).fixed, ...params };
+  if (spec.type === "data-chart") {
+    const at = (id: string, x: number): number => {
+      const table = boundTables.get(spec);
+      if (!table) throw new DatasetNotLoaded(`at() needs dataset '${spec.dataset}', which this run did not load`);
+      return seriesAt(spec, table, params, id, x);
+    };
+    (scope as Record<string, unknown>).at = at;
+  }
+  return scope;
+}
+
 /** Params plus every derived value. A value mathjs rejects at these params (the max of a complex number) is NaN,
  *  drawn as a gap like any other undefined value; `validate` reports it when it happens at a view's starting values. */
 export function withDerived(spec: WidgetSpec, params: Scope): Scope {
   const m = modelOf(spec);
-  const scope: Scope = { ...m.fixed, ...params };
+  const scope = baseScope(spec, params);
   for (const d of m.dOrder) {
     try {
       scope[d] = m.fn(m.derived[d]!)(scope);
@@ -488,12 +532,16 @@ function dataProblems(spec: WidgetSpec, table: Table): string[] {
   switch (spec.type) {
     case "data-chart": {
       try {
-        const cd = chartData(spec, table);
-        const errs = cd.series.filter((s) => !s.points.length).map((s) => `series '${s.id}' has no data (its filter matches no rows, or '${s.column}' is empty there)`);
-        for (const a of spec.annotations ?? []) {
-          if (cd.kind === "band" && locate(cd, a.x) === undefined) errs.push(`annotations.${a.id}: x '${a.x}' is not one of the x values (${cd.bands.join(", ")})`);
+        const errs: string[] = [];
+        for (const cd of chartSet(spec, table, defaults(spec))) {
+          // A series bound to sliders is checked at every slider position (gridProblems), not only at the defaults.
+          const bound = (id: string) => Object.values(cd.plot.series.find((s) => s.id === id)?.where ?? {}).some((w) => typeof w === "object");
+          for (const s of cd.series) if (!s.points.length && !s.drag && !bound(s.id)) errs.push(`series '${s.id}' has no data (its filter matches no rows, or '${s.column}' is empty there)`);
+          for (const a of cd.plot.annotations) {
+            if (cd.kind === "band" && locate(cd, a.x) === undefined) errs.push(`annotations.${a.id}: x '${a.x}' is not one of the x values (${cd.bands.join(", ")})`);
+          }
         }
-        return errs;
+        return [...errs, ...gridProblems(spec, table)];
       } catch (e) {
         return [(e as Error).message];
       }
@@ -540,11 +588,13 @@ export function checkWidget(spec: WidgetSpec, data?: DataLookup, { tests = true 
     if (src === undefined) return;
     for (const e of checkExpr(src, names, fns).errors) errors.push(`${where}: ${e}`);
   };
+  const fns = functionsOf(spec);
   const derived = spec.derived ?? {};
-  if (spec.type !== "panels") for (const [d, src] of Object.entries(derived)) expr(`derived.${d}`, src as Expr, base);
+  if (spec.type !== "panels") for (const [d, src] of Object.entries(derived)) expr(`derived.${d}`, src as Expr, base, fns);
   const { cycle } = derivedOrder(derived);
   if (cycle.length) errors.push(`derived values depend on each other in a cycle: ${cycle.join(", ")}`);
-  for (const r of spec.readouts ?? []) expr(`readouts.${r.id}`, r.expr, [...base, ...builtins]);
+  for (const r of spec.readouts ?? []) expr(`readouts.${r.id}`, r.expr, [...base, ...builtins], fns);
+  errors.push(...paramProblems(spec));
 
   switch (spec.type) {
     case "panels":
@@ -556,6 +606,9 @@ export function checkWidget(spec: WidgetSpec, data?: DataLookup, { tests = true 
         expr("generate.y", spec.generate.y, [...base, "x"], [...FUNCTIONS.base, ...FUNCTIONS.generate]);
       }
       errors.push(...fitPanelProblems(spec, base, builtins));
+      break;
+    case "data-chart":
+      errors.push(...chartProblems(spec));
       break;
     case "distribution": {
       for (const [k, v] of Object.entries(spec.dist ?? {})) expr(`dist.${k}`, v, base);
@@ -630,9 +683,66 @@ export function checkView(spec: WidgetSpec, view: ViewCheck, data?: DataLookup):
   return errors;
 }
 
+/** The spec's dataset, if this run loaded it, bound for at(). */
 function tableOf(spec: WidgetSpec, data?: DataLookup): Table | undefined {
   const dataset = "dataset" in spec ? spec.dataset : undefined;
-  return dataset !== undefined ? data?.(dataset) : undefined;
+  const table = dataset !== undefined ? data?.(dataset) : undefined;
+  bindTable(spec, table);
+  return table;
+}
+
+/** Param labels name slider positions: each key a number the slider can take, each text non-empty. */
+function paramProblems(spec: WidgetSpec): string[] {
+  const errors: string[] = [];
+  for (const [id, p] of Object.entries(spec.params ?? {})) {
+    for (const [k, text] of Object.entries(p.labels ?? {})) {
+      if (k.trim() === "" || !Number.isFinite(Number(k)) || cellPosition(p, Number(k)) === undefined) errors.push(`params.${id}.labels: '${k}' is not a slider position (min + k·step)`);
+      else if (!text.trim()) errors.push(`params.${id}.labels.${k} is empty`);
+    }
+  }
+  return errors;
+}
+
+/** A data-chart's own rules: ids unique across panels, filters bound to params with a step, dragged points on params,
+ *  and at() naming series of the spec (in derived values and readouts; validate.ts checks goals the same way). */
+function chartProblems(spec: DataChartSpec): string[] {
+  const errors: string[] = [];
+  const plots = plotsOf(spec);
+  const params = spec.params ?? {};
+  const ids = [
+    ...(spec.panels ?? []).map((p) => p.id),
+    ...plots.flatMap((p) => [...p.series.map((s) => s.id), ...p.annotations.map((a) => a.id)]),
+    ...(spec.readouts ?? []).map((r) => r.id),
+  ];
+  for (const x of new Set(ids.filter((x, i) => ids.indexOf(x) !== i))) errors.push(`id '${x}' is used twice`);
+  for (const plot of plots) {
+    for (const s of plot.series) {
+      const where = `${plot.id ? `panels.${plot.id}.` : ""}series.${s.id}`;
+      for (const [col, w] of Object.entries(s.where ?? {})) {
+        if (typeof w !== "object") continue;
+        const p = params[w.param];
+        if (!p) errors.push(`${where}.where.${col}: '${w.param}' is not a parameter`);
+        else if (p.step === undefined) errors.push(`${where}.where.${col}: '${w.param}' needs a step (the table holds rows per slider position)`);
+        else if (lastPosition(p) >= 100_000) errors.push(`${where}.where.${col}: '${w.param}' has more than 100,000 slider positions`);
+      }
+      if (s.drag) {
+        if (s.where || s.column) errors.push(`${where}: a dragged point is drawn at its params and takes no where or column`);
+        for (const k of ["x", "y"] as const) if (!(s.drag[k] in params)) errors.push(`${where}.drag.${k}: '${s.drag[k]}' is not a parameter`);
+      }
+    }
+  }
+  const exprs = [...Object.entries(spec.derived ?? {}).map(([d, e]) => [`derived.${d}`, e] as const), ...(spec.readouts ?? []).map((r) => [`readouts.${r.id}`, r.expr] as const)];
+  errors.push(...lookupProblems(spec, exprs));
+  return errors;
+}
+
+/** at() calls in `exprs` ([where, expression]) that name no series of the spec. */
+export function lookupProblems(spec: WidgetSpec, exprs: (readonly [string, Expr])[]): string[] {
+  if (spec.type !== "data-chart") return [];
+  const series = new Set(plotsOf(spec).flatMap((p) => p.series.map((s) => s.id)));
+  return exprs.flatMap(([where, e]) =>
+    [...checkExpr(e, [], FUNCTIONS.lookup).lookups].filter((id) => !series.has(id)).map((id) => `${where ? `${where}: ` : ""}at("${id}", …) names no series of this chart (series: ${[...series].join(", ")})`),
+  );
 }
 
 function need(spec: WidgetSpec, table?: Table): Table {
@@ -675,7 +785,7 @@ function evaluated(spec: WidgetSpec, params: Scope, table?: Table): { problems: 
   };
   const at = (where: string, src: Expr | undefined, scope: Scope) => (src === undefined ? NaN : run(where, () => compile(src)(scope)));
   const m = modelOf(spec);
-  const scope: Scope = { ...m.fixed, ...params };
+  const scope = baseScope(spec, params);
   for (const d of m.dOrder) scope[d] = run(`derived.${d}`, () => m.fn(m.derived[d]!)(scope));
   const before = problems.length;
   switch (spec.type) {
@@ -789,7 +899,7 @@ function actuals(spec: WidgetSpec, params: Scope, keys: string[], table?: Table,
   if (spec.type === "data-chart") {
     const asks = keys.filter((k) => !(k in scope) && !(spec.readouts ?? []).some((r) => r.id === k));
     if (asks.length) {
-      const cd = chartData(spec, need(spec, table));
+      const cd = chartSet(spec, need(spec, table), params);
       for (const k of asks) {
         const v = chartValue(cd, k);
         if (v !== undefined) extra[k] = v;

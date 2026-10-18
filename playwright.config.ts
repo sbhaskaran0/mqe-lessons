@@ -38,7 +38,7 @@ export default defineConfig({
       grep: /@phone/,
       use: { baseURL: REAL, viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, deviceScaleFactor: 2 },
     },
-    { name: "fixture", testMatch: /(fixture|derive|review|exam)\.spec\.ts$/, use: { baseURL: FIXTURE, viewport: { width: 1280, height: 800 } } },
+    { name: "fixture", testMatch: /(fixture|derive|review|exam|data-chart-lookup)\.spec\.ts$/, use: { baseURL: FIXTURE, viewport: { width: 1280, height: 800 } } },
     // The Phase 2 pilots played end to end on the real export, at desktop and phone width.
     { name: "pilots", testMatch: "pilots.spec.ts", grepInvert: /@phone/, use: { baseURL: REAL, viewport: { width: 1280, height: 800 } } },
     {

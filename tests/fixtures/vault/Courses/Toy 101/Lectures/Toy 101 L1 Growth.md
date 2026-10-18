@@ -159,7 +159,7 @@ Now use the formula before the diagram does.
 
 ## Concepts in this lecture
 
-[[Toy Growth Model]] · [[Toy Production Function]]
+[[Toy Growth Model]] · [[Toy Production Function]] · [[Toy Kernel Smoothing]]
 
 ## Facts and data in this lecture
 

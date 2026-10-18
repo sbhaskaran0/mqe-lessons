@@ -331,6 +331,59 @@
   display: inline-flex;
   color: var(--text-3);
 }
+/* a labelled parameter: a segmented radio group in place of the slider, at the slider's touch height */
+.w-seg {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  margin: 2px 0 var(--space-1);
+  padding: 2px;
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+}
+.w-seg button {
+  flex: 1 1 auto;
+  min-height: 36px;
+  padding: 0 var(--space-3);
+  border: 0;
+  border-radius: calc(var(--radius-sm) - 2px);
+  background: transparent;
+  font: inherit;
+  font-weight: 600;
+  color: var(--text-2);
+  cursor: pointer;
+}
+.w-seg button[aria-checked="true"] {
+  background: var(--surface);
+  color: var(--accent);
+  box-shadow: 0 1px 3px var(--w-shadow);
+}
+.w-seg button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+/* a data-chart's panels: side by side when the widget is wide enough, stacked below that */
+@container (min-width: 640px) {
+  .w-chart-panels {
+    flex-direction: row;
+  }
+  .w-chart-panels > .w-chart-panel {
+    flex: 1 1 0;
+  }
+}
+.w-chart-panel {
+  min-width: 0;
+}
+.w-root .w-rug line {
+  stroke-width: 1.25;
+  stroke-opacity: 0.7;
+}
+.w-root .w-rug-hl line {
+  stroke-width: 2;
+  stroke-opacity: 1;
+}
 
 /* the parameters a step fixes: one quiet row of chips under the sliders */
 .w-controls {
