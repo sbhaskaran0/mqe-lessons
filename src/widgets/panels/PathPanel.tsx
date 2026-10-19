@@ -168,7 +168,7 @@ export function PhasePanel({ spec, panel, sim, params, rt, height, share }: { sp
     <div className="w-panel w-panel-phase" data-panel={panel.id}>
       <div className="w-panel-title">{panel.phase?.label ?? panel.title ?? "Phase diagram"}</div>
       <PlotFrame x={r} y={r} height={height} share={share} xTitle={{ tex }} yTitle={{ tex: nextTex(tex) }} ariaLabel={`Phase diagram of ${v}`}>
-        <PhaseMarks spec={spec} sim={sim} params={params} after={after} range={r} cobweb={!pending} highlight={rt.highlight === panel.id} />
+        {rt.pending(panel.id) ? null : <PhaseMarks spec={spec} sim={sim} params={params} after={after} range={r} cobweb={!pending} highlight={rt.highlight === panel.id} />}
       </PlotFrame>
     </div>
   );

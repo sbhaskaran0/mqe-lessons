@@ -1,7 +1,7 @@
 // The state every widget shares: parameter values, the active view (presets, lock, show, highlight), goals and
 // predictions. A widget component renders from this and reports learner moves through `set`; it never has to
 // know how views arrive. See host.tsx for the rules this implements.
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { type MutableRefObject, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { compile, defaults, type Scope, withDerived } from "../expr";
 import type { InteractiveBlock, WidgetProps } from "../host";
 import type { WidgetSpec } from "../spec";
@@ -92,6 +92,9 @@ export type Runtime = {
    *  prediction wait for a fresh one. */
   untouch: () => void;
   gestures: number;
+  /** The readout values the widget last drew, which it writes on each render. A readout prediction is graded against
+   *  them, because a widget's readouts can read more than its params (sampler summaries, data lookups, measures). */
+  readouts: MutableRefObject<Record<string, number> | null>;
   flag: (name: string) => boolean;
   setFlag: (name: string, on: boolean) => void;
   predict: PredictRuntime | null;
@@ -238,6 +241,7 @@ export function useWidgetRuntime(
     [predictSpec, pv.phase, hidden],
   );
 
+  const readoutsRef = useRef<Record<string, number> | null>(null);
   const onPredictRef = useRef(onPredict);
   onPredictRef.current = onPredict;
   const commit = useCallback(
@@ -253,7 +257,7 @@ export function useWidgetRuntime(
         // Compute before reveal: graded against the readout at the params the learner has now, before it is shown.
         if (value === undefined || !Number.isFinite(value)) return;
         result = { value };
-        const expected = readoutValues(spec, withDerived(spec, paramsRef.current))[predictSpec.readout];
+        const expected = (readoutsRef.current ?? readoutValues(spec, withDerived(spec, paramsRef.current)))[predictSpec.readout];
         if (expected !== undefined && Number.isFinite(expected)) {
           result.expected = expected;
           if (predictSpec.tol !== undefined) result.correct = grade(value, expected, predictSpec.tol);
@@ -310,6 +314,7 @@ export function useWidgetRuntime(
     touched: pv.touched,
     untouch,
     gestures: pv.gestures,
+    readouts: readoutsRef,
     flag: (name) => !!pv.flags[name],
     setFlag: (name, on) => setPv((p) => ({ ...p, flags: { ...p.flags, [name]: on } })),
     predict,

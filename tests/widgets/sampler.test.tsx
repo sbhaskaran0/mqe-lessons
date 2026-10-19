@@ -209,11 +209,29 @@ describe("sampler: rendering", () => {
     await waitFor(() => expect(r.container.querySelector('[data-readout="sd_out"] output')!.textContent).not.toBe(before));
   });
 
-  it("a prediction that hides the histogram hides its whole panel until the learner commits", async () => {
+  it("a prediction that hides the only panel keeps its frame but none of its marks until the learner commits", async () => {
     const view = { t: "interactive" as const, widget: "test-widget", predict: { hide: ["hist"], ask: "Where?", options: ["10", "12"], answer: 0 } };
     const r = render(<WidgetHost entry={entryOf(c1())} view={view} datasets={{}} contentBase="" />);
-    await waitFor(() => expect(r.container.querySelector("[data-readout]")).not.toBeNull());
-    expect(r.container.querySelector('[data-panel="hist"]')).toBeNull();
+    await waitFor(() => expect(r.container.querySelector("[data-sampler-note]")!.textContent).toMatch(/^400 samples/));
+    expect(r.container.querySelector('[data-panel="hist"] svg')).not.toBeNull();
+    for (const id of ["hist", "truth", "centre", "textbook"]) expect(r.container.querySelector(`[data-el="${id}"]`)).toBeNull();
+    fireEvent.click(r.getByRole("radio", { name: "10" }));
+    fireEvent.click(r.getByRole("button", { name: "Commit prediction" }));
+    await waitFor(() => expect(r.container.querySelector('[data-panel="hist"] [data-el="hist"] rect')).not.toBeNull());
+    expect(r.container.querySelector('[data-el="textbook"] path')).not.toBeNull();
+  });
+
+  it("a typed prediction asks for a number, not a marker, and is graded against the sampler's summary", async () => {
+    const spec = c1();
+    const sd = samplerRuns(spec, scopeOf(spec), 0).summaries.b2_sd!;
+    const view = { t: "interactive" as const, widget: "test-widget", predict: { hide: ["sd_out"], ask: "How wide?", readout: "sd_out", tol: 0.01 } };
+    const r = render(<WidgetHost entry={entryOf(spec)} view={view} datasets={{}} contentBase="" />);
+    await waitFor(() => expect(r.container.querySelector("[data-sampler-note]")!.textContent).toMatch(/^400 samples/));
+    expect(r.container.textContent).toContain("Work it out, then type your answer.");
+    expect(r.container.textContent).not.toMatch(/Drag the marker/);
+    fireEvent.change(r.getByRole("spinbutton"), { target: { value: String(sd) } });
+    fireEvent.click(r.getByRole("button", { name: "Commit prediction" }));
+    await waitFor(() => expect(r.container.querySelector(".w-predict-result")!.textContent).toMatch(/^Right\. .*model: /));
   });
 });
 

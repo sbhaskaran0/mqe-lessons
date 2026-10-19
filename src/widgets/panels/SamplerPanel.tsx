@@ -81,7 +81,7 @@ export function SamplerPanel({ panel, run, scope, rt, show, height, share, title
         ariaLabel={`${panel.title ?? ariaTitle}: histogram of ${panel.stat} over ${result ? result.reps : "many"} samples`}
       >
         <Clip>
-          {result ? <Bars id={panel.id} bars={result.bars} color={BAR_COLOR} highlight={rt.highlight === panel.id} className={rt.isRevealed(panel.id) ? "w-reveal" : undefined} /> : null}
+          {result && !rt.pending(panel.id) ? <Bars id={panel.id} bars={result.bars} color={BAR_COLOR} highlight={rt.highlight === panel.id} className={rt.isRevealed(panel.id) ? "w-reveal" : undefined} /> : null}
           <Overlays panel={panel} densities={densities} scope={scope} rt={rt} shown={shown} />
         </Clip>
       </PlotFrame>

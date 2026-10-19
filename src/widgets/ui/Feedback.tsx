@@ -39,7 +39,8 @@ export function HintButton({ goal }: { goal: GoalState | null }) {
 
 type PredictProps = {
   predict: PredictRuntime | null;
-  /** Without options: how to make the guess on the plot, and the value the marker reads (undefined until moved). */
+  /** Without options or a readout: how to make the guess on the plot, and the value the marker reads (undefined until
+   *  moved). A readout prediction is typed, so it ignores howTo. */
   howTo?: string;
   value?: number;
   describe?: (value: number) => string;
@@ -101,7 +102,7 @@ export function PredictPanel({ predict, howTo, value, describe }: PredictProps) 
       ) : asking ? (
         computing ? (
           <label className="w-predict-field w-predict-number">
-            <span>{howTo ?? "Work it out, then type your answer."}</span>
+            <span>Work it out, then type your answer.</span>
             <input
               type="number"
               inputMode="decimal"

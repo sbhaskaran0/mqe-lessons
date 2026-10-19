@@ -7,9 +7,9 @@ import { describe, expect, it } from "vitest";
 import type { WidgetEntry } from "../../src/ir";
 import { checkWidget, curveAt, derivedOrder, type PanelsSpec, simulate, withDerived } from "../../src/widgets/expr";
 import type { InteractiveBlock } from "../../src/widgets/host";
-import { visibleElements } from "../../src/widgets/panels/show";
+import { showRule, visibleElements } from "../../src/widgets/panels/show";
 import { autoLevels, contourSegments, sampleGrid } from "../../src/widgets/plot/contour";
-import { WidgetSpec } from "../../src/widgets/spec";
+import { panelMarks, WidgetSpec } from "../../src/widgets/spec";
 import { WidgetHost } from "../../src/widgets/WidgetHost";
 
 const panels = (s: unknown) => WidgetSpec.parse({ type: "panels", ...(s as object) }) as PanelsSpec;
@@ -154,6 +154,14 @@ describe("the show rule", () => {
   });
   it("a named mark and a named panel: the panel shows, with only the named marks", () => {
     expect(visibleElements(two, ["right", "l1"])).toEqual(["left", "l1", "right"]);
+  });
+  it("a prediction hiding one panel of two takes it off the stage; hiding every panel keeps their empty frames", () => {
+    const during = (hidden: string[]) => {
+      const rule = showRule(two, { listed: () => undefined, pending: (id) => hidden.includes(id) });
+      return two.panels.filter(rule.panel).flatMap((p) => [p.id, ...panelMarks(p).filter((id) => rule.mark(id, p.id))]);
+    };
+    expect(during(["left"])).toEqual(["right", "r1"]);
+    expect(during(["left", "right"])).toEqual(["left", "right"]);
   });
 });
 

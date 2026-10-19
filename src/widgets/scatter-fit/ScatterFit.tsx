@@ -58,6 +58,7 @@ function GeneratedFit({ entry, view, compact, onGoalMet, onPredict, initial, spe
   const stats = useMemo(() => fitStats(points, a, b), [points, a, b]);
   const fitScope = useMemo(() => ({ ...scope, ...stats }), [scope, stats]);
   const readouts = useMemo(() => readoutValues(spec, fitScope), [spec, fitScope]);
+  rt.readouts.current = readouts;
   const goal = useGoal(rt, useMemo(() => ({ ...fitScope, ...readouts }), [fitScope, readouts]), onGoalMet);
   const { listed, pending } = rt;
   const panels = spec.panels;

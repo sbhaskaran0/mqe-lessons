@@ -29,6 +29,7 @@ export default function Panels({ entry, view, compact, onGoalMet, onPredict, ini
   const sampled = useSampled(spec, rt.params);
   const scope = useMemo(() => (sampled ? { ...base, ...sampled.summaries } : base), [base, sampled]);
   const readouts = useMemo(() => readoutValues(spec, scope), [spec, scope]);
+  rt.readouts.current = readouts;
   const goal = useGoal(rt, useMemo(() => ({ ...scope, ...readouts }), [scope, readouts]), onGoalMet);
   const sim = useMemo(() => (spec.recurrence ? simulate(spec, rt.params) : null), [spec, rt.params]);
   const { listed, pending } = rt;

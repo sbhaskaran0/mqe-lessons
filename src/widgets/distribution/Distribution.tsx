@@ -85,6 +85,7 @@ function Body({ entry, view, compact, onGoalMet, onPredict, initial, spec, table
   const measures = dist?.measures;
 
   const readouts = useMemo(() => readoutValues(spec, { ...scope, ...measures }), [spec, scope, measures]);
+  rt.readouts.current = readouts;
   const goal = useGoal(rt, useMemo(() => ({ ...scope, ...measures, ...readouts }), [scope, measures, readouts]), onGoalMet);
 
   const declared = (spec.views ?? (spec.dataset !== undefined ? ["histogram", "lorenz"] : ["density", "lorenz"])) as View[];

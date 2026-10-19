@@ -84,6 +84,7 @@ function Chart({ entry, view, compact, onGoalMet, onPredict, initial, spec, tabl
   const rt = useWidgetRuntime(spec, view, onPredict, initial);
   const scope = useMemo(() => withDerived(spec, rt.params), [spec, rt.params]);
   const readouts = useMemo(() => readoutValues(spec, scope), [spec, scope]);
+  rt.readouts.current = readouts;
   const goal = useGoal(rt, useMemo(() => ({ ...scope, ...readouts }), [scope, readouts]), onGoalMet);
   const plots = useMemo(() => chartSet(spec, table, rt.params), [spec, table, rt.params]);
   const extents = useMemo(() => extentsOf(spec, table, chartSet(spec, table)), [spec, table]);

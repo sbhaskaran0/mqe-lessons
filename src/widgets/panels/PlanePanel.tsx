@@ -52,7 +52,7 @@ export function PlanePanel({ spec, panel, scope, rt, show, height, share, titled
         ariaLabel={`${panel.title ?? ariaTitle}: ${panel.kind === "contour" ? "level sets" : "vectors"}`}
       >
         <Clip>
-          {levels.length ? <ContourLines id={`${panel.id}-levels`} levels={levels} color="var(--chart-1)" highlight={rt.highlight === panel.id} /> : null}
+          {levels.length && !rt.pending(panel.id) ? <ContourLines id={`${panel.id}-levels`} levels={levels} color="var(--chart-1)" highlight={rt.highlight === panel.id} /> : null}
           <PlaneMarks panel={panel} scope={scope} rt={rt} shown={shown} />
         </Clip>
         {(panel.points ?? []).filter((p) => shown(p.id)).map((p) => (
