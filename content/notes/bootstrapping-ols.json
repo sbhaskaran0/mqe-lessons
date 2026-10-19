@@ -301,6 +301,24 @@
    ]
   },
   {
+   "id": "a-multiple-regression-example",
+   "heading": "A multiple-regression example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "a-multiple-regression-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A multiple-regression example bootstraps a regression of bank branches' total transaction time on two transaction counts (261 branches, 1,000 resamples). The type-1 coefficient's estimates average 5.49 minutes with standard deviation 0.69 and percentile interval [4.12, 6.80]. That standard deviation is about 60% larger than the usual OLS standard error (0.43) and close to White's robust one (0.69): resampling rows keeps each branch's own error size, so the bootstrap reflects heteroskedasticity ([Heteroskedasticity-Consistent Standard Errors](note:heteroskedasticity-consistent-standard-errors))."
+      }
+     ],
+     "words": 80,
+     "symbols": []
+    }
+   ]
+  },
+  {
    "id": "links",
    "heading": "Links",
    "role": "other",

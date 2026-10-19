@@ -1,0 +1,277 @@
+{
+ "slug": "generalized-least-squares",
+ "notation": [
+  {
+   "tex": "$y_i$, $x_i$",
+   "meaning": "Outcome and (positive) regressor",
+   "kind": "Data",
+   "typical": "Food spending, income",
+   "keys": [
+    "y",
+    "x"
+   ]
+  },
+  {
+   "tex": "$\\beta_1$, $\\beta_2$",
+   "meaning": "Intercept and slope",
+   "kind": "Parameters",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$e_i$",
+   "meaning": "Error",
+   "kind": "Unobserved",
+   "typical": "—",
+   "keys": [
+    "e"
+   ]
+  },
+  {
+   "tex": "$\\sigma^2$",
+   "meaning": "Scale of the error variance",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "sigma"
+   ]
+  },
+  {
+   "tex": "$\\sigma_i^2$, $\\widehat{\\sigma}_i^2$",
+   "meaning": "Variance of $e_i$ and its estimate",
+   "kind": "Parameter / estimator",
+   "typical": "—",
+   "keys": [
+    "sigma",
+    "hat(sigma)"
+   ]
+  },
+  {
+   "tex": "$h_i$",
+   "meaning": "Variance factor, $\\mathrm{Var}(e_i) = \\sigma^2 h_i$",
+   "kind": "Data / estimate",
+   "typical": "$x_i$",
+   "keys": [
+    "h"
+   ]
+  },
+  {
+   "tex": "$y_i^{*}$, $x_{i1}^{*}$, $x_{i2}^{*}$, $e_i^{*}$",
+   "meaning": "Transformed outcome, regressors and error",
+   "kind": "Computed",
+   "typical": "—",
+   "keys": [
+    "y*",
+    "x*",
+    "e*"
+   ]
+  },
+  {
+   "tex": "$\\gamma$",
+   "meaning": "Power of $x$ in the variance",
+   "kind": "Parameter",
+   "typical": "$\\widehat{\\gamma} = 2.33$",
+   "keys": [
+    "gamma"
+   ]
+  },
+  {
+   "tex": "$\\alpha_1$, $\\alpha_2$",
+   "meaning": "Log-variance intercept ($\\ln\\sigma^2$) and slope ($\\gamma$)",
+   "kind": "Parameters",
+   "typical": "0.938, 2.329",
+   "keys": [
+    "alpha"
+   ]
+  },
+  {
+   "tex": "$z_i$",
+   "meaning": "Variance regressor, $\\ln x_i$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "z"
+   ]
+  },
+  {
+   "tex": "$\\widehat{e}_i$",
+   "meaning": "OLS residual",
+   "kind": "Computed",
+   "typical": "—",
+   "keys": [
+    "hat(e)"
+   ]
+  },
+  {
+   "tex": "$t_c$",
+   "meaning": "Critical $t$ value",
+   "kind": "Constant",
+   "typical": "2.024",
+   "keys": [
+    "t"
+   ]
+  },
+  {
+   "tex": "$N$",
+   "meaning": "Observations",
+   "kind": "Count",
+   "typical": "40",
+   "keys": [
+    "N"
+   ],
+   "from": "heteroskedasticity-tests"
+  },
+  {
+   "tex": "$R^2$",
+   "meaning": "From the regression of $\\widehat{e}^{\\,2}$ on the $z$'s",
+   "kind": "Statistic",
+   "typical": "0.185",
+   "keys": [
+    "R"
+   ],
+   "from": "heteroskedasticity-tests"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Ordinary least squares treats every observation as equally informative. Under heteroskedasticity that is wasteful: an observation from a group with very noisy outcomes tells you less about the line than one from a quiet group. Weighted least squares gives each observation a weight inversely related to its error variance, so the noisy ones count for less. When you know how the variance grows, for example in proportion to income, you divide the whole equation by the square root of that factor and run ordinary least squares on the transformed data. When you do not know, feasible generalized least squares first estimates how the variance grows from the residuals and then uses that estimate as the weights."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "Robust standard errors only repair inference; weighted least squares also restores efficiency, giving smaller standard errors when the variance model is right.",
+       "folded": false
+      }
+     ],
+     "words": 141,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Known form.** $y_i = \\beta_1 + \\beta_2 x_i + e_i$ with $\\mathrm{Var}(e_i) = \\sigma_i^2 = \\sigma^2 x_i$. Divide by $\\sqrt{x_i}$:"
+      },
+      {
+       "t": "math",
+       "tex": "y_i^{*} = \\beta_1 x_{i1}^{*} + \\beta_2 x_{i2}^{*} + e_i^{*}, \\qquad y_i^{*} = \\frac{y_i}{\\sqrt{x_i}},\\; x_{i1}^{*} = \\frac{1}{\\sqrt{x_i}},\\; x_{i2}^{*} = \\sqrt{x_i},\\; e_i^{*} = \\frac{e_i}{\\sqrt{x_i}}"
+      },
+      {
+       "t": "prose",
+       "md": "$\\mathrm{Var}(e_i^{*}) = \\sigma^2 x_i/x_i = \\sigma^2$, and $E[e_i^{*}] = 0$ and zero covariances still hold, so OLS on the transformed model is BLUE. This is **weighted least squares** with weights $1/x_i$ on the squared errors (`smf.wls(..., weights=1/x)`; `statsmodels` takes the square root itself)."
+      },
+      {
+       "t": "prose",
+       "md": "**Unknown form (FGLS).** Assume $\\sigma_i^2 = \\sigma^2 x_i^{\\gamma}$. Taking logs, $\\ln\\sigma_i^2 = \\ln\\sigma^2 + \\gamma\\ln x_i = \\alpha_1 + \\alpha_2 z_i$ with $z_i = \\ln x_i$. Estimate it by regressing $\\ln\\widehat{e}_i^{\\,2}$ on $z_i$, set $\\widehat{\\sigma}_i^2 = \\exp(\\widehat{\\alpha}_1 + \\widehat{\\alpha}_2 z_i)$, and run WLS with weights $1/\\widehat{\\sigma}_i^2$. With several regressors, put several $z$'s in the exponent."
+      }
+     ],
+     "words": 68,
+     "symbols": [
+      "$y_i$, $x_i$",
+      "$\\beta_1$, $\\beta_2$",
+      "$e_i$",
+      "$\\sigma^2$",
+      "$\\sigma_i^2$, $\\widehat{\\sigma}_i^2$",
+      "$y_i^{*}$, $x_{i1}^{*}$, $x_{i2}^{*}$, $e_i^{*}$",
+      "$\\gamma$",
+      "$\\alpha_1$, $\\alpha_2$",
+      "$z_i$",
+      "$\\widehat{e}_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example-food-expenditure",
+   "heading": "Worked example: food expenditure",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-food-expenditure-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| | OLS | OLS, White se | WLS ($h = x$) | FGLS |\n| --- | --- | --- | --- | --- |\n| Intercept | 83.42 (43.41) | 83.42 (27.46) | 78.68 (23.79) | 76.05 (9.71) |\n| Income | 10.21 (2.09) | 10.21 (1.81) | 10.45 (1.39) | 10.63 (0.97) |"
+      },
+      {
+       "t": "prose",
+       "md": "WLS interval for the slope: $10.45 \\pm 2.024 \\times 1.386 = [7.65, 13.26]$, narrower than either OLS interval. The FGLS variance regression is $\\widehat{\\ln\\sigma_i^2} = 0.938 + 2.329\\ln(INCOME)$, so the variance grows faster than in proportion to income ($\\widehat{\\gamma} = 2.33$, against the $\\gamma = 1$ assumed by WLS). The text of the notebook quotes 2.39; its own output gives 2.329."
+      },
+      {
+       "t": "prose",
+       "md": "The $R^2$ of a weighted regression (0.599, 0.759) measures fit of the transformed model and cannot be compared with OLS's 0.385."
+      }
+     ],
+     "words": 112,
+     "symbols": [
+      "$y_i$, $x_i$",
+      "$\\sigma_i^2$, $\\widehat{\\sigma}_i^2$",
+      "$h_i$",
+      "$\\gamma$",
+      "$N$",
+      "$R^2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Weighting by $1/\\sqrt{x}$ in software that already takes the square root** (or the reverse).\n- **Using FGLS with a badly wrong variance model.** The estimates stay unbiased but lose their efficiency, and the reported standard errors are wrong; pairing WLS with robust standard errors guards against that.\n- **Comparing $R^2$ across OLS and WLS.**"
+      }
+     ],
+     "words": 53,
+     "symbols": [
+      "$y_i$, $x_i$",
+      "$R^2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Homoskedasticity](note:homoskedasticity) · [Heteroskedasticity Tests](note:heteroskedasticity-tests) · [Heteroskedasticity-Consistent Standard Errors](note:heteroskedasticity-consistent-standard-errors) · [Gauss-Markov Theorem](note:gauss-markov-theorem)"
+      }
+     ],
+     "words": 9,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

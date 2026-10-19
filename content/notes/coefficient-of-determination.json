@@ -134,6 +134,16 @@
     "bar(y)"
    ],
    "from": "ols-estimator"
+  },
+  {
+   "tex": "$C_p$",
+   "meaning": "Mallows' statistic",
+   "kind": "Statistic",
+   "typical": "2.32",
+   "keys": [
+    "C"
+   ],
+   "from": "model-selection-criteria"
   }
  ],
  "sections": [
@@ -329,6 +339,27 @@
      "symbols": [
       "$R^2$",
       "$t$, $F$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "choosing-between-models",
+   "heading": "Choosing between models",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "choosing-between-models-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Because $R^2$ never falls when a regressor is added, it cannot choose how many regressors to keep. Adjusted $R^2$, AIC, BIC and Mallows' $C_p$ penalize extra coefficients ([Model Selection Criteria](note:model-selection-criteria))."
+      }
+     ],
+     "words": 27,
+     "symbols": [
+      "$R^2$",
+      "$C_p$"
      ]
     }
    ]

@@ -248,6 +248,26 @@
    ]
   },
   {
+   "id": "omitted-variables",
+   "heading": "Omitted variables",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "omitted-variables-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The most common way strict exogeneity fails is a left-out regressor that both affects $y$ and moves with an included one; [Omitted Variable Bias](note:omitted-variable-bias) gives the size and sign of the resulting bias: the omitted variable's effect times the slope of the omitted on the included regressor."
+      }
+     ],
+     "words": 46,
+     "symbols": [
+      "$y_i$"
+     ]
+    }
+   ]
+  },
+  {
    "id": "links",
    "heading": "Links",
    "role": "other",

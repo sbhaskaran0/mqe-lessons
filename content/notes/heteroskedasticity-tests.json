@@ -1,0 +1,367 @@
+{
+ "slug": "heteroskedasticity-tests",
+ "notation": [
+  {
+   "tex": "$e_i$, $\\widehat{e}_i$",
+   "meaning": "Error and OLS residual",
+   "kind": "Unobserved / computed",
+   "typical": "—",
+   "keys": [
+    "e",
+    "hat(e)"
+   ]
+  },
+  {
+   "tex": "$h(\\cdot)$",
+   "meaning": "Variance function",
+   "kind": "Function",
+   "typical": "linear, exponential",
+   "keys": [
+    "h"
+   ]
+  },
+  {
+   "tex": "$z_{is}$",
+   "meaning": "Variables thought to drive the variance",
+   "kind": "Data",
+   "typical": "income",
+   "keys": [
+    "z"
+   ]
+  },
+  {
+   "tex": "$\\alpha_1, \\ldots, \\alpha_S$",
+   "meaning": "Variance-function coefficients",
+   "kind": "Parameters",
+   "typical": "—",
+   "keys": [
+    "alpha"
+   ]
+  },
+  {
+   "tex": "$S$",
+   "meaning": "Coefficients in the variance function, intercept included",
+   "kind": "Count",
+   "typical": "2 for BP on income",
+   "keys": [
+    "S"
+   ]
+  },
+  {
+   "tex": "$N$",
+   "meaning": "Observations",
+   "kind": "Count",
+   "typical": "40",
+   "keys": [
+    "N"
+   ]
+  },
+  {
+   "tex": "$R^2$",
+   "meaning": "From the regression of $\\widehat{e}^{\\,2}$ on the $z$'s",
+   "kind": "Statistic",
+   "typical": "0.185",
+   "keys": [
+    "R"
+   ]
+  },
+  {
+   "tex": "$\\chi^2$",
+   "meaning": "Test statistic $N R^2$",
+   "kind": "Statistic",
+   "typical": "7.38",
+   "keys": [
+    "chi"
+   ]
+  },
+  {
+   "tex": "$\\sigma_1^2$, $\\sigma_0^2$",
+   "meaning": "Error variances in the two groups",
+   "kind": "Parameters",
+   "typical": "—",
+   "keys": [
+    "sigma"
+   ]
+  },
+  {
+   "tex": "$\\widehat{\\sigma}_1^2$, $\\widehat{\\sigma}_0^2$",
+   "meaning": "Their estimates",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "hat(sigma)"
+   ]
+  },
+  {
+   "tex": "$N_1$, $N_0$, $K$",
+   "meaning": "Group sizes and coefficients per regression",
+   "kind": "Counts",
+   "typical": "—",
+   "keys": [
+    "N",
+    "K"
+   ]
+  },
+  {
+   "tex": "$F$",
+   "meaning": "Goldfeld-Quandt statistic",
+   "kind": "Statistic",
+   "typical": "3.61",
+   "keys": [
+    "F"
+   ]
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "Significance level",
+   "kind": "Choice",
+   "typical": "0.05",
+   "keys": [
+    "alpha"
+   ]
+  },
+  {
+   "tex": "$x_2$, $x_3$, $\\beta_k$",
+   "meaning": "Regressors and coefficients of the model",
+   "kind": "Data / parameters",
+   "typical": "—",
+   "keys": [
+    "x",
+    "beta"
+   ]
+  },
+  {
+   "tex": "$y_i$, $\\hat{y}_i$",
+   "meaning": "Actual and fitted outcome",
+   "kind": "Data / computed",
+   "typical": "—",
+   "keys": [
+    "y",
+    "hat(y)"
+   ],
+   "from": "coefficient-of-determination"
+  },
+  {
+   "tex": "$D_i$",
+   "meaning": "Cook's distance: how much all fitted values move when observation $i$ is dropped",
+   "kind": "Statistic",
+   "typical": "Large relative to $4/n$",
+   "keys": [
+    "D"
+   ],
+   "from": "regression-diagnostics"
+  },
+  {
+   "tex": "$Y$, $X$, $p$, $q$, $a$, $b$",
+   "meaning": "Variables and powers in the bulging-rule regression",
+   "kind": "Data / parameters",
+   "typical": "—",
+   "keys": [
+    "Y",
+    "X",
+    "p",
+    "q",
+    "a",
+    "b"
+   ],
+   "from": "box-cox-and-power-transformations"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Heteroskedasticity means the regression's misses are bigger for some observations than for others, such as richer households varying more in food spending. Plots show it as a fan; tests ask whether the fan could be chance. The Breusch-Pagan test checks whether the squared residuals can be predicted from variables you suspect drive the spread. The White test does the same without asking you to name them, using the regressors, their squares and their products. The Goldfeld-Quandt test splits the sample in two, such as cities and the countryside, or low and high incomes, and compares the leftover spread in each half. A spread-level plot gives a visual check and suggests a transformation of the outcome."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "The usual standard errors are wrong under heteroskedasticity, so these tests decide whether to switch to robust standard errors or weighted least squares. Exams often ask how Breusch-Pagan and White differ.",
+       "folded": false
+      }
+     ],
+     "words": 149,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Variance function.** $\\mathrm{Var}(y_i) = E[e_i^2] = h(\\alpha_1 + \\alpha_2 z_{i2} + \\cdots + \\alpha_S z_{iS})$; homoskedasticity is $H_0: \\alpha_2 = \\cdots = \\alpha_S = 0$."
+      },
+      {
+       "t": "prose",
+       "md": "**Breusch-Pagan (Lagrange multiplier).** Regress $\\widehat{e}_i^{\\,2}$ on $1, z_2, \\ldots, z_S$; with $R^2$ from that regression,"
+      },
+      {
+       "t": "math",
+       "tex": "\\chi^2 = N \\times R^2 \\sim \\chi^2_{S-1} \\text{ under } H_0"
+      },
+      {
+       "t": "prose",
+       "md": "**White.** The same statistic with the $z$'s set to the regressors, their squares and (usually) their cross-products: for $E[y] = \\beta_1 + \\beta_2 x_2 + \\beta_3 x_3$, $z = x_2, x_3, x_2^2, x_3^2, x_2x_3$."
+      },
+      {
+       "t": "prose",
+       "md": "**Goldfeld-Quandt.** Split the sample into groups 1 and 0 (by an indicator, or by sorting on a regressor), fit the model in each, and compare"
+      },
+      {
+       "t": "math",
+       "tex": "F = \\frac{\\widehat{\\sigma}_1^2}{\\widehat{\\sigma}_0^2} \\sim F_{N_1 - K,\\; N_0 - K} \\text{ under } H_0: \\sigma_1^2 = \\sigma_0^2"
+      },
+      {
+       "t": "prose",
+       "md": "with the larger variance on top (two-sided test: compare with the $1 - \\alpha/2$ critical value)."
+      },
+      {
+       "t": "prose",
+       "md": "**Spread-level plot.** Plot $|$studentized residual$|$ against the fitted value (on log scales for the slope). A rising pattern is heteroskedasticity; $1 - \\text{slope}$ of $\\log|\\text{resid}|$ on $\\log\\widehat{y}$ suggests a power transformation of $y$."
+      }
+     ],
+     "words": 96,
+     "symbols": [
+      "$e_i$, $\\widehat{e}_i$",
+      "$h(\\cdot)$",
+      "$z_{is}$",
+      "$\\alpha_1, \\ldots, \\alpha_S$",
+      "$N$",
+      "$R^2$",
+      "$\\chi^2$",
+      "$\\sigma_1^2$, $\\sigma_0^2$",
+      "$\\widehat{\\sigma}_1^2$, $\\widehat{\\sigma}_0^2$",
+      "$N_1$, $N_0$, $K$",
+      "$F$",
+      "$\\alpha$",
+      "$x_2$, $x_3$, $\\beta_k$",
+      "$y_i$, $\\hat{y}_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-examples-food-expenditure",
+   "heading": "Worked examples: food expenditure",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-examples-food-expenditure-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$\\widehat{FOOD\\_EXP} = 83.42 + 10.21\\,INCOME$, $N = 40$."
+      },
+      {
+       "t": "table",
+       "md": "| Test | Statistic | Critical value (5%) | p-value |\n| --- | --- | --- | --- |\n| Breusch-Pagan, $z$ = income | $\\chi^2 = 7.38$ | $\\chi^2_{1} = 3.84$ | 0.007 |\n| White, $z$ = income, income² | $\\chi^2 = 7.56$ | $\\chi^2_{2} = 5.99$ | 0.023 |\n| Goldfeld-Quandt, split at median income | $F = 3.61$ | $F_{0.975;\\,18,\\,18} = 2.60$ | 0.005 |"
+      },
+      {
+       "t": "prose",
+       "md": "All three reject: the variance rises with income. The spread-level plot suggests a power of about $-1.1$ for food expenditure."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Food expenditure regression - spread-level plot.png",
+       "alt": "Food expenditure regression - spread-level plot"
+      },
+      {
+       "t": "prose",
+       "md": "**Wages, metro vs rural** (CPS5): $F = \\widehat{\\sigma}^2_{metro}/\\widehat{\\sigma}^2_{rural} = 2.34$, far above the upper critical value 1.08: metro wages vary more."
+      }
+     ],
+     "words": 62,
+     "symbols": [
+      "$z_{is}$",
+      "$N$",
+      "$\\chi^2$",
+      "$\\widehat{\\sigma}_1^2$, $\\widehat{\\sigma}_0^2$",
+      "$N_1$, $N_0$, $K$",
+      "$F$",
+      "$D_i$",
+      "$Y$, $X$, $p$, $q$, $a$, $b$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "breusch-pagan-or-white",
+   "heading": "Breusch-Pagan or White?",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "breusch-pagan-or-white-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| | Breusch-Pagan | White |\n| --- | --- | --- |\n| Null | Homoskedasticity: the chosen $z$'s do not predict $\\widehat{e}^{\\,2}$ | Homoskedasticity: the regressors, squares and products do not |\n| Alternative | Variance depends on the chosen $z$'s | Any variance pattern linked to the regressors |\n| Needs | You to know (or guess) the $z$'s | Nothing beyond the regressors |\n| Strength | More power when the right $z$'s are used | General; also picks up some misspecification |\n| Weakness | Misses heteroskedasticity driven by other variables | Many terms eat degrees of freedom when there are many regressors |"
+      },
+      {
+       "t": "prose",
+       "md": "Prefer BP when theory points to the variables behind the variance; prefer White when it does not, and the sample is large relative to the number of regressors."
+      }
+     ],
+     "words": 108,
+     "symbols": [
+      "$e_i$, $\\widehat{e}_i$",
+      "$z_{is}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Reading \"fail to reject\" as \"homoskedastic\".** A small sample may just lack power.\n- **Putting the smaller variance on top in Goldfeld-Quandt**, or using the $1 - \\alpha$ critical value for a two-sided test.\n- **Squaring $\\widehat{\\sigma}^2$ again**: `statsmodels`' `.scale` is already $\\widehat{\\sigma}^2$ (a bug the notebook's author fixed)."
+      }
+     ],
+     "words": 46,
+     "symbols": [
+      "$\\alpha_1, \\ldots, \\alpha_S$",
+      "$\\widehat{\\sigma}_1^2$, $\\widehat{\\sigma}_0^2$",
+      "$\\alpha$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Homoskedasticity](note:homoskedasticity) · [Heteroskedasticity-Consistent Standard Errors](note:heteroskedasticity-consistent-standard-errors) · [Generalized Least Squares](note:generalized-least-squares) · [Regression Diagnostics](note:regression-diagnostics) · [Box-Cox and Power Transformations](note:box-cox-and-power-transformations)"
+      }
+     ],
+     "words": 14,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

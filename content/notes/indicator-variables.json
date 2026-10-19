@@ -140,14 +140,37 @@
    "from": "full-rank-and-identification"
   },
   {
-   "tex": "$A$",
-   "meaning": "Matrix",
-   "kind": "—",
-   "typical": "—",
+   "tex": "$R^2$",
+   "meaning": "Share of the variation explained by the groups",
+   "kind": "Statistic",
+   "typical": "0.125",
    "keys": [
-    "A"
+    "R"
    ],
-   "from": "linear-independence-and-rank"
+   "from": "analysis-of-variance"
+  },
+  {
+   "tex": "$F$",
+   "meaning": "Test statistic for equal means",
+   "kind": "Statistic",
+   "typical": "4.48",
+   "keys": [
+    "F"
+   ],
+   "from": "analysis-of-variance"
+  },
+  {
+   "tex": "$A$, $B$; $a$, $b$",
+   "meaning": "Two factors and their numbers of levels",
+   "kind": "—",
+   "typical": "3 and 2",
+   "keys": [
+    "A",
+    "B",
+    "a",
+    "b"
+   ],
+   "from": "analysis-of-variance"
   },
   {
    "tex": "$PRICE$, $SQFT$",
@@ -159,6 +182,26 @@
     "~SQFT"
    ],
    "from": "functional-forms-and-elasticities"
+  },
+  {
+   "tex": "$H_0$",
+   "meaning": "The $J$ restrictions, all true",
+   "kind": "—",
+   "typical": "$\\delta_1 = \\delta_2 = \\gamma = 0$",
+   "keys": [
+    "H"
+   ],
+   "from": "f-test-of-joint-hypotheses"
+  },
+  {
+   "tex": "$t$",
+   "meaning": "$t$ statistic for a single restriction",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "t"
+   ],
+   "from": "f-test-of-joint-hypotheses"
   }
  ],
  "sections": [
@@ -221,6 +264,7 @@
       "$e$, $\\varepsilon$",
       "$N$",
       "$NI$, $S$, $T$",
+      "$R^2$",
       "$PRICE$, $SQFT$"
      ]
     }
@@ -277,7 +321,9 @@
      "symbols": [
       "$\\beta_1$",
       "$\\beta_2$",
-      "$\\beta_0, \\ldots, \\beta_{k-1}$"
+      "$\\beta_0, \\ldots, \\beta_{k-1}$",
+      "$H_0$",
+      "$t$"
      ]
     }
    ]
@@ -314,7 +360,9 @@
       "$\\beta_1$",
       "$\\beta_2$",
       "$\\beta_0, \\ldots, \\beta_{k-1}$",
-      "$A$"
+      "$F$",
+      "$A$, $B$; $a$, $b$",
+      "$t$"
      ]
     }
    ]
@@ -378,6 +426,30 @@
    ]
   },
   {
+   "id": "slope-indicators-factors-and-interactions",
+   "heading": "Slope indicators, factors and interactions",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "slope-indicators-factors-and-interactions-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "In multiple regression (L8), an additive dummy shifts the intercept: price on $UTOWN$ and living area gives two parallel lines, \\$60,400 apart (ANCOVA). A product $SQFT \\times UTOWN$ shifts the slope instead, and products of dummies give each combination of groups its own intercept: see [Interaction Terms](note:interaction-terms). A regression on one or two factors alone is an [Analysis of Variance](note:analysis-of-variance)."
+      }
+     ],
+     "words": 57,
+     "symbols": [
+      "$D_i$ (e.g. $UTOWN$, $FEMALE$)",
+      "$N$",
+      "$NI$, $S$, $T$",
+      "$F$",
+      "$PRICE$, $SQFT$"
+     ]
+    }
+   ]
+  },
+  {
    "id": "links",
    "heading": "Links",
    "role": "other",
@@ -387,10 +459,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "- Math background: [Linear Independence and Rank](note:linear-independence-and-rank)\n- [Full Rank and Identification](note:full-rank-and-identification)\n- [Functional Forms and Elasticities](note:functional-forms-and-elasticities)"
+       "md": "- Math background: [Linear Independence and Rank](note:linear-independence-and-rank)\n- [Full Rank and Identification](note:full-rank-and-identification)\n- [Functional Forms and Elasticities](note:functional-forms-and-elasticities)\n- [Interaction Terms](note:interaction-terms) · [Analysis of Variance](note:analysis-of-variance) · [F Test of Joint Hypotheses](note:f-test-of-joint-hypotheses)"
       }
      ],
-     "words": 17,
+     "words": 28,
      "symbols": []
     }
    ]

@@ -228,10 +228,14 @@
      "blocks": [
       {
        "t": "prose",
+       "md": "The full treatment, with regression examples, is in [Delta Method](note:delta-method)."
+      },
+      {
+       "t": "prose",
        "md": "For an estimator $\\hat\\theta$ with variance $V$, $\\mathrm{Var}(g(\\hat\\theta)) \\approx g'(\\theta)^2\\,V$ — a first-order Taylor expansion. It gives standard errors for transformed estimates such as an elasticity or $\\sigma = -1/\\beta$."
       }
      ],
-     "words": 21,
+     "words": 31,
      "symbols": [
       "$\\hat{\\theta}$, $\\theta$",
       "$V$",

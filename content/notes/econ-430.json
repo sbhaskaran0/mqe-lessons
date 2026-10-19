@@ -73,6 +73,16 @@
     "bold(b)"
    ],
    "from": "ols-in-matrix-form"
+  },
+  {
+   "tex": "$C_p$",
+   "meaning": "Mallows' statistic",
+   "kind": "Statistic",
+   "typical": "2.32",
+   "keys": [
+    "C"
+   ],
+   "from": "model-selection-criteria"
   }
  ],
  "sections": [
@@ -86,14 +96,14 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "1. [Econ 430 L1 Univariate Characterizations](note:econ-430-l1-univariate-characterizations)\n2. [Econ 430 L2 Bivariate Characterizations](note:econ-430-l2-bivariate-characterizations)\n3. [Econ 430 L3 The Method of Least Squares](note:econ-430-l3-the-method-of-least-squares)\n4. [Econ 430 L4 Cross-Validation and the Bootstrap](note:econ-430-l4-cross-validation-and-the-bootstrap)\n5. [Econ 430 L5 Estimating Nonlinear Relationships](note:econ-430-l5-estimating-nonlinear-relationships)\n6. [Econ 430 L6 Indicator Variables and the OLS Workflow](note:econ-430-l6-indicator-variables-and-the-ols-workflow)\n7. [Econ 430 L7 The Classical Linear Regression Model](note:econ-430-l7-the-classical-linear-regression-model)"
+       "md": "1. [Econ 430 L1 Univariate Characterizations](note:econ-430-l1-univariate-characterizations)\n2. [Econ 430 L2 Bivariate Characterizations](note:econ-430-l2-bivariate-characterizations)\n3. [Econ 430 L3 The Method of Least Squares](note:econ-430-l3-the-method-of-least-squares)\n4. [Econ 430 L4 Cross-Validation and the Bootstrap](note:econ-430-l4-cross-validation-and-the-bootstrap)\n5. [Econ 430 L5 Estimating Nonlinear Relationships](note:econ-430-l5-estimating-nonlinear-relationships)\n6. [Econ 430 L6 Indicator Variables and the OLS Workflow](note:econ-430-l6-indicator-variables-and-the-ols-workflow)\n7. [Econ 430 L7 The Classical Linear Regression Model](note:econ-430-l7-the-classical-linear-regression-model)\n8. [Econ 430 L8 Building Multiple Regression Models](note:econ-430-l8-building-multiple-regression-models)\n9. [Econ 430 L9 Bootstrapping Regression Models](note:econ-430-l9-bootstrapping-regression-models)\n10. [Econ 430 L10 Modeling Issues in Multiple Regression](note:econ-430-l10-modeling-issues-in-multiple-regression)\n11. [Econ 430 L11 Heteroskedasticity](note:econ-430-l11-heteroskedasticity)\n12. [Econ 430 L12 Missing Data and the Regression Workflow](note:econ-430-l12-missing-data-and-the-regression-workflow)"
       },
       {
        "t": "prose",
-       "md": "L1 to L7 come from one notebook, `Regression_Lecture1_Adv.ipynb`, one lecture per major heading."
+       "md": "L1 to L7 come from one notebook, `Regression_Lecture1_Adv.ipynb`, and L8 to L12 from a second, `Regression_Lecture2.ipynb`: one lecture per major heading."
       }
      ],
-     "words": 71,
+     "words": 120,
      "symbols": []
     }
    ]
@@ -137,6 +147,17 @@
      ],
      "words": 111,
      "symbols": []
+    },
+    {
+     "id": "course-arc-so-far-4",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The second notebook moves to the [Multiple Regression Model](note:multiple-regression-model). [Econ 430 L8 Building Multiple Regression Models](note:econ-430-l8-building-multiple-regression-models) builds models on Big Andy's Burger Barn: linear combinations of coefficients, a quadratic with its [Marginal Effects](note:marginal-effects) and turning point, the [Delta Method](note:delta-method), factors ([Analysis of Variance](note:analysis-of-variance)), [Interaction Terms](note:interaction-terms) and the [F Test of Joint Hypotheses](note:f-test-of-joint-hypotheses), including the Chow test. [Econ 430 L9 Bootstrapping Regression Models](note:econ-430-l9-bootstrapping-regression-models) bootstraps a two-regressor model. [Econ 430 L10 Modeling Issues in Multiple Regression](note:econ-430-l10-modeling-issues-in-multiple-regression) covers specification: the [Component-Plus-Residual Plot](note:component-plus-residual-plot) and [Box-Tidwell Transformation](note:box-tidwell-transformation), [Omitted Variable Bias](note:omitted-variable-bias) and irrelevant variables, [Multicollinearity](note:multicollinearity), [Ramsey RESET](note:ramsey-reset), and choosing models with [Model Selection Criteria](note:model-selection-criteria) and [Variable Selection](note:variable-selection). [Econ 430 L11 Heteroskedasticity](note:econ-430-l11-heteroskedasticity) detects it ([Heteroskedasticity Tests](note:heteroskedasticity-tests)) and deals with it ([Heteroskedasticity-Consistent Standard Errors](note:heteroskedasticity-consistent-standard-errors), [Generalized Least Squares](note:generalized-least-squares)). [Econ 430 L12 Missing Data and the Regression Workflow](note:econ-430-l12-missing-data-and-the-regression-workflow) handles [Missing Data and Imputation](note:missing-data-and-imputation) and runs the whole workflow on a college-GPA example."
+      }
+     ],
+     "words": 142,
+     "symbols": []
     }
    ]
   },
@@ -150,10 +171,10 @@
      "blocks": [
       {
        "t": "table",
-       "md": "| Block | Lecture | Topics | Weight |\n| --- | --- | --- | --- |\n| Looking at data | L1, L2 | [EDA for Regression](note:eda-for-regression), [Q-Q Plot](note:q-q-plot), [Skewness and Kurtosis](note:skewness-and-kurtosis), [Lowess Smoother](note:lowess-smoother) | Low to medium |\n| Model and OLS | L3 | [SR Assumptions](note:sr-assumptions), [OLS Estimator](note:ols-estimator), [Gauss-Markov Theorem](note:gauss-markov-theorem), [Sampling Distribution of OLS](note:sampling-distribution-of-ols), [Hypothesis Tests on Regression Coefficients](note:hypothesis-tests-on-regression-coefficients), [Coefficient of Determination](note:coefficient-of-determination), [Confidence vs Prediction Intervals](note:confidence-vs-prediction-intervals) | **Highest** |\n| Resampling | L4 | [Cross-Validation](note:cross-validation), [Bootstrapping OLS](note:bootstrapping-ols) | Medium |\n| Transformations | L5 | [Functional Forms and Elasticities](note:functional-forms-and-elasticities), [Box-Cox and Power Transformations](note:box-cox-and-power-transformations) | **High** |\n| Categorical and diagnostics | L6 | [Indicator Variables](note:indicator-variables), [Regression Diagnostics](note:regression-diagnostics) | Medium |\n| Matrix theory | L7 | [OLS in Matrix Form](note:ols-in-matrix-form), [Projection Matrix and Residual Maker](note:projection-matrix-and-residual-maker), [Conditional Mean vs Linear Projection](note:conditional-mean-vs-linear-projection), [Full Rank and Identification](note:full-rank-and-identification) | **High** |"
+       "md": "| Block | Lecture | Topics | Weight |\n| --- | --- | --- | --- |\n| Looking at data | L1, L2 | [EDA for Regression](note:eda-for-regression), [Q-Q Plot](note:q-q-plot), [Skewness and Kurtosis](note:skewness-and-kurtosis), [Lowess Smoother](note:lowess-smoother) | Low to medium |\n| Model and OLS | L3 | [SR Assumptions](note:sr-assumptions), [OLS Estimator](note:ols-estimator), [Gauss-Markov Theorem](note:gauss-markov-theorem), [Sampling Distribution of OLS](note:sampling-distribution-of-ols), [Hypothesis Tests on Regression Coefficients](note:hypothesis-tests-on-regression-coefficients), [Coefficient of Determination](note:coefficient-of-determination), [Confidence vs Prediction Intervals](note:confidence-vs-prediction-intervals) | **Highest** |\n| Resampling | L4 | [Cross-Validation](note:cross-validation), [Bootstrapping OLS](note:bootstrapping-ols) | Medium |\n| Transformations | L5 | [Functional Forms and Elasticities](note:functional-forms-and-elasticities), [Box-Cox and Power Transformations](note:box-cox-and-power-transformations) | **High** |\n| Categorical and diagnostics | L6 | [Indicator Variables](note:indicator-variables), [Regression Diagnostics](note:regression-diagnostics) | Medium |\n| Matrix theory | L7 | [OLS in Matrix Form](note:ols-in-matrix-form), [Projection Matrix and Residual Maker](note:projection-matrix-and-residual-maker), [Conditional Mean vs Linear Projection](note:conditional-mean-vs-linear-projection), [Full Rank and Identification](note:full-rank-and-identification) | **High** |\n| Building multiple regressions | L8 | [Marginal Effects](note:marginal-effects), [Delta Method](note:delta-method), [Interaction Terms](note:interaction-terms), [F Test of Joint Hypotheses](note:f-test-of-joint-hypotheses), [Analysis of Variance](note:analysis-of-variance) | **High** |\n| Bootstrapping regressions | L9 | [Bootstrapping OLS](note:bootstrapping-ols) | Low |\n| Specification and model choice | L10 | [Omitted Variable Bias](note:omitted-variable-bias), [Multicollinearity](note:multicollinearity), [Ramsey RESET](note:ramsey-reset), [Model Selection Criteria](note:model-selection-criteria), [Variable Selection](note:variable-selection) | **High** |\n| Heteroskedasticity | L11 | [Heteroskedasticity Tests](note:heteroskedasticity-tests), [Heteroskedasticity-Consistent Standard Errors](note:heteroskedasticity-consistent-standard-errors), [Generalized Least Squares](note:generalized-least-squares) | Medium to high |\n| Missing data and workflow | L12 | [Missing Data and Imputation](note:missing-data-and-imputation), [Regression Diagnostics](note:regression-diagnostics) | Low to medium |"
       }
      ],
-     "words": 101,
+     "words": 170,
      "symbols": []
     },
     {
@@ -161,15 +182,16 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "The Fall 2025 midterm matches these weights: about half of it is interpretation of log, log-log and quadratic models, Box-Cox output, $t$ tests, $R^2$ and forecast intervals (L3 and L5), with one matrix derivation ($\\mathbf{M}\\mathbf{X} = \\mathbf{0}$, L7), and short answers on bootstrapping, Q-Q plots and normality tests (L1, L4, L6). Its multiple-regression questions (omitted variables, interactions, RESET, Mallows' $C_p$, White's test) go beyond L1 to L7."
+       "md": "The Fall 2025 midterm matches these weights: about half of it is interpretation of log, log-log and quadratic models, Box-Cox output, $t$ tests, $R^2$ and forecast intervals (L3 and L5), with one matrix derivation ($\\mathbf{M}\\mathbf{X} = \\mathbf{0}$, L7), and short answers on bootstrapping, Q-Q plots and normality tests (L1, L4, L6). Its multiple-regression questions are L8 to L11: interpreting interactions and a linear combination of Andy's coefficients and finding a quadratic's turning point (L8), RESET, an irrelevant variable that inflates variances, AIC and BIC against $R^2$, and two Mallows' $C_p$ readings (L10), and Breusch-Pagan against White (L11)."
       }
      ],
-     "words": 61,
+     "words": 90,
      "symbols": [
       "$\\mathbf{X}$",
       "$t$",
       "$\\mathbf{M}$, $\\mathbf{P}$, $\\mathbf{X}$",
-      "$R^2$"
+      "$R^2$",
+      "$C_p$"
      ]
     }
    ]

@@ -97,6 +97,17 @@
     "n"
    ],
    "from": "regression-diagnostics"
+  },
+  {
+   "tex": "$x_i$, $\\bar{x}$",
+   "meaning": "Regressor and its mean",
+   "kind": "Data / statistic",
+   "typical": "—",
+   "keys": [
+    "x",
+    "bar(x)"
+   ],
+   "from": "heteroskedasticity-consistent-standard-errors"
   }
  ],
  "sections": [
@@ -193,7 +204,8 @@
       "$\\widehat{\\sigma}^2$",
       "$b_2$",
       "$t_i$",
-      "$p$, $n$"
+      "$p$, $n$",
+      "$x_i$, $\\bar{x}$"
      ]
     }
    ]
@@ -250,6 +262,24 @@
    ]
   },
   {
+   "id": "testing-for-it-and-fixing-it",
+   "heading": "Testing for it and fixing it",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "testing-for-it-and-fixing-it-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Detection: spread-level plots and the Breusch-Pagan, White and Goldfeld-Quandt tests ([Heteroskedasticity Tests](note:heteroskedasticity-tests)); for the food regression all three reject. Remedies: White standard errors ([Heteroskedasticity-Consistent Standard Errors](note:heteroskedasticity-consistent-standard-errors)) keep OLS and fix inference; weighted and feasible generalized least squares ([Generalized Least Squares](note:generalized-least-squares)) restore efficiency."
+      }
+     ],
+     "words": 42,
+     "symbols": []
+    }
+   ]
+  },
+  {
    "id": "links",
    "heading": "Links",
    "role": "other",
@@ -259,10 +289,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "- Math background: [Spectral Decomposition](note:spectral-decomposition)\n- [SR Assumptions](note:sr-assumptions)\n- [Regression Diagnostics](note:regression-diagnostics) — fanning in the residual-vs-fitted plot is the signature"
+       "md": "- Math background: [Spectral Decomposition](note:spectral-decomposition)\n- [SR Assumptions](note:sr-assumptions)\n- [Regression Diagnostics](note:regression-diagnostics) — fanning in the residual-vs-fitted plot is the signature\n- [Heteroskedasticity Tests](note:heteroskedasticity-tests) · [Heteroskedasticity-Consistent Standard Errors](note:heteroskedasticity-consistent-standard-errors) · [Generalized Least Squares](note:generalized-least-squares)"
       }
      ],
-     "words": 19,
+     "words": 28,
      "symbols": []
     }
    ]

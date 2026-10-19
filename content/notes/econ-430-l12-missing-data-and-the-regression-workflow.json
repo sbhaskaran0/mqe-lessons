@@ -1,0 +1,870 @@
+{
+ "slug": "econ-430-l12-missing-data-and-the-regression-workflow",
+ "notation": [
+  {
+   "tex": "$k$",
+   "meaning": "Neighbours averaged in kNN",
+   "kind": "Choice",
+   "typical": "3",
+   "keys": [
+    "k"
+   ],
+   "from": "missing-data-and-imputation"
+  },
+  {
+   "tex": "$h_i$",
+   "meaning": "Leverage of observation $i$: how unusual its regressors are",
+   "kind": "Statistic",
+   "typical": "Flag if $> 2p/n$",
+   "keys": [
+    "h"
+   ],
+   "from": "regression-diagnostics"
+  },
+  {
+   "tex": "$t_i$",
+   "meaning": "Studentised residual: how badly observation $i$ is fitted",
+   "kind": "Statistic",
+   "typical": "Flag if $\\lvert t_i\\rvert > 2$",
+   "keys": [
+    "t"
+   ],
+   "from": "regression-diagnostics"
+  },
+  {
+   "tex": "$p$, $n$",
+   "meaning": "Number of parameters and of observations",
+   "kind": "Counts",
+   "typical": "—",
+   "keys": [
+    "p",
+    "n"
+   ],
+   "from": "regression-diagnostics"
+  },
+  {
+   "tex": "$LM$",
+   "meaning": "Breusch-Pagan statistic, $n$ times the $R^2$ of the squared residuals on the regressors",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "~LM"
+   ],
+   "from": "regression-diagnostics"
+  },
+  {
+   "tex": "$R^2$",
+   "meaning": "Coefficient of determination of that auxiliary regression",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "R"
+   ],
+   "from": "regression-diagnostics"
+  },
+  {
+   "tex": "$\\widehat{\\sigma}^2$",
+   "meaning": "Estimated error variance",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "hat(sigma)"
+   ],
+   "from": "multicollinearity"
+  },
+  {
+   "tex": "$s_j^2$",
+   "meaning": "Sample variance of $x_j$",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "s"
+   ],
+   "from": "multicollinearity"
+  },
+  {
+   "tex": "$e_i$, $\\widehat{e}_i$",
+   "meaning": "Error and OLS residual",
+   "kind": "Unobserved / computed",
+   "typical": "—",
+   "keys": [
+    "e",
+    "hat(e)"
+   ],
+   "from": "heteroskedasticity-tests"
+  },
+  {
+   "tex": "$\\chi^2$",
+   "meaning": "Test statistic $N R^2$",
+   "kind": "Statistic",
+   "typical": "7.38",
+   "keys": [
+    "chi"
+   ],
+   "from": "heteroskedasticity-tests"
+  },
+  {
+   "tex": "$\\sigma_1^2$, $\\sigma_0^2$",
+   "meaning": "Error variances in the two groups",
+   "kind": "Parameters",
+   "typical": "—",
+   "keys": [
+    "sigma"
+   ],
+   "from": "heteroskedasticity-tests"
+  },
+  {
+   "tex": "$F$",
+   "meaning": "Goldfeld-Quandt statistic",
+   "kind": "Statistic",
+   "typical": "3.61",
+   "keys": [
+    "F"
+   ],
+   "from": "heteroskedasticity-tests"
+  },
+  {
+   "tex": "$y$, $\\widehat{y}$",
+   "meaning": "Outcome and its fitted value",
+   "kind": "Data / computed",
+   "typical": "—",
+   "keys": [
+    "y",
+    "hat(y)"
+   ],
+   "from": "ramsey-reset"
+  },
+  {
+   "tex": "$T_{BC}(x,\\lambda)$",
+   "meaning": "Box-Cox transform",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "T"
+   ],
+   "from": "box-cox-and-power-transformations"
+  },
+  {
+   "tex": "$L_0$, $\\hat{L}$",
+   "meaning": "Log-likelihoods at those values",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "L",
+    "hat(L)"
+   ],
+   "from": "box-cox-and-power-transformations"
+  },
+  {
+   "tex": "$Y$, $X$, $p$, $q$, $a$, $b$",
+   "meaning": "Variables and powers in the bulging-rule regression",
+   "kind": "Data / parameters",
+   "typical": "—",
+   "keys": [
+    "Y",
+    "X",
+    "p",
+    "q",
+    "a",
+    "b"
+   ],
+   "from": "box-cox-and-power-transformations"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Before a regression can be fitted, missing values must be dropped or filled. Filling them from the other variables (k-nearest neighbours or chained regressions) beats filling with a mean or median, and the lecture's comparison on the Boston data shows by how much. The 10-step example then runs the full multiple-regression workflow on 141 students' college GPA: inspect and plot the data, fit, check the diagnostic and influence plots, test for multicollinearity, heteroskedasticity and misspecification, and compare the OLS, robust, WLS and FGLS estimates. High-school GPA is the only strong predictor (0.46 grade points per point), and the checks find no serious problem.**"
+      }
+     ],
+     "words": 104,
+     "symbols": []
+    },
+    {
+     "id": "intro-2",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "info",
+       "title": "Source",
+       "md": "Section 5 of `Regression_Lecture2.ipynb` and the 10-step \"Multiple Linear Regression (Detailed Example)\" that follows it (see [Econ 430 L8 Building Multiple Regression Models](note:econ-430-l8-building-multiple-regression-models) for how the notebook maps to lectures). The workflow extends the simple-regression one of [Econ 430 L6 Indicator Variables and the OLS Workflow](note:econ-430-l6-indicator-variables-and-the-ols-workflow).",
+       "folded": false
+      }
+     ],
+     "words": 49,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "1-ways-to-handle-missing-observations",
+   "heading": "1. Ways to handle missing observations",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-ways-to-handle-missing-observations-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Missing Data and Imputation](note:missing-data-and-imputation) offers four broad options:"
+      },
+      {
+       "t": "prose",
+       "md": "1. **Remove the missing observations**, when they are few relative to the data, taking care not to bias the sample by losing a particular kind of observation.\n2. **Remove the variable**, when most of the missing values are in one variable, weighed against its economic importance.\n3. **Impute with the mean, median or mode**, chosen to suit the variable's distribution.\n4. **Predict the missing values**, by k-nearest neighbours (kNN), regression or interpolation. kNN replaces a missing value with a weighted average of the $k$ closest observations (Euclidean distance) and works well for quantitative variables; factor variables need recursive partitioning."
+      }
+     ],
+     "words": 106,
+     "symbols": [
+      "$k$"
+     ]
+    },
+    {
+     "id": "1-ways-to-handle-missing-observations-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The lecture tests them on the Boston house-value data, blanking 40 random values each of highway access (`rad`, an index from 1 to 24) and the pupil-teacher ratio (`ptratio`). Dropping incomplete rows leaves 429 of the 506 observations for the regression of value on `rad` and `ptratio`. The imputations are scored against the true values; the outcome, `medv`, is left out of the kNN and MICE (multivariate imputation by chained equations) fills."
+      },
+      {
+       "t": "table",
+       "md": "| Method | `rad` RMSE | `rad` filled wrongly | `ptratio` RMSE | `ptratio` MAPE |\n| --- | --- | --- | --- | --- |\n| Median for `rad`, mean for `ptratio` | 8.64 | 65% | 2.14 | 10.2% |\n| kNN, $k = 3$ | 1.14 | 45% | 1.70 | 5.7% |\n| MICE (one run) | 1.92 | 48% | 1.76 | 6.5% |"
+      }
+     ],
+     "words": 118,
+     "symbols": [
+      "$k$"
+     ]
+    },
+    {
+     "id": "1-ways-to-handle-missing-observations-3",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "warning",
+       "title": "Correction to the lecture notebook",
+       "md": "The notebook keeps the blanked rows as `rad_rows = na_insert[:40]`, a view of an array it shuffles again before blanking `ptratio`, so its `rad` scores are computed on different rows (only 3 of the 40 overlap) and mostly compare values that were never missing. That is why it reports implausibly small `rad` errors (RMSE 0.47 and 2.5% misclassified for kNN). The `rad` columns above are recomputed in Python from the same seed with a copy of the blanked rows; the mean and kNN `ptratio` columns and the 429 observations reproduce the notebook exactly. MICE is random, so its numbers vary by run. The conclusion stands: predicting from the other variables beats the median by a wide margin.",
+       "folded": false
+      }
+     ],
+     "words": 126,
+     "symbols": []
+    },
+    {
+     "id": "1-ways-to-handle-missing-observations-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "In the Boston comparison, why are the kNN and MICE fills built from the data *without* `medv`, the house value the regression will explain?",
+       "options": [
+        {
+         "md": "Because `medv` has missing values of its own",
+         "correct": false,
+         "feedback": "`medv` is complete; the lecture blanks only `rad` and `ptratio`."
+        },
+        {
+         "md": "So that the filled-in regressors do not borrow information from the outcome, which would make them look more related to it than the real data justify",
+         "correct": true
+        },
+        {
+         "md": "Because kNN cannot use more than 13 variables",
+         "correct": false,
+         "feedback": "kNN works with any number of variables; it measures distance across all of them."
+        },
+        {
+         "md": "Because `medv` is a factor variable",
+         "correct": false,
+         "feedback": "`medv` is quantitative (median value in \\$1000s); factor variables would call for recursive partitioning, not exclusion."
+        }
+       ],
+       "why": "An imputed regressor built partly from $y$ is correlated with $y$ by construction, which would bias the later regression of $y$ on it toward a stronger relationship. Imputing from the other regressors alone keeps the fill independent of the outcome.",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 72,
+     "symbols": [
+      "$y$, $\\widehat{y}$"
+     ]
+    },
+    {
+     "id": "1-ways-to-handle-missing-observations-5",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "For `rad`, the median fill has RMSE 8.64 and gets 65% of the 40 values wrong, while kNN ($k = 3$) has RMSE 1.14. Why does kNN do so much better for this variable?",
+       "options": [
+        {
+         "md": "Because kNN always beats the median by a similar margin",
+         "correct": false,
+         "feedback": "For `ptratio` the gain is much smaller (RMSE 2.14 to 1.70); the size of the gain depends on how well the other variables predict the missing one."
+        },
+        {
+         "md": "`rad` is far from its median for many tracts (eight of the 40 are 24 against a median of 5), and it is closely tied to the tract's other characteristics, which kNN uses to find similar tracts",
+         "correct": true
+        },
+        {
+         "md": "Because the median of an index is not defined",
+         "correct": false,
+         "feedback": "The median of `rad` is defined (5); it is simply a poor guess for tracts at the top of the index."
+        },
+        {
+         "md": "Because kNN uses `medv` to find neighbours",
+         "correct": false,
+         "feedback": "The lecture removes `medv` before imputing."
+        }
+       ],
+       "why": "A single central value cannot fit a variable that clusters at very different values, as `rad` does (5 and 24 are both common). kNN fills each tract from the three most similar tracts on tax, industry, pollution and the rest, and neighbouring tracts share their highway access.",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 96,
+     "symbols": [
+      "$k$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "2-the-10-step-workflow-inspecting-the-data-steps-1-to-3",
+   "heading": "2. The 10-step workflow: inspecting the data (steps 1 to 3)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-the-10-step-workflow-inspecting-the-data-steps-1-to-3-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The example uses the `gpa1` data from the `wooldridge` package: 141 students, 29 variables (college GPA, high-school GPA, ACT score, drinking, class-year and background dummies), with no missing values. **Step 1** inspects the summaries and types, and asks which indicator variables might cause trouble."
+      }
+     ],
+     "words": 44,
+     "symbols": []
+    },
+    {
+     "id": "2-the-10-step-workflow-inspecting-the-data-steps-1-to-3-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "In `gpa1`, `soph` has mean 0.021 (3 of 141 students), and the four class-year dummies `soph`, `junior`, `senior` and `senior5` add up to 1 for every student. Which statement is right?",
+       "options": [
+        {
+         "md": "All four dummies can go in with an intercept, since each varies",
+         "correct": false,
+         "feedback": "Their sum equals the intercept column, so together they are perfectly collinear: the dummy variable trap."
+        },
+        {
+         "md": "Including all four with an intercept is the dummy variable trap; and `soph`, with only 3 students, would get a very imprecise coefficient, so merge it or make it the reference group",
+         "correct": true
+        },
+        {
+         "md": "`soph` must be dropped because its mean is below 0.05",
+         "correct": false,
+         "feedback": "A rare category is a precision problem, not a rule-based exclusion; it can serve as (part of) the reference group."
+        },
+        {
+         "md": "The dummies are fine because indicator variables cannot be collinear",
+         "correct": false,
+         "feedback": "Any set of regressors, dummies included, is collinear if one is an exact linear combination of the others."
+        }
+       ],
+       "why": "Every student is in exactly one class year, so `soph + junior + senior + senior5 = 1`, the intercept: one of them must be left out ([Indicator Variables](note:indicator-variables)). Separately, a dummy that is 1 for only 3 observations is estimated from those 3 students, so its standard error is large.",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 97,
+     "symbols": []
+    },
+    {
+     "id": "2-the-10-step-workflow-inspecting-the-data-steps-1-to-3-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Step 2** plots the distributions of the variables to be used (college GPA, ACT, high-school GPA and drinks per week), split by gender; **step 3** looks at their correlations. College GPA correlates 0.41 with high-school GPA, 0.21 with ACT and 0.02 with alcohol; high-school GPA and ACT correlate 0.35 with each other."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/College GPA data - scatterplot matrix by gender.png",
+       "alt": "College GPA data - scatterplot matrix by gender"
+      }
+     ],
+     "words": 56,
+     "symbols": []
+    },
+    {
+     "id": "2-the-10-step-workflow-inspecting-the-data-steps-1-to-3-4",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/College GPA data - correlation heatmap.png",
+       "alt": "College GPA data - correlation heatmap"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "3-fitting-and-diagnosing-the-model-steps-4-and-5",
+   "heading": "3. Fitting and diagnosing the model (steps 4 and 5)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "3-fitting-and-diagnosing-the-model-steps-4-and-5-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Step 4** fits"
+      },
+      {
+       "t": "math",
+       "tex": "\\widehat{colGPA} = 1.279 + 0.4567\\,hsGPA + 0.0088\\,ACT + 0.0065\\,alcohol, \\qquad R^2 = 0.177,\\ F = 9.82"
+      },
+      {
+       "t": "prose",
+       "md": "Only high-school GPA is significant ($t = 4.72$): a high-school GPA one point higher goes with a college GPA 0.46 points higher, holding ACT and drinking fixed. ACT ($t = 0.80$) and alcohol ($t = 0.30$) add little once high-school GPA is in. The notebook also shows the Yeo-Johnson transformation, a Box-Cox variant that allows zeros and negatives ([Box-Cox and Power Transformations](note:box-cox-and-power-transformations)), fitted to every column."
+      }
+     ],
+     "words": 61,
+     "symbols": [
+      "$h_i$",
+      "$t_i$",
+      "$R^2$",
+      "$s_j^2$",
+      "$F$",
+      "$T_{BC}(x,\\lambda)$",
+      "$Y$, $X$, $p$, $q$, $a$, $b$"
+     ]
+    },
+    {
+     "id": "3-fitting-and-diagnosing-the-model-steps-4-and-5-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "Using the step-4 coefficients ($1.27871$, $0.45674$, $0.00877$, $0.00646$), what is the predicted college GPA of a student with $hsGPA = 3.4$, $ACT = 24$ and 1 drink a week? Give two decimals.",
+       "answer": 3.05,
+       "tol": 0.005,
+       "wrong": [
+        {
+         "answer": 1.77,
+         "tol": 0.01,
+         "md": "that leaves out the intercept, 1.279"
+        },
+        {
+         "answer": 2.83,
+         "tol": 0.01,
+         "md": "that uses high-school GPA alone and drops ACT and alcohol, which add $0.00877 \\times 24 + 0.00646 = 0.217$"
+        }
+       ],
+       "why": "$1.27871 + 0.45674 \\times 3.4 + 0.00877 \\times 24 + 0.00646 \\times 1 = 1.279 + 1.553 + 0.210 + 0.006 = 3.049$. The 95% confidence interval for the mean of such students is [2.98, 3.12]; the prediction interval for one student is far wider, [2.37, 3.73], because it adds the individual's own error ([Confidence vs Prediction Intervals](note:confidence-vs-prediction-intervals), step 7).",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 22,
+     "symbols": [
+      "$h_i$",
+      "$s_j^2$",
+      "$T_{BC}(x,\\lambda)$"
+     ]
+    },
+    {
+     "id": "3-fitting-and-diagnosing-the-model-steps-4-and-5-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Step 5** looks at the diagnostic plots: the four regression plots for high-school GPA, observed and residuals against predicted values, and a normal probability plot. The residuals are roughly symmetric and close to normal (Jarque-Bera $p = 0.28$); the lowess curves bend upward only at the highest predicted values, where there are few students."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/College GPA regression - observed and residuals against predicted.png",
+       "alt": "College GPA regression - observed and residuals against predicted"
+      }
+     ],
+     "words": 51,
+     "symbols": [
+      "$p$, $n$"
+     ]
+    },
+    {
+     "id": "3-fitting-and-diagnosing-the-model-steps-4-and-5-4",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/College GPA regression - normal probability plot of residuals.png",
+       "alt": "College GPA regression - normal probability plot of residuals"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    },
+    {
+     "id": "3-fitting-and-diagnosing-the-model-steps-4-and-5-5",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The influence plots ([Regression Diagnostics](note:regression-diagnostics)) put leverage on the horizontal axis, studentized residuals on the vertical, and scale each point by its influence (Cook's distance here, DFFITS in the notebook's other version):"
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/College GPA regression - influence plot with Cook's distance.png",
+       "alt": "College GPA regression - influence plot with Cook's distance"
+      }
+     ],
+     "words": 32,
+     "symbols": []
+    },
+    {
+     "id": "3-fitting-and-diagnosing-the-model-steps-4-and-5-6",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "In the Cook's-distance influence plot, observation 70 has the highest leverage (about 0.13) with a studentized residual near 1.4; observation 137 has the most negative studentized residual (about −2.55) with leverage near 0.01; observation 77 has leverage about 0.06 and a studentized residual about 2.5. Which is the most influential on the fitted coefficients?",
+       "options": [
+        {
+         "md": "70: it has the highest leverage",
+         "correct": false,
+         "feedback": "High leverage gives a point the *potential* to move the fit; with a modest residual it moves it only somewhat."
+        },
+        {
+         "md": "137: it has the largest residual",
+         "correct": false,
+         "feedback": "A large residual at very low leverage barely tilts the fit, because the point sits near the centre of the regressors."
+        },
+        {
+         "md": "77: it combines a large residual with above-average leverage, so it has the largest Cook's distance (the biggest bubble)",
+         "correct": true
+        },
+        {
+         "md": "None: no studentized residual exceeds 3",
+         "correct": false,
+         "feedback": "The $\\pm 3$ rule flags outliers; influence depends on leverage and residual together, measured by Cook's distance."
+        }
+       ],
+       "why": "Cook's distance grows with both the squared residual and leverage. Observation 77 has the largest value (about 0.11), though still far below the common alarm level of 1, so no single student drives the results.",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 97,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "4-modeling-and-inference-issues-step-6",
+   "heading": "4. Modeling and inference issues (step 6)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "4-modeling-and-inference-issues-step-6-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Multicollinearity.** The VIFs are 1.15 (high-school GPA), 1.18 (ACT) and 1.04 (alcohol): no problem ([Multicollinearity](note:multicollinearity))."
+      }
+     ],
+     "words": 18,
+     "symbols": []
+    },
+    {
+     "id": "4-modeling-and-inference-issues-step-6-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "The notebook prints the VIFs as `[142.19, 1.15, 1.18, 1.04]` for the design matrix with columns Intercept, hsGPA, ACT and alcohol. How should you read the first number?",
+       "options": [
+        {
+         "md": "High-school GPA is severely collinear with the others",
+         "correct": false,
+         "feedback": "The values follow the columns of the design matrix, which starts with the intercept; high-school GPA's VIF is 1.15."
+        },
+        {
+         "md": "It belongs to the intercept column and has no meaning as a VIF; the three regressors' VIFs, all below 1.2, show no multicollinearity",
+         "correct": true
+        },
+        {
+         "md": "The model has perfect multicollinearity, so one variable must be dropped",
+         "correct": false,
+         "feedback": "Perfect collinearity would make the VIF infinite and OLS impossible; the regression estimated without trouble."
+        },
+        {
+         "md": "The average VIF is about 36, above 10, so the model has a problem",
+         "correct": false,
+         "feedback": "Averaging in the intercept's number is meaningless; the regressors' VIFs are all near 1."
+        }
+       ],
+       "why": "`variance_inflation_factor` is applied to every column of the design matrix, including the constant, whose \"VIF\" measures nothing useful. The regressors' VIFs are near 1: they overlap little, consistent with their modest correlations (0.35 at most).",
+       "objectives": [
+        4
+       ]
+      }
+     ],
+     "words": 89,
+     "symbols": []
+    },
+    {
+     "id": "4-modeling-and-inference-issues-step-6-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Heteroskedasticity.** Breusch-Pagan on the three regressors: $LM = 1.11$, $p = 0.77$. There is no evidence of non-constant variance ([Heteroskedasticity Tests](note:heteroskedasticity-tests))."
+      },
+      {
+       "t": "prose",
+       "md": "**Misspecification.** The notebook runs RESET and finds $F = 12.20$, $p = 0.0006$, \"misspecified for order 2\". It then checks by adding $hsGPA^2$ ($t = 1.51$, $p = 0.134$) and $hsGPA \\times alcohol$ ($t = 0.68$, $p = 0.50$); neither is significant, and AIC barely moves (101.1 to 100.7 and 102.6)."
+      },
+      {
+       "t": "callout",
+       "kind": "warning",
+       "title": "Correction to the lecture notebook",
+       "md": "The RESET cell fits `sm.OLS(y, X)` with `X` holding the three regressors and **no constant**, so it tests a different, misspecified model. On the model with its intercept: $\\widehat{y}^2$ alone gives $F = 3.23$, $p = 0.074$; the squares of the three regressors give $F = 2.07$, $p = 0.107$; $\\widehat{y}^2$ and $\\widehat{y}^3$ together give $F = 4.24$, $p = 0.016$. The evidence of misspecification is mixed rather than strong, which fits the insignificant quadratic and interaction terms. Recomputed from the `wooldridge` gpa1 data ([Ramsey RESET](note:ramsey-reset)).",
+       "folded": false
+      }
+     ],
+     "words": 119,
+     "symbols": [
+      "$h_i$",
+      "$t_i$",
+      "$p$, $n$",
+      "$LM$",
+      "$s_j^2$",
+      "$F$",
+      "$y$, $\\widehat{y}$",
+      "$L_0$, $\\hat{L}$",
+      "$Y$, $X$, $p$, $q$, $a$, $b$"
+     ]
+    },
+    {
+     "id": "4-modeling-and-inference-issues-step-6-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "The notebook's RESET on the GPA model reports $F = 12.20$, $p = 0.0006$, but its regression `sm.OLS(y, X)` has no constant. Why can that produce a misleading rejection?",
+       "options": [
+        {
+         "md": "It cannot: RESET does not depend on the intercept",
+         "correct": false,
+         "feedback": "Every test compares two specific regressions; leaving out the intercept changes both of them."
+        },
+        {
+         "md": "Without an intercept the linear model is itself misspecified, and the squared fitted values partly stand in for the missing constant, so RESET detects the missing intercept rather than missing curvature",
+         "correct": true
+        },
+        {
+         "md": "Without an intercept the $F$ statistic cannot be computed",
+         "correct": false,
+         "feedback": "It can be computed, and was; it just tests the wrong model."
+        },
+        {
+         "md": "Because RESET needs normally distributed errors",
+         "correct": false,
+         "feedback": "The residuals here are close to normal; the problem is the omitted constant."
+        }
+       ],
+       "why": "College GPA averages about 3, far from 0, so forcing the line through the origin leaves a systematic error that $\\widehat{y}^2$ can soak up. With the constant restored, $\\widehat{y}^2$ alone gives $p = 0.074$: not significant at 5%.",
+       "objectives": [
+        4
+       ]
+      }
+     ],
+     "words": 79,
+     "symbols": [
+      "$p$, $n$",
+      "$F$",
+      "$y$, $\\widehat{y}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "5-intervals-and-robust-estimation-steps-7-to-10",
+   "heading": "5. Intervals and robust estimation (steps 7 to 10)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "5-intervals-and-robust-estimation-steps-7-to-10-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Step 7** compares confidence intervals for the mean of $colGPA$ with prediction intervals for one student; the prediction band is much wider, since it includes each student's own error ([Confidence vs Prediction Intervals](note:confidence-vs-prediction-intervals))."
+      },
+      {
+       "t": "prose",
+       "md": "**Step 8** recomputes the standard errors with White's HC1 ([Heteroskedasticity-Consistent Standard Errors](note:heteroskedasticity-consistent-standard-errors)): high-school GPA 0.0968 → 0.0986, ACT 0.0110 → 0.0110, alcohol 0.0214 → 0.0230. The conclusions do not change."
+      }
+     ],
+     "words": 65,
+     "symbols": []
+    },
+    {
+     "id": "5-intervals-and-robust-estimation-steps-7-to-10-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "In step 8, the White (HC1) standard errors are within about 8% of the usual ones for every coefficient. How does that fit with the rest of step 6?",
+       "options": [
+        {
+         "md": "It agrees with the Breusch-Pagan test ($p = 0.77$): with roughly constant variance, the robust and the usual standard errors estimate the same thing",
+         "correct": true
+        },
+        {
+         "md": "It shows the White correction failed",
+         "correct": false,
+         "feedback": "The White estimator is valid with or without heteroskedasticity; when the variance is constant it should be close to the usual one."
+        },
+        {
+         "md": "It means the coefficients were biased and White corrected them",
+         "correct": false,
+         "feedback": "White standard errors leave the coefficients unchanged; only their standard errors are recomputed."
+        },
+        {
+         "md": "It proves the errors are homoskedastic",
+         "correct": false,
+         "feedback": "Close standard errors and a non-rejected test are consistent with constant variance, not proof of it."
+        }
+       ],
+       "why": "Robust standard errors diverge from the usual ones when the squared residuals are systematically larger where the regressors are far from their means. With BP finding no such pattern, the two sets nearly coincide, so either can be reported.",
+       "objectives": [
+        5
+       ]
+      }
+     ],
+     "words": 72,
+     "symbols": [
+      "$p$, $n$"
+     ]
+    },
+    {
+     "id": "5-intervals-and-robust-estimation-steps-7-to-10-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Step 9** runs WLS with weights $1/hsGPA$ (a known form of the variance, chosen for illustration): high-school GPA's coefficient becomes 0.442 (se 0.094). **Step 10** runs FGLS, regressing $\\ln\\widehat{e}^{\\,2}$ on $\\ln(hsGPA)$ and $\\ln(ACT)$ ($\\ln(hsGPA)$: 6.40, $t = 3.11$) and weighting by $1/\\exp(\\text{fitted})$: high-school GPA 0.415 (se 0.078). Across OLS, WLS and FGLS, the high-school GPA effect stays between 0.42 and 0.46 ([Generalized Least Squares](note:generalized-least-squares))."
+      },
+      {
+       "t": "table",
+       "md": "| | OLS | OLS, HC1 se | WLS ($1/hsGPA$) | FGLS |\n| --- | --- | --- | --- | --- |\n| $hsGPA$ | 0.4567 (0.0968) | 0.4567 (0.0986) | 0.4423 (0.0940) | 0.4152 (0.0776) |\n| $ACT$ | 0.0088 (0.0110) | 0.0088 (0.0110) | 0.0086 (0.0109) | 0.0088 (0.0104) |\n| $alcohol$ | 0.0065 (0.0214) | 0.0065 (0.0230) | 0.0048 (0.0212) | $-0.0031$ (0.0196) |"
+      }
+     ],
+     "words": 119,
+     "symbols": [
+      "$h_i$",
+      "$t_i$",
+      "$s_j^2$",
+      "$e_i$, $\\widehat{e}_i$",
+      "$T_{BC}(x,\\lambda)$",
+      "$Y$, $X$, $p$, $q$, $a$, $b$"
+     ]
+    },
+    {
+     "id": "5-intervals-and-robust-estimation-steps-7-to-10-4",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The notebook ends by applying FGLS to the food data (as in L11) and repeating the Goldfeld-Quandt test on the smaller CPS5 sample ($F = 2.32$ against critical values 0.82 and 1.24), now with the $\\sigma^4$ bug fixed: `.scale` is already $\\widehat{\\sigma}^2$."
+      }
+     ],
+     "words": 39,
+     "symbols": [
+      "$\\widehat{\\sigma}^2$",
+      "$\\sigma_1^2$, $\\sigma_0^2$",
+      "$F$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "math-refresher",
+   "heading": "Math refresher",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "math-refresher-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Math Prep L8 Integration for Probability](note:math-prep-l8-integration-for-probability) — distributions behind the $t$, $F$ and $\\chi^2$ tests used in the workflow"
+      }
+     ],
+     "words": 16,
+     "symbols": [
+      "$t_i$",
+      "$\\chi^2$",
+      "$F$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Choose a way to handle missing values, and judge imputations by their error against the true values.\n2. Inspect data before fitting: spot problematic indicators and read the correlations.\n3. Fit and interpret a multiple regression, predict from it, and read its diagnostic and influence plots.\n4. Run and interpret the multicollinearity, heteroskedasticity and specification checks, recognizing a misapplied test.\n5. Compare the OLS, robust, WLS and FGLS estimates and say what their agreement or disagreement means."
+      }
+     ],
+     "words": 78,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "missing-data-and-imputation",
+        "regression-diagnostics",
+        "multicollinearity",
+        "heteroskedasticity-tests",
+        "ramsey-reset",
+        "heteroskedasticity-consistent-standard-errors",
+        "generalized-least-squares",
+        "confidence-vs-prediction-intervals",
+        "indicator-variables"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

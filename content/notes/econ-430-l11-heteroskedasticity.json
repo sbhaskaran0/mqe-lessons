@@ -1,0 +1,1194 @@
+{
+ "slug": "econ-430-l11-heteroskedasticity",
+ "notation": [
+  {
+   "tex": "$e_i$, $\\boldsymbol{\\varepsilon}$",
+   "meaning": "Error for one observation; all errors stacked",
+   "kind": "Unobserved",
+   "typical": "—",
+   "keys": [
+    "e",
+    "bold(varepsilon)"
+   ],
+   "from": "homoskedasticity"
+  },
+  {
+   "tex": "$x_i$, $\\mathbf{X}$",
+   "meaning": "Regressor(s)",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "x",
+    "bold(X)"
+   ],
+   "from": "homoskedasticity"
+  },
+  {
+   "tex": "$\\sigma^2$",
+   "meaning": "Common error variance",
+   "kind": "Parameter",
+   "typical": "Constant under homoskedasticity",
+   "keys": [
+    "sigma"
+   ],
+   "from": "homoskedasticity"
+  },
+  {
+   "tex": "$\\widehat{\\sigma}^2$",
+   "meaning": "Estimate of $\\sigma^2$ from the residuals",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "hat(sigma)"
+   ],
+   "from": "homoskedasticity"
+  },
+  {
+   "tex": "$\\beta_1$, $\\beta_2$",
+   "meaning": "Intercept and slope",
+   "kind": "Parameters",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ],
+   "from": "homoskedasticity"
+  },
+  {
+   "tex": "$e_i$, $\\widehat{e}_i$",
+   "meaning": "Error and OLS residual",
+   "kind": "Unobserved / computed",
+   "typical": "—",
+   "keys": [
+    "e",
+    "hat(e)"
+   ],
+   "from": "heteroskedasticity-tests"
+  },
+  {
+   "tex": "$h(\\cdot)$",
+   "meaning": "Variance function",
+   "kind": "Function",
+   "typical": "linear, exponential",
+   "keys": [
+    "h"
+   ],
+   "from": "heteroskedasticity-tests"
+  },
+  {
+   "tex": "$z_{is}$",
+   "meaning": "Variables thought to drive the variance",
+   "kind": "Data",
+   "typical": "income",
+   "keys": [
+    "z"
+   ],
+   "from": "heteroskedasticity-tests"
+  },
+  {
+   "tex": "$\\alpha_1, \\ldots, \\alpha_S$",
+   "meaning": "Variance-function coefficients",
+   "kind": "Parameters",
+   "typical": "—",
+   "keys": [
+    "alpha"
+   ],
+   "from": "heteroskedasticity-tests"
+  },
+  {
+   "tex": "$S$",
+   "meaning": "Coefficients in the variance function, intercept included",
+   "kind": "Count",
+   "typical": "2 for BP on income",
+   "keys": [
+    "S"
+   ],
+   "from": "heteroskedasticity-tests"
+  },
+  {
+   "tex": "$N$",
+   "meaning": "Observations",
+   "kind": "Count",
+   "typical": "40",
+   "keys": [
+    "N"
+   ],
+   "from": "heteroskedasticity-tests"
+  },
+  {
+   "tex": "$R^2$",
+   "meaning": "From the regression of $\\widehat{e}^{\\,2}$ on the $z$'s",
+   "kind": "Statistic",
+   "typical": "0.185",
+   "keys": [
+    "R"
+   ],
+   "from": "heteroskedasticity-tests"
+  },
+  {
+   "tex": "$\\chi^2$",
+   "meaning": "Test statistic $N R^2$",
+   "kind": "Statistic",
+   "typical": "7.38",
+   "keys": [
+    "chi"
+   ],
+   "from": "heteroskedasticity-tests"
+  },
+  {
+   "tex": "$N_1$, $N_0$, $K$",
+   "meaning": "Group sizes and coefficients per regression",
+   "kind": "Counts",
+   "typical": "—",
+   "keys": [
+    "N",
+    "K"
+   ],
+   "from": "heteroskedasticity-tests"
+  },
+  {
+   "tex": "$F$",
+   "meaning": "Goldfeld-Quandt statistic",
+   "kind": "Statistic",
+   "typical": "3.61",
+   "keys": [
+    "F"
+   ],
+   "from": "heteroskedasticity-tests"
+  },
+  {
+   "tex": "$b_2$",
+   "meaning": "OLS slope",
+   "kind": "Estimator",
+   "typical": "10.21",
+   "keys": [
+    "b"
+   ],
+   "from": "heteroskedasticity-consistent-standard-errors"
+  },
+  {
+   "tex": "$x_i$, $\\bar{x}$",
+   "meaning": "Regressor and its mean",
+   "kind": "Data / statistic",
+   "typical": "—",
+   "keys": [
+    "x",
+    "bar(x)"
+   ],
+   "from": "heteroskedasticity-consistent-standard-errors"
+  },
+  {
+   "tex": "$t_c$",
+   "meaning": "Critical $t$ value",
+   "kind": "Constant",
+   "typical": "$t_{0.975,38} = 2.024$",
+   "keys": [
+    "t"
+   ],
+   "from": "heteroskedasticity-consistent-standard-errors"
+  },
+  {
+   "tex": "$y_i$, $x_i$",
+   "meaning": "Outcome and (positive) regressor",
+   "kind": "Data",
+   "typical": "Food spending, income",
+   "keys": [
+    "y",
+    "x"
+   ],
+   "from": "generalized-least-squares"
+  },
+  {
+   "tex": "$y_i^{*}$, $x_{i1}^{*}$, $x_{i2}^{*}$, $e_i^{*}$",
+   "meaning": "Transformed outcome, regressors and error",
+   "kind": "Computed",
+   "typical": "—",
+   "keys": [
+    "y*",
+    "x*",
+    "e*"
+   ],
+   "from": "generalized-least-squares"
+  },
+  {
+   "tex": "$\\gamma$",
+   "meaning": "Power of $x$ in the variance",
+   "kind": "Parameter",
+   "typical": "$\\widehat{\\gamma} = 2.33$",
+   "keys": [
+    "gamma"
+   ],
+   "from": "generalized-least-squares"
+  },
+  {
+   "tex": "$Y$, $X$, $p$, $q$, $a$, $b$",
+   "meaning": "Variables and powers in the bulging-rule regression",
+   "kind": "Data / parameters",
+   "typical": "—",
+   "keys": [
+    "Y",
+    "X",
+    "p",
+    "q",
+    "a",
+    "b"
+   ],
+   "from": "box-cox-and-power-transformations"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Heteroskedasticity, a spread of $y$ that grows (or shrinks) with the regressors, leaves OLS unbiased but makes its usual standard errors wrong and its estimates inefficient. The lecture detects it in the food-expenditure regression three ways (Breusch-Pagan $\\chi^2 = 7.38$, White $\\chi^2 = 7.56$, Goldfeld-Quandt $F = 3.61$, all rejecting constant variance), then deals with it two ways: White standard errors keep OLS and correct the inference, while weighted and feasible generalized least squares reweight the observations and shrink the slope's standard error from 2.09 to 0.97.**"
+      },
+      {
+       "t": "callout",
+       "kind": "info",
+       "title": "Source",
+       "md": "Section 4 of `Regression_Lecture2.ipynb` (see [Econ 430 L8 Building Multiple Regression Models](note:econ-430-l8-building-multiple-regression-models) for how the notebook maps to lectures). The 10-step example in L12 applies the same tools to college GPA.",
+       "folded": false
+      }
+     ],
+     "words": 113,
+     "symbols": [
+      "$\\chi^2$",
+      "$F$",
+      "$y_i$, $x_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1-a-model-for-the-variance",
+   "heading": "1. A model for the variance",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-a-model-for-the-variance-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The signature of heteroskedasticity is a spread in $y$ that grows with $x$: the constant-variance assumption MR3 ([Homoskedasticity](note:homoskedasticity)) fails. For $y_i = \\beta_1 + \\beta_2 x_{i2} + \\cdots + \\beta_K x_{iK} + e_i$, suppose the variance depends on variables $z_2, \\ldots, z_S$ through some function $h$:"
+      },
+      {
+       "t": "math",
+       "tex": "\\mathrm{var}(y_i) = E(e_i^2) = h(\\alpha_1 + \\alpha_2 z_{i2} + \\cdots + \\alpha_S z_{iS})"
+      },
+      {
+       "t": "prose",
+       "md": "The variance is constant when $\\alpha_2 = \\alpha_3 = \\cdots = \\alpha_S = 0$, so the tests below test that null, and the functional forms for $h$ (linear, quadratic, exponential) suggest the remedies."
+      }
+     ],
+     "words": 50,
+     "symbols": [
+      "$e_i$, $\\boldsymbol{\\varepsilon}$",
+      "$x_i$, $\\mathbf{X}$",
+      "$\\beta_1$, $\\beta_2$",
+      "$h(\\cdot)$",
+      "$z_{is}$",
+      "$\\alpha_1, \\ldots, \\alpha_S$",
+      "$y_i$, $x_i$"
+     ]
+    },
+    {
+     "id": "1-a-model-for-the-variance-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "In $\\mathrm{var}(y_i) = h(\\alpha_1 + \\alpha_2 z_{i2} + \\cdots + \\alpha_S z_{iS})$, what is the null hypothesis that the tests for heteroskedasticity examine?",
+       "options": [
+        {
+         "md": "$H_0: \\alpha_1 = \\alpha_2 = \\cdots = \\alpha_S = 0$",
+         "correct": false,
+         "feedback": "That would make the variance $h(0)$ for everyone, but the intercept $\\alpha_1$ sets the common variance level and is left free."
+        },
+        {
+         "md": "$H_0: \\alpha_2 = \\alpha_3 = \\cdots = \\alpha_S = 0$, so the variance is the same constant, $h(\\alpha_1)$, for every observation",
+         "correct": true
+        },
+        {
+         "md": "$H_0: \\beta_2 = \\cdots = \\beta_K = 0$",
+         "correct": false,
+         "feedback": "That is the regression's overall $F$ test of the mean, not a hypothesis about the variance."
+        },
+        {
+         "md": "$H_0: E(e_i) = 0$",
+         "correct": false,
+         "feedback": "A zero mean error is MR2; heteroskedasticity is about the variance, MR3."
+        }
+       ],
+       "why": "Under homoskedasticity none of the $z$'s affects the variance, which leaves only the intercept: $\\mathrm{var}(y_i) = h(\\alpha_1)$, a constant $\\sigma^2$. Rejecting $H_0$ says at least one $z$ moves the variance.",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 22,
+     "symbols": [
+      "$e_i$, $\\boldsymbol{\\varepsilon}$",
+      "$\\sigma^2$",
+      "$\\beta_1$, $\\beta_2$",
+      "$h(\\cdot)$",
+      "$z_{is}$",
+      "$\\alpha_1, \\ldots, \\alpha_S$",
+      "$F$",
+      "$y_i$, $x_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "2-detecting-it-spread-level-plots",
+   "heading": "2. Detecting it: spread-level plots",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-detecting-it-spread-level-plots-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A spread-level plot graphs the absolute studentized residuals against the fitted values; a rising trend means a variance that grows with the level of $y$. It also suggests a power transformation for $y$: regress $\\log|\\text{studentized residual}|$ on $\\log(\\text{fitted value})$ robustly and use the power $1 - \\text{slope}$."
+      },
+      {
+       "t": "prose",
+       "md": "For the food regression ($\\widehat{FOOD\\_EXP} = 83.42 + 10.21\\,INCOME$, 40 households), the residuals spread out as the fitted values rise, and the suggested power is $-1.11$, close to a reciprocal transformation of food expenditure."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Food expenditure regression - spread-level plot.png",
+       "alt": "Food expenditure regression - spread-level plot"
+      }
+     ],
+     "words": 66,
+     "symbols": [
+      "$N$",
+      "$F$",
+      "$y_i$, $x_i$",
+      "$Y$, $X$, $p$, $q$, $a$, $b$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "3-the-breusch-pagan-test",
+   "heading": "3. The Breusch-Pagan test",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "3-the-breusch-pagan-test-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[The Breusch-Pagan (Lagrange multiplier) test](note:heteroskedasticity-tests) assumes we know the $z$'s. Regress the squared OLS residuals on them,"
+      },
+      {
+       "t": "math",
+       "tex": "\\widehat{e}_i^{\\,2} = \\alpha_1 + \\alpha_2 z_{i2} + \\cdots + \\alpha_S z_{iS} + v_i"
+      },
+      {
+       "t": "prose",
+       "md": "and use $\\chi^2 = N \\times R^2 \\sim \\chi^2_{S-1}$ under $H_0: \\alpha_2 = \\cdots = \\alpha_S = 0$. The difficulty is knowing which $z$'s to use."
+      }
+     ],
+     "words": 28,
+     "symbols": [
+      "$e_i$, $\\widehat{e}_i$",
+      "$z_{is}$",
+      "$\\alpha_1, \\ldots, \\alpha_S$",
+      "$N$",
+      "$R^2$",
+      "$\\chi^2$"
+     ]
+    },
+    {
+     "id": "3-the-breusch-pagan-test-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "For the food regression ($N = 40$), regressing the squared residuals on income gives $R^2 = 0.1846$. What is the Breusch-Pagan statistic? Give two decimals.",
+       "answer": 7.38,
+       "tol": 0.02,
+       "wrong": [
+        {
+         "answer": 0.18,
+         "tol": 0.01,
+         "md": "that is the $R^2$ itself; the statistic multiplies it by $N$"
+        },
+        {
+         "answer": 7.02,
+         "tol": 0.02,
+         "md": "that multiplies by $N - K = 38$; the statistic uses $N = 40$"
+        },
+        {
+         "answer": 3.84,
+         "tol": 0.01,
+         "md": "that is the 5% critical value of $\\chi^2_1$, which the statistic is compared with"
+        }
+       ],
+       "why": "$\\chi^2 = 40 \\times 0.1846 = 7.38$. With one $z$ (income), $S - 1 = 1$ degree of freedom and critical value $\\chi^2_{0.95,1} = 3.84$; $7.38 > 3.84$ ($p = 0.0066$), so constant variance is rejected: food spending varies more among richer households.",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 19,
+     "symbols": [
+      "$z_{is}$",
+      "$S$",
+      "$N$",
+      "$R^2$",
+      "$\\chi^2$",
+      "$N_1$, $N_0$, $K$",
+      "$Y$, $X$, $p$, $q$, $a$, $b$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "4-the-white-test",
+   "heading": "4. The White test",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "4-the-white-test-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The White test sidesteps choosing the $z$'s: it uses the model's own regressors, their squares and (in general) their cross-products. For $E(y) = \\beta_1 + \\beta_2 x_2 + \\beta_3 x_3$, set $z_2 = x_2$, $z_3 = x_3$, $z_4 = x_2^2$, $z_5 = x_3^2$, and the cross-product $x_2x_3$ in the full version. For the food regression ($z$ = income and income²): $\\chi^2 = 7.56$ against $\\chi^2_{0.95,2} = 5.99$, $p = 0.023$: rejected again."
+      }
+     ],
+     "words": 39,
+     "symbols": [
+      "$x_i$, $\\mathbf{X}$",
+      "$\\beta_1$, $\\beta_2$",
+      "$z_{is}$",
+      "$\\chi^2$",
+      "$y_i$, $x_i$",
+      "$Y$, $X$, $p$, $q$, $a$, $b$"
+     ]
+    },
+    {
+     "id": "4-the-white-test-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "A model has two regressors, $x_2$ and $x_3$. The White test uses $x_2$, $x_3$, $x_2^2$, $x_3^2$ and $x_2x_3$. How many degrees of freedom does its $\\chi^2$ statistic have?",
+       "answer": 5.0,
+       "tol": 0.0,
+       "wrong": [
+        {
+         "answer": 2.0,
+         "tol": 0.0,
+         "md": "that counts only the original regressors; the squares and the cross-product are $z$'s too"
+        },
+        {
+         "answer": 4.0,
+         "tol": 0.0,
+         "md": "that leaves out the cross-product $x_2x_3$"
+        },
+        {
+         "answer": 6.0,
+         "tol": 0.0,
+         "md": "that counts the intercept $\\alpha_1$; the degrees of freedom are $S - 1$, the number of $z$'s"
+        }
+       ],
+       "why": "The auxiliary regression of $\\widehat{e}^{\\,2}$ has five $z$'s plus an intercept, so $S - 1 = 5$ and the 5% critical value is $\\chi^2_{0.95,5} = 11.07$. With many regressors the number of $z$'s grows fast, which is the White test's weakness.",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 20,
+     "symbols": [
+      "$x_i$, $\\mathbf{X}$",
+      "$e_i$, $\\widehat{e}_i$",
+      "$z_{is}$",
+      "$\\alpha_1, \\ldots, \\alpha_S$",
+      "$S$",
+      "$\\chi^2$"
+     ]
+    },
+    {
+     "id": "4-the-white-test-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Which statement correctly compares the Breusch-Pagan and White tests?",
+       "options": [
+        {
+         "md": "They test different nulls: BP tests homoskedasticity, White tests normality of the errors",
+         "correct": false,
+         "feedback": "Both have the same null, homoskedasticity; normality is the Jarque-Bera test's business."
+        },
+        {
+         "md": "White is always preferable, because it never needs the $z$'s",
+         "correct": false,
+         "feedback": "Its generality costs power: with many regressors it uses many degrees of freedom, and if the right $z$'s are known, BP is more powerful."
+        },
+        {
+         "md": "Both test $H_0$: constant variance, with $N R^2$ from a regression of $\\widehat{e}^{\\,2}$; BP uses $z$'s you choose, White uses the regressors, their squares and cross-products, so prefer BP when theory says what drives the variance and White when it does not",
+         "correct": true
+        },
+        {
+         "md": "BP needs normal errors while White does not",
+         "correct": false,
+         "feedback": "The version taught here, $N R^2$, does not rely on normal errors; the difference lies in which variables enter the auxiliary regression."
+        }
+       ],
+       "why": "The two tests share the null ($\\alpha_2 = \\cdots = \\alpha_S = 0$) and the statistic; they differ in the $z$'s. White's choice needs no prior knowledge and can catch nonlinear patterns, but its degrees of freedom grow quickly with the number of regressors, lowering its power in smaller samples.",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 78,
+     "symbols": [
+      "$e_i$, $\\widehat{e}_i$",
+      "$z_{is}$",
+      "$\\alpha_1, \\ldots, \\alpha_S$",
+      "$N$",
+      "$R^2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "5-the-goldfeld-quandt-test",
+   "heading": "5. The Goldfeld-Quandt test",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "5-the-goldfeld-quandt-test-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "When the model includes a factor, the Goldfeld-Quandt test compares the error variances of the groups. With an indicator splitting the sample into groups 1 and 0, test $H_0: \\sigma_1^2 = \\sigma_0^2$ against $H_1: \\sigma_1^2 \\neq \\sigma_0^2$ with"
+      },
+      {
+       "t": "math",
+       "tex": "F = \\frac{\\widehat{\\sigma}_1^2}{\\widehat{\\sigma}_0^2} \\sim F_{N_1 - K,\\; N_0 - K}"
+      },
+      {
+       "t": "prose",
+       "md": "The test also works with quantitative predictors, by splitting the sample according to a rule."
+      },
+      {
+       "t": "prose",
+       "md": "- **Metro and rural wages** (CPS5, wage on education and experience): $F = \\widehat{\\sigma}^2_{metro}/\\widehat{\\sigma}^2_{rural} = 2.34$, far above the upper critical value 1.08: metro wages vary more.\n- **Food expenditure**, split at median income (20 households each): $F = 3.61$."
+      }
+     ],
+     "words": 78,
+     "symbols": [
+      "$\\sigma^2$",
+      "$\\widehat{\\sigma}^2$",
+      "$F$"
+     ]
+    },
+    {
+     "id": "5-the-goldfeld-quandt-test-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "For the food data split at median income, each half has 20 households and the regression has $K = 2$ coefficients. With the high-income variance on top, $F = 3.61$. At 5% (two-sided), what do you conclude?",
+       "options": [
+        {
+         "md": "Do not reject: $F$ must exceed $F_{0.975;\\,20,\\,20}$, which is larger than 3.61",
+         "correct": false,
+         "feedback": "The degrees of freedom are $N_1 - K = 18$ and $N_0 - K = 18$, not 20; and $F_{0.975;\\,18,\\,18} = 2.60$ is below 3.61 anyway."
+        },
+        {
+         "md": "Reject constant variance: $F = 3.61 > F_{0.975;\\,18,\\,18} = 2.60$; the variance is larger at high incomes",
+         "correct": true
+        },
+        {
+         "md": "Reject, because $F > 1$ means the variances differ",
+         "correct": false,
+         "feedback": "Sampling noise alone makes $F$ differ from 1; it must exceed the critical value."
+        },
+        {
+         "md": "The test is invalid because income is not a factor",
+         "correct": false,
+         "feedback": "The lecture applies the test to quantitative predictors by splitting the sample, here at median income."
+        }
+       ],
+       "why": "The two-sided 5% test puts 2.5% in the upper tail: $F_{0.975;\\,18,\\,18} = 2.60$. With the larger variance on top, $F = 3.61$ exceeds it ($p = 0.005$), confirming what BP and White found.",
+       "objectives": [
+        4
+       ]
+      }
+     ],
+     "words": 68,
+     "symbols": [
+      "$N$",
+      "$N_1$, $N_0$, $K$",
+      "$F$",
+      "$Y$, $X$, $p$, $q$, $a$, $b$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "6-heteroskedasticity-consistent-standard-errors",
+   "heading": "6. Heteroskedasticity-consistent standard errors",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "6-heteroskedasticity-consistent-standard-errors-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Heteroskedasticity has two effects: OLS is no longer best, and its usual standard errors are wrong. [White standard errors](note:heteroskedasticity-consistent-standard-errors) are valid with or without constant variance:"
+      },
+      {
+       "t": "math",
+       "tex": "\\mathrm{var}(b_2) = \\frac{N}{N-2}\\cdot\\frac{\\sum_{i=1}^N (x_i - \\bar{x})^2\\,\\widehat{e}_i^{\\,2}}{\\left[\\sum_{i=1}^N (x_i - \\bar{x})^2\\right]^2}"
+      },
+      {
+       "t": "prose",
+       "md": "Before seeing the food results, check against repeated samples what the usual standard error does when the variance grows with income."
+      },
+      {
+       "t": "interactive",
+       "widget": "ols-sampling-distribution",
+       "state": {
+        "N": 40,
+        "sd": 89.5,
+        "het": 1,
+        "gamma": 0,
+        "R": 2000
+       },
+       "lock": [
+        "N",
+        "sd",
+        "het",
+        "gamma",
+        "R"
+       ],
+       "prompt": "With the error spread growing with income, compare the standard errors with the actual spread of $b_2$",
+       "predict": {
+        "hide": [
+         "b2_hist",
+         "b2_sd_out",
+         "se_mean_out",
+         "hc_mean_out"
+        ],
+        "ask": "Heteroskedasticity is on: the error spread grows with income. Across 2,000 samples, how does the average textbook standard error of $b_2$ compare with the actual spread of the 2,000 slopes?",
+        "options": [
+         "It matches the spread, because OLS is still unbiased",
+         "It understates the spread, while the robust (White) standard error comes close",
+         "It overstates the spread, so tests are too cautious",
+         "Both standard errors understate it equally"
+        ],
+        "answer": 1,
+        "why": "In this population the 2,000 slopes spread with a standard deviation of about 1.95, while the textbook standard error averages about 1.82 and the robust (HC1) one about 1.90. The textbook number is too small, so its tests reject too often and its intervals are too narrow.",
+        "feedback": [
+         "Unbiasedness is about where $b_2$ centres. The textbook formula $\\widehat{\\sigma}^2/\\sum(x_i - \\bar{x})^2$ assumes one error variance, so it misstates the spread when the variance moves with $x$.",
+         null,
+         "Here the variance grows with income, and the households far from the mean income, which pin down the slope, are the noisiest; the textbook formula averages their variance with the quiet ones and so comes out too small.",
+         "The robust standard error uses each household's own squared residual, so it tracks the true spread; only the textbook one is systematically off."
+        ]
+       },
+       "objectives": [
+        5
+       ]
+      },
+      {
+       "t": "prose",
+       "md": "For the food regression:"
+      },
+      {
+       "t": "table",
+       "md": "| | Intercept | Income |\n| --- | --- | --- |\n| Coefficient | 83.42 | 10.21 |\n| Usual se | 43.41 | 2.093 |\n| White (HC1) se | 27.46 | 1.809 |"
+      }
+     ],
+     "words": 90,
+     "symbols": [
+      "$x_i$, $\\mathbf{X}$",
+      "$\\sigma^2$",
+      "$\\widehat{\\sigma}^2$",
+      "$\\beta_1$, $\\beta_2$",
+      "$e_i$, $\\widehat{e}_i$",
+      "$N$",
+      "$b_2$",
+      "$x_i$, $\\bar{x}$"
+     ]
+    },
+    {
+     "id": "6-heteroskedasticity-consistent-standard-errors-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Here the White standard errors are *smaller*, so the corrected interval is narrower. Hypotheses about combinations of coefficients need the corrected covariance matrix too: for $H_0: \\beta_2 + \\beta_3 = 0$ in Andy's regression, $F = 22.44$ with the usual standard errors and $23.39$ with HC1."
+      }
+     ],
+     "words": 36,
+     "symbols": [
+      "$\\beta_1$, $\\beta_2$",
+      "$F$"
+     ]
+    },
+    {
+     "id": "6-heteroskedasticity-consistent-standard-errors-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "With White standard errors, $b_2 = 10.21$ and $se(b_2) = 1.809$ for the food regression ($t_{0.975,38} = 2.024$). What is the upper limit of the 95% interval for $\\beta_2$? Give two decimals.",
+       "answer": 13.87,
+       "tol": 0.01,
+       "wrong": [
+        {
+         "answer": 14.45,
+         "tol": 0.01,
+         "md": "that uses the usual standard error, 2.093, which is invalid under heteroskedasticity"
+        },
+        {
+         "answer": 12.02,
+         "tol": 0.01,
+         "md": "that adds one standard error; a 95% interval uses $t_c = 2.024$"
+        },
+        {
+         "answer": 13.76,
+         "tol": 0.01,
+         "md": "that uses 1.96 instead of $t_{0.975,38} = 2.024$"
+        }
+       ],
+       "why": "$10.21 + 2.024 \\times 1.809 = 13.87$, so the White interval is [6.55, 13.87], against [5.97, 14.45] with the usual standard error. The coefficient is unchanged; only its precision is recomputed.",
+       "objectives": [
+        5
+       ]
+      }
+     ],
+     "words": 22,
+     "symbols": [
+      "$e_i$, $\\boldsymbol{\\varepsilon}$",
+      "$\\beta_1$, $\\beta_2$",
+      "$b_2$",
+      "$t_c$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "7-weighted-least-squares-a-known-form-of-the-variance",
+   "heading": "7. Weighted least squares: a known form of the variance",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "7-weighted-least-squares-a-known-form-of-the-variance-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "To deal with heteroskedasticity properly we would need each observation's error variance, which is not possible; instead we model how the variance depends on the predictors ([Generalized Least Squares](note:generalized-least-squares)). Suppose $y_i = \\beta_1 + \\beta_2 x_i + e_i$ with $\\mathrm{Var}(e_i) = \\sigma_i^2 = \\sigma^2 x_i$. Dividing the whole model by $\\sqrt{x_i}$ gives $y_i^{*} = \\beta_1 x_{i1}^{*} + \\beta_2 x_{i2}^{*} + e_i^{*}$, where $E(e_i^{*}) = 0$ and $\\mathrm{Cov}(e_i^{*}, e_j^{*}) = 0$ still hold."
+      }
+     ],
+     "words": 41,
+     "symbols": [
+      "$e_i$, $\\boldsymbol{\\varepsilon}$",
+      "$x_i$, $\\mathbf{X}$",
+      "$\\sigma^2$",
+      "$\\beta_1$, $\\beta_2$",
+      "$y_i$, $x_i$",
+      "$y_i^{*}$, $x_{i1}^{*}$, $x_{i2}^{*}$, $e_i^{*}$"
+     ]
+    },
+    {
+     "id": "7-weighted-least-squares-a-known-form-of-the-variance-2",
+     "blocks": [
+      {
+       "t": "derive",
+       "title": "Show that the transformed errors $e_i^{*} = e_i/\\sqrt{x_i}$ have constant variance",
+       "objectives": [
+        6
+       ],
+       "symbols": [
+        "\\sigma",
+        "x_i"
+       ],
+       "inherited": [
+        {
+         "tex": "$y_i$, $x_i$",
+         "typical": "Food spending, income",
+         "from": "generalized-least-squares"
+        },
+        {
+         "tex": "$e_i$",
+         "typical": "—",
+         "from": "generalized-least-squares"
+        },
+        {
+         "tex": "$\\sigma^2$",
+         "typical": "—",
+         "from": "generalized-least-squares"
+        },
+        {
+         "tex": "$y_i^{*}$, $x_{i1}^{*}$, $x_{i2}^{*}$, $e_i^{*}$",
+         "typical": "—",
+         "from": "generalized-least-squares"
+        }
+       ],
+       "unknowns": [
+        "$S$",
+        "$V$"
+       ],
+       "dims": [],
+       "data": [],
+       "matrices": [],
+       "define": [],
+       "given": [
+        "S = \\sigma^2 x_i"
+       ],
+       "steps": [
+        {
+         "md": "Write $S$ for $\\mathrm{Var}(e_i)$ and $V$ for $\\mathrm{Var}(e_i^{*})$. Given $x_i$, dividing by $\\sqrt{x_i}$ divides the variance by $x_i$: $V = \\frac{S}{x_i}$",
+         "tex": "V = \\frac{S}{x_i}",
+         "justify": {
+          "prompt": "Why is $\\mathrm{Var}(e_i/\\sqrt{x_i}) = \\mathrm{Var}(e_i)/x_i$?",
+          "options": [
+           {
+            "md": "Given $x_i$, $1/\\sqrt{x_i}$ is a constant $c$, and $\\mathrm{Var}(c\\,e_i) = c^2\\,\\mathrm{Var}(e_i)$",
+            "correct": true
+           },
+           {
+            "md": "Because $E(e_i) = 0$, so the variance can be divided freely",
+            "correct": false
+           },
+           {
+            "md": "Because the errors of different observations are uncorrelated",
+            "correct": false
+           }
+          ]
+         }
+        },
+        {
+         "md": "Substitute the variance model: $V = \\sigma^2$",
+         "tex": "V = \\sigma^2"
+        }
+       ],
+       "accept": [],
+       "reject": [
+        {
+         "tex": "V = \\sigma^2 x_i",
+         "md": "that is the variance before the transformation, $\\mathrm{Var}(e_i)$"
+        },
+        {
+         "tex": "V = \\sigma^2\\sqrt{x_i}",
+         "md": "dividing $e_i$ by $\\sqrt{x_i}$ divides its variance by $(\\sqrt{x_i})^2 = x_i$, not by $\\sqrt{x_i}$"
+        },
+        {
+         "tex": "V = \\frac{\\sigma^2}{x_i}",
+         "md": "that divides by $x_i$ twice: $S$ already contains the $x_i$ that the transformation cancels"
+        }
+       ]
+      }
+     ],
+     "words": 23,
+     "symbols": [
+      "$e_i$, $\\boldsymbol{\\varepsilon}$",
+      "$x_i$, $\\mathbf{X}$",
+      "$\\sigma^2$",
+      "$S$",
+      "$y_i^{*}$, $x_{i1}^{*}$, $x_{i2}^{*}$, $e_i^{*}$"
+     ]
+    },
+    {
+     "id": "7-weighted-least-squares-a-known-form-of-the-variance-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The transformation is **weighted least squares** (WLS): it weights the squared errors by $1/x_i$. For the food data:"
+      },
+      {
+       "t": "math",
+       "tex": "\\widehat{y}_i = 78.68 + 10.45x_i, \\qquad se: (23.79)\\ (1.39), \\qquad 10.451 \\pm 2.024 \\times 1.386 = [7.65, 13.26]"
+      }
+     ],
+     "words": 17,
+     "symbols": [
+      "$e_i$, $\\boldsymbol{\\varepsilon}$",
+      "$x_i$, $\\mathbf{X}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "8-feasible-generalized-least-squares-an-unknown-form",
+   "heading": "8. Feasible generalized least squares: an unknown form",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "8-feasible-generalized-least-squares-an-unknown-form-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "If the form is unknown, propose a power law, $\\mathrm{Var}(e_i) = \\sigma_i^2 = \\sigma^2 x_i^{\\gamma}$ with $\\gamma$ to be estimated. Taking logs turns it into a regression."
+      }
+     ],
+     "words": 20,
+     "symbols": [
+      "$e_i$, $\\boldsymbol{\\varepsilon}$",
+      "$x_i$, $\\mathbf{X}$",
+      "$\\sigma^2$",
+      "$\\gamma$"
+     ]
+    },
+    {
+     "id": "8-feasible-generalized-least-squares-an-unknown-form-2",
+     "blocks": [
+      {
+       "t": "derive",
+       "title": "Turn the power-law variance $\\sigma_i^2 = \\sigma^2 x_i^{\\gamma}$ into a model that OLS can estimate",
+       "objectives": [
+        6
+       ],
+       "symbols": [
+        "\\sigma",
+        "x_i",
+        "\\gamma"
+       ],
+       "inherited": [
+        {
+         "tex": "$y_i$, $x_i$",
+         "typical": "Food spending, income",
+         "from": "generalized-least-squares"
+        },
+        {
+         "tex": "$\\sigma^2$",
+         "typical": "—",
+         "from": "generalized-least-squares"
+        },
+        {
+         "tex": "$\\gamma$",
+         "typical": "$\\widehat{\\gamma} = 2.33$",
+         "from": "generalized-least-squares"
+        },
+        {
+         "tex": "$\\alpha_1$, $\\alpha_2$",
+         "typical": "0.938, 2.329",
+         "from": "generalized-least-squares"
+        },
+        {
+         "tex": "$z_i$",
+         "typical": "—",
+         "from": "generalized-least-squares"
+        }
+       ],
+       "unknowns": [
+        "$\\sigma_i$",
+        "$\\alpha_1$",
+        "$\\alpha_2$",
+        "$z_i$"
+       ],
+       "dims": [],
+       "data": [],
+       "matrices": [],
+       "define": [],
+       "given": [
+        "\\sigma_i^2 = \\sigma^2 x_i^{\\gamma}",
+        "\\alpha_1 = \\ln(\\sigma^2)",
+        "\\alpha_2 = \\gamma",
+        "z_i = \\ln(x_i)"
+       ],
+       "steps": [
+        {
+         "md": "Take logs of both sides, rename the constants, and exponentiate back: $\\sigma_i^2 = \\exp(\\alpha_1 + \\alpha_2 z_i)$",
+         "tex": "\\sigma_i^2 = \\exp(\\alpha_1 + \\alpha_2 z_i)",
+         "hint": "$\\ln(\\sigma_i^2) = \\ln(\\sigma^2) + \\gamma\\ln(x_i)$, because the log of a product is a sum of logs and $\\ln(x^{\\gamma}) = \\gamma\\ln x$."
+        }
+       ],
+       "accept": [
+        "\\ln(\\sigma_i^2) = \\alpha_1 + \\alpha_2 z_i"
+       ],
+       "reject": [
+        {
+         "tex": "\\ln(\\sigma_i^2) = \\gamma\\ln(\\sigma^2 x_i)",
+         "md": "the power $\\gamma$ applies to $x_i$ only, not to $\\sigma^2$"
+        },
+        {
+         "tex": "\\ln(\\sigma_i^2) = \\ln(\\sigma^2) + \\ln(\\gamma) + \\ln(x_i)",
+         "md": "$\\ln(x_i^{\\gamma}) = \\gamma\\ln(x_i)$, not $\\ln(\\gamma) + \\ln(x_i)$"
+        },
+        {
+         "tex": "\\ln(\\sigma_i^2) = \\ln(\\sigma^2)\\,\\gamma\\ln(x_i)",
+         "md": "the log of a product is the sum of the logs, not their product"
+        }
+       ]
+      }
+     ],
+     "words": 22,
+     "symbols": [
+      "$x_i$, $\\mathbf{X}$",
+      "$\\sigma^2$",
+      "$z_{is}$",
+      "$\\alpha_1, \\ldots, \\alpha_S$",
+      "$\\gamma$"
+     ]
+    },
+    {
+     "id": "8-feasible-generalized-least-squares-an-unknown-form-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "OLS of $\\ln\\widehat{e}_i^{\\,2}$ on $z_i = \\ln(x_i)$ gives $\\widehat{\\ln(\\sigma_i^2)} = 0.9378 + 2.329z_i$. WLS with weights $1/\\widehat{\\sigma}_i^2 = 1/\\exp(0.9378 + 2.329z_i)$, instead of $1/x_i$, gives"
+      },
+      {
+       "t": "math",
+       "tex": "\\widehat{y} = 76.05 + 10.63x, \\qquad se: (9.71)\\ (0.97)"
+      },
+      {
+       "t": "callout",
+       "kind": "warning",
+       "title": "Correction to the lecture notebook",
+       "md": "The markdown gives the estimated variance equation as $0.9378 + 2.39z_i$; the code's output (and the note \"gamma = 2.32\" further down) gives $\\widehat{\\gamma} = 2.3292$.",
+       "folded": false
+      }
+     ],
+     "words": 35,
+     "symbols": [
+      "$e_i$, $\\boldsymbol{\\varepsilon}$",
+      "$x_i$, $\\mathbf{X}$",
+      "$\\widehat{\\sigma}^2$",
+      "$e_i$, $\\widehat{e}_i$",
+      "$z_{is}$"
+     ]
+    },
+    {
+     "id": "8-feasible-generalized-least-squares-an-unknown-form-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "The FGLS variance regression for the food data gives $\\widehat{\\gamma} = 2.33$ (se 0.54), while the WLS step assumed $\\mathrm{Var}(e_i) = \\sigma^2 x_i$. What does this say?",
+       "options": [
+        {
+         "md": "The WLS weights were right, because $\\widehat{\\gamma}$ is positive",
+         "correct": false,
+         "feedback": "WLS assumed $\\gamma = 1$ exactly; a positive $\\widehat{\\gamma}$ only says the variance rises with income."
+        },
+        {
+         "md": "The variance grows faster than in proportion to income, about with $x^{2.3}$, so FGLS down-weights high-income households more than WLS did, and gets a smaller slope standard error (0.97 against 1.39)",
+         "correct": true
+        },
+        {
+         "md": "The errors are now homoskedastic, since the variance has been estimated",
+         "correct": false,
+         "feedback": "Estimating $\\gamma$ describes the heteroskedasticity; it is the reweighting that removes it from the transformed model."
+        },
+        {
+         "md": "FGLS is biased, since $\\gamma$ is estimated",
+         "correct": false,
+         "feedback": "FGLS estimates of $\\beta$ are consistent; estimating the weights affects efficiency and the exactness of small-sample standard errors, not the target."
+        }
+       ],
+       "why": "$\\gamma = 1$ lies $(2.33 - 1)/0.54 \\approx 2.5$ standard errors below the estimate, so the data prefer a steeper variance function. With weights $1/x^{2.33}$ instead of $1/x$, the noisiest (richest) households count for less, and the slope's standard error falls from 2.09 (OLS) and 1.39 (WLS) to 0.97.",
+       "objectives": [
+        6
+       ]
+      }
+     ],
+     "words": 78,
+     "symbols": [
+      "$e_i$, $\\boldsymbol{\\varepsilon}$",
+      "$x_i$, $\\mathbf{X}$",
+      "$\\sigma^2$",
+      "$\\beta_1$, $\\beta_2$",
+      "$\\gamma$"
+     ]
+    },
+    {
+     "id": "8-feasible-generalized-least-squares-an-unknown-form-5",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| | OLS | OLS, HC1 se | WLS | FGLS |\n| --- | --- | --- | --- | --- |\n| Intercept | 83.42 (43.41) | 83.42 (27.46) | 78.68 (23.79) | 76.05 (9.71) |\n| Income | 10.21 (2.09) | 10.21 (1.81) | 10.45 (1.39) | 10.63 (0.97) |"
+      },
+      {
+       "t": "prose",
+       "md": "The weighted regressions' $R^2$ (0.599 and 0.759) describe the transformed models and cannot be compared with OLS's 0.385."
+      }
+     ],
+     "words": 65,
+     "symbols": [
+      "$R^2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "math-refresher",
+   "heading": "Math refresher",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "math-refresher-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Math Prep L7 Approximations Logs and Series](note:math-prep-l7-approximations-logs-and-series) — logs of products and powers, used to linearize the variance function"
+      }
+     ],
+     "words": 19,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Write the variance-function model for heteroskedasticity, state the null of constant variance, and read a spread-level plot.\n2. Compute and interpret the Breusch-Pagan statistic $N R^2$.\n3. Explain how the White test differs from Breusch-Pagan, its degrees of freedom, and when to prefer each.\n4. Carry out a Goldfeld-Quandt test for a factor or a split sample.\n5. Use White (HC1) standard errors and explain what heteroskedasticity does to the usual ones.\n6. Derive the WLS transformation and the FGLS variance regression, and interpret WLS and FGLS estimates."
+      }
+     ],
+     "words": 87,
+     "symbols": [
+      "$N$",
+      "$R^2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "homoskedasticity",
+        "heteroskedasticity-tests",
+        "heteroskedasticity-consistent-standard-errors",
+        "generalized-least-squares",
+        "box-cox-and-power-transformations"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

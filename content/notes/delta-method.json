@@ -1,0 +1,269 @@
+{
+ "slug": "delta-method",
+ "notation": [
+  {
+   "tex": "$\\lambda$, $\\widehat{\\lambda}$",
+   "meaning": "Function of the coefficients and its estimate",
+   "kind": "Parameter / estimator",
+   "typical": "4.653 (Andy's plan)",
+   "keys": [
+    "lambda",
+    "hat(lambda)"
+   ]
+  },
+  {
+   "tex": "$c_2$, $c_3$",
+   "meaning": "Weights in a linear combination",
+   "kind": "Constants",
+   "typical": "$-0.4$, $0.8$",
+   "keys": [
+    "c"
+   ]
+  },
+  {
+   "tex": "$\\beta_k$, $b_k$",
+   "meaning": "Coefficient and its OLS estimate",
+   "kind": "Parameter / estimator",
+   "typical": "—",
+   "keys": [
+    "beta",
+    "b"
+   ]
+  },
+  {
+   "tex": "$\\mathrm{Var}(b_k)$, $\\mathrm{Cov}(b_j, b_k)$",
+   "meaning": "Entries of the coefficients' covariance matrix",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": []
+  },
+  {
+   "tex": "$g$",
+   "meaning": "The function of the coefficients",
+   "kind": "Function",
+   "typical": "$-\\beta_3/(2\\beta_4)$",
+   "keys": [
+    "g"
+   ]
+  },
+  {
+   "tex": "$\\boldsymbol{\\beta}$, $\\mathbf{b}$",
+   "meaning": "Coefficient vector and its estimate",
+   "kind": "Vectors",
+   "typical": "—",
+   "keys": [
+    "bold(beta)",
+    "bold(b)"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{J}$",
+   "meaning": "Gradient (Jacobian) of $g$ at the estimates",
+   "kind": "Vector",
+   "typical": "—",
+   "keys": [
+    "bold(J)"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{C}$",
+   "meaning": "Estimated covariance matrix of the coefficients in $g$",
+   "kind": "Matrix",
+   "typical": "—",
+   "keys": [
+    "bold(C)"
+   ]
+  },
+  {
+   "tex": "$\\lambda_0$",
+   "meaning": "Value claimed under the null",
+   "kind": "Constant",
+   "typical": "5.8",
+   "keys": [
+    "lambda"
+   ]
+  },
+  {
+   "tex": "$N$, $K$",
+   "meaning": "Observations and coefficients",
+   "kind": "Counts",
+   "typical": "75, 3",
+   "keys": [
+    "N",
+    "K"
+   ]
+  },
+  {
+   "tex": "$t$",
+   "meaning": "Test statistic $(b_k - \\beta_k)/se(b_k)$",
+   "kind": "Statistic",
+   "typical": "≈ ±2 is the 5% threshold in large samples",
+   "keys": [
+    "t"
+   ],
+   "from": "sampling-distribution-of-ols"
+  },
+  {
+   "tex": "$\\nabla f$, $H$",
+   "meaning": "Gradient and Hessian",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "f",
+    "H"
+   ],
+   "from": "taylor-series-approximation"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Regression output gives a standard error for every coefficient, but often the number we care about is built from several coefficients: the change in sales from cutting price *and* raising advertising, or the advertising level where sales peak. Its uncertainty depends on how uncertain each coefficient is and on whether their errors tend to move together. For a weighted sum of coefficients there is an exact formula. For a ratio or other curved function, the delta method replaces the curve with its tangent line near the estimates and applies the same formula to the tangent's slopes."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is how the lecture gets a confidence interval for Andy's marketing plan, for the average marginal effect and for the optimal advertising level, and the covariance term is the part students forget.",
+       "folded": false
+      }
+     ],
+     "words": 132,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Linear combination** (exact): for $\\lambda = c_2\\beta_2 + c_3\\beta_3$,"
+      },
+      {
+       "t": "math",
+       "tex": "\\mathrm{Var}(\\widehat{\\lambda}) = c_2^2\\,\\mathrm{Var}(b_2) + c_3^2\\,\\mathrm{Var}(b_3) + 2c_2c_3\\,\\mathrm{Cov}(b_2, b_3)"
+      },
+      {
+       "t": "prose",
+       "md": "and $t = (\\widehat{\\lambda} - \\lambda_0)/se(\\widehat{\\lambda}) \\sim t_{N-K}$ tests $H_0: \\lambda = \\lambda_0$."
+      },
+      {
+       "t": "prose",
+       "md": "**Nonlinear function** (approximate): for $\\lambda = g(\\boldsymbol{\\beta})$, with $\\mathbf{J}$ the gradient of $g$ at the estimates and $\\mathbf{C}$ the estimated covariance matrix of the coefficients involved,"
+      },
+      {
+       "t": "math",
+       "tex": "\\mathrm{Var}(\\widehat{\\lambda}) \\approx \\mathbf{J}'\\mathbf{C}\\,\\mathbf{J}"
+      },
+      {
+       "t": "prose",
+       "md": "It comes from the first-order [Taylor Series Approximation](note:taylor-series-approximation) $g(\\mathbf{b}) \\approx g(\\boldsymbol{\\beta}) + \\mathbf{J}'(\\mathbf{b} - \\boldsymbol{\\beta})$."
+      }
+     ],
+     "words": 34,
+     "symbols": [
+      "$\\lambda$, $\\widehat{\\lambda}$",
+      "$c_2$, $c_3$",
+      "$\\beta_k$, $b_k$",
+      "$g$",
+      "$\\boldsymbol{\\beta}$, $\\mathbf{b}$",
+      "$\\mathbf{J}$",
+      "$\\mathbf{C}$",
+      "$\\lambda_0$",
+      "$t$",
+      "$\\nabla f$, $H$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-examples",
+   "heading": "Worked examples",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-examples-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Andy's marketing plan.** Cutting price by \\$0.40 and raising advertising by \\$800 changes expected sales by $\\lambda = -0.4\\beta_2 + 0.8\\beta_3$. Estimate $\\widehat{\\lambda} = -0.4(-7.908) + 0.8(1.863) = 4.653$, $se = 0.710$, 95% interval [3.24, 6.07]: about \\$4,653 more revenue a month. The current plan ($-0.2\\beta_2 + 1.5\\beta_3$) gives 4.375 with $se = 1.054$."
+      },
+      {
+       "t": "prose",
+       "md": "**Testing a target.** To show the plan raises sales by more than \\$5,800, test $H_0: \\lambda \\le 5.8$ against $H_1: \\lambda > 5.8$. $t = (4.653 - 5.8)/0.710 = -1.62$, below $t_{0.95,72} = 1.666$: the data do not show the plan reaches \\$5,800, and the point estimate is below it. (The notebook concludes \"they stay in business\"; its own numbers say the opposite.)"
+      },
+      {
+       "t": "prose",
+       "md": "**Optimal advertising.** With $g = (1 - \\beta_3)/(2\\beta_4)$, $\\mathbf{J} = \\big(-1/(2\\beta_4),\\; -(1-\\beta_3)/(2\\beta_4^2)\\big)$ and the estimated $\\mathrm{Var}(b_3) = 12.65$, $\\mathrm{Var}(b_4) = 0.885$, $\\mathrm{Cov}(b_3, b_4) = -3.29$: $\\widehat{\\lambda} = 2.014$, $se \\approx 0.129$ (beyond the lecture: the lecture applies the method to the sales peak $-\\beta_3/(2\\beta_4) = 2.195$, $se = 0.164$, interval [1.87, 2.52])."
+      }
+     ],
+     "words": 108,
+     "symbols": [
+      "$\\lambda$, $\\widehat{\\lambda}$",
+      "$\\beta_k$, $b_k$",
+      "$g$",
+      "$\\mathbf{J}$",
+      "$\\lambda_0$",
+      "$t$",
+      "$\\nabla f$, $H$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Dropping the covariance.** $b_3$ and $b_4$ are strongly negatively correlated here, so leaving out $2\\,\\mathrm{Cov}$ overstates the standard error several times over.\n- **Using $c_k$ instead of $c_k^2$** on the variances.\n- **Calling a linear-combination test a joint test.** $H_0: -0.4\\beta_2 + 0.8\\beta_3 = 5.8$ is one restriction, so a $t$ test works; several restrictions at once need the [F Test of Joint Hypotheses](note:f-test-of-joint-hypotheses)."
+      }
+     ],
+     "words": 53,
+     "symbols": [
+      "$c_2$, $c_3$",
+      "$\\beta_k$, $b_k$",
+      "$t$",
+      "$\\nabla f$, $H$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Math background: [Taylor Series Approximation](note:taylor-series-approximation) · [Partial Derivatives and the Gradient](note:partial-derivatives-and-the-gradient)\n- [Marginal Effects](note:marginal-effects) · [Hypothesis Tests on Regression Coefficients](note:hypothesis-tests-on-regression-coefficients)"
+      }
+     ],
+     "words": 19,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

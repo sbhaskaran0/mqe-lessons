@@ -1,0 +1,263 @@
+{
+ "slug": "component-plus-residual-plot",
+ "notation": [
+  {
+   "tex": "$y_i$",
+   "meaning": "Outcome",
+   "kind": "Data",
+   "typical": "Occupational prestige",
+   "keys": [
+    "y"
+   ]
+  },
+  {
+   "tex": "$x_{ij}$",
+   "meaning": "Regressor $j$ for observation $i$",
+   "kind": "Data",
+   "typical": "Income, education, % women",
+   "keys": [
+    "x"
+   ]
+  },
+  {
+   "tex": "$b_j$",
+   "meaning": "Its OLS coefficient",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "b"
+   ]
+  },
+  {
+   "tex": "$b_1$, $b_k$",
+   "meaning": "Intercept and the other coefficients",
+   "kind": "Estimators",
+   "typical": "—",
+   "keys": [
+    "b"
+   ]
+  },
+  {
+   "tex": "$e_i$",
+   "meaning": "OLS residual",
+   "kind": "Computed",
+   "typical": "—",
+   "keys": [
+    "e"
+   ]
+  },
+  {
+   "tex": "$e^{(j)}_i$",
+   "meaning": "Partial residual for regressor $j$",
+   "kind": "Computed",
+   "typical": "—",
+   "keys": [
+    "~e^(j)_i"
+   ]
+  },
+  {
+   "tex": "$K$",
+   "meaning": "Number of coefficients",
+   "kind": "Count",
+   "typical": "4",
+   "keys": [
+    "K"
+   ]
+  },
+  {
+   "tex": "$\\beta_k$",
+   "meaning": "Population coefficients",
+   "kind": "Parameters",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$e$",
+   "meaning": "Error term",
+   "kind": "Unobserved",
+   "typical": "—",
+   "keys": [
+    "e"
+   ]
+  },
+  {
+   "tex": "$p$, $n$",
+   "meaning": "Number of parameters and of observations",
+   "kind": "Counts",
+   "typical": "—",
+   "keys": [
+    "p",
+    "n"
+   ],
+   "from": "regression-diagnostics"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "In a regression with several explanations, a plain scatter of the outcome against one of them is muddied by all the others. A component-plus-residual plot cleans that up. It takes the regression's estimated straight-line contribution of one regressor and adds back what the regression failed to explain. If that regressor really acts in a straight line, the points scatter around the line; if they bend around it, the regressor needs a log, a square or some other transformation. When the regressors are themselves related to each other in curved ways, a variant called a CERES plot gives a cleaner picture."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the lecture's tool for deciding which predictor to transform before running formal checks like Box-Tidwell or RESET.",
+       "folded": false
+      }
+     ],
+     "words": 122,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "After fitting $y = \\beta_1 + \\beta_2 x_2 + \\cdots + \\beta_K x_K + e$, the **partial residual** for regressor $j$ is"
+      },
+      {
+       "t": "math",
+       "tex": "e^{(j)}_i = e_i + b_j x_{ij} = y_i - b_1 - \\sum_{k \\neq j} b_k x_{ik}"
+      },
+      {
+       "t": "prose",
+       "md": "Plot $e^{(j)}_i$ against $x_{ij}$. The least-squares line through the points has slope $b_j$; a lowess curve that bends away from it signals nonlinearity in $x_j$."
+      },
+      {
+       "t": "prose",
+       "md": "**CERES** (Combining conditional Expectations and REsiduals) plots replace the linear adjustment for the other regressors with smooth estimates of how they depend on $x_j$, and work better when the regressors are nonlinearly related."
+      }
+     ],
+     "words": 61,
+     "symbols": [
+      "$y_i$",
+      "$x_{ij}$",
+      "$b_j$",
+      "$b_1$, $b_k$",
+      "$e_i$",
+      "$e^{(j)}_i$",
+      "$\\beta_k$",
+      "$e$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example-occupational-prestige",
+   "heading": "Worked example: occupational prestige",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-occupational-prestige-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Prestige of 102 Canadian occupations on average income, education and the percentage of women:"
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Prestige regression - component-plus-residual plots.png",
+       "alt": "Prestige regression - component-plus-residual plots"
+      }
+     ],
+     "words": 14,
+     "symbols": []
+    },
+    {
+     "id": "worked-example-occupational-prestige-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The income panel bends: the points rise steeply at low incomes and flatten at high ones, so income enters with diminishing returns. Replacing income with $\\log_2(income)$ straightens it."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Prestige regression with log income - component-plus-residual plots.png",
+       "alt": "Prestige regression with log income - component-plus-residual plots"
+      }
+     ],
+     "words": 27,
+     "symbols": [
+      "$e_i$",
+      "$e$",
+      "$p$, $n$"
+     ]
+    },
+    {
+     "id": "worked-example-occupational-prestige-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The CERES plots tell the same story: the lowess curve for income bends well away from the straight line, while education's stays close to it."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Prestige regression - CERES plots for income and education.png",
+       "alt": "Prestige regression - CERES plots for income and education"
+      }
+     ],
+     "words": 25,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Reading the slope as new information.** The line's slope is $b_j$ by construction; what the plot adds is the shape around it.\n- **Confusing it with an added-variable (partial regression) plot**, which regresses both $y$ and $x_j$ on the other regressors first; that one shows leverage and the coefficient, not curvature."
+      }
+     ],
+     "words": 49,
+     "symbols": [
+      "$y_i$",
+      "$x_{ij}$",
+      "$b_j$",
+      "$b_1$, $b_k$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Box-Tidwell Transformation](note:box-tidwell-transformation) estimates the power the plot suggests\n- [Box-Cox and Power Transformations](note:box-cox-and-power-transformations) · [Lowess Smoother](note:lowess-smoother) · [Ramsey RESET](note:ramsey-reset)"
+      }
+     ],
+     "words": 18,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

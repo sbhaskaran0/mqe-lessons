@@ -1,0 +1,359 @@
+{
+ "slug": "multiple-regression-model",
+ "notation": [
+  {
+   "tex": "$y_i$",
+   "meaning": "Outcome for observation $i$",
+   "kind": "Data",
+   "typical": "$SALES$ in \\$1000s",
+   "keys": [
+    "y"
+   ]
+  },
+  {
+   "tex": "$x_{ik}$",
+   "meaning": "Regressor $k$ for observation $i$",
+   "kind": "Data",
+   "typical": "$PRICE$, $ADVERT$",
+   "keys": [
+    "x"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{x}_i$, $\\mathbf{X}$",
+   "meaning": "All regressors for one observation; for the whole sample",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "bold(x)",
+    "bold(X)"
+   ]
+  },
+  {
+   "tex": "$\\beta_1$",
+   "meaning": "Intercept",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$\\beta_k$",
+   "meaning": "Partial effect of $x_k$ on $E[y]$, others fixed",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$b_k$",
+   "meaning": "OLS estimate of $\\beta_k$",
+   "kind": "Estimator",
+   "typical": "$-7.91$ for price in the burger regression",
+   "keys": [
+    "b"
+   ]
+  },
+  {
+   "tex": "$K$",
+   "meaning": "Number of coefficients, intercept included",
+   "kind": "Count",
+   "typical": "3 in the burger regression",
+   "keys": [
+    "K"
+   ]
+  },
+  {
+   "tex": "$N$",
+   "meaning": "Observations",
+   "kind": "Count",
+   "typical": "75",
+   "keys": [
+    "N"
+   ]
+  },
+  {
+   "tex": "$e_i$",
+   "meaning": "Error",
+   "kind": "Unobserved",
+   "typical": "—",
+   "keys": [
+    "e"
+   ]
+  },
+  {
+   "tex": "$\\sigma^2$",
+   "meaning": "Error variance",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "sigma"
+   ]
+  },
+  {
+   "tex": "$F$",
+   "meaning": "Test statistic",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "F"
+   ],
+   "from": "ramsey-reset"
+  },
+  {
+   "tex": "$R_k^2$",
+   "meaning": "$R^2$ from regressing $x_k$ on the other regressors",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "R"
+   ],
+   "from": "omitted-variable-bias"
+  },
+  {
+   "tex": "$S$",
+   "meaning": "Coefficients in the variance function, intercept included",
+   "kind": "Count",
+   "typical": "2 for BP on income",
+   "keys": [
+    "S"
+   ],
+   "from": "heteroskedasticity-tests"
+  },
+  {
+   "tex": "$A$",
+   "meaning": "Advertising level where the marginal effect equals the marginal cost",
+   "kind": "Constant",
+   "typical": "2.014",
+   "keys": [
+    "A"
+   ],
+   "from": "marginal-effects"
+  },
+  {
+   "tex": "$PRICE$, $SQFT$",
+   "meaning": "House price and square footage in the quadratic example",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "~PRICE",
+    "~SQFT"
+   ],
+   "from": "functional-forms-and-elasticities"
+  },
+  {
+   "tex": "$\\ln L$",
+   "meaning": "Maximized log-likelihood",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "L"
+   ],
+   "from": "model-selection-criteria"
+  },
+  {
+   "tex": "$C_p$",
+   "meaning": "Mallows' statistic",
+   "kind": "Statistic",
+   "typical": "2.32",
+   "keys": [
+    "C"
+   ],
+   "from": "model-selection-criteria"
+  },
+  {
+   "tex": "$t$",
+   "meaning": "$t$ statistic for a single restriction",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "t"
+   ],
+   "from": "f-test-of-joint-hypotheses"
+  },
+  {
+   "tex": "$D$, $D_1$, $D_2$",
+   "meaning": "Indicator variables (1 in the group, 0 otherwise)",
+   "kind": "Data",
+   "typical": "$UTOWN$, $BLACK$, $FEMALE$",
+   "keys": [
+    "D"
+   ],
+   "from": "interaction-terms"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A simple regression lines up one outcome against one explanation. Most outcomes have several: a burger restaurant's sales depend on its prices and on how much it advertises. Multiple regression puts all the explanations in one equation and estimates how much the outcome moves when one of them changes while the others stay where they are. That \"holding the others fixed\" is the point: comparing restaurants that differ in price alone, rather than restaurants that differ in price and also happen to advertise differently. The model is still a straight-line (linear) function of its unknown coefficients, even when the regressors themselves are squares, logs or products."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "Every model in the second half of the course (quadratics, dummies, interactions, the specification tests) is a multiple regression, and each coefficient is read as a partial effect.",
+       "folded": false
+      }
+     ],
+     "words": 137,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "y_i = \\beta_1 + \\beta_2 x_{i2} + \\beta_3 x_{i3} + \\cdots + \\beta_K x_{iK} + e_i, \\qquad \\beta_k = \\frac{\\partial E[y_i \\mid \\mathbf{x}_i]}{\\partial x_{ik}}"
+      },
+      {
+       "t": "prose",
+       "md": "The **assumptions** extend the simple-regression ones ([SR Assumptions](note:sr-assumptions)):"
+      },
+      {
+       "t": "table",
+       "md": "| | Assumption | Fails when |\n| --- | --- | --- |\n| MR1 | The model is linear in the parameters, $y_i = \\beta_1 + \\sum_k \\beta_k x_{ik} + e_i$ | Wrong functional form ([Ramsey RESET](note:ramsey-reset)) |\n| MR2 | Strict exogeneity: $E[e_i \\mid \\mathbf{X}] = 0$ | A relevant regressor is omitted ([Omitted Variable Bias](note:omitted-variable-bias)) |\n| MR3 | Constant variance: $\\mathrm{Var}(e_i \\mid \\mathbf{X}) = \\sigma^2$ | Heteroskedasticity ([Heteroskedasticity Tests](note:heteroskedasticity-tests)) |\n| MR4 | No correlation between errors: $\\mathrm{Cov}(e_i, e_j \\mid \\mathbf{X}) = 0$ for $i \\neq j$ | Time series, clusters |\n| MR5 | No regressor is an exact linear function of the others, and each varies | Perfect [Multicollinearity](note:multicollinearity), the dummy trap |\n| MR6 | Optional: $e_i \\mid \\mathbf{X} \\sim N(0, \\sigma^2)$, for exact $t$ and $F$ tests in small samples | Skewed errors |"
+      },
+      {
+       "t": "prose",
+       "md": "Under MR1 to MR5 the OLS estimators are unbiased and BLUE (the [Gauss-Markov Theorem](note:gauss-markov-theorem)), exactly as in simple regression."
+      }
+     ],
+     "words": 102,
+     "symbols": [
+      "$y_i$",
+      "$x_{ik}$",
+      "$\\mathbf{x}_i$, $\\mathbf{X}$",
+      "$\\beta_1$",
+      "$\\beta_k$",
+      "$N$",
+      "$e_i$",
+      "$\\sigma^2$",
+      "$F$",
+      "$t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example-big-andys-burger-barn",
+   "heading": "Worked example: Big Andy's Burger Barn",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-big-andys-burger-barn-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Sales revenue ($SALES$, \\$1000s a month) on price ($PRICE$, dollars) and advertising ($ADVERT$, \\$1000s a month), 75 cities:"
+      },
+      {
+       "t": "math",
+       "tex": "\\widehat{SALES} = 118.91 - 7.908\\,PRICE + 1.863\\,ADVERT, \\qquad R^2 = 0.448"
+      },
+      {
+       "t": "prose",
+       "md": "- $b_2 = -7.908$: holding advertising fixed, a \\$1 higher price goes with \\$7,908 less monthly revenue.\n- $b_3 = 1.863$: holding price fixed, another \\$1,000 of advertising goes with \\$1,863 more revenue. Since that is more than the \\$1,000 spent, more advertising looks profitable at the margin (before [diminishing returns](note:marginal-effects) are allowed for).\n- Degrees of freedom: $N - K = 75 - 3 = 72$."
+      },
+      {
+       "t": "prose",
+       "md": "**Linear in parameters, not in variables.** Adding $ADVERT^2$ or $\\ln(INCOME)$ keeps the model a multiple regression; what changes is how a coefficient is read ([Marginal Effects](note:marginal-effects), [Functional Forms and Elasticities](note:functional-forms-and-elasticities))."
+      }
+     ],
+     "words": 99,
+     "symbols": [
+      "$b_k$",
+      "$K$",
+      "$N$",
+      "$R_k^2$",
+      "$S$",
+      "$A$",
+      "$PRICE$, $SQFT$",
+      "$\\ln L$",
+      "$C_p$",
+      "$D$, $D_1$, $D_2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "effect-plots",
+   "heading": "Effect plots",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "effect-plots-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With several regressors, a scatter of $y$ against one $x$ mixes that regressor's effect with the others'. An **effect plot** draws the fitted value as one regressor varies, with every other regressor held at its sample mean. In a linear model it is a straight line with slope $b_k$; with $\\log(x)$ or $x^2$ terms it curves."
+      }
+     ],
+     "words": 51,
+     "symbols": [
+      "$y_i$",
+      "$x_{ik}$",
+      "$b_k$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Reading $b_k$ as a total effect.** It is the effect with the other regressors held fixed; dropping a correlated regressor changes it ([Omitted Variable Bias](note:omitted-variable-bias)).\n- **Comparing coefficients across units.** A coefficient's size depends on the units of its $x$; compare $t$ statistics or standardized effects instead.\n- **Thinking more regressors always help.** $R^2$ never falls when a regressor is added; adjusted $R^2$ and the [Model Selection Criteria](note:model-selection-criteria) penalize the extra term."
+      }
+     ],
+     "words": 68,
+     "symbols": [
+      "$x_{ik}$",
+      "$b_k$",
+      "$R_k^2$",
+      "$t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Math background: [Partial Derivatives and the Gradient](note:partial-derivatives-and-the-gradient)\n- [OLS in Matrix Form](note:ols-in-matrix-form) · [F Test of Joint Hypotheses](note:f-test-of-joint-hypotheses) · [Interaction Terms](note:interaction-terms) · [Indicator Variables](note:indicator-variables)"
+      }
+     ],
+     "words": 22,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

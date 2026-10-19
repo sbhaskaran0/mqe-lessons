@@ -1,0 +1,297 @@
+{
+ "slug": "multicollinearity",
+ "notation": [
+  {
+   "tex": "$b_j$",
+   "meaning": "OLS estimate for regressor $j$",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "b"
+   ]
+  },
+  {
+   "tex": "$\\widehat{\\sigma}^2$",
+   "meaning": "Estimated error variance",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "hat(sigma)"
+   ]
+  },
+  {
+   "tex": "$n$",
+   "meaning": "Observations",
+   "kind": "Count",
+   "typical": "—",
+   "keys": [
+    "n"
+   ]
+  },
+  {
+   "tex": "$s_j^2$",
+   "meaning": "Sample variance of $x_j$",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "s"
+   ]
+  },
+  {
+   "tex": "$R_j^2$",
+   "meaning": "$R^2$ of $x_j$ on the other regressors",
+   "kind": "Statistic",
+   "typical": "0.9 gives $VIF = 10$",
+   "keys": [
+    "R"
+   ]
+  },
+  {
+   "tex": "$VIF_j$",
+   "meaning": "Variance inflation factor $1/(1 - R_j^2)$",
+   "kind": "Statistic",
+   "typical": "cyl 10.5, eng 15.8, wgt 7.8",
+   "keys": [
+    "~VIF_j"
+   ]
+  },
+  {
+   "tex": "$x_2$, $x_3$",
+   "meaning": "Regressors",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "x"
+   ]
+  },
+  {
+   "tex": "$\\alpha_1$, $\\alpha_2$",
+   "meaning": "Coefficients of the linear relation between regressors",
+   "kind": "Constants",
+   "typical": "—",
+   "keys": [
+    "alpha"
+   ]
+  },
+  {
+   "tex": "$u$",
+   "meaning": "Random departure from an exact linear relation",
+   "kind": "Unobserved",
+   "typical": "—",
+   "keys": [
+    "u"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{X}$",
+   "meaning": "Regressor matrix",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "bold(X)"
+   ]
+  },
+  {
+   "tex": "$r$",
+   "meaning": "Pairwise correlation",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "r"
+   ]
+  },
+  {
+   "tex": "$GVIF$, $p$",
+   "meaning": "Generalized VIF and columns in the term",
+   "kind": "Statistic / count",
+   "typical": "—",
+   "keys": [
+    "~GVIF",
+    "p"
+   ]
+  },
+  {
+   "tex": "$t$",
+   "meaning": "Test statistic $(b_k - \\beta_k)/se(b_k)$",
+   "kind": "Statistic",
+   "typical": "≈ ±2 is the 5% threshold in large samples",
+   "keys": [
+    "t"
+   ],
+   "from": "sampling-distribution-of-ols"
+  },
+  {
+   "tex": "$Z$, $V$",
+   "meaning": "A standard normal and an independent chi-square variable",
+   "kind": "Random variables",
+   "typical": "—",
+   "keys": [
+    "Z",
+    "V"
+   ],
+   "from": "sampling-distribution-of-ols"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "If two explanations always move together, the data cannot tell which one is doing the work. A car's number of cylinders and its engine size rise together, so a regression of fuel economy on both has trouble splitting the credit between them: each coefficient becomes imprecise, even though together they predict well. In the extreme, when one regressor is an exact combination of others, least squares cannot produce estimates at all. The variance inflation factor measures, for each regressor, how much its estimate's variance is blown up by its overlap with the others."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It explains the puzzle of a high $R^2$ with no significant coefficients, and why coefficients swing when a variable is added or dropped.",
+       "folded": false
+      }
+     ],
+     "words": 118,
+     "symbols": [
+      "$R_j^2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Perfect multicollinearity**: some regressor is an exact linear function of others (e.g. $x_3 = \\alpha_1 + \\alpha_2 x_2$). $\\mathbf{X}'\\mathbf{X}$ is singular and OLS has no unique solution (MR5 fails); drop one of the variables. The dummy-variable trap is the standard case ([Indicator Variables](note:indicator-variables))."
+      },
+      {
+       "t": "prose",
+       "md": "**Imperfect multicollinearity**: $x_3 = \\alpha_1 + \\alpha_2 x_2 + u$ with small $u$. OLS works, but"
+      },
+      {
+       "t": "math",
+       "tex": "\\widehat{\\mathrm{Var}}(b_j) = \\frac{\\widehat{\\sigma}^2}{(n-1)s_j^2} \\times \\underbrace{\\frac{1}{1 - R_j^2}}_{VIF_j}"
+      },
+      {
+       "t": "prose",
+       "md": "where $R_j^2$ is from the **auxiliary regression** of $x_j$ on the other regressors. $VIF = 1$ means no overlap; $VIF \\gtrsim 10$ (some use 4) is large."
+      },
+      {
+       "t": "prose",
+       "md": "**Effects.** (1) Larger variances and standard errors, so smaller $t$ statistics. (2) The overall fit, and so prediction, is largely unaffected. (3) Coefficients can change a lot when variables are added or dropped."
+      }
+     ],
+     "words": 95,
+     "symbols": [
+      "$b_j$",
+      "$\\widehat{\\sigma}^2$",
+      "$n$",
+      "$s_j^2$",
+      "$R_j^2$",
+      "$VIF_j$",
+      "$x_2$, $x_3$",
+      "$\\alpha_1$, $\\alpha_2$",
+      "$u$",
+      "$\\mathbf{X}$",
+      "$t$",
+      "$Z$, $V$"
+     ]
+    },
+    {
+     "id": "definition-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Detection.** Pairwise correlations $|r| \\gtrsim 0.8$; a high $R^2$ with low $t$ statistics; VIFs. For terms with several columns (a factor, a polynomial) use the generalized VIF, $GVIF^{1/(2p)}$, with $p$ the number of columns in the term."
+      }
+     ],
+     "words": 30,
+     "symbols": [
+      "$R_j^2$",
+      "$r$",
+      "$GVIF$, $p$",
+      "$t$",
+      "$Z$, $V$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-examples-from-the-lecture",
+   "heading": "Worked examples (from the lecture)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-examples-from-the-lecture-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Fuel economy** (cars): VIFs cylinders 10.5, engine size 15.8, weight 7.8. Cylinders and engine size measure nearly the same thing; keep one.\n- **Boston house values**: the largest VIFs are property tax 9.0 and highway access 7.5 (then nitric oxides 4.4); the rest are below 4. Dropping tax barely changes the test RMSE (5.08 to 4.98).\n- **US census undercount** (Ericksen): minority 5.0, poverty 4.6, high school 4.6, all moderate.\n- **College GPA**: high-school GPA 1.15, ACT 1.18, alcohol 1.04: no problem. The 142 that the notebook prints first is the intercept's VIF, which means nothing."
+      }
+     ],
+     "words": 111,
+     "symbols": []
+    },
+    {
+     "id": "worked-examples-from-the-lecture-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Reading a VIF.** $VIF = 10.5$ means the variance of the cylinders coefficient is 10.5 times what it would be with uncorrelated regressors, so its standard error is $\\sqrt{10.5} = 3.2$ times larger."
+      }
+     ],
+     "words": 28,
+     "symbols": [
+      "$Z$, $V$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "remedies",
+   "heading": "Remedies",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "remedies-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "More data (or more variation in $x$), dropping one of a redundant pair, combining them into an index, or accepting it if the goal is prediction. Dropping a relevant variable trades variance for [Omitted Variable Bias](note:omitted-variable-bias)."
+      }
+     ],
+     "words": 35,
+     "symbols": [
+      "$x_2$, $x_3$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Math background: [Linear Independence and Rank](note:linear-independence-and-rank)\n- [Full Rank and Identification](note:full-rank-and-identification) · [Omitted Variable Bias](note:omitted-variable-bias) · [Indicator Variables](note:indicator-variables)"
+      }
+     ],
+     "words": 17,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1777 @@
+{
+ "slug": "econ-430-l8-building-multiple-regression-models",
+ "notation": [
+  {
+   "tex": "$y_i$",
+   "meaning": "Outcome for observation $i$",
+   "kind": "Data",
+   "typical": "$SALES$ in \\$1000s",
+   "keys": [
+    "y"
+   ],
+   "from": "multiple-regression-model"
+  },
+  {
+   "tex": "$x_{ik}$",
+   "meaning": "Regressor $k$ for observation $i$",
+   "kind": "Data",
+   "typical": "$PRICE$, $ADVERT$",
+   "keys": [
+    "x"
+   ],
+   "from": "multiple-regression-model"
+  },
+  {
+   "tex": "$\\beta_1$",
+   "meaning": "Intercept",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ],
+   "from": "multiple-regression-model"
+  },
+  {
+   "tex": "$b_k$",
+   "meaning": "OLS estimate of $\\beta_k$",
+   "kind": "Estimator",
+   "typical": "$-7.91$ for price in the burger regression",
+   "keys": [
+    "b"
+   ],
+   "from": "multiple-regression-model"
+  },
+  {
+   "tex": "$K$",
+   "meaning": "Number of coefficients, intercept included",
+   "kind": "Count",
+   "typical": "3 in the burger regression",
+   "keys": [
+    "K"
+   ],
+   "from": "multiple-regression-model"
+  },
+  {
+   "tex": "$N$",
+   "meaning": "Observations",
+   "kind": "Count",
+   "typical": "75",
+   "keys": [
+    "N"
+   ],
+   "from": "multiple-regression-model"
+  },
+  {
+   "tex": "$e_i$",
+   "meaning": "Error",
+   "kind": "Unobserved",
+   "typical": "—",
+   "keys": [
+    "e"
+   ],
+   "from": "multiple-regression-model"
+  },
+  {
+   "tex": "$E[y]$",
+   "meaning": "Expected outcome given the regressors",
+   "kind": "—",
+   "typical": "Expected $SALES$",
+   "keys": [
+    "~E[y]"
+   ],
+   "from": "marginal-effects"
+  },
+  {
+   "tex": "$AME$",
+   "meaning": "Average of $ME$ over the sample",
+   "kind": "Statistic",
+   "typical": "1.943 for advertising",
+   "keys": [
+    "~AME"
+   ],
+   "from": "marginal-effects"
+  },
+  {
+   "tex": "$A$",
+   "meaning": "Advertising level where the marginal effect equals the marginal cost",
+   "kind": "Constant",
+   "typical": "2.014",
+   "keys": [
+    "A"
+   ],
+   "from": "marginal-effects"
+  },
+  {
+   "tex": "$\\lambda$, $\\widehat{\\lambda}$",
+   "meaning": "Function of the coefficients and its estimate",
+   "kind": "Parameter / estimator",
+   "typical": "4.653 (Andy's plan)",
+   "keys": [
+    "lambda",
+    "hat(lambda)"
+   ],
+   "from": "delta-method"
+  },
+  {
+   "tex": "$c_2$, $c_3$",
+   "meaning": "Weights in a linear combination",
+   "kind": "Constants",
+   "typical": "$-0.4$, $0.8$",
+   "keys": [
+    "c"
+   ],
+   "from": "delta-method"
+  },
+  {
+   "tex": "$\\boldsymbol{\\beta}$, $\\mathbf{b}$",
+   "meaning": "Coefficient vector and its estimate",
+   "kind": "Vectors",
+   "typical": "—",
+   "keys": [
+    "bold(beta)",
+    "bold(b)"
+   ],
+   "from": "delta-method"
+  },
+  {
+   "tex": "$\\mathbf{J}$",
+   "meaning": "Gradient (Jacobian) of $g$ at the estimates",
+   "kind": "Vector",
+   "typical": "—",
+   "keys": [
+    "bold(J)"
+   ],
+   "from": "delta-method"
+  },
+  {
+   "tex": "$\\mathbf{C}$",
+   "meaning": "Estimated covariance matrix of the coefficients in $g$",
+   "kind": "Matrix",
+   "typical": "—",
+   "keys": [
+    "bold(C)"
+   ],
+   "from": "delta-method"
+  },
+  {
+   "tex": "$D_{ji}$",
+   "meaning": "1 if observation $i$ is in group $j$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "D"
+   ],
+   "from": "analysis-of-variance"
+  },
+  {
+   "tex": "$J$",
+   "meaning": "Number of groups",
+   "kind": "Count",
+   "typical": "3 teaching methods",
+   "keys": [
+    "J"
+   ],
+   "from": "analysis-of-variance"
+  },
+  {
+   "tex": "$\\delta_j$",
+   "meaning": "Group $j$'s mean minus the reference mean",
+   "kind": "Parameter",
+   "typical": "5.68 (DRTA)",
+   "keys": [
+    "delta"
+   ],
+   "from": "analysis-of-variance"
+  },
+  {
+   "tex": "$R^2$",
+   "meaning": "Share of the variation explained by the groups",
+   "kind": "Statistic",
+   "typical": "0.125",
+   "keys": [
+    "R"
+   ],
+   "from": "analysis-of-variance"
+  },
+  {
+   "tex": "$F$",
+   "meaning": "Test statistic for equal means",
+   "kind": "Statistic",
+   "typical": "4.48",
+   "keys": [
+    "F"
+   ],
+   "from": "analysis-of-variance"
+  },
+  {
+   "tex": "$A$, $B$; $a$, $b$",
+   "meaning": "Two factors and their numbers of levels",
+   "kind": "—",
+   "typical": "3 and 2",
+   "keys": [
+    "A",
+    "B",
+    "a",
+    "b"
+   ],
+   "from": "analysis-of-variance"
+  },
+  {
+   "tex": "$\\gamma$",
+   "meaning": "Coefficient on an interaction with an indicator",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "gamma"
+   ],
+   "from": "interaction-terms"
+  },
+  {
+   "tex": "$H_0$",
+   "meaning": "The $J$ restrictions, all true",
+   "kind": "—",
+   "typical": "$\\delta_1 = \\delta_2 = \\gamma = 0$",
+   "keys": [
+    "H"
+   ],
+   "from": "f-test-of-joint-hypotheses"
+  },
+  {
+   "tex": "$SSE_R$, $SSE_U$",
+   "meaning": "Sum of squared residuals, restricted and unrestricted",
+   "kind": "Statistics",
+   "typical": "135,771 and 130,195",
+   "keys": [
+    "~SSE_R",
+    "~SSE_U"
+   ],
+   "from": "f-test-of-joint-hypotheses"
+  },
+  {
+   "tex": "$t$",
+   "meaning": "$t$ statistic for a single restriction",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "t"
+   ],
+   "from": "f-test-of-joint-hypotheses"
+  },
+  {
+   "tex": "$\\theta_1, \\ldots, \\theta_5$",
+   "meaning": "Coefficients on the South dummy and its interactions",
+   "kind": "Parameters",
+   "typical": "—",
+   "keys": [
+    "theta"
+   ],
+   "from": "f-test-of-joint-hypotheses"
+  },
+  {
+   "tex": "$D_i$ (e.g. $UTOWN$, $FEMALE$)",
+   "meaning": "Indicator: 1 if observation $i$ is in the group, 0 otherwise",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "D",
+    "~UTOWN",
+    "~FEMALE"
+   ],
+   "from": "indicator-variables"
+  },
+  {
+   "tex": "$T$",
+   "meaning": "A random variable with the $t_{N-K}$ distribution",
+   "kind": "Random variable",
+   "typical": "—",
+   "keys": [
+    "T"
+   ],
+   "from": "hypothesis-tests-on-regression-coefficients"
+  },
+  {
+   "tex": "$PRICE$, $SQFT$",
+   "meaning": "House price and square footage in the quadratic example",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "~PRICE",
+    "~SQFT"
+   ],
+   "from": "functional-forms-and-elasticities"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**A multiple regression puts several explanations in one equation and reads each coefficient as the effect of its variable with the others held fixed. The lecture builds models step by step on Big Andy's Burger Barn: a linear combination of coefficients prices a marketing plan, a squared term captures diminishing returns to advertising and gives a turning point, and the delta method attaches standard errors to both. Factors enter as dummies (one-way and two-way ANOVA, ANCOVA), interactions let one variable's effect depend on another, and F tests check several restrictions at once, including whether two groups share one regression (the Chow test).**"
+      }
+     ],
+     "words": 102,
+     "symbols": []
+    },
+    {
+     "id": "intro-2",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "info",
+       "title": "Source",
+       "md": "Section 1 of `Regression_Lecture2.ipynb`, the second Econ 430 notebook. Its five major headings are lectures L8 to L12; the 10-step worked example and the missing-data section are L12.",
+       "folded": false
+      }
+     ],
+     "words": 31,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "1-the-multiple-regression-model",
+   "heading": "1. The multiple regression model",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-the-multiple-regression-model-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The [Multiple Regression Model](note:multiple-regression-model) extends simple regression to many predictors while staying linear in the parameters:"
+      },
+      {
+       "t": "math",
+       "tex": "y = \\beta_1 + \\beta_2 x_2 + \\beta_3 x_3 + \\cdots + \\beta_K x_K + e, \\qquad \\beta_k = \\frac{\\partial E[y]}{\\partial x_k}"
+      },
+      {
+       "t": "prose",
+       "md": "Each $\\beta_k$ is a **partial marginal effect**: the change in $E[y]$ when $x_k$ moves and the other regressors stay fixed. The assumptions MR1 to MR6 mirror SR1 to SR6, with MR5 adding that no regressor is an exact linear function of the others. With several regressors come new problems, each a later section: multicollinearity, omitted variables, variable selection, irrelevant variables, heteroskedasticity and misspecification."
+      },
+      {
+       "t": "prose",
+       "md": "The first example models US gasoline use per person (36 years) in logs, so each slope is an elasticity:"
+      },
+      {
+       "t": "math",
+       "tex": "\\log(G/pop) = \\beta_1 + \\beta_2\\log(income) + \\beta_3\\log(price) + \\beta_4\\log(price_{new}) + \\beta_5\\log(price_{used}) + e"
+      }
+     ],
+     "words": 95,
+     "symbols": [
+      "$y_i$",
+      "$x_{ik}$",
+      "$\\beta_1$",
+      "$e_i$",
+      "$E[y]$",
+      "$c_2$, $c_3$"
+     ]
+    },
+    {
+     "id": "1-the-multiple-regression-model-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The estimates are $b_2 = 1.373$ ($t = 18.2$), $b_3 = -0.059$ ($t = -1.82$, $p = 0.079$), $b_4 = -0.127$ ($p = 0.33$) and $b_5 = -0.119$ ($p = 0.15$), with $R^2 = 0.958$. The sign of $\\beta_4$ was ambiguous in advance: dearer new cars mean fewer cars and less driving ($\\beta_4 < 0$), or older, thirstier cars kept longer ($\\beta_4 > 0$). The estimate is negative but far from significant."
+      }
+     ],
+     "words": 35,
+     "symbols": [
+      "$\\beta_1$",
+      "$b_k$",
+      "$R^2$",
+      "$t$"
+     ]
+    },
+    {
+     "id": "1-the-multiple-regression-model-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "In the gasoline regression, $b_2 = 1.373$ is the coefficient on $\\log(income)$. What does it say?",
+       "options": [
+        {
+         "md": "A \\$1 rise in income per person raises gasoline use per person by 1.373 gallons",
+         "correct": false,
+         "feedback": "Both variables are in logs, so the coefficient compares percentage changes, not units."
+        },
+        {
+         "md": "Holding the three prices fixed, 1% more income per person goes with about 1.37% more gasoline use per person",
+         "correct": true
+        },
+        {
+         "md": "A 1% rise in income raises gasoline use by 137%",
+         "correct": false,
+         "feedback": "In a log-log model a 1% change in $x$ goes with a $b_2$% change in $y$, so 1.37%, not 137%."
+        },
+        {
+         "md": "Income explains 1.373 of the variation in gasoline use",
+         "correct": false,
+         "feedback": "That is a job for $R^2$ (0.958 here); a coefficient measures an effect, not a share of variation."
+        }
+       ],
+       "why": "In $\\log(G/pop) = \\beta_1 + \\beta_2\\log(income) + \\cdots$, $\\beta_2 = \\partial\\log(G/pop)/\\partial\\log(income)$ is the income elasticity, read with the other regressors (the three prices) held constant. Gasoline use is income-elastic: a 10% richer population uses about 13.7% more.",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 68,
+     "symbols": [
+      "$y_i$",
+      "$x_{ik}$",
+      "$\\beta_1$",
+      "$b_k$",
+      "$e_i$",
+      "$c_2$, $c_3$",
+      "$R^2$"
+     ]
+    },
+    {
+     "id": "1-the-multiple-regression-model-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "In the gasoline regression, $b_3 = -0.0591$ on $\\log(price)$ has $t = -1.819$ with 31 degrees of freedom, and the printed two-sided p-value is 0.079. Theory says demand falls with price. At the 5% level, test $H_0: \\beta_3 \\ge 0$ against $H_1: \\beta_3 < 0$.",
+       "options": [
+        {
+         "md": "Do not reject: the p-value 0.079 is above 0.05",
+         "correct": false,
+         "feedback": "0.079 is the two-sided p-value. For a one-sided test in the direction of the estimate, the p-value is half of it, 0.039."
+        },
+        {
+         "md": "Do not reject: $\\lvert t\\rvert = 1.819$ is below 2.04, the 5% critical value",
+         "correct": false,
+         "feedback": "2.04 is $t_{0.975,31}$, the two-sided critical value. A one-sided 5% test puts all 5% in one tail: $-t_{0.95,31} = -1.696$."
+        },
+        {
+         "md": "Reject: $t = -1.819 < -1.696$, so gasoline demand falls with its price (one-sided p ≈ 0.039)",
+         "correct": true
+        }
+       ],
+       "why": "The alternative is directional, so the rejection region is the left tail with 5% in it: $t < -t_{0.95,31} = -1.696$. With $t = -1.819$ the null is rejected; equivalently the one-sided p-value is $0.079/2 \\approx 0.039 < 0.05$. A price elasticity of $-0.06$ is small, though: statistically, not economically, important.",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 65,
+     "symbols": [
+      "$\\beta_1$",
+      "$b_k$",
+      "$e_i$",
+      "$c_2$, $c_3$",
+      "$H_0$",
+      "$t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "2-simple-models-big-andys-burger-barn",
+   "heading": "2. Simple models: Big Andy's Burger Barn",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-simple-models-big-andys-burger-barn-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Andy's sales revenue ($SALES$, \\$1000s a month) depends on the price of a burger ($PRICE$, dollars) and advertising ($ADVERT$, \\$1000s a month), in 75 cities: $SALES = \\beta_1 + \\beta_2 PRICE + \\beta_3 ADVERT + e$. The scatterplots show sales falling with price and rising with advertising, with a lot of scatter in both."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Burger sales data - scatterplot matrix.png",
+       "alt": "Burger sales data - scatterplot matrix"
+      }
+     ],
+     "words": 40,
+     "symbols": [
+      "$\\beta_1$",
+      "$e_i$",
+      "$A$",
+      "$D_{ji}$",
+      "$R^2$",
+      "$T$",
+      "$PRICE$, $SQFT$"
+     ]
+    },
+    {
+     "id": "2-simple-models-big-andys-burger-barn-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With two regressors the fitted model is a plane, not a line:"
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Burger sales on price and advertising - fitted regression plane.png",
+       "alt": "Burger sales on price and advertising - fitted regression plane"
+      }
+     ],
+     "words": 12,
+     "symbols": []
+    },
+    {
+     "id": "2-simple-models-big-andys-burger-barn-3",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "\\widehat{SALES} = 118.91 - 7.908\\,PRICE + 1.863\\,ADVERT, \\qquad R^2 = 0.448,\\ N = 75"
+      },
+      {
+       "t": "prose",
+       "md": "Holding advertising fixed, a \\$1 higher price goes with \\$7,908 less revenue a month; holding price fixed, \\$1,000 more advertising goes with \\$1,863 more revenue. The diagnostic plots show nothing alarming (Jarque-Bera $p = 0.92$). **Effect plots** show one regressor's effect with the other held at its mean:"
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Burger sales regression - effect plots for price and advertising.png",
+       "alt": "Burger sales regression - effect plots for price and advertising"
+      }
+     ],
+     "words": 48,
+     "symbols": [
+      "$N$",
+      "$A$",
+      "$D_{ji}$",
+      "$R^2$",
+      "$T$",
+      "$PRICE$, $SQFT$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "3-linear-combinations-of-coefficients",
+   "heading": "3. Linear combinations of coefficients",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "3-linear-combinations-of-coefficients-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Andy's marketing team proposes cutting the price by \\$0.40 and raising advertising by \\$800 a month. The expected change in sales is a **linear combination** of the coefficients, $\\lambda = -0.4\\beta_2 + 0.8\\beta_3$, estimated by $\\widehat{\\lambda} = -0.4b_2 + 0.8b_3$. Its standard error needs the covariance of $b_2$ and $b_3$ ([Delta Method](note:delta-method)); `statsmodels` does this with `t_test([0, -0.4, 0.8])`. This is one restriction involving two parameters, not a joint hypothesis, so a $t$ test works."
+      },
+      {
+       "t": "table",
+       "md": "| Strategy | $\\widehat{\\lambda}$ | se | 95% interval |\n| --- | --- | --- | --- |\n| Proposed: price $-\\$0.40$, advertising $+\\$800$ | 4.653 | 0.710 | [3.24, 6.07] |\n| Current: price $-\\$0.20$, advertising $+\\$1{,}500$ | 4.375 | 1.054 | [2.28, 6.48] |"
+      }
+     ],
+     "words": 97,
+     "symbols": [
+      "$\\beta_1$",
+      "$b_k$",
+      "$\\lambda$, $\\widehat{\\lambda}$",
+      "$t$"
+     ]
+    },
+    {
+     "id": "3-linear-combinations-of-coefficients-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "`statsmodels` reports `t_test([0, -0.4, 0.8])` on Andy's regression as coef 4.6532, std err 0.710, 95% interval [3.239, 6.068]. Which reading is correct?",
+       "options": [
+        {
+         "md": "Holding price and advertising constant, expected sales are between \\$3,239 and \\$6,068",
+         "correct": false,
+         "feedback": "Holding both constant changes nothing; the combination prices a *change* in both."
+        },
+        {
+         "md": "If price falls by \\$0.40 and advertising rises by \\$800, sales will rise by exactly \\$4,653",
+         "correct": false,
+         "feedback": "\\$4,653 is the estimated *expected* change; actual sales in any month scatter around it, and the estimate itself is uncertain."
+        },
+        {
+         "md": "We are 95% confident that cutting price by \\$0.40 and raising advertising by \\$800 raises expected monthly sales by between \\$3,239 and \\$6,068",
+         "correct": true
+        },
+        {
+         "md": "We fail to reject $H_0: -0.4\\beta_2 + 0.8\\beta_3 = 0$ at 5%",
+         "correct": false,
+         "feedback": "The interval excludes 0 ($t = 6.56$), so that null is rejected."
+        }
+       ],
+       "why": "$\\widehat{\\lambda} = -0.4(-7.908) + 0.8(1.863) = 3.163 + 1.490 = 4.653$ (\\$1000s), and the interval is $\\widehat{\\lambda} \\pm t_{0.975,72}\\,se(\\widehat{\\lambda})$. Sales are in thousands of dollars, so the interval is \\$3,239 to \\$6,068 of extra expected revenue a month.",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 94,
+     "symbols": [
+      "$\\beta_1$",
+      "$e_i$",
+      "$\\lambda$, $\\widehat{\\lambda}$",
+      "$H_0$",
+      "$t$"
+     ]
+    },
+    {
+     "id": "3-linear-combinations-of-coefficients-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Andy needs at least \\$5,800 more revenue a month. The notebook tests $H_0: \\lambda = 5.8$: $t = -1.616$, $p = 0.110$."
+      },
+      {
+       "t": "callout",
+       "kind": "warning",
+       "title": "Correction to the lecture notebook",
+       "md": "The notebook concludes \"looks like they stay in business!\" from this test. Its own numbers say otherwise: the point estimate, \\$4,653, is *below* \\$5,800, and failing to reject $\\lambda = 5.8$ does not show the plan reaches it. To show it, test $H_0: \\lambda \\le 5.8$ against $H_1: \\lambda > 5.8$; the $t$ statistic is negative, so there is no evidence the plan earns \\$5,800. (The notebook's \"upper bound of \\$60k\" should read \\$6,068.)",
+       "folded": false
+      }
+     ],
+     "words": 84,
+     "symbols": [
+      "$\\lambda$, $\\widehat{\\lambda}$",
+      "$H_0$",
+      "$t$"
+     ]
+    },
+    {
+     "id": "3-linear-combinations-of-coefficients-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "For Andy's plan, $\\widehat{\\lambda} = 4.6532$ with $se(\\widehat{\\lambda}) = 0.710$. What is the $t$ statistic for testing whether the plan raises expected sales by more than \\$5,800, $H_0: \\lambda \\le 5.8$ against $H_1: \\lambda > 5.8$? Give two decimals.",
+       "answer": -1.62,
+       "tol": 0.01,
+       "wrong": [
+        {
+         "answer": 6.55,
+         "tol": 0.02,
+         "md": "that is the $t$ statistic for $H_0: \\lambda = 0$; the null value here is 5.8"
+        },
+        {
+         "answer": 1.62,
+         "tol": 0.01,
+         "md": "the sign matters: the estimate is below 5.8, so $t$ is negative and lies in the wrong tail for $H_1: \\lambda > 5.8$"
+        },
+        {
+         "answer": -2.28,
+         "tol": 0.02,
+         "md": "that divides by the variance, $0.710^2$, not the standard error"
+        }
+       ],
+       "why": "$t = (4.6532 - 5.8)/0.710 = -1.615$. The rejection region is $t > t_{0.95,72} = 1.666$, and a negative $t$ cannot reach it: the data give no evidence that the plan raises sales by more than \\$5,800.",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 25,
+     "symbols": [
+      "$e_i$",
+      "$\\lambda$, $\\widehat{\\lambda}$",
+      "$H_0$",
+      "$t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "4-diminishing-returns-and-marginal-effects",
+   "heading": "4. Diminishing returns and marginal effects",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "4-diminishing-returns-and-marginal-effects-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The linear model says every extra \\$1,000 of advertising adds the same \\$1,863, however much Andy already spends. Diminishing returns need a squared term:"
+      },
+      {
+       "t": "math",
+       "tex": "SALES = \\beta_1 + \\beta_2 PRICE + \\beta_3 ADVERT + \\beta_4 ADVERT^2 + e"
+      },
+      {
+       "t": "math",
+       "tex": "\\widehat{SALES} = 109.72 - 7.640\\,PRICE + 12.151\\,ADVERT - 2.768\\,ADVERT^2, \\qquad R^2 = 0.508"
+      },
+      {
+       "t": "prose",
+       "md": "$b_4 < 0$ ($t = -2.94$): returns diminish. The marginal effect of advertising now depends on its level, $ME = \\partial SALES/\\partial ADVERT = \\beta_3 + 2\\beta_4 ADVERT$ ([Marginal Effects](note:marginal-effects))."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Burger sales with quadratic advertising - contour plot.png",
+       "alt": "Burger sales with quadratic advertising - contour plot"
+      }
+     ],
+     "words": 40,
+     "symbols": [
+      "$\\beta_1$",
+      "$b_k$",
+      "$e_i$",
+      "$A$",
+      "$D_{ji}$",
+      "$R^2$",
+      "$t$",
+      "$T$",
+      "$PRICE$, $SQFT$"
+     ]
+    },
+    {
+     "id": "4-diminishing-returns-and-marginal-effects-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The contour plot shows sales highest at the lowest price and at a middle level of advertising, where the contours turn. Before reading the effect plot below, work out where the advertising curve peaks."
+      },
+      {
+       "t": "interactive",
+       "widget": "quadratic-marginal-effect-explorer",
+       "prompt": "Slide advertising along the quadratic sales curve and watch the marginal effect shrink to zero",
+       "status": "planned",
+       "purpose": "See a marginal effect as the slope of a curve that changes with x, and find the turning point and the profit-maximizing point where the slope equals the marginal cost",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 49,
+     "symbols": []
+    },
+    {
+     "id": "4-diminishing-returns-and-marginal-effects-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The effect plots hold price at its mean; the advertising curve rises, flattens and turns down within the data."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Burger sales with quadratic advertising - effect plots.png",
+       "alt": "Burger sales with quadratic advertising - effect plots"
+      }
+     ],
+     "words": 19,
+     "symbols": []
+    },
+    {
+     "id": "4-diminishing-returns-and-marginal-effects-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "In Andy's quadratic model, $b_3 = 12.1512$ and $b_4 = -2.7680$, with $ADVERT$ in \\$1000s. At what level of advertising do expected sales peak? Answer in dollars per month.",
+       "answer": 2195.0,
+       "tol": 5.0,
+       "wrong": [
+        {
+         "answer": 2.195,
+         "tol": 0.01,
+         "md": "that is the turning point in the units of $ADVERT$, thousands of dollars; in dollars it is 2,195"
+        },
+        {
+         "answer": 2014.0,
+         "tol": 5.0,
+         "md": "that solves $ME = 1$, the profit-maximizing level; sales themselves peak where $ME = 0$"
+        },
+        {
+         "answer": 4390.0,
+         "tol": 5.0,
+         "md": "that drops the 2 in $ME = \\beta_3 + 2\\beta_4 ADVERT$"
+        }
+       ],
+       "why": "Sales peak where the marginal effect is zero: $12.1512 + 2(-2.7680)ADVERT = 0$, so $ADVERT = 12.1512/5.536 = 2.195$ thousand dollars, \\$2,195 a month. Beyond that, more advertising lowers expected sales.",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 22,
+     "symbols": [
+      "$\\beta_1$",
+      "$b_k$",
+      "$A$",
+      "$D_{ji}$",
+      "$R^2$",
+      "$T$"
+     ]
+    },
+    {
+     "id": "4-diminishing-returns-and-marginal-effects-5",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The **average marginal effect** (AME) averages $ME$ over the 75 cities. For price, which enters linearly, it is just $b_2 = -7.640$ (se 1.046). For advertising, $ME$ is linear in $ADVERT$, so the AME is the marginal effect at the mean, $\\overline{ADVERT} = 1.844$:"
+      },
+      {
+       "t": "math",
+       "tex": "AME = b_3 + 2b_4\\overline{ADVERT} = 1.943, \\qquad se(AME) = \\sqrt{\\mathrm{Var}(b_3) + 4\\,\\overline{ADVERT}^{\\,2}\\,\\mathrm{Var}(b_4) + 4\\,\\overline{ADVERT}\\,\\mathrm{Cov}(b_3, b_4)} = 0.650"
+      }
+     ],
+     "words": 36,
+     "symbols": [
+      "$b_k$",
+      "$e_i$",
+      "$AME$",
+      "$A$",
+      "$D_{ji}$",
+      "$R^2$",
+      "$T$"
+     ]
+    },
+    {
+     "id": "4-diminishing-returns-and-marginal-effects-6",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Andy currently spends \\$2,000 a month on advertising. In the quadratic model, $ME = 12.1512 - 5.536\\,ADVERT$. Should he spend more?",
+       "options": [
+        {
+         "md": "No: advertising is past its peak, so extra spending lowers sales",
+         "correct": false,
+         "feedback": "The peak is at \\$2,195; at \\$2,000 sales are still rising."
+        },
+        {
+         "md": "A little more: the last \\$1,000 at this level brings in about \\$1,079 of sales, more than it costs, though the gain is nearly exhausted",
+         "correct": true
+        },
+        {
+         "md": "Yes, a lot more: each \\$1,000 of advertising adds \\$12,151 of sales",
+         "correct": false,
+         "feedback": "12.15 is $b_3$, the marginal effect at zero advertising. With the squared term, the effect falls as advertising rises."
+        },
+        {
+         "md": "Yes: the average marginal effect, 1.943, is above 1",
+         "correct": false,
+         "feedback": "The AME is the effect at the average city's \\$1,844, not at Andy's \\$2,000; the decision depends on the effect where he is."
+        }
+       ],
+       "why": "At $ADVERT = 2$, $ME = 12.1512 - 5.536 \\times 2 = 1.079$: another \\$1,000 raises expected sales by about \\$1,079. That still covers its cost, so Andy should advertise a little more, up to where $ME = 1$, about \\$2,014 a month.",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 79,
+     "symbols": [
+      "$b_k$",
+      "$A$",
+      "$D_{ji}$",
+      "$R^2$",
+      "$T$"
+     ]
+    },
+    {
+     "id": "4-diminishing-returns-and-marginal-effects-7",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "For Andy's quadratic model, $\\mathrm{Var}(b_3) = 12.645$, $\\mathrm{Var}(b_4) = 0.8855$, $\\mathrm{Cov}(b_3, b_4) = -3.290$ and $\\overline{ADVERT} = 1.844$. What is the standard error of the AME of advertising, $b_3 + 2b_4\\overline{ADVERT}$? Give two decimals.",
+       "answer": 0.65,
+       "tol": 0.01,
+       "wrong": [
+        {
+         "answer": 4.97,
+         "tol": 0.02,
+         "md": "that leaves out the covariance term; $b_3$ and $b_4$ are strongly negatively correlated, and $4\\overline{ADVERT}\\,\\mathrm{Cov}(b_3, b_4) = -24.27$ cancels most of the variance"
+        },
+        {
+         "answer": 7.0,
+         "tol": 0.02,
+         "md": "that subtracts the covariance term instead of adding it; its sign comes from $\\mathrm{Cov}(b_3, b_4) < 0$"
+        },
+        {
+         "answer": 2.56,
+         "tol": 0.02,
+         "md": "that uses weights $1$ and $\\overline{ADVERT}$; the weight on $b_4$ is $2\\overline{ADVERT}$, so it enters squared as $4\\overline{ADVERT}^{\\,2}$"
+        }
+       ],
+       "why": "$\\mathrm{Var}(AME) = 12.645 + 4(1.844)^2(0.8855) + 4(1.844)(-3.290) = 12.645 + 12.043 - 24.266 = 0.423$, so $se = 0.650$. The AME, 1.943, is about 3 standard errors from zero.",
+       "objectives": [
+        4
+       ]
+      }
+     ],
+     "words": 18,
+     "symbols": [
+      "$b_k$",
+      "$e_i$",
+      "$AME$",
+      "$A$",
+      "$D_{ji}$",
+      "$R^2$",
+      "$T$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "5-the-delta-method-and-optimal-advertising",
+   "heading": "5. The delta method and optimal advertising",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "5-the-delta-method-and-optimal-advertising-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The turning point $-\\beta_3/(2\\beta_4)$ is a *nonlinear* function of the parameters, so its variance has no exact formula. The [Delta Method](note:delta-method) linearizes it: with $G(\\boldsymbol{\\beta}) = -\\beta_3/(2\\beta_4)$ and gradient $\\mathbf{J} = \\big(-1/(2\\beta_4),\\ \\beta_3/(2\\beta_4^2)\\big)'$,"
+      },
+      {
+       "t": "math",
+       "tex": "\\mathrm{Var}(\\widehat{\\lambda}) \\approx \\mathbf{J}'\\mathbf{C}\\,\\mathbf{J}"
+      },
+      {
+       "t": "prose",
+       "md": "where $\\mathbf{C}$ is the covariance matrix of $b_3$ and $b_4$. The lecture gets an estimate of 2.195, $se = 0.164$, 95% interval [1.87, 2.52]."
+      },
+      {
+       "t": "prose",
+       "md": "The lecture's own setup asks a different question: \"Andy will advertise up to the point where another \\$1 of expenditure adds \\$1 of sales.\" That condition is $ME = 1$, not $ME = 0$."
+      }
+     ],
+     "words": 74,
+     "symbols": [
+      "$\\beta_1$",
+      "$b_k$",
+      "$e_i$",
+      "$\\lambda$, $\\widehat{\\lambda}$",
+      "$\\boldsymbol{\\beta}$, $\\mathbf{b}$",
+      "$\\mathbf{J}$",
+      "$\\mathbf{C}$"
+     ]
+    },
+    {
+     "id": "5-the-delta-method-and-optimal-advertising-2",
+     "blocks": [
+      {
+       "t": "derive",
+       "title": "Find the advertising level where the last \\$1,000 of advertising pays for itself",
+       "objectives": [
+        3
+       ],
+       "symbols": [
+        "\\beta_3 \\in (5, 20)",
+        "\\beta_4 \\in (-5, -0.5)",
+        "M"
+       ],
+       "inherited": [
+        {
+         "tex": "$\\beta_1, \\ldots, \\beta_4$",
+         "typical": "$b_3 = 12.15$, $b_4 = -2.768$",
+         "from": "marginal-effects"
+        },
+        {
+         "tex": "$A$",
+         "typical": "2.014",
+         "from": "marginal-effects"
+        }
+       ],
+       "unknowns": [
+        "$M$",
+        "$A$"
+       ],
+       "dims": [],
+       "data": [],
+       "matrices": [],
+       "define": [],
+       "given": [
+        "M = \\beta_3 + 2\\beta_4 A",
+        "M = 1"
+       ],
+       "steps": [
+        {
+         "md": "Set the marginal effect equal to the marginal cost and solve for $A$: $A = \\frac{1 - \\beta_3}{2\\beta_4}$",
+         "tex": "A = \\frac{1 - \\beta_3}{2\\beta_4}",
+         "hint": "$\\beta_3 + 2\\beta_4 A = 1$, so $2\\beta_4 A = 1 - \\beta_3$."
+        }
+       ],
+       "accept": [],
+       "reject": [
+        {
+         "tex": "A = -\\frac{\\beta_3}{2\\beta_4}",
+         "md": "that solves $M = 0$: the level where sales peak, where the last \\$1,000 of advertising earns nothing back"
+        },
+        {
+         "tex": "A = \\frac{1 - \\beta_3}{\\beta_4}",
+         "md": "the derivative of $\\beta_4 A^2$ is $2\\beta_4 A$, so the 2 stays in the denominator"
+        },
+        {
+         "tex": "A = \\frac{\\beta_3 - 1}{2\\beta_4}",
+         "md": "the sign is flipped: moving $\\beta_3$ across gives $2\\beta_4 A = 1 - \\beta_3$"
+        }
+       ]
+      }
+     ],
+     "words": 26,
+     "symbols": [
+      "$\\beta_1$",
+      "$A$"
+     ]
+    },
+    {
+     "id": "5-the-delta-method-and-optimal-advertising-3",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "warning",
+       "title": "Correction to the lecture notebook",
+       "md": "The notebook motivates the optimal level with $ME = 1$ but then computes $-b_3/(2b_4) = 2.195$, the $ME = 0$ solution, and reports \"the optimal level is \\$2,195\". That is the sales-maximizing level. The profit-maximizing level is $(1 - b_3)/(2b_4) = (1 - 12.1512)/(2 \\times -2.768) = 2.014$, about \\$2,014 a month; the delta method gives it a standard error of about 0.129 and a 95% interval of about [1.76, 2.27] (recomputed from the regression's covariance matrix).",
+       "folded": false
+      }
+     ],
+     "words": 67,
+     "symbols": [
+      "$b_k$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "6-one-factor-analysis-of-variance",
+   "heading": "6. One factor: analysis of variance",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "6-one-factor-analysis-of-variance-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A regression whose only regressors are a factor's dummies compares group means: one-way [Analysis of Variance](note:analysis-of-variance) (ANOVA). The lecture uses the Baumann reading study: 66 pupils, 22 per teaching method (Basal, the control, and two new methods, DRTA and Strat), scored on a third post-test."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Reading scores by teaching method - boxplots.png",
+       "alt": "Reading scores by teaching method - boxplots"
+      }
+     ],
+     "words": 45,
+     "symbols": []
+    },
+    {
+     "id": "6-one-factor-analysis-of-variance-2",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "\\widehat{SCORE} = 41.05 + 5.68\\,DRTA + 3.23\\,STRAT, \\qquad F = 4.48,\\ p = 0.015"
+      },
+      {
+       "t": "prose",
+       "md": "The intercept is the Basal mean, and each coefficient is a group's difference from it (DRTA 46.73, Strat 44.27). The overall $F$ test rejects equal means. To ask *which* groups differ, Tukey's honestly significant difference compares all three pairs and adjusts for making three comparisons: only DRTA vs Basal is significant (difference 5.68, adjusted $p = 0.011$, interval [1.11, 10.25]); Strat vs Basal ($p = 0.215$) and DRTA vs Strat ($p = 0.406$) are not."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Reading scores by teaching method - group means with intervals.png",
+       "alt": "Reading scores by teaching method - group means with intervals"
+      }
+     ],
+     "words": 70,
+     "symbols": [
+      "$A$",
+      "$D_{ji}$",
+      "$R^2$",
+      "$F$",
+      "$T$"
+     ]
+    },
+    {
+     "id": "6-one-factor-analysis-of-variance-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "In the reading regression, the Strat coefficient has $p = 0.095$, Tukey's adjusted p-value for Strat vs Basal is 0.215, and the overall $F$ test has $p = 0.015$. What can you conclude at 5%?",
+       "options": [
+        {
+         "md": "Strat beats Basal: the overall test is significant",
+         "correct": false,
+         "feedback": "The $F$ test says the three means are not all equal. That can be driven by one pair, here DRTA vs Basal."
+        },
+        {
+         "md": "The methods do not all give the same mean score, but only DRTA is shown to beat Basal; Strat's gain of 3.23 points is not significant",
+         "correct": true
+        },
+        {
+         "md": "No method differs: Strat's p-value is above 0.05",
+         "correct": false,
+         "feedback": "The overall $F$ test and Tukey's DRTA vs Basal comparison ($p = 0.011$) both reject."
+        },
+        {
+         "md": "Strat beats Basal at 10%, so the Tukey adjustment is unnecessary",
+         "correct": false,
+         "feedback": "Running several pairwise tests at 10% each raises the chance of some false rejection well above 10%; Tukey's adjusted p for this pair is 0.215."
+        }
+       ],
+       "why": "The $F$ test (4.48 against $F_{0.95;\\,2,\\,63} = 3.14$) rejects \"all means equal\". Tukey's comparisons, which hold the family-wise error rate at 5% across all three pairs, find DRTA 5.68 points above Basal and no other significant difference.",
+       "objectives": [
+        5
+       ]
+      }
+     ],
+     "words": 84,
+     "symbols": [
+      "$F$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "7-one-factor-and-a-quantitative-variable-ancova",
+   "heading": "7. One factor and a quantitative variable: ANCOVA",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "7-one-factor-and-a-quantitative-variable-ancova-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Adding a quantitative regressor to a factor gives analysis of covariance (ANCOVA). An additive dummy is an **intercept indicator**: it shifts the regression line by $\\delta$. For house prices ($PRICE$ in \\$1000s, $SQFT$ in hundreds of square feet, 1,000 houses), with $UTOWN = 1$ for houses near the university:"
+      },
+      {
+       "t": "math",
+       "tex": "E(PRICE) = \\beta_1 + \\delta\\,UTOWN + \\beta_2 SQFT, \\qquad \\widehat{PRICE} = 5.68 + 60.37\\,UTOWN + 8.356\\,SQFT"
+      },
+      {
+       "t": "prose",
+       "md": "The same house costs about \\$60,400 more in University Town ($t = 61.4$), at any size: the two fitted lines are parallel. Whether a premium that does not grow with size makes economic sense is a question for the interaction terms in §10."
+      }
+     ],
+     "words": 85,
+     "symbols": [
+      "$\\beta_1$",
+      "$N$",
+      "$\\delta_j$",
+      "$R^2$",
+      "$F$",
+      "$t$",
+      "$D_i$ (e.g. $UTOWN$, $FEMALE$)",
+      "$T$",
+      "$PRICE$, $SQFT$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "8-two-factors-two-way-anova",
+   "heading": "8. Two factors: two-way ANOVA",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "8-two-factors-two-way-anova-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Two factors and their interaction give a two-way (multiway) ANOVA, one fitted mean per combination of levels. Moore and Krupat (1971) measured how far 45 subjects conformed to a partner's judgement, by the subject's authoritarianism score (`fcategory`: low, medium, high) and the partner's status (low, high)."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Conformity by authoritarianism and partner status - boxplots.png",
+       "alt": "Conformity by authoritarianism and partner status - boxplots"
+      }
+     ],
+     "words": 46,
+     "symbols": []
+    },
+    {
+     "id": "8-two-factors-two-way-anova-2",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "\\widehat{CONF} = 11.86 + 5.54\\,F_{low} + 2.42\\,F_{med} + 0.77\\,P_{low} - 9.27\\,(F_{low} \\times P_{low}) - 7.79\\,(F_{med} \\times P_{low})"
+      },
+      {
+       "t": "prose",
+       "md": "The reference cell is high authoritarianism with a high-status partner. Both interaction terms are significant ($t = -2.69$ and $-2.18$): the effect of partner status depends on the subject's authoritarianism."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Conformity by authoritarianism and partner status - interaction plot.png",
+       "alt": "Conformity by authoritarianism and partner status - interaction plot"
+      },
+      {
+       "t": "callout",
+       "kind": "warning",
+       "title": "Correction to the lecture notebook",
+       "md": "The notebook calls this model a MANOVA. It has one response and two factors, so it is a two-way ANOVA; a MANOVA (multivariate ANOVA) analyses several responses jointly.",
+       "folded": false
+      }
+     ],
+     "words": 59,
+     "symbols": [
+      "$N$",
+      "$F$",
+      "$t$"
+     ]
+    },
+    {
+     "id": "8-two-factors-two-way-anova-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "From the conformity regression, what is the fitted mean conformity of subjects with low authoritarianism and a low-status partner? Give two decimals.",
+       "answer": 8.9,
+       "tol": 0.01,
+       "wrong": [
+        {
+         "answer": 18.17,
+         "tol": 0.01,
+         "md": "that leaves out the interaction $F_{low} \\times P_{low} = -9.27$, which applies to exactly this cell"
+        },
+        {
+         "answer": 17.4,
+         "tol": 0.01,
+         "md": "that is low authoritarianism with a *high*-status partner: $11.86 + 5.54$"
+        },
+        {
+         "answer": 12.63,
+         "tol": 0.01,
+         "md": "that is high authoritarianism with a low-status partner: $11.86 + 0.77$"
+        }
+       ],
+       "why": "Every coefficient whose dummies equal 1 for this cell applies: $11.8571 + 5.5429 + 0.7679 - 9.2679 = 8.90$, the sample mean of the 10 subjects in that cell. Low-authoritarian subjects conform far more with a high-status partner (17.4) than a low-status one (8.9); for high-authoritarian subjects the two are close (11.9 and 12.6). That reversal is the interaction.",
+       "objectives": [
+        6
+       ]
+      }
+     ],
+     "words": 22,
+     "symbols": [
+      "$F$"
+     ]
+    },
+    {
+     "id": "8-two-factors-two-way-anova-4",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Averaging over the other factor gives the main-effects plot, which hides that reversal:"
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Conformity - main effects of authoritarianism and partner status.png",
+       "alt": "Conformity - main effects of authoritarianism and partner status"
+      }
+     ],
+     "words": 13,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "9-factors-and-quantitative-variables-together",
+   "heading": "9. Factors and quantitative variables together",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "9-factors-and-quantitative-variables-together-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The Prestige data (98 occupations with a type) combine both kinds of regressor:"
+      },
+      {
+       "t": "math",
+       "tex": "\\widehat{PRESTIGE} = -81.20 + 3.285\\,EDUC + 7.269\\log_2(INCOME) + 6.75\\,PROF - 1.44\\,WC"
+      },
+      {
+       "t": "prose",
+       "md": "The reference type is blue collar. Doubling income adds 7.27 prestige points; professional occupations sit 6.75 points above blue-collar ones of the same education and income ($p = 0.065$). Effect plots show each regressor's effect with the others at their means; $\\log_2(INCOME)$ makes the income effect a curve."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Prestige on education, log income and type - effect plots.png",
+       "alt": "Prestige on education, log income and type - effect plots"
+      }
+     ],
+     "words": 59,
+     "symbols": [
+      "$N$",
+      "$D_{ji}$",
+      "$R^2$",
+      "$F$",
+      "$T$"
+     ]
+    },
+    {
+     "id": "9-factors-and-quantitative-variables-together-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Letting education and log income interact with type gives each occupation type its own slopes. Education raises prestige most steeply for white-collar occupations, while the income effect is flattest for them:"
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Prestige with type interactions - education effect by occupation type.png",
+       "alt": "Prestige with type interactions - education effect by occupation type"
+      }
+     ],
+     "words": 31,
+     "symbols": []
+    },
+    {
+     "id": "9-factors-and-quantitative-variables-together-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Income, on its log scale, shows three curves of different steepness:"
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Prestige with type interactions - income effect by occupation type.png",
+       "alt": "Prestige with type interactions - income effect by occupation type"
+      }
+     ],
+     "words": 11,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "10-interaction-terms",
+   "heading": "10. Interaction terms",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "10-interaction-terms-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A product of two regressors is an [interaction term](note:interaction-terms): it lets the effect of one depend on the level of the other."
+      },
+      {
+       "t": "prose",
+       "md": "**Slope indicators.** $SQFT \\times UTOWN$ changes the slope for University Town houses. With both an intercept and a slope indicator,"
+      },
+      {
+       "t": "math",
+       "tex": "E(PRICE) = \\beta_1 + \\delta\\,UTOWN + \\beta_2 SQFT + \\gamma(SQFT \\times UTOWN): \\quad \\widehat{PRICE} = 23.06 + 28.12\\,UTOWN + 7.664\\,SQFT + 1.280\\,(SQFT \\times UTOWN)"
+      },
+      {
+       "t": "prose",
+       "md": "An extra 100 square feet is worth \\$7,664 elsewhere and $7.664 + 1.280 = 8.944$, \\$8,944, in University Town, so the location premium grows with size. (The lecture first fits a slope indicator alone, which forces both groups through one intercept: slope $7.07 + 2.38 = 9.45$ in University Town.)"
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/House price on living area - slope interaction for University Town.png",
+       "alt": "House price on living area - slope interaction for University Town"
+      },
+      {
+       "t": "prose",
+       "md": "**Two quantitative variables.** Pizza spending (40 people, income in \\$1000s):"
+      },
+      {
+       "t": "math",
+       "tex": "\\widehat{PIZZA} = 161.47 - 2.977\\,AGE + 6.980\\,INCOME - 0.1232\\,(AGE \\times INCOME)"
+      },
+      {
+       "t": "prose",
+       "md": "The marginal effect of age is $\\partial PIZZA/\\partial AGE = -2.977 - 0.1232\\,INCOME$: $-6.06$ dollars a year at \\$25,000 and $-14.07$ at \\$90,000."
+      }
+     ],
+     "words": 107,
+     "symbols": [
+      "$\\beta_1$",
+      "$N$",
+      "$A$",
+      "$\\delta_j$",
+      "$R^2$",
+      "$F$",
+      "$\\gamma$",
+      "$D_i$ (e.g. $UTOWN$, $FEMALE$)",
+      "$T$",
+      "$PRICE$, $SQFT$"
+     ]
+    },
+    {
+     "id": "10-interaction-terms-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "In your own words, what role does the $AGE \\times INCOME$ term play in the pizza regression?",
+       "options": [
+        {
+         "md": "It measures the combined effect of age and income on pizza spending, which is $-0.1232$",
+         "correct": false,
+         "feedback": "The total effect of a change in either variable also involves its own coefficient; the interaction coefficient alone is how one variable's effect *changes* with the other."
+        },
+        {
+         "md": "It corrects for the correlation between age and income",
+         "correct": false,
+         "feedback": "Controlling for both variables already does that; an interaction is about effects that depend on each other, not about correlated regressors."
+        },
+        {
+         "md": "It lets the effect of age depend on income: each extra \\$1,000 of income makes the effect of a year of age on annual pizza spending \\$0.12 more negative",
+         "correct": true
+        },
+        {
+         "md": "It makes the effect of age constant at $-2.977$ dollars a year",
+         "correct": false,
+         "feedback": "$-2.977$ is the effect of age only at an income of zero, outside the data."
+        }
+       ],
+       "why": "$\\partial PIZZA/\\partial AGE = \\beta_2 + \\beta_4 INCOME = -2.977 - 0.1232\\,INCOME$. Without the interaction, the effect of age would be the same for everyone; with it, older people cut pizza spending more the richer they are ($-6.06$ at \\$25,000, $-14.07$ at \\$90,000).",
+       "objectives": [
+        7
+       ]
+      }
+     ],
+     "words": 79,
+     "symbols": [
+      "$\\beta_1$",
+      "$N$",
+      "$A$"
+     ]
+    },
+    {
+     "id": "10-interaction-terms-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Two factors.** Wages (1,000 workers) on education, race and gender, with their interaction:"
+      },
+      {
+       "t": "math",
+       "tex": "WAGE = \\beta_1 + \\beta_2 EDUC + \\delta_1 BLACK + \\delta_2 FEMALE + \\gamma(BLACK \\times FEMALE) + e"
+      },
+      {
+       "t": "math",
+       "tex": "\\widehat{WAGE} = -5.281 + 2.070\\,EDUC - 4.169\\,BLACK - 4.785\\,FEMALE + 3.844\\,(BLACK \\times FEMALE)"
+      },
+      {
+       "t": "prose",
+       "md": "The four groups have intercepts $\\beta_1$ (white male, the reference), $\\beta_1 + \\delta_1$ (black male), $\\beta_1 + \\delta_2$ (white female) and $\\beta_1 + \\delta_1 + \\delta_2 + \\gamma$ (black female)."
+      }
+     ],
+     "words": 30,
+     "symbols": [
+      "$\\beta_1$",
+      "$K$",
+      "$e_i$",
+      "$A$",
+      "$D_{ji}$",
+      "$\\delta_j$",
+      "$F$",
+      "$A$, $B$; $a$, $b$",
+      "$\\gamma$",
+      "$D_i$ (e.g. $UTOWN$, $FEMALE$)"
+     ]
+    },
+    {
+     "id": "10-interaction-terms-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "In the wage regression, holding education fixed, how much more or less per hour does a black woman earn than a white man? Give the answer in dollars, two decimals (negative if less).",
+       "answer": -5.11,
+       "tol": 0.01,
+       "wrong": [
+        {
+         "answer": -8.95,
+         "tol": 0.01,
+         "md": "that adds the black and female gaps but leaves out the interaction $\\gamma = 3.844$, which applies only to black women"
+        },
+        {
+         "answer": -0.32,
+         "tol": 0.01,
+         "md": "that is black women against white women, $\\delta_1 + \\gamma$"
+        },
+        {
+         "answer": 3.84,
+         "tol": 0.01,
+         "md": "that is $\\gamma$ alone, how much the black-female gap differs from the sum of the two separate gaps"
+        }
+       ],
+       "why": "Black women's intercept is $\\beta_1 + \\delta_1 + \\delta_2 + \\gamma$ and white men's is $\\beta_1$, so the gap is $\\delta_1 + \\delta_2 + \\gamma = -4.1691 - 4.7846 + 3.8443 = -5.11$ dollars an hour.",
+       "objectives": [
+        7
+       ]
+      }
+     ],
+     "words": 33,
+     "symbols": [
+      "$\\beta_1$",
+      "$\\delta_j$",
+      "$\\gamma$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "11-joint-hypotheses-and-factors-with-several-levels",
+   "heading": "11. Joint hypotheses and factors with several levels",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "11-joint-hypotheses-and-factors-with-several-levels-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Does race or gender matter at all? That is $H_0: \\delta_1 = \\delta_2 = \\gamma = 0$, three restrictions at once, so it needs the [F Test of Joint Hypotheses](note:f-test-of-joint-hypotheses):"
+      },
+      {
+       "t": "math",
+       "tex": "F = \\frac{(SSE_R - SSE_U)/J}{SSE_U/(N-K)}"
+      },
+      {
+       "t": "prose",
+       "md": "The restricted model is $WAGE = \\beta_1 + \\beta_2 EDUC + e$ ($SSE_R = 135{,}771$); the unrestricted one is the full model ($SSE_U = 130{,}195$), with $N = 1{,}000$, $K = 5$ and $J = 3$."
+      }
+     ],
+     "words": 35,
+     "symbols": [
+      "$\\beta_1$",
+      "$K$",
+      "$N$",
+      "$e_i$",
+      "$A$",
+      "$D_{ji}$",
+      "$J$",
+      "$\\delta_j$",
+      "$F$",
+      "$\\gamma$",
+      "$H_0$",
+      "$SSE_R$, $SSE_U$"
+     ]
+    },
+    {
+     "id": "11-joint-hypotheses-and-factors-with-several-levels-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "Using $SSE_R = 135{,}771$, $SSE_U = 130{,}195$, $J = 3$, $N = 1{,}000$ and $K = 5$, what is the $F$ statistic for $H_0: \\delta_1 = \\delta_2 = \\gamma = 0$? Give two decimals.",
+       "answer": 14.2,
+       "tol": 0.03,
+       "wrong": [
+        {
+         "answer": 42.61,
+         "tol": 0.05,
+         "md": "that forgets to divide the rise in SSE by the number of restrictions, $J = 3$"
+        },
+        {
+         "answer": 13.62,
+         "tol": 0.03,
+         "md": "that puts the restricted model's SSE in the denominator; the noise estimate comes from the unrestricted model"
+        },
+        {
+         "answer": 0.07,
+         "tol": 0.03,
+         "md": "that inverts the ratio"
+        }
+       ],
+       "why": "$F = \\dfrac{(135{,}771 - 130{,}195)/3}{130{,}195/995} = \\dfrac{1{,}858.7}{130.85} = 14.20$, far above $F_{0.95;\\,3,\\,995} = 2.61$ ($p < 0.001$). Race and gender matter jointly, although the interaction on its own has $p = 0.099$.",
+       "objectives": [
+        8
+       ]
+      }
+     ],
+     "words": 10,
+     "symbols": [
+      "$K$",
+      "$N$",
+      "$J$",
+      "$\\delta_j$",
+      "$F$",
+      "$\\gamma$",
+      "$H_0$",
+      "$SSE_R$, $SSE_U$"
+     ]
+    },
+    {
+     "id": "11-joint-hypotheses-and-factors-with-several-levels-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A factor with $J$ levels needs $J - 1$ dummies. For four regions, Northeast is the reference: $WAGE = \\beta_1 + \\beta_2 EDUC + \\delta_1 SOUTH + \\delta_2 MIDWEST + \\delta_3 WEST + e$ (plus the race and gender terms). Including a Northeast dummy as well would make the four region dummies sum to the intercept column: the dummy variable trap ([Indicator Variables](note:indicator-variables)). Only the Midwest differs significantly from the Northeast ($-2.61$, $p = 0.014$); the South's coefficient is $-0.45$ ($p = 0.66$)."
+      }
+     ],
+     "words": 54,
+     "symbols": [
+      "$\\beta_1$",
+      "$e_i$",
+      "$A$",
+      "$D_{ji}$",
+      "$J$",
+      "$\\delta_j$",
+      "$H_0$",
+      "$T$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "12-the-chow-test",
+   "heading": "12. The Chow test",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "12-the-chow-test-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Is the whole wage equation the same in the South as elsewhere? Interact $SOUTH$ with every term:"
+      },
+      {
+       "t": "math",
+       "tex": "WAGE = \\beta_1 + \\beta_2 EDUC + \\delta_1 BLACK + \\delta_2 FEMALE + \\gamma(BLACK \\times FEMALE) + \\theta_1 SOUTH + \\theta_2(EDUC \\times SOUTH) + \\theta_3(BLACK \\times SOUTH) + \\theta_4(FEMALE \\times SOUTH) + \\theta_5(BLACK \\times FEMALE \\times SOUTH) + e"
+      },
+      {
+       "t": "prose",
+       "md": "The **Chow test** is the $F$ test of $H_0: \\theta_1 = \\cdots = \\theta_5 = 0$: $F = 0.32$, $p = 0.90$, with (5, 990) degrees of freedom. Fitting the South (296 workers) and the rest (704) separately gives the same two equations; the no-South regression reproduces the full model's base coefficients."
+      }
+     ],
+     "words": 53,
+     "symbols": [
+      "$\\beta_1$",
+      "$K$",
+      "$e_i$",
+      "$A$",
+      "$D_{ji}$",
+      "$\\delta_j$",
+      "$F$",
+      "$A$, $B$; $a$, $b$",
+      "$\\gamma$",
+      "$H_0$",
+      "$\\theta_1, \\ldots, \\theta_5$",
+      "$D_i$ (e.g. $UTOWN$, $FEMALE$)",
+      "$T$"
+     ]
+    },
+    {
+     "id": "12-the-chow-test-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "The Chow test of $H_0: \\theta_1 = \\cdots = \\theta_5 = 0$ gives $F = 0.32$ with $p = 0.90$. What should you do?",
+       "options": [
+        {
+         "md": "Pool the South with the rest of the country: there is no evidence that the wage equation differs there",
+         "correct": true
+        },
+        {
+         "md": "Estimate the South separately, because its intercept $\\theta_1 = 3.94$ is large",
+         "correct": false,
+         "feedback": "$\\theta_1$ has $p = 0.33$, and the joint test of all five South terms is far from significant; a large but imprecise coefficient is not evidence of a difference."
+        },
+        {
+         "md": "Conclude that the South has the same wages as the rest of the country",
+         "correct": false,
+         "feedback": "The test is about the *equation*, the effects of education, race and gender, not about the level of wages; and failing to reject is not proof of equality."
+        },
+        {
+         "md": "Drop education, race and gender, since nothing is significant",
+         "correct": false,
+         "feedback": "The test concerns only the South interactions; education ($t = 13.1$) and gender remain strongly significant."
+        }
+       ],
+       "why": "With $F = 0.32$ far below $F_{0.95;\\,5,\\,990} = 2.22$, the five South terms add nothing jointly. The simpler pooled model, one equation for the whole country, is supported.",
+       "objectives": [
+        8
+       ]
+      }
+     ],
+     "words": 61,
+     "symbols": [
+      "$F$",
+      "$H_0$",
+      "$t$",
+      "$\\theta_1, \\ldots, \\theta_5$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "math-refresher",
+   "heading": "Math refresher",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "math-refresher-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Math Prep L4 Multivariable Differentiation](note:math-prep-l4-multivariable-differentiation) — partial derivatives as ceteris-paribus marginal effects, the gradient used by the delta method"
+      }
+     ],
+     "words": 19,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Interpret coefficients in a multiple regression, including log-log elasticities, as partial effects, and test one of them against a one-sided alternative.\n2. Estimate, test and build an interval for a linear combination of coefficients, and state its conclusion in the units of the data.\n3. Compute and interpret the marginal effect of a regressor that enters with a square, its turning point and the level where it equals a marginal cost.\n4. Compute the standard error of an average marginal effect or a nonlinear function of coefficients with the variance formula or the delta method.\n5. Interpret a one-way ANOVA as a regression on group dummies and read its $F$ test and Tukey comparisons."
+      }
+     ],
+     "words": 114,
+     "symbols": [
+      "$F$"
+     ]
+    },
+    {
+     "id": "what-to-be-able-to-do-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "6. Read fitted cell means and an interaction from a two-way ANOVA or an ANCOVA.\n7. Interpret slope indicators, interactions between quantitative variables and interactions between factors.\n8. Test joint hypotheses with an $F$ test, including the Chow test for whether two groups share a regression."
+      }
+     ],
+     "words": 45,
+     "symbols": [
+      "$F$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "multiple-regression-model",
+        "marginal-effects",
+        "delta-method",
+        "analysis-of-variance",
+        "interaction-terms",
+        "f-test-of-joint-hypotheses",
+        "indicator-variables",
+        "hypothesis-tests-on-regression-coefficients",
+        "functional-forms-and-elasticities"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

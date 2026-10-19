@@ -1,0 +1,1387 @@
+{
+ "slug": "econ-430-l10-modeling-issues-in-multiple-regression",
+ "notation": [
+  {
+   "tex": "$y_i$",
+   "meaning": "Outcome",
+   "kind": "Data",
+   "typical": "Occupational prestige",
+   "keys": [
+    "y"
+   ],
+   "from": "component-plus-residual-plot"
+  },
+  {
+   "tex": "$x_{ij}$",
+   "meaning": "Regressor $j$ for observation $i$",
+   "kind": "Data",
+   "typical": "Income, education, % women",
+   "keys": [
+    "x"
+   ],
+   "from": "component-plus-residual-plot"
+  },
+  {
+   "tex": "$b_j$",
+   "meaning": "Its OLS coefficient",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "b"
+   ],
+   "from": "component-plus-residual-plot"
+  },
+  {
+   "tex": "$e_i$",
+   "meaning": "OLS residual",
+   "kind": "Computed",
+   "typical": "—",
+   "keys": [
+    "e"
+   ],
+   "from": "component-plus-residual-plot"
+  },
+  {
+   "tex": "$K$",
+   "meaning": "Number of coefficients",
+   "kind": "Count",
+   "typical": "4",
+   "keys": [
+    "K"
+   ],
+   "from": "component-plus-residual-plot"
+  },
+  {
+   "tex": "$\\beta_k$",
+   "meaning": "Population coefficients",
+   "kind": "Parameters",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ],
+   "from": "component-plus-residual-plot"
+  },
+  {
+   "tex": "$T(x, \\lambda)$",
+   "meaning": "Box-Cox power transformation of $x$",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "T"
+   ],
+   "from": "box-tidwell-transformation"
+  },
+  {
+   "tex": "$\\varepsilon$",
+   "meaning": "Error",
+   "kind": "Unobserved",
+   "typical": "—",
+   "keys": [
+    "varepsilon"
+   ],
+   "from": "box-tidwell-transformation"
+  },
+  {
+   "tex": "$b_2^{*}$",
+   "meaning": "Short-regression slope on $x_2$",
+   "kind": "Estimator",
+   "typical": "5,155",
+   "keys": [
+    "b*"
+   ],
+   "from": "omitted-variable-bias"
+  },
+  {
+   "tex": "$\\widehat{\\delta}$",
+   "meaning": "Slope of $x_3$ on $x_2$",
+   "kind": "Statistic",
+   "typical": "0.448",
+   "keys": [
+    "hat(delta)"
+   ],
+   "from": "omitted-variable-bias"
+  },
+  {
+   "tex": "$R_k^2$",
+   "meaning": "$R^2$ from regressing $x_k$ on the other regressors",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "R"
+   ],
+   "from": "omitted-variable-bias"
+  },
+  {
+   "tex": "$\\widehat{\\sigma}^2$",
+   "meaning": "Estimated error variance",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "hat(sigma)"
+   ],
+   "from": "multicollinearity"
+  },
+  {
+   "tex": "$n$",
+   "meaning": "Observations",
+   "kind": "Count",
+   "typical": "—",
+   "keys": [
+    "n"
+   ],
+   "from": "multicollinearity"
+  },
+  {
+   "tex": "$s_j^2$",
+   "meaning": "Sample variance of $x_j$",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "s"
+   ],
+   "from": "multicollinearity"
+  },
+  {
+   "tex": "$VIF_j$",
+   "meaning": "Variance inflation factor $1/(1 - R_j^2)$",
+   "kind": "Statistic",
+   "typical": "cyl 10.5, eng 15.8, wgt 7.8",
+   "keys": [
+    "~VIF_j"
+   ],
+   "from": "multicollinearity"
+  },
+  {
+   "tex": "$\\alpha_1$, $\\alpha_2$",
+   "meaning": "Coefficients of the linear relation between regressors",
+   "kind": "Constants",
+   "typical": "—",
+   "keys": [
+    "alpha"
+   ],
+   "from": "multicollinearity"
+  },
+  {
+   "tex": "$u$",
+   "meaning": "Random departure from an exact linear relation",
+   "kind": "Unobserved",
+   "typical": "—",
+   "keys": [
+    "u"
+   ],
+   "from": "multicollinearity"
+  },
+  {
+   "tex": "$r$",
+   "meaning": "Pairwise correlation",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "r"
+   ],
+   "from": "multicollinearity"
+  },
+  {
+   "tex": "$GVIF$, $p$",
+   "meaning": "Generalized VIF and columns in the term",
+   "kind": "Statistic / count",
+   "typical": "—",
+   "keys": [
+    "~GVIF",
+    "p"
+   ],
+   "from": "multicollinearity"
+  },
+  {
+   "tex": "$y$, $\\widehat{y}$",
+   "meaning": "Outcome and its fitted value",
+   "kind": "Data / computed",
+   "typical": "—",
+   "keys": [
+    "y",
+    "hat(y)"
+   ],
+   "from": "ramsey-reset"
+  },
+  {
+   "tex": "$\\gamma_1$, $\\gamma_2$",
+   "meaning": "Coefficients on $\\widehat{y}^2$ and $\\widehat{y}^3$",
+   "kind": "Parameters",
+   "typical": "0 under $H_0$",
+   "keys": [
+    "gamma"
+   ],
+   "from": "ramsey-reset"
+  },
+  {
+   "tex": "$F$",
+   "meaning": "Test statistic",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "F"
+   ],
+   "from": "ramsey-reset"
+  },
+  {
+   "tex": "$SSE$",
+   "meaning": "Sum of squared residuals",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "~SSE"
+   ],
+   "from": "model-selection-criteria"
+  },
+  {
+   "tex": "$N$",
+   "meaning": "Observations",
+   "kind": "Count",
+   "typical": "428",
+   "keys": [
+    "N"
+   ],
+   "from": "model-selection-criteria"
+  },
+  {
+   "tex": "$AIC$, $BIC$",
+   "meaning": "Information criteria",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "~AIC",
+    "~BIC"
+   ],
+   "from": "model-selection-criteria"
+  },
+  {
+   "tex": "$\\ln L$",
+   "meaning": "Maximized log-likelihood",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "L"
+   ],
+   "from": "model-selection-criteria"
+  },
+  {
+   "tex": "$C_p$",
+   "meaning": "Mallows' statistic",
+   "kind": "Statistic",
+   "typical": "2.32",
+   "keys": [
+    "C"
+   ],
+   "from": "model-selection-criteria"
+  },
+  {
+   "tex": "$R^2$, $\\bar{R}^2$",
+   "meaning": "R-squared and adjusted R-squared",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "R",
+    "bar(R)"
+   ],
+   "from": "model-selection-criteria"
+  },
+  {
+   "tex": "$m$",
+   "meaning": "Number of candidate regressors",
+   "kind": "Count",
+   "typical": "5 in the family-income example",
+   "keys": [
+    "m"
+   ],
+   "from": "variable-selection"
+  },
+  {
+   "tex": "$Y$, $X$, $p$, $q$, $a$, $b$",
+   "meaning": "Variables and powers in the bulging-rule regression",
+   "kind": "Data / parameters",
+   "typical": "—",
+   "keys": [
+    "Y",
+    "X",
+    "p",
+    "q",
+    "a",
+    "b"
+   ],
+   "from": "box-cox-and-power-transformations"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**With many candidate regressors, building a model means a run of judgement calls, each with its own tool. Component-plus-residual plots and the Box-Tidwell method show which predictors need a transformation. Leaving out a relevant variable biases the others (the husband's-education coefficient in a family-income regression rises by about \\$2,000 when the wife's education is dropped), while adding irrelevant or collinear ones leaves them unbiased but less precise. RESET checks the functional form, and AIC, BIC, Mallows' Cp, stepwise search and Boruta choose among the candidates.**"
+      },
+      {
+       "t": "callout",
+       "kind": "info",
+       "title": "Source",
+       "md": "Section 3 of `Regression_Lecture2.ipynb` (see [Econ 430 L8 Building Multiple Regression Models](note:econ-430-l8-building-multiple-regression-models) for how the notebook maps to lectures).",
+       "folded": false
+      }
+     ],
+     "words": 108,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "1-predictor-transformations-component-plus-residual-plots",
+   "heading": "1. Predictor transformations: component-plus-residual plots",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-predictor-transformations-component-plus-residual-plots-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "In $y = \\beta_1 + \\beta_2 x_2 + \\beta_3 x_3 + e$, to see how $y$ depends on $x_3$ alone we would plot $y - \\beta_1 - \\beta_2 x_2$ against $x_3$. The [Component-Plus-Residual Plot](note:component-plus-residual-plot) does this with the estimates: the **partial residual** $e_{partial,ij} = e_i + b_j x_{ij}$ is plotted against $x_{ij}$. Its least-squares line has slope $b_j$; departures from that line show nonlinearity in $x_j$, which the transformations of L5 can fix."
+      },
+      {
+       "t": "prose",
+       "md": "For prestige on income, education and the percentage of women (102 occupations):"
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Prestige regression - component-plus-residual plots.png",
+       "alt": "Prestige regression - component-plus-residual plots"
+      }
+     ],
+     "words": 56,
+     "symbols": [
+      "$y_i$",
+      "$x_{ij}$",
+      "$b_j$",
+      "$e_i$",
+      "$\\beta_k$"
+     ]
+    },
+    {
+     "id": "1-predictor-transformations-component-plus-residual-plots-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "In the component-plus-residual plots for prestige, the income panel's points rise steeply at low incomes and lie below the straight line at high incomes; the education and women panels scatter evenly around their lines. What should you do?",
+       "options": [
+        {
+         "md": "Drop income: its relationship with prestige is not linear",
+         "correct": false,
+         "feedback": "Income clearly matters (the points rise strongly); it needs a different functional form, not removal."
+        },
+        {
+         "md": "Transform income, for example with a log, since its effect shows diminishing returns",
+         "correct": true
+        },
+        {
+         "md": "Transform prestige, since one panel bends",
+         "correct": false,
+         "feedback": "A bend in one predictor's panel points at that predictor; transforming $y$ would change all three relationships."
+        },
+        {
+         "md": "Nothing: the line has a positive slope, so income is fine",
+         "correct": false,
+         "feedback": "The slope is $b_j$ by construction; the plot is read for the shape of the points around it."
+        }
+       ],
+       "why": "A partial residual plot that rises steeply and then flattens is the signature of a concave relationship, which the bulging rule says to straighten by moving income down the ladder of powers (a log or a square root). With $\\log_2(income)$ the income panel straightens.",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 77,
+     "symbols": [
+      "$y_i$",
+      "$b_j$",
+      "$e_i$",
+      "$n$",
+      "$m$"
+     ]
+    },
+    {
+     "id": "1-predictor-transformations-component-plus-residual-plots-3",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Prestige regression with log income - component-plus-residual plots.png",
+       "alt": "Prestige regression with log income - component-plus-residual plots"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    },
+    {
+     "id": "1-predictor-transformations-component-plus-residual-plots-4",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "When the predictors are themselves related nonlinearly, component-plus-residual plots can mislead; **CERES** plots (Combining conditional Expectations and REsiduals) adjust for the other predictors more flexibly. They agree here: income bends, education does not."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Prestige regression - CERES plots for income and education.png",
+       "alt": "Prestige regression - CERES plots for income and education"
+      }
+     ],
+     "words": 33,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "2-the-box-tidwell-transformation",
+   "heading": "2. The Box-Tidwell transformation",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-the-box-tidwell-transformation-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The [Box-Tidwell Transformation](note:box-tidwell-transformation) estimates the power of each predictor in"
+      },
+      {
+       "t": "math",
+       "tex": "y = \\beta_0 + \\beta_1 T_{BC}(x_1, \\gamma_1) + \\cdots + \\beta_k T_{BC}(x_k, \\gamma_k) + \\varepsilon"
+      },
+      {
+       "t": "prose",
+       "md": "where $T_{BC}$ is the Box-Cox power transformation of L5, by maximum likelihood, with a score test of \"no transformation needed\" based on the constructed variable $x\\ln x$. For prestige on income and education, with a quadratic in the percentage of women as a control:"
+      },
+      {
+       "t": "table",
+       "md": "| | MLE of the power | Score statistic | p-value |\n| --- | --- | --- | --- |\n| Income | $-0.038$ | $-5.30$ | < 0.001 |\n| Education | 2.193 | 2.41 | 0.018 |"
+      }
+     ],
+     "words": 72,
+     "symbols": [
+      "$y_i$",
+      "$x_{ij}$",
+      "$\\beta_k$",
+      "$T(x, \\lambda)$",
+      "$\\varepsilon$",
+      "$\\gamma_1$, $\\gamma_2$"
+     ]
+    },
+    {
+     "id": "2-the-box-tidwell-transformation-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Using the Box-Tidwell output (income: power $-0.038$, $p < 0.001$; education: power 2.193, $p = 0.018$), how should the two predictors enter the prestige regression?",
+       "options": [
+        {
+         "md": "Both as they are: the powers are estimates, not certainties",
+         "correct": false,
+         "feedback": "Both score tests reject $H_0$: power = 1 at 5%, so leaving them untransformed is rejected by the data."
+        },
+        {
+         "md": "Income as $1/income$ and education as $\\sqrt{education}$",
+         "correct": false,
+         "feedback": "A power near 0 means a log, not a reciprocal ($-1$); a power near 2 means a square, not a square root (0.5)."
+        },
+        {
+         "md": "Income in logs and education squared",
+         "correct": true
+        },
+        {
+         "md": "Income squared and education in logs",
+         "correct": false,
+         "feedback": "That swaps them: income's power is the one near 0 (log) and education's the one near 2."
+        }
+       ],
+       "why": "Round each estimate to a familiar power: $-0.038 \\approx 0$ is the log, $2.19 \\approx 2$ is the square. The tests on the constructed variables reject \"power = 1\" for both ($t = -5.30$ and $2.41$), and the constructed-variable plots show the clear slope for income and the milder one for education.",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 46,
+     "symbols": [
+      "$e_i$",
+      "$n$",
+      "$u$",
+      "$GVIF$, $p$",
+      "$m$",
+      "$Y$, $X$, $p$, $q$, $a$, $b$"
+     ]
+    },
+    {
+     "id": "2-the-box-tidwell-transformation-3",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Box-Tidwell constructed-variable plots - income and education.png",
+       "alt": "Box-Tidwell constructed-variable plots - income and education"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "3-omitted-variable-bias",
+   "heading": "3. Omitted variable bias",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "3-omitted-variable-bias-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "If the true model is $y = \\beta_1 + \\beta_2 x_2 + \\beta_3 x_3 + e$ but we estimate $y = \\beta_1 + \\beta_2 x_2 + e$, the slope $b_2^{*}$ is biased ([Omitted Variable Bias](note:omitted-variable-bias)):"
+      },
+      {
+       "t": "math",
+       "tex": "\\text{bias}(b_2^{*}) = E(b_2^{*}) - \\beta_2 = \\beta_3\\,\\frac{\\widehat{\\mathrm{Cov}}(x_2, x_3)}{\\mathrm{Var}(x_2)}"
+      },
+      {
+       "t": "prose",
+       "md": "The bias vanishes only if the omitted variable does not matter ($\\beta_3 = 0$) or is uncorrelated with the included one. The sampling experiment below makes it concrete."
+      },
+      {
+       "t": "interactive",
+       "widget": "ols-sampling-distribution",
+       "state": {
+        "N": 40,
+        "sd": 89.5,
+        "het": 0,
+        "gamma": 2,
+        "R": 2000
+       },
+       "lock": [
+        "sd",
+        "het",
+        "gamma",
+        "R"
+       ],
+       "prompt": "Leave a relevant variable out of the regression, and work out where the slope estimates centre",
+       "predict": {
+        "hide": [
+         "b2_hist",
+         "b2_mean_out"
+        ],
+        "ask": "Each sample is drawn from $y = 80 + 10x + 2z + e$, but the regression uses $x$ alone, so $z$ is omitted. Here $z = x - 19 + u$ with $u$ independent noise, so $\\mathrm{Cov}(x, z)/\\mathrm{Var}(x) = 1$. Using the bias formula, where does the histogram of $b_2$ centre?",
+        "readout": "b2_mean_out",
+        "tol": 0.25
+       },
+       "objectives": [
+        3
+       ]
+      },
+      {
+       "t": "prose",
+       "md": "The centre is $\\beta_2 + \\beta_3 \\times 1 = 12$, and raising $N$ narrows the histogram without moving it: omitted variable bias does not shrink with more data."
+      }
+     ],
+     "words": 76,
+     "symbols": [
+      "$y_i$",
+      "$x_{ij}$",
+      "$b_j$",
+      "$e_i$",
+      "$\\beta_k$",
+      "$b_2^{*}$",
+      "$N$"
+     ]
+    },
+    {
+     "id": "3-omitted-variable-bias-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The lecture's example models annual family income ($FAMINC$, dollars) of 428 couples by the husband's and the wife's years of education ($HE$, $WE$):"
+      },
+      {
+       "t": "table",
+       "md": "| Model | Intercept | $HE$ | $WE$ | $KL6$ |\n| --- | --- | --- | --- | --- |\n| Correct | $-5{,}534$ | 3,132 | 4,523 | |\n| Wife's education omitted | 26,191 | 5,155 | | |\n| Plus children under 6 | $-7{,}755$ | 3,212 | 4,777 | $-14{,}311$ |"
+      },
+      {
+       "t": "prose",
+       "md": "Omitting $WE$ overstates the husband's coefficient by about \\$2,000. In the sample the decomposition is exact: $b_2^{*} = b_2 + b_3\\widehat{\\delta}$, with $\\widehat{\\delta}$ the slope from regressing $WE$ on $HE$. Adding $KL6$, which is significant ($t = -2.86$) but barely related to education, leaves the education coefficients nearly unchanged: evidence that they are robust."
+      }
+     ],
+     "words": 89,
+     "symbols": [
+      "$b_j$",
+      "$K$",
+      "$b_2^{*}$",
+      "$\\widehat{\\delta}$",
+      "$F$",
+      "$N$",
+      "$\\ln L$",
+      "$C_p$"
+     ]
+    },
+    {
+     "id": "3-omitted-variable-bias-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "In the family-income regressions, $b_{HE} = 3{,}131.51$ and $b_{WE} = 4{,}522.64$ in the correct model, and the slope from regressing $WE$ on $HE$ is $\\widehat{\\delta} = 0.4475$. What slope on $HE$ does the regression that omits $WE$ give? Answer in dollars, to the nearest dollar.",
+       "answer": 5155.0,
+       "tol": 3.0,
+       "wrong": [
+        {
+         "answer": 3132.0,
+         "tol": 3.0,
+         "md": "that ignores the omitted variable; leaving $WE$ out shifts $HE$'s coefficient by $b_{WE}\\widehat{\\delta}$"
+        },
+        {
+         "answer": 1108.0,
+         "tol": 3.0,
+         "md": "that subtracts the bias; with $b_{WE} > 0$ and $\\widehat{\\delta} > 0$ it is added"
+        },
+        {
+         "answer": 7654.0,
+         "tol": 3.0,
+         "md": "that adds the whole of $b_{WE}$; only the part of $WE$ that moves with $HE$, $\\widehat{\\delta} = 0.4475$ years per year, is picked up"
+        }
+       ],
+       "why": "$b_{HE}^{*} = 3{,}131.51 + 4{,}522.64 \\times 0.4475 = 3{,}131.51 + 2{,}023.9 = 5{,}155$, matching the short regression's 5,155.48. Wives' schooling raises family income and rises with husbands' schooling, so leaving it out credits part of it to the husband: an upward bias of about \\$2,024 a year per year of schooling.",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 32,
+     "symbols": [
+      "$b_j$",
+      "$b_2^{*}$",
+      "$\\widehat{\\delta}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "4-irrelevant-variables",
+   "heading": "4. Irrelevant variables",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "4-irrelevant-variables-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Including variables that do not belong leaves the estimators unbiased but increases the variances of the others, possibly making them insignificant. The lecture adds two artificial variables, $XTRA\\_X5$ and $XTRA\\_X6$, that have no effect on family income:"
+      },
+      {
+       "t": "table",
+       "md": "| | Correct | + $XTRA\\_X5$ | + $XTRA\\_X6$ too |\n| --- | --- | --- | --- |\n| $HE$ | 3,212 (797) | 3,377 (1,247) | 3,340 (1,250) |\n| $WE$ | 4,777 (1,061) | 4,784 (1,063) | 5,869 (2,278) |\n| $KL6$ | $-14{,}311$ (5,004) | $-14{,}216$ (5,039) | $-14{,}200$ (5,044) |\n| $\\bar{R}^2$ | 0.171 | 0.169 | 0.168 |"
+      },
+      {
+       "t": "prose",
+       "md": "Standard errors in parentheses. Each extra variable inflates mainly one standard error: $XTRA\\_X5$ that of $HE$, $XTRA\\_X6$ that of $WE$. That pattern shows each is strongly correlated with one of the education variables, because an irrelevant variable inflates a coefficient's variance only through its correlation with that regressor."
+      }
+     ],
+     "words": 120,
+     "symbols": [
+      "$K$",
+      "$T(x, \\lambda)$",
+      "$R_k^2$",
+      "$\\ln L$",
+      "$R^2$, $\\bar{R}^2$",
+      "$Y$, $X$, $p$, $q$, $a$, $b$"
+     ]
+    },
+    {
+     "id": "4-irrelevant-variables-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "In the family-income regressions, adding $XTRA\\_X5$ raises the standard error of $b_{HE}$ from 796.70 to 1,247.06. By what factor does the estimated variance of $b_{HE}$ rise? Give two decimals.",
+       "answer": 2.45,
+       "tol": 0.02,
+       "wrong": [
+        {
+         "answer": 1.57,
+         "tol": 0.02,
+         "md": "that is the ratio of the standard errors; the variance is the square"
+        },
+        {
+         "answer": 450.36,
+         "tol": 1.0,
+         "md": "that is the difference of the standard errors, not a ratio"
+        }
+       ],
+       "why": "$(1{,}247.06/796.70)^2 = 1.565^2 = 2.45$. Since $\\widehat{\\sigma}$ hardly changes (40,160 to 40,206), almost all of this is the variance inflation factor $1/(1 - R^2)$ of $HE$ on the other regressors: an $R^2$ of about 0.59, so $XTRA\\_X5$ is strongly correlated with the husband's education.",
+       "objectives": [
+        4
+       ]
+      }
+     ],
+     "words": 29,
+     "symbols": [
+      "$b_j$",
+      "$T(x, \\lambda)$",
+      "$R_k^2$",
+      "$\\widehat{\\sigma}^2$",
+      "$Y$, $X$, $p$, $q$, $a$, $b$"
+     ]
+    },
+    {
+     "id": "4-irrelevant-variables-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "You estimate $y = \\beta_1 + \\beta_2 x_2 + \\beta_3 x_3 + e$; every coefficient is significant at 5% and the diagnostics look fine. You then add $x_4$, and the variances of all the estimates rise considerably. Which is the most plausible explanation?",
+       "options": [
+        {
+         "md": "$x_4$ is a relevant variable that was omitted, so the first model was misspecified",
+         "correct": false,
+         "feedback": "Adding a relevant omitted variable would correct the other coefficients and typically *lower* the error variance, not inflate every variance."
+        },
+        {
+         "md": "$x_4$ is almost uncorrelated with $x_2$ and $x_3$",
+         "correct": false,
+         "feedback": "An irrelevant variable that is uncorrelated with the others hardly changes their variances; the inflation comes from correlation."
+        },
+        {
+         "md": "$x_4$ is irrelevant and correlated with the other regressors, so it adds noise to the estimates without adding information",
+         "correct": true
+        },
+        {
+         "md": "Adding any variable always inflates every variance by about the same amount",
+         "correct": false,
+         "feedback": "The inflation for $b_k$ is $1/(1 - R_k^2)$, which depends on how well the new variable and the rest predict $x_k$; in the family-income example $XTRA\\_X5$ inflated $HE$'s variance 2.45 times but barely touched $KL6$'s."
+        }
+       ],
+       "why": "The first model already satisfied the assumptions, so $x_4$ was not needed: including an irrelevant variable keeps the estimators unbiased. But $\\mathrm{Var}(b_k)$ is multiplied by $1/(1 - R_k^2)$, and if $x_4$ is correlated with the other regressors each $R_k^2$ rises, so every variance grows.",
+       "objectives": [
+        4
+       ]
+      }
+     ],
+     "words": 79,
+     "symbols": [
+      "$y_i$",
+      "$x_{ij}$",
+      "$b_j$",
+      "$e_i$",
+      "$K$",
+      "$\\beta_k$",
+      "$T(x, \\lambda)$",
+      "$R_k^2$",
+      "$\\ln L$",
+      "$Y$, $X$, $p$, $q$, $a$, $b$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "5-multicollinearity",
+   "heading": "5. Multicollinearity",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "5-multicollinearity-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Multicollinearity](note:multicollinearity) is a strong linear relationship among the predictors. **Perfect** multicollinearity ($x_3 = \\alpha_1 + \\alpha_2 x_2$) makes OLS impossible: drop one of the variables. **Imperfect** multicollinearity ($x_3 = \\alpha_1 + \\alpha_2 x_2 + u$) is more common. Its effects: larger variances and standard errors (lower $t$ statistics); little effect on the overall fit, so prediction is largely unaffected; and coefficients that change a lot when variables are added or dropped."
+      },
+      {
+       "t": "prose",
+       "md": "Three signs: pairwise correlations $|r| \\gtrsim 0.8$; a high $R^2$ with low $t$ statistics; and large **variance inflation factors**,"
+      },
+      {
+       "t": "math",
+       "tex": "\\widehat{\\mathrm{var}}(b_j) = \\frac{\\widehat{\\sigma}^2}{(n-1)s_j^2} \\times \\frac{1}{1 - R_j^2}, \\qquad VIF_j = \\frac{1}{1 - R_j^2}"
+      },
+      {
+       "t": "prose",
+       "md": "with $R_j^2$ from the auxiliary regression of $x_j$ on the other predictors. $VIF = 1$ means no correlation; $VIF \\gtrsim 10$ (sometimes 4) is large. For nonlinear terms and factors, use the generalized VIF, $GVIF^{1/(2p)}$."
+      }
+     ],
+     "words": 96,
+     "symbols": [
+      "$x_{ij}$",
+      "$b_j$",
+      "$R_k^2$",
+      "$\\widehat{\\sigma}^2$",
+      "$n$",
+      "$s_j^2$",
+      "$VIF_j$",
+      "$\\alpha_1$, $\\alpha_2$",
+      "$u$",
+      "$r$",
+      "$GVIF$, $p$",
+      "$F$"
+     ]
+    },
+    {
+     "id": "5-multicollinearity-2",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Data | Largest VIFs |\n| --- | --- |\n| Fuel efficiency (cars) | engine size 15.8, cylinders 10.5, weight 7.8 |\n| Boston house values | tax 9.0, highway access 7.5, nitric oxides 4.4 |\n| US census undercount | minority 5.0, poverty 4.6, high school 4.6 |"
+      }
+     ],
+     "words": 45,
+     "symbols": []
+    },
+    {
+     "id": "5-multicollinearity-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "In the cars regression, engine size has $VIF = 15.79$. What is the $R^2$ from regressing engine size on the other two predictors? Give three decimals.",
+       "answer": 0.937,
+       "tol": 0.002,
+       "wrong": [
+        {
+         "answer": 0.063,
+         "tol": 0.002,
+         "md": "that is $1/VIF = 1 - R^2$, the share of engine size the other predictors do *not* explain"
+        },
+        {
+         "answer": 0.968,
+         "tol": 0.002,
+         "md": "that is $\\sqrt{1 - 1/VIF}$, a multiple correlation, not $R^2$"
+        }
+       ],
+       "why": "$VIF = 1/(1 - R^2)$, so $R^2 = 1 - 1/15.79 = 0.937$: cylinders and weight explain 94% of the variation in engine size. Its coefficient's variance is 15.8 times what it would be with uncorrelated predictors, and its standard error $\\sqrt{15.79} = 3.97$ times larger.",
+       "objectives": [
+        5
+       ]
+      }
+     ],
+     "words": 22,
+     "symbols": [
+      "$R_k^2$",
+      "$F$"
+     ]
+    },
+    {
+     "id": "5-multicollinearity-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "In the L8 gasoline regression, $R^2 = 0.958$, yet none of the three price elasticities is significant at 5% (two-sided), and the condition number is 1,140. What is the most likely reading?",
+       "options": [
+        {
+         "md": "Prices do not affect gasoline demand",
+         "correct": false,
+         "feedback": "Low individual $t$ statistics can come from imprecision, not absence of an effect; the prices may matter jointly."
+        },
+        {
+         "md": "The three price indexes move together over time, so their separate effects are imprecise even though the model fits well; a joint $F$ test of the three is the better check",
+         "correct": true
+        },
+        {
+         "md": "The high $R^2$ shows the model is misspecified",
+         "correct": false,
+         "feedback": "A high $R^2$ is not a sign of misspecification; for time series in levels or logs it is common."
+        },
+        {
+         "md": "The regression should be used only for prediction, never for testing",
+         "correct": false,
+         "feedback": "Multicollinearity leaves predictions and the joint tests usable; only the separate effects are hard to pin down."
+        }
+       ],
+       "why": "A high $R^2$ with low $t$ statistics is one of the three signs of multicollinearity: gasoline, new-car and used-car prices trend together, so the data cannot separate their effects, which inflates each standard error. The fit and the prediction are unaffected.",
+       "objectives": [
+        5
+       ]
+      }
+     ],
+     "words": 84,
+     "symbols": [
+      "$R_k^2$",
+      "$F$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "6-model-misspecification-ramsey-reset",
+   "heading": "6. Model misspecification: Ramsey RESET",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "6-model-misspecification-ramsey-reset-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Ramsey RESET](note:ramsey-reset) (REgression Specification Error Test) checks whether nonlinear terms are missing. For $y = \\beta_1 + \\beta_2 x_2 + \\beta_3 x_3 + \\varepsilon$, estimate $y = \\beta_1 + \\beta_2 x_2 + \\beta_3 x_3 + \\gamma\\widehat{y}^2 + \\varepsilon$ and test $H_0: \\gamma = 0$. Rejecting suggests adding quadratic or interaction terms; then try $\\delta\\widehat{y}^3$ and so on, though terms beyond the second or third order are rarely needed."
+      },
+      {
+       "t": "prose",
+       "md": "On simulated data (30 points) RESET flags a straight line fitted to a quadratic ($F = 369{,}456$, $p \\approx 0$) and passes a straight line fitted to a line ($F = 2.28$, $p = 0.14$). For the family-income model, with the squares of $HE$, $WE$ and $KL6$ added, $F = 2.60$ on (3, 421) degrees of freedom, $p = 0.051$."
+      }
+     ],
+     "words": 78,
+     "symbols": [
+      "$y_i$",
+      "$x_{ij}$",
+      "$K$",
+      "$\\beta_k$",
+      "$\\varepsilon$",
+      "$GVIF$, $p$",
+      "$y$, $\\widehat{y}$",
+      "$\\gamma_1$, $\\gamma_2$",
+      "$F$",
+      "$\\ln L$"
+     ]
+    },
+    {
+     "id": "6-model-misspecification-ramsey-reset-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "RESET on the family-income model ($FAMINC$ on $HE$, $WE$, $KL6$, with the squares of the three regressors added) gives $F = 2.60$, $p = 0.051$. What is the best interpretation and recommendation?",
+       "options": [
+        {
+         "md": "The model is correctly specified, so no further checks are needed",
+         "correct": false,
+         "feedback": "Failing to reject is not proof of a correct specification, and $p = 0.051$ is borderline."
+        },
+        {
+         "md": "The model is misspecified at 5%, so add all three squares",
+         "correct": false,
+         "feedback": "$p = 0.051 > 0.05$: the test does not reject at 5%."
+        },
+        {
+         "md": "At 5% there is no evidence of missing nonlinear terms, but only just; keep the linear model and check the residual and component-plus-residual plots for curvature before settling",
+         "correct": true
+        },
+        {
+         "md": "Because $F$ is above 1, the squared terms improve the model",
+         "correct": false,
+         "feedback": "$F$ is compared with its critical value ($F_{0.95;\\,3,\\,421} \\approx 2.63$), not with 1."
+        }
+       ],
+       "why": "RESET tests $H_0$: the squared terms add nothing. $F = 2.60$ falls just short of the 5% critical value, so the linear form is not rejected, but at 10% it would be. A borderline result is a reason to look at where the curvature might be, for example in $KL6$, not to declare the model correct.",
+       "objectives": [
+        6
+       ]
+      }
+     ],
+     "words": 82,
+     "symbols": [
+      "$K$",
+      "$GVIF$, $p$",
+      "$F$",
+      "$N$",
+      "$\\ln L$",
+      "$C_p$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "7-model-selection-aic-and-bic",
+   "heading": "7. Model selection: AIC and BIC",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "7-model-selection-aic-and-bic-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The [Model Selection Criteria](note:model-selection-criteria) trade fit against the number of coefficients; for both, smaller is better."
+      },
+      {
+       "t": "math",
+       "tex": "AIC = \\ln\\left(\\frac{SSE}{N}\\right) + \\frac{2K}{N}, \\qquad BIC = \\ln\\left(\\frac{SSE}{N}\\right) + \\frac{K\\ln(N)}{N}"
+      },
+      {
+       "t": "prose",
+       "md": "BIC (the Schwarz criterion) penalizes extra coefficients more heavily. `statsmodels` reports them on a different scale ($-2\\ln L + 2K$ and $-2\\ln L + K\\ln N$), which for OLS ranks models the same way."
+      },
+      {
+       "t": "table",
+       "md": "| Regressors | AIC | BIC |\n| --- | --- | --- |\n| $HE$ | 10,314.65 | 10,322.77 |\n| $HE$, $WE$ | 10,298.91 | 10,311.09 |\n| $HE$, $WE$, $KL6$ | **10,292.73** | **10,308.97** |\n| $+\\,XTRA\\_X5$ | 10,294.70 | 10,315.00 |\n| $+\\,XTRA\\_X5$, $XTRA\\_X6$ | 10,296.41 | 10,320.76 |"
+      }
+     ],
+     "words": 77,
+     "symbols": [
+      "$K$",
+      "$T(x, \\lambda)$",
+      "$R_k^2$",
+      "$SSE$",
+      "$N$",
+      "$AIC$, $BIC$",
+      "$\\ln L$",
+      "$C_p$",
+      "$Y$, $X$, $p$, $q$, $a$, $b$"
+     ]
+    },
+    {
+     "id": "7-model-selection-aic-and-bic-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Adding $XTRA\\_X5$ to the family-income model with $HE$, $WE$ and $KL6$ nudges $R^2$ up (it can never fall), while AIC rises from 10,292.73 to 10,294.70 and BIC from 10,308.97 to 10,315.00. Which model do the criteria support, and why does BIC react more?",
+       "options": [
+        {
+         "md": "The model with $XTRA\\_X5$, because its $R^2$ is higher",
+         "correct": false,
+         "feedback": "$R^2$ rises whenever a regressor is added, even pure noise, so it cannot choose between nested models."
+        },
+        {
+         "md": "The model without it: both criteria rise, so the small gain in fit does not pay for the extra coefficient; BIC's penalty per coefficient, $\\ln 428 = 6.06$, is three times AIC's 2",
+         "correct": true
+        },
+        {
+         "md": "The model with $XTRA\\_X5$, because both criteria increase",
+         "correct": false,
+         "feedback": "For AIC and BIC, smaller is better; an increase means the larger model is worse."
+        },
+        {
+         "md": "Neither: AIC and BIC disagree",
+         "correct": false,
+         "feedback": "Both rise, so they agree; they would disagree only if one rose and the other fell."
+        }
+       ],
+       "why": "On the `statsmodels` scale each extra coefficient costs 2 (AIC) or $\\ln N = 6.06$ (BIC), and $XTRA\\_X5$ lowers $-2\\ln L$ by almost nothing, so AIC rises by 1.97 and BIC by 6.03. For a larger model to be supported, its AIC and BIC would have to be lower.",
+       "objectives": [
+        7
+       ]
+      }
+     ],
+     "words": 94,
+     "symbols": [
+      "$K$",
+      "$T(x, \\lambda)$",
+      "$R_k^2$",
+      "$N$",
+      "$\\ln L$",
+      "$Y$, $X$, $p$, $q$, $a$, $b$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "8-mallows-cp",
+   "heading": "8. Mallows' Cp",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "8-mallows-cp-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "C_p = \\frac{SSE(p)}{\\widehat{\\sigma}^2} - N + 2p"
+      },
+      {
+       "t": "prose",
+       "md": "with $SSE(p)$ from a candidate with $p$ coefficients (predictors + 1) and $\\widehat{\\sigma}^2$ from the model with all the candidates. Smaller is better, and a good model has $C_p$ close to or below $p$. An exhaustive search over the 31 subsets of the five family-income candidates:"
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Mallows Cp by subset - family income.png",
+       "alt": "Mallows Cp by subset - family income"
+      },
+      {
+       "t": "table",
+       "md": "| Subset | Size | $C_p$ |\n| --- | --- | --- |\n| $HE$, $WE$, $KL6$ | 3 | **2.32** |\n| $HE$, $WE$, $KL6$, $XTRA\\_X6$ | 4 | 4.16 |\n| $HE$, $WE$, $KL6$, $XTRA\\_X5$ | 4 | 4.29 |\n| all five | 5 | 6.00 |\n| $HE$, $WE$ | 2 | 8.47 |\n| $WE$, $KL6$ | 2 | 16.50 |\n| $WE$ | 1 | 21.87 |"
+      }
+     ],
+     "words": 68,
+     "symbols": [
+      "$K$",
+      "$T(x, \\lambda)$",
+      "$R_k^2$",
+      "$\\widehat{\\sigma}^2$",
+      "$GVIF$, $p$",
+      "$SSE$",
+      "$N$",
+      "$\\ln L$",
+      "$C_p$",
+      "$Y$, $X$, $p$, $q$, $a$, $b$"
+     ]
+    },
+    {
+     "id": "8-mallows-cp-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "The full five-variable family-income model has $\\widehat{\\sigma} = 40{,}239.89$. The model with $HE$, $WE$ and $KL6$ has $\\widehat{\\sigma} = 40{,}160.08$ on $N - p = 424$ degrees of freedom, with $N = 428$. What is its Mallows' $C_p$? Give two decimals.",
+       "answer": 2.32,
+       "tol": 0.02,
+       "wrong": [
+        {
+         "answer": 0.32,
+         "tol": 0.02,
+         "md": "that sets $p = 3$, the number of predictors; $p$ counts the coefficients, intercept included, so $p = 4$"
+        },
+        {
+         "answer": -5.68,
+         "tol": 0.02,
+         "md": "that leaves out the $+2p$ penalty"
+        },
+        {
+         "answer": 4.0,
+         "tol": 0.02,
+         "md": "that divides by the model's own $\\widehat{\\sigma}^2$, which always gives $C_p = p$; the denominator comes from the full model"
+        }
+       ],
+       "why": "$SSE(p) = 424 \\times 40{,}160.08^2$, so $SSE(p)/\\widehat{\\sigma}^2_{full} = 424 \\times (40{,}160.08/40{,}239.89)^2 = 422.32$ and $C_p = 422.32 - 428 + 8 = 2.32$. It is below $p = 4$ and the smallest of all 31 subsets, so $HE$, $WE$, $KL6$ is the preferred model.",
+       "objectives": [
+        7
+       ]
+      }
+     ],
+     "words": 23,
+     "symbols": [
+      "$K$",
+      "$\\widehat{\\sigma}^2$",
+      "$GVIF$, $p$",
+      "$SSE$",
+      "$N$",
+      "$\\ln L$",
+      "$C_p$"
+     ]
+    },
+    {
+     "id": "8-mallows-cp-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "From the Cp table, which **two-predictor** family-income model is best, and is it the best model overall?",
+       "options": [
+        {
+         "md": "$WE$, $KL6$: it includes the significant child variable",
+         "correct": false,
+         "feedback": "Its $C_p = 16.50$ is about twice that of $HE$, $WE$; significance in another model does not decide this comparison."
+        },
+        {
+         "md": "$HE$, $WE$ ($C_p = 8.47$), but it is not the best overall: $C_p = 8.47$ is well above $p = 3$, and $HE$, $WE$, $KL6$ has $C_p = 2.32 < 4$",
+         "correct": true
+        },
+        {
+         "md": "$HE$, $WE$, and it is the best overall because it has the fewest variables among the good models",
+         "correct": false,
+         "feedback": "A good model has $C_p$ near or below $p$; 8.47 against $p = 3$ signals something important is left out ($KL6$)."
+        },
+        {
+         "md": "The full model, since its $C_p$ equals $p$ exactly",
+         "correct": false,
+         "feedback": "The full model always has $C_p = p$ by construction, because $\\widehat{\\sigma}^2$ comes from it; that is not evidence in its favour."
+        }
+       ],
+       "why": "Among subsets of the same size, the smallest $C_p$ wins: 8.47 for $HE$, $WE$. Across sizes, compare $C_p$ with $p$: $HE$, $WE$, $KL6$ is the only small model with $C_p$ below its $p$, and it has the smallest $C_p$ of all.",
+       "objectives": [
+        7
+       ]
+      }
+     ],
+     "words": 58,
+     "symbols": [
+      "$K$",
+      "$\\widehat{\\sigma}^2$",
+      "$GVIF$, $p$",
+      "$\\ln L$",
+      "$C_p$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "9-the-boruta-algorithm",
+   "heading": "9. The Boruta algorithm",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "9-the-boruta-algorithm-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Boruta selects variables with a random forest. It adds a shuffled \"shadow\" copy of every variable, which by construction has no relation to $y$, and keeps the real variables whose importance beats the best shadow's often enough; the rest are rejected. Applied to wages in the CPS data, BorutaPy confirms education, experience and weekly hours; BorutaShap, which measures importance with SHAP values, also confirms female. The R original is the most permissive of the three."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Boruta feature importance - CPS wages.png",
+       "alt": "Boruta feature importance - CPS wages"
+      }
+     ],
+     "words": 74,
+     "symbols": [
+      "$y_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "10-stepwise-regression",
+   "heading": "10. Stepwise regression",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "10-stepwise-regression-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Variable Selection](note:variable-selection) by search: **forward selection** starts with no predictors and adds the most useful one at each step; **backward selection** starts with all and removes the least useful; **stepwise selection** adds like forward selection and, after each addition, removes any variable that no longer helps. The criterion can be a test, AIC, BIC or prediction error. A manual comparison on the Boston data (80% train, 20% test) shows that dropping the high-VIF tax variable barely changes the test RMSE (5.08 to 4.98)."
+      },
+      {
+       "t": "prose",
+       "md": "For family income, forward selection by AIC starts with $WE$ (10,312.0), adds $HE$ (10,298.9), then $KL6$ (10,292.7), and stops:"
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Forward selection by AIC - family income.png",
+       "alt": "Forward selection by AIC - family income"
+      }
+     ],
+     "words": 107,
+     "symbols": [
+      "$K$",
+      "$\\ln L$"
+     ]
+    },
+    {
+     "id": "10-stepwise-regression-2",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "warning",
+       "title": "Correction to the lecture notebook",
+       "md": "The \"Backward Selection\" cell builds its selector with `forward=True`, so it runs a second *forward* selection, by BIC. It reaches the same three variables (BIC 10,308.97), but it is not an example of backward selection.",
+       "folded": false
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Forward selection by BIC - family income.png",
+       "alt": "Forward selection by BIC - family income"
+      }
+     ],
+     "words": 43,
+     "symbols": []
+    },
+    {
+     "id": "10-stepwise-regression-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Exhaustive search by Cp, forward selection by AIC and the BIC run all choose $HE$, $WE$, $KL6$ for family income. Which statement about the methods is true?",
+       "options": [
+        {
+         "md": "Forward selection always finds the subset with the lowest AIC",
+         "correct": false,
+         "feedback": "It is greedy: once a variable is in, it stays, so it can miss a subset that an exhaustive search would find. Here it happens to agree."
+        },
+        {
+         "md": "Exhaustive search scores all $2^5 - 1 = 31$ subsets, so it cannot miss the best one by its criterion; stepwise methods trade that guarantee for speed when there are many candidates",
+         "correct": true
+        },
+        {
+         "md": "Boruta and stepwise selection use the same criterion",
+         "correct": false,
+         "feedback": "Boruta compares random-forest importance against shuffled shadow copies; it does not use AIC, BIC or Cp."
+        },
+        {
+         "md": "Because the methods agree, the $t$ statistics of the chosen model are unaffected by the search",
+         "correct": false,
+         "feedback": "The variables were picked with the same data, so the reported significance is overstated whatever the search."
+        }
+       ],
+       "why": "With $m$ candidates there are $2^m - 1$ non-empty subsets: 31 here, feasible to check, but over a million with 20 candidates. Forward and backward selection examine only one path through them, which is why they can disagree with each other and with the exhaustive answer.",
+       "objectives": [
+        8
+       ]
+      }
+     ],
+     "words": 84,
+     "symbols": [
+      "$K$",
+      "$\\ln L$",
+      "$m$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "math-refresher",
+   "heading": "Math refresher",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "math-refresher-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Math Prep L2 Vector Spaces Rank and Projection](note:math-prep-l2-vector-spaces-rank-and-projection) — rank and linear dependence behind perfect multicollinearity"
+      }
+     ],
+     "words": 16,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Read component-plus-residual and CERES plots to decide which predictor needs a transformation.\n2. Read Box-Tidwell output and choose the power for each predictor.\n3. Give the direction and size of omitted variable bias from the bias formula or the short and long regressions.\n4. Explain why an irrelevant variable leaves estimates unbiased but can inflate their variances.\n5. Detect multicollinearity from correlations, a high $R^2$ with low $t$ statistics, and VIFs, and interpret a VIF.\n6. Interpret a RESET result and recommend what to do next.\n7. Choose among models with AIC, BIC and Mallows' Cp, and compute Cp from regression output.\n8. Describe exhaustive, forward, backward and stepwise selection and the Boruta algorithm, and their limits."
+      }
+     ],
+     "words": 116,
+     "symbols": [
+      "$R_k^2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "component-plus-residual-plot",
+        "box-tidwell-transformation",
+        "omitted-variable-bias",
+        "multicollinearity",
+        "ramsey-reset",
+        "model-selection-criteria",
+        "variable-selection",
+        "box-cox-and-power-transformations"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,343 @@
+{
+ "slug": "marginal-effects",
+ "notation": [
+  {
+   "tex": "$E[y]$",
+   "meaning": "Expected outcome given the regressors",
+   "kind": "—",
+   "typical": "Expected $SALES$",
+   "keys": [
+    "~E[y]"
+   ]
+  },
+  {
+   "tex": "$x$",
+   "meaning": "The regressor whose effect is wanted",
+   "kind": "Data",
+   "typical": "$ADVERT$, \\$1000s",
+   "keys": [
+    "x"
+   ]
+  },
+  {
+   "tex": "$z$",
+   "meaning": "Another regressor, held fixed",
+   "kind": "Data",
+   "typical": "$PRICE$",
+   "keys": [
+    "z"
+   ]
+  },
+  {
+   "tex": "$\\beta_1, \\ldots, \\beta_4$",
+   "meaning": "Intercept, coefficient on $z$, linear and squared terms in $x$",
+   "kind": "Parameters",
+   "typical": "$b_3 = 12.15$, $b_4 = -2.768$",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$ME(x)$",
+   "meaning": "Marginal effect of $x$ at a value of $x$",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "~ME(x)"
+   ]
+  },
+  {
+   "tex": "$AME$",
+   "meaning": "Average of $ME$ over the sample",
+   "kind": "Statistic",
+   "typical": "1.943 for advertising",
+   "keys": [
+    "~AME"
+   ]
+  },
+  {
+   "tex": "$\\bar{x}$",
+   "meaning": "Sample mean of $x$",
+   "kind": "Statistic",
+   "typical": "1.844 (\\$1,844)",
+   "keys": [
+    "bar(x)"
+   ]
+  },
+  {
+   "tex": "$x_0$",
+   "meaning": "Turning point, where $ME = 0$",
+   "kind": "Constant",
+   "typical": "2.195",
+   "keys": [
+    "x"
+   ]
+  },
+  {
+   "tex": "$A$",
+   "meaning": "Advertising level where the marginal effect equals the marginal cost",
+   "kind": "Constant",
+   "typical": "2.014",
+   "keys": [
+    "A"
+   ]
+  },
+  {
+   "tex": "$N$",
+   "meaning": "Observations",
+   "kind": "Count",
+   "typical": "75",
+   "keys": [
+    "N"
+   ]
+  },
+  {
+   "tex": "$y_i$",
+   "meaning": "Outcome for observation $i$",
+   "kind": "Data",
+   "typical": "$SALES$ in \\$1000s",
+   "keys": [
+    "y"
+   ],
+   "from": "multiple-regression-model"
+  },
+  {
+   "tex": "$b_k$",
+   "meaning": "OLS estimate of $\\beta_k$",
+   "kind": "Estimator",
+   "typical": "$-7.91$ for price in the burger regression",
+   "keys": [
+    "b"
+   ],
+   "from": "multiple-regression-model"
+  },
+  {
+   "tex": "$D$, $D_1$, $D_2$",
+   "meaning": "Indicator variables (1 in the group, 0 otherwise)",
+   "kind": "Data",
+   "typical": "$UTOWN$, $BLACK$, $FEMALE$",
+   "keys": [
+    "D"
+   ],
+   "from": "interaction-terms"
+  },
+  {
+   "tex": "$x$, $w$",
+   "meaning": "Quantitative regressors",
+   "kind": "Data",
+   "typical": "$SQFT$ (100s of sq ft), $AGE$, $INCOME$",
+   "keys": [
+    "x",
+    "w"
+   ],
+   "from": "interaction-terms"
+  },
+  {
+   "tex": "$Y$, $K$, $L$",
+   "meaning": "Output, capital, labor in the Cobb-Douglas example",
+   "kind": "—",
+   "typical": "$K = 8$, $L = 27$",
+   "keys": [
+    "Y",
+    "K",
+    "L"
+   ],
+   "from": "partial-derivatives-and-the-gradient"
+  },
+  {
+   "tex": "$PRICE$, $SQFT$",
+   "meaning": "House price and square footage in the quadratic example",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "~PRICE",
+    "~SQFT"
+   ],
+   "from": "functional-forms-and-elasticities"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A marginal effect answers \"if this regressor goes up by one unit, how much does the predicted outcome change?\" In a straight-line model the answer is the same everywhere: it is the coefficient. Once the model bends, the answer depends on where you start. Advertising helps sales a lot when a restaurant hardly advertises and less once it already advertises heavily, so the marginal effect of advertising shrinks as advertising grows. The average marginal effect summarizes that changing number by averaging it over the observations in the data. A bending curve also has a peak, and the turning point is where the marginal effect reaches zero."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "Exams ask for the marginal effect at a given value, the turning point of a quadratic, and the units it is in; and the software's coefficient on $x$ alone is not the effect of $x$ once $x^2$ or an interaction is in the model.",
+       "folded": false
+      }
+     ],
+     "words": 150,
+     "symbols": [
+      "$x$",
+      "$x_0$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "For a regressor $x$ in a model with a quadratic term,"
+      },
+      {
+       "t": "math",
+       "tex": "E[y] = \\beta_1 + \\beta_2 z + \\beta_3 x + \\beta_4 x^2 \\quad\\Rightarrow\\quad ME(x) = \\frac{\\partial E[y]}{\\partial x} = \\beta_3 + 2\\beta_4 x"
+      },
+      {
+       "t": "prose",
+       "md": "- **Diminishing returns** if $\\beta_4 < 0$: the effect of $x$ falls as $x$ rises.\n- **Turning point**: $ME = 0$ at $x_0 = -\\beta_3/(2\\beta_4)$, a maximum when $\\beta_4 < 0$.\n- **Average marginal effect**: $AME = \\frac{1}{N}\\sum_i ME(x_i)$. With a quadratic, $ME$ is linear in $x$, so $AME = \\beta_3 + 2\\beta_4\\bar{x}$, the effect at the mean."
+      }
+     ],
+     "words": 43,
+     "symbols": [
+      "$E[y]$",
+      "$x$",
+      "$z$",
+      "$\\beta_1, \\ldots, \\beta_4$",
+      "$ME(x)$",
+      "$AME$",
+      "$\\bar{x}$",
+      "$x_0$",
+      "$A$",
+      "$N$",
+      "$y_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example-advertising-with-diminishing-returns",
+   "heading": "Worked example: advertising with diminishing returns",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-advertising-with-diminishing-returns-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "\\widehat{SALES} = 109.72 - 7.640\\,PRICE + 12.151\\,ADVERT - 2.768\\,ADVERT^2"
+      },
+      {
+       "t": "prose",
+       "md": "- $ME = 12.151 - 2 \\times 2.768\\,ADVERT$. At \\$1,000 of advertising it is 6.62 (\\$6,615 of extra sales per extra \\$1,000); at \\$2,000 it is 1.08.\n- **Turning point** (sales are highest): $x_0 = 12.151/(2 \\times 2.768) = 2.195$, about \\$2,195 a month.\n- **Optimal advertising** (profit, not sales): Andy should advertise until the last \\$1,000 brings in exactly \\$1,000 of sales, $ME = 1$, so $A = (1 - \\beta_3)/(2\\beta_4) = 2.014$, about \\$2,014. The lecture notebook's code solves $ME = 0$ and reports \\$2,195; that is the sales-maximizing level, where the last dollar of advertising earns nothing back.\n- **AME** $= 12.151 - 2 \\times 2.768 \\times 1.844 = 1.943$, standard error 0.650 (from the [Delta Method](note:delta-method) formula with the covariance of $b_3$ and $b_4$)."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Burger sales with quadratic advertising - effect plots.png",
+       "alt": "Burger sales with quadratic advertising - effect plots"
+      }
+     ],
+     "words": 101,
+     "symbols": [
+      "$x$",
+      "$\\beta_1, \\ldots, \\beta_4$",
+      "$x_0$",
+      "$A$",
+      "$b_k$",
+      "$D$, $D_1$, $D_2$",
+      "$Y$, $K$, $L$",
+      "$PRICE$, $SQFT$"
+     ]
+    },
+    {
+     "id": "worked-example-advertising-with-diminishing-returns-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Units.** The turning point has the units of $x$. If $x$ is in \\$1000s, $x_0 = 29.393$ means \\$29,393; a variable in \\$1000s that reads 29,393 means \\$29.4 million."
+      }
+     ],
+     "words": 27,
+     "symbols": [
+      "$x$",
+      "$x_0$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ame-with-interactions",
+   "heading": "AME with interactions",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "ame-with-interactions-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With $E[y] = \\beta_1 + \\beta_2 x + \\beta_3 w + \\beta_4 xw$, $ME(x) = \\beta_2 + \\beta_4 w$: the effect of $x$ depends on the other variable. Report it at chosen values of $w$, or average it ([Interaction Terms](note:interaction-terms))."
+      }
+     ],
+     "words": 20,
+     "symbols": [
+      "$E[y]$",
+      "$x$",
+      "$\\beta_1, \\ldots, \\beta_4$",
+      "$ME(x)$",
+      "$x_0$",
+      "$y_i$",
+      "$x$, $w$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Reporting $b_3$ alone** as the effect of advertising when $ADVERT^2$ is in the model. 12.15 is the slope at $ADVERT = 0$, outside the data.\n- **Solving $ME = 0$ when the question is about profit.** Revenue peaks at $ME = 0$; profit peaks where the marginal revenue equals the marginal cost.\n- **Getting the units wrong** at the turning point."
+      }
+     ],
+     "words": 52,
+     "symbols": [
+      "$A$",
+      "$b_k$",
+      "$D$, $D_1$, $D_2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Math background: [Partial Derivatives and the Gradient](note:partial-derivatives-and-the-gradient)\n- [Delta Method](note:delta-method) gives the standard error of a turning point or AME\n- [Functional Forms and Elasticities](note:functional-forms-and-elasticities) · [Interaction Terms](note:interaction-terms)"
+      }
+     ],
+     "words": 28,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

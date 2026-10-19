@@ -1,0 +1,329 @@
+{
+ "slug": "analysis-of-variance",
+ "notation": [
+  {
+   "tex": "$y_i$",
+   "meaning": "Outcome",
+   "kind": "Data",
+   "typical": "Third post-test reading score",
+   "keys": [
+    "y"
+   ]
+  },
+  {
+   "tex": "$D_{ji}$",
+   "meaning": "1 if observation $i$ is in group $j$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "D"
+   ]
+  },
+  {
+   "tex": "$J$",
+   "meaning": "Number of groups",
+   "kind": "Count",
+   "typical": "3 teaching methods",
+   "keys": [
+    "J"
+   ]
+  },
+  {
+   "tex": "$\\beta_1$",
+   "meaning": "Mean of the reference group",
+   "kind": "Parameter",
+   "typical": "41.05 (Basal)",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$\\delta_j$",
+   "meaning": "Group $j$'s mean minus the reference mean",
+   "kind": "Parameter",
+   "typical": "5.68 (DRTA)",
+   "keys": [
+    "delta"
+   ]
+  },
+  {
+   "tex": "$b_1$, $d_j$",
+   "meaning": "Their estimates",
+   "kind": "Estimators",
+   "typical": "—",
+   "keys": [
+    "b",
+    "d"
+   ]
+  },
+  {
+   "tex": "$R^2$",
+   "meaning": "Share of the variation explained by the groups",
+   "kind": "Statistic",
+   "typical": "0.125",
+   "keys": [
+    "R"
+   ]
+  },
+  {
+   "tex": "$F$",
+   "meaning": "Test statistic for equal means",
+   "kind": "Statistic",
+   "typical": "4.48",
+   "keys": [
+    "F"
+   ]
+  },
+  {
+   "tex": "$N$",
+   "meaning": "Observations",
+   "kind": "Count",
+   "typical": "66",
+   "keys": [
+    "N"
+   ]
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "Significance level, family-wise for Tukey",
+   "kind": "Choice",
+   "typical": "0.05",
+   "keys": [
+    "alpha"
+   ]
+  },
+  {
+   "tex": "$A$, $B$; $a$, $b$",
+   "meaning": "Two factors and their numbers of levels",
+   "kind": "—",
+   "typical": "3 and 2",
+   "keys": [
+    "A",
+    "B",
+    "a",
+    "b"
+   ]
+  },
+  {
+   "tex": "$x$, $\\beta_2$, $\\delta$",
+   "meaning": "ANCOVA regressor, its slope, the intercept shift",
+   "kind": "Data / parameters",
+   "typical": "—",
+   "keys": [
+    "x",
+    "beta",
+    "delta"
+   ]
+  },
+  {
+   "tex": "$e_i$",
+   "meaning": "Error",
+   "kind": "Unobserved",
+   "typical": "—",
+   "keys": [
+    "e"
+   ]
+  },
+  {
+   "tex": "$H_0$",
+   "meaning": "The $J$ restrictions, all true",
+   "kind": "—",
+   "typical": "$\\delta_1 = \\delta_2 = \\gamma = 0$",
+   "keys": [
+    "H"
+   ],
+   "from": "f-test-of-joint-hypotheses"
+  },
+  {
+   "tex": "$t$",
+   "meaning": "$t$ statistic for a single restriction",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "t"
+   ],
+   "from": "f-test-of-joint-hypotheses"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Analysis of variance asks whether the average outcome differs across groups: do pupils taught reading by three different methods end up with different test scores? A regression on group indicators answers it directly. The intercept is the average of the reference group and each indicator's coefficient is how far another group's average sits from it. One overall test asks whether any group differs; follow-up comparisons ask which pairs differ, with a correction because running many comparisons raises the chance of a false alarm. Adding a quantitative regressor gives analysis of covariance; adding a second grouping factor gives two-way analysis of variance."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It shows that comparing group means is a special case of regression, and it is the setting for factor interactions.",
+       "folded": false
+      }
+     ],
+     "words": 124,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**One-way ANOVA**, a factor with $J$ levels coded as $J - 1$ dummies:"
+      },
+      {
+       "t": "math",
+       "tex": "y_i = \\beta_1 + \\delta_2 D_{2i} + \\cdots + \\delta_J D_{Ji} + e_i, \\qquad H_0: \\delta_2 = \\cdots = \\delta_J = 0"
+      },
+      {
+       "t": "prose",
+       "md": "$b_1$ is the reference group's mean and $b_1 + d_j$ group $j$'s. $H_0$ (all group means equal) is tested with the regression's overall $F$ statistic, $F = \\dfrac{R^2/(J-1)}{(1-R^2)/(N-J)} \\sim F_{J-1,\\,N-J}$."
+      },
+      {
+       "t": "prose",
+       "md": "**Tukey's honestly significant difference (HSD)** compares every pair of groups and adjusts the p-values and intervals so that the chance of any false rejection across all pairs (the family-wise error rate) stays at $\\alpha$."
+      },
+      {
+       "t": "prose",
+       "md": "**ANCOVA** adds quantitative regressors: $y = \\beta_1 + \\delta D + \\beta_2 x + e$ gives parallel lines, shifted by $\\delta$."
+      },
+      {
+       "t": "prose",
+       "md": "**Two-way (multiway) ANOVA** has two factors and usually their interaction: with $A$ at $a$ levels and $B$ at $b$ levels, $(a-1) + (b-1) + (a-1)(b-1)$ coefficients beyond the intercept, one fitted mean per cell."
+      }
+     ],
+     "words": 95,
+     "symbols": [
+      "$y_i$",
+      "$D_{ji}$",
+      "$J$",
+      "$\\beta_1$",
+      "$\\delta_j$",
+      "$b_1$, $d_j$",
+      "$R^2$",
+      "$F$",
+      "$N$",
+      "$\\alpha$",
+      "$A$, $B$; $a$, $b$",
+      "$x$, $\\beta_2$, $\\delta$",
+      "$e_i$",
+      "$H_0$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-examples-from-the-lecture",
+   "heading": "Worked examples (from the lecture)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-examples-from-the-lecture-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Reading methods** (Baumann data, 22 pupils per method): means Basal 41.05, DRTA 46.73, Strat 44.27."
+      },
+      {
+       "t": "math",
+       "tex": "\\widehat{SCORE} = 41.05 + 5.68\\,DRTA + 3.23\\,STRAT, \\qquad F = 4.48,\\ p = 0.015"
+      },
+      {
+       "t": "prose",
+       "md": "$F$ exceeds $F_{0.95;\\,2,\\,63} = 3.14$, so the three means are not all equal. Tukey's HSD finds only DRTA vs Basal significant (difference 5.68, adjusted $p = 0.011$); Strat vs Basal ($p = 0.215$) and DRTA vs Strat ($p = 0.406$) are not."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Reading scores by teaching method - boxplots.png",
+       "alt": "Reading scores by teaching method - boxplots"
+      }
+     ],
+     "words": 48,
+     "symbols": [
+      "$D_{ji}$",
+      "$R^2$",
+      "$F$",
+      "$A$, $B$; $a$, $b$"
+     ]
+    },
+    {
+     "id": "worked-examples-from-the-lecture-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Conformity, authoritarianism and partner status** (Moore and Krupat, 45 subjects): a two-way model with interaction, six cells. Low-authoritarian subjects conform much more with a high-status partner (17.4) than a low-status one (8.9), while high-authoritarian subjects barely differ (11.9 and 12.6). The interaction coefficients are significant ($-9.27$, $t = -2.69$; $-7.79$, $t = -2.18$), so the effect of partner status depends on the personality score and the main-effects plot alone would mislead."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Conformity by authoritarianism and partner status - interaction plot.png",
+       "alt": "Conformity by authoritarianism and partner status - interaction plot"
+      },
+      {
+       "t": "callout",
+       "kind": "warning",
+       "title": "Correction to the lecture notebook",
+       "md": "The notebook calls this model a MANOVA. It has one response (conformity) and two factors, which makes it a two-way (multiway) ANOVA. MANOVA, multivariate analysis of variance, has several response variables at once.",
+       "folded": false
+      }
+     ],
+     "words": 105,
+     "symbols": [
+      "$t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Running all pairwise $t$ tests at 5%.** With three groups there are three comparisons, and the chance of at least one false rejection is well above 5%; use Tukey (or another correction).\n- **Reading main effects when the interaction matters.** Averaging over partner status hides that its effect reverses across personality groups.\n- **Forgetting the reference group.** Every $\\delta_j$ is a difference from the omitted group; change the reference with `C(group, Treatment(reference=\"DRTA\"))`."
+      }
+     ],
+     "words": 74,
+     "symbols": [
+      "$\\delta_j$",
+      "$x$, $\\beta_2$, $\\delta$",
+      "$t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Indicator Variables](note:indicator-variables) · [Interaction Terms](note:interaction-terms) · [F Test of Joint Hypotheses](note:f-test-of-joint-hypotheses) · [Coefficient of Determination](note:coefficient-of-determination)"
+      }
+     ],
+     "words": 13,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

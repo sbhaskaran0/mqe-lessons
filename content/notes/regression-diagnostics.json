@@ -158,6 +158,16 @@
    "from": "q-q-plot"
   },
   {
+   "tex": "$J$",
+   "meaning": "Number of added terms",
+   "kind": "Count",
+   "typical": "1 or 2",
+   "keys": [
+    "J"
+   ],
+   "from": "ramsey-reset"
+  },
+  {
    "tex": "$\\mathbf{x}$",
    "meaning": "Vector",
    "kind": "—",
@@ -393,7 +403,8 @@
       "$LM$",
       "$JB$",
       "$B$",
-      "$L_0$, $\\hat{L}$"
+      "$L_0$, $\\hat{L}$",
+      "$J$"
      ]
     },
     {
@@ -436,6 +447,24 @@
    ]
   },
   {
+   "id": "checks-for-multiple-regression",
+   "heading": "Checks for multiple regression",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "checks-for-multiple-regression-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With several regressors the workflow adds: [component-plus-residual plots](note:component-plus-residual-plot) and the [Box-Tidwell Transformation](note:box-tidwell-transformation) to find predictors that need transforming; VIFs for [Multicollinearity](note:multicollinearity); [Ramsey RESET](note:ramsey-reset) for the functional form; the [Heteroskedasticity Tests](note:heteroskedasticity-tests); and influence plots that scale each point by Cook's distance. The lecture's 10-step example runs them in order on a college-GPA regression."
+      }
+     ],
+     "words": 52,
+     "symbols": []
+    }
+   ]
+  },
+  {
    "id": "links",
    "heading": "Links",
    "role": "other",
@@ -445,10 +474,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "- Math background: [Trace of a Matrix](note:trace-of-a-matrix)\n- [SR Assumptions](note:sr-assumptions)\n- [EDA for Regression](note:eda-for-regression)\n\n- [Q-Q Plot](note:q-q-plot) · [Lowess Smoother](note:lowess-smoother) · [Hypothesis Tests on Regression Coefficients](note:hypothesis-tests-on-regression-coefficients) · [Skewness and Kurtosis](note:skewness-and-kurtosis)"
+       "md": "- Math background: [Trace of a Matrix](note:trace-of-a-matrix)\n- [SR Assumptions](note:sr-assumptions)\n- [EDA for Regression](note:eda-for-regression)\n\n- [Q-Q Plot](note:q-q-plot) · [Lowess Smoother](note:lowess-smoother) · [Hypothesis Tests on Regression Coefficients](note:hypothesis-tests-on-regression-coefficients) · [Skewness and Kurtosis](note:skewness-and-kurtosis)\n- Multiple regression: [Multicollinearity](note:multicollinearity) · [Ramsey RESET](note:ramsey-reset) · [Heteroskedasticity Tests](note:heteroskedasticity-tests) · [Component-Plus-Residual Plot](note:component-plus-residual-plot)"
       }
      ],
-     "words": 27,
+     "words": 37,
      "symbols": []
     }
    ]

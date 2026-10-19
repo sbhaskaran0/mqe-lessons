@@ -503,6 +503,26 @@
    ]
   },
   {
+   "id": "transforming-predictors-instead",
+   "heading": "Transforming predictors instead",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "transforming-predictors-instead-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Box-Cox chooses a power for $y$. The [Box-Tidwell Transformation](note:box-tidwell-transformation) estimates a power for each predictor, and a [Component-Plus-Residual Plot](note:component-plus-residual-plot) shows which predictor needs one. A spread-level plot also suggests a power for $y$ from how the residual spread grows with the fitted values ([Heteroskedasticity Tests](note:heteroskedasticity-tests))."
+      }
+     ],
+     "words": 43,
+     "symbols": [
+      "$x$ (or $y$)"
+     ]
+    }
+   ]
+  },
+  {
    "id": "links",
    "heading": "Links",
    "role": "other",

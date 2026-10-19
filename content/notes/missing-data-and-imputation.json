@@ -1,0 +1,161 @@
+{
+ "slug": "missing-data-and-imputation",
+ "notation": [
+  {
+   "tex": "$k$",
+   "meaning": "Neighbours averaged in kNN",
+   "kind": "Choice",
+   "typical": "3",
+   "keys": [
+    "k"
+   ]
+  },
+  {
+   "tex": "$MAE$, $RMSE$, $MAPE$",
+   "meaning": "Mean absolute error, root mean squared error and mean absolute percentage error of the filled values against the true ones",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "~MAE",
+    "~RMSE",
+    "~MAPE"
+   ]
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Real data sets have holes. The simplest response is to throw away every observation with a hole, which works when the holes are few and scattered at random but wastes data and can bias results if certain kinds of observation are more likely to be missing. A second option drops a variable that is mostly missing. A third fills each hole with the variable's typical value, its mean, median or most common value, which is quick but pulls every filled value to the centre. The best fills predict each missing value from the observation's other variables, for example by averaging its closest neighbours in the data or by cycling regressions through the variables."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "Software drops incomplete rows silently, so knowing how many rows a regression lost and whether a smarter fill would do better is part of the regression workflow.",
+       "folded": false
+      }
+     ],
+     "words": 143,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Method | What it does | When it is reasonable |\n| --- | --- | --- |\n| Listwise deletion | Drop every observation with a missing value (`missing='drop'`) | Few missing values, missing at random |\n| Drop the variable | Leave a mostly missing variable out | One variable holds most of the gaps and is not essential |\n| Mean / median / mode | Fill with the variable's centre (mode for categories) | A quick baseline; understates spread |\n| kNN | Fill with the average of the $k$ most similar observations (Euclidean distance on the other variables) | Quantitative variables related to the others |\n| MICE | Regress each incomplete variable on the others, fill, and cycle until stable | Several incomplete variables |"
+      },
+      {
+       "t": "prose",
+       "md": "Recursive partitioning (regression trees) is the usual choice for factor variables."
+      }
+     ],
+     "words": 113,
+     "symbols": [
+      "$k$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example-boston-house-values",
+   "heading": "Worked example: Boston house values",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-boston-house-values-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The lecture deletes 40 values each of highway access (`rad`, an index from 1 to 24) and pupil-teacher ratio (`ptratio`) at random, then compares each fill with the true values. Deleting incomplete rows instead leaves 429 of 506 observations for the regression of value on `rad` and `ptratio`."
+      },
+      {
+       "t": "table",
+       "md": "| Method | `rad` RMSE | `rad` filled wrongly | `ptratio` RMSE | `ptratio` MAPE |\n| --- | --- | --- | --- | --- |\n| Median for `rad`, mean for `ptratio` | 8.64 | 65% | 2.14 | 10.2% |\n| kNN, $k = 3$ | 1.14 | 45% | 1.70 | 5.7% |\n| MICE (one run) | 1.92 | 48% | 1.76 | 6.5% |"
+      }
+     ],
+     "words": 94,
+     "symbols": [
+      "$k$"
+     ]
+    },
+    {
+     "id": "worked-example-boston-house-values-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The `rad` columns are recomputed (see the correction below); the `ptratio` columns are the notebook's. Using the other variables beats filling with the centre by a wide margin, most of all for `rad`, which is closely tied to the neighbourhood's other characteristics (35% of the deleted values happen to equal the median, 5, but the rest include eight 24s). MICE draws at random, so its numbers change from run to run."
+      }
+     ],
+     "words": 71,
+     "symbols": []
+    },
+    {
+     "id": "worked-example-boston-house-values-3",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "warning",
+       "title": "Correction to the lecture notebook",
+       "md": "The notebook stores the rows it blanks as `rad_rows = na_insert[:40]`, a view of an array it then shuffles again in place, so by the time it scores the fills `rad_rows` points at different rows (only 3 of the 40 overlap). Its `rad` results (RMSE 7.80 for the median, 0.47 for kNN; 7.5%, 2.5% and 5% misclassified) are scored mostly on values that were never missing. Keeping a copy of the blanked rows gives the `rad` figures above, recomputed in Python from the same seed (the mean and kNN `ptratio` figures and the 429 observations reproduce exactly; MICE is random). The ranking of the methods is unchanged.",
+       "folded": false
+      }
+     ],
+     "words": 119,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Not noticing lost rows.** Check `nobs` against the data's length.\n- **Treating imputed values as data** in the standard errors: single imputation understates uncertainty.\n- **Imputing with the outcome.** The lecture drops the outcome (`medv`) before kNN and MICE, so the fill cannot borrow from what the regression is trying to explain."
+      }
+     ],
+     "words": 53,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [EDA for Regression](note:eda-for-regression) · [Regression Diagnostics](note:regression-diagnostics)"
+      }
+     ],
+     "words": 6,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

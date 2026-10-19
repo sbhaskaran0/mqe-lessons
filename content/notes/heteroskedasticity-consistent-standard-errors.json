@@ -1,0 +1,230 @@
+{
+ "slug": "heteroskedasticity-consistent-standard-errors",
+ "notation": [
+  {
+   "tex": "$b_2$",
+   "meaning": "OLS slope",
+   "kind": "Estimator",
+   "typical": "10.21",
+   "keys": [
+    "b"
+   ]
+  },
+  {
+   "tex": "$x_i$, $\\bar{x}$",
+   "meaning": "Regressor and its mean",
+   "kind": "Data / statistic",
+   "typical": "—",
+   "keys": [
+    "x",
+    "bar(x)"
+   ]
+  },
+  {
+   "tex": "$\\widehat{e}_i$",
+   "meaning": "OLS residual",
+   "kind": "Computed",
+   "typical": "—",
+   "keys": [
+    "hat(e)"
+   ]
+  },
+  {
+   "tex": "$N$, $K$",
+   "meaning": "Observations and coefficients",
+   "kind": "Counts",
+   "typical": "40, 2",
+   "keys": [
+    "N",
+    "K"
+   ]
+  },
+  {
+   "tex": "$\\widehat{\\sigma}^2$",
+   "meaning": "Usual error-variance estimate",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "hat(sigma)"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{X}$",
+   "meaning": "Regressor matrix",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "bold(X)"
+   ]
+  },
+  {
+   "tex": "$\\widehat{\\boldsymbol{\\Omega}}$",
+   "meaning": "Diagonal matrix of squared residuals",
+   "kind": "Matrix",
+   "typical": "—",
+   "keys": [
+    "hat(bold(Omega))"
+   ]
+  },
+  {
+   "tex": "$\\beta_2$, $\\beta_3$",
+   "meaning": "Price and advertising coefficients in the burger regression",
+   "kind": "Parameters",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$t_c$",
+   "meaning": "Critical $t$ value",
+   "kind": "Constant",
+   "typical": "$t_{0.975,38} = 2.024$",
+   "keys": [
+    "t"
+   ]
+  },
+  {
+   "tex": "$F$",
+   "meaning": "Goldfeld-Quandt statistic",
+   "kind": "Statistic",
+   "typical": "3.61",
+   "keys": [
+    "F"
+   ],
+   "from": "heteroskedasticity-tests"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "When the spread of the errors varies across observations, the regression line itself is still fine on average, but the textbook formula for its standard error is not, because it assumes one common spread. White's fix keeps the same estimates and recomputes their standard errors, letting each observation contribute its own squared residual instead of an average one. Observations far from the average of the regressor that also have big residuals then count for more, which is where heteroskedasticity does its damage. The result is valid whether or not the variance is constant, so many researchers report it by default."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the cheapest remedy for heteroskedasticity: one option in the software, no change to the coefficients, corrected tests and intervals.",
+       "folded": false
+      }
+     ],
+     "words": 124,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "For simple regression,"
+      },
+      {
+       "t": "math",
+       "tex": "\\widehat{\\mathrm{Var}}(b_2) = \\frac{N}{N-2}\\cdot\\frac{\\sum_{i=1}^N (x_i - \\bar{x})^2\\,\\widehat{e}_i^{\\,2}}{\\left[\\sum_{i=1}^N (x_i - \\bar{x})^2\\right]^2}"
+      },
+      {
+       "t": "prose",
+       "md": "compared with the textbook $\\widehat{\\sigma}^2/\\sum(x_i - \\bar{x})^2$. In matrix form, $(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\widehat{\\boldsymbol{\\Omega}}\\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}$ with $\\widehat{\\boldsymbol{\\Omega}} = \\mathrm{diag}(\\widehat{e}_i^{\\,2})$, the \"sandwich\". HC0 has no degrees-of-freedom factor; **HC1** multiplies by $N/(N-K)$; HC2 and HC3 adjust each term for its leverage."
+      },
+      {
+       "t": "prose",
+       "md": "In `statsmodels`: `fit(cov_type='HC1')`, or `model.HC1_se`."
+      }
+     ],
+     "words": 40,
+     "symbols": [
+      "$b_2$",
+      "$x_i$, $\\bar{x}$",
+      "$\\widehat{e}_i$",
+      "$N$, $K$",
+      "$\\widehat{\\sigma}^2$",
+      "$\\mathbf{X}$",
+      "$\\widehat{\\boldsymbol{\\Omega}}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example-food-expenditure",
+   "heading": "Worked example: food expenditure",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-food-expenditure-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| | Intercept | Income |\n| --- | --- | --- |\n| Coefficient | 83.42 | 10.21 |\n| Usual se | 43.41 | 2.093 |\n| White (HC1) se | 27.46 | 1.809 |"
+      },
+      {
+       "t": "prose",
+       "md": "95% intervals for the slope: usual $10.21 \\pm 2.024 \\times 2.093 = [5.97, 14.45]$; White $10.21 \\pm 2.024 \\times 1.809 = [6.55, 13.87]$. Here the robust standard errors are smaller: heteroskedasticity can bias the usual ones either way."
+      },
+      {
+       "t": "prose",
+       "md": "**Linear combinations.** Robust standard errors change every test that uses the covariance matrix. In the burger regression, $H_0: \\beta_2 + \\beta_3 = 0$ gives $F = 22.44$ with the usual covariance matrix and $F = 23.39$ with HC1."
+      }
+     ],
+     "words": 71,
+     "symbols": [
+      "$\\beta_2$, $\\beta_3$",
+      "$F$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Expecting the coefficients to change.** Only the standard errors (and $t$, p, intervals) do.\n- **Expecting robust standard errors to be larger.** They are often larger, but not always.\n- **Thinking they make OLS efficient.** They fix inference; [Generalized Least Squares](note:generalized-least-squares) is what regains efficiency when the variance pattern is known.\n- **Using them for clustered or autocorrelated errors.** That needs [Clustered Standard Errors](note:clustered-standard-errors) or HAC standard errors."
+      }
+     ],
+     "words": 68,
+     "symbols": [
+      "$t_c$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Heteroskedasticity Tests](note:heteroskedasticity-tests) · [Generalized Least Squares](note:generalized-least-squares) · [Bootstrapping OLS](note:bootstrapping-ols) · [Clustered Standard Errors](note:clustered-standard-errors)"
+      }
+     ],
+     "words": 11,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

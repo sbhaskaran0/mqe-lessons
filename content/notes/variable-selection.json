@@ -1,0 +1,194 @@
+{
+ "slug": "variable-selection",
+ "notation": [
+  {
+   "tex": "$m$",
+   "meaning": "Number of candidate regressors",
+   "kind": "Count",
+   "typical": "5 in the family-income example",
+   "keys": [
+    "m"
+   ]
+  },
+  {
+   "tex": "$2^m - 1$",
+   "meaning": "Number of non-empty subsets",
+   "kind": "Count",
+   "typical": "31",
+   "keys": [
+    "m"
+   ]
+  },
+  {
+   "tex": "$AIC$, $BIC$, $C_p$",
+   "meaning": "Criteria being minimized",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "~AIC",
+    "~BIC",
+    "C"
+   ]
+  },
+  {
+   "tex": "$K$",
+   "meaning": "Coefficients estimated, intercept included",
+   "kind": "Count",
+   "typical": "—",
+   "keys": [
+    "K"
+   ],
+   "from": "model-selection-criteria"
+  },
+  {
+   "tex": "$\\ln L$",
+   "meaning": "Maximized log-likelihood",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "L"
+   ],
+   "from": "model-selection-criteria"
+  },
+  {
+   "tex": "$R^2$, $\\bar{R}^2$",
+   "meaning": "R-squared and adjusted R-squared",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "R",
+    "bar(R)"
+   ],
+   "from": "model-selection-criteria"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With many candidate regressors, trying every combination by hand is impossible, so the choice is automated. Best-subset search scores every possible model with a criterion such as AIC or Mallows' Cp and keeps the best. Stepwise methods save time by building a path: forward selection starts with nothing and adds the most helpful variable at each step, backward selection starts with everything and drops the least helpful, and mixed stepwise does both. Boruta takes a machine-learning route: it shuffles copies of every variable so they become pure noise, and keeps only the real variables that a random forest finds more useful than the best of the noise copies."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is how the lecture's examples settle on a final model, and each method can miss the best model in its own way.",
+       "folded": false
+      }
+     ],
+     "words": 134,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Method | Starts with | Each step | Stops when |\n| --- | --- | --- | --- |\n| Best subsets (exhaustive) | All $2^m - 1$ models | Scores each | — (picks the best) |\n| Forward selection | No regressors | Adds the variable that improves the criterion most | No addition improves it |\n| Backward selection | All regressors | Drops the variable whose removal improves it most | No removal improves it |\n| Stepwise | No regressors | Adds as in forward, then drops any that no longer help | Neither step helps |\n| Boruta | All regressors plus shuffled \"shadow\" copies | Compares each variable's random-forest importance with the best shadow's | Every variable is confirmed or rejected (or the run ends) |"
+      },
+      {
+       "t": "prose",
+       "md": "The criterion is usually AIC, BIC or Mallows' Cp ([Model Selection Criteria](note:model-selection-criteria)), or out-of-sample error ([Cross-Validation](note:cross-validation))."
+      }
+     ],
+     "words": 112,
+     "symbols": [
+      "$m$",
+      "$2^m - 1$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-examples-from-the-lecture",
+   "heading": "Worked examples (from the lecture)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-examples-from-the-lecture-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Family income**, five candidates ($HEDU$, $WEDU$, $KL6$, $XTRA\\_X5$, $XTRA\\_X6$): exhaustive search by Cp, forward selection by AIC and forward selection by BIC all choose $HEDU$, $WEDU$, $KL6$. The forward path by AIC starts with $WEDU$ alone (10,312.0), adds $HEDU$ (10,298.9), then $KL6$ (10,292.7); adding more raises AIC."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Forward selection by AIC - family income.png",
+       "alt": "Forward selection by AIC - family income"
+      },
+      {
+       "t": "prose",
+       "md": "**Wages (CPS)**: BorutaPy confirms education, experience and hours worked; BorutaShap also confirms female; the R original is the most permissive of the three."
+      },
+      {
+       "t": "callout",
+       "kind": "warning",
+       "title": "Correction to the lecture notebook",
+       "md": "The \"Backward Selection\" cell builds its selector with `forward=True`, so it runs forward selection by BIC, not backward. Both directions happen to reach $HEDU$, $WEDU$, $KL6$ here.",
+       "folded": false
+      }
+     ],
+     "words": 95,
+     "symbols": [
+      "$K$",
+      "$\\ln L$",
+      "$R^2$, $\\bar{R}^2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Treating the selected model's p-values at face value.** The same data chose the variables, so the reported $t$ statistics overstate significance.\n- **Assuming stepwise finds the best subset.** A greedy path can miss it; exhaustive search does not, but is feasible only for small $m$.\n- **Letting selection override theory.** A variable the economics says belongs can be dropped for being collinear ([Omitted Variable Bias](note:omitted-variable-bias))."
+      }
+     ],
+     "words": 64,
+     "symbols": [
+      "$m$",
+      "$2^m - 1$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Model Selection Criteria](note:model-selection-criteria) · [Cross-Validation](note:cross-validation) · [Multicollinearity](note:multicollinearity)"
+      }
+     ],
+     "words": 6,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

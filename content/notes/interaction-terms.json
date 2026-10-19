@@ -1,0 +1,391 @@
+{
+ "slug": "interaction-terms",
+ "notation": [
+  {
+   "tex": "$D$, $D_1$, $D_2$",
+   "meaning": "Indicator variables (1 in the group, 0 otherwise)",
+   "kind": "Data",
+   "typical": "$UTOWN$, $BLACK$, $FEMALE$",
+   "keys": [
+    "D"
+   ]
+  },
+  {
+   "tex": "$x$, $w$",
+   "meaning": "Quantitative regressors",
+   "kind": "Data",
+   "typical": "$SQFT$ (100s of sq ft), $AGE$, $INCOME$",
+   "keys": [
+    "x",
+    "w"
+   ]
+  },
+  {
+   "tex": "$\\beta_1$",
+   "meaning": "Intercept of the reference group",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$\\beta_2, \\beta_3$",
+   "meaning": "Slopes on $x$ and $w$",
+   "kind": "Parameters",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$\\beta_4$",
+   "meaning": "Coefficient on $x \\times w$",
+   "kind": "Parameter",
+   "typical": "$-0.123$ (pizza)",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$\\delta$, $\\delta_1$, $\\delta_2$",
+   "meaning": "Intercept shifts for the indicators",
+   "kind": "Parameters",
+   "typical": "—",
+   "keys": [
+    "delta"
+   ]
+  },
+  {
+   "tex": "$\\gamma$",
+   "meaning": "Coefficient on an interaction with an indicator",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "gamma"
+   ]
+  },
+  {
+   "tex": "$E[y]$",
+   "meaning": "Expected outcome",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "~E[y]"
+   ]
+  },
+  {
+   "tex": "$y_i$",
+   "meaning": "Outcome for observation $i$",
+   "kind": "Data",
+   "typical": "$SALES$ in \\$1000s",
+   "keys": [
+    "y"
+   ],
+   "from": "multiple-regression-model"
+  },
+  {
+   "tex": "$K$",
+   "meaning": "Number of coefficients, intercept included",
+   "kind": "Count",
+   "typical": "3 in the burger regression",
+   "keys": [
+    "K"
+   ],
+   "from": "multiple-regression-model"
+  },
+  {
+   "tex": "$N$",
+   "meaning": "Observations",
+   "kind": "Count",
+   "typical": "75",
+   "keys": [
+    "N"
+   ],
+   "from": "multiple-regression-model"
+  },
+  {
+   "tex": "$D_i$ (e.g. $UTOWN$, $FEMALE$)",
+   "meaning": "Indicator: 1 if observation $i$ is in the group, 0 otherwise",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "D",
+    "~UTOWN",
+    "~FEMALE"
+   ],
+   "from": "indicator-variables"
+  },
+  {
+   "tex": "$F$",
+   "meaning": "Test statistic",
+   "kind": "Statistic",
+   "typical": "14.20",
+   "keys": [
+    "F"
+   ],
+   "from": "f-test-of-joint-hypotheses"
+  },
+  {
+   "tex": "$t$",
+   "meaning": "$t$ statistic for a single restriction",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "t"
+   ],
+   "from": "f-test-of-joint-hypotheses"
+  },
+  {
+   "tex": "$A$",
+   "meaning": "Advertising level where the marginal effect equals the marginal cost",
+   "kind": "Constant",
+   "typical": "2.014",
+   "keys": [
+    "A"
+   ],
+   "from": "marginal-effects"
+  },
+  {
+   "tex": "$R^2$",
+   "meaning": "Share of the variation explained by the groups",
+   "kind": "Statistic",
+   "typical": "0.125",
+   "keys": [
+    "R"
+   ],
+   "from": "analysis-of-variance"
+  },
+  {
+   "tex": "$A$, $B$; $a$, $b$",
+   "meaning": "Two factors and their numbers of levels",
+   "kind": "—",
+   "typical": "3 and 2",
+   "keys": [
+    "A",
+    "B",
+    "a",
+    "b"
+   ],
+   "from": "analysis-of-variance"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Without interactions, a regression assumes each explanation works the same way whatever the others are doing: an extra 100 square feet adds the same amount to a house's price in every neighbourhood. An interaction relaxes that. Multiplying living area by a neighbourhood indicator lets each extra square foot be worth more in one neighbourhood than in the other. Multiplying age by income lets the effect of getting older on pizza spending depend on how much a person earns. Multiplying two group indicators lets the wage gap for black women differ from the black gap plus the female gap added together."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "Interactions are how a regression answers \"does the effect differ across groups or levels?\", and reading their coefficients needs the case-by-case equations, not the table alone.",
+       "folded": false
+      }
+     ],
+     "words": 129,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Three kinds, each read by writing out $E[y]$ for every case."
+      },
+      {
+       "t": "prose",
+       "md": "**Slope and intercept indicators** ($D$ a dummy, $x$ quantitative):"
+      },
+      {
+       "t": "math",
+       "tex": "E[y] = \\beta_1 + \\delta D + \\beta_2 x + \\gamma(x \\times D) = \\begin{cases}(\\beta_1 + \\delta) + (\\beta_2 + \\gamma)x, & D = 1\\\\ \\beta_1 + \\beta_2 x, & D = 0\\end{cases}"
+      },
+      {
+       "t": "prose",
+       "md": "**Two quantitative variables**: $E[y] = \\beta_1 + \\beta_2 x + \\beta_3 w + \\beta_4(x \\times w)$ gives $\\partial E[y]/\\partial x = \\beta_2 + \\beta_4 w$."
+      },
+      {
+       "t": "prose",
+       "md": "**Two indicators** ($D_1$, $D_2$): four groups,"
+      },
+      {
+       "t": "math",
+       "tex": "E[y] = \\beta_1 + \\delta_1 D_1 + \\delta_2 D_2 + \\gamma(D_1 \\times D_2): \\quad \\beta_1,\\ \\beta_1 + \\delta_1,\\ \\beta_1 + \\delta_2,\\ \\beta_1 + \\delta_1 + \\delta_2 + \\gamma"
+      }
+     ],
+     "words": 25,
+     "symbols": [
+      "$D$, $D_1$, $D_2$",
+      "$x$, $w$",
+      "$\\beta_1$",
+      "$\\beta_2, \\beta_3$",
+      "$\\beta_4$",
+      "$\\delta$, $\\delta_1$, $\\delta_2$",
+      "$\\gamma$",
+      "$E[y]$",
+      "$y_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-examples-from-the-lecture",
+   "heading": "Worked examples (from the lecture)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-examples-from-the-lecture-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Houses in University Town** (price in \\$1000s, $SQFT$ in 100s of square feet, 1,000 houses):"
+      },
+      {
+       "t": "math",
+       "tex": "\\widehat{PRICE} = 23.06 + 28.12\\,UTOWN + 7.664\\,SQFT + 1.280\\,(SQFT \\times UTOWN)"
+      },
+      {
+       "t": "prose",
+       "md": "An extra 100 square feet adds \\$7,664 elsewhere and $7.664 + 1.280 = 8.944$, \\$8,944, in University Town. The location premium grows with size: for a 2,000-square-foot house ($SQFT = 20$) it is $28.12 + 1.280 \\times 20 = 53.71$, about \\$53,700."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/House price on living area - slope interaction for University Town.png",
+       "alt": "House price on living area - slope interaction for University Town"
+      },
+      {
+       "t": "prose",
+       "md": "**Pizza spending, age and income** (40 people, income in \\$1000s):"
+      },
+      {
+       "t": "math",
+       "tex": "\\widehat{PIZZA} = 161.5 - 2.977\\,AGE + 6.980\\,INCOME - 0.1232\\,(AGE \\times INCOME)"
+      },
+      {
+       "t": "prose",
+       "md": "The effect of a year of age is $-2.977 - 0.1232\\,INCOME$: $-6.06$ dollars a year at an income of \\$25,000 and $-14.07$ at \\$90,000. Older people spend less on pizza, and more so the richer they are."
+      },
+      {
+       "t": "prose",
+       "md": "**Wages by race and gender** (CPS, 1,000 workers):"
+      },
+      {
+       "t": "math",
+       "tex": "\\widehat{WAGE} = -5.281 + 2.070\\,EDUC - 4.169\\,BLACK - 4.785\\,FEMALE + 3.844\\,(BLACK \\times FEMALE)"
+      }
+     ],
+     "words": 99,
+     "symbols": [
+      "$D$, $D_1$, $D_2$",
+      "$K$",
+      "$N$",
+      "$D_i$ (e.g. $UTOWN$, $FEMALE$)",
+      "$F$",
+      "$A$",
+      "$R^2$",
+      "$A$, $B$; $a$, $b$"
+     ]
+    },
+    {
+     "id": "worked-examples-from-the-lecture-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Holding education fixed: white women earn \\$4.78 an hour less than white men ($\\delta_2$); black women earn $-4.169 - 4.785 + 3.844 = -5.11$ less than white men ($\\delta_1 + \\delta_2 + \\gamma$) and $-4.169 + 3.844 = -0.32$ less than white women ($\\delta_1 + \\gamma$). Whether race and gender matter at all is a joint test of $\\delta_1 = \\delta_2 = \\gamma = 0$ ([F Test of Joint Hypotheses](note:f-test-of-joint-hypotheses))."
+      }
+     ],
+     "words": 43,
+     "symbols": [
+      "$\\delta$, $\\delta_1$, $\\delta_2$",
+      "$\\gamma$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "effect-plots-with-interactions",
+   "heading": "Effect plots with interactions",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "effect-plots-with-interactions-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "An effect plot draws one line per group: parallel lines mean no slope interaction; lines that cross or fan out show one. In the prestige data, letting education and log income interact with occupation type gives three different slopes."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Prestige with type interactions - education effect by occupation type.png",
+       "alt": "Prestige with type interactions - education effect by occupation type"
+      }
+     ],
+     "words": 39,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Reading the main effect as the effect.** With $x \\times w$ in the model, $\\beta_2$ is the effect of $x$ when $w = 0$, which may be outside the data (an income of zero).\n- **Leaving out the main effects.** $y = \\beta_1 + \\beta_2 x + \\gamma(x \\times D)$ forces both groups through the same intercept; the lecture's slope-only model does this.\n- **Adding gaps without the interaction.** The black-female gap is $\\delta_1 + \\delta_2 + \\gamma$, not $\\delta_1 + \\delta_2$.\n- **Collinearity.** $x$, $w$ and $x \\times w$ are often highly correlated (the pizza regression's condition number is 18,900), so individual $t$ statistics are small even when the terms matter jointly."
+      }
+     ],
+     "words": 83,
+     "symbols": [
+      "$D$, $D_1$, $D_2$",
+      "$x$, $w$",
+      "$\\beta_1$",
+      "$\\beta_2, \\beta_3$",
+      "$\\beta_4$",
+      "$\\delta$, $\\delta_1$, $\\delta_2$",
+      "$\\gamma$",
+      "$y_i$",
+      "$t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Indicator Variables](note:indicator-variables) · [Marginal Effects](note:marginal-effects) · [Analysis of Variance](note:analysis-of-variance) · [F Test of Joint Hypotheses](note:f-test-of-joint-hypotheses)"
+      }
+     ],
+     "words": 13,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

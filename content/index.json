@@ -1,10 +1,10 @@
 {
  "schema": "mqe-lessons/1",
- "generated_at": "2026-10-18T20:10:42Z",
+ "generated_at": "2026-10-19T19:13:30Z",
  "vault": {
-  "notes": 198,
+  "notes": 220,
   "errors": 0,
-  "warnings": 3
+  "warnings": 5
  },
  "courses": [
   {
@@ -48,7 +48,12 @@
     "econ-430-l4-cross-validation-and-the-bootstrap",
     "econ-430-l5-estimating-nonlinear-relationships",
     "econ-430-l6-indicator-variables-and-the-ols-workflow",
-    "econ-430-l7-the-classical-linear-regression-model"
+    "econ-430-l7-the-classical-linear-regression-model",
+    "econ-430-l8-building-multiple-regression-models",
+    "econ-430-l9-bootstrapping-regression-models",
+    "econ-430-l10-modeling-issues-in-multiple-regression",
+    "econ-430-l11-heteroskedasticity",
+    "econ-430-l12-missing-data-and-the-regression-workflow"
    ],
    "practice": [
     "econ-430-simple-linear-regression-practice-questions"
@@ -115,41 +120,57 @@
    "id": "econometrics",
    "label": "Econometrics",
    "notes": [
+    "analysis-of-variance",
     "bootstrapping-ols",
     "box-cox-and-power-transformations",
     "box-cox-ladder-explorer",
+    "box-tidwell-transformation",
     "classical-measurement-error",
     "clustered-standard-errors",
     "coefficient-of-determination",
+    "component-plus-residual-plot",
     "conditional-mean-vs-linear-projection",
     "confidence-vs-prediction-intervals",
     "cross-validation",
+    "delta-method",
     "difference-in-differences",
     "eda-for-regression",
     "endogenous-and-exogenous-variables",
     "error-normality-and-jarque-bera",
+    "f-test-of-joint-hypotheses",
     "fixed-effects-regression",
     "frisch-waugh-lovell-theorem",
     "full-rank-and-identification",
     "functional-forms-and-elasticities",
     "gauss-markov-theorem",
+    "generalized-least-squares",
+    "heteroskedasticity-tests",
+    "heteroskedasticity-consistent-standard-errors",
     "homoskedasticity",
     "hypothesis-tests-on-regression-coefficients",
     "indicator-variables",
     "instrumental-variables-and-2sls",
+    "interaction-terms",
     "kernel-density-bandwidth-explorer",
     "leverage-and-influence-explorer",
     "lowess-smoother",
     "lowess-span-explorer",
+    "marginal-effects",
+    "missing-data-and-imputation",
+    "model-selection-criteria",
+    "multicollinearity",
+    "multiple-regression-model",
     "ols-estimator",
     "ols-in-matrix-form",
     "ols-line-fitter",
     "ols-sampling-distribution",
     "ols-sampling-model",
+    "omitted-variable-bias",
     "polynomial-degree-and-cross-validation",
     "projection-matrix-and-residual-maker",
     "q-q-plot",
     "q-q-plot-shape-explorer",
+    "ramsey-reset",
     "regression-diagnostics",
     "sampling-distribution-of-ols",
     "shift-share-exposure",
@@ -157,7 +178,8 @@
     "simple-linear-regression-model",
     "skewness-and-kurtosis",
     "sr-assumptions",
-    "strict-exogeneity"
+    "strict-exogeneity",
+    "variable-selection"
    ]
   },
   {
@@ -417,20 +439,26 @@
    "id": "statistics",
    "label": "Statistics",
    "notes": [
+    "analysis-of-variance",
     "classical-measurement-error",
     "coefficient-of-determination",
     "coefficient-of-variation",
     "cullen-frey-graph",
+    "delta-method",
     "eda-for-regression",
+    "f-test-of-joint-hypotheses",
     "hypothesis-tests-on-regression-coefficients",
     "kernel-density-estimation",
     "law-of-iterated-expectations",
     "law-of-total-variance",
     "lognormal-inequality-explorer",
     "lowess-smoother",
+    "missing-data-and-imputation",
+    "model-selection-criteria",
     "q-q-plot",
     "skewness-and-kurtosis",
     "top-coding",
+    "variable-selection",
     "variance-of-log-income",
     "within-and-between-group-inequality"
    ]
@@ -685,6 +713,87 @@
    "words": 430,
    "created": "2026-10-08T16:40:31Z",
    "updated": "2026-10-08T16:41:06Z"
+  },
+  "analysis-of-variance": {
+   "slug": "analysis-of-variance",
+   "name": "Analysis of Variance",
+   "title": "Analysis of Variance",
+   "type": "concept",
+   "path": "Concepts/Analysis of Variance.md",
+   "summary": "ANOVA is regression on factor dummies: one factor compares group means with an F test, Tukey's HSD compares pairs with adjusted p-values, ANCOVA adds a quantitative regressor, two-way ANOVA adds a second factor and its interaction.",
+   "domain": "econometrics",
+   "domains": [
+    "econometrics",
+    "statistics"
+   ],
+   "tags": [],
+   "aliases": [
+    "ANOVA",
+    "one-way ANOVA",
+    "two-way ANOVA",
+    "multiway ANOVA",
+    "ANCOVA",
+    "analysis of covariance",
+    "Tukey HSD",
+    "multiple comparisons"
+   ],
+   "requires": [
+    "indicator-variables",
+    "f-test-of-joint-hypotheses"
+   ],
+   "lessons": [
+    "econ-430-l8-building-multiple-regression-models"
+   ],
+   "courses": [
+    "Econ 430"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "related",
+      "note": "coefficient-of-determination"
+     },
+     {
+      "kind": "related",
+      "note": "interaction-terms"
+     },
+     {
+      "kind": "requires",
+      "note": "f-test-of-joint-hypotheses"
+     },
+     {
+      "kind": "requires",
+      "note": "indicator-variables"
+     }
+    ],
+    "in": [
+     {
+      "kind": "covers",
+      "note": "econ-430-l8-building-multiple-regression-models"
+     },
+     {
+      "kind": "related",
+      "note": "f-test-of-joint-hypotheses"
+     },
+     {
+      "kind": "related",
+      "note": "indicator-variables"
+     },
+     {
+      "kind": "related",
+      "note": "interaction-terms"
+     }
+    ]
+   },
+   "figures": [
+    "assets/Attachments/Reading scores by teaching method - boxplots.png",
+    "assets/Attachments/Conformity by authoritarianism and partner status - interaction plot.png"
+   ],
+   "interactives": [],
+   "checks": 0,
+   "words": 459,
+   "created": "2026-10-19T18:36:08Z",
+   "updated": "2026-10-19T18:36:08Z"
   },
   "autor-2019-work-of-the-past-work-of-the-future": {
    "slug": "autor-2019-work-of-the-past-work-of-the-future",
@@ -1054,7 +1163,8 @@
    ],
    "lessons": [
     "econ-430-l4-cross-validation-and-the-bootstrap",
-    "econ-430-l6-indicator-variables-and-the-ols-workflow"
+    "econ-430-l6-indicator-variables-and-the-ols-workflow",
+    "econ-430-l9-bootstrapping-regression-models"
    ],
    "courses": [
     "Econ 430"
@@ -1079,6 +1189,10 @@
      },
      {
       "kind": "related",
+      "note": "heteroskedasticity-consistent-standard-errors"
+     },
+     {
+      "kind": "related",
       "note": "homoskedasticity"
      },
      {
@@ -1100,6 +1214,10 @@
       "note": "econ-430-l6-indicator-variables-and-the-ols-workflow"
      },
      {
+      "kind": "covers",
+      "note": "econ-430-l9-bootstrapping-regression-models"
+     },
+     {
       "kind": "related",
       "note": "coefficient-of-determination"
      },
@@ -1114,6 +1232,10 @@
      {
       "kind": "related",
       "note": "error-normality-and-jarque-bera"
+     },
+     {
+      "kind": "related",
+      "note": "heteroskedasticity-consistent-standard-errors"
      },
      {
       "kind": "related",
@@ -1144,9 +1266,9 @@
    ],
    "interactives": [],
    "checks": 0,
-   "words": 458,
-   "created": "2026-10-17T19:26:06Z",
-   "updated": "2026-10-17T19:29:37Z"
+   "words": 538,
+   "created": "2026-10-19T18:36:08Z",
+   "updated": "2026-10-19T18:42:38Z"
   },
   "box-cox-and-power-transformations": {
    "slug": "box-cox-and-power-transformations",
@@ -1170,6 +1292,8 @@
     "logarithms-and-growth-rates"
    ],
    "lessons": [
+    "econ-430-l10-modeling-issues-in-multiple-regression",
+    "econ-430-l11-heteroskedasticity",
     "econ-430-l5-estimating-nonlinear-relationships",
     "econ-430-l6-indicator-variables-and-the-ols-workflow"
    ],
@@ -1178,6 +1302,18 @@
    ],
    "edges": {
     "out": [
+     {
+      "kind": "related",
+      "note": "box-tidwell-transformation"
+     },
+     {
+      "kind": "related",
+      "note": "component-plus-residual-plot"
+     },
+     {
+      "kind": "related",
+      "note": "heteroskedasticity-tests"
+     },
      {
       "kind": "related",
       "note": "regression-diagnostics"
@@ -1205,6 +1341,18 @@
     ],
     "in": [
      {
+      "kind": "applies",
+      "note": "econ-430-l12-missing-data-and-the-regression-workflow"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l10-modeling-issues-in-multiple-regression"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l11-heteroskedasticity"
+     },
+     {
       "kind": "covers",
       "note": "econ-430-l5-estimating-nonlinear-relationships"
      },
@@ -1226,6 +1374,10 @@
      },
      {
       "kind": "related",
+      "note": "component-plus-residual-plot"
+     },
+     {
+      "kind": "related",
       "note": "conditional-mean-vs-linear-projection"
      },
      {
@@ -1239,6 +1391,10 @@
      {
       "kind": "related",
       "note": "functional-forms-and-elasticities"
+     },
+     {
+      "kind": "related",
+      "note": "heteroskedasticity-tests"
      },
      {
       "kind": "related",
@@ -1267,6 +1423,10 @@
      {
       "kind": "related",
       "note": "unconstrained-optimization"
+     },
+     {
+      "kind": "requires",
+      "note": "box-tidwell-transformation"
      }
     ]
    },
@@ -1283,9 +1443,9 @@
    ],
    "interactives": [],
    "checks": 0,
-   "words": 776,
-   "created": "2026-10-17T19:26:06Z",
-   "updated": "2026-10-17T19:29:37Z"
+   "words": 819,
+   "created": "2026-10-19T18:36:08Z",
+   "updated": "2026-10-19T18:42:14Z"
   },
   "box-cox-ladder-explorer": {
    "slug": "box-cox-ladder-explorer",
@@ -1330,6 +1490,78 @@
    "words": 216,
    "created": "2026-10-18T20:06:21Z",
    "updated": "2026-10-18T20:06:21Z"
+  },
+  "box-tidwell-transformation": {
+   "slug": "box-tidwell-transformation",
+   "name": "Box-Tidwell Transformation",
+   "title": "Box-Tidwell Transformation",
+   "type": "concept",
+   "path": "Concepts/Box-Tidwell Transformation.md",
+   "summary": "Box-Tidwell estimates a power λⱼ for each predictor in y = β₀ + Σβⱼxⱼ^λⱼ + e by maximum likelihood; a score test on xⱼ ln xⱼ checks H₀: λⱼ = 1. λ near 0 suggests a log.",
+   "domain": "econometrics",
+   "domains": [
+    "econometrics"
+   ],
+   "tags": [],
+   "aliases": [
+    "Box-Tidwell",
+    "Box-Tidwell method",
+    "predictor transformation",
+    "constructed variable",
+    "constructed-variable plot"
+   ],
+   "requires": [
+    "box-cox-and-power-transformations",
+    "component-plus-residual-plot"
+   ],
+   "lessons": [
+    "econ-430-l10-modeling-issues-in-multiple-regression"
+   ],
+   "courses": [
+    "Econ 430"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "related",
+      "note": "functional-forms-and-elasticities"
+     },
+     {
+      "kind": "requires",
+      "note": "box-cox-and-power-transformations"
+     },
+     {
+      "kind": "requires",
+      "note": "component-plus-residual-plot"
+     }
+    ],
+    "in": [
+     {
+      "kind": "covers",
+      "note": "econ-430-l10-modeling-issues-in-multiple-regression"
+     },
+     {
+      "kind": "related",
+      "note": "box-cox-and-power-transformations"
+     },
+     {
+      "kind": "related",
+      "note": "component-plus-residual-plot"
+     },
+     {
+      "kind": "related",
+      "note": "regression-diagnostics"
+     }
+    ]
+   },
+   "figures": [
+    "assets/Attachments/Box-Tidwell constructed-variable plots - income and education.png"
+   ],
+   "interactives": [],
+   "checks": 0,
+   "words": 292,
+   "created": "2026-10-19T18:36:08Z",
+   "updated": "2026-10-19T18:36:08Z"
   },
   "brazil-regional-wage-effects-of-1990s-tariff-cuts": {
    "slug": "brazil-regional-wage-effects-of-1990s-tariff-cuts",
@@ -2055,6 +2287,10 @@
      },
      {
       "kind": "related",
+      "note": "heteroskedasticity-consistent-standard-errors"
+     },
+     {
+      "kind": "related",
       "note": "shift-share-instrument"
      },
      {
@@ -2235,6 +2471,10 @@
      },
      {
       "kind": "related",
+      "note": "model-selection-criteria"
+     },
+     {
+      "kind": "related",
       "note": "sampling-distribution-of-ols"
      },
      {
@@ -2257,6 +2497,10 @@
      },
      {
       "kind": "related",
+      "note": "analysis-of-variance"
+     },
+     {
+      "kind": "related",
       "note": "cross-validation"
      },
      {
@@ -2266,15 +2510,23 @@
      {
       "kind": "related",
       "note": "sampling-distribution-of-ols"
+     },
+     {
+      "kind": "requires",
+      "note": "heteroskedasticity-tests"
+     },
+     {
+      "kind": "requires",
+      "note": "model-selection-criteria"
      }
     ]
    },
    "figures": [],
    "interactives": [],
    "checks": 0,
-   "words": 422,
+   "words": 449,
    "created": "2026-10-17T19:26:06Z",
-   "updated": "2026-10-17T19:26:06Z"
+   "updated": "2026-10-19T18:42:14Z"
   },
   "coefficient-of-variation": {
    "slug": "coefficient-of-variation",
@@ -2537,6 +2789,96 @@
    "words": 312,
    "created": "2026-10-08T16:10:52Z",
    "updated": "2026-10-08T16:11:59Z"
+  },
+  "component-plus-residual-plot": {
+   "slug": "component-plus-residual-plot",
+   "name": "Component-Plus-Residual Plot",
+   "title": "Component-Plus-Residual Plot",
+   "type": "concept",
+   "path": "Concepts/Component-Plus-Residual Plot.md",
+   "summary": "Plot the partial residual eᵢ + bⱼxᵢⱼ against xⱼ: the other regressors' effects are removed, so curvature shows that xⱼ needs a transformation. CERES plots do the same when the regressors are nonlinearly related.",
+   "domain": "econometrics",
+   "domains": [
+    "econometrics"
+   ],
+   "tags": [],
+   "aliases": [
+    "component-plus-residual plot",
+    "CCPR plot",
+    "partial residual plot",
+    "partial residual",
+    "CERES plot"
+   ],
+   "requires": [
+    "multiple-regression-model",
+    "regression-diagnostics"
+   ],
+   "lessons": [
+    "econ-430-l10-modeling-issues-in-multiple-regression"
+   ],
+   "courses": [
+    "Econ 430"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "related",
+      "note": "box-cox-and-power-transformations"
+     },
+     {
+      "kind": "related",
+      "note": "box-tidwell-transformation"
+     },
+     {
+      "kind": "related",
+      "note": "lowess-smoother"
+     },
+     {
+      "kind": "related",
+      "note": "ramsey-reset"
+     },
+     {
+      "kind": "requires",
+      "note": "multiple-regression-model"
+     },
+     {
+      "kind": "requires",
+      "note": "regression-diagnostics"
+     }
+    ],
+    "in": [
+     {
+      "kind": "covers",
+      "note": "econ-430-l10-modeling-issues-in-multiple-regression"
+     },
+     {
+      "kind": "related",
+      "note": "box-cox-and-power-transformations"
+     },
+     {
+      "kind": "related",
+      "note": "ramsey-reset"
+     },
+     {
+      "kind": "related",
+      "note": "regression-diagnostics"
+     },
+     {
+      "kind": "requires",
+      "note": "box-tidwell-transformation"
+     }
+    ]
+   },
+   "figures": [
+    "assets/Attachments/Prestige regression - component-plus-residual plots.png",
+    "assets/Attachments/Prestige regression with log income - component-plus-residual plots.png",
+    "assets/Attachments/Prestige regression - CERES plots for income and education.png"
+   ],
+   "interactives": [],
+   "checks": 0,
+   "words": 316,
+   "created": "2026-10-19T18:36:08Z",
+   "updated": "2026-10-19T18:36:08Z"
   },
   "composition-adjustment": {
    "slug": "composition-adjustment",
@@ -2811,6 +3153,7 @@
     "sampling-distribution-of-ols"
    ],
    "lessons": [
+    "econ-430-l12-missing-data-and-the-regression-workflow",
     "econ-430-l3-the-method-of-least-squares"
    ],
    "courses": [
@@ -2828,6 +3171,10 @@
      }
     ],
     "in": [
+     {
+      "kind": "covers",
+      "note": "econ-430-l12-missing-data-and-the-regression-workflow"
+     },
      {
       "kind": "covers",
       "note": "econ-430-l3-the-method-of-least-squares"
@@ -2857,8 +3204,8 @@
    "interactives": [],
    "checks": 0,
    "words": 746,
-   "created": "2026-10-17T19:25:21Z",
-   "updated": "2026-10-17T19:29:37Z"
+   "created": "2026-10-19T18:36:08Z",
+   "updated": "2026-10-19T18:36:08Z"
   },
   "constrained-optimization-and-lagrange-multipliers": {
    "slug": "constrained-optimization-and-lagrange-multipliers",
@@ -3321,7 +3668,15 @@
      },
      {
       "kind": "related",
+      "note": "model-selection-criteria"
+     },
+     {
+      "kind": "related",
       "note": "regression-diagnostics"
+     },
+     {
+      "kind": "related",
+      "note": "variable-selection"
      }
     ]
    },
@@ -3719,6 +4074,92 @@
    "words": 341,
    "created": "2026-10-03T20:42:39Z",
    "updated": "2026-10-06T04:43:20Z"
+  },
+  "delta-method": {
+   "slug": "delta-method",
+   "name": "Delta Method",
+   "title": "Delta Method",
+   "type": "concept",
+   "path": "Concepts/Delta Method.md",
+   "summary": "Var(g(b)) ≈ J′ Cov(b) J, with J the gradient of g at the estimates: a standard error for a nonlinear function of coefficients, such as a turning point −b₃/(2b₄). For a linear combination it is exact.",
+   "domain": "econometrics",
+   "domains": [
+    "econometrics",
+    "statistics"
+   ],
+   "tags": [],
+   "aliases": [
+    "delta method",
+    "standard error of a nonlinear function",
+    "linear combination of coefficients",
+    "variance of a linear combination"
+   ],
+   "requires": [
+    "sampling-distribution-of-ols",
+    "taylor-series-approximation"
+   ],
+   "lessons": [
+    "econ-430-l8-building-multiple-regression-models"
+   ],
+   "courses": [
+    "Econ 430"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "related",
+      "note": "f-test-of-joint-hypotheses"
+     },
+     {
+      "kind": "related",
+      "note": "hypothesis-tests-on-regression-coefficients"
+     },
+     {
+      "kind": "related",
+      "note": "marginal-effects"
+     },
+     {
+      "kind": "related",
+      "note": "partial-derivatives-and-the-gradient"
+     },
+     {
+      "kind": "requires",
+      "note": "sampling-distribution-of-ols"
+     },
+     {
+      "kind": "requires",
+      "note": "taylor-series-approximation"
+     }
+    ],
+    "in": [
+     {
+      "kind": "covers",
+      "note": "econ-430-l8-building-multiple-regression-models"
+     },
+     {
+      "kind": "related",
+      "note": "f-test-of-joint-hypotheses"
+     },
+     {
+      "kind": "related",
+      "note": "hypothesis-tests-on-regression-coefficients"
+     },
+     {
+      "kind": "related",
+      "note": "marginal-effects"
+     },
+     {
+      "kind": "related",
+      "note": "taylor-series-approximation"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 346,
+   "created": "2026-10-19T18:36:08Z",
+   "updated": "2026-10-19T18:42:38Z"
   },
   "denmark-firm-level-effects-of-offshoring-1995-2006": {
    "slug": "denmark-firm-level-effects-of-offshoring-1995-2006",
@@ -5341,6 +5782,18 @@
      },
      {
       "kind": "part_of",
+      "note": "econ-430-l10-modeling-issues-in-multiple-regression"
+     },
+     {
+      "kind": "part_of",
+      "note": "econ-430-l11-heteroskedasticity"
+     },
+     {
+      "kind": "part_of",
+      "note": "econ-430-l12-missing-data-and-the-regression-workflow"
+     },
+     {
+      "kind": "part_of",
       "note": "econ-430-l2-bivariate-characterizations"
      },
      {
@@ -5362,15 +5815,23 @@
      {
       "kind": "part_of",
       "note": "econ-430-l7-the-classical-linear-regression-model"
+     },
+     {
+      "kind": "part_of",
+      "note": "econ-430-l8-building-multiple-regression-models"
+     },
+     {
+      "kind": "part_of",
+      "note": "econ-430-l9-bootstrapping-regression-models"
      }
     ]
    },
    "figures": [],
    "interactives": [],
    "checks": 0,
-   "words": 544,
+   "words": 833,
    "created": "2026-10-17T19:26:03Z",
-   "updated": "2026-10-17T19:26:03Z"
+   "updated": "2026-10-19T18:42:14Z"
   },
   "econ-430-l1-univariate-characterizations": {
    "slug": "econ-430-l1-univariate-characterizations",
@@ -5482,6 +5943,351 @@
    ],
    "created": "2026-10-18T20:03:07Z",
    "updated": "2026-10-18T20:03:07Z"
+  },
+  "econ-430-l10-modeling-issues-in-multiple-regression": {
+   "slug": "econ-430-l10-modeling-issues-in-multiple-regression",
+   "name": "Econ 430 L10 Modeling Issues in Multiple Regression",
+   "title": "Modeling Issues in Linear Regression",
+   "type": "lecture",
+   "path": "Courses/Econ 430/Lectures/Econ 430 L10 Modeling Issues in Multiple Regression.md",
+   "summary": "Specification problems: component-plus-residual plots and Box-Tidwell transform predictors, omitted variables bias the rest, irrelevant or collinear ones inflate variances, RESET tests the form, and AIC, BIC, Cp and search choose the model.",
+   "tags": [],
+   "aliases": [],
+   "requires": [],
+   "lessons": [],
+   "courses": [
+    "Econ 430"
+   ],
+   "course": "Econ 430",
+   "lecture": 10,
+   "source": "Regression_Lecture2.ipynb (section 3)",
+   "edges": {
+    "out": [
+     {
+      "kind": "covers",
+      "note": "box-cox-and-power-transformations"
+     },
+     {
+      "kind": "covers",
+      "note": "box-tidwell-transformation"
+     },
+     {
+      "kind": "covers",
+      "note": "component-plus-residual-plot"
+     },
+     {
+      "kind": "covers",
+      "note": "model-selection-criteria"
+     },
+     {
+      "kind": "covers",
+      "note": "multicollinearity"
+     },
+     {
+      "kind": "covers",
+      "note": "omitted-variable-bias"
+     },
+     {
+      "kind": "covers",
+      "note": "ramsey-reset"
+     },
+     {
+      "kind": "covers",
+      "note": "variable-selection"
+     },
+     {
+      "kind": "next",
+      "note": "econ-430-l11-heteroskedasticity"
+     },
+     {
+      "kind": "part_of",
+      "note": "econ-430"
+     },
+     {
+      "kind": "shows",
+      "note": "ols-sampling-distribution"
+     }
+    ],
+    "in": [
+     {
+      "kind": "next",
+      "note": "econ-430-l9-bootstrapping-regression-models"
+     }
+    ]
+   },
+   "figures": [
+    "assets/Attachments/Prestige regression - component-plus-residual plots.png",
+    "assets/Attachments/Prestige regression with log income - component-plus-residual plots.png",
+    "assets/Attachments/Prestige regression - CERES plots for income and education.png",
+    "assets/Attachments/Box-Tidwell constructed-variable plots - income and education.png",
+    "assets/Attachments/Mallows Cp by subset - family income.png",
+    "assets/Attachments/Boruta feature importance - CPS wages.png",
+    "assets/Attachments/Forward selection by AIC - family income.png",
+    "assets/Attachments/Forward selection by BIC - family income.png"
+   ],
+   "interactives": [
+    "ols-sampling-distribution"
+   ],
+   "checks": 12,
+   "words": 1984,
+   "objectives": [
+    {
+     "n": 1,
+     "md": "Read component-plus-residual and CERES plots to decide which predictor needs a transformation.",
+     "tested": 1
+    },
+    {
+     "n": 2,
+     "md": "Read Box-Tidwell output and choose the power for each predictor.",
+     "tested": 1
+    },
+    {
+     "n": 3,
+     "md": "Give the direction and size of omitted variable bias from the bias formula or the short and long regressions.",
+     "tested": 2
+    },
+    {
+     "n": 4,
+     "md": "Explain why an irrelevant variable leaves estimates unbiased but can inflate their variances.",
+     "tested": 2
+    },
+    {
+     "n": 5,
+     "md": "Detect multicollinearity from correlations, a high $R^2$ with low $t$ statistics, and VIFs, and interpret a VIF.",
+     "tested": 2
+    },
+    {
+     "n": 6,
+     "md": "Interpret a RESET result and recommend what to do next.",
+     "tested": 1
+    },
+    {
+     "n": 7,
+     "md": "Choose among models with AIC, BIC and Mallows' Cp, and compute Cp from regression output.",
+     "tested": 3
+    },
+    {
+     "n": 8,
+     "md": "Describe exhaustive, forward, backward and stepwise selection and the Boruta algorithm, and their limits.",
+     "tested": 1
+    }
+   ],
+   "created": "2026-10-19T18:36:04Z",
+   "updated": "2026-10-19T18:36:04Z"
+  },
+  "econ-430-l11-heteroskedasticity": {
+   "slug": "econ-430-l11-heteroskedasticity",
+   "name": "Econ 430 L11 Heteroskedasticity",
+   "title": "Heteroskedasticity",
+   "type": "lecture",
+   "path": "Courses/Econ 430/Lectures/Econ 430 L11 Heteroskedasticity.md",
+   "summary": "When the error variance changes with the regressors, detect it with spread-level plots and the Breusch-Pagan, White and Goldfeld-Quandt tests, then fix inference with White standard errors or regain efficiency with WLS and FGLS.",
+   "tags": [],
+   "aliases": [],
+   "requires": [],
+   "lessons": [],
+   "courses": [
+    "Econ 430"
+   ],
+   "course": "Econ 430",
+   "lecture": 11,
+   "source": "Regression_Lecture2.ipynb (section 4)",
+   "edges": {
+    "out": [
+     {
+      "kind": "covers",
+      "note": "box-cox-and-power-transformations"
+     },
+     {
+      "kind": "covers",
+      "note": "generalized-least-squares"
+     },
+     {
+      "kind": "covers",
+      "note": "heteroskedasticity-consistent-standard-errors"
+     },
+     {
+      "kind": "covers",
+      "note": "heteroskedasticity-tests"
+     },
+     {
+      "kind": "covers",
+      "note": "homoskedasticity"
+     },
+     {
+      "kind": "next",
+      "note": "econ-430-l12-missing-data-and-the-regression-workflow"
+     },
+     {
+      "kind": "part_of",
+      "note": "econ-430"
+     },
+     {
+      "kind": "shows",
+      "note": "ols-sampling-distribution"
+     }
+    ],
+    "in": [
+     {
+      "kind": "next",
+      "note": "econ-430-l10-modeling-issues-in-multiple-regression"
+     }
+    ]
+   },
+   "figures": [
+    "assets/Attachments/Food expenditure regression - spread-level plot.png"
+   ],
+   "interactives": [
+    "ols-sampling-distribution"
+   ],
+   "checks": 7,
+   "derives": 2,
+   "words": 1136,
+   "objectives": [
+    {
+     "n": 1,
+     "md": "Write the variance-function model for heteroskedasticity, state the null of constant variance, and read a spread-level plot.",
+     "tested": 1
+    },
+    {
+     "n": 2,
+     "md": "Compute and interpret the Breusch-Pagan statistic $N R^2$.",
+     "tested": 1
+    },
+    {
+     "n": 3,
+     "md": "Explain how the White test differs from Breusch-Pagan, its degrees of freedom, and when to prefer each.",
+     "tested": 2
+    },
+    {
+     "n": 4,
+     "md": "Carry out a Goldfeld-Quandt test for a factor or a split sample.",
+     "tested": 1
+    },
+    {
+     "n": 5,
+     "md": "Use White (HC1) standard errors and explain what heteroskedasticity does to the usual ones.",
+     "tested": 2
+    },
+    {
+     "n": 6,
+     "md": "Derive the WLS transformation and the FGLS variance regression, and interpret WLS and FGLS estimates.",
+     "tested": 3
+    }
+   ],
+   "created": "2026-10-19T18:36:05Z",
+   "updated": "2026-10-19T18:36:05Z"
+  },
+  "econ-430-l12-missing-data-and-the-regression-workflow": {
+   "slug": "econ-430-l12-missing-data-and-the-regression-workflow",
+   "name": "Econ 430 L12 Missing Data and the Regression Workflow",
+   "title": "Missing Observations",
+   "type": "lecture",
+   "path": "Courses/Econ 430/Lectures/Econ 430 L12 Missing Data and the Regression Workflow.md",
+   "summary": "Missing values can be dropped or imputed (mean, kNN, MICE); a 10-step worked example on college GPA then runs the whole multiple-regression workflow, from inspecting the data to diagnostics, specification tests, robust errors, WLS and FGLS.",
+   "tags": [],
+   "aliases": [],
+   "requires": [],
+   "lessons": [],
+   "courses": [
+    "Econ 430"
+   ],
+   "course": "Econ 430",
+   "lecture": 12,
+   "source": "Regression_Lecture2.ipynb (section 5 and the 10-step example)",
+   "edges": {
+    "out": [
+     {
+      "kind": "applies",
+      "note": "box-cox-and-power-transformations"
+     },
+     {
+      "kind": "covers",
+      "note": "confidence-vs-prediction-intervals"
+     },
+     {
+      "kind": "covers",
+      "note": "generalized-least-squares"
+     },
+     {
+      "kind": "covers",
+      "note": "heteroskedasticity-consistent-standard-errors"
+     },
+     {
+      "kind": "covers",
+      "note": "heteroskedasticity-tests"
+     },
+     {
+      "kind": "covers",
+      "note": "indicator-variables"
+     },
+     {
+      "kind": "covers",
+      "note": "missing-data-and-imputation"
+     },
+     {
+      "kind": "covers",
+      "note": "multicollinearity"
+     },
+     {
+      "kind": "covers",
+      "note": "ramsey-reset"
+     },
+     {
+      "kind": "covers",
+      "note": "regression-diagnostics"
+     },
+     {
+      "kind": "part_of",
+      "note": "econ-430"
+     }
+    ],
+    "in": [
+     {
+      "kind": "next",
+      "note": "econ-430-l11-heteroskedasticity"
+     }
+    ]
+   },
+   "figures": [
+    "assets/Attachments/College GPA data - scatterplot matrix by gender.png",
+    "assets/Attachments/College GPA data - correlation heatmap.png",
+    "assets/Attachments/College GPA regression - observed and residuals against predicted.png",
+    "assets/Attachments/College GPA regression - normal probability plot of residuals.png",
+    "assets/Attachments/College GPA regression - influence plot with Cook's distance.png"
+   ],
+   "interactives": [],
+   "checks": 8,
+   "words": 1825,
+   "objectives": [
+    {
+     "n": 1,
+     "md": "Choose a way to handle missing values, and judge imputations by their error against the true values.",
+     "tested": 2
+    },
+    {
+     "n": 2,
+     "md": "Inspect data before fitting: spot problematic indicators and read the correlations.",
+     "tested": 1
+    },
+    {
+     "n": 3,
+     "md": "Fit and interpret a multiple regression, predict from it, and read its diagnostic and influence plots.",
+     "tested": 2
+    },
+    {
+     "n": 4,
+     "md": "Run and interpret the multicollinearity, heteroskedasticity and specification checks, recognizing a misapplied test.",
+     "tested": 2
+    },
+    {
+     "n": 5,
+     "md": "Compare the OLS, robust, WLS and FGLS estimates and say what their agreement or disagreement means.",
+     "tested": 1
+    }
+   ],
+   "created": "2026-10-19T18:36:05Z",
+   "updated": "2026-10-19T18:36:05Z"
   },
   "econ-430-l2-bivariate-characterizations": {
    "slug": "econ-430-l2-bivariate-characterizations",
@@ -6105,6 +6911,10 @@
       "note": "strict-exogeneity"
      },
      {
+      "kind": "next",
+      "note": "econ-430-l8-building-multiple-regression-models"
+     },
+     {
       "kind": "part_of",
       "note": "econ-430"
      }
@@ -6154,7 +6964,211 @@
     }
    ],
    "created": "2026-10-17T19:26:03Z",
-   "updated": "2026-10-17T19:32:41Z"
+   "updated": "2026-10-19T18:42:14Z"
+  },
+  "econ-430-l8-building-multiple-regression-models": {
+   "slug": "econ-430-l8-building-multiple-regression-models",
+   "name": "Econ 430 L8 Building Multiple Regression Models",
+   "title": "Building Models",
+   "type": "lecture",
+   "path": "Courses/Econ 430/Lectures/Econ 430 L8 Building Multiple Regression Models.md",
+   "summary": "Multiple regression reads each coefficient as a partial effect. Linear combinations get t tests, quadratics get marginal effects and turning points, factors give ANOVA, interactions let effects differ, and F tests check joint restrictions.",
+   "tags": [],
+   "aliases": [],
+   "requires": [],
+   "lessons": [],
+   "courses": [
+    "Econ 430"
+   ],
+   "course": "Econ 430",
+   "lecture": 8,
+   "source": "Regression_Lecture2.ipynb (section 1)",
+   "edges": {
+    "out": [
+     {
+      "kind": "covers",
+      "note": "analysis-of-variance"
+     },
+     {
+      "kind": "covers",
+      "note": "delta-method"
+     },
+     {
+      "kind": "covers",
+      "note": "f-test-of-joint-hypotheses"
+     },
+     {
+      "kind": "covers",
+      "note": "functional-forms-and-elasticities"
+     },
+     {
+      "kind": "covers",
+      "note": "hypothesis-tests-on-regression-coefficients"
+     },
+     {
+      "kind": "covers",
+      "note": "indicator-variables"
+     },
+     {
+      "kind": "covers",
+      "note": "interaction-terms"
+     },
+     {
+      "kind": "covers",
+      "note": "marginal-effects"
+     },
+     {
+      "kind": "covers",
+      "note": "multiple-regression-model"
+     },
+     {
+      "kind": "next",
+      "note": "econ-430-l9-bootstrapping-regression-models"
+     },
+     {
+      "kind": "part_of",
+      "note": "econ-430"
+     }
+    ],
+    "in": [
+     {
+      "kind": "next",
+      "note": "econ-430-l7-the-classical-linear-regression-model"
+     }
+    ]
+   },
+   "figures": [
+    "assets/Attachments/Burger sales data - scatterplot matrix.png",
+    "assets/Attachments/Burger sales on price and advertising - fitted regression plane.png",
+    "assets/Attachments/Burger sales regression - effect plots for price and advertising.png",
+    "assets/Attachments/Burger sales with quadratic advertising - contour plot.png",
+    "assets/Attachments/Burger sales with quadratic advertising - effect plots.png",
+    "assets/Attachments/Reading scores by teaching method - boxplots.png",
+    "assets/Attachments/Reading scores by teaching method - group means with intervals.png",
+    "assets/Attachments/Conformity by authoritarianism and partner status - boxplots.png",
+    "assets/Attachments/Conformity by authoritarianism and partner status - interaction plot.png",
+    "assets/Attachments/Conformity - main effects of authoritarianism and partner status.png",
+    "assets/Attachments/Prestige on education, log income and type - effect plots.png",
+    "assets/Attachments/Prestige with type interactions - education effect by occupation type.png",
+    "assets/Attachments/Prestige with type interactions - income effect by occupation type.png",
+    "assets/Attachments/House price on living area - slope interaction for University Town.png"
+   ],
+   "interactives": [],
+   "checks": 13,
+   "derives": 1,
+   "words": 2391,
+   "objectives": [
+    {
+     "n": 1,
+     "md": "Interpret coefficients in a multiple regression, including log-log elasticities, as partial effects, and test one of them against a one-sided alternative.",
+     "tested": 2
+    },
+    {
+     "n": 2,
+     "md": "Estimate, test and build an interval for a linear combination of coefficients, and state its conclusion in the units of the data.",
+     "tested": 2
+    },
+    {
+     "n": 3,
+     "md": "Compute and interpret the marginal effect of a regressor that enters with a square, its turning point and the level where it equals a marginal cost.",
+     "tested": 3
+    },
+    {
+     "n": 4,
+     "md": "Compute the standard error of an average marginal effect or a nonlinear function of coefficients with the variance formula or the delta method.",
+     "tested": 1
+    },
+    {
+     "n": 5,
+     "md": "Interpret a one-way ANOVA as a regression on group dummies and read its $F$ test and Tukey comparisons.",
+     "tested": 1
+    },
+    {
+     "n": 6,
+     "md": "Read fitted cell means and an interaction from a two-way ANOVA or an ANCOVA.",
+     "tested": 1
+    },
+    {
+     "n": 7,
+     "md": "Interpret slope indicators, interactions between quantitative variables and interactions between factors.",
+     "tested": 2
+    },
+    {
+     "n": 8,
+     "md": "Test joint hypotheses with an $F$ test, including the Chow test for whether two groups share a regression.",
+     "tested": 2
+    }
+   ],
+   "created": "2026-10-19T18:36:05Z",
+   "updated": "2026-10-19T18:36:05Z"
+  },
+  "econ-430-l9-bootstrapping-regression-models": {
+   "slug": "econ-430-l9-bootstrapping-regression-models",
+   "name": "Econ 430 L9 Bootstrapping Regression Models",
+   "title": "Bootstrapping Regression Models",
+   "type": "lecture",
+   "path": "Courses/Econ 430/Lectures/Econ 430 L9 Bootstrapping Regression Models.md",
+   "summary": "Bootstrapping a multiple regression: resample whole rows with replacement, refit, and summarize each coefficient's 1,000 estimates by their mean, standard deviation and 2.5th and 97.5th percentiles, as a robustness check on the OLS output.",
+   "tags": [],
+   "aliases": [],
+   "requires": [],
+   "lessons": [],
+   "courses": [
+    "Econ 430"
+   ],
+   "course": "Econ 430",
+   "lecture": 9,
+   "source": "Regression_Lecture2.ipynb (section 2)",
+   "edges": {
+    "out": [
+     {
+      "kind": "covers",
+      "note": "bootstrapping-ols"
+     },
+     {
+      "kind": "covers",
+      "note": "heteroskedasticity-consistent-standard-errors"
+     },
+     {
+      "kind": "covers",
+      "note": "multiple-regression-model"
+     },
+     {
+      "kind": "next",
+      "note": "econ-430-l10-modeling-issues-in-multiple-regression"
+     },
+     {
+      "kind": "part_of",
+      "note": "econ-430"
+     }
+    ],
+    "in": [
+     {
+      "kind": "next",
+      "note": "econ-430-l8-building-multiple-regression-models"
+     }
+    ]
+   },
+   "figures": [
+    "assets/Attachments/Bank transaction time - bootstrap distributions of the estimates.png"
+   ],
+   "interactives": [],
+   "checks": 4,
+   "words": 690,
+   "objectives": [
+    {
+     "n": 1,
+     "md": "Describe the pairs bootstrap for a multiple regression and read a bootstrap summary table: estimates, standard errors and percentile intervals.",
+     "tested": 2
+    },
+    {
+     "n": 2,
+     "md": "Judge from the bootstrap distributions whether normal-based and percentile intervals agree, and explain why bootstrap and textbook standard errors can differ.",
+     "tested": 2
+    }
+   ],
+   "created": "2026-10-19T18:36:06Z",
+   "updated": "2026-10-19T18:36:06Z"
   },
   "econ-430-simple-linear-regression-practice-answers": {
    "slug": "econ-430-simple-linear-regression-practice-answers",
@@ -6306,6 +7320,10 @@
      {
       "kind": "related",
       "note": "skewness-and-kurtosis"
+     },
+     {
+      "kind": "requires",
+      "note": "missing-data-and-imputation"
      }
     ]
    },
@@ -7043,6 +8061,112 @@
    "created": "2026-10-17T19:26:06Z",
    "updated": "2026-10-17T19:29:37Z"
   },
+  "f-test-of-joint-hypotheses": {
+   "slug": "f-test-of-joint-hypotheses",
+   "name": "F Test of Joint Hypotheses",
+   "title": "F Test of Joint Hypotheses",
+   "type": "concept",
+   "path": "Concepts/F Test of Joint Hypotheses.md",
+   "summary": "F = [(SSE_R − SSE_U)/J] / [SSE_U/(N − K)] ~ F(J, N−K) tests J restrictions at once by how much the fit worsens when they are imposed. The overall F test and the Chow test are special cases.",
+   "domain": "econometrics",
+   "domains": [
+    "econometrics",
+    "statistics"
+   ],
+   "tags": [],
+   "aliases": [
+    "F test",
+    "F-test",
+    "joint hypothesis",
+    "joint significance",
+    "restricted and unrestricted model",
+    "Chow test",
+    "structural break test",
+    "overall F test"
+   ],
+   "requires": [
+    "hypothesis-tests-on-regression-coefficients",
+    "multiple-regression-model"
+   ],
+   "lessons": [
+    "econ-430-l8-building-multiple-regression-models"
+   ],
+   "courses": [
+    "Econ 430"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "related",
+      "note": "analysis-of-variance"
+     },
+     {
+      "kind": "related",
+      "note": "delta-method"
+     },
+     {
+      "kind": "related",
+      "note": "interaction-terms"
+     },
+     {
+      "kind": "related",
+      "note": "multicollinearity"
+     },
+     {
+      "kind": "related",
+      "note": "ramsey-reset"
+     },
+     {
+      "kind": "requires",
+      "note": "hypothesis-tests-on-regression-coefficients"
+     },
+     {
+      "kind": "requires",
+      "note": "multiple-regression-model"
+     }
+    ],
+    "in": [
+     {
+      "kind": "covers",
+      "note": "econ-430-l8-building-multiple-regression-models"
+     },
+     {
+      "kind": "related",
+      "note": "delta-method"
+     },
+     {
+      "kind": "related",
+      "note": "hypothesis-tests-on-regression-coefficients"
+     },
+     {
+      "kind": "related",
+      "note": "indicator-variables"
+     },
+     {
+      "kind": "related",
+      "note": "interaction-terms"
+     },
+     {
+      "kind": "related",
+      "note": "multiple-regression-model"
+     },
+     {
+      "kind": "requires",
+      "note": "analysis-of-variance"
+     },
+     {
+      "kind": "requires",
+      "note": "ramsey-reset"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 344,
+   "created": "2026-10-19T18:36:08Z",
+   "updated": "2026-10-19T18:36:08Z"
+  },
   "factor-augmenting-technology": {
    "slug": "factor-augmenting-technology",
    "name": "Factor-Augmenting Technology",
@@ -7399,6 +8523,10 @@
      },
      {
       "kind": "related",
+      "note": "omitted-variable-bias"
+     },
+     {
+      "kind": "related",
       "note": "partitioned-matrices"
      },
      {
@@ -7507,6 +8635,10 @@
      },
      {
       "kind": "related",
+      "note": "multicollinearity"
+     },
+     {
+      "kind": "related",
       "note": "ols-in-matrix-form"
      },
      {
@@ -7551,7 +8683,8 @@
    ],
    "lessons": [
     "econ-424-l2-between-group-inequality",
-    "econ-430-l5-estimating-nonlinear-relationships"
+    "econ-430-l5-estimating-nonlinear-relationships",
+    "econ-430-l8-building-multiple-regression-models"
    ],
    "courses": [
     "Econ 424",
@@ -7598,6 +8731,14 @@
       "note": "econ-430-l5-estimating-nonlinear-relationships"
      },
      {
+      "kind": "covers",
+      "note": "econ-430-l8-building-multiple-regression-models"
+     },
+     {
+      "kind": "related",
+      "note": "box-tidwell-transformation"
+     },
+     {
       "kind": "related",
       "note": "change-of-variables"
      },
@@ -7635,6 +8776,14 @@
      },
      {
       "kind": "related",
+      "note": "marginal-effects"
+     },
+     {
+      "kind": "related",
+      "note": "multiple-regression-model"
+     },
+     {
+      "kind": "related",
       "note": "partial-derivatives-and-the-gradient"
      },
      {
@@ -7648,6 +8797,10 @@
      {
       "kind": "requires",
       "note": "box-cox-and-power-transformations"
+     },
+     {
+      "kind": "requires",
+      "note": "ramsey-reset"
      }
     ]
    },
@@ -7659,8 +8812,8 @@
    "interactives": [],
    "checks": 0,
    "words": 654,
-   "created": "2026-10-17T19:26:06Z",
-   "updated": "2026-10-17T19:29:37Z"
+   "created": "2026-10-19T18:36:08Z",
+   "updated": "2026-10-19T18:36:08Z"
   },
   "gauss-markov-theorem": {
    "slug": "gauss-markov-theorem",
@@ -7722,11 +8875,19 @@
      },
      {
       "kind": "related",
+      "note": "generalized-least-squares"
+     },
+     {
+      "kind": "related",
       "note": "homoskedasticity"
      },
      {
       "kind": "related",
       "note": "inner-products-and-orthogonality"
+     },
+     {
+      "kind": "related",
+      "note": "multiple-regression-model"
      },
      {
       "kind": "related",
@@ -7748,6 +8909,88 @@
    "words": 333,
    "created": "2026-10-17T19:25:21Z",
    "updated": "2026-10-17T19:25:21Z"
+  },
+  "generalized-least-squares": {
+   "slug": "generalized-least-squares",
+   "name": "Generalized Least Squares",
+   "title": "Generalized Least Squares",
+   "type": "concept",
+   "path": "Concepts/Generalized Least Squares.md",
+   "summary": "If Var(eᵢ) = σ²hᵢ, dividing the model by √hᵢ makes the errors homoskedastic and OLS on the result (weighted least squares) is BLUE. FGLS estimates hᵢ first, e.g. from ln(ê²) = α₁ + α₂ ln x.",
+   "domain": "econometrics",
+   "domains": [
+    "econometrics"
+   ],
+   "tags": [],
+   "aliases": [
+    "GLS",
+    "generalized least squares",
+    "WLS",
+    "weighted least squares",
+    "FGLS",
+    "feasible generalized least squares",
+    "variance function",
+    "transformed model"
+   ],
+   "requires": [
+    "homoskedasticity",
+    "heteroskedasticity-tests"
+   ],
+   "lessons": [
+    "econ-430-l11-heteroskedasticity",
+    "econ-430-l12-missing-data-and-the-regression-workflow"
+   ],
+   "courses": [
+    "Econ 430"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "related",
+      "note": "gauss-markov-theorem"
+     },
+     {
+      "kind": "related",
+      "note": "heteroskedasticity-consistent-standard-errors"
+     },
+     {
+      "kind": "requires",
+      "note": "heteroskedasticity-tests"
+     },
+     {
+      "kind": "requires",
+      "note": "homoskedasticity"
+     }
+    ],
+    "in": [
+     {
+      "kind": "covers",
+      "note": "econ-430-l11-heteroskedasticity"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l12-missing-data-and-the-regression-workflow"
+     },
+     {
+      "kind": "related",
+      "note": "heteroskedasticity-consistent-standard-errors"
+     },
+     {
+      "kind": "related",
+      "note": "heteroskedasticity-tests"
+     },
+     {
+      "kind": "related",
+      "note": "homoskedasticity"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 383,
+   "created": "2026-10-19T18:36:08Z",
+   "updated": "2026-10-19T18:36:08Z"
   },
   "geometric-series": {
    "slug": "geometric-series",
@@ -8120,6 +9363,214 @@
    "created": "2026-10-04T21:51:53Z",
    "updated": "2026-10-06T04:45:32Z"
   },
+  "heteroskedasticity-consistent-standard-errors": {
+   "slug": "heteroskedasticity-consistent-standard-errors",
+   "name": "Heteroskedasticity-Consistent Standard Errors",
+   "title": "Heteroskedasticity-Consistent Standard Errors",
+   "type": "concept",
+   "path": "Concepts/Heteroskedasticity-Consistent Standard Errors.md",
+   "summary": "White (HC) standard errors keep the OLS estimates but compute their variance from each observation's squared residual, so t tests and intervals stay valid under heteroskedasticity. HC1 scales by N/(N − K).",
+   "domain": "econometrics",
+   "domains": [
+    "econometrics"
+   ],
+   "tags": [],
+   "aliases": [
+    "White standard errors",
+    "robust standard errors",
+    "heteroskedasticity-robust standard errors",
+    "HC1",
+    "HC0",
+    "HC2",
+    "HC3",
+    "sandwich estimator",
+    "heteroskedasticity-consistent standard errors"
+   ],
+   "requires": [
+    "homoskedasticity",
+    "sampling-distribution-of-ols"
+   ],
+   "lessons": [
+    "econ-430-l11-heteroskedasticity",
+    "econ-430-l12-missing-data-and-the-regression-workflow",
+    "econ-430-l9-bootstrapping-regression-models"
+   ],
+   "courses": [
+    "Econ 430"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "related",
+      "note": "bootstrapping-ols"
+     },
+     {
+      "kind": "related",
+      "note": "clustered-standard-errors"
+     },
+     {
+      "kind": "related",
+      "note": "generalized-least-squares"
+     },
+     {
+      "kind": "related",
+      "note": "heteroskedasticity-tests"
+     },
+     {
+      "kind": "requires",
+      "note": "homoskedasticity"
+     },
+     {
+      "kind": "requires",
+      "note": "sampling-distribution-of-ols"
+     }
+    ],
+    "in": [
+     {
+      "kind": "covers",
+      "note": "econ-430-l11-heteroskedasticity"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l12-missing-data-and-the-regression-workflow"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l9-bootstrapping-regression-models"
+     },
+     {
+      "kind": "related",
+      "note": "bootstrapping-ols"
+     },
+     {
+      "kind": "related",
+      "note": "generalized-least-squares"
+     },
+     {
+      "kind": "related",
+      "note": "heteroskedasticity-tests"
+     },
+     {
+      "kind": "related",
+      "note": "homoskedasticity"
+     },
+     {
+      "kind": "related",
+      "note": "hypothesis-tests-on-regression-coefficients"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 314,
+   "created": "2026-10-19T18:36:08Z",
+   "updated": "2026-10-19T18:42:38Z"
+  },
+  "heteroskedasticity-tests": {
+   "slug": "heteroskedasticity-tests",
+   "name": "Heteroskedasticity Tests",
+   "title": "Heteroskedasticity Tests",
+   "type": "concept",
+   "path": "Concepts/Heteroskedasticity Tests.md",
+   "summary": "Breusch-Pagan regresses ê² on chosen z's and uses N·R² ~ χ²(S−1); White uses the regressors, their squares and cross-products as the z's; Goldfeld-Quandt compares σ̂² across two subsamples with an F test.",
+   "domain": "econometrics",
+   "domains": [
+    "econometrics"
+   ],
+   "tags": [],
+   "aliases": [
+    "Breusch-Pagan test",
+    "BP test",
+    "Lagrange multiplier test for heteroskedasticity",
+    "White test",
+    "Goldfeld-Quandt test",
+    "GQ test",
+    "spread-level plot",
+    "test for heteroskedasticity"
+   ],
+   "requires": [
+    "homoskedasticity",
+    "coefficient-of-determination"
+   ],
+   "lessons": [
+    "econ-430-l11-heteroskedasticity",
+    "econ-430-l12-missing-data-and-the-regression-workflow"
+   ],
+   "courses": [
+    "Econ 430"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "related",
+      "note": "box-cox-and-power-transformations"
+     },
+     {
+      "kind": "related",
+      "note": "generalized-least-squares"
+     },
+     {
+      "kind": "related",
+      "note": "heteroskedasticity-consistent-standard-errors"
+     },
+     {
+      "kind": "related",
+      "note": "regression-diagnostics"
+     },
+     {
+      "kind": "requires",
+      "note": "coefficient-of-determination"
+     },
+     {
+      "kind": "requires",
+      "note": "homoskedasticity"
+     }
+    ],
+    "in": [
+     {
+      "kind": "covers",
+      "note": "econ-430-l11-heteroskedasticity"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l12-missing-data-and-the-regression-workflow"
+     },
+     {
+      "kind": "related",
+      "note": "box-cox-and-power-transformations"
+     },
+     {
+      "kind": "related",
+      "note": "heteroskedasticity-consistent-standard-errors"
+     },
+     {
+      "kind": "related",
+      "note": "homoskedasticity"
+     },
+     {
+      "kind": "related",
+      "note": "multiple-regression-model"
+     },
+     {
+      "kind": "related",
+      "note": "regression-diagnostics"
+     },
+     {
+      "kind": "requires",
+      "note": "generalized-least-squares"
+     }
+    ]
+   },
+   "figures": [
+    "assets/Attachments/Food expenditure regression - spread-level plot.png"
+   ],
+   "interactives": [],
+   "checks": 0,
+   "words": 475,
+   "created": "2026-10-19T18:36:08Z",
+   "updated": "2026-10-19T18:42:38Z"
+  },
   "homogeneous-functions-and-eulers-theorem": {
    "slug": "homogeneous-functions-and-eulers-theorem",
    "name": "Homogeneous Functions and Euler's Theorem",
@@ -8230,6 +9681,7 @@
     "simple-linear-regression-model"
    ],
    "lessons": [
+    "econ-430-l11-heteroskedasticity",
     "econ-430-l3-the-method-of-least-squares",
     "econ-430-l7-the-classical-linear-regression-model"
    ],
@@ -8249,6 +9701,18 @@
      {
       "kind": "related",
       "note": "gauss-markov-theorem"
+     },
+     {
+      "kind": "related",
+      "note": "generalized-least-squares"
+     },
+     {
+      "kind": "related",
+      "note": "heteroskedasticity-consistent-standard-errors"
+     },
+     {
+      "kind": "related",
+      "note": "heteroskedasticity-tests"
      },
      {
       "kind": "related",
@@ -8275,6 +9739,10 @@
      {
       "kind": "applies",
       "note": "econ-430-l6-indicator-variables-and-the-ols-workflow"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l11-heteroskedasticity"
      },
      {
       "kind": "covers",
@@ -8327,6 +9795,18 @@
      {
       "kind": "requires",
       "note": "box-cox-and-power-transformations"
+     },
+     {
+      "kind": "requires",
+      "note": "generalized-least-squares"
+     },
+     {
+      "kind": "requires",
+      "note": "heteroskedasticity-consistent-standard-errors"
+     },
+     {
+      "kind": "requires",
+      "note": "heteroskedasticity-tests"
      }
     ]
    },
@@ -8335,9 +9815,9 @@
    ],
    "interactives": [],
    "checks": 0,
-   "words": 301,
-   "created": "2026-10-17T19:26:06Z",
-   "updated": "2026-10-17T19:29:37Z"
+   "words": 352,
+   "created": "2026-10-19T18:36:08Z",
+   "updated": "2026-10-19T18:42:38Z"
   },
   "hummels-jorgensen-munch-and-xiang-2014-the-wage-effects-of-offshoring": {
    "slug": "hummels-jorgensen-munch-and-xiang-2014-the-wage-effects-of-offshoring",
@@ -8438,7 +9918,8 @@
    ],
    "lessons": [
     "econ-430-l3-the-method-of-least-squares",
-    "econ-430-l6-indicator-variables-and-the-ols-workflow"
+    "econ-430-l6-indicator-variables-and-the-ols-workflow",
+    "econ-430-l8-building-multiple-regression-models"
    ],
    "courses": [
     "Econ 430"
@@ -8452,6 +9933,18 @@
      {
       "kind": "related",
       "note": "confidence-vs-prediction-intervals"
+     },
+     {
+      "kind": "related",
+      "note": "delta-method"
+     },
+     {
+      "kind": "related",
+      "note": "f-test-of-joint-hypotheses"
+     },
+     {
+      "kind": "related",
+      "note": "heteroskedasticity-consistent-standard-errors"
      },
      {
       "kind": "related",
@@ -8472,21 +9965,33 @@
       "note": "econ-430-l6-indicator-variables-and-the-ols-workflow"
      },
      {
+      "kind": "covers",
+      "note": "econ-430-l8-building-multiple-regression-models"
+     },
+     {
+      "kind": "related",
+      "note": "delta-method"
+     },
+     {
       "kind": "related",
       "note": "regression-diagnostics"
      },
      {
       "kind": "related",
       "note": "sampling-distribution-of-ols"
+     },
+     {
+      "kind": "requires",
+      "note": "f-test-of-joint-hypotheses"
      }
     ]
    },
    "figures": [],
    "interactives": [],
    "checks": 0,
-   "words": 405,
-   "created": "2026-10-17T19:26:06Z",
-   "updated": "2026-10-17T19:30:10Z"
+   "words": 457,
+   "created": "2026-10-19T18:36:08Z",
+   "updated": "2026-10-19T18:42:38Z"
   },
   "implicit-function-theorem": {
    "slug": "implicit-function-theorem",
@@ -8656,7 +10161,9 @@
     "ols-estimator"
    ],
    "lessons": [
-    "econ-430-l6-indicator-variables-and-the-ols-workflow"
+    "econ-430-l12-missing-data-and-the-regression-workflow",
+    "econ-430-l6-indicator-variables-and-the-ols-workflow",
+    "econ-430-l8-building-multiple-regression-models"
    ],
    "courses": [
     "Econ 430"
@@ -8665,11 +10172,23 @@
     "out": [
      {
       "kind": "related",
+      "note": "analysis-of-variance"
+     },
+     {
+      "kind": "related",
+      "note": "f-test-of-joint-hypotheses"
+     },
+     {
+      "kind": "related",
       "note": "full-rank-and-identification"
      },
      {
       "kind": "related",
       "note": "functional-forms-and-elasticities"
+     },
+     {
+      "kind": "related",
+      "note": "interaction-terms"
      },
      {
       "kind": "related",
@@ -8687,7 +10206,15 @@
      },
      {
       "kind": "covers",
+      "note": "econ-430-l12-missing-data-and-the-regression-workflow"
+     },
+     {
+      "kind": "covers",
       "note": "econ-430-l6-indicator-variables-and-the-ols-workflow"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l8-building-multiple-regression-models"
      },
      {
       "kind": "related",
@@ -8707,7 +10234,19 @@
      },
      {
       "kind": "related",
+      "note": "multicollinearity"
+     },
+     {
+      "kind": "related",
+      "note": "multiple-regression-model"
+     },
+     {
+      "kind": "related",
       "note": "within-and-between-group-inequality"
+     },
+     {
+      "kind": "requires",
+      "note": "analysis-of-variance"
      },
      {
       "kind": "requires",
@@ -8716,6 +10255,10 @@
      {
       "kind": "requires",
       "note": "fixed-effects-regression"
+     },
+     {
+      "kind": "requires",
+      "note": "interaction-terms"
      }
     ]
    },
@@ -8724,9 +10267,9 @@
    ],
    "interactives": [],
    "checks": 0,
-   "words": 385,
-   "created": "2026-10-17T19:26:06Z",
-   "updated": "2026-10-17T19:29:37Z"
+   "words": 453,
+   "created": "2026-10-19T18:36:08Z",
+   "updated": "2026-10-19T18:42:14Z"
   },
   "inner-products-and-orthogonality": {
    "slug": "inner-products-and-orthogonality",
@@ -9039,6 +10582,97 @@
    "words": 237,
    "created": "2026-10-04T21:53:30Z",
    "updated": "2026-10-06T04:46:24Z"
+  },
+  "interaction-terms": {
+   "slug": "interaction-terms",
+   "name": "Interaction Terms",
+   "title": "Interaction Terms",
+   "type": "concept",
+   "path": "Concepts/Interaction Terms.md",
+   "summary": "A product of regressors lets the effect of one depend on the level of the other: D×x shifts a slope, D₁×D₂ adds a gap for one combination of groups, x×w makes ∂E[y]/∂x = β₂ + β₄w.",
+   "domain": "econometrics",
+   "domains": [
+    "econometrics"
+   ],
+   "tags": [],
+   "aliases": [
+    "interaction term",
+    "interaction variable",
+    "slope dummy",
+    "slope indicator",
+    "intercept dummy",
+    "factor interaction",
+    "quantitative interaction"
+   ],
+   "requires": [
+    "multiple-regression-model",
+    "indicator-variables"
+   ],
+   "lessons": [
+    "econ-430-l8-building-multiple-regression-models"
+   ],
+   "courses": [
+    "Econ 430"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "related",
+      "note": "analysis-of-variance"
+     },
+     {
+      "kind": "related",
+      "note": "f-test-of-joint-hypotheses"
+     },
+     {
+      "kind": "related",
+      "note": "marginal-effects"
+     },
+     {
+      "kind": "requires",
+      "note": "indicator-variables"
+     },
+     {
+      "kind": "requires",
+      "note": "multiple-regression-model"
+     }
+    ],
+    "in": [
+     {
+      "kind": "covers",
+      "note": "econ-430-l8-building-multiple-regression-models"
+     },
+     {
+      "kind": "related",
+      "note": "analysis-of-variance"
+     },
+     {
+      "kind": "related",
+      "note": "f-test-of-joint-hypotheses"
+     },
+     {
+      "kind": "related",
+      "note": "indicator-variables"
+     },
+     {
+      "kind": "related",
+      "note": "marginal-effects"
+     },
+     {
+      "kind": "related",
+      "note": "multiple-regression-model"
+     }
+    ]
+   },
+   "figures": [
+    "assets/Attachments/House price on living area - slope interaction for University Town.png",
+    "assets/Attachments/Prestige with type interactions - education effect by occupation type.png"
+   ],
+   "interactives": [],
+   "checks": 0,
+   "words": 431,
+   "created": "2026-10-19T18:36:08Z",
+   "updated": "2026-10-19T18:36:08Z"
   },
   "intertemporal-budget-constraint": {
    "slug": "intertemporal-budget-constraint",
@@ -10157,6 +11791,10 @@
      },
      {
       "kind": "related",
+      "note": "multicollinearity"
+     },
+     {
+      "kind": "related",
       "note": "trace-of-a-matrix"
      },
      {
@@ -10790,6 +12428,10 @@
      },
      {
       "kind": "related",
+      "note": "component-plus-residual-plot"
+     },
+     {
+      "kind": "related",
       "note": "eda-for-regression"
      },
      {
@@ -10851,6 +12493,87 @@
    "words": 381,
    "created": "2026-10-18T19:35:07Z",
    "updated": "2026-10-18T19:35:07Z"
+  },
+  "marginal-effects": {
+   "slug": "marginal-effects",
+   "name": "Marginal Effects",
+   "title": "Marginal Effects",
+   "type": "concept",
+   "path": "Concepts/Marginal Effects.md",
+   "summary": "The marginal effect ∂E[y]/∂x is a coefficient only in a linear term; with x² or interactions it depends on x. The average marginal effect (AME) averages it over the sample; a quadratic turns at x = −β₃/(2β₄).",
+   "domain": "econometrics",
+   "domains": [
+    "econometrics"
+   ],
+   "tags": [],
+   "aliases": [
+    "marginal effect",
+    "average marginal effect",
+    "AME",
+    "turning point",
+    "optimal level",
+    "diminishing returns",
+    "quadratic term"
+   ],
+   "requires": [
+    "multiple-regression-model"
+   ],
+   "lessons": [
+    "econ-430-l8-building-multiple-regression-models"
+   ],
+   "courses": [
+    "Econ 430"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "related",
+      "note": "delta-method"
+     },
+     {
+      "kind": "related",
+      "note": "functional-forms-and-elasticities"
+     },
+     {
+      "kind": "related",
+      "note": "interaction-terms"
+     },
+     {
+      "kind": "related",
+      "note": "partial-derivatives-and-the-gradient"
+     },
+     {
+      "kind": "requires",
+      "note": "multiple-regression-model"
+     }
+    ],
+    "in": [
+     {
+      "kind": "covers",
+      "note": "econ-430-l8-building-multiple-regression-models"
+     },
+     {
+      "kind": "related",
+      "note": "delta-method"
+     },
+     {
+      "kind": "related",
+      "note": "interaction-terms"
+     },
+     {
+      "kind": "related",
+      "note": "multiple-regression-model"
+     }
+    ]
+   },
+   "figures": [
+    "assets/Attachments/Burger sales with quadratic advertising - effect plots.png"
+   ],
+   "interactives": [],
+   "checks": 0,
+   "words": 421,
+   "created": "2026-10-19T18:36:08Z",
+   "updated": "2026-10-19T18:36:08Z"
   },
   "marginal-rate-of-substitution": {
    "slug": "marginal-rate-of-substitution",
@@ -11954,6 +13677,393 @@
    "created": "2026-10-17T19:26:06Z",
    "updated": "2026-10-17T19:26:06Z"
   },
+  "missing-data-and-imputation": {
+   "slug": "missing-data-and-imputation",
+   "name": "Missing Data and Imputation",
+   "title": "Missing Data and Imputation",
+   "type": "concept",
+   "path": "Concepts/Missing Data and Imputation.md",
+   "summary": "Four ways to handle missing values: drop the observations, drop the variable, impute a mean, median or mode, or predict them (kNN, regression, MICE). Dropping or simple imputation is safe only when values are missing at random and few.",
+   "domain": "econometrics",
+   "domains": [
+    "econometrics",
+    "statistics"
+   ],
+   "tags": [],
+   "aliases": [
+    "missing data",
+    "missing values",
+    "imputation",
+    "listwise deletion",
+    "mean imputation",
+    "kNN imputation",
+    "k-nearest neighbours imputation",
+    "MICE",
+    "multiple imputation by chained equations"
+   ],
+   "requires": [
+    "eda-for-regression"
+   ],
+   "lessons": [
+    "econ-430-l12-missing-data-and-the-regression-workflow"
+   ],
+   "courses": [
+    "Econ 430"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "related",
+      "note": "regression-diagnostics"
+     },
+     {
+      "kind": "requires",
+      "note": "eda-for-regression"
+     }
+    ],
+    "in": [
+     {
+      "kind": "covers",
+      "note": "econ-430-l12-missing-data-and-the-regression-workflow"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 599,
+   "created": "2026-10-19T18:36:08Z",
+   "updated": "2026-10-19T18:36:08Z"
+  },
+  "model-selection-criteria": {
+   "slug": "model-selection-criteria",
+   "name": "Model Selection Criteria",
+   "title": "Model Selection Criteria",
+   "type": "concept",
+   "path": "Concepts/Model Selection Criteria.md",
+   "summary": "AIC = ln(SSE/N) + 2K/N and BIC = ln(SSE/N) + K ln(N)/N reward fit and penalize parameters (BIC harder); Mallows' Cp = SSE_p/σ̂² − N + 2p. Smaller is better; a good model has Cp near or below p.",
+   "domain": "econometrics",
+   "domains": [
+    "econometrics",
+    "statistics"
+   ],
+   "tags": [],
+   "aliases": [
+    "AIC",
+    "Akaike information criterion",
+    "BIC",
+    "SIC",
+    "Schwarz criterion",
+    "Bayesian information criterion",
+    "information criteria",
+    "Mallows Cp",
+    "Mallows' Cp",
+    "Cp statistic"
+   ],
+   "requires": [
+    "coefficient-of-determination",
+    "multiple-regression-model"
+   ],
+   "lessons": [
+    "econ-430-l10-modeling-issues-in-multiple-regression"
+   ],
+   "courses": [
+    "Econ 430"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "related",
+      "note": "cross-validation"
+     },
+     {
+      "kind": "related",
+      "note": "omitted-variable-bias"
+     },
+     {
+      "kind": "related",
+      "note": "variable-selection"
+     },
+     {
+      "kind": "requires",
+      "note": "coefficient-of-determination"
+     },
+     {
+      "kind": "requires",
+      "note": "multiple-regression-model"
+     }
+    ],
+    "in": [
+     {
+      "kind": "covers",
+      "note": "econ-430-l10-modeling-issues-in-multiple-regression"
+     },
+     {
+      "kind": "related",
+      "note": "coefficient-of-determination"
+     },
+     {
+      "kind": "related",
+      "note": "multiple-regression-model"
+     },
+     {
+      "kind": "related",
+      "note": "omitted-variable-bias"
+     },
+     {
+      "kind": "requires",
+      "note": "variable-selection"
+     }
+    ]
+   },
+   "figures": [
+    "assets/Attachments/Mallows Cp by subset - family income.png"
+   ],
+   "interactives": [],
+   "checks": 0,
+   "words": 444,
+   "created": "2026-10-19T18:36:08Z",
+   "updated": "2026-10-19T18:42:38Z"
+  },
+  "multicollinearity": {
+   "slug": "multicollinearity",
+   "name": "Multicollinearity",
+   "title": "Multicollinearity",
+   "type": "concept",
+   "path": "Concepts/Multicollinearity.md",
+   "summary": "Strong linear relations among regressors inflate variances: Var(bⱼ) = σ²/[(n−1)sⱼ²] × 1/(1 − Rⱼ²), where 1/(1 − Rⱼ²) is the VIF. Exact collinearity makes OLS impossible; VIF above about 10 (or 4) signals trouble.",
+   "domain": "econometrics",
+   "domains": [
+    "econometrics"
+   ],
+   "tags": [],
+   "aliases": [
+    "multicollinearity",
+    "collinearity",
+    "VIF",
+    "variance inflation factor",
+    "perfect multicollinearity",
+    "imperfect multicollinearity",
+    "auxiliary regression",
+    "GVIF"
+   ],
+   "requires": [
+    "multiple-regression-model",
+    "sampling-distribution-of-ols"
+   ],
+   "lessons": [
+    "econ-430-l10-modeling-issues-in-multiple-regression",
+    "econ-430-l12-missing-data-and-the-regression-workflow"
+   ],
+   "courses": [
+    "Econ 430"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "related",
+      "note": "full-rank-and-identification"
+     },
+     {
+      "kind": "related",
+      "note": "indicator-variables"
+     },
+     {
+      "kind": "related",
+      "note": "linear-independence-and-rank"
+     },
+     {
+      "kind": "related",
+      "note": "omitted-variable-bias"
+     },
+     {
+      "kind": "requires",
+      "note": "multiple-regression-model"
+     },
+     {
+      "kind": "requires",
+      "note": "sampling-distribution-of-ols"
+     }
+    ],
+    "in": [
+     {
+      "kind": "covers",
+      "note": "econ-430-l10-modeling-issues-in-multiple-regression"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l12-missing-data-and-the-regression-workflow"
+     },
+     {
+      "kind": "related",
+      "note": "f-test-of-joint-hypotheses"
+     },
+     {
+      "kind": "related",
+      "note": "multiple-regression-model"
+     },
+     {
+      "kind": "related",
+      "note": "omitted-variable-bias"
+     },
+     {
+      "kind": "related",
+      "note": "regression-diagnostics"
+     },
+     {
+      "kind": "related",
+      "note": "variable-selection"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 434,
+   "created": "2026-10-19T18:36:08Z",
+   "updated": "2026-10-19T18:36:08Z"
+  },
+  "multiple-regression-model": {
+   "slug": "multiple-regression-model",
+   "name": "Multiple Regression Model",
+   "title": "Multiple Regression Model",
+   "type": "concept",
+   "path": "Concepts/Multiple Regression Model.md",
+   "summary": "y = β₁ + β₂x₂ + … + β_Kx_K + e: each βₖ is a partial effect, the change in E[y] when xₖ moves and the other regressors are held fixed. MR1–MR6 extend SR1–SR6, with MR5 ruling out exact collinearity.",
+   "domain": "econometrics",
+   "domains": [
+    "econometrics"
+   ],
+   "tags": [],
+   "aliases": [
+    "multiple linear regression",
+    "MR model",
+    "MR assumptions",
+    "MR1-MR6",
+    "partial effect",
+    "ceteris paribus",
+    "partial marginal effect"
+   ],
+   "requires": [
+    "simple-linear-regression-model",
+    "sr-assumptions"
+   ],
+   "lessons": [
+    "econ-430-l8-building-multiple-regression-models",
+    "econ-430-l9-bootstrapping-regression-models"
+   ],
+   "courses": [
+    "Econ 430"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "related",
+      "note": "f-test-of-joint-hypotheses"
+     },
+     {
+      "kind": "related",
+      "note": "functional-forms-and-elasticities"
+     },
+     {
+      "kind": "related",
+      "note": "gauss-markov-theorem"
+     },
+     {
+      "kind": "related",
+      "note": "heteroskedasticity-tests"
+     },
+     {
+      "kind": "related",
+      "note": "indicator-variables"
+     },
+     {
+      "kind": "related",
+      "note": "interaction-terms"
+     },
+     {
+      "kind": "related",
+      "note": "marginal-effects"
+     },
+     {
+      "kind": "related",
+      "note": "model-selection-criteria"
+     },
+     {
+      "kind": "related",
+      "note": "multicollinearity"
+     },
+     {
+      "kind": "related",
+      "note": "ols-in-matrix-form"
+     },
+     {
+      "kind": "related",
+      "note": "omitted-variable-bias"
+     },
+     {
+      "kind": "related",
+      "note": "partial-derivatives-and-the-gradient"
+     },
+     {
+      "kind": "related",
+      "note": "ramsey-reset"
+     },
+     {
+      "kind": "requires",
+      "note": "simple-linear-regression-model"
+     },
+     {
+      "kind": "requires",
+      "note": "sr-assumptions"
+     }
+    ],
+    "in": [
+     {
+      "kind": "covers",
+      "note": "econ-430-l8-building-multiple-regression-models"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l9-bootstrapping-regression-models"
+     },
+     {
+      "kind": "requires",
+      "note": "component-plus-residual-plot"
+     },
+     {
+      "kind": "requires",
+      "note": "f-test-of-joint-hypotheses"
+     },
+     {
+      "kind": "requires",
+      "note": "interaction-terms"
+     },
+     {
+      "kind": "requires",
+      "note": "marginal-effects"
+     },
+     {
+      "kind": "requires",
+      "note": "model-selection-criteria"
+     },
+     {
+      "kind": "requires",
+      "note": "multicollinearity"
+     },
+     {
+      "kind": "requires",
+      "note": "omitted-variable-bias"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 479,
+   "created": "2026-10-19T18:36:08Z",
+   "updated": "2026-10-19T18:36:08Z"
+  },
   "multivariable-chain-rule": {
    "slug": "multivariable-chain-rule",
    "name": "Multivariable Chain Rule",
@@ -12300,6 +14410,10 @@
      },
      {
       "kind": "related",
+      "note": "multiple-regression-model"
+     },
+     {
+      "kind": "related",
       "note": "ols-estimator"
      },
      {
@@ -12407,6 +14521,8 @@
    "aliases": [],
    "requires": [],
    "lessons": [
+    "econ-430-l10-modeling-issues-in-multiple-regression",
+    "econ-430-l11-heteroskedasticity",
     "econ-430-l3-the-method-of-least-squares",
     "econ-430-l4-cross-validation-and-the-bootstrap"
    ],
@@ -12431,6 +14547,14 @@
     "in": [
      {
       "kind": "shows",
+      "note": "econ-430-l10-modeling-issues-in-multiple-regression"
+     },
+     {
+      "kind": "shows",
+      "note": "econ-430-l11-heteroskedasticity"
+     },
+     {
+      "kind": "shows",
       "note": "econ-430-l3-the-method-of-least-squares"
      },
      {
@@ -12443,8 +14567,8 @@
    "interactives": [],
    "checks": 0,
    "words": 319,
-   "created": "2026-10-17T19:26:06Z",
-   "updated": "2026-10-17T19:26:06Z"
+   "created": "2026-10-19T18:36:08Z",
+   "updated": "2026-10-19T18:36:08Z"
   },
   "ols-sampling-model": {
    "slug": "ols-sampling-model",
@@ -12484,6 +14608,102 @@
    "words": 105,
    "created": "2026-10-16T16:08:53Z",
    "updated": "2026-10-16T16:37:44Z"
+  },
+  "omitted-variable-bias": {
+   "slug": "omitted-variable-bias",
+   "name": "Omitted Variable Bias",
+   "title": "Omitted Variable Bias",
+   "type": "concept",
+   "path": "Concepts/Omitted Variable Bias.md",
+   "summary": "Leaving out a relevant x₃ biases b₂ by β₃·Cov(x₂, x₃)/Var(x₂); its sign is the sign of β₃ times that of the correlation. Adding an irrelevant variable causes no bias but inflates variances when it is correlated with the others.",
+   "domain": "econometrics",
+   "domains": [
+    "econometrics"
+   ],
+   "tags": [],
+   "aliases": [
+    "omitted variable bias",
+    "OVB",
+    "omitted variables",
+    "irrelevant variable",
+    "irrelevant variables",
+    "extraneous variable",
+    "specification bias"
+   ],
+   "requires": [
+    "multiple-regression-model",
+    "strict-exogeneity"
+   ],
+   "lessons": [
+    "econ-430-l10-modeling-issues-in-multiple-regression"
+   ],
+   "courses": [
+    "Econ 430"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "related",
+      "note": "frisch-waugh-lovell-theorem"
+     },
+     {
+      "kind": "related",
+      "note": "model-selection-criteria"
+     },
+     {
+      "kind": "related",
+      "note": "multicollinearity"
+     },
+     {
+      "kind": "related",
+      "note": "ramsey-reset"
+     },
+     {
+      "kind": "requires",
+      "note": "multiple-regression-model"
+     },
+     {
+      "kind": "requires",
+      "note": "strict-exogeneity"
+     }
+    ],
+    "in": [
+     {
+      "kind": "covers",
+      "note": "econ-430-l10-modeling-issues-in-multiple-regression"
+     },
+     {
+      "kind": "related",
+      "note": "model-selection-criteria"
+     },
+     {
+      "kind": "related",
+      "note": "multicollinearity"
+     },
+     {
+      "kind": "related",
+      "note": "multiple-regression-model"
+     },
+     {
+      "kind": "related",
+      "note": "ramsey-reset"
+     },
+     {
+      "kind": "related",
+      "note": "strict-exogeneity"
+     },
+     {
+      "kind": "related",
+      "note": "variable-selection"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 470,
+   "created": "2026-10-19T18:36:08Z",
+   "updated": "2026-10-19T18:36:08Z"
   },
   "partial-derivatives-and-the-gradient": {
    "slug": "partial-derivatives-and-the-gradient",
@@ -12560,7 +14780,19 @@
      },
      {
       "kind": "related",
+      "note": "delta-method"
+     },
+     {
+      "kind": "related",
       "note": "factor-augmenting-technology"
+     },
+     {
+      "kind": "related",
+      "note": "marginal-effects"
+     },
+     {
+      "kind": "related",
+      "note": "multiple-regression-model"
      },
      {
       "kind": "related",
@@ -13552,6 +15784,97 @@
    "created": "2026-10-04T21:50:23Z",
    "updated": "2026-10-06T04:44:45Z"
   },
+  "ramsey-reset": {
+   "slug": "ramsey-reset",
+   "name": "Ramsey RESET",
+   "title": "Ramsey RESET",
+   "type": "concept",
+   "path": "Concepts/Ramsey RESET.md",
+   "summary": "RESET adds powers of the fitted values (ŷ², ŷ³) or of the regressors and F-tests their joint significance: rejecting H₀ says the functional form is missing curvature or interactions. It cannot say which.",
+   "domain": "econometrics",
+   "domains": [
+    "econometrics"
+   ],
+   "tags": [],
+   "aliases": [
+    "RESET",
+    "Ramsey RESET",
+    "regression specification error test",
+    "misspecification test",
+    "functional form test"
+   ],
+   "requires": [
+    "f-test-of-joint-hypotheses",
+    "functional-forms-and-elasticities"
+   ],
+   "lessons": [
+    "econ-430-l10-modeling-issues-in-multiple-regression",
+    "econ-430-l12-missing-data-and-the-regression-workflow"
+   ],
+   "courses": [
+    "Econ 430"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "related",
+      "note": "component-plus-residual-plot"
+     },
+     {
+      "kind": "related",
+      "note": "omitted-variable-bias"
+     },
+     {
+      "kind": "related",
+      "note": "regression-diagnostics"
+     },
+     {
+      "kind": "requires",
+      "note": "f-test-of-joint-hypotheses"
+     },
+     {
+      "kind": "requires",
+      "note": "functional-forms-and-elasticities"
+     }
+    ],
+    "in": [
+     {
+      "kind": "covers",
+      "note": "econ-430-l10-modeling-issues-in-multiple-regression"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l12-missing-data-and-the-regression-workflow"
+     },
+     {
+      "kind": "related",
+      "note": "component-plus-residual-plot"
+     },
+     {
+      "kind": "related",
+      "note": "f-test-of-joint-hypotheses"
+     },
+     {
+      "kind": "related",
+      "note": "multiple-regression-model"
+     },
+     {
+      "kind": "related",
+      "note": "omitted-variable-bias"
+     },
+     {
+      "kind": "related",
+      "note": "regression-diagnostics"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 394,
+   "created": "2026-10-19T18:36:08Z",
+   "updated": "2026-10-19T18:42:55Z"
+  },
   "regression-diagnostics": {
    "slug": "regression-diagnostics",
    "name": "Regression Diagnostics",
@@ -13572,6 +15895,7 @@
     "projection-matrix-and-residual-maker"
    ],
    "lessons": [
+    "econ-430-l12-missing-data-and-the-regression-workflow",
     "econ-430-l4-cross-validation-and-the-bootstrap",
     "econ-430-l6-indicator-variables-and-the-ols-workflow"
    ],
@@ -13587,6 +15911,14 @@
      {
       "kind": "related",
       "note": "box-cox-and-power-transformations"
+     },
+     {
+      "kind": "related",
+      "note": "box-tidwell-transformation"
+     },
+     {
+      "kind": "related",
+      "note": "component-plus-residual-plot"
      },
      {
       "kind": "related",
@@ -13606,6 +15938,10 @@
      },
      {
       "kind": "related",
+      "note": "heteroskedasticity-tests"
+     },
+     {
+      "kind": "related",
       "note": "homoskedasticity"
      },
      {
@@ -13618,7 +15954,15 @@
      },
      {
       "kind": "related",
+      "note": "multicollinearity"
+     },
+     {
+      "kind": "related",
       "note": "q-q-plot"
+     },
+     {
+      "kind": "related",
+      "note": "ramsey-reset"
      },
      {
       "kind": "related",
@@ -13638,6 +15982,10 @@
      }
     ],
     "in": [
+     {
+      "kind": "covers",
+      "note": "econ-430-l12-missing-data-and-the-regression-workflow"
+     },
      {
       "kind": "covers",
       "note": "econ-430-l4-cross-validation-and-the-bootstrap"
@@ -13668,6 +16016,10 @@
      },
      {
       "kind": "related",
+      "note": "heteroskedasticity-tests"
+     },
+     {
+      "kind": "related",
       "note": "homoskedasticity"
      },
      {
@@ -13680,11 +16032,19 @@
      },
      {
       "kind": "related",
+      "note": "missing-data-and-imputation"
+     },
+     {
+      "kind": "related",
       "note": "projection-matrix-and-residual-maker"
      },
      {
       "kind": "related",
       "note": "q-q-plot"
+     },
+     {
+      "kind": "related",
+      "note": "ramsey-reset"
      },
      {
       "kind": "related",
@@ -13697,6 +16057,10 @@
      {
       "kind": "related",
       "note": "trace-of-a-matrix"
+     },
+     {
+      "kind": "requires",
+      "note": "component-plus-residual-plot"
      }
     ]
    },
@@ -13709,9 +16073,9 @@
    ],
    "interactives": [],
    "checks": 0,
-   "words": 800,
-   "created": "2026-10-17T19:26:06Z",
-   "updated": "2026-10-17T19:29:37Z"
+   "words": 862,
+   "created": "2026-10-19T18:36:08Z",
+   "updated": "2026-10-19T18:42:38Z"
   },
   "relative-supply-and-demand": {
    "slug": "relative-supply-and-demand",
@@ -13960,7 +16324,19 @@
      },
      {
       "kind": "requires",
+      "note": "delta-method"
+     },
+     {
+      "kind": "requires",
+      "note": "heteroskedasticity-consistent-standard-errors"
+     },
+     {
+      "kind": "requires",
       "note": "hypothesis-tests-on-regression-coefficients"
+     },
+     {
+      "kind": "requires",
+      "note": "multicollinearity"
      }
     ]
    },
@@ -14457,6 +16833,10 @@
      {
       "kind": "requires",
       "note": "homoskedasticity"
+     },
+     {
+      "kind": "requires",
+      "note": "multiple-regression-model"
      },
      {
       "kind": "requires",
@@ -15825,6 +18205,10 @@
      },
      {
       "kind": "requires",
+      "note": "multiple-regression-model"
+     },
+     {
+      "kind": "requires",
       "note": "regression-diagnostics"
      },
      {
@@ -16086,6 +18470,10 @@
      },
      {
       "kind": "related",
+      "note": "omitted-variable-bias"
+     },
+     {
+      "kind": "related",
       "note": "sr-assumptions"
      },
      {
@@ -16149,15 +18537,19 @@
      {
       "kind": "requires",
       "note": "instrumental-variables-and-2sls"
+     },
+     {
+      "kind": "requires",
+      "note": "omitted-variable-bias"
      }
     ]
    },
    "figures": [],
    "interactives": [],
    "checks": 0,
-   "words": 334,
+   "words": 380,
    "created": "2026-10-17T19:26:06Z",
-   "updated": "2026-10-17T19:26:06Z"
+   "updated": "2026-10-19T18:42:14Z"
   },
   "taylor-approximation-of-log-change": {
    "slug": "taylor-approximation-of-log-change",
@@ -16224,8 +18616,7 @@
     "Taylor expansion",
     "Taylor polynomial",
     "Linear approximation",
-    "Linearization",
-    "Delta method"
+    "Linearization"
    ],
    "requires": [
     "hessian-matrix"
@@ -16245,6 +18636,10 @@
      {
       "kind": "related",
       "note": "conditional-mean-vs-linear-projection"
+     },
+     {
+      "kind": "related",
+      "note": "delta-method"
      },
      {
       "kind": "related",
@@ -16306,6 +18701,10 @@
      },
      {
       "kind": "requires",
+      "note": "delta-method"
+     },
+     {
+      "kind": "requires",
       "note": "logarithms-and-growth-rates"
      }
     ]
@@ -16313,9 +18712,9 @@
    "figures": [],
    "interactives": [],
    "checks": 0,
-   "words": 257,
+   "words": 267,
    "created": "2026-10-04T21:53:30Z",
-   "updated": "2026-10-06T04:46:24Z"
+   "updated": "2026-10-19T18:42:55Z"
   },
   "top-coding": {
    "slug": "top-coding",
@@ -18153,6 +20552,78 @@
    "words": 542,
    "created": "2026-10-08T16:10:57Z",
    "updated": "2026-10-08T16:41:04Z"
+  },
+  "variable-selection": {
+   "slug": "variable-selection",
+   "name": "Variable Selection",
+   "title": "Variable Selection",
+   "type": "concept",
+   "path": "Concepts/Variable Selection.md",
+   "summary": "Choosing regressors by search: best subsets scores every combination, forward and backward stepwise add or drop one at a time by AIC, BIC or Cp, and Boruta keeps features a random forest ranks above shuffled copies.",
+   "domain": "econometrics",
+   "domains": [
+    "econometrics",
+    "statistics"
+   ],
+   "tags": [],
+   "aliases": [
+    "variable selection",
+    "feature selection",
+    "stepwise regression",
+    "forward selection",
+    "backward selection",
+    "backward elimination",
+    "best subset selection",
+    "exhaustive search",
+    "Boruta"
+   ],
+   "requires": [
+    "model-selection-criteria"
+   ],
+   "lessons": [
+    "econ-430-l10-modeling-issues-in-multiple-regression"
+   ],
+   "courses": [
+    "Econ 430"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "related",
+      "note": "cross-validation"
+     },
+     {
+      "kind": "related",
+      "note": "multicollinearity"
+     },
+     {
+      "kind": "related",
+      "note": "omitted-variable-bias"
+     },
+     {
+      "kind": "requires",
+      "note": "model-selection-criteria"
+     }
+    ],
+    "in": [
+     {
+      "kind": "covers",
+      "note": "econ-430-l10-modeling-issues-in-multiple-regression"
+     },
+     {
+      "kind": "related",
+      "note": "model-selection-criteria"
+     }
+    ]
+   },
+   "figures": [
+    "assets/Attachments/Forward selection by AIC - family income.png"
+   ],
+   "interactives": [],
+   "checks": 0,
+   "words": 411,
+   "created": "2026-10-19T18:36:08Z",
+   "updated": "2026-10-19T18:36:08Z"
   },
   "variance-of-log-income": {
    "slug": "variance-of-log-income",

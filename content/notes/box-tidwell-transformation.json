@@ -1,0 +1,227 @@
+{
+ "slug": "box-tidwell-transformation",
+ "notation": [
+  {
+   "tex": "$y$",
+   "meaning": "Outcome",
+   "kind": "Data",
+   "typical": "Prestige",
+   "keys": [
+    "y"
+   ]
+  },
+  {
+   "tex": "$x_j$",
+   "meaning": "Positive predictor $j$",
+   "kind": "Data",
+   "typical": "Income, education",
+   "keys": [
+    "x"
+   ]
+  },
+  {
+   "tex": "$k$",
+   "meaning": "Number of predictors transformed",
+   "kind": "Count",
+   "typical": "2",
+   "keys": [
+    "k"
+   ]
+  },
+  {
+   "tex": "$T(x, \\lambda)$",
+   "meaning": "Box-Cox power transformation of $x$",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "T"
+   ]
+  },
+  {
+   "tex": "$\\lambda_j$, $\\widehat{\\lambda}_j$",
+   "meaning": "Power for predictor $j$ and its estimate",
+   "kind": "Parameter / estimator",
+   "typical": "$-0.04$, 2.19",
+   "keys": [
+    "lambda",
+    "hat(lambda)"
+   ]
+  },
+  {
+   "tex": "$\\beta_0, \\ldots, \\beta_k$",
+   "meaning": "Coefficients",
+   "kind": "Parameters",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$\\varepsilon$",
+   "meaning": "Error",
+   "kind": "Unobserved",
+   "typical": "—",
+   "keys": [
+    "varepsilon"
+   ]
+  },
+  {
+   "tex": "$x_j \\ln x_j$",
+   "meaning": "Constructed variable for the score test",
+   "kind": "Computed",
+   "typical": "—",
+   "keys": [
+    "~x_j\\lnx_j"
+   ]
+  },
+  {
+   "tex": "$\\beta_1$, $\\beta_2$, $e_i$",
+   "meaning": "Intercept, slope and error in the transformed regression",
+   "kind": "Parameters / error",
+   "typical": "—",
+   "keys": [
+    "beta",
+    "e"
+   ],
+   "from": "box-cox-and-power-transformations"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Box-Cox asks which power of the outcome makes a regression behave. Box-Tidwell asks the same question about the explanations instead: which power of income, or of education, makes its relationship with the outcome a straight line? It estimates one power per predictor. A power of one means leave the predictor alone, a power near zero means take its log, and a power near two means square it. Alongside each estimate comes a test of whether the predictor needs transforming at all."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It turns the visual hint of a bent component-plus-residual plot into an estimated transformation with a p-value.",
+       "folded": false
+      }
+     ],
+     "words": 101,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "y = \\beta_0 + \\beta_1 T(x_1, \\lambda_1) + \\cdots + \\beta_k T(x_k, \\lambda_k) + \\varepsilon"
+      },
+      {
+       "t": "prose",
+       "md": "where $T(x, \\lambda)$ is the Box-Cox power transformation ($x^{\\lambda}$, read as $\\ln x$ at $\\lambda = 0$) and the predictors must be positive. The $\\lambda_j$ are estimated by maximum likelihood. The test of $H_0: \\lambda_j = 1$ (\"no transformation\") is the $t$ test on the **constructed variable** $x_j \\ln x_j$ added to the untransformed regression: a significant coefficient means $x_j$ wants a power other than 1."
+      },
+      {
+       "t": "table",
+       "md": "| $\\widehat{\\lambda}_j$ near | Use |\n| --- | --- |\n| 1 | $x_j$ as it is |\n| 0.5 | $\\sqrt{x_j}$ |\n| 0 | $\\ln x_j$ |\n| 2 | $x_j^2$ |\n| $-1$ | $1/x_j$ |"
+      }
+     ],
+     "words": 60,
+     "symbols": [
+      "$y$",
+      "$x_j$",
+      "$T(x, \\lambda)$",
+      "$\\lambda_j$, $\\widehat{\\lambda}_j$",
+      "$\\beta_0, \\ldots, \\beta_k$",
+      "$\\varepsilon$",
+      "$x_j \\ln x_j$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example-prestige-on-income-and-education",
+   "heading": "Worked example: prestige on income and education",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-prestige-on-income-and-education-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Controlling for a quadratic in the percentage of women (102 occupations):"
+      },
+      {
+       "t": "table",
+       "md": "| | $\\widehat{\\lambda}$ | Score statistic | p-value |\n| --- | --- | --- | --- |\n| Income | $-0.038$ | $-5.30$ | < 0.001 |\n| Education | 2.193 | 2.41 | 0.018 |"
+      },
+      {
+       "t": "prose",
+       "md": "Income's power is essentially zero, so use $\\log(income)$, matching what the [Component-Plus-Residual Plot](note:component-plus-residual-plot) suggested; education's is about 2, so add a square. Both tests reject $\\lambda = 1$ at 5%."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Box-Tidwell constructed-variable plots - income and education.png",
+       "alt": "Box-Tidwell constructed-variable plots - income and education"
+      },
+      {
+       "t": "prose",
+       "md": "The constructed-variable plots are added-variable plots for $x\\ln x$: a clear slope (strong for income, milder for education) means the predictor wants a transformation."
+      }
+     ],
+     "words": 76,
+     "symbols": [
+      "$x_j$",
+      "$\\lambda_j$, $\\widehat{\\lambda}_j$",
+      "$\\beta_1$, $\\beta_2$, $e_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Applying it to predictors with zeros or negatives.** The powers need $x > 0$ (the percentage of women has zeros, which is why it enters as a polynomial instead).\n- **Using the exact estimate.** Round to an interpretable power (log, square root, square), as with Box-Cox."
+      }
+     ],
+     "words": 44,
+     "symbols": [
+      "$x_j$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Box-Cox and Power Transformations](note:box-cox-and-power-transformations) · [Component-Plus-Residual Plot](note:component-plus-residual-plot) · [Functional Forms and Elasticities](note:functional-forms-and-elasticities)"
+      }
+     ],
+     "words": 11,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,276 @@
+{
+ "slug": "omitted-variable-bias",
+ "notation": [
+  {
+   "tex": "$y$",
+   "meaning": "Outcome",
+   "kind": "Data",
+   "typical": "Family income ($FAMINC$)",
+   "keys": [
+    "y"
+   ]
+  },
+  {
+   "tex": "$x_2$, $x_3$",
+   "meaning": "Included and omitted regressor",
+   "kind": "Data",
+   "typical": "Husband's and wife's years of education",
+   "keys": [
+    "x"
+   ]
+  },
+  {
+   "tex": "$\\beta_1, \\beta_2, \\beta_3$",
+   "meaning": "Coefficients of the true model",
+   "kind": "Parameters",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$b_2$, $b_3$",
+   "meaning": "Long-regression estimates",
+   "kind": "Estimators",
+   "typical": "3,132 and 4,523",
+   "keys": [
+    "b"
+   ]
+  },
+  {
+   "tex": "$b_2^{*}$",
+   "meaning": "Short-regression slope on $x_2$",
+   "kind": "Estimator",
+   "typical": "5,155",
+   "keys": [
+    "b*"
+   ]
+  },
+  {
+   "tex": "$\\widehat{\\delta}$",
+   "meaning": "Slope of $x_3$ on $x_2$",
+   "kind": "Statistic",
+   "typical": "0.448",
+   "keys": [
+    "hat(delta)"
+   ]
+  },
+  {
+   "tex": "$e$, $v$",
+   "meaning": "Errors of the true and the short model",
+   "kind": "Unobserved",
+   "typical": "—",
+   "keys": [
+    "e",
+    "v"
+   ]
+  },
+  {
+   "tex": "$x_4$, $\\beta_4$",
+   "meaning": "An extra regressor and its (zero) coefficient",
+   "kind": "Data / parameter",
+   "typical": "$XTRA\\_X5$",
+   "keys": [
+    "x",
+    "beta"
+   ]
+  },
+  {
+   "tex": "$R_k^2$",
+   "meaning": "$R^2$ from regressing $x_k$ on the other regressors",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "R"
+   ]
+  },
+  {
+   "tex": "$K$",
+   "meaning": "Number of coefficients, intercept included",
+   "kind": "Count",
+   "typical": "3 in the burger regression",
+   "keys": [
+    "K"
+   ],
+   "from": "multiple-regression-model"
+  },
+  {
+   "tex": "$N$",
+   "meaning": "Observations",
+   "kind": "Count",
+   "typical": "75",
+   "keys": [
+    "N"
+   ],
+   "from": "multiple-regression-model"
+  },
+  {
+   "tex": "$\\ln L$",
+   "meaning": "Maximized log-likelihood",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "L"
+   ],
+   "from": "model-selection-criteria"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Suppose family income depends on both the husband's and the wife's education, and couples tend to have similar schooling. If the regression includes only the husband's education, his coefficient soaks up part of his wife's contribution, because whenever his schooling is high hers usually is too. The estimate is then too large on average, and it stays too large however much data you collect. That is omitted variable bias. It needs two things at once: the left-out variable must matter for the outcome, and it must move with an included one. The opposite mistake, adding a variable that does not matter, causes no bias, but it costs precision, sharply so when the extra variable is correlated with the ones already there."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the most common reason a regression coefficient cannot be read as a causal effect, and exams ask both for the direction of the bias and for why variances jump when a variable is added.",
+       "folded": false
+      }
+     ],
+     "words": 160,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "True model $y = \\beta_1 + \\beta_2 x_2 + \\beta_3 x_3 + e$; estimated model $y = \\beta_1 + \\beta_2 x_2 + v$, with slope $b_2^{*}$."
+      },
+      {
+       "t": "math",
+       "tex": "\\text{bias}(b_2^{*}) = E[b_2^{*}] - \\beta_2 = \\beta_3\\,\\frac{\\mathrm{Cov}(x_2, x_3)}{\\mathrm{Var}(x_2)}"
+      },
+      {
+       "t": "prose",
+       "md": "In the sample the decomposition is exact: $b_2^{*} = b_2 + b_3\\widehat{\\delta}$, where $b_2$, $b_3$ come from the long regression and $\\widehat{\\delta}$ is the slope from regressing $x_3$ on $x_2$."
+      },
+      {
+       "t": "table",
+       "md": "| | $\\mathrm{Corr}(x_2, x_3) > 0$ | $\\mathrm{Corr}(x_2, x_3) < 0$ |\n| --- | --- | --- |\n| $\\beta_3 > 0$ | Upward bias | Downward bias |\n| $\\beta_3 < 0$ | Downward bias | Upward bias |"
+      },
+      {
+       "t": "prose",
+       "md": "No bias if $\\beta_3 = 0$ (the variable is irrelevant) or if $x_3$ is uncorrelated with $x_2$. The omitted variable sits in the error $v = \\beta_3 x_3 + e$, so $E[v \\mid x_2] \\neq 0$: MR2, [Strict Exogeneity](note:strict-exogeneity), fails."
+      },
+      {
+       "t": "prose",
+       "md": "**Irrelevant variables.** Including $x_4$ with $\\beta_4 = 0$ leaves every estimator unbiased, but the variance of $b_k$ is multiplied by the [variance inflation factor](note:multicollinearity) $1/(1 - R_k^2)$, which grows with how well $x_4$ and the other regressors predict $x_k$."
+      }
+     ],
+     "words": 90,
+     "symbols": [
+      "$y$",
+      "$x_2$, $x_3$",
+      "$\\beta_1, \\beta_2, \\beta_3$",
+      "$b_2$, $b_3$",
+      "$b_2^{*}$",
+      "$\\widehat{\\delta}$",
+      "$e$, $v$",
+      "$x_4$, $\\beta_4$",
+      "$R_k^2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example-family-income-and-education",
+   "heading": "Worked example: family income and education",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-family-income-and-education-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "428 couples (the wife works):"
+      },
+      {
+       "t": "table",
+       "md": "| | Intercept | $HEDU$ | $WEDU$ |\n| --- | --- | --- | --- |\n| Long | $-5{,}534$ | 3,132 | 4,523 |\n| Short | 26,191 | 5,155 | — |"
+      },
+      {
+       "t": "prose",
+       "md": "Omitting the wife's education raises the husband's coefficient by $5{,}155 - 3{,}132 = 2{,}024$ dollars a year per year of schooling. That is $b_3\\widehat{\\delta} = 4{,}523 \\times 0.448$: the wife's education matters ($b_3 > 0$) and is positively correlated with the husband's (correlation 0.59), so the bias is upward. Adding the number of young children ($KL6$, coefficient $-14{,}311$) barely moves the education coefficients (3,212 and 4,777), because it is only weakly related to them."
+      }
+     ],
+     "words": 82,
+     "symbols": [
+      "$b_2$, $b_3$",
+      "$\\widehat{\\delta}$",
+      "$K$",
+      "$\\ln L$"
+     ]
+    },
+    {
+     "id": "worked-example-family-income-and-education-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Irrelevant variables.** Adding two artificial variables unrelated to income leaves the coefficients roughly unchanged but raises standard errors: $HEDU$'s from 797 to 1,247 when $XTRA\\_X5$ enters, $WEDU$'s from 1,061 to 2,278 when $XTRA\\_X6$ enters. The standard errors of the others barely move, which says $XTRA\\_X5$ is strongly correlated with $HEDU$ and $XTRA\\_X6$ with $WEDU$: a squared ratio of $(1{,}247/797)^2 = 2.45$ is the variance inflation factor of an $R^2$ of about 0.59."
+      }
+     ],
+     "words": 66,
+     "symbols": [
+      "$R_k^2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **\"Any omitted variable causes bias.\"** Only one that both affects $y$ and is correlated with an included regressor.\n- **\"More data fixes it.\"** The bias does not shrink with $N$; OLS is inconsistent.\n- **Dropping a variable because it is insignificant** after adding it raised everyone's variance: if theory says it belongs, its omission may bias the rest. Weigh bias against variance ([Model Selection Criteria](note:model-selection-criteria))."
+      }
+     ],
+     "words": 64,
+     "symbols": [
+      "$y$",
+      "$N$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Strict Exogeneity](note:strict-exogeneity) · [Multicollinearity](note:multicollinearity) · [Ramsey RESET](note:ramsey-reset) · [Frisch-Waugh-Lovell Theorem](note:frisch-waugh-lovell-theorem)"
+      }
+     ],
+     "words": 8,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

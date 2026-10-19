@@ -1,0 +1,292 @@
+{
+ "slug": "model-selection-criteria",
+ "notation": [
+  {
+   "tex": "$SSE$",
+   "meaning": "Sum of squared residuals",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "~SSE"
+   ]
+  },
+  {
+   "tex": "$N$",
+   "meaning": "Observations",
+   "kind": "Count",
+   "typical": "428",
+   "keys": [
+    "N"
+   ]
+  },
+  {
+   "tex": "$K$",
+   "meaning": "Coefficients estimated, intercept included",
+   "kind": "Count",
+   "typical": "—",
+   "keys": [
+    "K"
+   ]
+  },
+  {
+   "tex": "$AIC$, $BIC$",
+   "meaning": "Information criteria",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "~AIC",
+    "~BIC"
+   ]
+  },
+  {
+   "tex": "$\\ln L$",
+   "meaning": "Maximized log-likelihood",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "L"
+   ]
+  },
+  {
+   "tex": "$p$",
+   "meaning": "Coefficients in the candidate model (predictors + 1)",
+   "kind": "Count",
+   "typical": "4 for $HEDU$, $WEDU$, $KL6$",
+   "keys": [
+    "p"
+   ]
+  },
+  {
+   "tex": "$SSE_p$",
+   "meaning": "Its sum of squared residuals",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "~SSE_p"
+   ]
+  },
+  {
+   "tex": "$\\widehat{\\sigma}^2$",
+   "meaning": "Error variance estimate from the full model",
+   "kind": "Statistic",
+   "typical": "$40{,}240^2$",
+   "keys": [
+    "hat(sigma)"
+   ]
+  },
+  {
+   "tex": "$C_p$",
+   "meaning": "Mallows' statistic",
+   "kind": "Statistic",
+   "typical": "2.32",
+   "keys": [
+    "C"
+   ]
+  },
+  {
+   "tex": "$R^2$, $\\bar{R}^2$",
+   "meaning": "R-squared and adjusted R-squared",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "R",
+    "bar(R)"
+   ]
+  },
+  {
+   "tex": "$y_i$, $\\hat{y}_i$",
+   "meaning": "Actual and fitted outcome",
+   "kind": "Data / computed",
+   "typical": "—",
+   "keys": [
+    "y",
+    "hat(y)"
+   ],
+   "from": "coefficient-of-determination"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Adding a variable to a regression can only shrink the leftover error in the sample, so raw fit always prefers the biggest model, even when the extra variables are noise. Model selection criteria fix that by charging a price for every coefficient. AIC charges a moderate price, BIC a steeper one that rises with the sample size, so BIC tends to choose smaller models. Mallows' Cp compares a candidate model's leftover error with the error of the full model and adds a similar charge. For all three, the model with the smallest value wins."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "These are the lecture's tools for choosing among competing specifications, and exam questions ask you to read a Cp plot and to say what AIC and BIC must do to back up an $R^2$ comparison.",
+       "folded": false
+      }
+     ],
+     "words": 131,
+     "symbols": [
+      "$R^2$, $\\bar{R}^2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With $SSE$ the sum of squared residuals, $N$ observations and $K$ coefficients (intercept included):"
+      },
+      {
+       "t": "math",
+       "tex": "AIC = \\ln\\left(\\frac{SSE}{N}\\right) + \\frac{2K}{N}, \\qquad BIC = \\ln\\left(\\frac{SSE}{N}\\right) + \\frac{K\\ln N}{N}"
+      },
+      {
+       "t": "prose",
+       "md": "The first term falls as the fit improves; the second rises with $K$. BIC's penalty per coefficient, $\\ln N/N$, exceeds AIC's $2/N$ once $N \\geq 8$."
+      },
+      {
+       "t": "prose",
+       "md": "**Software scale.** `statsmodels` reports $-2\\ln L + 2K$ (and $-2\\ln L + K\\ln N$). For OLS with normal errors this is $N$ times the formula above plus a constant, so the two versions rank models identically; only differences within one version mean anything."
+      },
+      {
+       "t": "prose",
+       "md": "**Mallows' Cp** for a candidate with $p$ coefficients, using $\\widehat{\\sigma}^2$ from the model with all candidate regressors:"
+      },
+      {
+       "t": "math",
+       "tex": "C_p = \\frac{SSE_p}{\\widehat{\\sigma}^2} - N + 2p"
+      },
+      {
+       "t": "prose",
+       "md": "Prefer small $C_p$; a model without important omissions has $C_p$ close to or below $p$. The full model has $C_p = p$ exactly."
+      }
+     ],
+     "words": 95,
+     "symbols": [
+      "$SSE$",
+      "$N$",
+      "$K$",
+      "$AIC$, $BIC$",
+      "$\\ln L$",
+      "$p$",
+      "$SSE_p$",
+      "$\\widehat{\\sigma}^2$",
+      "$C_p$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example-family-income",
+   "heading": "Worked example: family income",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-family-income-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Five nested models (`statsmodels` scale):"
+      },
+      {
+       "t": "table",
+       "md": "| Regressors | AIC | BIC |\n| --- | --- | --- |\n| $HEDU$ | 10,314.7 | 10,322.8 |\n| $+\\,WEDU$ | 10,298.9 | 10,311.1 |\n| $+\\,KL6$ | **10,292.7** | **10,309.0** |\n| $+\\,XTRA\\_X5$ | 10,294.7 | 10,315.0 |\n| $+\\,XTRA\\_X6$ | 10,296.4 | 10,320.8 |"
+      },
+      {
+       "t": "prose",
+       "md": "Both pick $HEDU$, $WEDU$, $KL6$. Adding the irrelevant $XTRA\\_X5$ raises AIC by 1.97 and BIC by 6.03: each extra coefficient costs 2 on the AIC scale and $\\ln 428 = 6.06$ on the BIC scale, and it barely lowers $SSE$."
+      },
+      {
+       "t": "prose",
+       "md": "**Cp.** Across all 31 subsets, $(HEDU, WEDU, KL6)$ has the smallest $C_p = 2.32$, below its $p = 4$; the full model has $C_p = 6 = p$. From the regression output: $C_p = 424 \\times 40{,}160^2/40{,}240^2 - 428 + 8 = 2.32$."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Mallows Cp by subset - family income.png",
+       "alt": "Mallows Cp by subset - family income"
+      }
+     ],
+     "words": 92,
+     "symbols": [
+      "$SSE$",
+      "$K$",
+      "$\\ln L$",
+      "$p$",
+      "$C_p$",
+      "$R^2$, $\\bar{R}^2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "reading-the-criteria-with-r-2",
+   "heading": "Reading the criteria with $R^2$",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "reading-the-criteria-with-r-2-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$R^2$ never falls when a regressor is added, so a higher $R^2$ alone cannot justify a bigger model. If equation B has a higher $R^2$ than A and you want AIC and BIC to back B, they must be **lower** for B; if B's gain is small, BIC in particular may still prefer A. Adjusted $R^2$ penalizes too, but more weakly than either criterion."
+      }
+     ],
+     "words": 60,
+     "symbols": [
+      "$R^2$, $\\bar{R}^2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Choosing the largest value.** All three are \"smaller is better\".\n- **Comparing AIC across different dependent variables** ($y$ against $\\ln y$) or different samples: the $SSE$s are not comparable.\n- **Comparing the notes' formula with software output.** The scales differ; rank within one.\n- **Choosing by Cp alone when two candidates are close.** Prefer the simpler one with $C_p \\le p$."
+      }
+     ],
+     "words": 56,
+     "symbols": [
+      "$SSE$",
+      "$p$",
+      "$C_p$",
+      "$y_i$, $\\hat{y}_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Coefficient of Determination](note:coefficient-of-determination) · [Variable Selection](note:variable-selection) · [Cross-Validation](note:cross-validation) · [Omitted Variable Bias](note:omitted-variable-bias)"
+      }
+     ],
+     "words": 10,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,351 @@
+{
+ "slug": "f-test-of-joint-hypotheses",
+ "notation": [
+  {
+   "tex": "$H_0$",
+   "meaning": "The $J$ restrictions, all true",
+   "kind": "—",
+   "typical": "$\\delta_1 = \\delta_2 = \\gamma = 0$",
+   "keys": [
+    "H"
+   ]
+  },
+  {
+   "tex": "$J$",
+   "meaning": "Number of restrictions",
+   "kind": "Count",
+   "typical": "3",
+   "keys": [
+    "J"
+   ]
+  },
+  {
+   "tex": "$SSE_R$, $SSE_U$",
+   "meaning": "Sum of squared residuals, restricted and unrestricted",
+   "kind": "Statistics",
+   "typical": "135,771 and 130,195",
+   "keys": [
+    "~SSE_R",
+    "~SSE_U"
+   ]
+  },
+  {
+   "tex": "$N$",
+   "meaning": "Observations",
+   "kind": "Count",
+   "typical": "1,000",
+   "keys": [
+    "N"
+   ]
+  },
+  {
+   "tex": "$K$",
+   "meaning": "Coefficients in the unrestricted model",
+   "kind": "Count",
+   "typical": "5",
+   "keys": [
+    "K"
+   ]
+  },
+  {
+   "tex": "$F$",
+   "meaning": "Test statistic",
+   "kind": "Statistic",
+   "typical": "14.20",
+   "keys": [
+    "F"
+   ]
+  },
+  {
+   "tex": "$F_{1-\\alpha;\\,J,\\,N-K}$",
+   "meaning": "Critical value",
+   "kind": "Constant",
+   "typical": "$F_{0.95;\\,3,\\,995} = 2.61$",
+   "keys": [
+    "F"
+   ]
+  },
+  {
+   "tex": "$t$",
+   "meaning": "$t$ statistic for a single restriction",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "t"
+   ]
+  },
+  {
+   "tex": "$\\beta_k$",
+   "meaning": "Coefficients",
+   "kind": "Parameters",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$\\delta_1$, $\\delta_2$, $\\gamma$",
+   "meaning": "Race, gender and race × gender coefficients",
+   "kind": "Parameters",
+   "typical": "—",
+   "keys": [
+    "delta",
+    "gamma"
+   ]
+  },
+  {
+   "tex": "$\\theta_1, \\ldots, \\theta_5$",
+   "meaning": "Coefficients on the South dummy and its interactions",
+   "kind": "Parameters",
+   "typical": "—",
+   "keys": [
+    "theta"
+   ]
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "Significance level",
+   "kind": "Choice",
+   "typical": "0.05",
+   "keys": [
+    "alpha"
+   ]
+  },
+  {
+   "tex": "$b_k$",
+   "meaning": "Its OLS estimate",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "b"
+   ],
+   "from": "hypothesis-tests-on-regression-coefficients"
+  },
+  {
+   "tex": "$T$",
+   "meaning": "A random variable with the $t_{N-K}$ distribution",
+   "kind": "Random variable",
+   "typical": "—",
+   "keys": [
+    "T"
+   ],
+   "from": "hypothesis-tests-on-regression-coefficients"
+  },
+  {
+   "tex": "$e_i$",
+   "meaning": "Error",
+   "kind": "Unobserved",
+   "typical": "—",
+   "keys": [
+    "e"
+   ],
+   "from": "multiple-regression-model"
+  },
+  {
+   "tex": "$GVIF$, $p$",
+   "meaning": "Generalized VIF and columns in the term",
+   "kind": "Statistic / count",
+   "typical": "—",
+   "keys": [
+    "~GVIF",
+    "p"
+   ],
+   "from": "multicollinearity"
+  },
+  {
+   "tex": "$D_{ji}$",
+   "meaning": "1 if observation $i$ is in group $j$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "D"
+   ],
+   "from": "analysis-of-variance"
+  },
+  {
+   "tex": "$A$, $B$; $a$, $b$",
+   "meaning": "Two factors and their numbers of levels",
+   "kind": "—",
+   "typical": "3 and 2",
+   "keys": [
+    "A",
+    "B",
+    "a",
+    "b"
+   ],
+   "from": "analysis-of-variance"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Some questions involve several coefficients at once: \"do race and gender matter for wages at all?\" means the black, female and black-female coefficients are all zero. Testing each one separately does not answer it, because three individually weak terms can matter together. The F test compares two regressions: the full (unrestricted) one, and a restricted one that imposes the null by dropping the terms. If dropping them makes the fit much worse, measured by how much the sum of squared residuals rises per restriction, relative to the leftover noise, the restrictions are rejected."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the test for joint significance, for whether two groups share one regression (Chow), and behind the F statistic printed on every regression table.",
+       "folded": false
+      }
+     ],
+     "words": 121,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With $J$ restrictions, $SSE_R$ from the restricted model and $SSE_U$ from the unrestricted one,"
+      },
+      {
+       "t": "math",
+       "tex": "F = \\frac{(SSE_R - SSE_U)/J}{SSE_U/(N-K)} \\sim F_{J,\\;N-K} \\text{ under } H_0"
+      },
+      {
+       "t": "prose",
+       "md": "Reject when $F > F_{1-\\alpha;\\,J,\\,N-K}$. $K$ counts the unrestricted model's coefficients."
+      },
+      {
+       "t": "prose",
+       "md": "**Special cases.**"
+      },
+      {
+       "t": "prose",
+       "md": "- **Overall significance**: $H_0: \\beta_2 = \\cdots = \\beta_K = 0$ ($J = K - 1$), the \"F-statistic\" on the regression table.\n- **One restriction** ($J = 1$): $F = t^2$, so a $t$ test of a single linear combination ([Delta Method](note:delta-method)) and the $F$ test agree.\n- **Chow test**: are the coefficients the same in two groups? Interact every regressor with the group dummy and test that all the interaction terms (and the dummy) are zero."
+      }
+     ],
+     "words": 76,
+     "symbols": [
+      "$H_0$",
+      "$J$",
+      "$SSE_R$, $SSE_U$",
+      "$N$",
+      "$K$",
+      "$F$",
+      "$F_{1-\\alpha;\\,J,\\,N-K}$",
+      "$t$",
+      "$\\beta_k$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example-do-race-and-gender-matter",
+   "heading": "Worked example: do race and gender matter?",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-do-race-and-gender-matter-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Unrestricted: $WAGE = \\beta_1 + \\beta_2 EDUC + \\delta_1 BLACK + \\delta_2 FEMALE + \\gamma(BLACK \\times FEMALE) + e$. Restricted: $WAGE = \\beta_1 + \\beta_2 EDUC + e$."
+      },
+      {
+       "t": "math",
+       "tex": "F = \\frac{(135{,}771 - 130{,}195)/3}{130{,}195/(1{,}000 - 5)} = \\frac{1{,}859}{130.85} = 14.20 > 2.61"
+      },
+      {
+       "t": "prose",
+       "md": "$p < 0.001$: race and gender matter jointly, even though the interaction alone has $p = 0.099$."
+      }
+     ],
+     "words": 13,
+     "symbols": [
+      "$K$",
+      "$F$",
+      "$F_{1-\\alpha;\\,J,\\,N-K}$",
+      "$\\beta_k$",
+      "$\\delta_1$, $\\delta_2$, $\\gamma$",
+      "$e_i$",
+      "$GVIF$, $p$",
+      "$D_{ji}$",
+      "$A$, $B$; $a$, $b$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example-the-chow-test-for-the-south",
+   "heading": "Worked example: the Chow test for the South",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-the-chow-test-for-the-south-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Add $SOUTH$ and its interaction with every regressor ($\\theta_1, \\ldots, \\theta_5$), and test $H_0: \\theta_1 = \\cdots = \\theta_5 = 0$: $F = 0.32$, $p = 0.90$ on (5, 990) degrees of freedom. Wages in the South follow the same equation as in the rest of the country, so the data can be pooled. Estimating the two regions separately reproduces the interacted model's two sets of coefficients (the no-South regression matches the full model's base coefficients, $b_{EDUC} = 2.17$ in both), which is why the Chow test is equivalent to comparing two separate regressions."
+      }
+     ],
+     "words": 73,
+     "symbols": [
+      "$H_0$",
+      "$F$",
+      "$F_{1-\\alpha;\\,J,\\,N-K}$",
+      "$\\theta_1, \\ldots, \\theta_5$",
+      "$b_k$",
+      "$T$",
+      "$GVIF$, $p$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Testing jointly with separate $t$ tests.** Individually insignificant terms can be jointly significant, especially when they are correlated ([Multicollinearity](note:multicollinearity)).\n- **Using the restricted model's $K$** in the denominator degrees of freedom.\n- **Calling a single linear combination a joint test.** One restriction, even with several coefficients, is a $t$ test."
+      }
+     ],
+     "words": 48,
+     "symbols": [
+      "$K$",
+      "$t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Hypothesis Tests on Regression Coefficients](note:hypothesis-tests-on-regression-coefficients) · [Analysis of Variance](note:analysis-of-variance) · [Interaction Terms](note:interaction-terms) · [Ramsey RESET](note:ramsey-reset)"
+      }
+     ],
+     "words": 13,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

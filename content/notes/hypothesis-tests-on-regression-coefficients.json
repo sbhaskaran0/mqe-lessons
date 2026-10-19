@@ -285,6 +285,29 @@
    ]
   },
   {
+   "id": "several-coefficients-at-once",
+   "heading": "Several coefficients at once",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "several-coefficients-at-once-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The same $t$ test handles one restriction on several coefficients, such as $H_0: -0.4\\beta_2 + 0.8\\beta_3 = 0$ for a burger chain's marketing plan ($t = 6.56$); its standard error needs the covariance of the estimates ([Delta Method](note:delta-method)). Several restrictions at once need the [F Test of Joint Hypotheses](note:f-test-of-joint-hypotheses)."
+      }
+     ],
+     "words": 39,
+     "symbols": [
+      "$\\beta_k$",
+      "$t$",
+      "$t_{q,\\,N-K}$",
+      "$H_0$, $H_1$"
+     ]
+    }
+   ]
+  },
+  {
    "id": "links",
    "heading": "Links",
    "role": "other",
@@ -294,10 +317,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "- [Sampling Distribution of OLS](note:sampling-distribution-of-ols) · [Coefficient of Determination](note:coefficient-of-determination) · [Confidence vs Prediction Intervals](note:confidence-vs-prediction-intervals)"
+       "md": "- [Sampling Distribution of OLS](note:sampling-distribution-of-ols) · [Coefficient of Determination](note:coefficient-of-determination) · [Confidence vs Prediction Intervals](note:confidence-vs-prediction-intervals)\n- Multiple regression: [Delta Method](note:delta-method) · [F Test of Joint Hypotheses](note:f-test-of-joint-hypotheses) · [Heteroskedasticity-Consistent Standard Errors](note:heteroskedasticity-consistent-standard-errors)"
       }
      ],
-     "words": 12,
+     "words": 25,
      "symbols": []
     }
    ]

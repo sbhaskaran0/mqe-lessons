@@ -1,0 +1,416 @@
+{
+ "slug": "econ-430-l9-bootstrapping-regression-models",
+ "notation": [
+  {
+   "tex": "$B$",
+   "meaning": "Number of bootstrap repetitions",
+   "kind": "Choice",
+   "typical": "1,000 or more",
+   "keys": [
+    "B"
+   ],
+   "from": "bootstrapping-ols"
+  },
+  {
+   "tex": "$\\widehat{\\sigma}$",
+   "meaning": "Estimated standard deviation of the errors, one of the bootstrapped statistics",
+   "kind": "Statistic",
+   "typical": "89.5 in the food regression",
+   "keys": [
+    "hat(sigma)"
+   ],
+   "from": "bootstrapping-ols"
+  },
+  {
+   "tex": "$b_2$",
+   "meaning": "OLS slope",
+   "kind": "Estimator",
+   "typical": "10.21",
+   "keys": [
+    "b"
+   ],
+   "from": "heteroskedasticity-consistent-standard-errors"
+  },
+  {
+   "tex": "$x_i$, $\\bar{x}$",
+   "meaning": "Regressor and its mean",
+   "kind": "Data / statistic",
+   "typical": "—",
+   "keys": [
+    "x",
+    "bar(x)"
+   ],
+   "from": "heteroskedasticity-consistent-standard-errors"
+  },
+  {
+   "tex": "$N$, $K$",
+   "meaning": "Observations and coefficients",
+   "kind": "Counts",
+   "typical": "40, 2",
+   "keys": [
+    "N",
+    "K"
+   ],
+   "from": "heteroskedasticity-consistent-standard-errors"
+  },
+  {
+   "tex": "$\\beta_2$, $\\beta_3$",
+   "meaning": "Price and advertising coefficients in the burger regression",
+   "kind": "Parameters",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ],
+   "from": "heteroskedasticity-consistent-standard-errors"
+  },
+  {
+   "tex": "$y_i$",
+   "meaning": "Outcome for observation $i$",
+   "kind": "Data",
+   "typical": "$SALES$ in \\$1000s",
+   "keys": [
+    "y"
+   ],
+   "from": "multiple-regression-model"
+  },
+  {
+   "tex": "$e_i$",
+   "meaning": "Error",
+   "kind": "Unobserved",
+   "typical": "—",
+   "keys": [
+    "e"
+   ],
+   "from": "multiple-regression-model"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Any regression can be checked by bootstrapping it: draw the rows of the data with replacement, refit the same model, and repeat. The spread of the refitted coefficients estimates their sampling variability without assuming normal or constant-variance errors. For bank branches' transaction times, 1,000 resamples put each type-1 transaction at about 5.5 minutes, with a bootstrap standard error of 0.69 and a 95% percentile interval of [4.12, 6.80].**"
+      },
+      {
+       "t": "callout",
+       "kind": "info",
+       "title": "Source",
+       "md": "Section 2 of `Regression_Lecture2.ipynb` (see [Econ 430 L8 Building Multiple Regression Models](note:econ-430-l8-building-multiple-regression-models) for how the notebook maps to lectures). The bootstrap itself was introduced for simple regression in [Econ 430 L4 Cross-Validation and the Bootstrap](note:econ-430-l4-cross-validation-and-the-bootstrap).",
+       "folded": false
+      }
+     ],
+     "words": 111,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "1-the-pairs-bootstrap-for-a-multiple-regression",
+   "heading": "1. The pairs bootstrap for a multiple regression",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-the-pairs-bootstrap-for-a-multiple-regression-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The procedure is the one from L4 ([Bootstrapping OLS](note:bootstrapping-ols)), applied to a model with two regressors. For $b = 1, \\ldots, B$:"
+      },
+      {
+       "t": "prose",
+       "md": "1. Draw $N$ rows from the data with replacement (each row keeps its $y$ and its $x$'s together: the **pairs** bootstrap).\n2. Fit the regression to the resample and store the coefficients and $\\widehat{\\sigma}$."
+      },
+      {
+       "t": "prose",
+       "md": "Then summarize each statistic's $B$ values: the mean, the standard deviation (the **bootstrap standard error**) and the 2.5th and 97.5th percentiles (a 95% **percentile interval**). The lecture recommends doing this for any regression, as a check on how robust the estimates are."
+      },
+      {
+       "t": "prose",
+       "md": "The example models the total time a bank branch spends on transactions ($TIME$, minutes) by the numbers of two types of transaction, $T_1$ and $T_2$, for 261 branches: $TIME = \\beta_1 + \\beta_2 T_1 + \\beta_3 T_2 + e$, with $B = 1{,}000$ resamples."
+      }
+     ],
+     "words": 118,
+     "symbols": [
+      "$B$",
+      "$\\widehat{\\sigma}$",
+      "$b_2$",
+      "$x_i$, $\\bar{x}$",
+      "$N$, $K$",
+      "$\\beta_2$, $\\beta_3$",
+      "$y_i$",
+      "$e_i$"
+     ]
+    },
+    {
+     "id": "1-the-pairs-bootstrap-for-a-multiple-regression-2",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| | Mean | Std. dev. | Median | 2.5% | 97.5% |\n| --- | --- | --- | --- | --- | --- |\n| Intercept | 159.8 | 188.8 | 161.5 | $-199.9$ | 531.6 |\n| $T_1$ | 5.494 | 0.688 | 5.500 | 4.120 | 6.799 |\n| $T_2$ | 2.022 | 0.151 | 2.019 | 1.744 | 2.320 |\n| $\\widehat{\\sigma}$ | 1,126 | 89.1 | 1,126 | 945.6 | 1,295.5 |"
+      }
+     ],
+     "words": 54,
+     "symbols": [
+      "$\\widehat{\\sigma}$"
+     ]
+    },
+    {
+     "id": "1-the-pairs-bootstrap-for-a-multiple-regression-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "In the bootstrap table, $T_1$'s 1,000 estimates have mean 5.494 and 95% percentile interval [4.12, 6.80]. What do they say about type-1 transactions?",
+       "options": [
+        {
+         "md": "Each extra type-1 transaction adds about 5.5 minutes to a branch's total time, holding type-2 transactions fixed, and the effect is clearly positive: the interval excludes 0",
+         "correct": true
+        },
+        {
+         "md": "Each type-1 transaction takes between 4.12 and 6.80 minutes in 95% of branches",
+         "correct": false,
+         "feedback": "The interval describes uncertainty about the *average* effect $\\beta_2$, not how transaction times vary from branch to branch."
+        },
+        {
+         "md": "Type-1 transactions take longer than type-2 ones because 5.494 has the larger standard deviation",
+         "correct": false,
+         "feedback": "The comparison of times rests on the coefficients (5.5 against 2.0 minutes), not on their standard errors."
+        },
+        {
+         "md": "The OLS coefficient is wrong, since the bootstrap mean differs from it",
+         "correct": false,
+         "feedback": "The bootstrap mean is close to the OLS estimate by construction; a large gap would signal bias in the estimator, not a mistake in OLS."
+        }
+       ],
+       "why": "$\\beta_2$ is the partial effect of one more type-1 transaction on total minutes. Across resamples it centres on 5.5 minutes and 95% of the estimates fall between 4.12 and 6.80, so a type-1 transaction takes roughly two to three times as long as a type-2 one (2.0 minutes, interval [1.74, 2.32]).",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 97,
+     "symbols": [
+      "$\\beta_2$, $\\beta_3$"
+     ]
+    },
+    {
+     "id": "1-the-pairs-bootstrap-for-a-multiple-regression-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "From the bootstrap table, $T_1$'s estimates have mean 5.494 and standard deviation 0.688. Using the normal approximation, what is the upper limit of a 95% interval for $\\beta_2$? Give two decimals.",
+       "answer": 6.84,
+       "tol": 0.01,
+       "wrong": [
+        {
+         "answer": 6.18,
+         "tol": 0.01,
+         "md": "that adds one standard error; a 95% interval uses 1.96"
+        },
+        {
+         "answer": 6.8,
+         "tol": 0.005,
+         "md": "that is the 97.5th percentile of the 1,000 estimates, the percentile interval's upper limit"
+        },
+        {
+         "answer": 5.54,
+         "tol": 0.01,
+         "md": "that divides 0.688 by $\\sqrt{1{,}000}$; the bootstrap standard deviation is already the standard error"
+        }
+       ],
+       "why": "$5.494 + 1.96 \\times 0.688 = 6.842$ (lower limit 4.145). The percentile interval, [4.12, 6.80], is almost the same, which is what a nearly normal bootstrap distribution gives.",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 32,
+     "symbols": [
+      "$\\beta_2$, $\\beta_3$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "2-reading-the-bootstrap-distributions",
+   "heading": "2. Reading the bootstrap distributions",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-reading-the-bootstrap-distributions-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The histograms of the 1,000 estimates, with a kernel density (magenta) and a normal curve with the same mean and standard deviation (green):"
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Bank transaction time - bootstrap distributions of the estimates.png",
+       "alt": "Bank transaction time - bootstrap distributions of the estimates"
+      }
+     ],
+     "words": 24,
+     "symbols": []
+    },
+    {
+     "id": "2-reading-the-bootstrap-distributions-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "In the bootstrap histograms, the kernel density and the matching normal curve nearly coincide for all four statistics. What does that tell you?",
+       "options": [
+        {
+         "md": "The regression errors are normally distributed",
+         "correct": false,
+         "feedback": "The histograms describe the sampling distribution of the *estimates*, which is close to normal by the central limit theorem even when the errors are not."
+        },
+        {
+         "md": "Normal-based intervals ($\\text{mean} \\pm 1.96 \\times \\text{sd}$) and percentile intervals will nearly agree, so either can be reported",
+         "correct": true
+        },
+        {
+         "md": "The model is correctly specified",
+         "correct": false,
+         "feedback": "The bootstrap reproduces whatever the model estimates, misspecified or not; it says nothing about the functional form."
+        },
+        {
+         "md": "More resamples are needed, because the histograms are bumpy",
+         "correct": false,
+         "feedback": "Bumps at $B = 1{,}000$ are simulation noise; the shape, close to normal, is already clear."
+        }
+       ],
+       "why": "When the bootstrap distribution is close to normal, its 2.5th and 97.5th percentiles sit about 1.96 standard deviations either side of its mean, so the two intervals match: for $T_1$, [4.14, 6.84] against [4.12, 6.80]. A skewed bootstrap distribution would be a reason to prefer the percentile interval.",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 56,
+     "symbols": [
+      "$B$"
+     ]
+    },
+    {
+     "id": "2-reading-the-bootstrap-distributions-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Comparing with the usual standard errors** (beyond the lecture: recomputed from the `carData` Transact data). The OLS estimates are $b_2 = 5.462$ and $b_3 = 2.035$, with usual standard errors 0.433 and 0.094. The bootstrap standard errors, 0.688 and 0.151, are about 60% larger, and they match the heteroskedasticity-robust ones (0.691 and 0.155; [Heteroskedasticity-Consistent Standard Errors](note:heteroskedasticity-consistent-standard-errors)): busier branches have more variable totals, which the textbook formula ignores."
+      }
+     ],
+     "words": 67,
+     "symbols": [
+      "$b_2$"
+     ]
+    },
+    {
+     "id": "2-reading-the-bootstrap-distributions-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "For $T_2$ the usual OLS standard error is 0.094, while the bootstrap standard deviation of the 1,000 estimates is 0.151. What is the most likely explanation?",
+       "options": [
+        {
+         "md": "The bootstrap is unreliable with only 261 branches",
+         "correct": false,
+         "feedback": "261 rows is plenty for a pairs bootstrap, and the bootstrap standard error barely moves with more resamples."
+        },
+        {
+         "md": "OLS is biased for $\\beta_3$",
+         "correct": false,
+         "feedback": "Bias would shift the centre of the estimates; both methods centre near 2.0. The disagreement is about spread."
+        },
+        {
+         "md": "The error variance is not constant across branches, so the textbook standard error understates the uncertainty; the bootstrap does not assume constant variance",
+         "correct": true
+        },
+        {
+         "md": "The bootstrap standard error is always larger, because resampling adds noise",
+         "correct": false,
+         "feedback": "With homoskedastic errors the two agree closely; the bootstrap is not larger by construction."
+        }
+       ],
+       "why": "The textbook formula assumes one error variance for all branches. Resampling whole rows keeps each branch's own error size with its $x$'s, so the bootstrap standard error reflects heteroskedasticity, as the White standard error does (0.155). The usual 0.094 makes $T_2$'s effect look more precise than it is.",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 74,
+     "symbols": [
+      "$x_i$, $\\bar{x}$",
+      "$\\beta_2$, $\\beta_3$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "math-refresher",
+   "heading": "Math refresher",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "math-refresher-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Math Prep L8 Integration for Probability](note:math-prep-l8-integration-for-probability) — sampling distributions and the central limit theorem"
+      }
+     ],
+     "words": 14,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Describe the pairs bootstrap for a multiple regression and read a bootstrap summary table: estimates, standard errors and percentile intervals.\n2. Judge from the bootstrap distributions whether normal-based and percentile intervals agree, and explain why bootstrap and textbook standard errors can differ."
+      }
+     ],
+     "words": 43,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "bootstrapping-ols",
+        "heteroskedasticity-consistent-standard-errors",
+        "multiple-regression-model"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

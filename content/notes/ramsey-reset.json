@@ -1,0 +1,244 @@
+{
+ "slug": "ramsey-reset",
+ "notation": [
+  {
+   "tex": "$y$, $\\widehat{y}$",
+   "meaning": "Outcome and its fitted value",
+   "kind": "Data / computed",
+   "typical": "—",
+   "keys": [
+    "y",
+    "hat(y)"
+   ]
+  },
+  {
+   "tex": "$x_2$, $x_3$",
+   "meaning": "Regressors",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "x"
+   ]
+  },
+  {
+   "tex": "$\\beta_1, \\beta_2, \\beta_3$",
+   "meaning": "Coefficients",
+   "kind": "Parameters",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$\\gamma_1$, $\\gamma_2$",
+   "meaning": "Coefficients on $\\widehat{y}^2$ and $\\widehat{y}^3$",
+   "kind": "Parameters",
+   "typical": "0 under $H_0$",
+   "keys": [
+    "gamma"
+   ]
+  },
+  {
+   "tex": "$J$",
+   "meaning": "Number of added terms",
+   "kind": "Count",
+   "typical": "1 or 2",
+   "keys": [
+    "J"
+   ]
+  },
+  {
+   "tex": "$F$",
+   "meaning": "Test statistic",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "F"
+   ]
+  },
+  {
+   "tex": "$e$",
+   "meaning": "Error",
+   "kind": "Unobserved",
+   "typical": "—",
+   "keys": [
+    "e"
+   ]
+  },
+  {
+   "tex": "$H_0$",
+   "meaning": "The $J$ restrictions, all true",
+   "kind": "—",
+   "typical": "$\\delta_1 = \\delta_2 = \\gamma = 0$",
+   "keys": [
+    "H"
+   ],
+   "from": "f-test-of-joint-hypotheses"
+  },
+  {
+   "tex": "$t$",
+   "meaning": "$t$ statistic for a single restriction",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "t"
+   ],
+   "from": "f-test-of-joint-hypotheses"
+  },
+  {
+   "tex": "$p$, $n$",
+   "meaning": "Number of parameters and of observations",
+   "kind": "Counts",
+   "typical": "—",
+   "keys": [
+    "p",
+    "n"
+   ],
+   "from": "regression-diagnostics"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A regression can be wrong because the true relationship bends, or because two regressors work together, and a linear model has no way to say so on its own. RESET checks for this by adding the squares (and sometimes cubes) of the model's own predictions and asking whether they help. Squared predictions mix squares and products of all the regressors, so if any curvature or interaction is missing they tend to pick it up. If they add nothing, the linear form is acceptable; if they do, something nonlinear belongs in the model, though the test does not say what."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the standard functional-form check in the lecture's workflow, and exam questions ask for its interpretation and a recommendation.",
+       "folded": false
+      }
+     ],
+     "words": 122,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "For $y = \\beta_1 + \\beta_2 x_2 + \\beta_3 x_3 + e$ with fitted values $\\widehat{y}$, estimate"
+      },
+      {
+       "t": "math",
+       "tex": "y = \\beta_1 + \\beta_2 x_2 + \\beta_3 x_3 + \\gamma_1\\widehat{y}^2 + \\gamma_2\\widehat{y}^3 + e"
+      },
+      {
+       "t": "prose",
+       "md": "and test $H_0: \\gamma_1 = \\gamma_2 = 0$ with an $F$ test ($J = 2$), or $H_0: \\gamma_1 = 0$ with $\\widehat{y}^2$ alone ($J = 1$). Rejecting $H_0$: the model is misspecified; try quadratic terms, interactions or logs. Not rejecting: no evidence of a missing nonlinearity of this kind."
+      },
+      {
+       "t": "prose",
+       "md": "**Variants** in `statsmodels.linear_reset`: `test_type='fitted'` (powers of $\\widehat{y}$), `'exog'` (powers of each regressor, so $J$ = number of regressors). The test needs the model's constant: without it, $\\widehat{y}$ and its powers stand in for the missing intercept."
+      }
+     ],
+     "words": 71,
+     "symbols": [
+      "$y$, $\\widehat{y}$",
+      "$x_2$, $x_3$",
+      "$\\beta_1, \\beta_2, \\beta_3$",
+      "$\\gamma_1$, $\\gamma_2$",
+      "$J$",
+      "$F$",
+      "$e$",
+      "$H_0$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-examples-from-the-lecture",
+   "heading": "Worked examples (from the lecture)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-examples-from-the-lecture-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Simulated data**, 30 points: a linear fit to $y = 1 + x + x^2 + \\text{noise}$ gives $F = 369{,}456$, $p \\approx 0$ (misspecified); a linear fit to $y = 1 + x + \\text{noise}$ gives $F = 2.28$, $p = 0.14$ (fine).\n- **Family income** on the spouses' education and young children, with squares of each regressor: $F = 2.60$ on (3, 421), $p = 0.051$: not rejected at 5%, though only just."
+      }
+     ],
+     "words": 42,
+     "symbols": [
+      "$y$, $\\widehat{y}$",
+      "$x_2$, $x_3$",
+      "$F$",
+      "$p$, $n$"
+     ]
+    },
+    {
+     "id": "worked-examples-from-the-lecture-2",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "warning",
+       "title": "Correction to the lecture notebook: RESET on the college GPA model",
+       "md": "The 10-step example runs RESET on `sm.OLS(y, X)` with no constant and reports $F = 12.20$, $p = 0.0006$, \"misspecified\". The regression it tests is not the model being studied: without an intercept, the squared fitted values partly stand in for it. On the model with its constant, $\\widehat{y}^2$ alone gives $F = 3.23$, $p = 0.074$ (not rejected at 5%); squares of the three regressors give $F = 2.07$, $p = 0.107$; $\\widehat{y}^2$ and $\\widehat{y}^3$ together give $F = 4.24$, $p = 0.016$ (rejected). The evidence of misspecification is mixed, and the quadratic in high-school GPA the notebook then tries is not significant ($t = 1.51$, $p = 0.134$). Recomputed from the `wooldridge` gpa1 data.",
+       "folded": false
+      }
+     ],
+     "words": 96,
+     "symbols": [
+      "$y$, $\\widehat{y}$",
+      "$F$",
+      "$t$",
+      "$p$, $n$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Reading a rejection as a recipe.** RESET says something nonlinear is missing, not what; use [component-plus-residual plots](note:component-plus-residual-plot) and theory to choose.\n- **Reading non-rejection as proof of correct specification.** RESET has little power against omitted variables unrelated to the included ones.\n- **Running it without the intercept.**"
+      }
+     ],
+     "words": 48,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [F Test of Joint Hypotheses](note:f-test-of-joint-hypotheses) · [Functional Forms and Elasticities](note:functional-forms-and-elasticities) · [Regression Diagnostics](note:regression-diagnostics) · [Omitted Variable Bias](note:omitted-variable-bias)"
+      }
+     ],
+     "words": 15,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}
