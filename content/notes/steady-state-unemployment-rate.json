@@ -1,0 +1,269 @@
+{
+ "slug": "steady-state-unemployment-rate",
+ "notation": [
+  {
+   "tex": "$U_t$, $E_t$",
+   "meaning": "Unemployed and employed workers in period $t$",
+   "kind": "State variables",
+   "typical": "—",
+   "keys": [
+    "U",
+    "E"
+   ]
+  },
+  {
+   "tex": "$\\bar{U}$, $\\bar{E}$",
+   "meaning": "Their steady-state levels",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "bar(U)",
+    "bar(E)"
+   ]
+  },
+  {
+   "tex": "$L$",
+   "meaning": "Labor force, $U + E$",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "L"
+   ]
+  },
+  {
+   "tex": "$\\lambda$",
+   "meaning": "Separation rate: share of employed workers who lose their job each period",
+   "kind": "Parameter",
+   "typical": "≈ 0.03 per month",
+   "keys": [
+    "lambda"
+   ]
+  },
+  {
+   "tex": "$f$",
+   "meaning": "Job-finding rate",
+   "kind": "Endogenous (or parameter in the accounting)",
+   "typical": "0.4 per month",
+   "keys": [
+    "f"
+   ]
+  },
+  {
+   "tex": "$u$, $\\bar{u}$",
+   "meaning": "Unemployment rate $U/L$ and its steady state",
+   "kind": "Endogenous",
+   "typical": "7.0% in the example",
+   "keys": [
+    "u",
+    "bar(u)"
+   ]
+  },
+  {
+   "tex": "$A$, $\\theta$, $\\alpha$",
+   "meaning": "Matching efficiency, tightness and matching elasticity, when $f$ comes from a matching function",
+   "kind": "Parameter, endogenous, parameter",
+   "typical": "0.5, 1, 0.5",
+   "keys": [
+    "A",
+    "theta",
+    "alpha"
+   ]
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Think of unemployment as water in a bathtub. Each month some employed people lose or leave their jobs and pour in; some unemployed people find jobs and drain out. If more pours in than drains out, the tub fills; if less, it empties. The level settles where the two flows are equal. That settled level is the steady-state unemployment rate. It is high when jobs end often and low when the unemployed find work quickly. Nothing about it requires the labor market to \"clear\": people are always moving through unemployment, even when the rate itself stays put."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It turns two measurable flow rates into the unemployment rate, so any policy or shock can be read through what it does to separations or to job finding.",
+       "folded": false
+      }
+     ],
+     "words": 128,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With a labor force $L = U + E$, a separation rate $\\lambda$ and a job-finding rate $f$, unemployment evolves as"
+      },
+      {
+       "t": "math",
+       "tex": "U_{t+1} = (1 - f)U_t + \\lambda E_t"
+      },
+      {
+       "t": "prose",
+       "md": "It is constant when inflows equal outflows, $\\lambda\\bar{E} = f\\bar{U}$, which gives"
+      },
+      {
+       "t": "math",
+       "tex": "\\bar{u} = \\frac{\\bar{U}}{L} = \\frac{\\lambda}{\\lambda + f}"
+      }
+     ],
+     "words": 23,
+     "symbols": [
+      "$U_t$, $E_t$",
+      "$\\bar{U}$, $\\bar{E}$",
+      "$L$",
+      "$\\lambda$",
+      "$f$",
+      "$u$, $\\bar{u}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "derivation",
+   "heading": "Derivation",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "derivation-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Substitute $\\bar{E} = L - \\bar{U}$ into $\\lambda\\bar{E} = f\\bar{U}$ and divide by $L$: $\\lambda(1 - \\bar{u}) = f\\bar{u}$, so $\\bar{u}(\\lambda + f) = \\lambda$."
+      }
+     ],
+     "words": 6,
+     "symbols": [
+      "$\\bar{U}$, $\\bar{E}$",
+      "$L$",
+      "$\\lambda$",
+      "$f$",
+      "$u$, $\\bar{u}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$\\lambda = 0.03$ a month and $f = 0.40$: $\\bar{u} = 0.03/0.43 = 7.0\\%$. A worker who loses a job expects to stay unemployed $1/f = 2.5$ months; a job lasts $1/\\lambda \\approx 33$ months on average. Raising $f$ to 0.50 lowers $\\bar{u}$ to 5.7%."
+      }
+     ],
+     "words": 28,
+     "symbols": [
+      "$\\lambda$",
+      "$f$",
+      "$u$, $\\bar{u}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "properties",
+   "heading": "Properties",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "properties-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Change | Effect on $\\bar{u}$ |\n| --- | --- |\n| Separation rate $\\lambda$ ↑ | ↑ |\n| Job-finding rate $f$ ↑ | ↓ |"
+      },
+      {
+       "t": "prose",
+       "md": "When $f$ comes from a [Matching Function](note:matching-function), $f = A\\theta^{1-\\alpha}$, so higher matching efficiency or a tighter market lowers $\\bar{u}$; the resulting downward-sloping relation between vacancies and unemployment is the [Beveridge Curve](note:beveridge-curve)."
+      }
+     ],
+     "words": 36,
+     "symbols": [
+      "$\\lambda$",
+      "$f$",
+      "$u$, $\\bar{u}$",
+      "$A$, $\\theta$, $\\alpha$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Writing $\\bar{u} = \\lambda/f$.** That is the ratio of unemployed to *employed*, $\\bar{U}/\\bar{E}$, not to the labor force.\n- **Reading a constant $\\bar{u}$ as no movement.** Flows continue; only the stock is constant."
+      }
+     ],
+     "words": 29,
+     "symbols": [
+      "$\\bar{U}$, $\\bar{E}$",
+      "$\\lambda$",
+      "$f$",
+      "$u$, $\\bar{u}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Labor macroeconomics: decomposing unemployment changes into separations and job finding; the steady-state block of the [Diamond-Mortensen-Pissarides Model](note:diamond-mortensen-pissarides-model)."
+      }
+     ],
+     "words": 18,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Steady State](note:steady-state) · [Matching Function](note:matching-function) · [Beveridge Curve](note:beveridge-curve) · [Diamond-Mortensen-Pissarides Model](note:diamond-mortensen-pissarides-model)"
+      }
+     ],
+     "words": 9,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

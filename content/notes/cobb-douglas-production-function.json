@@ -355,10 +355,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "- [CES Production Function](note:ces-production-function)\n- [Partial Derivatives and the Gradient](note:partial-derivatives-and-the-gradient)"
+       "md": "- [CES Production Function](note:ces-production-function)\n- [Partial Derivatives and the Gradient](note:partial-derivatives-and-the-gradient)\n- [Matching Function](note:matching-function) — the same functional form, with unemployed workers and vacancies as inputs and hires as output"
       }
      ],
-     "words": 10,
+     "words": 28,
      "symbols": []
     }
    ]

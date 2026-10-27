@@ -1,6 +1,27 @@
 {
  "slug": "econ-402a",
- "notation": [],
+ "notation": [
+  {
+   "tex": "$\\delta$",
+   "meaning": "Depreciation rate",
+   "kind": "Parameter",
+   "typical": "≈ 0.05",
+   "keys": [
+    "delta"
+   ],
+   "from": "capital-accumulation-equation"
+  },
+  {
+   "tex": "$\\beta$",
+   "meaning": "Discount factor (modified golden rule)",
+   "kind": "Parameter in (0, 1)",
+   "typical": "0.95",
+   "keys": [
+    "beta"
+   ],
+   "from": "golden-rule-saving-rate"
+  }
+ ],
  "sections": [
   {
    "id": "lectures",
@@ -12,10 +33,21 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "1. [Econ 402A L1 Solow Growth Model](note:econ-402a-l1-solow-growth-model) — written notes 1 (law of motion, Solow diagram, shocks, golden rule) and written notes 2 (growth in labor and TFP, stationarizing, level vs growth effects in log paths)\n2. [Econ 402A L2 Two-Period Saving Model](note:econ-402a-l2-two-period-saving-model) — saving as a choice: lifetime budget, MRS = 1 + r, smoothing, impatience, market-clearing interest rate, MPK as the return to capital"
+       "md": "1. [Econ 402A L1 Solow Growth Model](note:econ-402a-l1-solow-growth-model) — written notes 1 (law of motion, Solow diagram, shocks, golden rule) and written notes 2 (growth in labor and TFP, stationarizing, level vs growth effects in log paths)\n2. [Econ 402A L2 Two-Period Saving Model](note:econ-402a-l2-two-period-saving-model) — saving as a choice: lifetime budget, MRS = 1 + r, smoothing, impatience, market-clearing interest rate, MPK as the return to capital\n3. [Econ 402A L3 The Ramsey-Cass-Koopmans Model](note:econ-402a-l3-the-ramsey-cass-koopmans-model) — typed notes (handwritten notes to come): Solow with saving chosen; Euler equation, transversality condition, modified golden rule, competitive equilibrium"
       }
      ],
-     "words": 62,
+     "words": 88,
+     "symbols": []
+    },
+    {
+     "id": "lectures-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "4. [Econ 402A L4 Classical Labor Market](note:econ-402a-l4-classical-labor-market) — written notes (typed notes for the discussion and diagram): labor supply from MRS = w/p, labor demand from MPL = w/p, equilibrium at w/p = 20 and 2,000 hours; wage floors, labor taxes, unions\n5. [Econ 402A L5 A Search and Matching Model of the Labor Market](note:econ-402a-l5-a-search-and-matching-model-of-the-labor-market) — typed notes (handwritten notes to come): matching function, steady-state unemployment and the Beveridge curve, free-entry vacancy supply, Nash-bargained wages, three-curve equilibrium"
+      }
+     ],
+     "words": 76,
      "symbols": []
     }
    ]
@@ -42,13 +74,49 @@
       {
        "t": "prose",
        "md": "[Econ 402A L2 Two-Period Saving Model](note:econ-402a-l2-two-period-saving-model) takes up that gap and makes saving a choice. A consumer facing a lifetime budget sets the [Marginal Rate of Substitution](note:marginal-rate-of-substitution) equal to 1 + r, so saving reflects smoothing, impatience (the [Discount Factor](note:discount-factor)) and the interest rate. With several consumers, [Market Clearing](note:market-clearing) determines r. With capital in the model, the marginal product of capital plays the role of the interest rate, which is the link back to Solow."
+      }
+     ],
+     "words": 74,
+     "symbols": []
+    },
+    {
+     "id": "course-arc-so-far-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Econ 402A L3 The Ramsey-Cass-Koopmans Model](note:econ-402a-l3-the-ramsey-cass-koopmans-model) joins the two. A planner chooses consumption and capital over many periods ([Ramsey-Cass-Koopmans Model](note:ramsey-cass-koopmans-model)): the [Consumption Euler Equation](note:consumption-euler-equation) now prices saving at the return on capital net of depreciation, the [Transversality Condition](note:transversality-condition) closes the infinite horizon, and the steady state sets the marginal product of capital to $1/\\beta - 1 + \\delta$. That modified golden rule leaves capital and the saving rate below the [golden rule](note:golden-rule-saving-rate) whenever the planner is impatient, and competitive markets reach the same outcome."
+      }
+     ],
+     "words": 79,
+     "symbols": [
+      "$\\delta$",
+      "$\\beta$"
+     ]
+    },
+    {
+     "id": "course-arc-so-far-4",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Econ 402A L4 Classical Labor Market](note:econ-402a-l4-classical-labor-market) turns from capital to labor. Workers trade leisure for consumption until the [Marginal Rate of Substitution](note:marginal-rate-of-substitution) equals the real wage ([Labor-Leisure Choice](note:labor-leisure-choice)); firms hire until the marginal product of labor equals it ([Labor Demand](note:labor-demand)). The real wage clears the market ([Classical Labor Market Model](note:classical-labor-market-model)), so unemployment needs something that holds the wage up, such as a wage floor or a union, and a labor tax lands the same way whoever pays it ([Tax Incidence](note:tax-incidence))."
+      }
+     ],
+     "words": 80,
+     "symbols": []
+    },
+    {
+     "id": "course-arc-so-far-5",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Econ 402A L5 A Search and Matching Model of the Labor Market](note:econ-402a-l5-a-search-and-matching-model-of-the-labor-market) replaces the single market-clearing wage with search. A [Matching Function](note:matching-function) turns unemployed workers and vacancies into hires; inflows and outflows settle at a [Steady-State Unemployment Rate](note:steady-state-unemployment-rate) that falls with tightness, which is the [Beveridge Curve](note:beveridge-curve). Free entry of vacancies and [Nash Bargaining](note:nash-bargaining) over wages pin down tightness, so unemployment exists in equilibrium ([Diamond-Mortensen-Pissarides Model](note:diamond-mortensen-pissarides-model))."
       },
       {
        "t": "prose",
        "md": "So far the course moves from a mechanical saving rule to the optimizing behavior behind it. Both lectures use [Partial Derivatives and the Gradient](note:partial-derivatives-and-the-gradient); L1's golden rule is an [Unconstrained Optimization](note:unconstrained-optimization), and L2's consumer problem uses [Constrained Optimization and Lagrange Multipliers](note:constrained-optimization-and-lagrange-multipliers) (see the math refresher below)."
       }
      ],
-     "words": 120,
+     "words": 112,
      "symbols": []
     }
    ]

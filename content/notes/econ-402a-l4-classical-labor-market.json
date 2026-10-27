@@ -1,0 +1,1562 @@
+{
+ "slug": "econ-402a-l4-classical-labor-market",
+ "notation": [
+  {
+   "tex": "$U(c, l)$",
+   "meaning": "Utility from consumption and leisure",
+   "kind": "Function",
+   "typical": "$c^2 - 18(24-l)^4$ in the example",
+   "keys": [
+    "U"
+   ],
+   "from": "labor-leisure-choice"
+  },
+  {
+   "tex": "$c$",
+   "meaning": "Units of the consumption good bought",
+   "kind": "Choice",
+   "typical": "66.7 at $w = 20$ in the example",
+   "keys": [
+    "c"
+   ],
+   "from": "labor-leisure-choice"
+  },
+  {
+   "tex": "$l$",
+   "meaning": "Hours of leisure per day",
+   "kind": "Choice",
+   "typical": "20.67 at $w = 20$",
+   "keys": [
+    "l"
+   ],
+   "from": "labor-leisure-choice"
+  },
+  {
+   "tex": "$h$",
+   "meaning": "Hours worked per day",
+   "kind": "Choice",
+   "typical": "3.33 at $w = 20$",
+   "keys": [
+    "h"
+   ],
+   "from": "labor-leisure-choice"
+  },
+  {
+   "tex": "$w$",
+   "meaning": "Nominal wage per hour",
+   "kind": "Exogenous (to the worker)",
+   "typical": "20",
+   "keys": [
+    "w"
+   ],
+   "from": "labor-leisure-choice"
+  },
+  {
+   "tex": "$p$",
+   "meaning": "Price of the consumption good",
+   "kind": "Exogenous",
+   "typical": "1 (normalized)",
+   "keys": [
+    "p"
+   ],
+   "from": "labor-leisure-choice"
+  },
+  {
+   "tex": "$w/p$",
+   "meaning": "Real wage: goods one hour of work buys",
+   "kind": "Exogenous (to the worker)",
+   "typical": "20",
+   "keys": [
+    "~w/p"
+   ],
+   "from": "labor-leisure-choice"
+  },
+  {
+   "tex": "$\\mathcal{L}$",
+   "meaning": "Lagrangian of the consumer's problem",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "cal(L)"
+   ],
+   "from": "labor-leisure-choice"
+  },
+  {
+   "tex": "$\\lambda$",
+   "meaning": "Multiplier on the budget constraint: utility value of one more unit of income",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "lambda"
+   ],
+   "from": "labor-leisure-choice"
+  },
+  {
+   "tex": "$\\mu$",
+   "meaning": "Multiplier on the time constraint: utility value of one more hour",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "mu"
+   ],
+   "from": "labor-leisure-choice"
+  },
+  {
+   "tex": "$MRS$",
+   "meaning": "Marginal rate of substitution of leisure for consumption, $U_l/U_c$",
+   "kind": "Statistic",
+   "typical": "equals $w/p$ at the optimum",
+   "keys": [
+    "~MRS"
+   ],
+   "from": "labor-leisure-choice"
+  },
+  {
+   "tex": "$\\tau$",
+   "meaning": "Tax per hour worked, paid by the worker",
+   "kind": "Parameter",
+   "typical": "5 in the tax example",
+   "keys": [
+    "tau"
+   ],
+   "from": "labor-leisure-choice"
+  },
+  {
+   "tex": "$Y$",
+   "meaning": "Output",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "Y"
+   ],
+   "from": "labor-demand"
+  },
+  {
+   "tex": "$F(\\bar{K}, L)$",
+   "meaning": "Production function; $F(L)$ when labor is the only input",
+   "kind": "Function",
+   "typical": "$40{,}000\\ln L$ in the example",
+   "keys": [
+    "F"
+   ],
+   "from": "labor-demand"
+  },
+  {
+   "tex": "$\\bar{K}$",
+   "meaning": "Capital, fixed in the short run",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "bar(K)"
+   ],
+   "from": "labor-demand"
+  },
+  {
+   "tex": "$L$",
+   "meaning": "Labor hired, in hours",
+   "kind": "Choice",
+   "typical": "2,000 at $w/p = 20$",
+   "keys": [
+    "L"
+   ],
+   "from": "labor-demand"
+  },
+  {
+   "tex": "$\\pi$",
+   "meaning": "Profit",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "pi"
+   ],
+   "from": "labor-demand"
+  },
+  {
+   "tex": "$r$",
+   "meaning": "Rental price of capital",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "r"
+   ],
+   "from": "labor-demand"
+  },
+  {
+   "tex": "$a$",
+   "meaning": "Scale of the log production function $F(L) = a\\ln L$",
+   "kind": "Parameter",
+   "typical": "40,000",
+   "keys": [
+    "a"
+   ],
+   "from": "labor-demand"
+  },
+  {
+   "tex": "$L^D$",
+   "meaning": "Labor demanded at a given real wage",
+   "kind": "Function",
+   "typical": "$40{,}000/(w/p)$",
+   "keys": [
+    "~L^D"
+   ],
+   "from": "labor-demand"
+  },
+  {
+   "tex": "$L^S$",
+   "meaning": "Market labor supply: hours households offer",
+   "kind": "Function",
+   "typical": "$100\\,w/p$",
+   "keys": [
+    "~L^S"
+   ],
+   "from": "classical-labor-market-model"
+  },
+  {
+   "tex": "$L^*$",
+   "meaning": "Equilibrium hours",
+   "kind": "Endogenous",
+   "typical": "2,000",
+   "keys": [
+    "L*"
+   ],
+   "from": "classical-labor-market-model"
+  },
+  {
+   "tex": "$w^*$",
+   "meaning": "Equilibrium wage",
+   "kind": "Endogenous",
+   "typical": "20",
+   "keys": [
+    "w*"
+   ],
+   "from": "classical-labor-market-model"
+  },
+  {
+   "tex": "$N$",
+   "meaning": "Number of identical consumers",
+   "kind": "Parameter",
+   "typical": "600",
+   "keys": [
+    "N"
+   ],
+   "from": "classical-labor-market-model"
+  },
+  {
+   "tex": "$\\bar{w}$",
+   "meaning": "Wage floor (minimum wage or union wage)",
+   "kind": "Policy parameter",
+   "typical": "25",
+   "keys": [
+    "bar(w)"
+   ],
+   "from": "classical-labor-market-model"
+  },
+  {
+   "tex": "$MPK$, $MPL$",
+   "meaning": "Marginal products of capital and labor",
+   "kind": "Partial derivatives",
+   "typical": "0.703, 0.486 in the example",
+   "keys": [
+    "~MPK",
+    "~MPL"
+   ],
+   "from": "partial-derivatives-and-the-gradient"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**The lecture builds a market for hours from two optimization problems. Households trade leisure for consumption, so they work until the marginal rate of substitution between leisure and consumption equals the real wage; firms hire until the marginal product of labor equals the real wage. In the professor's example 600 workers supply $L^S = 100\\,w/p$, one firm demands $L^D = 40{,}000/(w/p)$, and the real wage clears the market at 20 with 2,000 hours a day. In this classical world unemployment exists only when something holds the wage above 20 (a floor at 25 leaves 900 hours unemployed); a tax on labor lands the same way whoever pays it, and a union raises its own wage at the cost of non-union workers.**"
+      }
+     ],
+     "words": 116,
+     "symbols": [
+      "$w$",
+      "$p$",
+      "$w/p$",
+      "$L$",
+      "$L^D$",
+      "$L^S$"
+     ]
+    },
+    {
+     "id": "intro-2",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "info",
+       "title": "Sources and notation",
+       "md": "This summary follows the professor's **written notes**; the typed notes add the discussion of each condition and the standard diagram (sections 4, 6 and 7). Taxes and unions are in the written notes only.\n**Notation:** the notes write leisure as a script $\\ell$ (here $l$), hours worked by one person as $h$, and total hours in the market as $L$. The written notes keep capital fixed at $\\bar{K}$ in production; the typed notes drop it and write $F(L)$. From section 9 on, $p = 1$, so $w$ is the real wage.\n**Corrections to the typed notes:** the introduction says firms' choices \"determine the supply curve\" — it is the demand curve. \"$L^S = 600(1/6w)$\" means $600 \\times \\frac{w}{6}$.",
+       "folded": false
+      }
+     ],
+     "words": 104,
+     "symbols": [
+      "$l$",
+      "$h$",
+      "$w$",
+      "$p$",
+      "$F(\\bar{K}, L)$",
+      "$\\bar{K}$",
+      "$L$",
+      "$L^S$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1-where-this-fits",
+   "heading": "1. Where this fits",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-where-this-fits-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Lectures 1–3 were about capital: how much an economy saves and what that does to output. This lecture turns to the other input, labor, and asks what sets the wage and the number of hours worked. The method is the one from [L2](note:econ-402a-l2-two-period-saving-model): each side solves an optimization problem, and a price — here the real wage — adjusts until their plans are consistent ([Market Clearing](note:market-clearing))."
+      }
+     ],
+     "words": 65,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "2-labor-supply-a-trade-off-between-leisure-and-consumption",
+   "heading": "2. Labor supply: a trade-off between leisure and consumption",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-labor-supply-a-trade-off-between-leisure-and-consumption-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Consumers get utility from consumption $c$ and leisure $l$, $U(c, l)$. They work $h$ hours a day at wage $w$ and spend all their pay on the consumption good at price $p$. Every hour worked is an hour of leisure given up for the goods it buys — the [Labor-Leisure Choice](note:labor-leisure-choice)."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Labor-leisure choice - setup.png",
+       "alt": "Labor-leisure choice - setup"
+      }
+     ],
+     "words": 43,
+     "symbols": [
+      "$U(c, l)$",
+      "$c$",
+      "$l$",
+      "$h$",
+      "$w$",
+      "$p$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "3-constraints-and-the-lagrangian",
+   "heading": "3. Constraints and the Lagrangian",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "3-constraints-and-the-lagrangian-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Two constraints bind the choice: the budget $wh = pc$, so $c = \\frac{w}{p}h$, and time, $24 = l + h$. With a multiplier on each, the Lagrangian is ([Constrained Optimization and Lagrange Multipliers](note:constrained-optimization-and-lagrange-multipliers))"
+      },
+      {
+       "t": "math",
+       "tex": "\\mathcal{L} = U(c, l) + \\lambda(wh - pc) + \\mu(24 - l - h)"
+      },
+      {
+       "t": "prose",
+       "md": "The first-order conditions give $U_c = \\lambda p$, $U_l = \\mu$ and $\\lambda w = \\mu$. Eliminating the multipliers leaves the condition the whole lecture rests on:"
+      },
+      {
+       "t": "math",
+       "tex": "\\frac{\\partial U/\\partial l}{\\partial U/\\partial c} = \\frac{w}{p}"
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Labor-leisure choice - constraints Lagrangian and first-order conditions.png",
+       "alt": "Labor-leisure choice - constraints Lagrangian and first-order conditions",
+       "caption": "Hand-drawn: the constraints, the Lagrangian and the three first-order conditions."
+      }
+     ],
+     "words": 49,
+     "symbols": [
+      "$U(c, l)$",
+      "$c$",
+      "$l$",
+      "$h$",
+      "$w$",
+      "$p$",
+      "$\\mathcal{L}$",
+      "$\\lambda$",
+      "$\\mu$"
+     ]
+    },
+    {
+     "id": "3-constraints-and-the-lagrangian-2",
+     "blocks": [
+      {
+       "t": "derive",
+       "title": "Derive $\\frac{U_l}{U_c} = \\frac{w}{p}$ from the first-order conditions",
+       "objectives": [
+        1
+       ],
+       "symbols": [
+        "U_c",
+        "w",
+        "p"
+       ],
+       "inherited": [
+        {
+         "tex": "$U(c, l)$",
+         "typical": "$c^2 - 18(24-l)^4$ in the example",
+         "from": "labor-leisure-choice"
+        },
+        {
+         "tex": "$c$",
+         "typical": "66.7 at $w = 20$ in the example",
+         "from": "labor-leisure-choice"
+        },
+        {
+         "tex": "$h$",
+         "typical": "3.33 at $w = 20$",
+         "from": "labor-leisure-choice"
+        },
+        {
+         "tex": "$w$",
+         "typical": "20",
+         "from": "labor-leisure-choice"
+        },
+        {
+         "tex": "$p$",
+         "typical": "1 (normalized)",
+         "from": "labor-leisure-choice"
+        },
+        {
+         "tex": "$\\lambda$",
+         "typical": "—",
+         "from": "labor-leisure-choice"
+        },
+        {
+         "tex": "$\\mu$",
+         "typical": "—",
+         "from": "labor-leisure-choice"
+        }
+       ],
+       "unknowns": [
+        "$\\lambda$",
+        "$\\mu$",
+        "$U_l$"
+       ],
+       "dims": [],
+       "data": [],
+       "matrices": [],
+       "define": [],
+       "given": [
+        "U_c = \\lambda p",
+        "U_l = \\mu",
+        "\\lambda w = \\mu"
+       ],
+       "steps": [
+        {
+         "md": "Substitute $\\mu = U_l$ into the condition for $h$: $U_l = \\lambda w$",
+         "tex": "U_l = \\lambda w",
+         "hint": "The condition for $h$ is $\\lambda w - \\mu = 0$; the condition for $l$ says $\\mu$ is the marginal utility of leisure."
+        },
+        {
+         "md": "Divide by the condition for $c$, $U_c = \\lambda p$; the multiplier cancels: $\\frac{U_l}{U_c} = \\frac{w}{p}$",
+         "tex": "\\frac{U_l}{U_c} = \\frac{w}{p}"
+        }
+       ],
+       "accept": [
+        "U_l = \\frac{w}{p}U_c"
+       ],
+       "reject": [
+        {
+         "tex": "\\frac{U_l}{U_c} = \\frac{p}{w}",
+         "md": "the ratio is inverted: dividing $U_l = \\lambda w$ by $U_c = \\lambda p$ puts $w$ on top"
+        },
+        {
+         "tex": "\\frac{U_l}{U_c} = w",
+         "md": "that holds only when $p = 1$; in general the condition is in goods, so divide $w$ by $p$"
+        },
+        {
+         "tex": "U_l = U_c",
+         "md": "the wage is missing: an hour of work buys $w/p$ goods, not one"
+        }
+       ]
+      }
+     ],
+     "words": 18,
+     "symbols": [
+      "$U(c, l)$",
+      "$c$",
+      "$l$",
+      "$h$",
+      "$w$",
+      "$p$",
+      "$w/p$",
+      "$\\lambda$",
+      "$\\mu$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "4-reading-mrs-w-p",
+   "heading": "4. Reading MRS = w/p",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "4-reading-mrs-w-p-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Rewrite the condition as $U_l = \\frac{w}{p}U_c$. The left side is the **benefit of one more hour of leisure**. The right side is the **benefit of one more hour of work**: the hour buys $w/p$ goods, each worth $U_c$. If leisure were worth more, the worker would work less; if less, work more. At the optimum the worker is indifferent, and the ratio on the left is the [Marginal Rate of Substitution](note:marginal-rate-of-substitution) between leisure and consumption."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Labor-leisure choice - MRS equals the real wage.png",
+       "alt": "Labor-leisure choice - MRS equals the real wage",
+       "caption": "Hand-drawn: benefit of an hour of leisure = benefit of an hour of work."
+      }
+     ],
+     "words": 84,
+     "symbols": [
+      "$U(c, l)$",
+      "$w$",
+      "$p$",
+      "$w/p$"
+     ]
+    },
+    {
+     "id": "4-reading-mrs-w-p-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "In $U_l = \\frac{w}{p}U_c$, what does the right-hand side measure?",
+       "options": [
+        {
+         "md": "The money wage $w$ the worker earns for one more hour",
+         "correct": false,
+         "feedback": "$w$ is money, and utility comes from goods. The right side converts the hour's pay into goods ($w/p$) and then into utility ($U_c$ per good)."
+        },
+        {
+         "md": "The utility from the goods that one more hour of work buys",
+         "correct": true
+        },
+        {
+         "md": "The utility from one more hour of leisure",
+         "correct": false,
+         "feedback": "That is the left side, $U_l$. The condition says the two are equal at the optimum, but the right side measures what the hour of work brings in."
+        },
+        {
+         "md": "The real wage $w/p$, in goods per hour",
+         "correct": false,
+         "feedback": "The real wage is only part of it: the right side multiplies the goods $w/p$ by the utility of each good, $U_c$, so both sides are in utility."
+        }
+       ],
+       "why": "One more hour of work buys $w/p$ units of the good, and each unit adds $U_c$ to utility, so the right side is the utility gain from working the hour. The left side, $U_l$, is the utility from keeping it as leisure.",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 44,
+     "symbols": [
+      "$U(c, l)$",
+      "$w$",
+      "$p$",
+      "$w/p$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "5-worked-example-the-labor-supply-curve",
+   "heading": "5. Worked example: the labor supply curve",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "5-worked-example-the-labor-supply-curve-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Take $U(c, l) = c^2 - 18(24-l)^4$. Then $U_l = 72(24-l)^3$ and $U_c = 2c$, so the condition reads"
+      },
+      {
+       "t": "math",
+       "tex": "MRS = \\frac{72(24-l)^3}{2c} = \\frac{w}{p}"
+      },
+      {
+       "t": "prose",
+       "md": "Substituting $24 - l = h$ and $c = \\frac{w}{p}h$ gives $36h^2 = (w/p)^2$:"
+      },
+      {
+       "t": "math",
+       "tex": "h = \\frac{1}{6}\\cdot\\frac{w}{p}"
+      },
+      {
+       "t": "prose",
+       "md": "Hours worked rise with the real wage: the individual labor supply curve slopes up."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Labor-leisure choice - worked example and market labor supply.png",
+       "alt": "Labor-leisure choice - worked example and market labor supply",
+       "caption": "Hand-drawn: the example's MRS, the substitution, and market supply with 600 consumers."
+      }
+     ],
+     "words": 36,
+     "symbols": [
+      "$U(c, l)$",
+      "$c$",
+      "$l$",
+      "$h$",
+      "$w$",
+      "$p$",
+      "$w/p$",
+      "$MRS$"
+     ]
+    },
+    {
+     "id": "5-worked-example-the-labor-supply-curve-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "With $U(c, l) = c^2 - 18(24-l)^4$ and $p = 1$, how many hours a day does a consumer work when $w = 30$?",
+       "answer": 5.0,
+       "tol": 0.05,
+       "vary": [
+        {
+         "sym": "w",
+         "lo": 12.0,
+         "hi": 48.0,
+         "step": 6.0
+        }
+       ],
+       "compute": "\\frac{w}{6}",
+       "bindings": [
+        {
+         "sym": "p",
+         "value": 1.0,
+         "span": "$p = 1$"
+        },
+        {
+         "sym": "w",
+         "value": 30.0,
+         "span": "$w = 30$"
+        }
+       ],
+       "wrongCompute": [
+        {
+         "tex": "6w",
+         "md": "the condition gives $36h^2 = w^2$, so $h = w/6$: divide by 6, don't multiply"
+        },
+        {
+         "tex": "\\frac{w^2}{36}",
+         "md": "that is $h^2$; take the square root of $36h^2 = w^2$"
+        },
+        {
+         "tex": "24 - \\frac{w}{6}",
+         "md": "that is leisure $l$; hours worked are $h = 24 - l$"
+        }
+       ],
+       "why": "Substitute $24 - l = h$ and $c = wh$ into $\\frac{72(24-l)^3}{2c} = w$: $\\frac{72h^3}{2wh} = \\frac{36h^2}{w} = w$, so $h = w/6$. With $w = 30$ the consumer works 5 hours and buys $c = 150$ goods.",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 12,
+     "symbols": [
+      "$U(c, l)$",
+      "$c$",
+      "$l$",
+      "$h$",
+      "$w$",
+      "$p$"
+     ]
+    },
+    {
+     "id": "5-worked-example-the-labor-supply-curve-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "On a diagram with leisure across and consumption up, the budget line falls from 24 hours of leisure at slope $-w/p$, and the best choice is where an indifference curve just touches it: there the curve's slope, the MRS, equals the real wage."
+      },
+      {
+       "t": "interactive",
+       "widget": "labor-leisure-choice-diagram",
+       "state": {
+        "w": 20,
+        "p": 1,
+        "tau": 0,
+        "lp": 18
+       },
+       "lock": [
+        "w",
+        "p",
+        "tau"
+       ],
+       "show": [
+        "budget",
+        "ic_probe",
+        "probe",
+        "hp_out"
+       ],
+       "highlight": "probe",
+       "prompt": "Drag the trial point along the budget line until its indifference curve just touches the line",
+       "goal": {
+        "when": "abs(lp - lstar) < 0.06",
+        "success": "The curve touches the line at $l = 20.67$: the worker works $h = 3.33$ hours and buys $c = 66.7$ goods, and the MRS there equals the real wage, 20. That is $h = w/6$ with $w = 20$.",
+        "hint": "Where the dashed curve cuts through the budget line, there are points on the line between the two crossings that give more utility: slide toward them."
+       },
+       "objectives": [
+        1
+       ]
+      },
+      {
+       "t": "prose",
+       "md": "The market adds up identical workers. With 600 consumers, market labor supply is $L^S = 600 \\cdot \\frac{1}{6}\\frac{w}{p} = 100\\frac{w}{p}$ hours a day."
+      }
+     ],
+     "words": 74,
+     "symbols": [
+      "$U(c, l)$",
+      "$c$",
+      "$l$",
+      "$h$",
+      "$w$",
+      "$p$",
+      "$w/p$",
+      "$MRS$",
+      "$\\tau$",
+      "$L$",
+      "$L^S$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "6-labor-demand-profit-maximization",
+   "heading": "6. Labor demand: profit maximization",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "6-labor-demand-profit-maximization-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A firm with production $Y = F(\\bar{K}, L)$ chooses hours $L$ to maximize profit $\\pi = pF(\\bar{K}, L) - wL - r\\bar{K}$. The first-order condition is"
+      },
+      {
+       "t": "math",
+       "tex": "p\\frac{\\partial F}{\\partial L} - w = 0 \\;\\Rightarrow\\; MPL = \\frac{w}{p}"
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Labor demand - profit maximization sets MPL equal to the real wage.png",
+       "alt": "Labor demand - profit maximization sets MPL equal to the real wage",
+       "caption": "Hand-drawn: profit maximization with capital fixed at $\\bar{K}$."
+      },
+      {
+       "t": "prose",
+       "md": "The typed notes explain why ([Labor Demand](note:labor-demand)): if the marginal product of labor exceeded the real wage, an extra hour would add more output than it costs, so hiring raises profit; if it fell short, cutting an hour would save more than it loses. Profit is highest where they are equal."
+      }
+     ],
+     "words": 71,
+     "symbols": [
+      "$w$",
+      "$p$",
+      "$Y$",
+      "$F(\\bar{K}, L)$",
+      "$\\bar{K}$",
+      "$L$",
+      "$\\pi$",
+      "$r$",
+      "$MPK$, $MPL$"
+     ]
+    },
+    {
+     "id": "6-labor-demand-profit-maximization-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "At a firm's current hours the marginal product of labor is 25 goods per hour and the real wage is 20. What does the profit-maximizing firm do?",
+       "options": [
+        {
+         "md": "Cut hours",
+         "correct": false,
+         "feedback": "Cutting an hour saves 20 goods of wages but loses 25 of output, so profit falls by 5."
+        },
+        {
+         "md": "Keep hours unchanged, since profit is already positive",
+         "correct": false,
+         "feedback": "Positive profit is not maximal profit: the next hour still adds $25 - 20 = 5$ goods of profit."
+        },
+        {
+         "md": "Hire more hours until the marginal product falls to 20",
+         "correct": true
+        },
+        {
+         "md": "Hire more hours until the marginal product falls to zero",
+         "correct": false,
+         "feedback": "That maximizes output, not profit: past the point where the marginal product is 20, each extra hour costs more than it adds."
+        }
+       ],
+       "why": "Each extra hour adds MPL $= 25$ goods and costs $w/p = 20$, so hiring raises profit by 5. Because the marginal product falls as hours rise, the firm keeps hiring until MPL $= w/p = 20$.",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 57,
+     "symbols": [
+      "$w$",
+      "$p$",
+      "$w/p$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "7-worked-example-and-equilibrium",
+   "heading": "7. Worked example and equilibrium",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "7-worked-example-and-equilibrium-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With $F(L) = 40{,}000\\ln L$, the marginal product is $40{,}000/L$, so MPL $= w/p$ gives a downward-sloping demand curve:"
+      },
+      {
+       "t": "math",
+       "tex": "L^D = \\frac{40{,}000}{w/p}"
+      }
+     ],
+     "words": 12,
+     "symbols": [
+      "$w$",
+      "$p$",
+      "$w/p$",
+      "$F(\\bar{K}, L)$",
+      "$L$",
+      "$L^D$"
+     ]
+    },
+    {
+     "id": "7-worked-example-and-equilibrium-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "With $F(L) = 40{,}000\\ln L$ and $p = 1$, how many hours does the firm demand at $w = 16$?",
+       "answer": 2500.0,
+       "tol": 1.0,
+       "wrong": [
+        {
+         "answer": 640000.0,
+         "tol": 1.0,
+         "md": "that multiplies instead of dividing: MPL $= 40{,}000/L = 16$ gives $L = 40{,}000/16$"
+        },
+        {
+         "answer": 2000.0,
+         "tol": 1.0,
+         "md": "that is equilibrium employment at $w = 20$; at a lower wage the firm hires more"
+        }
+       ],
+       "why": "MPL $= 40{,}000/L$ must equal $w/p = 16$, so $L^D = 40{,}000/16 = 2{,}500$ hours. A lower wage than 20 means more hours than 2,000.",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 10,
+     "symbols": [
+      "$w$",
+      "$p$",
+      "$w/p$",
+      "$F(\\bar{K}, L)$",
+      "$L$",
+      "$L^D$"
+     ]
+    },
+    {
+     "id": "7-worked-example-and-equilibrium-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Equilibrium sets the hours households offer equal to the hours the firm wants. At a wage above equilibrium households offer more than the firm buys; below it, less."
+      },
+      {
+       "t": "interactive",
+       "widget": "labor-market-equilibrium-and-wage-floor",
+       "state": {
+        "a": 40000,
+        "wmin": 0,
+        "wp": 30
+       },
+       "lock": [
+        "a",
+        "wmin"
+       ],
+       "show": [
+        "supply",
+        "demand",
+        "probe_s",
+        "probe_d",
+        "gap"
+       ],
+       "highlight": "gap",
+       "prompt": "Drag the trial wage until the hours offered equal the hours wanted",
+       "goal": {
+        "when": "abs(excess) < 1",
+        "success": "At $w/p = 20$ households offer $100 \\times 20 = 2{,}000$ hours and the firm wants $40{,}000/20 = 2{,}000$: the market clears with $L^* = 2{,}000$.",
+        "hint": "At a trial wage of 30, 3,000 hours are offered but only 1,333 wanted. Lower the wage: supply falls and demand rises."
+       },
+       "objectives": [
+        4
+       ]
+      }
+     ],
+     "words": 40,
+     "symbols": [
+      "$w$",
+      "$p$",
+      "$w/p$",
+      "$L$",
+      "$a$",
+      "$L^D$",
+      "$L^S$",
+      "$L^*$",
+      "$w^*$",
+      "$\\bar{w}$"
+     ]
+    },
+    {
+     "id": "7-worked-example-and-equilibrium-4",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Setting $100\\frac{w}{p} = \\frac{40{,}000}{w/p}$ gives $(w/p)^2 = 400$, so the equilibrium real wage is $(w/p)^* = 20$ and hours are $L^* = 2{,}000$ — each worker works 3.33 hours a day ([Classical Labor Market Model](note:classical-labor-market-model))."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Classical labor market - worked example equilibrium.png",
+       "alt": "Classical labor market - worked example equilibrium",
+       "caption": "Hand-drawn: labor demand from the example and the equilibrium."
+      }
+     ],
+     "words": 32,
+     "symbols": [
+      "$w$",
+      "$p$",
+      "$w/p$",
+      "$L^*$"
+     ]
+    },
+    {
+     "id": "7-worked-example-and-equilibrium-5",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The typed notes draw the same idea with straight lines; the example's demand curve is a hyperbola, but the crossing is read the same way."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Classical labor market - supply and demand diagram.png",
+       "alt": "Classical labor market - supply and demand diagram"
+      }
+     ],
+     "words": 25,
+     "symbols": []
+    },
+    {
+     "id": "7-worked-example-and-equilibrium-6",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "Keep the firm, $F(L) = 40{,}000\\ln L$, and the utility function, but suppose there are $N = 900$ identical consumers instead of 600. What is the equilibrium real wage?",
+       "answer": 16.33,
+       "tol": 0.02,
+       "vary": [
+        {
+         "sym": "N",
+         "values": [
+          300.0,
+          900.0,
+          1200.0,
+          1500.0
+         ]
+        }
+       ],
+       "compute": "\\sqrt{\\frac{240000}{N}}",
+       "bindings": [
+        {
+         "sym": "N",
+         "value": 900.0,
+         "span": "$N = 900$"
+        }
+       ],
+       "wrongCompute": [
+        {
+         "tex": "\\frac{240000}{N}",
+         "md": "that is $(w/p)^2$; take the square root"
+        },
+        {
+         "tex": "\\frac{N}{30}",
+         "md": "that scales the old wage up with the number of workers; more workers shift supply out, which lowers the wage"
+        }
+       ],
+       "why": "Market supply is $N \\cdot \\frac{w}{6}$, so $\\frac{N}{6}w = \\frac{40{,}000}{w}$ and $w^2 = \\frac{240{,}000}{N}$. With $N = 900$, $w^2 = 266.7$ and $w = 16.33$: more workers push the real wage down and hours up (to 2,449).",
+       "objectives": [
+        4
+       ]
+      }
+     ],
+     "words": 22,
+     "symbols": [
+      "$w$",
+      "$p$",
+      "$w/p$",
+      "$F(\\bar{K}, L)$",
+      "$L$",
+      "$N$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "8-unemployment-in-the-classical-model",
+   "heading": "8. Unemployment in the classical model",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "8-unemployment-in-the-classical-model-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "In the classical model the wage moves until supply equals demand, so everyone who wants to work at the going wage does. Unemployment appears only when something stops the wage from getting there. Suppose the wage cannot fall below $\\bar{w} = 25$."
+      },
+      {
+       "t": "interactive",
+       "widget": "labor-market-equilibrium-and-wage-floor",
+       "state": {
+        "a": 40000,
+        "wmin": 25,
+        "wp": 30
+       },
+       "lock": [
+        "a",
+        "wmin",
+        "wp"
+       ],
+       "show": [
+        "supply",
+        "demand",
+        "eq",
+        "floor",
+        "floor_s",
+        "floor_d",
+        "unemp_line",
+        "unemp_out",
+        "emp_out"
+       ],
+       "highlight": "unemp_line",
+       "prompt": "Hold the wage at 25 and work out the unemployment",
+       "predict": {
+        "hide": [
+         "floor_s",
+         "floor_d",
+         "unemp_line",
+         "unemp_out",
+         "emp_out"
+        ],
+        "ask": "With $L^S = 100w$, $L^D = 40{,}000/w$ and the wage held at $\\bar{w} = 25$, how many hours a day are offered but not hired?",
+        "readout": "unemp_out",
+        "tol": 1
+       },
+       "objectives": [
+        5
+       ]
+      }
+     ],
+     "words": 49,
+     "symbols": [
+      "$w$",
+      "$p$",
+      "$w/p$",
+      "$L$",
+      "$a$",
+      "$L^D$",
+      "$L^S$",
+      "$L^*$",
+      "$w^*$",
+      "$\\bar{w}$"
+     ]
+    },
+    {
+     "id": "8-unemployment-in-the-classical-model-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "At 25 households offer $100 \\times 25 = 2{,}500$ hours, but the firm wants only $40{,}000/25 = 1{,}600$. The 900-hour gap is unemployment, and hours actually worked fall from 2,000 to 1,600 because no one can sell hours the firm will not buy."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Classical labor market - wage floor at 25 and unemployment.png",
+       "alt": "Classical labor market - wage floor at 25 and unemployment",
+       "caption": "Hand-drawn: at 25 the gap between supply and demand is unemployment."
+      },
+      {
+       "t": "prose",
+       "md": "The typed notes list the causes the classical model allows: unions and government policy such as a minimum wage or unemployment benefits."
+      }
+     ],
+     "words": 70,
+     "symbols": []
+    },
+    {
+     "id": "8-unemployment-in-the-classical-model-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "In the example ($L^S = 100w$, $L^D = 40{,}000/w$, wage free to move unless stated), which of these creates unemployment?",
+       "options": [
+        {
+         "md": "A fall in labor demand",
+         "correct": false,
+         "feedback": "With a flexible wage, the wage falls until the market clears again. Hours fall, but everyone who wants to work at the new wage finds work."
+        },
+        {
+         "md": "A minimum wage of 15",
+         "correct": false,
+         "feedback": "The equilibrium wage is 20, above the floor, so the floor does not bind and nothing changes."
+        },
+        {
+         "md": "An increase in the number of consumers",
+         "correct": false,
+         "feedback": "Supply shifts out and the wage falls until the extra hours are hired; the market still clears."
+        },
+        {
+         "md": "A minimum wage of 25",
+         "correct": true
+        }
+       ],
+       "why": "Only a floor above the equilibrium wage of 20 stops the market clearing. At 25, 2,500 hours are offered and 1,600 hired, so 900 hours are unemployed.",
+       "objectives": [
+        5
+       ]
+      }
+     ],
+     "words": 36,
+     "symbols": [
+      "$w$",
+      "$L$",
+      "$L^D$",
+      "$L^S$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "9-a-tax-paid-by-the-worker",
+   "heading": "9. A tax paid by the worker",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "9-a-tax-paid-by-the-worker-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Set $p = 1$, so $w$ is the real wage. If the worker pays a tax $\\tau$ on each hour, an hour now buys only $w - \\tau$, so the condition becomes $MRS = w - \\tau$ and labor supply becomes"
+      },
+      {
+       "t": "math",
+       "tex": "h = \\frac{1}{6}(w - \\tau)"
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Labor tax paid by worker - labor supply.png",
+       "alt": "Labor tax paid by worker - labor supply"
+      }
+     ],
+     "words": 28,
+     "symbols": [
+      "$h$",
+      "$w$",
+      "$p$",
+      "$MRS$",
+      "$\\tau$"
+     ]
+    },
+    {
+     "id": "9-a-tax-paid-by-the-worker-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "At every market wage the worker offers fewer hours, so the supply curve shifts up by $\\tau$. The market wage rises from $w_1$ to $w_2$, but by less than the tax: part of the tax is paid by the firm (the rise in the wage) and part by the worker (the gap between $w_1$ and the take-home wage $w_2 - \\tau$) — [Tax Incidence](note:tax-incidence)."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Labor tax paid by worker - supply shift and tax wedge.png",
+       "alt": "Labor tax paid by worker - supply shift and tax wedge",
+       "caption": "Hand-drawn: the tax wedge, split into the part paid by the firm and the part paid by the worker."
+      }
+     ],
+     "words": 75,
+     "symbols": [
+      "$w$",
+      "$\\tau$"
+     ]
+    },
+    {
+     "id": "9-a-tax-paid-by-the-worker-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "With $L^S = 100(w - \\tau)$, $L^D = 40{,}000/w$ and a tax of $\\tau = 5$ per hour paid by the worker, what is the worker's take-home wage $w - \\tau$?",
+       "answer": 17.66,
+       "tol": 0.02,
+       "wrong": [
+        {
+         "answer": 15.0,
+         "tol": 0.02,
+         "md": "that assumes the worker bears the whole tax; the market wage rises above 20, so part of it is passed to the firm"
+        },
+        {
+         "answer": 20.0,
+         "tol": 0.02,
+         "md": "that is the no-tax wage; the tax lowers what the worker keeps"
+        },
+        {
+         "answer": 22.66,
+         "tol": 0.02,
+         "md": "that is the market wage the firm pays; the worker keeps 5 less"
+        }
+       ],
+       "why": "Clear the market: $100(w - 5) = 40{,}000/w$, so $w^2 - 5w - 400 = 0$ and $w = 22.66$. The worker keeps $22.66 - 5 = 17.66$: of the 5, the worker bears $20 - 17.66 = 2.34$ and the firm $22.66 - 20 = 2.66$ (computed from the lecture's curves).",
+       "objectives": [
+        6
+       ]
+      }
+     ],
+     "words": 17,
+     "symbols": [
+      "$w$",
+      "$\\tau$",
+      "$L$",
+      "$L^D$",
+      "$L^S$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "10-a-tax-paid-by-the-firm",
+   "heading": "10. A tax paid by the firm",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "10-a-tax-paid-by-the-firm-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Now the firm pays the tax: an hour costs $w + \\tau$, so the firm hires until $MPL = w + \\tau$ and"
+      },
+      {
+       "t": "math",
+       "tex": "L^D = \\frac{40{,}000}{w + \\tau}"
+      },
+      {
+       "t": "prose",
+       "md": "At every market wage the firm wants fewer hours, so the demand curve shifts down by $\\tau$."
+      },
+      {
+       "t": "interactive",
+       "widget": "labor-tax-wedge",
+       "state": {
+        "tauw": 0,
+        "tauf": 5
+       },
+       "show": [
+        "supply",
+        "demand",
+        "supply0",
+        "demand0",
+        "eq0",
+        "eqt",
+        "pnet",
+        "pfirm",
+        "wedge",
+        "w_out",
+        "wn_out",
+        "wf_out",
+        "L_out"
+       ],
+       "highlight": "wedge",
+       "prompt": "Move the tax of 5 onto the firm and predict the worker's take-home wage",
+       "predict": {
+        "hide": [
+         "demand",
+         "eqt",
+         "pnet",
+         "pfirm",
+         "wedge",
+         "w_out",
+         "wn_out",
+         "wf_out",
+         "L_out"
+        ],
+        "ask": "When the worker paid the tax of 5, the take-home wage was 17.66. Now the firm pays it instead. What is the take-home wage?",
+        "options": [
+         "20: the firm pays, so the worker keeps the old wage",
+         "17.66, the same as when the worker paid",
+         "15: the firm cuts the wage by the full tax",
+         "22.66: the firm passes its cost on to the wage"
+        ],
+        "answer": 1,
+        "why": "Clearing $100w = 40{,}000/(w + 5)$ gives $w = 17.66$: the worker keeps 17.66, the firm pays $17.66 + 5 = 22.66$ and 1,766 hours are worked, exactly as when the worker paid. Only the posted wage changed, from 22.66 to 17.66.",
+        "feedback": [
+         "An hour now costs the firm $w + 5$, so at a wage of 20 it wants only $40{,}000/25 = 1{,}600$ hours while workers offer 2,000. The wage must fall.",
+         null,
+         "At 15 workers offer only 1,500 hours, while the firm, paying $15 + 5 = 20$ an hour, wants 2,000: the wage is bid back up.",
+         "22.66 is the firm's cost per hour, wage plus tax; the worker receives only the wage."
+        ]
+       },
+       "objectives": [
+        6
+       ]
+      }
+     ],
+     "words": 45,
+     "symbols": [
+      "$w$",
+      "$\\tau$",
+      "$L$",
+      "$L^D$",
+      "$L^S$",
+      "$L^*$",
+      "$w^*$",
+      "$MPK$, $MPL$"
+     ]
+    },
+    {
+     "id": "10-a-tax-paid-by-the-firm-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The outcome is identical to section 9. The posted wage falls from $w_1$ to $w_2$, but the worker's take-home wage, the firm's cost and hours are the same as when the worker paid: who bears a tax does not depend on who hands it to the government."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Labor tax paid by firm - demand shift and tax wedge.png",
+       "alt": "Labor tax paid by firm - demand shift and tax wedge",
+       "caption": "Hand-drawn: the firm's tax shifts demand from $L^D_1$ to $L^D_2$; the wedge between the curves is $\\tau$."
+      }
+     ],
+     "words": 59,
+     "symbols": [
+      "$w$",
+      "$\\tau$",
+      "$L$",
+      "$L^D$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "11-unions",
+   "heading": "11. Unions",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "11-unions-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Take two industries with the same wage $w_1$; one forms a union, the other does not. The union restricts the labor it supplies (supply shifts from $L^S_1$ to $L^S_2$) and raises its wage to $w_u$, so union employment falls along the demand curve. The workers who no longer get union jobs move to the non-union industry, shifting its supply out, and the non-union wage falls to $w_n$. Union members gain at the expense of non-union workers."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Unions - union and non-union sectors.png",
+       "alt": "Unions - union and non-union sectors",
+       "caption": "Hand-drawn: the union sector (left) and the non-union sector (right)."
+      }
+     ],
+     "words": 81,
+     "symbols": [
+      "$w$",
+      "$L$",
+      "$L^S$"
+     ]
+    },
+    {
+     "id": "11-unions-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "One of two industries unionizes and raises its wage from $w_1$ to $w_u$. Workers who lose union jobs move to the non-union industry. What happens there?",
+       "options": [
+        {
+         "md": "The wage falls below $w_1$ and employment rises",
+         "correct": true
+        },
+        {
+         "md": "The wage rises toward $w_u$",
+         "correct": false,
+         "feedback": "Nothing raises demand in the non-union industry; the extra workers shift its supply out, which pushes the wage down."
+        },
+        {
+         "md": "Nothing: the two labor markets are separate",
+         "correct": false,
+         "feedback": "Each industry has its own demand curve, but workers can move: the displaced union workers add to non-union supply."
+        },
+        {
+         "md": "The wage falls and employment falls too",
+         "correct": false,
+         "feedback": "A supply shift moves the market down along the demand curve: a lower wage comes with more hours, not fewer."
+        }
+       ],
+       "why": "The union sector moves up its demand curve to $w_u$, so it employs fewer workers. Those workers add to supply in the non-union sector; with demand unchanged, the non-union wage falls to $w_n < w_1$ and employment there rises.",
+       "objectives": [
+        7
+       ]
+      }
+     ],
+     "words": 49,
+     "symbols": [
+      "$w$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "putting-it-together",
+   "heading": "Putting it together",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "putting-it-together-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Both sides of the market optimize against the same price, the real wage: workers equate the MRS between leisure and consumption to it, firms equate the marginal product of labor to it. The wage that makes the two plans consistent is the equilibrium, and in the classical model it is always reached unless something blocks it. That gives the lecture's three policy results: a binding wage floor creates unemployment equal to the gap between supply and demand; a labor tax drives a wedge between the firm's cost and the worker's pay that does not depend on who pays it; and a union's higher wage pushes workers into, and wages down in, the non-union sector."
+      }
+     ],
+     "words": 114,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "math-refresher",
+   "heading": "Math refresher",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "math-refresher-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Math Prep L6 Optimization](note:math-prep-l6-optimization) (Lagrangians and first-order conditions) · [Math Prep L4 Multivariable Differentiation](note:math-prep-l4-multivariable-differentiation) (partial derivatives, marginal products)."
+      }
+     ],
+     "words": 17,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Set up the worker's problem — utility $U(c, l)$, budget $wh = pc$, time $l = 24 - h$ — and derive MRS $= w/p$ with a Lagrangian, explaining what each side means.\n2. Derive individual and market labor supply from a utility function ($h = \\frac{1}{6}\\frac{w}{p}$, $L^S = 100\\frac{w}{p}$) and explain why it slopes up.\n3. Derive labor demand from profit maximization (MPL $= w/p$) and solve it for $F(L) = 40{,}000\\ln L$.\n4. Solve for the equilibrium real wage and hours (20 and 2,000) and draw the supply-demand diagram.\n5. Explain why the classical model has unemployment only when the wage cannot reach equilibrium, and compute the unemployment a wage floor creates."
+      }
+     ],
+     "words": 90,
+     "symbols": [
+      "$U(c, l)$",
+      "$c$",
+      "$l$",
+      "$h$",
+      "$w$",
+      "$p$",
+      "$w/p$",
+      "$F(\\bar{K}, L)$",
+      "$L$",
+      "$L^S$"
+     ]
+    },
+    {
+     "id": "what-to-be-able-to-do-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "6. Show how a labor tax shifts supply when the worker pays and demand when the firm pays, and explain why the take-home wage and hours are the same either way.\n7. Explain how a union that raises its sector's wage changes employment there and the wage in the non-union sector."
+      }
+     ],
+     "words": 51,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "labor-leisure-choice",
+        "labor-demand",
+        "classical-labor-market-model",
+        "tax-incidence",
+        "market-clearing",
+        "marginal-rate-of-substitution",
+        "constrained-optimization-and-lagrange-multipliers",
+        "unconstrained-optimization",
+        "partial-derivatives-and-the-gradient"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

@@ -96,6 +96,15 @@
    ]
   },
   {
+   "tex": "$\\beta$",
+   "meaning": "Discount factor (modified golden rule)",
+   "kind": "Parameter in (0, 1)",
+   "typical": "0.95",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
    "tex": "$K$",
    "meaning": "Capital stock: machines, structures",
    "kind": "Endogenous (stock, state variable)",
@@ -409,6 +418,37 @@
    ]
   },
   {
+   "id": "the-modified-golden-rule",
+   "heading": "The modified golden rule",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-modified-golden-rule-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "When a planner who discounts the future at $\\beta < 1$ chooses saving ([Ramsey-Cass-Koopmans Model](note:ramsey-cass-koopmans-model)), the steady state satisfies $f'(\\bar{k}) = 1/\\beta - 1 + \\delta$ instead of $f'(\\bar{k}) = \\delta$ (basic model). The required marginal product is higher, so capital and the saving rate are lower: with Cobb-Douglas, $s = \\alpha\\delta/(1/\\beta - 1 + \\delta) < \\alpha$."
+      },
+      {
+       "t": "prose",
+       "md": "In the basic example ($\\alpha = 1/2$, $A = 1$, $\\delta = 0.1$), $\\beta = 0.95$ gives $\\bar{k} = 10.73$ and $s = 0.328$, against $k^{*} = 25$ and $s^{*} = 0.5$. Steady-state consumption is 2.20 instead of 2.50, yet the planner prefers this: building the extra capital would cost consumption sooner, which counts for more. As $\\beta \\to 1$ the two rules coincide."
+      }
+     ],
+     "words": 75,
+     "symbols": [
+      "$s$",
+      "$\\bar{k}$, $\\bar{c}$",
+      "$f(\\cdot)$, $f'(\\cdot)$",
+      "$\\delta$",
+      "$\\alpha$",
+      "$k^*, y^*, c^*$",
+      "$A$",
+      "$\\beta$"
+     ]
+    }
+   ]
+  },
+  {
    "id": "where-it-is-used",
    "heading": "Where it is used",
    "role": "depth",
@@ -436,10 +476,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "- [Solow Growth Model](note:solow-growth-model)\n- [Cobb-Douglas Production Function](note:cobb-douglas-production-function)\n- [Consumption Euler Equation](note:consumption-euler-equation) — when saving is chosen, MPK is the return that saving earns"
+       "md": "- [Solow Growth Model](note:solow-growth-model)\n- [Cobb-Douglas Production Function](note:cobb-douglas-production-function)\n- [Consumption Euler Equation](note:consumption-euler-equation) — when saving is chosen, MPK is the return that saving earns\n- [Ramsey-Cass-Koopmans Model](note:ramsey-cass-koopmans-model) — the modified golden rule, when saving is chosen"
       }
      ],
-     "words": 23,
+     "words": 34,
      "symbols": []
     }
    ]

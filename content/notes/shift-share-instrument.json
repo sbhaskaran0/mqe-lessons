@@ -162,10 +162,10 @@
      "blocks": [
       {
        "t": "table",
-       "md": "| Level | Exposure | Instrument |\n| --- | --- | --- |\n| Region | Change in US imports from China per worker, weighted by regional industry employment shares | Same, using other high-income countries' imports from China and lagged employment shares |\n| Industry | Change in US imports from China over initial absorption ([Import Penetration](note:import-penetration)) | Other high-income countries' imports from China over absorption lagged three years |\n| Firm (imports) | Firm's offshoring | World export supply of each country–product, weighted by the firm's initial import shares |\n| Firm (exports) | Firm's exports | World import demand of each country–product, weighted by the firm's initial export shares |"
+       "md": "| Level | Exposure | Instrument |\n| --- | --- | --- |\n| Region | Change in US imports from China per worker, weighted by regional industry employment shares | Same, using other high-income countries' imports from China and lagged employment shares |\n| Industry | Change in US imports from China over initial absorption ([Import Penetration](note:import-penetration)) | Other high-income countries' imports from China over absorption lagged three years |\n| Firm (imports) | Firm's offshoring | World export supply of each country–product, weighted by the firm's initial import shares |\n| Firm (exports) | Firm's exports | World import demand of each country–product, weighted by the firm's initial export shares |\n| Region (immigration) | Change in a state's Mexican share of low-skilled workers, 1994–95 | The state's Mexican share in 1980 (\"past settlement\" or enclave instrument) |\n| Region × occupation (immigration) | Log change in a region's immigrants times the occupation's immigrant cost share | A predicted regional inflow built from earlier settlement |"
       }
      ],
-     "words": 92,
+     "words": 139,
      "symbols": []
     }
    ]
@@ -268,10 +268,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "- [Shift-Share Exposure](note:shift-share-exposure) · [Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls) · [Import Penetration](note:import-penetration) · [Commuting Zone](note:commuting-zone)"
+       "md": "- [Shift-Share Exposure](note:shift-share-exposure) · [Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls) · [Import Penetration](note:import-penetration) · [Commuting Zone](note:commuting-zone) · [Research Designs for Immigration Effects](note:research-designs-for-immigration-effects)\n- Paper: [Monras 2020 - Immigration and Wage Dynamics](note:monras-2020-immigration-and-wage-dynamics)\n- Paper: [Burstein, Hanson, Tian and Vogel 2020 - Tradability and the Labor-Market Impact of Immigration](note:burstein-hanson-tian-and-vogel-2020-tradability-and-the-labor-market-impact-of-immigration)"
       }
      ],
-     "words": 11,
+     "words": 41,
      "symbols": []
     }
    ]

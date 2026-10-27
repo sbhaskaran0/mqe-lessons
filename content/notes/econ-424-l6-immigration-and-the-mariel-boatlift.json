@@ -1,0 +1,703 @@
+{
+ "slug": "econ-424-l6-immigration-and-the-mariel-boatlift",
+ "notation": [
+  {
+   "tex": "$\\hat{\\theta}_{DiD}$",
+   "meaning": "Difference-in-differences estimate",
+   "kind": "Estimator",
+   "typical": "−0.2 in the 2×2 example",
+   "keys": [
+    "hat(theta)"
+   ],
+   "from": "difference-in-differences"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**What do immigrants do to the wages and employment of workers already there? The lecture opens the immigration unit with its most famous natural experiment. In mid-1980 about 125,000 Cubans arrived in Miami, raising its labor force by 7% almost overnight. Card (1990) compares Miami with four other high-immigration cities before and after, a difference-in-differences. The striking answer: relative to the comparison cities, Miami saw only small relative effects on wages, employment and unemployment, visible over 1979–82, and a similar but noisier story for low-education blacks.**"
+      }
+     ],
+     "words": 88,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "1-questions-and-approaches",
+   "heading": "1. Questions and approaches",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-questions-and-approaches-1",
+     "blocks": [
+      {
+       "t": "quote",
+       "md": "Paper summary: [Card 1990 - The Impact of the Mariel Boatlift](note:card-1990-the-impact-of-the-mariel-boatlift)",
+       "papers": [
+        "card-1990-the-impact-of-the-mariel-boatlift"
+       ]
+      },
+      {
+       "t": "prose",
+       "md": "The unit asks what immigrants do to natives' wages, employment and the kinds of jobs they hold, and to innovation. There are four ways to compare more- and less-exposed natives: across **regions**, across **national labor groups** (skill cells), across **national jobs**, and across **regions and jobs** together ([Research Designs for Immigration Effects](note:research-designs-for-immigration-effects)). This lecture is the regional approach; Immigration II covers the rest."
+      }
+     ],
+     "words": 74,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "2-the-mariel-boatlift",
+   "heading": "2. The Mariel boatlift",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-the-mariel-boatlift-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Card uses variation across space and time. About 125,000 Cuban immigrants arrived in Miami in mid-1980, increasing the size of Miami's labor force by 7%. He compares Miami with four other high-immigration cities — Atlanta, Houston, Los Angeles and Tampa–St. Petersburg — using a [Difference-in-Differences](note:difference-in-differences) on wages and unemployment rates, with data from the CPS outgoing rotation groups ([Current Population Survey (CPS)](note:current-population-survey-cps))."
+      }
+     ],
+     "words": 62,
+     "symbols": []
+    },
+    {
+     "id": "2-the-mariel-boatlift-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Card compares Miami with Atlanta, Houston, Los Angeles and Tampa–St. Petersburg. What role do the four cities play?",
+       "options": [
+        {
+         "md": "They received Mariel immigrants too, so their changes measure the effect",
+         "correct": false,
+         "feedback": "The comparison cities are controls: they should be untreated by the boatlift. The effect is Miami's change minus theirs."
+        },
+        {
+         "md": "They had the same wages as Miami before 1980",
+         "correct": false,
+         "feedback": "They did not: blacks' log wage was 1.59 in Miami and 1.74 in the comparison cities in 1979. A difference-in-differences needs the same *changes*, not the same levels."
+        },
+        {
+         "md": "Their changes stand in for what Miami's outcomes would have done without the boatlift",
+         "correct": true
+        },
+        {
+         "md": "They were shielded from any economic shock over 1979–85",
+         "correct": false,
+         "feedback": "They faced the same national shocks as Miami; that is what makes them useful, because shocks common to both cancel when the changes are subtracted."
+        }
+       ],
+       "why": "Wages and unemployment rise and fall for many reasons. If the four cities are good controls, their 1979–85 changes are what Miami would have experienced without immigration, so the *difference* between Miami's change and theirs is the effect of the boatlift.",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 63,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "3-who-was-exposed",
+   "heading": "3. Who was exposed",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "3-who-was-exposed-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The Mariel Cubans' education and jobs were more similar to those of Miami's blacks, Cubans and other Hispanics than to its whites. Before the boatlift, Miami's whites averaged 12.8 years of schooling against 11.4 for blacks and 11.0 for Cubans, and Cubans and other Hispanics were concentrated in operative jobs (19.4% and 16.7%, against 4.4% for whites). So the groups to watch are blacks, Cubans and Hispanics."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Characteristics of 16-61-year-olds in Miami 1979.png",
+       "alt": "Table - Characteristics of 16-61-year-olds in Miami 1979"
+      }
+     ],
+     "words": 73,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "4-results-1-and-2-wage-levels-and-unemployment-rates",
+   "heading": "4. Results 1 and 2: wage levels and unemployment rates",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "4-results-1-and-2-wage-levels-and-unemployment-rates-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Card first shows the raw numbers, \"holding off on interpretation\": log real hourly earnings and unemployment rates by group, for Miami and for the comparison cities, every year from 1979 to 1985 ([Miami Labor Market After the Mariel Boatlift 1979-1985](note:miami-labor-market-after-the-mariel-boatlift-1979-1985))."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Log real hourly earnings in Miami and comparison cities 1979-1985.png",
+       "alt": "Table - Log real hourly earnings in Miami and comparison cities 1979-1985",
+       "caption": "Card Table 3: mean log real hourly earnings by group, Miami and the four comparison cities."
+      }
+     ],
+     "words": 56,
+     "symbols": []
+    },
+    {
+     "id": "4-results-1-and-2-wage-levels-and-unemployment-rates-2",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Unemployment rates in Miami and comparison cities 1979-1985.png",
+       "alt": "Table - Unemployment rates in Miami and comparison cities 1979-1985",
+       "caption": "Card Table 4: unemployment rates (percent) by group."
+      }
+     ],
+     "words": 8,
+     "symbols": []
+    },
+    {
+     "id": "4-results-1-and-2-wage-levels-and-unemployment-rates-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Each table lets you compute two things: the gap between Miami and the comparison cities in a year, and how that gap changed since 1979. For blacks' log wages, the gap was 1.59 − 1.74 in 1979."
+      },
+      {
+       "t": "interactive",
+       "widget": "mariel-boatlift-miami-vs-comparison-cities",
+       "state": {
+        "g": 2,
+        "o": 1,
+        "t1": 1982
+       },
+       "lock": [
+        "g",
+        "o",
+        "t1"
+       ],
+       "show": [
+        "miami",
+        "comp",
+        "gap",
+        "did_out"
+       ],
+       "highlight": "did_out",
+       "prompt": "From Table 3, compute the difference-in-differences for blacks' log wages, 1979 to 1982",
+       "predict": {
+        "hide": [
+         "gap",
+         "did_out"
+        ],
+        "ask": "Blacks' log wage: Miami 1.59 (1979) and 1.48 (1982); comparison cities 1.74 and 1.71. What is the difference-in-differences from 1979 to 1982?",
+        "readout": "did_out",
+        "tol": 0.005
+       },
+       "objectives": [
+        2
+       ]
+      },
+      {
+       "t": "prose",
+       "md": "Miami's gap widened from −0.15 to −0.23, so the difference-in-differences is −0.08: blacks' wages in Miami fell about 8% relative to the comparison cities by 1982. The same arithmetic works for unemployment."
+      }
+     ],
+     "words": 86,
+     "symbols": [
+      "$\\hat{\\theta}_{DiD}$"
+     ]
+    },
+    {
+     "id": "4-results-1-and-2-wage-levels-and-unemployment-rates-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "From Table 4: blacks' unemployment rate was 8.3% in Miami and 10.3% in the comparison cities in 1979, and 16.0% and 12.7% in 1982. What is the difference-in-differences, in percentage points?",
+       "answer": 5.3,
+       "tol": 0.05,
+       "wrong": [
+        {
+         "answer": 3.3,
+         "tol": 0.05,
+         "md": "that is only the 1982 gap, Miami minus comparison; subtract the 1979 gap of −2.0 as well"
+        },
+        {
+         "answer": 7.7,
+         "tol": 0.05,
+         "md": "that is Miami's own change, 16.0 − 8.3; the comparison cities' rise of 2.4 points also has to come out"
+        },
+        {
+         "answer": 2.4,
+         "tol": 0.05,
+         "md": "that is the comparison cities' change; it is the control, not the effect"
+        },
+        {
+         "answer": -5.3,
+         "tol": 0.05,
+         "md": "the sign is flipped: Miami's unemployment rose relative to the comparison cities"
+        }
+       ],
+       "why": "The 1982 gap is $16.0 - 12.7 = 3.3$ and the 1979 gap is $8.3 - 10.3 = -2.0$, so the DiD is $3.3 - (-2.0) = 5.3$ points. Equivalently, Miami's rise ($7.7$) minus the comparison cities' rise ($2.4$).",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 35,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "5-interpreting-the-tables",
+   "heading": "5. Interpreting the tables",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "5-interpreting-the-tables-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Wages and unemployment rise and fall for many reasons besides immigration. If the four other cities are \"controls\", their changes show what would have happened in Miami without immigration, and the *differential* change between Miami and the controls is the impact of immigration. The catch: you have to believe they are controls."
+      }
+     ],
+     "words": 52,
+     "symbols": []
+    },
+    {
+     "id": "5-interpreting-the-tables-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "What has to be true for Card's difference-in-differences to measure the effect of the boatlift?",
+       "options": [
+        {
+         "md": "Miami and the comparison cities had the same wages and unemployment rates before 1980",
+         "correct": false,
+         "feedback": "Levels may differ; the 1979 gap is subtracted out. What matters is how the gap would have moved."
+        },
+        {
+         "md": "Miami's labor force did not grow for any other reason",
+         "correct": false,
+         "feedback": "Growth that hits all five cities equally cancels out; only growth specific to Miami would bias the estimate."
+        },
+        {
+         "md": "The comparison cities received no immigrants at all",
+         "correct": false,
+         "feedback": "They are high-immigration cities. They only need to have been unaffected by the boatlift itself."
+        },
+        {
+         "md": "Without the boatlift, Miami's outcomes would have changed by the same amount as the comparison cities'",
+         "correct": true
+        }
+       ],
+       "why": "That is the parallel-trends assumption. It cannot be tested here: the data start in 1979, so there is only one year before the boatlift to compare trends.",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 63,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "6-result-3-differences-across-space",
+   "heading": "6. Result 3: differences across space",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "6-result-3-differences-across-space-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Card's Table 6 reports the Miami − comparison gap directly for blacks — actual and adjusted for education and experience — and for low-education blacks (fewer than 12 years of schooling). Each entry is a **first difference**: the difference in levels between Miami and the controls in a year. Differencing across rows gives the **difference in differences**: the difference in *changes* between Miami and the controls."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Wages and unemployment of blacks in Miami vs comparison cities 1979-1985.png",
+       "alt": "Table - Wages and unemployment of blacks in Miami vs comparison cities 1979-1985"
+      }
+     ],
+     "words": 63,
+     "symbols": []
+    },
+    {
+     "id": "6-result-3-differences-across-space-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The unemployment gap for blacks went from −2.0 points in 1979 to +3.3 in 1982, a DiD of +5.3."
+      },
+      {
+       "t": "interactive",
+       "widget": "mariel-boatlift-miami-vs-comparison-cities",
+       "state": {
+        "g": 2,
+        "o": 2,
+        "t1": 1985
+       },
+       "lock": [
+        "g",
+        "o"
+       ],
+       "show": [
+        "miami",
+        "comp",
+        "gap",
+        "did_out"
+       ],
+       "highlight": "gap",
+       "prompt": "Predict where blacks' unemployment DiD stood by 1985",
+       "predict": {
+        "hide": [
+         "miami",
+         "comp",
+         "gap",
+         "did_out"
+        ],
+        "ask": "By 1982 Miami's unemployment for blacks had risen 5.3 points relative to the comparison cities. Where was that difference-in-differences by 1985?",
+        "options": [
+         "Still about +5 points: the rise persisted",
+         "Below zero: Miami ended relatively better off than in 1979",
+         "Higher still, above +10 points",
+         "Exactly zero, by construction"
+        ],
+        "answer": 1,
+        "why": "In 1985 the gap is $7.8 - 13.3 = -5.5$; minus the 1979 gap of $-2.0$ gives a DiD of $-3.5$ points. Move the year to see the path: $-5.0$, $-1.0$, $+5.3$, $+2.0$, $+4.1$, $-3.5$ for 1980–85.",
+        "feedback": [
+         "Miami's black unemployment fell back to 7.8% in 1985 while the comparison cities stood at 13.3%: the rise did not last.",
+         null,
+         "The largest DiD in any year is +5.3, in 1982; it falls after that.",
+         "Only the base year, 1979, is zero by construction; every later year is free to move."
+        ]
+       },
+       "objectives": [
+        4
+       ]
+      }
+     ],
+     "words": 30,
+     "symbols": [
+      "$\\hat{\\theta}_{DiD}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "7-results-in-words",
+   "heading": "7. Results in words",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "7-results-in-words-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Over the full population, relative to the comparison cities, the only effects visible are over 1979–82: a small contraction of the average wage in Miami, a fall in the employment-population ratio, and a rise in the unemployment rate. Low-education blacks tell a similar, noisier story."
+      }
+     ],
+     "words": 46,
+     "symbols": []
+    },
+    {
+     "id": "7-results-in-words-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Which summary of Card's results for the whole Miami workforce is right?",
+       "options": [
+        {
+         "md": "Wages fell about 7% for good, one for one with the 7% rise in the labor force",
+         "correct": false,
+         "feedback": "No such fall appears: blacks' wage DiD is −0.08 in 1982 but +0.10 by 1985, and whites' stays within ±0.02."
+        },
+        {
+         "md": "Nothing moved in any year",
+         "correct": false,
+         "feedback": "Over 1979–82 there is a small relative fall in wages and employment and a rise in unemployment; the effects are small, not absent."
+        },
+        {
+         "md": "Small relative declines in wages and employment and a rise in unemployment over 1979–82, gone afterwards",
+         "correct": true
+        },
+        {
+         "md": "Large losses for whites, none for blacks",
+         "correct": false,
+         "feedback": "It is the reverse if anything: whites' wage DiD stays within ±0.02, while the clearest (short-lived) movements are for blacks."
+        }
+       ],
+       "why": "The lecture's summary: only effects visible over 79–82 — a small contraction of the average wage, a contraction of the employment rate and an increase in unemployment in Miami — with a similar but noisier story for low-education blacks. By 1984–85 the gaps are back near or beyond their 1979 levels.",
+       "objectives": [
+        4
+       ]
+      }
+     ],
+     "words": 58,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "8-why-such-small-effects",
+   "heading": "8. Why such small effects?",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "8-why-such-small-effects-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The lecture lists four possibilities:"
+      },
+      {
+       "t": "prose",
+       "md": "1. **This is the truth**, and those who blamed the boatlift for labor-market harm got it wrong.\n2. **Outcomes are too aggregated**: effects may show up in particular jobs — taken up by Friedberg and by Burstein, Hanson, Tian and Vogel in Immigration II.\n3. **No data before 1979**, which makes it hard to conclude much (no pre-trend check).\n4. **Miami is open to the rest of the US**: natives' migration responds to immigration (Monras), and goods trade matters (Burstein, Hanson, Tian and Vogel)."
+      }
+     ],
+     "words": 88,
+     "symbols": []
+    },
+    {
+     "id": "8-why-such-small-effects-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Natives moving out of Miami, or no longer moving in, after the boatlift would spread its effect across the country. Which of Card's explanations is this, and which later paper takes it up?",
+       "options": [
+        {
+         "md": "Outcomes are too aggregated — Friedberg",
+         "correct": false,
+         "feedback": "Aggregation is about averaging across jobs within Miami; Friedberg looks across occupations, not at migration."
+        },
+        {
+         "md": "It is the truth — Borjas",
+         "correct": false,
+         "feedback": "Borjas finds large relative effects across skill cells, the opposite of \"no effect\", and he does not study native migration."
+        },
+        {
+         "md": "Miami is open to the rest of the US — Monras",
+         "correct": true
+        },
+        {
+         "md": "No data before 1979 — Clemens, Lewis and Postel",
+         "correct": false,
+         "feedback": "The data problem is about checking trends before 1980; the bracero paper studies a removal of immigrants, not native migration."
+        }
+       ],
+       "why": "If natives move away or stop arriving, Miami's labor supply grows by less than 7% and the shock spreads to other cities, including possibly the comparison cities. Monras studies native migration responses; Burstein et al. add the goods-trade channel.",
+       "objectives": [
+        5
+       ]
+      }
+     ],
+     "words": 61,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "9-why-this-paper-matters",
+   "heading": "9. Why this paper matters",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "9-why-this-paper-matters-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The paper matters a lot: it is one of the three agendas cited for Card's Nobel Prize, and Esther Duflo points to it as one of the major findings in economics — \"the effect of low-skill migration on low-skill wages is zero.\""
+      }
+     ],
+     "words": 41,
+     "symbols": []
+    },
+    {
+     "id": "9-why-this-paper-matters-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Strictly, what does Card's design establish about low-skill wages?",
+       "options": [
+        {
+         "md": "Low-skill immigration never lowers low-skill wages anywhere",
+         "correct": false,
+         "feedback": "One episode in one city, compared with four others, cannot rule out effects elsewhere or of other kinds."
+        },
+        {
+         "md": "After the boatlift, low-skill wages in Miami did not fall relative to the comparison cities, beyond a small, temporary dip",
+         "correct": true
+        },
+        {
+         "md": "Immigration has no effect on national wages",
+         "correct": false,
+         "feedback": "Anything that hit all five cities, including any national effect, is differenced out; the design is silent on it."
+        },
+        {
+         "md": "The Mariel immigrants themselves did not earn less than natives",
+         "correct": false,
+         "feedback": "The study is about the workers already in Miami; Cubans' average wage fell partly because the group now included the new arrivals."
+        }
+       ],
+       "why": "A difference-in-differences across cities identifies a **relative, local** effect. Duflo's \"zero\" is a summary of that comparison; Immigration II shows designs that compare skill groups or jobs nationally can reach different answers.",
+       "objectives": [
+        6
+       ]
+      }
+     ],
+     "words": 53,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "putting-it-together",
+   "heading": "Putting it together",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "putting-it-together-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Card's study is the template for the regional design: find a large, sudden local supply shock, pick comparison cities as controls, and read the effect as the change in Miami's gap with them. The tables show a 7% labor-supply shock leaving barely a trace — a small dip in wages and employment for 1979–82 that faded. Whether that means immigration has no wage effect, or that the effect was spread beyond Miami, aggregated away or invisible without earlier data, is what the next lecture takes up."
+      }
+     ],
+     "words": 86,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "math-refresher",
+   "heading": "Math refresher",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "math-refresher-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Math Prep L7 Approximations Logs and Series](note:math-prep-l7-approximations-logs-and-series) — differences in log wages as approximate percentage differences."
+      }
+     ],
+     "words": 15,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Describe the Mariel boatlift as a natural experiment (125,000 arrivals, a 7% rise in Miami's labor force in mid-1980) and explain why Card uses comparison cities.\n2. Compute first differences (Miami − comparison) and differences-in-differences from Card's tables of log wages and unemployment rates.\n3. State the parallel-trends assumption behind treating the comparison cities as controls, and explain why data starting in 1979 limit it.\n4. Summarize Card's results: small, short-lived relative effects over 1979–82 for the whole population, and a similar but noisier story for low-education blacks.\n5. List the four explanations for the small effects and connect each to the paper that takes it up."
+      }
+     ],
+     "words": 109,
+     "symbols": []
+    },
+    {
+     "id": "what-to-be-able-to-do-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "6. Explain what the regional design can and cannot say about the effect of low-skill immigration on low-skill wages."
+      }
+     ],
+     "words": 19,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "papers-in-this-lecture",
+   "heading": "Papers in this lecture",
+   "role": "papers",
+   "steps": [
+    {
+     "id": "papers-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "papers",
+       "items": [
+        "card-1990-the-impact-of-the-mariel-boatlift"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "research-designs-for-immigration-effects",
+        "difference-in-differences"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "facts-and-data-in-this-lecture",
+   "heading": "Facts and data in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "facts-and-data-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "facts",
+       "items": [
+        "miami-labor-market-after-the-mariel-boatlift-1979-1985",
+        "current-population-survey-cps"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

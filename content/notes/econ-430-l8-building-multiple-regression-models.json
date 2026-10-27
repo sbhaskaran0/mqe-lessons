@@ -82,6 +82,26 @@
    "from": "marginal-effects"
   },
   {
+   "tex": "$z$",
+   "meaning": "Another regressor, held fixed",
+   "kind": "Data",
+   "typical": "$PRICE$",
+   "keys": [
+    "z"
+   ],
+   "from": "marginal-effects"
+  },
+  {
+   "tex": "$ME(x)$",
+   "meaning": "Marginal effect of $x$ at a value of $x$",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "~ME(x)"
+   ],
+   "from": "marginal-effects"
+  },
+  {
    "tex": "$AME$",
    "meaning": "Average of $ME$ over the sample",
    "kind": "Statistic",
@@ -734,16 +754,55 @@
       {
        "t": "interactive",
        "widget": "quadratic-marginal-effect-explorer",
-       "prompt": "Slide advertising along the quadratic sales curve and watch the marginal effect shrink to zero",
-       "status": "planned",
-       "purpose": "See a marginal effect as the slope of a curve that changes with x, and find the turning point and the profit-maximizing point where the slope equals the marginal cost",
+       "state": {
+        "xc": 2.5,
+        "z": 5.7
+       },
+       "lock": [
+        "z"
+       ],
+       "show": [
+        "sales_curve",
+        "tangent",
+        "here",
+        "me_out"
+       ],
+       "highlight": "tangent",
+       "prompt": "Slide advertising along the quadratic sales curve and watch the slope of the tangent",
+       "predict": {
+        "hide": [
+         "tangent",
+         "me_out"
+        ],
+        "ask": "Andy spends \\$2,500 a month on advertising, $x = 2.5$. Before the tangent shows: is the marginal effect of advertising there positive or negative?",
+        "options": [
+         "Positive and large: each extra \\$1,000 adds about \\$12,151, the coefficient on advertising",
+         "Positive but small, since returns diminish but never turn negative",
+         "Negative: $x = 2.5$ is past the sales peak"
+        ],
+        "answer": 2,
+        "why": "$ME = 12.1512 - 5.536 \\times 2.5 = -1.689$: at \\$2,500 another \\$1,000 of advertising lowers expected sales by about \\$1,689. The tangent is flat where $12.1512 - 5.536x = 0$; drag the point to find it before the check below asks for it in dollars.",
+        "feedback": [
+         "12.151 is $b_3$, the slope at zero advertising. With $b_4 < 0$ the slope falls by $2 \\times 2.768 = 5.536$ for every \\$1,000 already spent.",
+         "A quadratic with $b_4 < 0$ has a peak; past it, more advertising lowers expected sales. The peak is where $12.151 - 5.536x = 0$.",
+         null
+        ]
+       },
        "objectives": [
         3
        ]
       }
      ],
-     "words": 49,
-     "symbols": []
+     "words": 48,
+     "symbols": [
+      "$y_i$",
+      "$x_{ik}$",
+      "$b_k$",
+      "$E[y]$",
+      "$z$",
+      "$ME(x)$",
+      "$A$"
+     ]
     },
     {
      "id": "4-diminishing-returns-and-marginal-effects-3",

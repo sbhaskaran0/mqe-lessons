@@ -1,0 +1,274 @@
+{
+ "slug": "matching-function",
+ "notation": [
+  {
+   "tex": "$H$",
+   "meaning": "Hires (matches) per period",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "H"
+   ]
+  },
+  {
+   "tex": "$U$",
+   "meaning": "Unemployed workers searching",
+   "kind": "State variable",
+   "typical": "—",
+   "keys": [
+    "U"
+   ]
+  },
+  {
+   "tex": "$V$",
+   "meaning": "Vacancies (job openings)",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "V"
+   ]
+  },
+  {
+   "tex": "$A$",
+   "meaning": "Matching efficiency",
+   "kind": "Parameter",
+   "typical": "0.5 in the examples",
+   "keys": [
+    "A"
+   ]
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "Elasticity of hires with respect to unemployment (not a capital share here)",
+   "kind": "Parameter in (0, 1)",
+   "typical": "0.5; estimates 0.5–0.7",
+   "keys": [
+    "alpha"
+   ]
+  },
+  {
+   "tex": "$\\theta$",
+   "meaning": "Labor market tightness, $V/U$: vacancies per unemployed worker",
+   "kind": "Endogenous",
+   "typical": "≈ 1",
+   "keys": [
+    "theta"
+   ]
+  },
+  {
+   "tex": "$f$",
+   "meaning": "Job-finding rate: probability an unemployed worker is hired this period",
+   "kind": "Endogenous",
+   "typical": "0.4–0.6 per month",
+   "keys": [
+    "f"
+   ]
+  },
+  {
+   "tex": "$q$",
+   "meaning": "Vacancy-filling rate: probability a vacancy is filled this period",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "q"
+   ]
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "In a real labor market, jobless workers and open jobs do not meet instantly. Workers read listings, firms sift applications, and many pairs do not fit. A matching function summarizes that messy process in one formula: give it the number of people looking and the number of open jobs, and it returns how many hires happen this period. It works like a production function whose inputs are searchers and openings and whose output is new jobs. Its efficiency term captures everything that makes matching easier or harder, such as how similar workers and jobs are, or policies like job training. From it come the chances that a jobless worker finds work and that an opening gets filled, both driven by how many openings there are per searcher."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It replaces \"supply equals demand\" in search models of unemployment, so unemployment can persist even when firms are hiring.",
+       "folded": false
+      }
+     ],
+     "words": 149,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Hires in a period are a function of unemployed workers $U$ and vacancies $V$; the common form is Cobb-Douglas:"
+      },
+      {
+       "t": "math",
+       "tex": "H = H(U, V) = AU^{\\alpha}V^{1-\\alpha}"
+      },
+      {
+       "t": "prose",
+       "md": "With labor market tightness $\\theta = V/U$, the matching probabilities are"
+      },
+      {
+       "t": "math",
+       "tex": "f = \\frac{H}{U} = A\\theta^{1-\\alpha}, \\qquad q = \\frac{H}{V} = A\\theta^{-\\alpha}"
+      }
+     ],
+     "words": 25,
+     "symbols": [
+      "$H$",
+      "$U$",
+      "$V$",
+      "$A$",
+      "$\\alpha$",
+      "$\\theta$",
+      "$f$",
+      "$q$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "properties",
+   "heading": "Properties",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "properties-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Constant returns.** Multiplying $U$ and $V$ by the same factor multiplies $H$ by it. That is why $f$ and $q$ depend only on the ratio $\\theta$, not on the size of the market.\n- **Tightness helps workers and hurts firms.** $f$ rises with $\\theta$ (more openings per searcher), $q$ falls (more competition among firms for each worker). Their ratio is $f/q = \\theta$.\n- **Efficiency $A$** raises both rates. It falls when workers and jobs are more heterogeneous (skills that fit few openings) and can be moved by policy: benefits that make long searches affordable can lower it, training that widens workers' options can raise it."
+      }
+     ],
+     "words": 94,
+     "symbols": [
+      "$H$",
+      "$U$",
+      "$V$",
+      "$A$",
+      "$\\theta$",
+      "$f$",
+      "$q$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$A = 0.5$, $\\alpha = 0.5$. With $\\theta = 0.64$ (64 openings per 100 unemployed), $f = 0.5\\sqrt{0.64} = 0.40$ and $q = 0.5/\\sqrt{0.64} = 0.625$. With $\\theta = 1$, both equal 0.5."
+      }
+     ],
+     "words": 12,
+     "symbols": [
+      "$A$",
+      "$\\alpha$",
+      "$\\theta$",
+      "$f$",
+      "$q$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "evidence",
+   "heading": "Evidence",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "evidence-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Petrongolo and Pissarides 2001 - Looking into the Black Box](note:petrongolo-and-pissarides-2001-looking-into-the-black-box) survey the empirical matching function: aggregate estimates generally support a stable Cobb-Douglas form with constant returns, with an elasticity on unemployment of about 0.5 to 0.7 (beyond the lecture: the lecture cites the survey only for constant returns)."
+      }
+     ],
+     "words": 50,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Swapping the exponents.** $f = H/U$ carries $\\theta^{1-\\alpha}$; $q = H/V$ carries $\\theta^{-\\alpha}$.\n- **Reading $\\theta$ as \"tight\" when it is small.** A tight market has *many* vacancies per worker, a high $\\theta$.\n- **Treating $A$ as productivity of workers.** It is the efficiency of *meeting*, not of producing."
+      }
+     ],
+     "words": 39,
+     "symbols": [
+      "$H$",
+      "$U$",
+      "$V$",
+      "$A$",
+      "$\\alpha$",
+      "$\\theta$",
+      "$f$",
+      "$q$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Labor macroeconomics: the [Diamond-Mortensen-Pissarides Model](note:diamond-mortensen-pissarides-model), unemployment dynamics, the [Beveridge Curve](note:beveridge-curve).\n- Other markets with frictions: housing, marriage, money (search-theoretic models)."
+      }
+     ],
+     "words": 21,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Cobb-Douglas Production Function](note:cobb-douglas-production-function) · [Steady-State Unemployment Rate](note:steady-state-unemployment-rate) · [Diamond-Mortensen-Pissarides Model](note:diamond-mortensen-pissarides-model)\n- Paper: [Petrongolo and Pissarides 2001 - Looking into the Black Box](note:petrongolo-and-pissarides-2001-looking-into-the-black-box)"
+      }
+     ],
+     "words": 21,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

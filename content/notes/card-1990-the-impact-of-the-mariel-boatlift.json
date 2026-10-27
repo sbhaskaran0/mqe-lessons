@@ -1,0 +1,189 @@
+{
+ "slug": "card-1990-the-impact-of-the-mariel-boatlift",
+ "notation": [],
+ "sections": [
+  {
+   "id": "key-takeaways",
+   "heading": "Key takeaways",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "key-takeaways-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. **A huge, sudden local supply shock.** About 125,000 Cuban immigrants arrived in Miami in mid-1980, raising its labor force by 7%.\n2. **Little visible effect.** Relative to Atlanta, Houston, Los Angeles and Tampa–St. Petersburg, Miami saw only a small fall in average wages and employment and a rise in unemployment over 1979–82, gone by 1985.\n3. **The same for the most exposed.** Low-education blacks show a similar, noisier pattern.\n4. **A landmark.** One of the agendas cited for Card's Nobel Prize; Duflo summarizes it as \"the effect of low-skill migration on low-skill wages is zero.\""
+      }
+     ],
+     "words": 99,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "research-question",
+   "heading": "Research question",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "research-question-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Did a large, unexpected inflow of mostly low-skilled immigrants lower the wages or raise the unemployment of workers already in the receiving city?"
+      }
+     ],
+     "words": 23,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "data-and-setting",
+   "heading": "Data and setting",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "data-and-setting-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The Mariel boatlift (mid-1980) brought Cubans whose education and jobs resembled those of Miami's blacks, Cubans and other Hispanics more than its whites. Card uses the CPS outgoing rotation groups (MORG) for 1979–85, workers aged 16–61 ([Current Population Survey (CPS)](note:current-population-survey-cps))."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Characteristics of 16-61-year-olds in Miami 1979.png",
+       "alt": "Table - Characteristics of 16-61-year-olds in Miami 1979"
+      }
+     ],
+     "words": 42,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "empirical-strategy",
+   "heading": "Empirical strategy",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "empirical-strategy-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A [Difference-in-Differences](note:difference-in-differences) across space and time: the four comparison cities are other high-immigration cities, and their changes stand in for what Miami would have done without the boatlift. Subtracting the Miami−comparison gap in 1979 from the gap in later years removes permanent differences between the cities."
+      }
+     ],
+     "words": 47,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "results",
+   "heading": "Results",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "results-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Log real hourly earnings in Miami and comparison cities 1979-1985.png",
+       "alt": "Table - Log real hourly earnings in Miami and comparison cities 1979-1985"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    },
+    {
+     "id": "results-2",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Unemployment rates in Miami and comparison cities 1979-1985.png",
+       "alt": "Table - Unemployment rates in Miami and comparison cities 1979-1985"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    },
+    {
+     "id": "results-3",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Wages and unemployment of blacks in Miami vs comparison cities 1979-1985.png",
+       "alt": "Table - Wages and unemployment of blacks in Miami vs comparison cities 1979-1985"
+      },
+      {
+       "t": "prose",
+       "md": "- **Blacks' log wages:** the Miami−comparison gap went from −0.15 (1979) to −0.23 (1982) and −0.05 (1985): a DiD of −0.08 by 1982 that reversed.\n- **Blacks' unemployment:** a DiD of +5.3 points by 1982, −3.5 by 1985.\n- **Whites:** the wage DiD stays within ±0.02."
+      },
+      {
+       "t": "prose",
+       "md": "Full tables: [Miami Labor Market After the Mariel Boatlift 1979-1985](note:miami-labor-market-after-the-mariel-boatlift-1979-1985)."
+      }
+     ],
+     "words": 64,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "caveats",
+   "heading": "Caveats",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "caveats-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Data start in 1979, so pre-trends cannot be checked.\n- Outcomes may be too aggregated: effects may show up in particular jobs (taken up by Friedberg and by Burstein, Hanson, Tian and Vogel).\n- Miami is open to the rest of the US: natives may move out or stop moving in (Monras), and goods trade can absorb the shock (Burstein, Hanson, Tian and Vogel).\n- (Beyond the lecture) Later reanalyses that focus on narrower groups, such as Borjas (2017) for non-Hispanic men without a high-school diploma, reach different conclusions; the debate over sample size and control cities continues."
+      }
+     ],
+     "words": 99,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "in-econ-424-l6-immigration-and-the-mariel-boatlift",
+   "heading": "In Econ 424 L6 Immigration and the Mariel Boatlift",
+   "role": "paper-in-lesson",
+   "steps": [
+    {
+     "id": "in-econ-424-l6-immigration-and-the-mariel-boatlift-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The whole lecture is this paper. It is the canonical **regional** design ([Research Designs for Immigration Effects](note:research-designs-for-immigration-effects)): a natural experiment read through difference-in-differences. Be able to compute first differences and DiDs from Tables 3, 4 and 6, state the parallel-trends assumption the comparison cities must satisfy, and list the four explanations for the small effects. Immigration II returns to each explanation with a different design."
+      }
+     ],
+     "words": 65,
+     "symbols": []
+    }
+   ],
+   "lesson": "econ-424-l6-immigration-and-the-mariel-boatlift"
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Difference-in-Differences](note:difference-in-differences) · [Research Designs for Immigration Effects](note:research-designs-for-immigration-effects) · [Current Population Survey (CPS)](note:current-population-survey-cps) · [Miami Labor Market After the Mariel Boatlift 1979-1985](note:miami-labor-market-after-the-mariel-boatlift-1979-1985)"
+      }
+     ],
+     "words": 19,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

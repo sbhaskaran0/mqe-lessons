@@ -1,0 +1,362 @@
+{
+ "slug": "labor-demand",
+ "notation": [
+  {
+   "tex": "$Y$",
+   "meaning": "Output",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "Y"
+   ]
+  },
+  {
+   "tex": "$F(\\bar{K}, L)$",
+   "meaning": "Production function; $F(L)$ when labor is the only input",
+   "kind": "Function",
+   "typical": "$40{,}000\\ln L$ in the example",
+   "keys": [
+    "F"
+   ]
+  },
+  {
+   "tex": "$\\bar{K}$",
+   "meaning": "Capital, fixed in the short run",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "bar(K)"
+   ]
+  },
+  {
+   "tex": "$L$",
+   "meaning": "Labor hired, in hours",
+   "kind": "Choice",
+   "typical": "2,000 at $w/p = 20$",
+   "keys": [
+    "L"
+   ]
+  },
+  {
+   "tex": "$\\partial F/\\partial L$",
+   "meaning": "Marginal product of labor (MPL): extra output from one more hour",
+   "kind": "Function",
+   "typical": "$40{,}000/L$ in the example",
+   "keys": [
+    "~\\partialF/\\partialL"
+   ]
+  },
+  {
+   "tex": "$\\pi$",
+   "meaning": "Profit",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "pi"
+   ]
+  },
+  {
+   "tex": "$p$",
+   "meaning": "Price of output",
+   "kind": "Exogenous",
+   "typical": "1 (normalized)",
+   "keys": [
+    "p"
+   ]
+  },
+  {
+   "tex": "$w$",
+   "meaning": "Nominal wage per hour",
+   "kind": "Exogenous (to the firm)",
+   "typical": "20",
+   "keys": [
+    "w"
+   ]
+  },
+  {
+   "tex": "$r$",
+   "meaning": "Rental price of capital",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "r"
+   ]
+  },
+  {
+   "tex": "$a$",
+   "meaning": "Scale of the log production function $F(L) = a\\ln L$",
+   "kind": "Parameter",
+   "typical": "40,000",
+   "keys": [
+    "a"
+   ]
+  },
+  {
+   "tex": "$L^D$",
+   "meaning": "Labor demanded at a given real wage",
+   "kind": "Function",
+   "typical": "$40{,}000/(w/p)$",
+   "keys": [
+    "~L^D"
+   ]
+  },
+  {
+   "tex": "$\\tau$",
+   "meaning": "Tax per hour of labor, paid by the firm",
+   "kind": "Parameter",
+   "typical": "5 in the tax example",
+   "keys": [
+    "tau"
+   ]
+  },
+  {
+   "tex": "$MPK$, $MPL$",
+   "meaning": "Marginal products of capital and labor",
+   "kind": "Partial derivatives",
+   "typical": "0.703, 0.486 in the example",
+   "keys": [
+    "~MPK",
+    "~MPL"
+   ],
+   "from": "partial-derivatives-and-the-gradient"
+  },
+  {
+   "tex": "$w/p$",
+   "meaning": "Real wage",
+   "kind": "Endogenous",
+   "typical": "20",
+   "keys": [
+    "~w/p"
+   ],
+   "from": "classical-labor-market-model"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A firm decides how many hours of work to buy. Each extra hour adds some output, which the firm sells, and costs one hour's wage. If the extra output from the next hour is worth more than the wage, hiring it raises profit, so the firm hires more. If it is worth less, cutting that hour saves more than it loses, so the firm hires less. Because each extra hour adds a bit less than the one before (a bakery with more bakers but the same ovens), the firm stops where the last hour's extra output just pays for itself. A higher wage means it stops sooner: that is why the labor demand curve slopes down."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the firm half of the labor market: together with labor supply it pins down the wage and employment, and it explains why wage floors and taxes on firms cut hiring.",
+       "folded": false
+      }
+     ],
+     "words": 151,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A firm with production function $Y = F(\\bar{K}, L)$, capital fixed at $\\bar{K}$, chooses labor $L$ to maximize profit at given prices $p$, $w$ and $r$:"
+      },
+      {
+       "t": "math",
+       "tex": "\\pi = pF(\\bar{K}, L) - wL - r\\bar{K}"
+      },
+      {
+       "t": "prose",
+       "md": "The first-order condition sets the marginal product of labor equal to the real wage:"
+      },
+      {
+       "t": "math",
+       "tex": "\\frac{\\partial \\pi}{\\partial L} = p\\frac{\\partial F}{\\partial L} - w = 0 \\;\\Rightarrow\\; \\frac{\\partial F}{\\partial L} = \\frac{w}{p}"
+      },
+      {
+       "t": "prose",
+       "md": "Solving this condition for $L$ as a function of $w/p$ gives the labor demand curve $L^D$."
+      }
+     ],
+     "words": 44,
+     "symbols": [
+      "$Y$",
+      "$F(\\bar{K}, L)$",
+      "$\\bar{K}$",
+      "$L$",
+      "$\\pi$",
+      "$p$",
+      "$w$",
+      "$r$",
+      "$L^D$",
+      "$w/p$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "intuition",
+   "heading": "Intuition",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "intuition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The condition compares two things measured in goods. One more hour adds $\\partial F/\\partial L$ units of output; it costs $w$ in money, which is $w/p$ units of output. If MPL > $w/p$, the hour adds more than it costs: hire. If MPL < $w/p$, firing the hour cuts cost by more than output: fire. Profit is highest where they are equal."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Labor demand - profit maximization sets MPL equal to the real wage.png",
+       "alt": "Labor demand - profit maximization sets MPL equal to the real wage",
+       "caption": "Hand-drawn: the firm chooses labor with capital fixed at $\\bar{K}$, giving MPL = w/p."
+      }
+     ],
+     "words": 66,
+     "symbols": [
+      "$F(\\bar{K}, L)$",
+      "$\\bar{K}$",
+      "$L$",
+      "$\\partial F/\\partial L$",
+      "$p$",
+      "$w$",
+      "$w/p$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Take $p = 1$ and $F(L) = 40{,}000\\ln L$, so $\\partial F/\\partial L = 40{,}000/L$. Profit is $\\pi = 40{,}000\\ln L - wL$, and the first-order condition gives"
+      },
+      {
+       "t": "math",
+       "tex": "\\frac{40{,}000}{L} = w \\;\\Rightarrow\\; L^D = \\frac{40{,}000}{w}"
+      },
+      {
+       "t": "prose",
+       "md": "At $w = 20$ the firm hires 2,000 hours, at $w = 16$ it hires 2,500, and at $w = 25$ only 1,600. The second-order condition holds because $\\partial^2\\pi/\\partial L^2 = -40{,}000/L^2 < 0$ (diminishing returns). With a general price level, $L^D = 40{,}000/(w/p)$."
+      },
+      {
+       "t": "prose",
+       "md": "**A tax on hires.** If the firm pays a tax $\\tau$ per hour, an hour costs $w + \\tau$, so the condition becomes $MPL = w + \\tau$ and $L^D = 40{,}000/(w + \\tau)$: demand shifts down by $\\tau$ at every quantity. See [Tax Incidence](note:tax-incidence)."
+      }
+     ],
+     "words": 69,
+     "symbols": [
+      "$F(\\bar{K}, L)$",
+      "$L$",
+      "$\\partial F/\\partial L$",
+      "$\\pi$",
+      "$p$",
+      "$w$",
+      "$L^D$",
+      "$\\tau$",
+      "$MPK$, $MPL$",
+      "$w/p$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "properties",
+   "heading": "Properties",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "properties-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Property | In this model |\n| --- | --- |\n| Slope | Downward, because MPL falls as $L$ rises (diminishing returns) |\n| What matters | Only the real wage $w/p$ |\n| Shifts | More capital or better technology raises MPL and shifts demand out; a tax paid by the firm shifts it in |\n| Units | $L$ is hours of labor, not workers |"
+      }
+     ],
+     "words": 49,
+     "symbols": [
+      "$L$",
+      "$p$",
+      "$w$",
+      "$w/p$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Writing MPL = w.** That holds only when $p = 1$. In general MPL = $w/p$, because MPL is in goods and $w$ is in money.\n- **Setting MPL to zero.** That maximizes output, not profit; the firm stops earlier, where MPL equals the real wage.\n- **Treating capital as chosen.** In this short-run problem $\\bar{K}$ is fixed, so $r\\bar{K}$ is a fixed cost and drops out of the first-order condition."
+      }
+     ],
+     "words": 63,
+     "symbols": [
+      "$\\bar{K}$",
+      "$p$",
+      "$w$",
+      "$r$",
+      "$w/p$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Macro: the demand half of the [Classical Labor Market Model](note:classical-labor-market-model); factor prices in growth models, where competitive firms pay MPL as the wage (see [Cobb-Douglas Production Function](note:cobb-douglas-production-function)).\n- Labor: the response of hiring to minimum wages and payroll taxes ([Tax Incidence](note:tax-incidence))."
+      }
+     ],
+     "words": 42,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Unconstrained Optimization](note:unconstrained-optimization) · [Partial Derivatives and the Gradient](note:partial-derivatives-and-the-gradient) · [Labor-Leisure Choice](note:labor-leisure-choice) · [Classical Labor Market Model](note:classical-labor-market-model) · [Cobb-Douglas Production Function](note:cobb-douglas-production-function) · [Tax Incidence](note:tax-incidence)"
+      }
+     ],
+     "words": 19,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

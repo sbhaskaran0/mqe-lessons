@@ -1,0 +1,260 @@
+{
+ "slug": "beveridge-curve",
+ "notation": [
+  {
+   "tex": "$\\bar{u}$",
+   "meaning": "Steady-state unemployment rate",
+   "kind": "Endogenous",
+   "typical": "5.7% at $\\theta = 1$ in the example",
+   "keys": [
+    "bar(u)"
+   ]
+  },
+  {
+   "tex": "$v$",
+   "meaning": "Vacancy rate, vacancies per member of the labor force",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "v"
+   ]
+  },
+  {
+   "tex": "$\\theta$",
+   "meaning": "Tightness, vacancies per unemployed worker",
+   "kind": "Endogenous",
+   "typical": "1",
+   "keys": [
+    "theta"
+   ]
+  },
+  {
+   "tex": "$\\lambda$",
+   "meaning": "Separation rate",
+   "kind": "Parameter",
+   "typical": "0.03",
+   "keys": [
+    "lambda"
+   ]
+  },
+  {
+   "tex": "$A$",
+   "meaning": "Matching efficiency",
+   "kind": "Parameter",
+   "typical": "0.5",
+   "keys": [
+    "A"
+   ]
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "Elasticity of hires with respect to unemployment",
+   "kind": "Parameter",
+   "typical": "0.5",
+   "keys": [
+    "alpha"
+   ]
+  },
+  {
+   "tex": "$U_t$, $E_t$",
+   "meaning": "Unemployed and employed workers in period $t$",
+   "kind": "State variables",
+   "typical": "—",
+   "keys": [
+    "U",
+    "E"
+   ],
+   "from": "steady-state-unemployment-rate"
+  },
+  {
+   "tex": "$f$",
+   "meaning": "Job-finding rate",
+   "kind": "Endogenous (or parameter in the accounting)",
+   "typical": "0.4 per month",
+   "keys": [
+    "f"
+   ],
+   "from": "steady-state-unemployment-rate"
+  },
+  {
+   "tex": "$V$",
+   "meaning": "Vacancies (job openings)",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "V"
+   ],
+   "from": "matching-function"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "When firms advertise lots of job openings, few people tend to be unemployed; when openings are scarce, many are. Plotting the vacancy rate against the unemployment rate traces a downward-sloping curve, named after the economist William Beveridge. In a search model the reason is simple: more openings per jobseeker means each jobseeker finds work faster, so fewer people are waiting at any moment. The curve shifts outward when matching gets worse, for example if workers' skills no longer fit the openings, or when jobs end more often: then both more openings and more unemployment coexist."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "Its downward slope is a persistent feature of real data that search models reproduce, and outward shifts signal a market that matches poorly.",
+       "folded": false
+      }
+     ],
+     "words": 121,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Combining steady-state unemployment with the matching function's job-finding rate:"
+      },
+      {
+       "t": "math",
+       "tex": "\\bar{u} = \\frac{\\lambda}{\\lambda + A\\theta^{1-\\alpha}}"
+      },
+      {
+       "t": "prose",
+       "md": "A higher tightness $\\theta = V/U$ means a lower $\\bar{u}$; since the vacancy rate is $v = \\theta\\bar{u}$, higher vacancies go with lower unemployment along the curve."
+      }
+     ],
+     "words": 29,
+     "symbols": [
+      "$\\bar{u}$",
+      "$v$",
+      "$\\theta$",
+      "$\\lambda$",
+      "$A$",
+      "$\\alpha$",
+      "$U_t$, $E_t$",
+      "$V$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "movements-along-versus-shifts",
+   "heading": "Movements along versus shifts",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "movements-along-versus-shifts-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Change | Effect |\n| --- | --- |\n| Tightness $\\theta$ ↑ (firms post more vacancies) | Move along the curve: $\\bar{u}$ ↓, $v$ ↑ |\n| Separation rate $\\lambda$ ↑ | Curve shifts out (right, with $\\theta$ on the vertical axis and $\\bar{u}$ on the horizontal): higher $\\bar{u}$ at every $\\theta$ |\n| Matching efficiency $A$ ↓ | Curve shifts out (right); a rise in $A$ shifts it in (left) |"
+      }
+     ],
+     "words": 44,
+     "symbols": [
+      "$\\bar{u}$",
+      "$v$",
+      "$\\theta$",
+      "$\\lambda$",
+      "$A$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$A = 0.5$, $\\alpha = 0.5$, $\\lambda = 0.03$: at $\\theta = 1$, $f = 0.5$ and $\\bar{u} = 5.66\\%$, $v = 5.66\\%$; at $\\theta = 0.64$, $f = 0.4$, $\\bar{u} = 6.98\\%$ and $v = 4.47\\%$."
+      }
+     ],
+     "words": 4,
+     "symbols": [
+      "$\\bar{u}$",
+      "$v$",
+      "$\\theta$",
+      "$\\lambda$",
+      "$A$",
+      "$\\alpha$",
+      "$f$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Treating a move along the curve as a shift.** A change in $\\theta$ alone moves the economy along a given curve; only $\\lambda$ or $A$ (or another matching parameter) shifts it.\n- **Reading the curve as causal from unemployment to vacancies.** Both are outcomes; tightness is set elsewhere in the model (vacancy creation and wages)."
+      }
+     ],
+     "words": 53,
+     "symbols": [
+      "$\\theta$",
+      "$\\lambda$",
+      "$A$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Labor macroeconomics: diagnosing matching efficiency (outward shifts after recessions), the [Diamond-Mortensen-Pissarides Model](note:diamond-mortensen-pissarides-model)."
+      }
+     ],
+     "words": 13,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Steady-State Unemployment Rate](note:steady-state-unemployment-rate) · [Matching Function](note:matching-function) · [Diamond-Mortensen-Pissarides Model](note:diamond-mortensen-pissarides-model)"
+      }
+     ],
+     "words": 8,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,246 @@
+{
+ "slug": "friedberg-2001-the-impact-of-mass-migration-on-the-israeli-labor-market",
+ "notation": [
+  {
+   "tex": "$\\beta$",
+   "meaning": "Effect of the shock on the outcome, relative to less-exposed units",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ],
+   "from": "research-designs-for-immigration-effects"
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "Change common to all units",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "alpha"
+   ],
+   "from": "research-designs-for-immigration-effects"
+  },
+  {
+   "tex": "$\\mathbf{x}_u$, $\\gamma$",
+   "meaning": "Controls and their coefficients",
+   "kind": "Data / parameters",
+   "typical": "—",
+   "keys": [
+    "bold(x)",
+    "gamma"
+   ],
+   "from": "research-designs-for-immigration-effects"
+  },
+  {
+   "tex": "$\\varepsilon_u$",
+   "meaning": "Error",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "varepsilon"
+   ],
+   "from": "research-designs-for-immigration-effects"
+  },
+  {
+   "tex": "$r$, $o$",
+   "meaning": "Region (commuting zone) and occupation",
+   "kind": "Index",
+   "typical": "722 CZs × 50 occupations",
+   "keys": [
+    "r",
+    "o"
+   ],
+   "from": "tradable-and-non-tradable-occupations"
+  }
+ ],
+ "sections": [
+  {
+   "id": "key-takeaways",
+   "heading": "Key takeaways",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "key-takeaways-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. **A large, unexpected national shock.** Soviet emigration restrictions were lifted in 1989; close to a million Russian immigrants arrived, raising Israel's population by over 7% in two years and 12% by the mid-1990s.\n2. **National, so general equilibrium \"for free\" — but no control group.** Aggregate real wages and unemployment moved a lot, but without a control there is no way to attribute that to immigration.\n3. **Occupations as the comparison.** Natives' wage changes are compared across occupations with more or fewer immigrants.\n4. **No clear effect.** OLS says more-immigrant occupations had lower native wage growth; the IV estimate is positive, very imprecise and rests on a weak instrument."
+      }
+     ],
+     "words": 109,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "research-question",
+   "heading": "Research question",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "research-question-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Did wages fall for natives in occupations that more immigrants entered, relative to other occupations?"
+      }
+     ],
+     "words": 15,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "data-and-setting",
+   "heading": "Data and setting",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "data-and-setting-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Monthly immigration to Israel 1980-1995.png",
+       "alt": "Monthly immigration to Israel 1980-1995",
+       "caption": "Immigration to Israel per month: a spike of ≈ 35,000 a month around 1990–91 (read off the chart)."
+      }
+     ],
+     "words": 19,
+     "symbols": []
+    },
+    {
+     "id": "data-and-setting-2",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Israel real wage and unemployment rate 1980-1995.png",
+       "alt": "Israel real wage and unemployment rate 1980-1995",
+       "caption": "Aggregate real wage and unemployment: both moved sharply after 1989, but with no control group the cause is unclear."
+      },
+      {
+       "t": "prose",
+       "md": "Per the table note, wages come from the 1989 and 1994 IS surveys and employment by occupation from the 1994 Labour Force Survey (LFS) and the 1990 IES. Variables are unconditional means by two-digit occupation; wage regressions are weighted by 1994 Israeli employment."
+      }
+     ],
+     "words": 62,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "empirical-strategy",
+   "heading": "Empirical strategy",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "empirical-strategy-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "\\Delta \\log W_j = \\alpha + \\beta X_j + \\gamma r_j + \\varepsilon_j"
+      },
+      {
+       "t": "prose",
+       "md": "$\\Delta \\log W_j$ is the 1989–94 log change in the average native wage in occupation $j$, $X_j$ occupation characteristics (age, education, …) and $r_j$ immigrants relative to natives employed in $j$ in 1994. Immigrants choose occupations, so $r_j$ is endogenous. The instrument is the immigrants' occupation **before** emigrating: $p = P/N_0$, Russians in the occupation in Russia relative to natives employed in it in Israel in 1989 ([Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls))."
+      }
+     ],
+     "words": 60,
+     "symbols": [
+      "$\\beta$",
+      "$\\alpha$",
+      "$\\mathbf{x}_u$, $\\gamma$",
+      "$\\varepsilon_u$",
+      "$r$, $o$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "results",
+   "heading": "Results",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "results-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Russian immigration and native Israeli wages by occupation.png",
+       "alt": "Table - Russian immigration and native Israeli wages by occupation"
+      },
+      {
+       "t": "table",
+       "md": "| Regression | Coefficient (s.e.) |\n| --- | --- |\n| First stage: $r$ on $p$ | 0.240 (0.087) |\n| Log native wage 1994 on $r$ (OLS) | −1.54 (0.386) |\n| Change in log native wage 1989–94 on $r$ (OLS) | −0.616 (0.206) |\n| Change on $p$ (reduced form) | 0.0718 (0.149) |\n| Change on $r$ instrumented with $p$ (IV) | 0.549 (1.28) |"
+      },
+      {
+       "t": "prose",
+       "md": "The first stage is weak (unreported F ≈ 7.6, per the lecture), and the IV estimate cannot rule out large effects in either direction."
+      }
+     ],
+     "words": 77,
+     "symbols": [
+      "$r$, $o$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "caveats",
+   "heading": "Caveats",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "caveats-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Weak instrument:** an F of about 7.6 leaves the IV standard error huge (1.28); (beyond the lecture) weak instruments also bias IV toward OLS, and a common rule of thumb asks for a first-stage F above 10.\n- (Beyond the lecture) The level regression (−1.54) mixes any wage effect with which occupations immigrants enter (low-wage ones would give a negative coefficient on their own), which is why the 1989–94 change is the main outcome.\n- No control group for the national aggregate effect."
+      }
+     ],
+     "words": 88,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "in-econ-424-l7-immigration-across-skills-jobs-and-places",
+   "heading": "In Econ 424 L7 Immigration Across Skills, Jobs and Places",
+   "role": "paper-in-lesson",
+   "steps": [
+    {
+     "id": "in-econ-424-l7-immigration-across-skills-jobs-and-places-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The **national job-specific** design. It takes up Card's \"maybe outcomes are too aggregated\" explanation by looking across jobs, and finds no clear effect. Be able to say why $r_j$ is endogenous, what the instrument is, and why a weak first stage makes the null uninformative."
+      }
+     ],
+     "words": 44,
+     "symbols": [
+      "$r$, $o$"
+     ]
+    }
+   ],
+   "lesson": "econ-424-l7-immigration-across-skills-jobs-and-places"
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls) · [Research Designs for Immigration Effects](note:research-designs-for-immigration-effects) · [Tradable and Non-Tradable Occupations](note:tradable-and-non-tradable-occupations)"
+      }
+     ],
+     "words": 14,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

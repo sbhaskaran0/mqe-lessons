@@ -1,5 +1,6 @@
 """The generated `_meta/Model Library.md` and `_meta/Backlog.md`, the placeholder-age warning, "used nowhere" counting a
 model as used through its views, and the model-drift warnings - on copies of the fixture vault."""
+import json
 import os
 import pathlib
 import tempfile
@@ -103,6 +104,27 @@ class MetaTest(unittest.TestCase):
         vt = load_module(f"vault_tool_meta_{id(self)}", TOOL)
         vt.set_root(self.vault)
         return vt
+
+
+class ModelPage(MetaTest):
+    def page(self):
+        out = pathlib.Path(self._tmp.name) / "content"
+        status, log = run_tool("--vault", self.vault, "export", "--out", out)
+        self.assertEqual(status, 0, log)
+        note = json.loads((out / "notes" / "toy-base-model.json").read_text(encoding="utf-8"))
+        return [b["widget"] for st in note["sections"][0]["steps"] for b in st["blocks"]]
+
+    def test_a_models_page_shows_the_views_that_draw_it(self):
+        write_widget(self.vault, "Toy Base Model", MODEL)
+        write_widget(self.vault, "Toy Base View", VIEW)
+        write_widget(self.vault, "Toy Sampler View", SAMPLER_VIEW)
+        self.sync()
+        self.assertEqual(self.page(), ["toy-base-view", "toy-sampler-view"])
+
+    def test_a_model_no_view_draws_yet_shows_its_own_sliders(self):
+        write_widget(self.vault, "Toy Base Model", MODEL)
+        self.sync()
+        self.assertEqual(self.page(), ["toy-base-model"])
 
 
 class ModelLibrary(MetaTest):

@@ -1,0 +1,243 @@
+{
+ "slug": "tradable-and-non-tradable-occupations",
+ "notation": [
+  {
+   "tex": "$r$, $o$",
+   "meaning": "Region (commuting zone) and occupation",
+   "kind": "Index",
+   "typical": "722 CZs × 50 occupations",
+   "keys": [
+    "r",
+    "o"
+   ]
+  },
+  {
+   "tex": "$g$",
+   "meaning": "Occupation group: tradable (T) or non-tradable (N)",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "g"
+   ]
+  },
+  {
+   "tex": "$n_{ro}$",
+   "meaning": "Log change in native employment (hours) in region $r$, occupation $o$",
+   "kind": "Data",
+   "typical": "1980–2012",
+   "keys": [
+    "n"
+   ]
+  },
+  {
+   "tex": "$x_{ro}$",
+   "meaning": "Immigrant shock: log change in the region's immigrants times the occupation's immigrant cost share in the base year",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "x"
+   ]
+  },
+  {
+   "tex": "$\\mathbb{I}_o(N)$",
+   "meaning": "1 if occupation $o$ is non-tradable",
+   "kind": "Indicator",
+   "typical": "—",
+   "keys": [
+    "bb(I)"
+   ]
+  },
+  {
+   "tex": "$\\alpha_{rg}$",
+   "meaning": "Region × occupation-group effect",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "alpha"
+   ]
+  },
+  {
+   "tex": "$\\beta_r$",
+   "meaning": "Response of native employment in tradable occupations",
+   "kind": "Parameter",
+   "typical": "0.009 (low-education, 2SLS)",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$\\beta_{Nr}$",
+   "meaning": "Extra response in non-tradable occupations",
+   "kind": "Parameter",
+   "typical": "−0.303 (low-education, 2SLS)",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$\\nu_{ro}$",
+   "meaning": "Error",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "nu"
+   ]
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Some work produces things that can be shipped anywhere: a factory worker's parts, a software engineer's code. Other work has to be bought where it is done: a haircut, a restaurant meal, a gardener's afternoon. Call the first kind tradable and the second non-tradable. Now suppose many new workers arrive in one city. In tradable jobs, the extra output is simply sold to the rest of the country at the going price, so local firms hire the newcomers without pushing anyone out. In non-tradable jobs, the extra output can only be sold to people in the same city, so prices for the service fall, pay falls with them, and some local workers move into other jobs."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It explains why the same immigrant inflow can crowd natives out of some jobs and leave others untouched, and why trade lets a region absorb immigrants without lowering wages.",
+       "folded": false
+      }
+     ],
+     "words": 148,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "An occupation $o$ is **tradable** if its output is sold in a national (or world) market at a price the region takes as given, and **non-tradable** if its output must be consumed locally, so its price is set in the region. Burstein, Hanson, Tian and Vogel estimate how native employment in region $r$ and occupation $o$ responds to an immigrant shock, separately by tradability:"
+      },
+      {
+       "t": "math",
+       "tex": "n_{ro} = \\alpha_{rg} + \\beta_r x_{ro} + \\beta_{Nr}\\,\\mathbb{I}_o(N)\\,x_{ro} + \\nu_{ro}"
+      },
+      {
+       "t": "prose",
+       "md": "$\\beta_r$ is the response in tradable occupations and $\\beta_r + \\beta_{Nr}$ the response in non-tradable ones."
+      }
+     ],
+     "words": 73,
+     "symbols": [
+      "$r$, $o$",
+      "$n_{ro}$",
+      "$x_{ro}$",
+      "$\\mathbb{I}_o(N)$",
+      "$\\alpha_{rg}$",
+      "$\\beta_r$",
+      "$\\beta_{Nr}$",
+      "$\\nu_{ro}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mechanism",
+   "heading": "Mechanism",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "mechanism-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| | Tradable occupation | Non-tradable occupation |\n| --- | --- | --- |\n| Where the output goes | Sold nationally at a given price | Sold locally |\n| Immigrants arrive | Output expands, exported | Output expands, local price falls |\n| Native wage in the occupation | Little change | Falls relative to other occupations |\n| Native employment | Not crowded out (nor in) | Crowded out into other occupations |"
+      }
+     ],
+     "words": 53,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With the low-education 2SLS estimates, native employment responds to $x_{ro}$ by $\\beta_r = 0.009$ in tradable occupations (indistinguishable from zero) and by $\\beta_r + \\beta_{Nr} = 0.009 - 0.303 = -0.294$ in non-tradable ones: an immigrant shock that raises $x_{ro}$ by 0.1 lowers native hours in a non-tradable occupation by about 3% relative to tradables."
+      }
+     ],
+     "words": 42,
+     "symbols": [
+      "$x_{ro}$",
+      "$\\beta_r$",
+      "$\\beta_{Nr}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Expecting crowding out everywhere.** Case studies of particular non-tradable jobs find strong crowding out, while national US evidence within manufacturing (a tradable sector) finds crowding *in*. Tradability is what reconciles the two.\n- **Treating tradability as a sector label.** It is about where the output is sold, so it is measured occupation by occupation (some service jobs are tradable).\n- **Reading relative results as aggregate.** The estimates compare occupations within regions; the national wage effect needs a model ([Burstein, Hanson, Tian and Vogel 2020 - Tradability and the Labor-Market Impact of Immigration](note:burstein-hanson-tian-and-vogel-2020-tradability-and-the-labor-market-impact-of-immigration) quantify it)."
+      }
+     ],
+     "words": 95,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Labor: how immigration, minimum wages or local demand shocks spread across jobs.\n- Trade and macro: the tradable/non-tradable split behind regional adjustment and real exchange rates."
+      }
+     ],
+     "words": 28,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Research Designs for Immigration Effects](note:research-designs-for-immigration-effects) · [Relative Supply and Demand](note:relative-supply-and-demand) · [Commuting Zone](note:commuting-zone) · [Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls) · [Shift-Share Instrument](note:shift-share-instrument)\n- Paper: [Burstein, Hanson, Tian and Vogel 2020 - Tradability and the Labor-Market Impact of Immigration](note:burstein-hanson-tian-and-vogel-2020-tradability-and-the-labor-market-impact-of-immigration)"
+      }
+     ],
+     "words": 34,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

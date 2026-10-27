@@ -1,0 +1,122 @@
+{
+ "slug": "two-period-capital-choice-model",
+ "notation": [
+  {
+   "tex": "$c_t$",
+   "meaning": "Consumption per worker in period $t$",
+   "kind": "Choice",
+   "typical": "—",
+   "keys": [
+    "c"
+   ],
+   "from": "ramsey-cass-koopmans-model"
+  },
+  {
+   "tex": "$k_1$, $k_2$",
+   "meaning": "Two-period version: capital given in period 1, capital chosen for period 2",
+   "kind": "State variable / choice",
+   "typical": "9 and 1 in the example",
+   "keys": [
+    "k"
+   ],
+   "from": "ramsey-cass-koopmans-model"
+  },
+  {
+   "tex": "$s_1$",
+   "meaning": "Two-period version: share of period-1 output saved, $k_2/f(k_1)$",
+   "kind": "Endogenous",
+   "typical": "1/3 in the example",
+   "keys": [
+    "s"
+   ],
+   "from": "ramsey-cass-koopmans-model"
+  },
+  {
+   "tex": "$f'(k)$",
+   "meaning": "Marginal product of capital (MPK)",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "f"
+   ],
+   "from": "ramsey-cass-koopmans-model"
+  },
+  {
+   "tex": "$\\beta$",
+   "meaning": "Discount factor",
+   "kind": "Parameter in (0, 1)",
+   "typical": "0.95",
+   "keys": [
+    "beta"
+   ],
+   "from": "ramsey-cass-koopmans-model"
+  },
+  {
+   "tex": "$A$, $\\alpha$",
+   "meaning": "Productivity and capital share in $f(k) = Ak^{\\alpha}$",
+   "kind": "Parameters",
+   "typical": "1, 0.5",
+   "keys": [
+    "A",
+    "alpha"
+   ],
+   "from": "ramsey-cass-koopmans-model"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "two-period-capital-choice-explorer"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$c_t$",
+      "$k_1$, $k_2$",
+      "$s_1$",
+      "$f'(k)$",
+      "$\\beta$",
+      "$A$, $\\alpha$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The model behind [Two-Period Capital Choice Explorer](note:two-period-capital-choice-explorer). Place the view, not this note."
+      },
+      {
+       "t": "prose",
+       "md": "- **Model.** The two-period version of the [Ramsey-Cass-Koopmans Model](note:ramsey-cass-koopmans-model): $\\max \\ln c_1 + \\beta\\ln c_2$ subject to $f(k_1) = c_1 + k_2$ and $c_2 = f(k_2)$, with $f(k) = k^{\\alpha}$. Eliminating $k_2$ gives the frontier $c_2 = (f(k_1) - c_1)^{\\alpha}$, whose slope is $-f'(k_2)$. The optimum sets $c_2/(\\beta c_1) = f'(k_2)$, so $k_2 = \\alpha\\beta f(k_1)/(1 + \\alpha\\beta)$.\n- **Plan.** `c1p` is a point the learner drags along the frontier; `ic_plan` is the indifference curve through it, and `mrs_p` and `mpk_p` compare its MRS with the MPK there.\n- **Tests.** The example $k_1 = 9$, $\\alpha = 1/2$, $\\beta = 1$ gives $k_2 = 1$, $c_1 = 2$, $c_2 = 1$, $s_1 = 1/3$; other rows were computed in Python and checked by maximizing utility numerically."
+      }
+     ],
+     "words": 87,
+     "symbols": [
+      "$c_t$",
+      "$k_1$, $k_2$",
+      "$s_1$",
+      "$f'(k)$",
+      "$\\beta$",
+      "$A$, $\\alpha$"
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,128 @@
+{
+ "slug": "two-period-capital-choice-explorer",
+ "notation": [
+  {
+   "tex": "$c_t$",
+   "meaning": "Consumption per worker in period $t$",
+   "kind": "Choice",
+   "typical": "—",
+   "keys": [
+    "c"
+   ],
+   "from": "ramsey-cass-koopmans-model"
+  },
+  {
+   "tex": "$k_1$, $k_2$",
+   "meaning": "Two-period version: capital given in period 1, capital chosen for period 2",
+   "kind": "State variable / choice",
+   "typical": "9 and 1 in the example",
+   "keys": [
+    "k"
+   ],
+   "from": "ramsey-cass-koopmans-model"
+  },
+  {
+   "tex": "$s_1$",
+   "meaning": "Two-period version: share of period-1 output saved, $k_2/f(k_1)$",
+   "kind": "Endogenous",
+   "typical": "1/3 in the example",
+   "keys": [
+    "s"
+   ],
+   "from": "ramsey-cass-koopmans-model"
+  },
+  {
+   "tex": "$f'(k)$",
+   "meaning": "Marginal product of capital (MPK)",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "f"
+   ],
+   "from": "ramsey-cass-koopmans-model"
+  },
+  {
+   "tex": "$\\beta$",
+   "meaning": "Discount factor",
+   "kind": "Parameter in (0, 1)",
+   "typical": "0.95",
+   "keys": [
+    "beta"
+   ],
+   "from": "ramsey-cass-koopmans-model"
+  },
+  {
+   "tex": "$A$, $\\alpha$",
+   "meaning": "Productivity and capital share in $f(k) = Ak^{\\alpha}$",
+   "kind": "Parameters",
+   "typical": "1, 0.5",
+   "keys": [
+    "A",
+    "alpha"
+   ],
+   "from": "ramsey-cass-koopmans-model"
+  },
+  {
+   "tex": "$w_t$, $r_t$",
+   "meaning": "Wage and rental rate of capital",
+   "kind": "Prices",
+   "typical": "$r = f'(k)$",
+   "keys": [
+    "w",
+    "r"
+   ],
+   "from": "ramsey-cass-koopmans-model"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "two-period-capital-choice-explorer"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$c_t$",
+      "$k_1$, $k_2$",
+      "$s_1$",
+      "$f'(k)$",
+      "$\\beta$",
+      "$A$, $\\alpha$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Purpose.** See the two-period problem with capital as the two-period consumer's problem with a curved frontier in place of the budget line: the optimum is where an indifference curve touches it, MRS $= f'(k_2)$, where last time it was MRS $= 1 + r$.\n- **Model.** A view of [Two-Period Capital Choice Model](note:two-period-capital-choice-model).\n- **Elements.** Panel `choice`: curves `frontier`, `ic_plan_curve`, `ic_best`; points `plan` (dragged, sets `c1p`) and `best`. Readouts `mrs_out`, `mpk_out` (at the plan), `k2_out`, `c1_out`, `c2_out`, `s1_out` (the planner's choice).\n- **Defaults.** The handwritten example: $k_1 = 9$, $f(k) = \\sqrt{k}$, $\\beta = 1$; the plan starts at $c_1 = 2.6$.\n- **Tests.** Computed in Python from the closed form and checked by numerical maximization."
+      }
+     ],
+     "words": 108,
+     "symbols": [
+      "$c_t$",
+      "$k_1$, $k_2$",
+      "$f'(k)$",
+      "$\\beta$",
+      "$w_t$, $r_t$"
+     ]
+    }
+   ]
+  }
+ ]
+}

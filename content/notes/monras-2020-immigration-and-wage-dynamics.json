@@ -1,0 +1,290 @@
+{
+ "slug": "monras-2020-immigration-and-wage-dynamics",
+ "notation": [
+  {
+   "tex": "$s_{ri,0}$",
+   "meaning": "Base-period (lagged) share of $r$ in sector $i$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "s"
+   ],
+   "from": "shift-share-instrument"
+  },
+  {
+   "tex": "$x_r$",
+   "meaning": "Actual (endogenous) exposure",
+   "kind": "Endogenous regressor",
+   "typical": "—",
+   "keys": [
+    "x"
+   ],
+   "from": "shift-share-instrument"
+  },
+  {
+   "tex": "$\\beta$",
+   "meaning": "Causal effect of exposure on the outcome",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ],
+   "from": "shift-share-instrument"
+  },
+  {
+   "tex": "$\\mathbf{x}_{it}$, $\\gamma$",
+   "meaning": "Controls and their coefficients",
+   "kind": "Data / parameters",
+   "typical": "—",
+   "keys": [
+    "bold(x)",
+    "gamma"
+   ],
+   "from": "difference-in-differences"
+  },
+  {
+   "tex": "$\\varepsilon_{it}$",
+   "meaning": "Error",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "varepsilon"
+   ],
+   "from": "difference-in-differences"
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "Change common to all units",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "alpha"
+   ],
+   "from": "research-designs-for-immigration-effects"
+  }
+ ],
+ "sections": [
+  {
+   "id": "key-takeaways",
+   "heading": "Key takeaways",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "key-takeaways-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. **A Card-like setting with Borjas-like results.** A regional supply shock, but low-skill native wages fall in the more exposed states.\n2. **Short run:** in 1994–95, a larger inflow of low-skilled Mexicans lowers low-skill native wages, leaves high-skill wages unchanged and raises the skill premium.\n3. **Medium run:** low-skill wages in high- versus low-exposure states fall 3–5% and do not recover over five years.\n4. **Pre-trends are debatable.** The lecture asks whether one can argue against pre-trends: the pre-1994 coefficients are not all near zero."
+      }
+     ],
+     "words": 87,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "research-question",
+   "heading": "Research question",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "research-question-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Card's effects, if any, dissipated quickly. What are the dynamic responses of native wages to an immigrant inflow?"
+      }
+     ],
+     "words": 18,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "data-and-setting",
+   "heading": "Data and setting",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "data-and-setting-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The 1995 peso crisis was a push factor that raised Mexican migration to the US in 1995. Mexicans across space come from the March CPS and the 1990 and 2000 Censuses; native outcomes from the March CPS ([Current Population Survey (CPS)](note:current-population-survey-cps)). Units are the 51 states (with DC)."
+      }
+     ],
+     "words": 48,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "empirical-strategy",
+   "heading": "Empirical strategy",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "empirical-strategy-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The natural regression across states $s$,"
+      },
+      {
+       "t": "math",
+       "tex": "\\Delta Y_s = \\alpha + \\beta\\,\\Delta\\frac{Mex_s}{N_s} + \\gamma \\Delta X_s + \\varepsilon_s"
+      },
+      {
+       "t": "prose",
+       "md": "is biased because both Mexican inflows and native flows respond to local conditions. Monras instruments the inflow with the 1980 Mexican share, $Mex_s^{1980}/N_s^{1980}$, since Mexicans tend to go where Mexicans already live ([Shift-Share Instrument](note:shift-share-instrument), the past-settlement or \"enclave\" version). First stage:"
+      },
+      {
+       "t": "math",
+       "tex": "\\Delta\\frac{Mex_s}{N_s} = \\alpha + \\beta\\,\\frac{Mex_s^{1980}}{N_s^{1980}} + \\gamma\\Delta X_s + \\varepsilon_s"
+      }
+     ],
+     "words": 45,
+     "symbols": [
+      "$s_{ri,0}$",
+      "$x_r$",
+      "$\\beta$",
+      "$\\mathbf{x}_{it}$, $\\gamma$",
+      "$\\varepsilon_{it}$",
+      "$\\alpha$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "results",
+   "heading": "Results",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "results-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Mexican inflow and low-skilled native wages by state 1994-1995.png",
+       "alt": "Table - Mexican inflow and low-skilled native wages by state 1994-1995"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    },
+    {
+     "id": "results-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Change in low-skilled native wages on the change in the low-skilled Mexican share, 1994–95:"
+      },
+      {
+       "t": "table",
+       "md": "| Column | Method | Coefficient (s.e.) |\n| --- | --- | --- |\n| (3) | OLS | −0.611 (0.293) |\n| (4) | OLS, controls | −0.746 (0.293) |\n| (5) | IV, controls | −1.467 (0.521) |\n| (6) | IV, detrended wages | −1.347 (0.449) |\n| (7) | IV, individual controls (preferred) | −0.744 (0.300) |"
+      },
+      {
+       "t": "prose",
+       "md": "The level regressions in columns (1)–(2) show nothing (−0.014, −0.018), which is why the changes matter."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Mexican inflow and high-skilled native wages by state 1994-1995.png",
+       "alt": "Table - Mexican inflow and high-skilled native wages by state 1994-1995"
+      }
+     ],
+     "words": 79,
+     "symbols": []
+    },
+    {
+     "id": "results-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "High-skilled natives: no effect (columns 3 onward insignificant)."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Mexican inflow and the native skill premium by state 1994-1995.png",
+       "alt": "Table - Mexican inflow and the native skill premium by state 1994-1995"
+      }
+     ],
+     "words": 8,
+     "symbols": []
+    },
+    {
+     "id": "results-4",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The high/low-skill wage gap rises: IV estimates 0.877 (0.378), 0.874 (0.332), 0.939 (0.351)."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Low-skill native wages in more vs less Mexican-exposed states 1990-2000.png",
+       "alt": "Low-skill native wages in more vs less Mexican-exposed states 1990-2000",
+       "caption": "Differential effect on low-skill wages in high- versus low-exposure states, relative to 1994: a 3–5% drop from 1995 that does not recover by 2000."
+      }
+     ],
+     "words": 45,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "caveats",
+   "heading": "Caveats",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "caveats-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- The lecture asks whether one can argue against pre-trends: the coefficients before 1994 are positive (≈ 0.02–0.03 in 1990–91, read off the chart) and noisy, not flat at zero.\n- Only 51 observations per regression.\n- The instrument assumes 1980 Mexican settlement is unrelated to 1994–95 changes in native wages other than through the inflow."
+      }
+     ],
+     "words": 60,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "in-econ-424-l7-immigration-across-skills-jobs-and-places",
+   "heading": "In Econ 424 L7 Immigration Across Skills, Jobs and Places",
+   "role": "paper-in-lesson",
+   "steps": [
+    {
+     "id": "in-econ-424-l7-immigration-across-skills-jobs-and-places-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The **regional** design again, but with an instrument and a dynamic view. It shows that a Card-like setting can produce Borjas-like effects, and it speaks to Card's \"Miami is open\" explanation: natives' migration responses unfold over time. Be able to explain the past-settlement instrument and the three short-run results."
+      }
+     ],
+     "words": 49,
+     "symbols": []
+    }
+   ],
+   "lesson": "econ-424-l7-immigration-across-skills-jobs-and-places"
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Shift-Share Instrument](note:shift-share-instrument) · [Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls) · [Difference-in-Differences](note:difference-in-differences) · [Research Designs for Immigration Effects](note:research-designs-for-immigration-effects) · [Current Population Survey (CPS)](note:current-population-survey-cps)"
+      }
+     ],
+     "words": 17,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

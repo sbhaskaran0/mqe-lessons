@@ -92,6 +92,25 @@
    ]
   },
   {
+   "tex": "$c_t$, $c_{t+1}$, $k_{t+1}$",
+   "meaning": "Consumption in periods $t$ and $t+1$, capital carried into $t+1$ (many-period version)",
+   "kind": "Choice",
+   "typical": "—",
+   "keys": [
+    "c",
+    "k"
+   ]
+  },
+  {
+   "tex": "$\\delta$",
+   "meaning": "Depreciation rate (many-period version)",
+   "kind": "Parameter",
+   "typical": "0.1",
+   "keys": [
+    "delta"
+   ]
+  },
+  {
    "tex": "$\\mathcal{L}$",
    "meaning": "Lagrangian",
    "kind": "Function",
@@ -161,7 +180,8 @@
       "$U(c_1, c_2)$",
       "$u'(c)$",
       "$\\beta$",
-      "$r$"
+      "$r$",
+      "$c_t$, $c_{t+1}$, $k_{t+1}$"
      ]
     }
    ]
@@ -203,6 +223,7 @@
       "$r$",
       "$\\lambda$",
       "$y_1$, $y_2$",
+      "$c_t$, $c_{t+1}$, $k_{t+1}$",
       "$\\mathcal{L}$"
      ]
     }
@@ -241,6 +262,7 @@
       "$\\beta$",
       "$r$",
       "$y_1$, $y_2$",
+      "$c_t$, $c_{t+1}$, $k_{t+1}$",
       "$s$"
      ]
     }
@@ -281,7 +303,42 @@
       "$\\beta$",
       "$f'(k_2)$",
       "$k_1$, $k_2$",
-      "$\\alpha$"
+      "$\\alpha$",
+      "$c_t$, $c_{t+1}$, $k_{t+1}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "many-periods-with-depreciating-capital",
+   "heading": "Many periods with depreciating capital",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "many-periods-with-depreciating-capital-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "In an infinite-horizon planner's problem ([Ramsey-Cass-Koopmans Model](note:ramsey-cass-koopmans-model)), where capital depreciates at rate $\\delta$, the same trade-off links every pair of adjacent periods:"
+      },
+      {
+       "t": "math",
+       "tex": "\\frac{u'(c_t)}{\\beta\\,u'(c_{t+1})} = f'(k_{t+1}) + 1 - \\delta"
+      },
+      {
+       "t": "prose",
+       "md": "The gross return on saving is the marginal product plus the undepreciated unit of capital; with full depreciation ($\\delta = 1$) it is the two-period capital version above. In a steady state $c_t = c_{t+1}$, so the left side is $1/\\beta$: capital must earn a gross return of exactly $1/\\beta$."
+      }
+     ],
+     "words": 63,
+     "symbols": [
+      "$c_1$, $c_2$",
+      "$u'(c)$",
+      "$\\beta$",
+      "$f'(k_2)$",
+      "$k_1$, $k_2$",
+      "$c_t$, $c_{t+1}$, $k_{t+1}$",
+      "$\\delta$"
      ]
     }
    ]
@@ -303,7 +360,8 @@
      "symbols": [
       "$c_1$, $c_2$",
       "$\\beta$",
-      "$r$"
+      "$r$",
+      "$c_t$, $c_{t+1}$, $k_{t+1}$"
      ]
     }
    ]

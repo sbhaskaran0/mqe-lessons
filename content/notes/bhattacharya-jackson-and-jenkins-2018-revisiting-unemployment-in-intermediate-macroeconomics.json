@@ -1,0 +1,243 @@
+{
+ "slug": "bhattacharya-jackson-and-jenkins-2018-revisiting-unemployment-in-intermediate-macroeconomics",
+ "notation": [
+  {
+   "tex": "$\\theta$",
+   "meaning": "Labor market tightness, $V/U$: vacancies per unemployed worker",
+   "kind": "Endogenous",
+   "typical": "≈ 1",
+   "keys": [
+    "theta"
+   ],
+   "from": "matching-function"
+  },
+  {
+   "tex": "$\\beta$",
+   "meaning": "Worker's bargaining power, share of the surplus (not a discount factor here)",
+   "kind": "Parameter in (0, 1)",
+   "typical": "0.5",
+   "keys": [
+    "beta"
+   ],
+   "from": "nash-bargaining"
+  },
+  {
+   "tex": "$w$",
+   "meaning": "Wage",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "w"
+   ],
+   "from": "nash-bargaining"
+  },
+  {
+   "tex": "$y$",
+   "meaning": "Output (revenue) of a filled job per period",
+   "kind": "Parameter",
+   "typical": "1",
+   "keys": [
+    "y"
+   ],
+   "from": "nash-bargaining"
+  },
+  {
+   "tex": "$b$",
+   "meaning": "Worker's outside benefit: leisure, home production or unemployment benefits",
+   "kind": "Parameter",
+   "typical": "0.4",
+   "keys": [
+    "b"
+   ],
+   "from": "nash-bargaining"
+  },
+  {
+   "tex": "$\\kappa$",
+   "meaning": "Cost of posting a vacancy",
+   "kind": "Parameter",
+   "typical": "0.5",
+   "keys": [
+    "kappa"
+   ],
+   "from": "nash-bargaining"
+  },
+  {
+   "tex": "$\\bar{u}$",
+   "meaning": "Steady-state unemployment rate",
+   "kind": "Endogenous",
+   "typical": "5.7% at $\\theta = 1$ in the example",
+   "keys": [
+    "bar(u)"
+   ],
+   "from": "beveridge-curve"
+  },
+  {
+   "tex": "$\\lambda$",
+   "meaning": "Separation rate",
+   "kind": "Parameter",
+   "typical": "0.03",
+   "keys": [
+    "lambda"
+   ],
+   "from": "beveridge-curve"
+  }
+ ],
+ "sections": [
+  {
+   "id": "key-takeaways",
+   "heading": "Key takeaways",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "key-takeaways-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. **The DMP model can be taught with algebra alone.** The paper reduces it to a matching function, a steady-state unemployment equation, a vacancy-creation condition and a bargained wage, solvable in closed form.\n2. **It keeps the model's dynamic structure** (flows into and out of unemployment) while staying accessible to undergraduates.\n3. **Three curves carry the analysis**: the lecture's Beveridge curve, vacancy supply curve and wage-setting curve are this paper's framework.\n4. **(Beyond the lecture)** The authors apply the model to labor market policies, advances in Internet job-search technology and labor market dynamics, and supply teaching materials, a classroom experiment and a JavaScript simulation."
+      }
+     ],
+     "words": 104,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "research-question",
+   "heading": "Research question",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "research-question-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "How can the Diamond-Mortensen-Pissarides search-and-matching model, the leading theory of equilibrium unemployment, be presented to intermediate macroeconomics students without the dynamic programming of the original?"
+      }
+     ],
+     "words": 25,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "data-and-setting",
+   "heading": "Data and setting",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "data-and-setting-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A teaching (theory) paper: no data set. The setting is a labor market with frictions, summarized by a Cobb-Douglas [Matching Function](note:matching-function), exogenous job separations, free entry of vacancies and [Nash Bargaining](note:nash-bargaining) over wages."
+      }
+     ],
+     "words": 33,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "empirical-strategy",
+   "heading": "Empirical strategy",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "empirical-strategy-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "None in the econometric sense. The model's predictions, such as the downward-sloping [Beveridge Curve](note:beveridge-curve), are compared qualitatively with stylized facts."
+      }
+     ],
+     "words": 20,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "results",
+   "heading": "Results",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "results-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The model reduces to three equations (BC, VS, WS) in unemployment, tightness and the wage, with comparative statics read from a diagram. See [Diamond-Mortensen-Pissarides Model](note:diamond-mortensen-pissarides-model) for the equations and a worked example."
+      }
+     ],
+     "words": 32,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "caveats",
+   "heading": "Caveats",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "caveats-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- The expected value of a filled job, $(y - w)/\\lambda$, ignores discounting.\n- The worker's outside value, $b + \\frac{\\beta}{1-\\beta}\\theta\\kappa$, is stated rather than derived (the lecture: \"it can be shown\").\n- With a general matching elasticity, equilibrium tightness solves an implicit equation; a closed form needs special parameter values."
+      }
+     ],
+     "words": 45,
+     "symbols": [
+      "$\\theta$",
+      "$\\beta$",
+      "$w$",
+      "$y$",
+      "$b$",
+      "$\\kappa$",
+      "$\\lambda$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "in-econ-402a-l5-a-search-and-matching-model-of-the-labor-market",
+   "heading": "In Econ 402A L5 A Search and Matching Model of the Labor Market",
+   "role": "paper-in-lesson",
+   "steps": [
+    {
+     "id": "in-econ-402a-l5-a-search-and-matching-model-of-the-labor-market-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The typed notes say their version of the model is the one outlined in this paper. Every equation of the lecture (matching probabilities, the Beveridge curve, the vacancy supply curve, the Nash wage and the three-curve equilibrium) follows its structure. What to be able to do: derive each curve and solve the system by working backwards from WS and VS to $\\theta$ and $\\bar{u}$."
+      }
+     ],
+     "words": 62,
+     "symbols": [
+      "$\\theta$",
+      "$\\bar{u}$"
+     ]
+    }
+   ],
+   "lesson": "econ-402a-l5-a-search-and-matching-model-of-the-labor-market"
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Diamond-Mortensen-Pissarides Model](note:diamond-mortensen-pissarides-model) · [Matching Function](note:matching-function) · [Beveridge Curve](note:beveridge-curve) · [Nash Bargaining](note:nash-bargaining)"
+      }
+     ],
+     "words": 9,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

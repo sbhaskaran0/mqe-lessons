@@ -42,6 +42,16 @@
    "from": "two-period-consumption-saving-model"
   },
   {
+   "tex": "$U(c_1, c_2)$",
+   "meaning": "Lifetime utility",
+   "kind": "Function",
+   "typical": "$\\ln c_1 + \\beta\\ln c_2$",
+   "keys": [
+    "U"
+   ],
+   "from": "two-period-consumption-saving-model"
+  },
+  {
    "tex": "$\\beta$",
    "meaning": "Discount factor",
    "kind": "Parameter in (0, 1]",
@@ -73,7 +83,7 @@
      "blocks": [
       {
        "t": "interactive",
-       "widget": "two-period-consumer-model"
+       "widget": "two-period-consumption-choice"
       }
      ],
      "words": 0,
@@ -82,6 +92,7 @@
       "$c_1$, $c_2$",
       "$s = y_1 - c_1$",
       "$r$",
+      "$U(c_1, c_2)$",
       "$\\beta$"
      ]
     }

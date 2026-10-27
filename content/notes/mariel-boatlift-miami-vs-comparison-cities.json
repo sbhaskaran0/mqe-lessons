@@ -1,0 +1,55 @@
+{
+ "slug": "mariel-boatlift-miami-vs-comparison-cities",
+ "notation": [
+  {
+   "tex": "$\\hat{\\theta}_{DiD}$",
+   "meaning": "Difference-in-differences estimate",
+   "kind": "Estimator",
+   "typical": "−0.2 in the 2×2 example",
+   "keys": [
+    "hat(theta)"
+   ],
+   "from": "difference-in-differences"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "mariel-boatlift-miami-vs-comparison-cities"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$\\hat{\\theta}_{DiD}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Purpose.** Read Card's tables as a difference-in-differences: the comparison cities stand in for what Miami would have looked like without the boatlift, and the 1979 gap is subtracted to remove any permanent difference.\n- **Data.** `card-1990-mariel-miami-comparison` (notebook `econ424-card-mariel-tables.ipynb`), transcribed from Card (1990) Tables 3 and 4: see [Miami Labor Market After the Mariel Boatlift 1979-1985](note:miami-labor-market-after-the-mariel-boatlift-1979-1985). Cubans are left out (no comparison series).\n- **Elements.** Panel `levels`: series `miami`, `comp`, annotation `boatlift`. Panel `gaps`: series `gap`. Params `g` (group), `o` (outcome), `t1` (year). Readouts `gap79_out`, `gapt1_out`, `did_out`.\n- **Tests.** Every expected value is computed in the notebook from the transcribed tables."
+      }
+     ],
+     "words": 105,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

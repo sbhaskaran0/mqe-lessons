@@ -102,6 +102,16 @@
    "from": "consumption-euler-equation"
   },
   {
+   "tex": "$\\delta$",
+   "meaning": "Depreciation rate (many-period version)",
+   "kind": "Parameter",
+   "typical": "0.1",
+   "keys": [
+    "delta"
+   ],
+   "from": "consumption-euler-equation"
+  },
+  {
    "tex": "$\\mathcal{L}$",
    "meaning": "Lagrangian",
    "kind": "Function",
@@ -118,16 +128,6 @@
    "typical": "1 in the example",
    "keys": [
     "A"
-   ],
-   "from": "solow-growth-model"
-  },
-  {
-   "tex": "$\\delta$",
-   "meaning": "Depreciation rate: share of capital worn out each period",
-   "kind": "Parameter",
-   "typical": "0.1 in the example (≈ 0.05 in data)",
-   "keys": [
-    "delta"
    ],
    "from": "solow-growth-model"
   },
@@ -1207,8 +1207,8 @@
       "$k_1$, $k_2$",
       "$f(k)$, $f'(k)$",
       "$\\alpha$",
-      "$A$",
       "$\\delta$",
+      "$A$",
       "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$"
      ]
     },
@@ -1295,8 +1295,8 @@
       "$\\beta$",
       "$f(k)$, $f'(k)$",
       "$\\alpha$",
-      "$A$",
       "$\\delta$",
+      "$A$",
       "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$"
      ]
     }

@@ -1,0 +1,445 @@
+{
+ "slug": "labor-leisure-choice",
+ "notation": [
+  {
+   "tex": "$U(c, l)$",
+   "meaning": "Utility from consumption and leisure",
+   "kind": "Function",
+   "typical": "$c^2 - 18(24-l)^4$ in the example",
+   "keys": [
+    "U"
+   ]
+  },
+  {
+   "tex": "$c$",
+   "meaning": "Units of the consumption good bought",
+   "kind": "Choice",
+   "typical": "66.7 at $w = 20$ in the example",
+   "keys": [
+    "c"
+   ]
+  },
+  {
+   "tex": "$l$",
+   "meaning": "Hours of leisure per day",
+   "kind": "Choice",
+   "typical": "20.67 at $w = 20$",
+   "keys": [
+    "l"
+   ]
+  },
+  {
+   "tex": "$h$",
+   "meaning": "Hours worked per day",
+   "kind": "Choice",
+   "typical": "3.33 at $w = 20$",
+   "keys": [
+    "h"
+   ]
+  },
+  {
+   "tex": "$w$",
+   "meaning": "Nominal wage per hour",
+   "kind": "Exogenous (to the worker)",
+   "typical": "20",
+   "keys": [
+    "w"
+   ]
+  },
+  {
+   "tex": "$p$",
+   "meaning": "Price of the consumption good",
+   "kind": "Exogenous",
+   "typical": "1 (normalized)",
+   "keys": [
+    "p"
+   ]
+  },
+  {
+   "tex": "$w/p$",
+   "meaning": "Real wage: goods one hour of work buys",
+   "kind": "Exogenous (to the worker)",
+   "typical": "20",
+   "keys": [
+    "~w/p"
+   ]
+  },
+  {
+   "tex": "$\\mathcal{L}$",
+   "meaning": "Lagrangian of the consumer's problem",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "cal(L)"
+   ]
+  },
+  {
+   "tex": "$\\lambda$",
+   "meaning": "Multiplier on the budget constraint: utility value of one more unit of income",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "lambda"
+   ]
+  },
+  {
+   "tex": "$\\mu$",
+   "meaning": "Multiplier on the time constraint: utility value of one more hour",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "mu"
+   ]
+  },
+  {
+   "tex": "$U_c$",
+   "meaning": "Marginal utility of consumption, $\\partial U/\\partial c$",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "U"
+   ]
+  },
+  {
+   "tex": "$U_l$",
+   "meaning": "Marginal utility of leisure, $\\partial U/\\partial l$",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "U"
+   ]
+  },
+  {
+   "tex": "$MRS$",
+   "meaning": "Marginal rate of substitution of leisure for consumption, $U_l/U_c$",
+   "kind": "Statistic",
+   "typical": "equals $w/p$ at the optimum",
+   "keys": [
+    "~MRS"
+   ]
+  },
+  {
+   "tex": "$\\tau$",
+   "meaning": "Tax per hour worked, paid by the worker",
+   "kind": "Parameter",
+   "typical": "5 in the tax example",
+   "keys": [
+    "tau"
+   ]
+  },
+  {
+   "tex": "$L^S$",
+   "meaning": "Labor supply, a function of the take-home wage",
+   "kind": "Function",
+   "typical": "$100w_n$ in the example",
+   "keys": [
+    "~L^S"
+   ],
+   "from": "tax-incidence"
+  },
+  {
+   "tex": "$L$",
+   "meaning": "Hours worked",
+   "kind": "Endogenous",
+   "typical": "1,765.6 with $\\tau = 5$",
+   "keys": [
+    "L"
+   ],
+   "from": "tax-incidence"
+  },
+  {
+   "tex": "$N$",
+   "meaning": "Number of identical consumers",
+   "kind": "Parameter",
+   "typical": "600",
+   "keys": [
+    "N"
+   ],
+   "from": "classical-labor-market-model"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Every hour of the day is either worked or kept as free time. Free time is enjoyable, but working earns a wage that buys things you also enjoy. So each extra hour of work is a trade: you give up an hour of leisure and get the goods that one hour's pay buys. If a free hour is worth more to you than what the hour's pay buys, work less; if it is worth less, work more. You stop adjusting when the two are exactly balanced. Picture a barista paid 20 an hour who keeps adding shifts until the last shift's pay is just worth the evening it costs. Raise the pay and, in the simple model, the balance tips toward more shifts: that link between pay and hours is the labor supply curve."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is where the labor supply curve comes from, so it is the household half of every labor market, tax and unemployment argument in macro.",
+       "folded": false
+      }
+     ],
+     "words": 162,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A consumer chooses consumption $c$, hours of work $h$ and leisure $l$ to maximize utility subject to a budget constraint and a time constraint, taking the wage $w$ and the price $p$ as given:"
+      },
+      {
+       "t": "math",
+       "tex": "\\max_{c,\\,h,\\,l}\\; U(c, l) \\quad \\text{s.t.} \\quad wh = pc, \\qquad l = 24 - h"
+      },
+      {
+       "t": "prose",
+       "md": "At an interior optimum the marginal rate of substitution of leisure for consumption equals the real wage:"
+      },
+      {
+       "t": "math",
+       "tex": "\\frac{\\partial U/\\partial l}{\\partial U/\\partial c} = \\frac{w}{p}"
+      }
+     ],
+     "words": 46,
+     "symbols": [
+      "$U(c, l)$",
+      "$c$",
+      "$l$",
+      "$h$",
+      "$w$",
+      "$p$",
+      "$U_c$",
+      "$U_l$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "derivation",
+   "heading": "Derivation",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "derivation-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Write one Lagrangian with a multiplier on each constraint:"
+      },
+      {
+       "t": "math",
+       "tex": "\\mathcal{L} = U(c, l) + \\lambda(wh - pc) + \\mu(24 - h - l)"
+      },
+      {
+       "t": "prose",
+       "md": "The first-order conditions for the three choices are"
+      },
+      {
+       "t": "math",
+       "tex": "U_c = \\lambda p, \\qquad \\lambda w = \\mu, \\qquad U_l = \\mu"
+      },
+      {
+       "t": "prose",
+       "md": "Substitute $\\mu = U_l$ into the middle condition, $U_l = \\lambda w$, then divide by $U_c = \\lambda p$: the multiplier cancels and"
+      },
+      {
+       "t": "math",
+       "tex": "\\frac{U_l}{U_c} = \\frac{w}{p}"
+      },
+      {
+       "t": "prose",
+       "md": "Rewritten as $U_l = \\frac{w}{p}U_c$, the left side is the **benefit of one more hour of leisure**, and the right side is the **benefit of one more hour of work**: the hour buys $w/p$ goods, each worth $U_c$. If the left side were bigger the worker would take more leisure; if smaller, work more. At the optimum the worker is indifferent."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Labor-leisure choice - MRS equals the real wage.png",
+       "alt": "Labor-leisure choice - MRS equals the real wage",
+       "caption": "Hand-drawn: the benefit of an hour of leisure equals the benefit of an hour of work, so MRS = w/p."
+      }
+     ],
+     "words": 105,
+     "symbols": [
+      "$U(c, l)$",
+      "$c$",
+      "$l$",
+      "$h$",
+      "$w$",
+      "$p$",
+      "$w/p$",
+      "$\\mathcal{L}$",
+      "$\\lambda$",
+      "$\\mu$",
+      "$U_c$",
+      "$U_l$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Take $p = 1$ and $U(c, l) = c^2 - 18(24-l)^4$. Then $U_l = 72(24-l)^3$ and $U_c = 2c$, so the condition is"
+      },
+      {
+       "t": "math",
+       "tex": "\\frac{72(24-l)^3}{2c} = w"
+      },
+      {
+       "t": "prose",
+       "md": "Substitute the constraints $24 - l = h$ and $c = wh$:"
+      },
+      {
+       "t": "math",
+       "tex": "\\frac{72h^3}{2wh} = w \\;\\Rightarrow\\; 36h^2 = w^2 \\;\\Rightarrow\\; h = \\frac{w}{6}"
+      },
+      {
+       "t": "prose",
+       "md": "Hours rise with the wage: $w = 20$ gives $h = 3.33$ hours and $c = 66.7$; $w = 30$ gives $h = 5$ and $c = 150$. With a general price level the same steps give $h = \\frac{1}{6}\\cdot\\frac{w}{p}$, so only the real wage matters. The second-order condition holds: utility along the budget, $w^2h^2 - 18h^4$, has second derivative $2w^2 - 216h^2 = -4w^2 < 0$ at $h = w/6$."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Labor-leisure choice - worked example and market labor supply.png",
+       "alt": "Labor-leisure choice - worked example and market labor supply"
+      },
+      {
+       "t": "prose",
+       "md": "**From one worker to the market.** With $N$ identical consumers, market labor supply is $N$ times individual supply. With 600 consumers, $L^S = 600 \\cdot \\frac{1}{6}\\frac{w}{p} = 100\\frac{w}{p}$ hours per day."
+      },
+      {
+       "t": "prose",
+       "md": "**A tax on hours.** If the worker pays a tax $\\tau$ on each hour, the hour now buys $(w - \\tau)/p$, so the condition becomes $MRS = w - \\tau$ (with $p = 1$) and $h = \\frac{1}{6}(w - \\tau)$: at every market wage the worker supplies fewer hours. See [Tax Incidence](note:tax-incidence)."
+      }
+     ],
+     "words": 106,
+     "symbols": [
+      "$U(c, l)$",
+      "$c$",
+      "$l$",
+      "$h$",
+      "$w$",
+      "$p$",
+      "$U_c$",
+      "$U_l$",
+      "$MRS$",
+      "$\\tau$",
+      "$L^S$",
+      "$L$",
+      "$N$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "properties",
+   "heading": "Properties",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "properties-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Property | In this model |\n| --- | --- |\n| What matters | Only the real wage $w/p$: doubling $w$ and $p$ leaves hours unchanged |\n| Slope | Upward in the example ($h = w/6$): a higher real wage makes leisure more expensive |\n| Aggregation | Identical consumers: market supply is $N$ times individual supply |\n| Time limit | Hours cannot exceed 24: $h = w/6$ is valid for $w \\le 144$ |"
+      },
+      {
+       "t": "callout",
+       "kind": "note",
+       "title": "Beyond the lecture",
+       "md": "A higher wage has two effects: leisure becomes more expensive (substitution effect: work more), and the worker is richer and wants more of everything, leisure included (income effect: work less). The example's utility makes the substitution effect win, so supply slopes up. With other preferences the curve can bend backward at high wages.",
+       "folded": false
+      }
+     ],
+     "words": 104,
+     "symbols": [
+      "$h$",
+      "$w$",
+      "$p$",
+      "$w/p$",
+      "$N$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Inverting the ratio.** It is $U_l/U_c = w/p$: leisure's marginal utility on top. With $U_c/U_l$ the condition reads $p/w$.\n- **Using the nominal wage.** Raising $w$ and $p$ together does not change hours; the real wage $w/p$ does.\n- **Confusing $h$ and $l$.** The time constraint links them: in the example, at $w = 20$ the worker works 3.33 hours and keeps 20.67 hours of leisure.\n- **Individual vs market supply.** $h$ is one worker's hours; $L^S$ adds up all workers."
+      }
+     ],
+     "words": 69,
+     "symbols": [
+      "$U(c, l)$",
+      "$l$",
+      "$h$",
+      "$w$",
+      "$p$",
+      "$w/p$",
+      "$U_c$",
+      "$U_l$",
+      "$L^S$",
+      "$L$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Macro: the labor supply half of the [Classical Labor Market Model](note:classical-labor-market-model); labor supply in real business cycle models.\n- Public finance: how taxes on wages change hours worked ([Tax Incidence](note:tax-incidence)).\n- Micro: a consumer choice problem with time as the second resource, solved with [Constrained Optimization and Lagrange Multipliers](note:constrained-optimization-and-lagrange-multipliers)."
+      }
+     ],
+     "words": 50,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Marginal Rate of Substitution](note:marginal-rate-of-substitution) · [Constrained Optimization and Lagrange Multipliers](note:constrained-optimization-and-lagrange-multipliers) · [Labor Demand](note:labor-demand) · [Classical Labor Market Model](note:classical-labor-market-model) · [Tax Incidence](note:tax-incidence)"
+      }
+     ],
+     "words": 18,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

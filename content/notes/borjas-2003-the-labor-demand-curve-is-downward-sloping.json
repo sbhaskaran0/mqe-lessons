@@ -1,0 +1,241 @@
+{
+ "slug": "borjas-2003-the-labor-demand-curve-is-downward-sloping",
+ "notation": [
+  {
+   "tex": "$y_{it}$",
+   "meaning": "Outcome for unit $i$ in period $t$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "y"
+   ],
+   "from": "fixed-effects-regression"
+  },
+  {
+   "tex": "$\\varepsilon_{it}$",
+   "meaning": "Error",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "varepsilon"
+   ],
+   "from": "fixed-effects-regression"
+  },
+  {
+   "tex": "$m$",
+   "meaning": "Immigrants per native, $M/N$",
+   "kind": "Data",
+   "typical": "0.168 (average, 2000)",
+   "keys": [
+    "m"
+   ],
+   "from": "immigrant-share-wage-elasticity"
+  },
+  {
+   "tex": "$p$",
+   "meaning": "Immigrant share of the cell's hours, $M/(M+N) = m/(1+m)$",
+   "kind": "Data",
+   "typical": "0.144 at $m = 0.168$; 0.5 for young dropouts in 2000",
+   "keys": [
+    "p"
+   ],
+   "from": "immigrant-share-wage-elasticity"
+  },
+  {
+   "tex": "$\\theta$",
+   "meaning": "Coefficient on the immigrant share",
+   "kind": "Parameter",
+   "typical": "−0.572 (log weekly earnings)",
+   "keys": [
+    "theta"
+   ],
+   "from": "immigrant-share-wage-elasticity"
+  },
+  {
+   "tex": "$x_i$, $x_j$, $x_t$",
+   "meaning": "Education, experience and year fixed effects (and their interactions)",
+   "kind": "Parameters",
+   "typical": "—",
+   "keys": [
+    "x"
+   ],
+   "from": "immigrant-share-wage-elasticity"
+  }
+ ],
+ "sections": [
+  {
+   "id": "key-takeaways",
+   "heading": "Key takeaways",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "key-takeaways-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. **National skill cells, not cities.** Immigration is measured across education × experience groups nationally, since workers cannot escape their skill group by moving.\n2. **Large relative effects.** Natives in cells that received more immigrants saw relative declines in earnings and in time worked.\n3. **The elasticity.** With $\\theta = -0.572$ (log weekly earnings) and $m = 16.8\\%$ immigrants per native, the elasticity is $-0.572/1.168^2 \\approx -0.4$: immigrants adding 10% to a cell's labor lower its relative wage by about 4%."
+      }
+     ],
+     "words": 71,
+     "symbols": [
+      "$m$",
+      "$\\theta$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "research-question",
+   "heading": "Research question",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "research-question-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Did natives in education-experience groups that experienced larger immigrant inflows see relative declines in labor-market outcomes? The premise is that workers are imperfect substitutes across education-experience bins."
+      }
+     ],
+     "words": 27,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "data-and-setting",
+   "heading": "Data and setting",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "data-and-setting-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- 1960, 1970, 1980 and 1990 Censuses from IPUMS ([US Census and American Community Survey](note:us-census-and-american-community-survey)); for 2000, the pooled 1999–2001 March CPS ([Current Population Survey (CPS)](note:current-population-survey-cps)), since the paper predates the 2000 Census release.\n- Men aged 18–64 in the civilian labor force. An immigrant is anyone born abroad who is a noncitizen or a naturalized citizen.\n- Cells: 5 decades × 4 education groups (high-school dropouts, high-school graduates, some college, college+) × 8 five-year experience bins = 160 cells. In 2000, half of young high-school dropouts were foreign-born."
+      }
+     ],
+     "words": 88,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "empirical-strategy",
+   "heading": "Empirical strategy",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "empirical-strategy-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A reduced-form regression across cells ([Fixed Effects Regression](note:fixed-effects-regression)):"
+      },
+      {
+       "t": "math",
+       "tex": "y_{ijt} = \\theta p_{ijt} + x_i + x_j + x_t + x_ix_j + x_jx_t + x_ix_t + \\varepsilon_{ijt}"
+      },
+      {
+       "t": "prose",
+       "md": "where $y_{ijt}$ is mean log annual earnings, mean log weekly earnings or the fraction of time worked, and $p_{ijt}$ is the immigrant share of the cell's hours. The interactions absorb, for example, different experience profiles by education and different trends by education. $\\theta$ is converted into an elasticity with [Immigrant Share Wage Elasticity](note:immigrant-share-wage-elasticity)."
+      }
+     ],
+     "words": 58,
+     "symbols": [
+      "$y_{it}$",
+      "$\\varepsilon_{it}$",
+      "$p$",
+      "$\\theta$",
+      "$x_i$, $x_j$, $x_t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "results",
+   "heading": "Results",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "results-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Immigrant share and native earnings by education-experience cell.png",
+       "alt": "Table - Immigrant share and native earnings by education-experience cell"
+      },
+      {
+       "t": "table",
+       "md": "| Specification | Log annual earnings | Log weekly earnings | Fraction of time worked |\n| --- | --- | --- | --- |\n| 1. Basic estimates | −0.919 (0.582) | −0.572 (0.162) | −0.529 (0.132) |\n| 2. Unweighted | −0.725 (0.463) | −0.546 (0.141) | −0.382 (0.103) |\n| 3. Women in labor force counts | −0.919 (0.661) | −0.637 (0.159) | −0.511 (0.148) |\n| 4. Log native labor force as regressor | −1.231 (0.384) | −0.552 (0.204) | −0.567 (0.116) |"
+      },
+      {
+       "t": "prose",
+       "md": "Standard errors, clustered by education-experience cell, in parentheses. Converting the basic weekly estimate: $-0.572/(1 + 0.168)^2 = -0.419$."
+      }
+     ],
+     "words": 94,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "caveats",
+   "heading": "Caveats",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "caveats-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- The estimates are **relative**: year effects absorb anything common to all cells, so they say nothing about the average native wage.\n- They rest on cells being imperfect substitutes; if workers substitute across experience groups, the effects spread across cells.\n- (Beyond the lecture) Immigrants may compete with natives in a different education-experience cell from the one their schooling suggests (\"downgrading\"), which can mismeasure exposure."
+      }
+     ],
+     "words": 66,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "in-econ-424-l7-immigration-across-skills-jobs-and-places",
+   "heading": "In Econ 424 L7 Immigration Across Skills, Jobs and Places",
+   "role": "paper-in-lesson",
+   "steps": [
+    {
+     "id": "in-econ-424-l7-immigration-across-skills-jobs-and-places-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The **national labor group** design, set against Card's regional null: Borjas finds large relative effects across skill groups nationally. Be able to write the regression, say what the fixed effects absorb, and convert $\\theta$ into the elasticity $\\theta/(1+m)^2$."
+      }
+     ],
+     "words": 36,
+     "symbols": [
+      "$m$",
+      "$\\theta$"
+     ]
+    }
+   ],
+   "lesson": "econ-424-l7-immigration-across-skills-jobs-and-places"
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Immigrant Share Wage Elasticity](note:immigrant-share-wage-elasticity) · [Research Designs for Immigration Effects](note:research-designs-for-immigration-effects) · [Fixed Effects Regression](note:fixed-effects-regression) · [Elasticity of Substitution](note:elasticity-of-substitution) · [US Census and American Community Survey](note:us-census-and-american-community-survey)"
+      }
+     ],
+     "words": 22,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

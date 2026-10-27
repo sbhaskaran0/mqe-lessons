@@ -47,6 +47,55 @@
    ]
   },
   {
+   "tex": "$L^S$, $L^D$",
+   "meaning": "Labor supply and labor demand, in hours (labor-market example)",
+   "kind": "Function",
+   "typical": "$100w$, $40{,}000/w$",
+   "keys": [
+    "~L^S",
+    "~L^D"
+   ]
+  },
+  {
+   "tex": "$w/p$",
+   "meaning": "Real wage, the price that clears the labor market",
+   "kind": "Endogenous in equilibrium",
+   "typical": "20 in the example",
+   "keys": [
+    "~w/p"
+   ]
+  },
+  {
+   "tex": "$w$",
+   "meaning": "Wage per hour (the market wage, with $p = 1$)",
+   "kind": "Endogenous",
+   "typical": "20 in equilibrium",
+   "keys": [
+    "w"
+   ],
+   "from": "classical-labor-market-model"
+  },
+  {
+   "tex": "$p$",
+   "meaning": "Price of the consumption good",
+   "kind": "Exogenous",
+   "typical": "1 (normalized)",
+   "keys": [
+    "p"
+   ],
+   "from": "classical-labor-market-model"
+  },
+  {
+   "tex": "$L$",
+   "meaning": "Hours of labor per day",
+   "kind": "Endogenous",
+   "typical": "2,000 in equilibrium",
+   "keys": [
+    "L"
+   ],
+   "from": "classical-labor-market-model"
+  },
+  {
    "tex": "$y_1$, $y_2$",
    "meaning": "Income in periods 1 and 2",
    "kind": "Exogenous",
@@ -217,6 +266,30 @@
    ]
   },
   {
+   "id": "in-a-labor-market",
+   "heading": "In a labor market",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "in-a-labor-market-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The same logic sets the real wage. Households' hours offered, $L^S$, rise with $w/p$ and firms' hours wanted, $L^D$, fall with it; the market clears where $L^S(w/p) = L^D(w/p)$. With $L^S = 100\\,w/p$ and $L^D = 40{,}000/(w/p)$ the clearing real wage is 20 and hours are 2,000. If the wage is held above that level, the market does not clear and the excess supply of hours is unemployment ([Classical Labor Market Model](note:classical-labor-market-model))."
+      }
+     ],
+     "words": 61,
+     "symbols": [
+      "$L^S$, $L^D$",
+      "$w/p$",
+      "$w$",
+      "$p$",
+      "$L$"
+     ]
+    }
+   ]
+  },
+  {
    "id": "common-mistakes",
    "heading": "Common mistakes",
    "role": "depth",
@@ -244,10 +317,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "- Macro and micro: general equilibrium, the determination of interest rates and prices."
+       "md": "- Macro and micro: general equilibrium, the determination of interest rates and prices.\n- Labor: the real wage clears the market for hours in the [Classical Labor Market Model](note:classical-labor-market-model)."
       }
      ],
-     "words": 13,
+     "words": 29,
      "symbols": []
     }
    ]
@@ -262,10 +335,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "- [Two-Period Consumption-Saving Model](note:two-period-consumption-saving-model) · [Discount Factor](note:discount-factor) · [Consumption Euler Equation](note:consumption-euler-equation)"
+       "md": "- [Two-Period Consumption-Saving Model](note:two-period-consumption-saving-model) · [Discount Factor](note:discount-factor) · [Consumption Euler Equation](note:consumption-euler-equation) · [Classical Labor Market Model](note:classical-labor-market-model) · [Tax Incidence](note:tax-incidence)"
       }
      ],
-     "words": 9,
+     "words": 15,
      "symbols": []
     }
    ]

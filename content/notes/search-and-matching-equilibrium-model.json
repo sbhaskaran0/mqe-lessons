@@ -1,0 +1,179 @@
+{
+ "slug": "search-and-matching-equilibrium-model",
+ "notation": [
+  {
+   "tex": "$\\bar{u}$",
+   "meaning": "Steady-state unemployment rate",
+   "kind": "Endogenous",
+   "typical": "5.5% in the example",
+   "keys": [
+    "bar(u)"
+   ],
+   "from": "diamond-mortensen-pissarides-model"
+  },
+  {
+   "tex": "$\\theta$",
+   "meaning": "Labor market tightness, $V/U$",
+   "kind": "Endogenous",
+   "typical": "1.08",
+   "keys": [
+    "theta"
+   ],
+   "from": "diamond-mortensen-pissarides-model"
+  },
+  {
+   "tex": "$w$",
+   "meaning": "Wage",
+   "kind": "Endogenous",
+   "typical": "0.969",
+   "keys": [
+    "w"
+   ],
+   "from": "diamond-mortensen-pissarides-model"
+  },
+  {
+   "tex": "$f$, $q$",
+   "meaning": "Job-finding and vacancy-filling rates",
+   "kind": "Endogenous",
+   "typical": "0.52, 0.48",
+   "keys": [
+    "f",
+    "q"
+   ],
+   "from": "diamond-mortensen-pissarides-model"
+  },
+  {
+   "tex": "$\\lambda$",
+   "meaning": "Separation rate; a job lasts $1/\\lambda$ periods on average",
+   "kind": "Parameter",
+   "typical": "0.03",
+   "keys": [
+    "lambda"
+   ],
+   "from": "diamond-mortensen-pissarides-model"
+  },
+  {
+   "tex": "$A$",
+   "meaning": "Matching efficiency",
+   "kind": "Parameter",
+   "typical": "0.5",
+   "keys": [
+    "A"
+   ],
+   "from": "diamond-mortensen-pissarides-model"
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "Elasticity of hires with respect to unemployment",
+   "kind": "Parameter",
+   "typical": "0.5",
+   "keys": [
+    "alpha"
+   ],
+   "from": "diamond-mortensen-pissarides-model"
+  },
+  {
+   "tex": "$y$",
+   "meaning": "Output of a filled job per period",
+   "kind": "Parameter",
+   "typical": "1",
+   "keys": [
+    "y"
+   ],
+   "from": "diamond-mortensen-pissarides-model"
+  },
+  {
+   "tex": "$\\kappa$",
+   "meaning": "Cost of posting a vacancy",
+   "kind": "Parameter",
+   "typical": "0.5",
+   "keys": [
+    "kappa"
+   ],
+   "from": "diamond-mortensen-pissarides-model"
+  },
+  {
+   "tex": "$\\beta$",
+   "meaning": "Worker's bargaining power",
+   "kind": "Parameter",
+   "typical": "0.5",
+   "keys": [
+    "beta"
+   ],
+   "from": "diamond-mortensen-pissarides-model"
+  },
+  {
+   "tex": "$b$",
+   "meaning": "Worker's outside benefit",
+   "kind": "Parameter",
+   "typical": "0.4",
+   "keys": [
+    "b"
+   ],
+   "from": "diamond-mortensen-pissarides-model"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "search-and-matching-equilibrium-explorer"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$\\bar{u}$",
+      "$\\theta$",
+      "$w$",
+      "$f$, $q$",
+      "$\\lambda$",
+      "$A$",
+      "$y$",
+      "$\\kappa$",
+      "$\\beta$",
+      "$b$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The model behind [Search and Matching Equilibrium Explorer](note:search-and-matching-equilibrium-explorer). Place the view, not this note."
+      },
+      {
+       "t": "prose",
+       "md": "- **Model.** The [Diamond-Mortensen-Pissarides Model](note:diamond-mortensen-pissarides-model) with matching elasticity $\\alpha = 1/2$. Each curve is written as tightness: vacancy supply $\\theta = \\left(A(y - w)/(\\kappa\\lambda)\\right)^2$ and wage setting $\\theta = (w - \\beta y - (1-\\beta)b)/(\\beta\\kappa)$ as functions of the wage, and the [Beveridge Curve](note:beveridge-curve) $\\theta = \\left(\\lambda(1-u)/(Au)\\right)^2$ as a function of the unemployment rate. Equating VS and WS gives a quadratic in $\\sqrt{\\theta}$, solved in closed form.\n- **Baseline.** `vs_base`, `ws_base`, `bc_base` and `theta0`, `w0`, `u0` hold the practice numbers, so a view can show a curve before and after a shift.\n- **Tests.** The practice numbers and six one-parameter changes, solved in Python by the quadratic and checked with a numerical root-finder; curve values checked at fixed $w$ and $u$."
+      }
+     ],
+     "words": 116,
+     "symbols": [
+      "$\\theta$",
+      "$w$",
+      "$\\lambda$",
+      "$A$",
+      "$\\alpha$",
+      "$y$",
+      "$\\kappa$",
+      "$\\beta$",
+      "$b$"
+     ]
+    }
+   ]
+  }
+ ]
+}

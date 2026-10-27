@@ -1,0 +1,119 @@
+{
+ "slug": "immigrant-share-elasticity-model",
+ "notation": [
+  {
+   "tex": "$w_{ijt}$",
+   "meaning": "Native wage in the cell",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "w"
+   ],
+   "from": "immigrant-share-wage-elasticity"
+  },
+  {
+   "tex": "$m$",
+   "meaning": "Immigrants per native, $M/N$",
+   "kind": "Data",
+   "typical": "0.168 (average, 2000)",
+   "keys": [
+    "m"
+   ],
+   "from": "immigrant-share-wage-elasticity"
+  },
+  {
+   "tex": "$p$",
+   "meaning": "Immigrant share of the cell's hours, $M/(M+N) = m/(1+m)$",
+   "kind": "Data",
+   "typical": "0.144 at $m = 0.168$; 0.5 for young dropouts in 2000",
+   "keys": [
+    "p"
+   ],
+   "from": "immigrant-share-wage-elasticity"
+  },
+  {
+   "tex": "$\\theta$",
+   "meaning": "Coefficient on the immigrant share",
+   "kind": "Parameter",
+   "typical": "−0.572 (log weekly earnings)",
+   "keys": [
+    "theta"
+   ],
+   "from": "immigrant-share-wage-elasticity"
+  },
+  {
+   "tex": "$e$",
+   "meaning": "Elasticity of the native wage to $m$, $\\partial \\log w/\\partial m$",
+   "kind": "Statistic",
+   "typical": "≈ −0.42 at $m = 0.168$",
+   "keys": [
+    "e"
+   ],
+   "from": "immigrant-share-wage-elasticity"
+  },
+  {
+   "tex": "$\\Delta \\log w$",
+   "meaning": "Change in the log native wage",
+   "kind": "Statistic",
+   "typical": "≈ −0.042 for $\\Delta m = 0.10$",
+   "keys": [
+    "~\\Delta\\logw"
+   ],
+   "from": "immigrant-share-wage-elasticity"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "immigrant-share-elasticity-explorer"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$w_{ijt}$",
+      "$m$",
+      "$p$",
+      "$\\theta$",
+      "$e$",
+      "$\\Delta \\log w$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The model behind [Immigrant Share Elasticity Explorer](note:immigrant-share-elasticity-explorer). Place that view, not this note."
+      },
+      {
+       "t": "prose",
+       "md": "- **Model.** [Immigrant Share Wage Elasticity](note:immigrant-share-wage-elasticity): $\\log w = \\theta p + \\dots$ with $p = m/(1+m)$, so $\\partial \\log w/\\partial m = \\theta/(1+m)^2$.\n- **Tests.** Computed in Python: $-0.572/1.168^2 = -0.4193$; $m = 1$ gives $-0.143$; $m = 0.5$ gives $-0.2542$."
+      }
+     ],
+     "words": 28,
+     "symbols": [
+      "$w_{ijt}$",
+      "$m$",
+      "$p$",
+      "$\\theta$"
+     ]
+    }
+   ]
+  }
+ ]
+}

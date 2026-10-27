@@ -1,0 +1,114 @@
+{
+ "slug": "immigrant-share-elasticity-explorer",
+ "notation": [
+  {
+   "tex": "$w_{ijt}$",
+   "meaning": "Native wage in the cell",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "w"
+   ],
+   "from": "immigrant-share-wage-elasticity"
+  },
+  {
+   "tex": "$m$",
+   "meaning": "Immigrants per native, $M/N$",
+   "kind": "Data",
+   "typical": "0.168 (average, 2000)",
+   "keys": [
+    "m"
+   ],
+   "from": "immigrant-share-wage-elasticity"
+  },
+  {
+   "tex": "$p$",
+   "meaning": "Immigrant share of the cell's hours, $M/(M+N) = m/(1+m)$",
+   "kind": "Data",
+   "typical": "0.144 at $m = 0.168$; 0.5 for young dropouts in 2000",
+   "keys": [
+    "p"
+   ],
+   "from": "immigrant-share-wage-elasticity"
+  },
+  {
+   "tex": "$\\theta$",
+   "meaning": "Coefficient on the immigrant share",
+   "kind": "Parameter",
+   "typical": "−0.572 (log weekly earnings)",
+   "keys": [
+    "theta"
+   ],
+   "from": "immigrant-share-wage-elasticity"
+  },
+  {
+   "tex": "$e$",
+   "meaning": "Elasticity of the native wage to $m$, $\\partial \\log w/\\partial m$",
+   "kind": "Statistic",
+   "typical": "≈ −0.42 at $m = 0.168$",
+   "keys": [
+    "e"
+   ],
+   "from": "immigrant-share-wage-elasticity"
+  },
+  {
+   "tex": "$\\Delta \\log w$",
+   "meaning": "Change in the log native wage",
+   "kind": "Statistic",
+   "typical": "≈ −0.042 for $\\Delta m = 0.10$",
+   "keys": [
+    "~\\Delta\\logw"
+   ],
+   "from": "immigrant-share-wage-elasticity"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "immigrant-share-elasticity-explorer"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$w_{ijt}$",
+      "$m$",
+      "$p$",
+      "$\\theta$",
+      "$e$",
+      "$\\Delta \\log w$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Purpose.** See why the regression coefficient $\\theta$ is not the elasticity: the elasticity is $\\theta$ scaled by $\\partial p/\\partial m = 1/(1+m)^2$, which falls as immigrants already make up more of the cell.\n- **Model.** A view of [Immigrant Share Elasticity Model](note:immigrant-share-elasticity-model).\n- **Elements.** Panel `elasticity`: curve `elast`; point `probe` (draggable, bound to `m0`); line `thetaline`. Readouts `e0_out`, `p0_out`, `dw10_out`.\n- **Tests.** Python: $-0.572/1.168^2 = -0.4193$, $-0.572/4 = -0.143$."
+      }
+     ],
+     "words": 60,
+     "symbols": [
+      "$m$",
+      "$p$",
+      "$\\theta$"
+     ]
+    }
+   ]
+  }
+ ]
+}

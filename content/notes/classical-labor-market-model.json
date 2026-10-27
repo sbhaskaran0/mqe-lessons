@@ -1,0 +1,438 @@
+{
+ "slug": "classical-labor-market-model",
+ "notation": [
+  {
+   "tex": "$w$",
+   "meaning": "Wage per hour (the market wage, with $p = 1$)",
+   "kind": "Endogenous",
+   "typical": "20 in equilibrium",
+   "keys": [
+    "w"
+   ]
+  },
+  {
+   "tex": "$p$",
+   "meaning": "Price of the consumption good",
+   "kind": "Exogenous",
+   "typical": "1 (normalized)",
+   "keys": [
+    "p"
+   ]
+  },
+  {
+   "tex": "$w/p$",
+   "meaning": "Real wage",
+   "kind": "Endogenous",
+   "typical": "20",
+   "keys": [
+    "~w/p"
+   ]
+  },
+  {
+   "tex": "$L$",
+   "meaning": "Hours of labor per day",
+   "kind": "Endogenous",
+   "typical": "2,000 in equilibrium",
+   "keys": [
+    "L"
+   ]
+  },
+  {
+   "tex": "$L^S$",
+   "meaning": "Market labor supply: hours households offer",
+   "kind": "Function",
+   "typical": "$100\\,w/p$",
+   "keys": [
+    "~L^S"
+   ]
+  },
+  {
+   "tex": "$L^D$",
+   "meaning": "Labor demand: hours firms want",
+   "kind": "Function",
+   "typical": "$40{,}000/(w/p)$",
+   "keys": [
+    "~L^D"
+   ]
+  },
+  {
+   "tex": "$L^*$",
+   "meaning": "Equilibrium hours",
+   "kind": "Endogenous",
+   "typical": "2,000",
+   "keys": [
+    "L*"
+   ]
+  },
+  {
+   "tex": "$w^*$",
+   "meaning": "Equilibrium wage",
+   "kind": "Endogenous",
+   "typical": "20",
+   "keys": [
+    "w*"
+   ]
+  },
+  {
+   "tex": "$h$",
+   "meaning": "Hours each consumer works",
+   "kind": "Choice",
+   "typical": "$w/6$; 3.33 at $w = 20$",
+   "keys": [
+    "h"
+   ]
+  },
+  {
+   "tex": "$N$",
+   "meaning": "Number of identical consumers",
+   "kind": "Parameter",
+   "typical": "600",
+   "keys": [
+    "N"
+   ]
+  },
+  {
+   "tex": "$a$",
+   "meaning": "Scale of the firm's production function $F(L) = a\\ln L$",
+   "kind": "Parameter",
+   "typical": "40,000",
+   "keys": [
+    "a"
+   ]
+  },
+  {
+   "tex": "$\\bar{w}$",
+   "meaning": "Wage floor (minimum wage or union wage)",
+   "kind": "Policy parameter",
+   "typical": "25",
+   "keys": [
+    "bar(w)"
+   ]
+  },
+  {
+   "tex": "$\\tau_w$",
+   "meaning": "Tax per hour paid by the worker",
+   "kind": "Policy parameter",
+   "typical": "0 or 5",
+   "keys": [
+    "tau"
+   ]
+  },
+  {
+   "tex": "$\\tau_f$",
+   "meaning": "Tax per hour paid by the firm",
+   "kind": "Policy parameter",
+   "typical": "0 or 5",
+   "keys": [
+    "tau"
+   ]
+  },
+  {
+   "tex": "$\\tau$",
+   "meaning": "Total tax per hour, $\\tau_w + \\tau_f$",
+   "kind": "Policy parameter",
+   "typical": "5",
+   "keys": [
+    "tau"
+   ]
+  },
+  {
+   "tex": "$w_u$, $w_n$",
+   "meaning": "Wages in the union and non-union sectors",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "w"
+   ]
+  },
+  {
+   "tex": "$F(\\bar{K}, L)$",
+   "meaning": "Production function; $F(L)$ when labor is the only input",
+   "kind": "Function",
+   "typical": "$40{,}000\\ln L$ in the example",
+   "keys": [
+    "F"
+   ],
+   "from": "labor-demand"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Think of the labor market as a market for hours. Households sell hours: the better an hour pays in goods, the more hours they offer. Firms buy hours: the more an hour costs, the fewer they want. In the classical view the wage is free to move, so it settles where the hours offered exactly match the hours wanted. At that wage everyone who wants to work at the going pay finds work, so there is no unemployment. Unemployment appears only when something stops the wage from reaching that point: a legal minimum above it, a union holding the wage up, or policy that changes what people need to be paid to work. Then more hours are offered than firms will buy, and the surplus is unemployment."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the benchmark every theory of unemployment is measured against: if wages clear the market, any lasting unemployment must come from something that holds the wage away from equilibrium.",
+       "folded": false
+      }
+     ],
+     "words": 160,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Market labor supply $L^S$ adds up the hours households choose ([Labor-Leisure Choice](note:labor-leisure-choice)); labor demand $L^D$ is firms' profit-maximizing hours ([Labor Demand](note:labor-demand)). Both depend on the real wage $w/p$. The equilibrium real wage clears the market:"
+      },
+      {
+       "t": "math",
+       "tex": "L^S\\!\\left(\\frac{w}{p}\\right) = L^D\\!\\left(\\frac{w}{p}\\right)"
+      },
+      {
+       "t": "prose",
+       "md": "and equilibrium employment $L^*$ is the common value. Unemployment, measured in hours, is $L^S - L^D$ at a real wage held above the equilibrium."
+      }
+     ],
+     "words": 52,
+     "symbols": [
+      "$w$",
+      "$p$",
+      "$w/p$",
+      "$L$",
+      "$L^S$",
+      "$L^D$",
+      "$L^*$",
+      "$w_u$, $w_n$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With $p = 1$, 600 identical consumers each supplying $h = w/6$ hours, and one firm with $F(L) = 40{,}000\\ln L$:"
+      },
+      {
+       "t": "math",
+       "tex": "L^S = 600\\cdot\\frac{w}{6} = 100w, \\qquad L^D = \\frac{40{,}000}{w}"
+      },
+      {
+       "t": "prose",
+       "md": "Setting them equal, $100w = 40{,}000/w$, so $w^2 = 400$:"
+      },
+      {
+       "t": "math",
+       "tex": "w^* = 20, \\qquad L^* = 2{,}000"
+      },
+      {
+       "t": "prose",
+       "md": "Each consumer works $20/6 = 3.33$ hours a day and consumes $20 \\times 3.33 = 66.7$ goods."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Classical labor market - worked example equilibrium.png",
+       "alt": "Classical labor market - worked example equilibrium"
+      }
+     ],
+     "words": 24,
+     "symbols": [
+      "$w$",
+      "$p$",
+      "$L$",
+      "$L^S$",
+      "$L^D$",
+      "$L^*$",
+      "$w^*$",
+      "$h$",
+      "$w_u$, $w_n$",
+      "$F(\\bar{K}, L)$"
+     ]
+    },
+    {
+     "id": "worked-example-2",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Classical labor market - supply and demand diagram.png",
+       "alt": "Classical labor market - supply and demand diagram",
+       "caption": "Typed notes: the standard diagram, drawn with straight lines; the example's demand curve is a hyperbola, but the idea is the same."
+      }
+     ],
+     "words": 22,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "unemployment-from-a-wage-floor",
+   "heading": "Unemployment from a wage floor",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "unemployment-from-a-wage-floor-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "If the wage cannot fall below $\\bar{w} > w^*$, workers offer more hours than firms want. With $\\bar{w} = 25$:"
+      },
+      {
+       "t": "math",
+       "tex": "L^S = 100 \\times 25 = 2{,}500, \\qquad L^D = \\frac{40{,}000}{25} = 1{,}600"
+      },
+      {
+       "t": "prose",
+       "md": "so 900 hours a day are offered but not bought: that gap is unemployment. Employment is set by the short side of the market, demand, so it falls from 2,000 to 1,600 hours. A floor below 20 does not bind and changes nothing."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Classical labor market - wage floor at 25 and unemployment.png",
+       "alt": "Classical labor market - wage floor at 25 and unemployment",
+       "caption": "Hand-drawn: at a wage of 25 the gap between supply and demand is unemployment."
+      }
+     ],
+     "words": 73,
+     "symbols": [
+      "$L$",
+      "$L^S$",
+      "$L^D$",
+      "$w^*$",
+      "$\\bar{w}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "unions-in-a-two-sector-economy",
+   "heading": "Unions in a two-sector economy",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "unions-in-a-two-sector-economy-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Suppose two industries start with the same wage $w_1$ and one forms a union that restricts labor supply and raises its wage to $w_u$. In the union sector employment falls along the demand curve. The workers who no longer get union jobs move to the non-union sector, shifting its supply curve out, so the non-union wage falls to $w_n < w_1$. Unionized workers gain; non-union workers, including those pushed out, lose."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Unions - union and non-union sectors.png",
+       "alt": "Unions - union and non-union sectors"
+      }
+     ],
+     "words": 66,
+     "symbols": [
+      "$w$",
+      "$w_u$, $w_n$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "properties",
+   "heading": "Properties",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "properties-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Change | Effect on $w^*$ | Effect on $L^*$ |\n| --- | --- | --- |\n| More consumers (supply out) | Falls | Rises |\n| Higher productivity (demand out) | Rises | Rises |\n| Binding wage floor $\\bar{w}$ | Held at $\\bar{w}$ | Falls to $L^D(\\bar{w})$; unemployment $L^S - L^D$ |\n| Tax per hour $\\tau$ (either side) | Take-home wage falls, firm's cost rises | Falls (see [Tax Incidence](note:tax-incidence)) |"
+      }
+     ],
+     "words": 43,
+     "symbols": [
+      "$L$",
+      "$L^S$",
+      "$L^D$",
+      "$L^*$",
+      "$w^*$",
+      "$\\bar{w}$",
+      "$\\tau_w$",
+      "$\\tau_f$",
+      "$\\tau$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Calling lower hours \"unemployment\".** If demand falls and the wage adjusts, hours fall but the market still clears: everyone who wants to work at the new wage does.\n- **Reading the floor's employment off supply.** At a binding floor, firms hire only $L^D(\\bar{w})$; workers cannot sell hours nobody buys.\n- **Nominal vs real.** Both curves depend on $w/p$; the equilibrium pins down the real wage."
+      }
+     ],
+     "words": 64,
+     "symbols": [
+      "$w$",
+      "$p$",
+      "$w/p$",
+      "$L$",
+      "$L^D$",
+      "$\\bar{w}$",
+      "$w_u$, $w_n$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Macro: the classical benchmark for the labor market, contrasted with Keynesian sticky-wage models; the labor block of real business cycle models.\n- Labor and public finance: minimum wages, unions and payroll taxes."
+      }
+     ],
+     "words": 33,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Labor-Leisure Choice](note:labor-leisure-choice) · [Labor Demand](note:labor-demand) · [Market Clearing](note:market-clearing) · [Tax Incidence](note:tax-incidence) · [Relative Supply and Demand](note:relative-supply-and-demand)\n- Contrast: [Diamond-Mortensen-Pissarides Model](note:diamond-mortensen-pissarides-model) — unemployment from search frictions, with bargained rather than market-clearing wages"
+      }
+     ],
+     "words": 27,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

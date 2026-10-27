@@ -86,6 +86,36 @@
    "from": "solow-growth-model"
   },
   {
+   "tex": "$sf(k)$",
+   "meaning": "Actual investment per worker: the share of output saved",
+   "kind": "Function (concave curve)",
+   "typical": "—",
+   "keys": [
+    "~sf(k)"
+   ],
+   "from": "solow-diagram"
+  },
+  {
+   "tex": "$\\delta k$",
+   "meaning": "Depreciation per worker: capital worn out each period",
+   "kind": "Function (straight line)",
+   "typical": "—",
+   "keys": [
+    "~\\deltak"
+   ],
+   "from": "solow-diagram"
+  },
+  {
+   "tex": "$t^{*}$",
+   "meaning": "Date a shock hits",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "t*"
+   ],
+   "from": "solow-diagram"
+  },
+  {
    "tex": "$k^*, y^*, c^*$",
    "meaning": "Golden-rule steady-state capital, output, consumption",
    "kind": "Endogenous",
@@ -109,7 +139,7 @@
      "blocks": [
       {
        "t": "interactive",
-       "widget": "solow-model-per-worker"
+       "widget": "solow-convergence-and-shocks"
       }
      ],
      "words": 0,
@@ -120,7 +150,50 @@
       "$\\alpha$",
       "$\\delta$",
       "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$",
+      "$t^{*}$"
+     ]
+    },
+    {
+     "id": "widget-2",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "solow-golden-rule-explorer"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$A$",
+      "$y = Y/L$, $k = K/L$, $c = C/L$",
+      "$s$",
+      "$\\alpha$",
+      "$\\delta$",
+      "$f(k) = Ak^{\\alpha}$",
+      "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$",
+      "$sf(k)$",
+      "$\\delta k$",
       "$k^*, y^*, c^*$"
+     ]
+    },
+    {
+     "id": "widget-3",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "solow-steady-state-explorer"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$A$",
+      "$y = Y/L$, $k = K/L$, $c = C/L$",
+      "$s$",
+      "$\\alpha$",
+      "$\\delta$",
+      "$f(k) = Ak^{\\alpha}$",
+      "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$",
+      "$sf(k)$",
+      "$\\delta k$"
      ]
     }
    ]

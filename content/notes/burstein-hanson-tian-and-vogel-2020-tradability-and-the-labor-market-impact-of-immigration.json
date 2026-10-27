@@ -1,0 +1,280 @@
+{
+ "slug": "burstein-hanson-tian-and-vogel-2020-tradability-and-the-labor-market-impact-of-immigration",
+ "notation": [
+  {
+   "tex": "$r$, $o$",
+   "meaning": "Region (commuting zone) and occupation",
+   "kind": "Index",
+   "typical": "722 CZs × 50 occupations",
+   "keys": [
+    "r",
+    "o"
+   ],
+   "from": "tradable-and-non-tradable-occupations"
+  },
+  {
+   "tex": "$n_{ro}$",
+   "meaning": "Log change in native employment (hours) in region $r$, occupation $o$",
+   "kind": "Data",
+   "typical": "1980–2012",
+   "keys": [
+    "n"
+   ],
+   "from": "tradable-and-non-tradable-occupations"
+  },
+  {
+   "tex": "$x_{ro}$",
+   "meaning": "Immigrant shock: log change in the region's immigrants times the occupation's immigrant cost share in the base year",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "x"
+   ],
+   "from": "tradable-and-non-tradable-occupations"
+  },
+  {
+   "tex": "$\\mathbb{I}_o(N)$",
+   "meaning": "1 if occupation $o$ is non-tradable",
+   "kind": "Indicator",
+   "typical": "—",
+   "keys": [
+    "bb(I)"
+   ],
+   "from": "tradable-and-non-tradable-occupations"
+  },
+  {
+   "tex": "$\\alpha_{rg}$",
+   "meaning": "Region × occupation-group effect",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "alpha"
+   ],
+   "from": "tradable-and-non-tradable-occupations"
+  },
+  {
+   "tex": "$\\beta_r$",
+   "meaning": "Response of native employment in tradable occupations",
+   "kind": "Parameter",
+   "typical": "0.009 (low-education, 2SLS)",
+   "keys": [
+    "beta"
+   ],
+   "from": "tradable-and-non-tradable-occupations"
+  },
+  {
+   "tex": "$\\nu_{ro}$",
+   "meaning": "Error",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "nu"
+   ],
+   "from": "tradable-and-non-tradable-occupations"
+  }
+ ],
+ "sections": [
+  {
+   "id": "key-takeaways",
+   "heading": "Key takeaways",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "key-takeaways-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. **Tradability shapes crowding out.** An immigrant inflow crowds natives out of immigrant-intensive jobs within **non-tradable** occupations, but neither out nor in within **tradable** occupations.\n2. **It reconciles earlier findings:** strong crowding out in case studies of particular non-tradable jobs, and crowding in within manufacturing at the national level.\n3. **Wages:** native wages fall in more relative to less immigrant-intensive non-tradable jobs, and rise in more relative to less immigrant-intensive tradable jobs.\n4. **Most natives gain.** In the quantified model, cutting low-skill Latin American immigration by half lowers the average low-skill native real wage in every US commuting zone, because natives and immigrants are imperfect substitutes."
+      }
+     ],
+     "words": 106,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "research-question",
+   "heading": "Research question",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "research-question-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "What is the impact of immigration on native job choices and wages, and how does it depend on the tradability of the job?"
+      }
+     ],
+     "words": 23,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "data-and-setting",
+   "heading": "Data and setting",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "data-and-setting-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The 1980 US Census and the 2012 three-year ACS ([US Census and American Community Survey](note:us-census-and-american-community-survey)), across 722 [commuting zones](note:commuting-zone) × 50 occupations; tradability measured in a separate labor paper. Like Friedberg the focus is the occupation; like Card and Monras it uses regional variation; and it brings trade in explicitly."
+      }
+     ],
+     "words": 49,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "empirical-strategy",
+   "heading": "Empirical strategy",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "empirical-strategy-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The allocation regression ([Tradable and Non-Tradable Occupations](note:tradable-and-non-tradable-occupations)):"
+      },
+      {
+       "t": "math",
+       "tex": "n_{ro} = \\alpha_{rg} + \\beta_r x_{ro} + \\beta_{Nr}\\,\\mathbb{I}_o(N)\\,x_{ro} + \\nu_{ro}"
+      },
+      {
+       "t": "prose",
+       "md": "$n_{ro}$ is the log change in native employment in region $r$ and occupation $o$; $x_{ro}$ the log change in the region's immigrants times the occupation's immigrant cost share in the base year; $\\mathbb{I}_o(N)$ is 1 for non-tradable occupations; $\\alpha_{rg}$ is a region × occupation-group effect. The regional immigrant inflow is an equilibrium outcome, so it is instrumented with a predicted inflow ([Shift-Share Instrument](note:shift-share-instrument))."
+      }
+     ],
+     "words": 63,
+     "symbols": [
+      "$r$, $o$",
+      "$n_{ro}$",
+      "$x_{ro}$",
+      "$\\mathbb{I}_o(N)$",
+      "$\\alpha_{rg}$",
+      "$\\beta_r$",
+      "$\\nu_{ro}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "results",
+   "heading": "Results",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "results-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Immigration and native employment by occupation tradability 1980-2012.png",
+       "alt": "Table - Immigration and native employment by occupation tradability 1980-2012"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    },
+    {
+     "id": "results-2",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Low-education natives | OLS | 2SLS | Reduced form |\n| --- | --- | --- | --- |\n| Panel A: $x_{ro}$ | −0.088 (0.065) | −0.148 (0.069) | −0.099 (0.041) |\n| Panel B: $x_{ro}$ (tradable) | 0.089 (0.049) | 0.009 (0.088) | 0.005 (0.061) |\n| Panel B: $\\mathbb{I}_o(N)\\,x_{ro}$ | −0.303 (0.062) | −0.303 (0.101) | −0.238 (0.091) |"
+      },
+      {
+       "t": "prose",
+       "md": "First-stage F: 129.4 (panel A), 105.1 (panel B). High-education natives look similar (2SLS interaction −0.373). In non-tradable occupations the low-education 2SLS response is $0.009 - 0.303 = -0.294$."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Native low-education real wage change from halving Latin American immigration by commuting zone.png",
+       "alt": "Native low-education real wage change from halving Latin American immigration by commuting zone",
+       "caption": "A 50% cut in Latin American immigrants lowers the real wage of low-education natives in every commuting zone, most in the Southwest and Florida."
+      }
+     ],
+     "words": 103,
+     "symbols": [
+      "$x_{ro}$",
+      "$\\mathbb{I}_o(N)$"
+     ]
+    },
+    {
+     "id": "results-3",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Occupation real wage change from halving Latin American immigration in Los Angeles.png",
+       "alt": "Occupation real wage change from halving Latin American immigration in Los Angeles",
+       "caption": "Los Angeles: the cut lowers the real wage of all but one tradable occupation, and raises it only in the most immigrant-exposed non-tradable occupations."
+      }
+     ],
+     "words": 24,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "caveats",
+   "heading": "Caveats",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "caveats-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- The allocation results are relative (within region, across occupations); the aggregate wage numbers come from the structural model.\n- The lecture's slide labels $\\mathbb{I}_o(N)$ \"if $o$ is tradable\"; the table note defines it as a dummy for **non-tradable** occupations, which matches $N$."
+      }
+     ],
+     "words": 40,
+     "symbols": [
+      "$r$, $o$",
+      "$\\mathbb{I}_o(N)$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "in-econ-424-l7-immigration-across-skills-jobs-and-places",
+   "heading": "In Econ 424 L7 Immigration Across Skills, Jobs and Places",
+   "role": "paper-in-lesson",
+   "steps": [
+    {
+     "id": "in-econ-424-l7-immigration-across-skills-jobs-and-places-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The **regional and job-specific** design, and the lecture's resolution: whether natives are crowded out depends on whether the job's output can be traded. It also answers Card's \"Miami is open\" point through goods trade. Be able to read panel B and explain the tradable/non-tradable difference."
+      }
+     ],
+     "words": 46,
+     "symbols": []
+    }
+   ],
+   "lesson": "econ-424-l7-immigration-across-skills-jobs-and-places"
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Tradable and Non-Tradable Occupations](note:tradable-and-non-tradable-occupations) · [Research Designs for Immigration Effects](note:research-designs-for-immigration-effects) · [Shift-Share Instrument](note:shift-share-instrument) · [Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls) · [Commuting Zone](note:commuting-zone) · [US Census and American Community Survey](note:us-census-and-american-community-survey)"
+      }
+     ],
+     "words": 24,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

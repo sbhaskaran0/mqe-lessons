@@ -154,10 +154,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "- [Composition Adjustment](note:composition-adjustment)"
+       "md": "- [Composition Adjustment](note:composition-adjustment)\n- [US Census and American Community Survey](note:us-census-and-american-community-survey)\n- Paper: [Card 1990 - The Impact of the Mariel Boatlift](note:card-1990-the-impact-of-the-mariel-boatlift)\n- Paper: [Monras 2020 - Immigration and Wage Dynamics](note:monras-2020-immigration-and-wage-dynamics)\n- Paper: [Borjas 2003 - The Labor Demand Curve Is Downward Sloping](note:borjas-2003-the-labor-demand-curve-is-downward-sloping)"
       }
      ],
-     "words": 3,
+     "words": 42,
      "symbols": []
     }
    ]

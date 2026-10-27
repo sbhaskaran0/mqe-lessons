@@ -32,6 +32,18 @@
     "bold(d)"
    ],
    "from": "taylor-series-approximation"
+  },
+  {
+   "tex": "$y$, $X$, $Y$",
+   "meaning": "Variables",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "y",
+    "X",
+    "Y"
+   ],
+   "from": "logarithms-and-growth-rates"
   }
  ],
  "sections": [
@@ -45,12 +57,13 @@
      "blocks": [
       {
        "t": "interactive",
-       "widget": "log-change-taylor-expansion"
+       "widget": "taylor-approximation-of-log-change"
       }
      ],
      "words": 0,
      "symbols": [
-      "$x$, $\\mathbf{d}$"
+      "$x$, $\\mathbf{d}$",
+      "$y$, $X$, $Y$"
      ]
     }
    ]

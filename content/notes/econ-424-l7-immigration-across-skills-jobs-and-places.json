@@ -1,0 +1,1427 @@
+{
+ "slug": "econ-424-l7-immigration-across-skills-jobs-and-places",
+ "notation": [
+  {
+   "tex": "$\\beta$",
+   "meaning": "Effect of the shock on the outcome, relative to less-exposed units",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ],
+   "from": "research-designs-for-immigration-effects"
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "Change common to all units",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "alpha"
+   ],
+   "from": "research-designs-for-immigration-effects"
+  },
+  {
+   "tex": "$\\mathbf{x}_u$, $\\gamma$",
+   "meaning": "Controls and their coefficients",
+   "kind": "Data / parameters",
+   "typical": "—",
+   "keys": [
+    "bold(x)",
+    "gamma"
+   ],
+   "from": "research-designs-for-immigration-effects"
+  },
+  {
+   "tex": "$\\varepsilon_u$",
+   "meaning": "Error",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "varepsilon"
+   ],
+   "from": "research-designs-for-immigration-effects"
+  },
+  {
+   "tex": "$i$, $j$, $t$",
+   "meaning": "Education group, experience group, census year",
+   "kind": "Index",
+   "typical": "4 × 8 × 5 = 160 cells",
+   "keys": [
+    "i",
+    "j",
+    "t"
+   ],
+   "from": "immigrant-share-wage-elasticity"
+  },
+  {
+   "tex": "$y_{ijt}$",
+   "meaning": "Native outcome in the cell: mean log annual or weekly earnings, or fraction of time worked",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "y"
+   ],
+   "from": "immigrant-share-wage-elasticity"
+  },
+  {
+   "tex": "$w_{ijt}$",
+   "meaning": "Native wage in the cell",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "w"
+   ],
+   "from": "immigrant-share-wage-elasticity"
+  },
+  {
+   "tex": "$M_{ijt}$, $N_{ijt}$",
+   "meaning": "Immigrant and native labor (hours) in the cell",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "M",
+    "N"
+   ],
+   "from": "immigrant-share-wage-elasticity"
+  },
+  {
+   "tex": "$m$",
+   "meaning": "Immigrants per native, $M/N$",
+   "kind": "Data",
+   "typical": "0.168 (average, 2000)",
+   "keys": [
+    "m"
+   ],
+   "from": "immigrant-share-wage-elasticity"
+  },
+  {
+   "tex": "$p$",
+   "meaning": "Immigrant share of the cell's hours, $M/(M+N) = m/(1+m)$",
+   "kind": "Data",
+   "typical": "0.144 at $m = 0.168$; 0.5 for young dropouts in 2000",
+   "keys": [
+    "p"
+   ],
+   "from": "immigrant-share-wage-elasticity"
+  },
+  {
+   "tex": "$\\theta$",
+   "meaning": "Coefficient on the immigrant share",
+   "kind": "Parameter",
+   "typical": "−0.572 (log weekly earnings)",
+   "keys": [
+    "theta"
+   ],
+   "from": "immigrant-share-wage-elasticity"
+  },
+  {
+   "tex": "$x_i$, $x_j$, $x_t$",
+   "meaning": "Education, experience and year fixed effects (and their interactions)",
+   "kind": "Parameters",
+   "typical": "—",
+   "keys": [
+    "x"
+   ],
+   "from": "immigrant-share-wage-elasticity"
+  },
+  {
+   "tex": "$e$",
+   "meaning": "Elasticity of the native wage to $m$, $\\partial \\log w/\\partial m$",
+   "kind": "Statistic",
+   "typical": "≈ −0.42 at $m = 0.168$",
+   "keys": [
+    "e"
+   ],
+   "from": "immigrant-share-wage-elasticity"
+  },
+  {
+   "tex": "$q$",
+   "meaning": "Slope of the share in $m$, $\\partial p/\\partial m = 1/(1+m)^2$",
+   "kind": "Function",
+   "typical": "0.733 at $m = 0.168$",
+   "keys": [
+    "q"
+   ],
+   "from": "immigrant-share-wage-elasticity"
+  },
+  {
+   "tex": "$\\Delta \\log w$",
+   "meaning": "Change in the log native wage",
+   "kind": "Statistic",
+   "typical": "≈ −0.042 for $\\Delta m = 0.10$",
+   "keys": [
+    "~\\Delta\\logw"
+   ],
+   "from": "immigrant-share-wage-elasticity"
+  },
+  {
+   "tex": "$r$, $o$",
+   "meaning": "Region (commuting zone) and occupation",
+   "kind": "Index",
+   "typical": "722 CZs × 50 occupations",
+   "keys": [
+    "r",
+    "o"
+   ],
+   "from": "tradable-and-non-tradable-occupations"
+  },
+  {
+   "tex": "$g$",
+   "meaning": "Occupation group: tradable (T) or non-tradable (N)",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "g"
+   ],
+   "from": "tradable-and-non-tradable-occupations"
+  },
+  {
+   "tex": "$n_{ro}$",
+   "meaning": "Log change in native employment (hours) in region $r$, occupation $o$",
+   "kind": "Data",
+   "typical": "1980–2012",
+   "keys": [
+    "n"
+   ],
+   "from": "tradable-and-non-tradable-occupations"
+  },
+  {
+   "tex": "$\\mathbb{I}_o(N)$",
+   "meaning": "1 if occupation $o$ is non-tradable",
+   "kind": "Indicator",
+   "typical": "—",
+   "keys": [
+    "bb(I)"
+   ],
+   "from": "tradable-and-non-tradable-occupations"
+  },
+  {
+   "tex": "$\\nu_{ro}$",
+   "meaning": "Error",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "nu"
+   ],
+   "from": "tradable-and-non-tradable-occupations"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Card found little local effect of a huge immigrant supply shock. This lecture compares natives in other ways. Across national education-experience cells, Borjas finds large relative effects on earnings and time worked. Monras finds Borjas-style effects in a Card-like regional setting once he follows wages over time. Friedberg compares occupations in Israel and finds no clear effect, with a weak instrument. Burstein, Hanson, Tian and Vogel show that whether natives are crowded out depends on whether the job is tradable, and that most natives gain from immigration. Clemens, Lewis and Postel run Card in reverse: removing Mexican farm workers did not raise wages, because farms mechanized.**"
+      }
+     ],
+     "words": 106,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "1-five-papers-four-designs",
+   "heading": "1. Five papers, four designs",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-five-papers-four-designs-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The lecture walks through the remaining approaches of [Research Designs for Immigration Effects](note:research-designs-for-immigration-effects): national skill groups (Borjas 2003), regions again (Monras 2020), occupations (Friedberg 2001), occupations, regions and tradability together (Burstein, Hanson, Tian and Vogel 2020), and the Mariel boatlift in reverse (Clemens, Lewis and Postel 2018)."
+      }
+     ],
+     "words": 47,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "2-national-skill-groups-borjas-2003",
+   "heading": "2. National skill groups: Borjas (2003)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-national-skill-groups-borjas-2003-1",
+     "blocks": [
+      {
+       "t": "quote",
+       "md": "Paper summary: [Borjas 2003 - The Labor Demand Curve Is Downward Sloping](note:borjas-2003-the-labor-demand-curve-is-downward-sloping)",
+       "papers": [
+        "borjas-2003-the-labor-demand-curve-is-downward-sloping"
+       ]
+      },
+      {
+       "t": "prose",
+       "md": "Borjas asks about relative wages across \"groups\" at the national level: did natives in education-age groups that experienced a larger immigrant inflow see relative declines in labor-market outcomes? The idea is that workers are imperfect substitutes across education-experience bins ([Elasticity of Substitution](note:elasticity-of-substitution)). He uses 5 decades (1960–2000) × 4 education groups × 8 five-year experience groups = 160 cells, from the Censuses and, for 2000, pooled March CPS files ([US Census and American Community Survey](note:us-census-and-american-community-survey)); in 2000, 50% of young high-school dropouts were foreign-born."
+      }
+     ],
+     "words": 94,
+     "symbols": []
+    },
+    {
+     "id": "2-national-skill-groups-borjas-2003-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Why is a national skill-cell design less exposed than Card's city comparison to the problem that \"Miami is open\"?",
+       "options": [
+        {
+         "md": "Skill cells contain more workers, so the estimates are more precise",
+         "correct": false,
+         "feedback": "Precision is a separate issue; a big sample does not stop a shock from spreading out of the unit you are studying."
+        },
+        {
+         "md": "A worker can leave a city that receives immigrants, but cannot easily leave his education-experience group",
+         "correct": true
+        },
+        {
+         "md": "Immigrants spread evenly across skill cells",
+         "correct": false,
+         "feedback": "They do not: half of young high-school dropouts were foreign-born in 2000. Uneven exposure is what the design uses."
+        },
+        {
+         "md": "National data have no trade between regions",
+         "correct": false,
+         "feedback": "Trade still happens; the point is that a shock to a skill group cannot be escaped by moving to another city."
+        }
+       ],
+       "why": "A local supply shock can be diluted by natives moving away and by trade with other cities. Skill cells are defined nationally, so moving does not change a worker's cell; what remains is substitution across cells.",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 59,
+     "symbols": []
+    },
+    {
+     "id": "2-national-skill-groups-borjas-2003-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The baseline is a reduced-form regression across cells with immigrant share $p_{ijt}$ (immigrants' hours relative to the cell's total) and fixed effects for education, experience, year and their interactions:"
+      },
+      {
+       "t": "math",
+       "tex": "y_{ijt} = \\theta p_{ijt} + x_i + x_j + x_t + x_ix_j + x_jx_t + x_ix_t + \\varepsilon_{ijt}"
+      },
+      {
+       "t": "prose",
+       "md": "$y_{ijt}$ is the mean log annual earnings, mean log weekly earnings or fraction of time worked of natives in the cell."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Immigrant share and native earnings by education-experience cell.png",
+       "alt": "Table - Immigrant share and native earnings by education-experience cell"
+      }
+     ],
+     "words": 48,
+     "symbols": [
+      "$\\varepsilon_u$",
+      "$y_{ijt}$",
+      "$p$",
+      "$\\theta$",
+      "$x_i$, $x_j$, $x_t$"
+     ]
+    },
+    {
+     "id": "2-national-skill-groups-borjas-2003-4",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The basic estimates are $\\theta = -0.919$ (log annual earnings), $-0.572$ (log weekly earnings) and $-0.529$ (fraction of time worked). These are effects of the immigrant *share*; the elasticity of the native wage to the number of immigrants per native, $m_{ijt}$, is $\\theta/(1+m_{ijt})^2$ ([Immigrant Share Wage Elasticity](note:immigrant-share-wage-elasticity))."
+      },
+      {
+       "t": "interactive",
+       "widget": "immigrant-share-elasticity-explorer",
+       "state": {
+        "theta": -0.572,
+        "m0": 0.168
+       },
+       "lock": [
+        "theta",
+        "m0"
+       ],
+       "show": [
+        "elast",
+        "probe",
+        "thetaline",
+        "e0_out",
+        "p0_out"
+       ],
+       "highlight": "probe",
+       "prompt": "Work out the wage elasticity Borjas reports, then reveal it",
+       "predict": {
+        "hide": [
+         "elast",
+         "probe",
+         "e0_out"
+        ],
+        "ask": "With $\\theta = -0.572$ (log weekly earnings) and $m = 0.168$ immigrants per native (the 2000 average), what is $\\theta/(1+m)^2$?",
+        "readout": "e0_out",
+        "tol": 0.005
+       },
+       "objectives": [
+        2
+       ]
+      },
+      {
+       "t": "prose",
+       "md": "$-0.572/1.168^2 \\approx -0.4$: increasing a cell's labor supply by 10% through immigration reduces its relative wage by about 4%."
+      }
+     ],
+     "words": 66,
+     "symbols": [
+      "$w_{ijt}$",
+      "$m$",
+      "$p$",
+      "$\\theta$",
+      "$e$",
+      "$\\Delta \\log w$"
+     ]
+    },
+    {
+     "id": "2-national-skill-groups-borjas-2003-5",
+     "blocks": [
+      {
+       "t": "derive",
+       "title": "Show that $\\frac{\\partial \\log w}{\\partial m} = \\frac{\\theta}{(1+m)^2}$",
+       "objectives": [
+        2
+       ],
+       "symbols": [
+        "\\theta",
+        "m"
+       ],
+       "inherited": [
+        {
+         "tex": "$w_{ijt}$",
+         "typical": "—",
+         "from": "immigrant-share-wage-elasticity"
+        },
+        {
+         "tex": "$m$",
+         "typical": "0.168 (average, 2000)",
+         "from": "immigrant-share-wage-elasticity"
+        },
+        {
+         "tex": "$p$",
+         "typical": "0.144 at $m = 0.168$; 0.5 for young dropouts in 2000",
+         "from": "immigrant-share-wage-elasticity"
+        },
+        {
+         "tex": "$\\theta$",
+         "typical": "−0.572 (log weekly earnings)",
+         "from": "immigrant-share-wage-elasticity"
+        },
+        {
+         "tex": "$e$",
+         "typical": "≈ −0.42 at $m = 0.168$",
+         "from": "immigrant-share-wage-elasticity"
+        },
+        {
+         "tex": "$q$",
+         "typical": "0.733 at $m = 0.168$",
+         "from": "immigrant-share-wage-elasticity"
+        }
+       ],
+       "unknowns": [
+        "$p$",
+        "$q$",
+        "$e$"
+       ],
+       "dims": [],
+       "data": [],
+       "matrices": [],
+       "define": [],
+       "given": [
+        "p = \\frac{m}{1+m}",
+        "e = \\theta q"
+       ],
+       "steps": [
+        {
+         "md": "Write $q$ for $\\partial p/\\partial m$ and differentiate the share: $q = \\frac{1}{(1+m)^2}$",
+         "tex": "q = \\frac{1}{(1+m)^2}",
+         "justify": {
+          "prompt": "Why is $\\frac{\\partial}{\\partial m}\\frac{m}{1+m} = \\frac{1}{(1+m)^2}$?",
+          "options": [
+           {
+            "md": "Quotient rule: $\\frac{(1+m)\\cdot 1 - m \\cdot 1}{(1+m)^2}$; the $m$ terms cancel in the numerator",
+            "correct": true
+           },
+           {
+            "md": "Power rule: $\\frac{m}{1+m}$ behaves like $m^{-1}$, whose derivative is $-m^{-2}$",
+            "correct": false
+           },
+           {
+            "md": "Differentiate top and bottom separately: $\\frac{1}{1}$",
+            "correct": false
+           }
+          ]
+         }
+        },
+        {
+         "md": "Chain rule, with $e$ for $\\partial \\log w/\\partial m$ and $\\partial \\log w/\\partial p = \\theta$: $e = \\frac{\\theta}{(1+m)^2}$",
+         "tex": "e = \\frac{\\theta}{(1+m)^2}"
+        }
+       ],
+       "accept": [],
+       "reject": [
+        {
+         "tex": "e = \\theta",
+         "md": "that is the effect of the share itself; it equals the elasticity only at $m = 0$"
+        },
+        {
+         "tex": "e = \\frac{\\theta}{1+m}",
+         "md": "the square is missing: $\\partial p/\\partial m = 1/(1+m)^2$"
+        },
+        {
+         "tex": "e = \\theta(1+m)^2",
+         "md": "the factor $1/(1+m)^2$ divides, not multiplies"
+        }
+       ]
+      }
+     ],
+     "words": 13,
+     "symbols": [
+      "$w_{ijt}$",
+      "$m$",
+      "$p$",
+      "$\\theta$",
+      "$e$",
+      "$q$"
+     ]
+    },
+    {
+     "id": "2-national-skill-groups-borjas-2003-6",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "In 2000, half of young high-school dropouts were foreign-born, so for that cell $p = 0.5$ and $m = 1$."
+      },
+      {
+       "t": "interactive",
+       "widget": "immigrant-share-elasticity-explorer",
+       "state": {
+        "theta": -0.572,
+        "m0": 1
+       },
+       "lock": [
+        "theta"
+       ],
+       "show": [
+        "elast",
+        "probe",
+        "thetaline",
+        "e0_out",
+        "p0_out"
+       ],
+       "highlight": "probe",
+       "prompt": "Predict the elasticity for a cell that is half immigrant",
+       "predict": {
+        "hide": [
+         "elast",
+         "probe",
+         "e0_out"
+        ],
+        "ask": "With the same $\\theta = -0.572$, how does the elasticity in a cell with $m = 1$ compare with $-0.419$ at the average $m = 0.168$?",
+        "options": [
+         "Larger in magnitude, about −0.57: more immigrants mean more competition",
+         "Smaller in magnitude, about −0.14",
+         "The same, −0.419: θ does not change"
+        ],
+        "answer": 1,
+        "why": "$-0.572/(1+1)^2 = -0.143$. When immigrants are already half the cell, immigrants equal to 10% of natives raise the share $p$ only from 0.5 to 0.524, so the relative wage falls about 1.4%.",
+        "feedback": [
+         "$-0.572$ is $\\theta$ itself, the elasticity only at $m = 0$. Competition per unit of share is already in $\\theta$.",
+         null,
+         "$\\theta$ is the same, but $\\partial p/\\partial m = 1/(1+m)^2$ falls from 0.733 to 0.25, so the elasticity shrinks with it."
+        ]
+       },
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 24,
+     "symbols": [
+      "$w_{ijt}$",
+      "$m$",
+      "$p$",
+      "$\\theta$",
+      "$e$",
+      "$\\Delta \\log w$"
+     ]
+    },
+    {
+     "id": "2-national-skill-groups-borjas-2003-7",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "With $\\theta = -0.637$ (the estimate counting women in the labor force) and $m = 0.168$, what is the elasticity $\\partial \\log w/\\partial m$?",
+       "answer": -0.467,
+       "tol": 0.0046700000000000005,
+       "vary": [
+        {
+         "sym": "\\theta",
+         "values": [
+          -0.919,
+          -0.725,
+          -0.637,
+          -0.552
+         ]
+        },
+        {
+         "sym": "m",
+         "lo": 0.1,
+         "hi": 0.3,
+         "step": 0.001
+        }
+       ],
+       "compute": "\\frac{\\theta}{(1+m)^2}",
+       "bindings": [
+        {
+         "sym": "\\theta",
+         "value": -0.637,
+         "span": "$\\theta = -0.637$"
+        },
+        {
+         "sym": "m",
+         "value": 0.168,
+         "span": "$m = 0.168$"
+        }
+       ],
+       "wrongCompute": [
+        {
+         "tex": "\\theta",
+         "md": "that is the coefficient on the share, the elasticity only at $m = 0$"
+        },
+        {
+         "tex": "\\frac{\\theta}{1+m}",
+         "md": "the derivative of $m/(1+m)$ is $1/(1+m)^2$: the square is missing"
+        },
+        {
+         "tex": "\\theta(1+m)^2",
+         "md": "the factor $(1+m)^2$ divides $\\theta$, it does not multiply it"
+        }
+       ],
+       "why": "The elasticity is $\\theta\\,\\partial p/\\partial m = \\theta/(1+m)^2$. With $\\theta = -0.637$ and $m = 0.168$: $-0.637/1.364 = -0.467$.",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 14,
+     "symbols": [
+      "$w_{ijt}$",
+      "$m$",
+      "$p$",
+      "$\\theta$"
+     ]
+    },
+    {
+     "id": "2-national-skill-groups-borjas-2003-8",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "So far: Card found little local impact of a huge immigrant supply shock; Borjas shows a large relative effect across groups nationally."
+      }
+     ],
+     "words": 22,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "3-regions-again-over-time-monras-2020",
+   "heading": "3. Regions again, over time: Monras (2020)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "3-regions-again-over-time-monras-2020-1",
+     "blocks": [
+      {
+       "t": "quote",
+       "md": "Paper summary: [Monras 2020 - Immigration and Wage Dynamics](note:monras-2020-immigration-and-wage-dynamics)",
+       "papers": [
+        "monras-2020-immigration-and-wage-dynamics"
+       ]
+      },
+      {
+       "t": "prose",
+       "md": "In Card, effects — if any — dissipate quickly. Monras asks how wages respond to immigration over time. The 1995 Mexican peso crisis pushed more Mexicans to the US, and he evaluates the effect on state-level outcomes over time. The natural regression of the change in a native outcome on the change in the Mexican share, $\\Delta Y_s = \\alpha + \\beta\\,\\Delta(Mex_s/N_s) + \\gamma\\Delta X_s + \\varepsilon_s$, is biased: both the Mexican inflow and natives' flows are endogenous. So he instruments the inflow with the 1980 Mexican share, $Mex_s^{1980}/N_s^{1980}$ ([Shift-Share Instrument](note:shift-share-instrument))."
+      }
+     ],
+     "words": 86,
+     "symbols": [
+      "$\\beta$",
+      "$\\alpha$",
+      "$\\mathbf{x}_u$, $\\gamma$",
+      "$\\varepsilon_u$",
+      "$M_{ijt}$, $N_{ijt}$",
+      "$x_i$, $x_j$, $x_t$",
+      "$e$"
+     ]
+    },
+    {
+     "id": "3-regions-again-over-time-monras-2020-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Why does Monras instrument the 1994–95 Mexican inflow with each state's 1980 Mexican share?",
+       "options": [
+        {
+         "md": "Because the 1980 share and the 1995 inflow are the same variable measured twice",
+         "correct": false,
+         "feedback": "They differ: one is a stock fixed in 1980, the other a flow in 1995. The instrument only needs to predict the flow."
+        },
+        {
+         "md": "Because states with many Mexicans in 1980 had fast native wage growth afterwards",
+         "correct": false,
+         "feedback": "That would break the instrument: it must affect native wages only through the new inflow."
+        },
+        {
+         "md": "Mexicans tend to go where Mexicans already live, and the 1980 share was set long before the 1995 shock",
+         "correct": true
+        },
+        {
+         "md": "Because the CPS does not record the 1995 inflow",
+         "correct": false,
+         "feedback": "The inflow is measured; the problem is that it responds to local conditions, which also move native wages."
+        }
+       ],
+       "why": "Relevance comes from networks: new migrants follow earlier ones. Exogeneity is the claim that 1980 settlement patterns are unrelated to 1994–95 native wage shocks except through the inflow they predict.",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 70,
+     "symbols": []
+    },
+    {
+     "id": "3-regions-again-over-time-monras-2020-3",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Mexican inflow and low-skilled native wages by state 1994-1995.png",
+       "alt": "Table - Mexican inflow and low-skilled native wages by state 1994-1995",
+       "caption": "Table 5: low-skilled native wages. Columns 3–7 regress the 1994–95 change on the change in the Mexican share."
+      }
+     ],
+     "words": 20,
+     "symbols": []
+    },
+    {
+     "id": "3-regions-again-over-time-monras-2020-4",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Mexican inflow and high-skilled native wages by state 1994-1995.png",
+       "alt": "Table - Mexican inflow and high-skilled native wages by state 1994-1995",
+       "caption": "Table 6: the same regressions for high-skilled natives."
+      }
+     ],
+     "words": 8,
+     "symbols": []
+    },
+    {
+     "id": "3-regions-again-over-time-monras-2020-5",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Mexican inflow and the native skill premium by state 1994-1995.png",
+       "alt": "Table - Mexican inflow and the native skill premium by state 1994-1995",
+       "caption": "Table 7: the high- to low-skilled wage gap."
+      },
+      {
+       "t": "prose",
+       "md": "Between 1994 and 1995, a larger inflow lowers low-skill native wages (Table 5, columns 3 onward: the preferred IV estimate is −0.744), does nothing to high-skill native wages (Table 6) and raises the skill premium (Table 7, IV 0.87–0.94)."
+      }
+     ],
+     "words": 51,
+     "symbols": []
+    },
+    {
+     "id": "3-regions-again-over-time-monras-2020-6",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "What do Monras's one-year (1994–95) results show across states?",
+       "options": [
+        {
+         "md": "All native wages fell, high- and low-skilled alike",
+         "correct": false,
+         "feedback": "High-skilled wages do not respond: Table 6's coefficients are insignificant."
+        },
+        {
+         "md": "Low-skill wages rose because Mexican immigrants complement low-skilled natives",
+         "correct": false,
+         "feedback": "The coefficients on the change in the Mexican share are negative for low-skilled natives: −0.611 (OLS) to −1.467 (IV)."
+        },
+        {
+         "md": "Nothing moved, as in Card",
+         "correct": false,
+         "feedback": "Unlike Card, the low-skill wage effect is negative and significant, and the skill premium rises."
+        },
+        {
+         "md": "Low-skill wages fell, high-skill wages did not move, and the skill premium rose",
+         "correct": true
+        }
+       ],
+       "why": "The inflow is of low-skilled Mexicans, so it raises the supply of low-skilled labor: low-skill native wages fall relative to other states, high-skill wages are unaffected, and the gap between them widens.",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 45,
+     "symbols": []
+    },
+    {
+     "id": "3-regions-again-over-time-monras-2020-7",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Low-skill native wages in more vs less Mexican-exposed states 1990-2000.png",
+       "alt": "Low-skill native wages in more vs less Mexican-exposed states 1990-2000"
+      },
+      {
+       "t": "prose",
+       "md": "Over the medium run, low-skill native wages fall 3–5% in high- versus low-exposure states and never really recover over five years — though the pre-1994 coefficients make pre-trends hard to rule out. Monras studies a Card-like setting and finds Borjas-style results."
+      }
+     ],
+     "words": 41,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "4-occupations-friedberg-2001",
+   "heading": "4. Occupations: Friedberg (2001)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "4-occupations-friedberg-2001-1",
+     "blocks": [
+      {
+       "t": "quote",
+       "md": "Paper summary: [Friedberg 2001 - The Impact of Mass Migration on the Israeli Labor Market](note:friedberg-2001-the-impact-of-mass-migration-on-the-israeli-labor-market)",
+       "papers": [
+        "friedberg-2001-the-impact-of-mass-migration-on-the-israeli-labor-market"
+       ]
+      },
+      {
+       "t": "prose",
+       "md": "When the Soviet Union lifted emigration restrictions in 1989, close to a million Russian immigrants went to Israel, raising its population by over 7% in two years and 12% by the mid-1990s: a large, unexpected **national** shock. The benefit of a national shock is general equilibrium \"for free\"; the cost is that there is no control group."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Monthly immigration to Israel 1980-1995.png",
+       "alt": "Monthly immigration to Israel 1980-1995",
+       "caption": "Immigrants to Israel per month, 1980–95: a spike of ≈ 35,000 a month in 1990–91 (read off the chart)."
+      }
+     ],
+     "words": 93,
+     "symbols": []
+    },
+    {
+     "id": "4-occupations-friedberg-2001-2",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Israel real wage and unemployment rate 1980-1995.png",
+       "alt": "Israel real wage and unemployment rate 1980-1995",
+       "caption": "Israel's average real wage and unemployment rate, 1980–95."
+      }
+     ],
+     "words": 9,
+     "symbols": []
+    },
+    {
+     "id": "4-occupations-friedberg-2001-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "National real wages and unemployment moved a lot, but without a control group we cannot tell whether immigration caused it. Friedberg instead compares occupations nationally: do wages fall for natives in occupations that more immigrants entered? She regresses the 1989–94 change in natives' log wage in occupation $j$ on immigrants relative to natives there in 1994, $r_j$. Immigrants' job choice is endogenous, so she instruments with their occupation **before** emigrating, $p = P/N_0$ ([Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls))."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Russian immigration and native Israeli wages by occupation.png",
+       "alt": "Table - Russian immigration and native Israeli wages by occupation"
+      }
+     ],
+     "words": 73,
+     "symbols": [
+      "$i$, $j$, $t$",
+      "$M_{ijt}$, $N_{ijt}$",
+      "$p$",
+      "$r$, $o$"
+     ]
+    },
+    {
+     "id": "4-occupations-friedberg-2001-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Friedberg's OLS estimate is −0.616 (s.e. 0.206); instrumented with pre-migration occupations it is 0.549 (s.e. 1.28), and the first-stage F is about 7.6. What can you conclude?",
+       "options": [
+        {
+         "md": "Immigration raised native wages by about 0.55 log points per unit of $r$",
+         "correct": false,
+         "feedback": "With a standard error of 1.28, the 95% interval runs from about −2 to +3: a positive effect is not established."
+        },
+        {
+         "md": "The OLS estimate −0.616 is the causal effect, because it is significant",
+         "correct": false,
+         "feedback": "Significance does not fix endogeneity: immigrants chose their occupations, which is why an instrument is needed."
+        },
+        {
+         "md": "The data cannot distinguish a large negative effect from none or a positive one: the instrument is weak",
+         "correct": true
+        },
+        {
+         "md": "Immigration had exactly zero effect on native wages",
+         "correct": false,
+         "feedback": "An insignificant estimate is not a precise zero; the interval is too wide to rule out large effects either way."
+        }
+       ],
+       "why": "The IV estimate is very imprecise ($0.549 \\pm 2 \\times 1.28$), and an F of about 7.6 signals a weak instrument. Friedberg \"finds no effect\", but the honest reading is that the occupation comparison cannot pin the effect down.",
+       "objectives": [
+        4
+       ]
+      }
+     ],
+     "words": 86,
+     "symbols": [
+      "$r$, $o$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "5-occupations-regions-and-tradability-burstein-hanson-tian-and-vogel-2020",
+   "heading": "5. Occupations, regions and tradability: Burstein, Hanson, Tian and Vogel (2020)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "5-occupations-regions-and-tradability-burstein-hanson-tian-and-vogel-2020-1",
+     "blocks": [
+      {
+       "t": "quote",
+       "md": "Paper summary: [Burstein, Hanson, Tian and Vogel 2020 - Tradability and the Labor-Market Impact of Immigration](note:burstein-hanson-tian-and-vogel-2020-tradability-and-the-labor-market-impact-of-immigration)",
+       "papers": [
+        "burstein-hanson-tian-and-vogel-2020-tradability-and-the-labor-market-impact-of-immigration"
+       ]
+      },
+      {
+       "t": "prose",
+       "md": "What is the impact of immigration on native job choices and wages, and how does it depend on the tradability of the job? Like Friedberg the focus is the occupation; like Card and Monras it uses regional variation; and it brings trade in explicitly ([Tradable and Non-Tradable Occupations](note:tradable-and-non-tradable-occupations)). The allocation regression over 1980–2012 is"
+      }
+     ],
+     "words": 71,
+     "symbols": []
+    },
+    {
+     "id": "5-occupations-regions-and-tradability-burstein-hanson-tian-and-vogel-2020-2",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "n_{ro} = \\alpha_{rg} + \\beta_r x_{ro} + \\beta_{Nr}\\,\\mathbb{I}_o(N)\\,x_{ro} + \\nu_{ro}"
+      },
+      {
+       "t": "prose",
+       "md": "where $n_{ro}$ is the log change in native employment in region $r$ and occupation $o$, $x_{ro}$ the log change in the region's immigrants times the occupation's immigrant cost share, and $\\mathbb{I}_o(N)$ marks non-tradable occupations (the slide says \"tradable\"; the paper's table defines it as non-tradable). The regional inflow is an equilibrium outcome, so it is instrumented with a predicted inflow."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Immigration and native employment by occupation tradability 1980-2012.png",
+       "alt": "Table - Immigration and native employment by occupation tradability 1980-2012",
+       "caption": "Allocation regressions: panel A pools all occupations; panel B adds the non-tradable interaction."
+      }
+     ],
+     "words": 68,
+     "symbols": [
+      "$\\beta$",
+      "$\\alpha$",
+      "$M_{ijt}$, $N_{ijt}$",
+      "$x_i$, $x_j$, $x_t$",
+      "$r$, $o$",
+      "$n_{ro}$",
+      "$\\mathbb{I}_o(N)$",
+      "$\\nu_{ro}$"
+     ]
+    },
+    {
+     "id": "5-occupations-regions-and-tradability-burstein-hanson-tian-and-vogel-2020-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "For low-education natives, the 2SLS estimates are $\\beta_r = 0.009$ (s.e. 0.088) and $\\beta_{Nr} = -0.303$ (s.e. 0.101). What is the response of native employment to $x_{ro}$ in a non-tradable occupation?",
+       "answer": -0.294,
+       "tol": 0.002,
+       "wrong": [
+        {
+         "answer": -0.303,
+         "tol": 0.002,
+         "md": "that is only the extra response in non-tradables; add the tradable response $\\beta_r$"
+        },
+        {
+         "answer": 0.009,
+         "tol": 0.002,
+         "md": "that is the response in tradable occupations"
+        },
+        {
+         "answer": -0.312,
+         "tol": 0.002,
+         "md": "$\\beta_r$ is added, not subtracted: $0.009 + (-0.303)$"
+        }
+       ],
+       "why": "In a non-tradable occupation the indicator is 1, so the response is $\\beta_r + \\beta_{Nr} = 0.009 - 0.303 = -0.294$: natives are crowded out of immigrant-intensive non-tradable jobs, while the tradable response is indistinguishable from zero.",
+       "objectives": [
+        5
+       ]
+      }
+     ],
+     "words": 28,
+     "symbols": [
+      "$\\beta$",
+      "$x_i$, $x_j$, $x_t$"
+     ]
+    },
+    {
+     "id": "5-occupations-regions-and-tradability-burstein-hanson-tian-and-vogel-2020-4",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "An inflow of immigrants crowds natives out of immigrant-intensive jobs within non-tradables, but neither out nor in within tradables. That rationalizes earlier, seemingly contradictory findings: strong crowding out in case studies of particular non-tradable jobs, and crowding in within manufacturing at the national level. For wages: native wages fall in more relative to less immigrant-intensive non-tradable jobs, and rise in more relative to less immigrant-intensive tradable jobs."
+      }
+     ],
+     "words": 67,
+     "symbols": []
+    },
+    {
+     "id": "5-occupations-regions-and-tradability-burstein-hanson-tian-and-vogel-2020-5",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Why are natives not crowded out of tradable occupations when immigrants arrive in their region?",
+       "options": [
+        {
+         "md": "Immigrants avoid tradable occupations",
+         "correct": false,
+         "feedback": "The regression measures each occupation's own exposure $x_{ro}$; tradable occupations do receive immigrants."
+        },
+        {
+         "md": "Their extra output can be sold outside the region at a given price, so the occupation can expand without its wage falling",
+         "correct": true
+        },
+        {
+         "md": "Tradable occupations are protected by unions",
+         "correct": false,
+         "feedback": "Nothing in the design involves unions; the difference comes from where the output is sold."
+        },
+        {
+         "md": "Natives in tradable jobs are perfect substitutes for immigrants",
+         "correct": false,
+         "feedback": "Perfect substitution would make crowding out *more* likely, not less."
+        }
+       ],
+       "why": "In a non-tradable occupation the extra output must be sold locally, so its price and wage fall and natives move to other jobs. A tradable occupation faces a national price, so the region absorbs immigrants by producing and exporting more.",
+       "objectives": [
+        5
+       ]
+      }
+     ],
+     "words": 56,
+     "symbols": [
+      "$x_i$, $x_j$, $x_t$"
+     ]
+    },
+    {
+     "id": "5-occupations-regions-and-tradability-burstein-hanson-tian-and-vogel-2020-6",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Native low-education real wage change from halving Latin American immigration by commuting zone.png",
+       "alt": "Native low-education real wage change from halving Latin American immigration by commuting zone"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    },
+    {
+     "id": "5-occupations-regions-and-tradability-burstein-hanson-tian-and-vogel-2020-7",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "In the quantified model, cutting Latin American immigration by half harms native low-skill workers on average in **every** US commuting zone, because natives and immigrants are imperfect substitutes."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Occupation real wage change from halving Latin American immigration in Los Angeles.png",
+       "alt": "Occupation real wage change from halving Latin American immigration in Los Angeles"
+      },
+      {
+       "t": "prose",
+       "md": "In Los Angeles, the cut lowers the real wage of all but one traded occupation and raises the real wages of only the more exposed non-tradable occupations. Tradability fundamentally shapes the impact of immigration, and most natives are helped by it."
+      }
+     ],
+     "words": 69,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "6-card-in-reverse-clemens-lewis-and-postel-2018",
+   "heading": "6. Card in reverse: Clemens, Lewis and Postel (2018)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "6-card-in-reverse-clemens-lewis-and-postel-2018-1",
+     "blocks": [
+      {
+       "t": "quote",
+       "md": "Paper summary: [Clemens, Lewis and Postel 2018 - Immigration Restrictions as Active Labor Market Policy](note:clemens-lewis-and-postel-2018-immigration-restrictions-as-active-labor-market-policy)",
+       "papers": [
+        "clemens-lewis-and-postel-2018-immigration-restrictions-as-active-labor-market-policy"
+       ]
+      },
+      {
+       "t": "prose",
+       "md": "What does a large *removal* of immigrants do to natives? Three bilateral US–Mexico \"bracero\" agreements regulated temporary low-skill farm labor from 1942 to 1964 — almost half a million seasonal workers a year. To help US workers, Kennedy began excluding braceros in March 1962, and the program ended on December 31, 1964. States are grouped by exposure (high: braceros above 20% of seasonal farm labor in 1955; low; none)."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Mexican share of seasonal farm workers by bracero exposure 1954-1972.png",
+       "alt": "Mexican share of seasonal farm workers by bracero exposure 1954-1972",
+       "caption": "Mexican share of hired seasonal farm workers in high-, low- and no-exposure states: it collapses to zero between the dotted lines (March 1962 and December 1964)."
+      }
+     ],
+     "words": 110,
+     "symbols": []
+    },
+    {
+     "id": "6-card-in-reverse-clemens-lewis-and-postel-2018-2",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Real farm wages by bracero exposure 1948-1971.png",
+       "alt": "Real farm wages by bracero exposure 1948-1971",
+       "caption": "Real farm wages in the three groups of states, 1948–71."
+      }
+     ],
+     "words": 11,
+     "symbols": []
+    },
+    {
+     "id": "6-card-in-reverse-clemens-lewis-and-postel-2018-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Farm wages rose everywhere after the exclusion (the United Farm Workers won a 40% raise in table grapes in 1966; a minimum wage rose from $1.25 to $1.75), but the identification asks whether they rose *more* in exposed states. A [Difference-in-Differences](note:difference-in-differences) with continuous treatment, $\\log(wage_{st}) = \\alpha_s + \\alpha_t + \\beta\\,\\mathbb{I}_{t\\ge1965}\\bar{\\ell}_s^{1955} + \\varepsilon_{st}$, finds no clear differential change: the \"expected\" sign, but insignificant and not large."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Bracero exclusion and farm wages difference-in-differences.png",
+       "alt": "Table - Bracero exclusion and farm wages difference-in-differences"
+      }
+     ],
+     "words": 56,
+     "symbols": [
+      "$\\beta$",
+      "$\\alpha$",
+      "$\\varepsilon_u$",
+      "$i$, $j$, $t$",
+      "$w_{ijt}$",
+      "$e$",
+      "$r$, $o$",
+      "$g$",
+      "$\\mathbb{I}_o(N)$"
+     ]
+    },
+    {
+     "id": "6-card-in-reverse-clemens-lewis-and-postel-2018-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Removing braceros did not raise farm wages more in the states that had used them most. What does the paper point to as the mechanism?",
+       "options": [
+        {
+         "md": "Native workers flooded into farm work in exposed states, holding wages down",
+         "correct": false,
+         "feedback": "The paper's evidence is about what farms produced and how, not about native labor supply."
+        },
+        {
+         "md": "The minimum-wage increase raised wages equally everywhere, hiding the effect",
+         "correct": false,
+         "feedback": "A rise common to all states is absorbed by the time effects; the question is the *differential* change, which still does not appear."
+        },
+        {
+         "md": "Braceros returned illegally under other names",
+         "correct": false,
+         "feedback": "Not the paper's evidence; the bracero stock in exposed states fell to about zero after 1964."
+        },
+        {
+         "md": "Farms changed crops and mechanized where they could, as with tomatoes and cotton",
+         "correct": true
+        }
+       ],
+       "why": "California's tomato harvest went from almost no mechanization to almost full mechanization exactly as braceros left, while crops that were hard to mechanize shrank in exposed states. Employers substituted technology for labor instead of bidding up wages.",
+       "objectives": [
+        6
+       ]
+      }
+     ],
+     "words": 66,
+     "symbols": []
+    },
+    {
+     "id": "6-card-in-reverse-clemens-lewis-and-postel-2018-5",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Bracero stock and tomato harvest mechanization in California and Ohio 1955-1975.png",
+       "alt": "Bracero stock and tomato harvest mechanization in California and Ohio 1955-1975",
+       "caption": "California's tomato harvest mechanized as its braceros disappeared; Ohio, with almost none, mechanized later."
+      }
+     ],
+     "words": 14,
+     "symbols": []
+    },
+    {
+     "id": "6-card-in-reverse-clemens-lewis-and-postel-2018-6",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Event-study crop production after bracero exclusion by crop.png",
+       "alt": "Event-study crop production after bracero exclusion by crop",
+       "caption": "Production in more- versus less-exposed states by crop: tomatoes and cotton (easy to mechanize) held up; other bracero-intensive crops did not."
+      }
+     ],
+     "words": 21,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "putting-it-together",
+   "heading": "Putting it together",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "putting-it-together-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Card found little impact locally of a huge immigrant supply shock.\n- Borjas shows a large relative effect across groups nationally.\n- Monras studies a Card-like setting and finds Borjas-style results.\n- Friedberg looks across jobs but does not find clear results.\n- Burstein et al. show that the tradability of the job shapes the impact of immigration on natives, and that most natives are helped by immigration.\n- Clemens et al. show that Card in reverse had Card-like effects, perhaps because of technical change."
+      }
+     ],
+     "words": 86,
+     "symbols": []
+    },
+    {
+     "id": "putting-it-together-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Card finds no effect across cities; Borjas finds large relative effects across national skill cells. Which reading is consistent with both?",
+       "options": [
+        {
+         "md": "One of them must be wrong, because both study immigration and wages",
+         "correct": false,
+         "feedback": "They compare different units, so they answer different questions and can both be right."
+        },
+        {
+         "md": "Immigration lowers wages nationally but raises them in the cities immigrants go to",
+         "correct": false,
+         "feedback": "Neither study identifies a national level effect, and Card's estimates are near zero rather than positive."
+        },
+        {
+         "md": "A local shock can be absorbed by migration, trade and changes in technology or jobs, while a worker cannot leave his skill group, so relative effects across cells can be large even when local ones are small",
+         "correct": true
+        },
+        {
+         "md": "Card measures unemployment and Borjas measures wages",
+         "correct": false,
+         "feedback": "Both study wages (and employment); the outcome is not what separates them."
+        }
+       ],
+       "why": "Both designs identify *relative* effects. Across cities, adjustment margins (native migration, trade, technology, occupational switching) spread a shock out; across skill cells nationally, there is less escape. Monras, Burstein et al. and Clemens et al. each show one of those margins at work.",
+       "objectives": [
+        7
+       ]
+      }
+     ],
+     "words": 90,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "cross-course-links",
+   "heading": "Cross-course links",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "cross-course-links-1",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "info",
+       "title": "Econometrics in this lecture",
+       "md": "The designs lean on [Fixed Effects Regression](note:fixed-effects-regression), [Difference-in-Differences](note:difference-in-differences) (including continuous treatment and event studies) and [Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls) (past-settlement instruments; weak first stages), all covered in the econometrics course.",
+       "folded": false
+      }
+     ],
+     "words": 34,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "math-refresher",
+   "heading": "Math refresher",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "math-refresher-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Math Prep L4 Multivariable Differentiation](note:math-prep-l4-multivariable-differentiation) (chain and quotient rules for the elasticity) · [Math Prep L7 Approximations Logs and Series](note:math-prep-l7-approximations-logs-and-series) (log changes as percentages)."
+      }
+     ],
+     "words": 23,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Compare the regional, national skill-group, national job-specific and region-by-job designs, and say what each identifies and how each can be blurred.\n2. Explain Borjas's skill-cell regression and convert its coefficient into the wage elasticity $\\theta/(1+m)^2$ (≈ −0.4 at $\\theta = -0.572$, $m = 0.168$).\n3. Explain Monras's past-settlement instrument and summarize his short-run and medium-run wage results.\n4. Explain why Friedberg's occupation comparison needs an instrument, what the instrument is, and why a weak first stage leaves the result uninformative.\n5. Use Burstein, Hanson, Tian and Vogel's allocation regression to show that immigrants crowd natives out of non-tradable but not tradable occupations, and explain why.\n6. Describe the bracero exclusion design and explain why removing immigrants did not raise native farm wages."
+      }
+     ],
+     "words": 116,
+     "symbols": [
+      "$m$",
+      "$\\theta$"
+     ]
+    },
+    {
+     "id": "what-to-be-able-to-do-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "7. Reconcile the papers' findings using local versus national comparisons, relative effects and adjustment margins."
+      }
+     ],
+     "words": 15,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "papers-in-this-lecture",
+   "heading": "Papers in this lecture",
+   "role": "papers",
+   "steps": [
+    {
+     "id": "papers-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "papers",
+       "items": [
+        "borjas-2003-the-labor-demand-curve-is-downward-sloping",
+        "monras-2020-immigration-and-wage-dynamics",
+        "friedberg-2001-the-impact-of-mass-migration-on-the-israeli-labor-market",
+        "burstein-hanson-tian-and-vogel-2020-tradability-and-the-labor-market-impact-of-immigration",
+        "clemens-lewis-and-postel-2018-immigration-restrictions-as-active-labor-market-policy"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "research-designs-for-immigration-effects",
+        "immigrant-share-wage-elasticity",
+        "tradable-and-non-tradable-occupations",
+        "difference-in-differences",
+        "instrumental-variables-and-2sls",
+        "shift-share-instrument",
+        "fixed-effects-regression",
+        "elasticity-of-substitution",
+        "commuting-zone"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "facts-and-data-in-this-lecture",
+   "heading": "Facts and data in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "facts-and-data-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "facts",
+       "items": [
+        "us-census-and-american-community-survey",
+        "current-population-survey-cps"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

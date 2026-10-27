@@ -1,0 +1,154 @@
+{
+ "slug": "ramsey-steady-state-explorer",
+ "notation": [
+  {
+   "tex": "$k_1$, $k_2$",
+   "meaning": "Two-period version: capital given in period 1, capital chosen for period 2",
+   "kind": "State variable / choice",
+   "typical": "9 and 1 in the example",
+   "keys": [
+    "k"
+   ],
+   "from": "ramsey-cass-koopmans-model"
+  },
+  {
+   "tex": "$s_1$",
+   "meaning": "Two-period version: share of period-1 output saved, $k_2/f(k_1)$",
+   "kind": "Endogenous",
+   "typical": "1/3 in the example",
+   "keys": [
+    "s"
+   ],
+   "from": "ramsey-cass-koopmans-model"
+  },
+  {
+   "tex": "$f'(k)$",
+   "meaning": "Marginal product of capital (MPK)",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "f"
+   ],
+   "from": "ramsey-cass-koopmans-model"
+  },
+  {
+   "tex": "$\\beta$",
+   "meaning": "Discount factor",
+   "kind": "Parameter in (0, 1)",
+   "typical": "0.95",
+   "keys": [
+    "beta"
+   ],
+   "from": "ramsey-cass-koopmans-model"
+  },
+  {
+   "tex": "$\\delta$",
+   "meaning": "Depreciation rate",
+   "kind": "Parameter",
+   "typical": "0.1",
+   "keys": [
+    "delta"
+   ],
+   "from": "ramsey-cass-koopmans-model"
+  },
+  {
+   "tex": "$\\bar{k}$, $\\bar{c}$, $\\bar{y}$",
+   "meaning": "Steady-state capital, consumption and output",
+   "kind": "Endogenous",
+   "typical": "10.73, 2.20, 3.28 in the example",
+   "keys": [
+    "bar(k)",
+    "bar(c)",
+    "bar(y)"
+   ],
+   "from": "ramsey-cass-koopmans-model"
+  },
+  {
+   "tex": "$A$, $\\alpha$",
+   "meaning": "Productivity and capital share in $f(k) = Ak^{\\alpha}$",
+   "kind": "Parameters",
+   "typical": "1, 0.5",
+   "keys": [
+    "A",
+    "alpha"
+   ],
+   "from": "ramsey-cass-koopmans-model"
+  },
+  {
+   "tex": "$k^{*}$",
+   "meaning": "Golden-rule capital, $f'(k^{*}) = \\delta$",
+   "kind": "Endogenous",
+   "typical": "25 in the example",
+   "keys": [
+    "k*"
+   ],
+   "from": "ramsey-cass-koopmans-model"
+  },
+  {
+   "tex": "$k^*, y^*, c^*$",
+   "meaning": "Golden-rule steady-state capital, output, consumption",
+   "kind": "Endogenous",
+   "typical": "7.13, 1.92, 1.28 per effective worker in the growth example; 25, 5, 2.5 per worker in the basic example",
+   "keys": [
+    "k*",
+    "y*",
+    "c*"
+   ],
+   "from": "golden-rule-saving-rate"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "ramsey-steady-state-explorer"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$k_1$, $k_2$",
+      "$s_1$",
+      "$f'(k)$",
+      "$\\beta$",
+      "$\\delta$",
+      "$\\bar{k}$, $\\bar{c}$, $\\bar{y}$",
+      "$A$, $\\alpha$",
+      "$k^{*}$",
+      "$k^*, y^*, c^*$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Purpose.** See the modified golden rule as the crossing of the MPK curve with the required return $1/\\beta - 1 + \\delta$, and compare it with the golden rule, where the MPK curve crosses $\\delta$. Lowering $\\beta$ raises the required return, so $\\bar{k}$ slides left, away from $k^{*}$; as $\\beta \\to 1$ the two crossings meet.\n- **Model.** A view of [Ramsey Steady State Model](note:ramsey-steady-state-model) with $A = 1$ held fixed.\n- **Elements.** Panel `returns`: curve `mpk_curve`; lines `req_line`, `gold_line`; points `ramsey`, `golden`. Panel `consumption`: curves `output`, `depreciation`; lines `cbar_gap`, `cgold_gap`. Readouts `req_out`, `kbar_out`, `cbar_out`, `s_out`, `kgold_out`, `cgold_out`.\n- **Tests.** The brief's numbers for $\\beta = 0.90$, $0.95$ and $0.99$, computed in Python from the closed form."
+      }
+     ],
+     "words": 109,
+     "symbols": [
+      "$\\beta$",
+      "$\\delta$",
+      "$\\bar{k}$, $\\bar{c}$, $\\bar{y}$",
+      "$A$, $\\alpha$",
+      "$k^{*}$"
+     ]
+    }
+   ]
+  }
+ ]
+}

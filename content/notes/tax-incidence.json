@@ -1,0 +1,325 @@
+{
+ "slug": "tax-incidence",
+ "notation": [
+  {
+   "tex": "$\\tau$",
+   "meaning": "Tax per unit (per hour of labor)",
+   "kind": "Policy parameter",
+   "typical": "5",
+   "keys": [
+    "tau"
+   ]
+  },
+  {
+   "tex": "$w$",
+   "meaning": "Posted market wage",
+   "kind": "Endogenous",
+   "typical": "20 with no tax",
+   "keys": [
+    "w"
+   ]
+  },
+  {
+   "tex": "$w_n$",
+   "meaning": "Take-home (net) wage the worker keeps",
+   "kind": "Endogenous",
+   "typical": "17.66 with $\\tau = 5$",
+   "keys": [
+    "w"
+   ]
+  },
+  {
+   "tex": "$w_f$",
+   "meaning": "Firm's cost per hour, wage plus any tax it pays",
+   "kind": "Endogenous",
+   "typical": "22.66 with $\\tau = 5$",
+   "keys": [
+    "w"
+   ]
+  },
+  {
+   "tex": "$L^S$",
+   "meaning": "Labor supply, a function of the take-home wage",
+   "kind": "Function",
+   "typical": "$100w_n$ in the example",
+   "keys": [
+    "~L^S"
+   ]
+  },
+  {
+   "tex": "$L^D$",
+   "meaning": "Labor demand, a function of the firm's cost per hour",
+   "kind": "Function",
+   "typical": "$40{,}000/w_f$",
+   "keys": [
+    "~L^D"
+   ]
+  },
+  {
+   "tex": "$L$",
+   "meaning": "Hours worked",
+   "kind": "Endogenous",
+   "typical": "1,765.6 with $\\tau = 5$",
+   "keys": [
+    "L"
+   ]
+  },
+  {
+   "tex": "$\\varepsilon_S$",
+   "meaning": "Elasticity of labor supply (here an elasticity, not an error term)",
+   "kind": "Parameter",
+   "typical": "1 in the example",
+   "keys": [
+    "varepsilon"
+   ]
+  },
+  {
+   "tex": "$\\varepsilon_D$",
+   "meaning": "Elasticity of labor demand, in absolute value",
+   "kind": "Parameter",
+   "typical": "1 in the example",
+   "keys": [
+    "varepsilon"
+   ]
+  },
+  {
+   "tex": "$p$",
+   "meaning": "Price of the consumption good",
+   "kind": "Exogenous",
+   "typical": "1 (normalized)",
+   "keys": [
+    "p"
+   ],
+   "from": "classical-labor-market-model"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "When a government taxes each hour of work, the law has to say who hands over the money: the worker or the employer. It turns out this barely matters. Suppose the tax is 5 per hour. Whoever pays it, the employer's cost of an hour must end up exactly 5 above what the worker takes home. The market then finds the one pair of numbers where workers still want to supply the hours that employers still want to buy. If the worker pays, the posted wage rises to make up part of the tax; if the employer pays, the posted wage falls by part of it. Either way, take-home pay, the employer's cost and hours worked come out the same. Who really bears the tax depends on how strongly each side reacts to price, not on the law."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It tells you to judge a tax by its effect on prices, not by who signs the cheque, which is why debates over \"making employers pay\" are mostly about labels.",
+       "folded": false
+      }
+     ],
+     "words": 171,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A per-unit tax $\\tau$ creates a wedge between the price buyers pay and the price sellers keep. In a labor market with supply $L^S$ (a function of the worker's take-home wage) and demand $L^D$ (a function of the firm's cost per hour), equilibrium requires"
+      },
+      {
+       "t": "math",
+       "tex": "w_f - w_n = \\tau, \\qquad L^S(w_n) = L^D(w_f)"
+      },
+      {
+       "t": "prose",
+       "md": "where $w_n$ is the take-home wage and $w_f$ the firm's cost per hour. These two equations do not mention who pays $\\tau$ to the government, so the **economic incidence** (who bears it) is independent of the **statutory incidence** (who is legally liable)."
+      }
+     ],
+     "words": 80,
+     "symbols": [
+      "$\\tau$",
+      "$w$",
+      "$w_n$",
+      "$w_f$",
+      "$L^S$",
+      "$L^D$",
+      "$L$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "intuition-two-shifts-one-outcome",
+   "heading": "Intuition: two shifts, one outcome",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "intuition-two-shifts-one-outcome-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Tax paid by the worker.** The worker keeps only $w - \\tau$, so the supply curve, drawn against the posted wage, shifts **up** by $\\tau$. The posted wage rises, but by less than $\\tau$.\n- **Tax paid by the firm.** An hour now costs $w + \\tau$, so the demand curve, drawn against the posted wage, shifts **down** by $\\tau$. The posted wage falls, but by less than $\\tau$."
+      },
+      {
+       "t": "prose",
+       "md": "In both cases the vertical gap between the curves at the new quantity is $\\tau$; only the label \"posted wage\" moves."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Labor tax paid by worker - supply shift and tax wedge.png",
+       "alt": "Labor tax paid by worker - supply shift and tax wedge",
+       "caption": "Hand-drawn: a tax paid by the worker shifts supply up; the posted wage rises from $w_1$ to $w_2$; part of the tax is passed to the firm."
+      }
+     ],
+     "words": 105,
+     "symbols": [
+      "$\\tau$",
+      "$w$",
+      "$w_n$",
+      "$w_f$"
+     ]
+    },
+    {
+     "id": "intuition-two-shifts-one-outcome-2",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Labor tax paid by firm - demand shift and tax wedge.png",
+       "alt": "Labor tax paid by firm - demand shift and tax wedge",
+       "caption": "Hand-drawn: a tax paid by the firm shifts demand down; the posted wage falls from $w_1$ to $w_2$."
+      }
+     ],
+     "words": 16,
+     "symbols": [
+      "$w$",
+      "$w_n$",
+      "$w_f$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Use the classical labor market example (with $p = 1$): $L^S = 100w_n$ and $L^D = 40{,}000/w_f$, with no-tax equilibrium $w = 20$, $L = 2{,}000$. Add $\\tau = 5$."
+      },
+      {
+       "t": "prose",
+       "md": "**Worker pays:** $100(w - 5) = 40{,}000/w$, so $w^2 - 5w - 400 = 0$ and $w = 22.66$. The worker keeps $w_n = 17.66$; the firm pays $w_f = 22.66$."
+      },
+      {
+       "t": "prose",
+       "md": "**Firm pays:** $100w = 40{,}000/(w + 5)$, so $w^2 + 5w - 400 = 0$ and $w = 17.66$. The worker keeps $w_n = 17.66$; the firm pays $w_f = 22.66$."
+      },
+      {
+       "t": "prose",
+       "md": "Same take-home wage, same cost to the firm, same hours $L = 100 \\times 17.66 = 1{,}765.6$. Workers bear $20 - 17.66 = 2.34$ of the 5 and the firm bears $22.66 - 20 = 2.66$. Tax revenue is $5 \\times 1{,}765.6 = 8{,}828$."
+      }
+     ],
+     "words": 54,
+     "symbols": [
+      "$\\tau$",
+      "$w$",
+      "$w_n$",
+      "$w_f$",
+      "$L^S$",
+      "$L^D$",
+      "$L$",
+      "$p$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "who-bears-more",
+   "heading": "Who bears more",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "who-bears-more-1",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "note",
+       "title": "Beyond the lecture",
+       "md": "For a small tax, the share borne by workers is approximately $\\varepsilon_D/(\\varepsilon_S + \\varepsilon_D)$: the side that responds less to price bears more. In the example both elasticities are 1, so the split is close to half and half (2.34 vs 2.66 for $\\tau = 5$; not exactly half because the curves are not straight lines). If labor supply were completely unresponsive, workers would bear the whole tax.",
+       "folded": false
+      }
+     ],
+     "words": 67,
+     "symbols": [
+      "$\\tau$",
+      "$\\varepsilon_S$",
+      "$\\varepsilon_D$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **\"The firm pays, so workers are unaffected.\"** The posted wage falls: in the example from 20 to 17.66.\n- **Full pass-through.** A tax of 5 on the worker does not raise the posted wage by 5 (to 25) unless demand is completely unresponsive; here it rises to 22.66.\n- **Comparing the wrong wages.** Compare the take-home wage and the firm's cost, not the posted wage, across the two cases."
+      }
+     ],
+     "words": 72,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Public finance: payroll taxes split between employer and employee, sales taxes, tariffs.\n- Labor and macro: taxes in the [Classical Labor Market Model](note:classical-labor-market-model), labor supply responses to taxes ([Labor-Leisure Choice](note:labor-leisure-choice))."
+      }
+     ],
+     "words": 31,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Classical Labor Market Model](note:classical-labor-market-model) · [Labor-Leisure Choice](note:labor-leisure-choice) · [Labor Demand](note:labor-demand) · [Market Clearing](note:market-clearing)"
+      }
+     ],
+     "words": 11,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

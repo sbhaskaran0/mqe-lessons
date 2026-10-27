@@ -170,6 +170,44 @@
    ]
   },
   {
+   "id": "weak-instruments",
+   "heading": "Weak instruments",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "weak-instruments-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "An instrument that barely moves $x$ is **weak**. The first stage then explains little, the 2SLS standard error explodes, and the estimate can say almost nothing. Example: instrumenting immigrants' Israeli occupations with their occupations before leaving the Soviet Union gives a first-stage F of about 7.6; the IV estimate of the effect on native wage growth is 0.549 with a standard error of 1.28, compatible with large negative or positive effects. (Beyond the lecture) Weak instruments also bias 2SLS toward OLS, and a common rule of thumb asks for a first-stage F above 10."
+      }
+     ],
+     "words": 96,
+     "symbols": [
+      "$x$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "example-where-immigrants-go",
+   "heading": "Example — where immigrants go",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "example-where-immigrants-go-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Immigrants choose where to live and which jobs to take, so their inflow into a region or occupation is endogenous. Common instruments use earlier patterns: the share of the same nationality already living in a place (Mexicans in each US state in 1980), or the occupations immigrants held before migrating. See [Shift-Share Instrument](note:shift-share-instrument) and [Research Designs for Immigration Effects](note:research-designs-for-immigration-effects)."
+      }
+     ],
+     "words": 59,
+     "symbols": []
+    }
+   ]
+  },
+  {
    "id": "links",
    "heading": "Links",
    "role": "other",
@@ -179,10 +217,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "- [Canonical Model of the Skill Premium](note:canonical-model-of-the-skill-premium)\n- [OLS Estimator](note:ols-estimator)\n- [Shift-Share Instrument](note:shift-share-instrument) — instruments built from base-period shares × external shocks"
+       "md": "- [Canonical Model of the Skill Premium](note:canonical-model-of-the-skill-premium)\n- [OLS Estimator](note:ols-estimator)\n- [Shift-Share Instrument](note:shift-share-instrument) — instruments built from base-period shares × external shocks\n- Paper: [Friedberg 2001 - The Impact of Mass Migration on the Israeli Labor Market](note:friedberg-2001-the-impact-of-mass-migration-on-the-israeli-labor-market)\n- Paper: [Monras 2020 - Immigration and Wage Dynamics](note:monras-2020-immigration-and-wage-dynamics)"
       }
      ],
-     "words": 20,
+     "words": 44,
      "symbols": []
     }
    ]

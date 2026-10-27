@@ -1,0 +1,268 @@
+{
+ "slug": "transversality-condition",
+ "notation": [
+  {
+   "tex": "$t$",
+   "meaning": "Period",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "t"
+   ]
+  },
+  {
+   "tex": "$\\beta$",
+   "meaning": "Discount factor",
+   "kind": "Parameter in (0, 1)",
+   "typical": "0.95",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$U'(c_t)$",
+   "meaning": "Marginal utility of consumption in period $t$",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "U"
+   ]
+  },
+  {
+   "tex": "$c_t$",
+   "meaning": "Consumption in period $t$",
+   "kind": "Choice",
+   "typical": "—",
+   "keys": [
+    "c"
+   ]
+  },
+  {
+   "tex": "$k_{t+1}$",
+   "meaning": "Capital carried into period $t+1$",
+   "kind": "Choice",
+   "typical": "—",
+   "keys": [
+    "k"
+   ]
+  },
+  {
+   "tex": "$k_{T+1}$",
+   "meaning": "Capital left after the last period of a finite horizon",
+   "kind": "Choice",
+   "typical": "0 at the optimum",
+   "keys": [
+    "k"
+   ]
+  },
+  {
+   "tex": "$T$",
+   "meaning": "Last period of a finite horizon",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "T"
+   ]
+  },
+  {
+   "tex": "$f(k)$",
+   "meaning": "Output per worker",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "f"
+   ]
+  },
+  {
+   "tex": "$\\delta$",
+   "meaning": "Depreciation rate",
+   "kind": "Parameter",
+   "typical": "0.1",
+   "keys": [
+    "delta"
+   ]
+  },
+  {
+   "tex": "$\\bar{k}$, $\\bar{c}$, $\\bar{y}$",
+   "meaning": "Steady-state capital, consumption and output",
+   "kind": "Endogenous",
+   "typical": "10.73, 2.20, 3.28 in the example",
+   "keys": [
+    "bar(k)",
+    "bar(c)",
+    "bar(y)"
+   ],
+   "from": "ramsey-cass-koopmans-model"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "If the world ends next year, there is no point keeping machines past that date: anything left over should have been eaten. With no end date, that rule cannot be applied directly, because there is no last year. The transversality condition is its stand-in. It says that, looking far enough ahead, the value of the capital you are still holding, weighted by how little you care about the distant future, has to shrink to nothing. A plan that keeps piling up capital forever without ever consuming it breaks this rule."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "The Euler equation and the resource constraint alone allow many paths; this condition picks the optimal one.",
+       "folded": false
+      }
+     ],
+     "words": 110,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "For the problem $\\max\\sum_{t=0}^{\\infty}\\beta^tU(c_t)$ subject to $c_t + k_{t+1} = f(k_t) + (1-\\delta)k_t$:"
+      },
+      {
+       "t": "math",
+       "tex": "\\lim_{t\\to\\infty}\\beta^t\\,U'(c_t)\\,k_{t+1} = 0"
+      },
+      {
+       "t": "prose",
+       "md": "$\\beta^tU'(c_t)$ is the value, in today's utility, of one unit of output in period $t$, so the product is the present value of the capital carried out of period $t$."
+      }
+     ],
+     "words": 32,
+     "symbols": [
+      "$t$",
+      "$\\beta$",
+      "$U'(c_t)$",
+      "$c_t$",
+      "$k_{t+1}$",
+      "$k_{T+1}$",
+      "$f(k)$",
+      "$\\delta$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "finite-horizon-counterpart",
+   "heading": "Finite-horizon counterpart",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "finite-horizon-counterpart-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With a last period $T$, and capital convertible one-for-one into consumption, the optimum has $k_{T+1} = 0$: leftover capital could have been consumed. Letting $T \\to \\infty$, the condition $\\beta^TU'(c_T)k_{T+1} = 0$ becomes the limit above."
+      }
+     ],
+     "words": 26,
+     "symbols": [
+      "$\\beta$",
+      "$U'(c_t)$",
+      "$c_t$",
+      "$k_{t+1}$",
+      "$k_{T+1}$",
+      "$T$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "example",
+   "heading": "Example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "In a steady state $U'(c_t) = U'(\\bar{c})$ and $k_{t+1} = \\bar{k}$ are constant, so $\\beta^tU'(\\bar{c})\\bar{k} \\to 0$ whenever $\\beta < 1$: the steady state satisfies the condition. With $\\beta = 1$ it would not, which is one reason the golden rule appears only as a limiting case of the Ramsey model."
+      }
+     ],
+     "words": 36,
+     "symbols": [
+      "$t$",
+      "$\\beta$",
+      "$U'(c_t)$",
+      "$c_t$",
+      "$k_{t+1}$",
+      "$k_{T+1}$",
+      "$\\bar{k}$, $\\bar{c}$, $\\bar{y}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Writing it without \"= 0\"** (or as a limit of $k_t$ alone). Capital need not go to zero; only its discounted value does.\n- **Treating it as optional.** Without it, paths that satisfy every Euler equation but over-accumulate capital look optimal."
+      }
+     ],
+     "words": 40,
+     "symbols": [
+      "$k_{t+1}$",
+      "$k_{T+1}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Macroeconomics: every infinite-horizon growth and business cycle model ([Ramsey-Cass-Koopmans Model](note:ramsey-cass-koopmans-model)).\n- Finance: ruling out bubbles and Ponzi schemes (the no-Ponzi condition is its budget-side cousin)."
+      }
+     ],
+     "words": 26,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Ramsey-Cass-Koopmans Model](note:ramsey-cass-koopmans-model) · [Discount Factor](note:discount-factor) · [Constrained Optimization and Lagrange Multipliers](note:constrained-optimization-and-lagrange-multipliers)"
+      }
+     ],
+     "words": 10,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

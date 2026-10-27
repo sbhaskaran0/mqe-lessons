@@ -1,0 +1,145 @@
+{
+ "slug": "labor-leisure-choice-model",
+ "notation": [
+  {
+   "tex": "$U(c, l)$",
+   "meaning": "Utility from consumption and leisure",
+   "kind": "Function",
+   "typical": "$c^2 - 18(24-l)^4$ in the example",
+   "keys": [
+    "U"
+   ],
+   "from": "labor-leisure-choice"
+  },
+  {
+   "tex": "$c$",
+   "meaning": "Units of the consumption good bought",
+   "kind": "Choice",
+   "typical": "66.7 at $w = 20$ in the example",
+   "keys": [
+    "c"
+   ],
+   "from": "labor-leisure-choice"
+  },
+  {
+   "tex": "$l$",
+   "meaning": "Hours of leisure per day",
+   "kind": "Choice",
+   "typical": "20.67 at $w = 20$",
+   "keys": [
+    "l"
+   ],
+   "from": "labor-leisure-choice"
+  },
+  {
+   "tex": "$h$",
+   "meaning": "Hours worked per day",
+   "kind": "Choice",
+   "typical": "3.33 at $w = 20$",
+   "keys": [
+    "h"
+   ],
+   "from": "labor-leisure-choice"
+  },
+  {
+   "tex": "$w$",
+   "meaning": "Nominal wage per hour",
+   "kind": "Exogenous (to the worker)",
+   "typical": "20",
+   "keys": [
+    "w"
+   ],
+   "from": "labor-leisure-choice"
+  },
+  {
+   "tex": "$p$",
+   "meaning": "Price of the consumption good",
+   "kind": "Exogenous",
+   "typical": "1 (normalized)",
+   "keys": [
+    "p"
+   ],
+   "from": "labor-leisure-choice"
+  },
+  {
+   "tex": "$MRS$",
+   "meaning": "Marginal rate of substitution of leisure for consumption, $U_l/U_c$",
+   "kind": "Statistic",
+   "typical": "equals $w/p$ at the optimum",
+   "keys": [
+    "~MRS"
+   ],
+   "from": "labor-leisure-choice"
+  },
+  {
+   "tex": "$\\tau$",
+   "meaning": "Tax per hour worked, paid by the worker",
+   "kind": "Parameter",
+   "typical": "5 in the tax example",
+   "keys": [
+    "tau"
+   ],
+   "from": "labor-leisure-choice"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "labor-leisure-choice-diagram"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$U(c, l)$",
+      "$c$",
+      "$l$",
+      "$h$",
+      "$w$",
+      "$p$",
+      "$MRS$",
+      "$\\tau$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The model behind [Labor-Leisure Choice Diagram](note:labor-leisure-choice-diagram), which names this note and adds the panel. Place that view, not this note."
+      },
+      {
+       "t": "prose",
+       "md": "- **Model.** The worker of [Labor-Leisure Choice](note:labor-leisure-choice): utility $U = c^2 - 18(24-l)^4$, budget $c = \\frac{w-\\tau}{p}h$, time $l = 24 - h$. The condition $MRS = 72h^3/(2c) = (w-\\tau)/p$ gives $h = \\frac{1}{6}\\cdot\\frac{w-\\tau}{p}$.\n- **Curves over leisure $l$.** The budget line $c = \\frac{w-\\tau}{p}(24-l)$, which hits zero at $l = 24$; the indifference curve through the optimum, $c = \\sqrt{u + 18(24-l)^4}$.\n- **Tests.** The lecture's example ($w = 20$: $h = 3.33$; $w = 30$: $h = 5$), the real-wage check ($w = 40$, $p = 2$) and the tax case from [Tax Incidence](note:tax-incidence), each solved independently in Python by maximizing utility numerically."
+      }
+     ],
+     "words": 74,
+     "symbols": [
+      "$U(c, l)$",
+      "$c$",
+      "$l$",
+      "$h$",
+      "$w$",
+      "$p$",
+      "$MRS$",
+      "$\\tau$"
+     ]
+    }
+   ]
+  }
+ ]
+}

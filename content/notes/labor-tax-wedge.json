@@ -1,0 +1,134 @@
+{
+ "slug": "labor-tax-wedge",
+ "notation": [
+  {
+   "tex": "$\\tau$",
+   "meaning": "Tax per unit (per hour of labor)",
+   "kind": "Policy parameter",
+   "typical": "5",
+   "keys": [
+    "tau"
+   ],
+   "from": "tax-incidence"
+  },
+  {
+   "tex": "$w$",
+   "meaning": "Posted market wage",
+   "kind": "Endogenous",
+   "typical": "20 with no tax",
+   "keys": [
+    "w"
+   ],
+   "from": "tax-incidence"
+  },
+  {
+   "tex": "$L^S$",
+   "meaning": "Labor supply, a function of the take-home wage",
+   "kind": "Function",
+   "typical": "$100w_n$ in the example",
+   "keys": [
+    "~L^S"
+   ],
+   "from": "tax-incidence"
+  },
+  {
+   "tex": "$L^D$",
+   "meaning": "Labor demand, a function of the firm's cost per hour",
+   "kind": "Function",
+   "typical": "$40{,}000/w_f$",
+   "keys": [
+    "~L^D"
+   ],
+   "from": "tax-incidence"
+  },
+  {
+   "tex": "$L$",
+   "meaning": "Hours worked",
+   "kind": "Endogenous",
+   "typical": "1,765.6 with $\\tau = 5$",
+   "keys": [
+    "L"
+   ],
+   "from": "tax-incidence"
+  },
+  {
+   "tex": "$L^*$",
+   "meaning": "Equilibrium hours",
+   "kind": "Endogenous",
+   "typical": "2,000",
+   "keys": [
+    "L*"
+   ],
+   "from": "classical-labor-market-model"
+  },
+  {
+   "tex": "$w^*$",
+   "meaning": "Equilibrium wage",
+   "kind": "Endogenous",
+   "typical": "20",
+   "keys": [
+    "w*"
+   ],
+   "from": "classical-labor-market-model"
+  },
+  {
+   "tex": "$a$",
+   "meaning": "Scale of the firm's production function $F(L) = a\\ln L$",
+   "kind": "Parameter",
+   "typical": "40,000",
+   "keys": [
+    "a"
+   ],
+   "from": "classical-labor-market-model"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "labor-tax-wedge"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$\\tau$",
+      "$w$",
+      "$L^S$",
+      "$L^D$",
+      "$L$",
+      "$L^*$",
+      "$w^*$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Purpose.** See that who legally pays a per-hour tax changes only the posted wage: the take-home wage, the firm's cost and hours depend on the total tax alone.\n- **Model.** A view of [Labor Market Supply and Demand Model](note:labor-market-supply-and-demand-model) with 600 consumers, $a = 40{,}000$ and no wage floor fixed; sliders $\\tau_w$ (shifts supply up) and $\\tau_f$ (shifts demand down).\n- **Elements.** Panel `taxmarket`: curves `supply`, `demand`, `supply0`, `demand0` (dashed, no tax); points `eq0`, `eqt`, `pnet`, `pfirm`; line `wedge`. Readouts `w_out`, `wn_out`, `wf_out`, `L_out`, `bw_out`, `bf_out`.\n- **Tests.** Taxes of 5 on each side and split, computed independently in Python by root-finding; see the worked example in [Tax Incidence](note:tax-incidence)."
+      }
+     ],
+     "words": 111,
+     "symbols": [
+      "$\\tau$",
+      "$a$"
+     ]
+    }
+   ]
+  }
+ ]
+}

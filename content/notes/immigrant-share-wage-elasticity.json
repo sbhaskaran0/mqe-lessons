@@ -1,0 +1,321 @@
+{
+ "slug": "immigrant-share-wage-elasticity",
+ "notation": [
+  {
+   "tex": "$i$, $j$, $t$",
+   "meaning": "Education group, experience group, census year",
+   "kind": "Index",
+   "typical": "4 × 8 × 5 = 160 cells",
+   "keys": [
+    "i",
+    "j",
+    "t"
+   ]
+  },
+  {
+   "tex": "$y_{ijt}$",
+   "meaning": "Native outcome in the cell: mean log annual or weekly earnings, or fraction of time worked",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "y"
+   ]
+  },
+  {
+   "tex": "$w_{ijt}$",
+   "meaning": "Native wage in the cell",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "w"
+   ]
+  },
+  {
+   "tex": "$M_{ijt}$, $N_{ijt}$",
+   "meaning": "Immigrant and native labor (hours) in the cell",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "M",
+    "N"
+   ]
+  },
+  {
+   "tex": "$m$",
+   "meaning": "Immigrants per native, $M/N$",
+   "kind": "Data",
+   "typical": "0.168 (average, 2000)",
+   "keys": [
+    "m"
+   ]
+  },
+  {
+   "tex": "$p$",
+   "meaning": "Immigrant share of the cell's hours, $M/(M+N) = m/(1+m)$",
+   "kind": "Data",
+   "typical": "0.144 at $m = 0.168$; 0.5 for young dropouts in 2000",
+   "keys": [
+    "p"
+   ]
+  },
+  {
+   "tex": "$\\theta$",
+   "meaning": "Coefficient on the immigrant share",
+   "kind": "Parameter",
+   "typical": "−0.572 (log weekly earnings)",
+   "keys": [
+    "theta"
+   ]
+  },
+  {
+   "tex": "$x_i$, $x_j$, $x_t$",
+   "meaning": "Education, experience and year fixed effects (and their interactions)",
+   "kind": "Parameters",
+   "typical": "—",
+   "keys": [
+    "x"
+   ]
+  },
+  {
+   "tex": "$\\varepsilon_{ijt}$",
+   "meaning": "Error",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "varepsilon"
+   ]
+  },
+  {
+   "tex": "$e$",
+   "meaning": "Elasticity of the native wage to $m$, $\\partial \\log w/\\partial m$",
+   "kind": "Statistic",
+   "typical": "≈ −0.42 at $m = 0.168$",
+   "keys": [
+    "e"
+   ]
+  },
+  {
+   "tex": "$q$",
+   "meaning": "Slope of the share in $m$, $\\partial p/\\partial m = 1/(1+m)^2$",
+   "kind": "Function",
+   "typical": "0.733 at $m = 0.168$",
+   "keys": [
+    "q"
+   ]
+  },
+  {
+   "tex": "$\\Delta \\log w$",
+   "meaning": "Change in the log native wage",
+   "kind": "Statistic",
+   "typical": "≈ −0.042 for $\\Delta m = 0.10$",
+   "keys": [
+    "~\\Delta\\logw"
+   ]
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Suppose you compare groups of workers with the same schooling and experience, and you find that groups where immigrants make up a bigger share of the hours worked earn less. The raw regression coefficient answers an awkward question: what happens to wages if the immigrant share of the group goes from zero to one hundred percent? What you usually want is simpler: if immigrants add ten percent to the group's workforce, how much do wages fall? Converting one into the other is a small piece of calculus. The answer depends on how many immigrants are already there: when immigrants are already half the group, one more adds less to their share than when they are rare, so the same coefficient implies a smaller elasticity."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It turns a regression coefficient into the number policy debates use, the percent wage change from a percent increase in labor supply, and shows why that number depends on the starting immigrant share.",
+       "folded": false
+      }
+     ],
+     "words": 160,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "In cell $ijt$ (education $i$, experience $j$, year $t$) let $M$ be immigrants and $N$ natives, $m = M/N$ immigrants per native and $p = M/(M+N)$ the immigrant share of hours. The regression"
+      },
+      {
+       "t": "math",
+       "tex": "y_{ijt} = \\theta p_{ijt} + x_i + x_j + x_t + x_ix_j + x_jx_t + x_ix_t + \\varepsilon_{ijt}"
+      },
+      {
+       "t": "prose",
+       "md": "gives the effect of the share. Since $p = m/(1+m)$, the elasticity of native wages to immigrants per native is"
+      },
+      {
+       "t": "math",
+       "tex": "\\frac{\\partial \\log w_{ijt}}{\\partial m_{ijt}} = \\theta\\,\\frac{\\partial p_{ijt}}{\\partial m_{ijt}} = \\frac{\\theta}{(1+m_{ijt})^2}"
+      }
+     ],
+     "words": 38,
+     "symbols": [
+      "$i$, $j$, $t$",
+      "$y_{ijt}$",
+      "$w_{ijt}$",
+      "$M_{ijt}$, $N_{ijt}$",
+      "$m$",
+      "$p$",
+      "$\\theta$",
+      "$x_i$, $x_j$, $x_t$",
+      "$\\varepsilon_{ijt}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "derivation",
+   "heading": "Derivation",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "derivation-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. The share in terms of immigrants per native: $p = \\frac{M}{M+N} = \\frac{M/N}{M/N + 1} = \\frac{m}{1+m}$.\n2. Quotient rule: $\\frac{\\partial p}{\\partial m} = \\frac{(1+m) - m}{(1+m)^2} = \\frac{1}{(1+m)^2}$.\n3. Chain rule, with $\\partial \\log w/\\partial p = \\theta$: $\\frac{\\partial \\log w}{\\partial m} = \\frac{\\theta}{(1+m)^2}$."
+      },
+      {
+       "t": "prose",
+       "md": "Equivalently, since $1 - p = 1/(1+m)$, the elasticity is $\\theta(1-p)^2$."
+      }
+     ],
+     "words": 21,
+     "symbols": [
+      "$w_{ijt}$",
+      "$M_{ijt}$, $N_{ijt}$",
+      "$m$",
+      "$p$",
+      "$\\theta$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Log weekly earnings give $\\theta = -0.572$. At the 2000 average, $m = 0.168$:"
+      },
+      {
+       "t": "math",
+       "tex": "\\frac{-0.572}{(1.168)^2} = -0.419"
+      },
+      {
+       "t": "prose",
+       "md": "So immigrants equal to 10% of a cell's natives ($\\Delta m = 0.10$) lower that cell's wage by about $0.419 \\times 0.10 = 0.042$, roughly 4%. For a cell where half the workers are already immigrants ($p = 0.5$, $m = 1$), the same $\\theta$ implies $-0.572/4 = -0.143$."
+      }
+     ],
+     "words": 38,
+     "symbols": [
+      "$m$",
+      "$p$",
+      "$\\theta$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "properties",
+   "heading": "Properties",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "properties-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Starting point | $\\partial p/\\partial m$ | Elasticity with $\\theta = -0.572$ |\n| --- | --- | --- |\n| $m = 0$ (no immigrants) | 1 | −0.572 = $\\theta$ |\n| $m = 0.168$ | 0.733 | −0.419 |\n| $m = 0.5$ | 0.444 | −0.254 |\n| $m = 1$ ($p = 0.5$) | 0.25 | −0.143 |"
+      }
+     ],
+     "words": 24,
+     "symbols": [
+      "$m$",
+      "$p$",
+      "$\\theta$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Reading $\\theta$ as the elasticity.** It is the effect of moving the share from 0 to 1; only at $m = 0$ does it equal the elasticity.\n- **Forgetting it is relative.** Year fixed effects absorb anything common to all cells, so $\\theta$ says how cells with more immigrants fared relative to others, not what happened to the average native wage.\n- **Mixing up $m$ and $p$.** $m$ is immigrants per native (can exceed 1); $p$ is the immigrant share of all workers (below 1)."
+      }
+     ],
+     "words": 77,
+     "symbols": [
+      "$m$",
+      "$p$",
+      "$\\theta$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Labor: national skill-cell studies of immigration ([Research Designs for Immigration Effects](note:research-designs-for-immigration-effects)); the same conversion applies to any share regressor, such as the female or college share of a group."
+      }
+     ],
+     "words": 30,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Research Designs for Immigration Effects](note:research-designs-for-immigration-effects) · [Functional Forms and Elasticities](note:functional-forms-and-elasticities) · [Fixed Effects Regression](note:fixed-effects-regression) · [Elasticity of Substitution](note:elasticity-of-substitution) · [Relative Supply and Demand](note:relative-supply-and-demand)\n- Paper: [Borjas 2003 - The Labor Demand Curve Is Downward Sloping](note:borjas-2003-the-labor-demand-curve-is-downward-sloping)"
+      }
+     ],
+     "words": 32,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

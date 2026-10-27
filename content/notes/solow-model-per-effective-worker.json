@@ -2,6 +2,19 @@
  "slug": "solow-model-per-effective-worker",
  "notation": [
   {
+   "tex": "$Y, K, L, C$",
+   "meaning": "Output, capital, labor, consumption (economy-wide totals)",
+   "kind": "Endogenous ($L$ exogenous)",
+   "typical": "—",
+   "keys": [
+    "Y",
+    "K",
+    "L",
+    "C"
+   ],
+   "from": "solow-model-with-technological-progress"
+  },
+  {
    "tex": "$s$",
    "meaning": "Saving rate",
    "kind": "Parameter in (0, 1)",
@@ -52,6 +65,16 @@
    "from": "solow-model-with-technological-progress"
   },
   {
+   "tex": "$\\tilde{A} = A^{1/(1-\\alpha)}$",
+   "meaning": "Labor-augmenting technology",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "tilde(A)"
+   ],
+   "from": "solow-model-with-technological-progress"
+  },
+  {
    "tex": "$\\tilde{\\gamma} = \\gamma/(1-\\alpha)$",
    "meaning": "Growth rate of $\\tilde{A}$",
    "kind": "Parameter",
@@ -74,6 +97,18 @@
    "from": "solow-model-with-technological-progress"
   },
   {
+   "tex": "$k, y, c$",
+   "meaning": "The same per worker (divided by $L$)",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "k",
+    "y",
+    "c"
+   ],
+   "from": "solow-model-with-technological-progress"
+  },
+  {
    "tex": "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$",
    "meaning": "Steady-state values per effective worker",
    "kind": "Endogenous",
@@ -82,6 +117,16 @@
     "bar(k)",
     "bar(y)",
     "bar(c)"
+   ],
+   "from": "solow-model-with-technological-progress"
+  },
+  {
+   "tex": "$g_X$",
+   "meaning": "Growth rate of a variable $X$",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "g"
    ],
    "from": "solow-model-with-technological-progress"
   }
@@ -97,19 +142,23 @@
      "blocks": [
       {
        "t": "interactive",
-       "widget": "solow-model-per-effective-worker"
+       "widget": "solow-level-and-growth-effects"
       }
      ],
      "words": 0,
      "symbols": [
+      "$Y, K, L, C$",
       "$s$",
       "$\\alpha$",
       "$\\delta$",
       "$\\eta$",
       "$\\gamma$",
+      "$\\tilde{A} = A^{1/(1-\\alpha)}$",
       "$\\tilde{\\gamma} = \\gamma/(1-\\alpha)$",
       "$\\tilde{k}, \\tilde{y}, \\tilde{c}$",
-      "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$"
+      "$k, y, c$",
+      "$\\bar{k}$, $\\bar{y}$, $\\bar{c}$",
+      "$g_X$"
      ]
     }
    ]

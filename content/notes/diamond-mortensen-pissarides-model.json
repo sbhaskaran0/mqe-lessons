@@ -1,0 +1,394 @@
+{
+ "slug": "diamond-mortensen-pissarides-model",
+ "notation": [
+  {
+   "tex": "$\\bar{u}$",
+   "meaning": "Steady-state unemployment rate",
+   "kind": "Endogenous",
+   "typical": "5.5% in the example",
+   "keys": [
+    "bar(u)"
+   ]
+  },
+  {
+   "tex": "$\\theta$",
+   "meaning": "Labor market tightness, $V/U$",
+   "kind": "Endogenous",
+   "typical": "1.08",
+   "keys": [
+    "theta"
+   ]
+  },
+  {
+   "tex": "$w$",
+   "meaning": "Wage",
+   "kind": "Endogenous",
+   "typical": "0.969",
+   "keys": [
+    "w"
+   ]
+  },
+  {
+   "tex": "$f$, $q$",
+   "meaning": "Job-finding and vacancy-filling rates",
+   "kind": "Endogenous",
+   "typical": "0.52, 0.48",
+   "keys": [
+    "f",
+    "q"
+   ]
+  },
+  {
+   "tex": "$\\lambda$",
+   "meaning": "Separation rate; a job lasts $1/\\lambda$ periods on average",
+   "kind": "Parameter",
+   "typical": "0.03",
+   "keys": [
+    "lambda"
+   ]
+  },
+  {
+   "tex": "$A$",
+   "meaning": "Matching efficiency",
+   "kind": "Parameter",
+   "typical": "0.5",
+   "keys": [
+    "A"
+   ]
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "Elasticity of hires with respect to unemployment",
+   "kind": "Parameter",
+   "typical": "0.5",
+   "keys": [
+    "alpha"
+   ]
+  },
+  {
+   "tex": "$y$",
+   "meaning": "Output of a filled job per period",
+   "kind": "Parameter",
+   "typical": "1",
+   "keys": [
+    "y"
+   ]
+  },
+  {
+   "tex": "$\\kappa$",
+   "meaning": "Cost of posting a vacancy",
+   "kind": "Parameter",
+   "typical": "0.5",
+   "keys": [
+    "kappa"
+   ]
+  },
+  {
+   "tex": "$\\beta$",
+   "meaning": "Worker's bargaining power",
+   "kind": "Parameter",
+   "typical": "0.5",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$b$",
+   "meaning": "Worker's outside benefit",
+   "kind": "Parameter",
+   "typical": "0.4",
+   "keys": [
+    "b"
+   ]
+  },
+  {
+   "tex": "$U$, $V$",
+   "meaning": "Unemployed workers and vacancies",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "U",
+    "V"
+   ]
+  },
+  {
+   "tex": "$w^*$",
+   "meaning": "Equilibrium wage",
+   "kind": "Endogenous",
+   "typical": "20",
+   "keys": [
+    "w*"
+   ],
+   "from": "classical-labor-market-model"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "In the textbook labor market one wage balances supply and demand, and anyone willing to work at that wage finds a job. Real labor markets are not like that: workers and jobs have to find each other, and that takes time. The Diamond-Mortensen-Pissarides model builds unemployment from that search. Firms decide how many job openings to post by weighing the cost of advertising against the profit a filled job brings. Openings and jobseekers meet through a matching process. When they meet, the firm and the worker bargain over the wage. Jobs also end at some rate. Together these pin down how tight the market is, what wages are, and how much unemployment persists even in a healthy economy."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the standard model of equilibrium unemployment; it reproduces the Beveridge curve and is the workhorse for analyzing benefits, hiring costs and matching technology.",
+       "folded": false
+      }
+     ],
+     "words": 146,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Three equations in three endogenous variables ($\\bar{u}$, $\\theta$, $w$):"
+      },
+      {
+       "t": "table",
+       "md": "| Curve | Equation | From |\n| --- | --- | --- |\n| Beveridge curve (BC) | $\\bar{u} = \\dfrac{\\lambda}{\\lambda + A\\theta^{1-\\alpha}}$ | [Steady-State Unemployment Rate](note:steady-state-unemployment-rate) with the [Matching Function](note:matching-function) |\n| Vacancy supply (VS) | $\\theta = \\left(\\dfrac{A}{\\kappa}\\cdot\\dfrac{y - w}{\\lambda}\\right)^{1/\\alpha}$ | Free entry of vacancies |\n| Wage setting (WS) | $w = \\beta(y + \\theta\\kappa) + (1-\\beta)b$ | [Nash Bargaining](note:nash-bargaining) |"
+      }
+     ],
+     "words": 34,
+     "symbols": [
+      "$\\bar{u}$",
+      "$\\theta$",
+      "$w$",
+      "$\\lambda$",
+      "$A$",
+      "$\\alpha$",
+      "$y$",
+      "$\\kappa$",
+      "$\\beta$",
+      "$b$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "vacancy-creation-and-free-entry",
+   "heading": "Vacancy creation and free entry",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "vacancy-creation-and-free-entry-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A vacancy is filled with probability $q = A\\theta^{-\\alpha}$; a filled job earns $y - w$ per period for an expected $1/\\lambda$ periods. Firms post vacancies while the expected value exceeds the posting cost, and entry drives the value down to the cost:"
+      },
+      {
+       "t": "math",
+       "tex": "\\kappa = q(\\theta)\\,\\frac{y - w}{\\lambda} = A\\theta^{-\\alpha}\\,\\frac{y - w}{\\lambda}"
+      },
+      {
+       "t": "prose",
+       "md": "Solving for $\\theta$ gives the VS curve. It slopes **down** in $(\\theta, w)$: a higher wage makes matches less profitable, so firms post fewer vacancies and the market is less tight."
+      }
+     ],
+     "words": 64,
+     "symbols": [
+      "$\\theta$",
+      "$w$",
+      "$f$, $q$",
+      "$\\lambda$",
+      "$A$",
+      "$\\alpha$",
+      "$y$",
+      "$\\kappa$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "solving-the-model",
+   "heading": "Solving the model",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "solving-the-model-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Work backwards: substitute the WS wage into the VS curve to get one equation in $\\theta$,"
+      },
+      {
+       "t": "math",
+       "tex": "\\frac{\\kappa\\lambda}{A}\\,\\theta^{\\alpha} = (1-\\beta)(y - b) - \\beta\\kappa\\theta"
+      },
+      {
+       "t": "prose",
+       "md": "The left side rises and the right side falls in $\\theta$, so there is exactly one solution (when $y > b$); it generally has to be found numerically. Then $f = A\\theta^{1-\\alpha}$ and the BC give $\\bar{u}$, and the WS gives $w$. With $\\alpha = 1/2$ the equation is a quadratic in $\\sqrt{\\theta}$."
+      }
+     ],
+     "words": 55,
+     "symbols": [
+      "$\\bar{u}$",
+      "$\\theta$",
+      "$w$",
+      "$f$, $q$",
+      "$\\lambda$",
+      "$A$",
+      "$\\alpha$",
+      "$y$",
+      "$\\kappa$",
+      "$\\beta$",
+      "$b$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$A = 0.5$, $\\alpha = 0.5$, $\\lambda = 0.03$, $y = 1$, $b = 0.4$, $\\beta = 0.5$, $\\kappa = 0.5$ (a period is a month):"
+      },
+      {
+       "t": "table",
+       "md": "| | $\\theta$ | $f$ | $\\bar{u}$ | $w$ |\n| --- | --- | --- | --- | --- |\n| Baseline | 1.076 | 0.519 | 5.47% | 0.969 |\n| Outside benefit $b = 0.5$ | 0.887 | 0.471 | 5.99% | 0.972 |\n| Vacancy cost $\\kappa = 0.6$ | 0.887 | 0.471 | 5.99% | 0.966 |\n| Worker power $\\beta = 0.6$ | 0.715 | 0.423 | 6.62% | 0.975 |\n| Separations $\\lambda = 0.04$ | 1.037 | 0.509 | 7.28% | 0.959 |\n| Efficiency $A = 0.6$ | 1.095 | 0.628 | 4.56% | 0.974 |\n| Output per job $y = 1.1$ | 1.265 | 0.562 | 5.06% | 1.066 |"
+      },
+      {
+       "t": "prose",
+       "md": "Higher benefits or worker power raise the wage at every $\\theta$, squeezing profits, so fewer vacancies are posted and unemployment rises."
+      }
+     ],
+     "words": 98,
+     "symbols": [
+      "$\\bar{u}$",
+      "$\\theta$",
+      "$w$",
+      "$f$, $q$",
+      "$\\lambda$",
+      "$A$",
+      "$\\alpha$",
+      "$y$",
+      "$\\kappa$",
+      "$\\beta$",
+      "$b$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "shifts-in-the-curves",
+   "heading": "Shifts in the curves",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "shifts-in-the-curves-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The usual diagram puts tightness $\\theta$ on the vertical axis of two panels: VS (sloping down) and WS (sloping up) against the wage $w$, and the BC (sloping down) against the unemployment rate. Their crossing gives $(w^{*}, \\theta^{*})$, and reading $\\theta^{*}$ across to the BC gives $\\bar{u}$. \"Right\" below means a higher wage at each $\\theta$ (VS, WS) or higher unemployment at each $\\theta$ (BC)."
+      },
+      {
+       "t": "table",
+       "md": "| A rise in | VS | WS | BC | Certain from the diagram |\n| --- | --- | --- | --- | --- |\n| $A$ | Right | — | Left | $\\theta$ ↑, $\\bar{u}$ ↓ |\n| $y$ | Right | Right | — | $w$ ↑ ($\\theta$ ambiguous) |\n| $\\kappa$ | Left | Right | — | $\\theta$ ↓, $\\bar{u}$ ↑ ($w$ ambiguous) |\n| $\\lambda$ | Left | — | Right | $\\theta$ ↓, $\\bar{u}$ ↑ |\n| $b$ | — | Right | — | $w$ ↑, $\\theta$ ↓, $\\bar{u}$ ↑ |\n| $\\beta$ | — | Right | — | $w$ ↑, $\\theta$ ↓, $\\bar{u}$ ↑ |"
+      },
+      {
+       "t": "prose",
+       "md": "When one parameter shifts two of the curves, the outcome is certain only for the variable that both shifts push the same way."
+      }
+     ],
+     "words": 107,
+     "symbols": [
+      "$\\bar{u}$",
+      "$\\theta$",
+      "$w$",
+      "$\\lambda$",
+      "$A$",
+      "$y$",
+      "$\\kappa$",
+      "$\\beta$",
+      "$b$",
+      "$w^*$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Looking for a market-clearing wage.** There is none; the wage comes from bargaining, and unemployment exists in equilibrium.\n- **Reading BC comparative statics as the whole story.** A rise in $\\theta$ lowers $\\bar{u}$ along the BC, but $\\theta$ itself responds to wages and costs through VS and WS.\n- **Mixing notation.** Here $\\beta$ is bargaining power, $\\lambda$ the separation rate, $\\alpha$ the matching elasticity and $A$ matching efficiency, not their meanings in growth models."
+      }
+     ],
+     "words": 68,
+     "symbols": [
+      "$\\bar{u}$",
+      "$\\theta$",
+      "$\\lambda$",
+      "$A$",
+      "$\\alpha$",
+      "$\\beta$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Labor macroeconomics: equilibrium unemployment, unemployment insurance and hiring-subsidy analysis, business-cycle models with labor market frictions.\n- Policy: reading Beveridge-curve shifts and vacancy data."
+      }
+     ],
+     "words": 24,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Matching Function](note:matching-function) · [Steady-State Unemployment Rate](note:steady-state-unemployment-rate) · [Beveridge Curve](note:beveridge-curve) · [Nash Bargaining](note:nash-bargaining) · [Classical Labor Market Model](note:classical-labor-market-model)\n- Paper: [Bhattacharya, Jackson and Jenkins 2018 - Revisiting Unemployment in Intermediate Macroeconomics](note:bhattacharya-jackson-and-jenkins-2018-revisiting-unemployment-in-intermediate-macroeconomics)"
+      }
+     ],
+     "words": 27,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

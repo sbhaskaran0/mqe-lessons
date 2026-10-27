@@ -1,0 +1,226 @@
+{
+ "slug": "research-designs-for-immigration-effects",
+ "notation": [
+  {
+   "tex": "$u$",
+   "meaning": "Unit compared: region, skill cell, occupation or region-occupation",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "u"
+   ]
+  },
+  {
+   "tex": "$\\Delta y_u$",
+   "meaning": "Change in a native outcome (log wage, employment) in unit $u$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "~\\Deltay_u"
+   ]
+  },
+  {
+   "tex": "$\\text{shock}_u$",
+   "meaning": "Immigrant inflow into $u$, usually relative to natives",
+   "kind": "Data",
+   "typical": "7% of Miami's labor force in 1980",
+   "keys": []
+  },
+  {
+   "tex": "$\\beta$",
+   "meaning": "Effect of the shock on the outcome, relative to less-exposed units",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "Change common to all units",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "alpha"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{x}_u$, $\\gamma$",
+   "meaning": "Controls and their coefficients",
+   "kind": "Data / parameters",
+   "typical": "—",
+   "keys": [
+    "bold(x)",
+    "gamma"
+   ]
+  },
+  {
+   "tex": "$\\varepsilon_u$",
+   "meaning": "Error",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "varepsilon"
+   ]
+  },
+  {
+   "tex": "$y_{it}$",
+   "meaning": "Outcome for unit $i$ (industry, region, worker) in period $t$",
+   "kind": "Data",
+   "typical": "log employment",
+   "keys": [
+    "y"
+   ],
+   "from": "difference-in-differences"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "To learn whether immigrants lower the wages of people already working, you need a comparison: some workers who faced many new arrivals and some who faced few. There are four places to find that comparison. You can compare cities that received many immigrants with cities that received few. You can compare skill groups across the whole country, such as young high-school dropouts against older college graduates. You can compare occupations, such as cooks against engineers. Or you can compare occupations within cities. Each comparison answers a narrower question than \"did immigration hurt natives?\": it tells you how the more exposed fared relative to the less exposed. And each can be blurred: workers move between cities, switch jobs, or the goods they make are shipped elsewhere."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "Studies that look at the same immigration wave can reach opposite conclusions because they compare different units, so reading any estimate starts with asking which comparison it uses.",
+       "folded": false
+      }
+     ],
+     "words": 156,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A design regresses a change in native outcomes on an immigrant supply shock measured across some unit $u$:"
+      },
+      {
+       "t": "math",
+       "tex": "\\Delta y_u = \\alpha + \\beta\\,\\text{shock}_u + \\mathbf{x}_u'\\gamma + \\varepsilon_u"
+      },
+      {
+       "t": "table",
+       "md": "| Design | Unit $u$ | Example |\n| --- | --- | --- |\n| Regional (area) | City or state over time | [Card 1990 - The Impact of the Mariel Boatlift](note:card-1990-the-impact-of-the-mariel-boatlift); [Monras 2020 - Immigration and Wage Dynamics](note:monras-2020-immigration-and-wage-dynamics) |\n| National labor group (skill cell) | Education × experience cell over time | [Borjas 2003 - The Labor Demand Curve Is Downward Sloping](note:borjas-2003-the-labor-demand-curve-is-downward-sloping) |\n| National job-specific | Occupation | [Friedberg 2001 - The Impact of Mass Migration on the Israeli Labor Market](note:friedberg-2001-the-impact-of-mass-migration-on-the-israeli-labor-market) |\n| Regional and job-specific | Region × occupation | [Burstein, Hanson, Tian and Vogel 2020 - Tradability and the Labor-Market Impact of Immigration](note:burstein-hanson-tian-and-vogel-2020-tradability-and-the-labor-market-impact-of-immigration) |"
+      }
+     ],
+     "words": 101,
+     "symbols": [
+      "$u$",
+      "$\\Delta y_u$",
+      "$\\beta$",
+      "$\\alpha$",
+      "$\\mathbf{x}_u$, $\\gamma$",
+      "$\\varepsilon_u$",
+      "$y_{it}$"
+     ]
+    },
+    {
+     "id": "definition-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "In every design, $\\beta$ is a **relative** effect: anything common to all units is absorbed by $\\alpha$ or by time fixed effects."
+      }
+     ],
+     "words": 20,
+     "symbols": [
+      "$\\beta$",
+      "$\\alpha$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "what-each-design-gets-right-and-wrong",
+   "heading": "What each design gets right and wrong",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-each-design-gets-right-and-wrong-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Design | Strength | Weakness |\n| --- | --- | --- |\n| Regional | Big, sudden local shocks give a clear before and after; comparison regions act as controls | A city is open: natives move away, other immigrants go elsewhere, goods are traded, so the shock spreads beyond the treated city and the local effect understates the national one |\n| National skill cell | Workers cannot easily escape a skill cell by moving, so the shock stays in the cell | Only relative effects across cells; relies on the cells being imperfect substitutes ([Elasticity of Substitution](note:elasticity-of-substitution)); timing of shocks within cells is endogenous |\n| National job-specific | Captures crowding between occupations nationally; a national shock includes general-equilibrium effects | No clean control group; immigrants choose occupations, so an instrument is needed and is often weak |\n| Region × job | Separates where and in which jobs immigrants arrive; can study how tradability shapes the response | Needs strong data and an instrument for both dimensions |"
+      }
+     ],
+     "words": 148,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Reading a relative effect as an aggregate one.** A zero $\\beta$ across cities does not mean immigration has no national effect, and a negative $\\beta$ across skill cells does not mean average native wages fell.\n- **Treating location or job choice as random.** Immigrants go where wages and jobs are growing, which biases OLS toward zero or positive effects; designs use past settlement patterns or pre-migration occupations as instruments ([Shift-Share Instrument](note:shift-share-instrument)).\n- **Ignoring adjustment margins.** Native migration, occupational switching, trade in goods and technology choice can all absorb a local shock."
+      }
+     ],
+     "words": 90,
+     "symbols": [
+      "$\\beta$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Labor: immigration, but also any local labor supply shock (refugee inflows, military drafts, return migration).\n- Trade and urban: the same regional-versus-national logic applies to trade shocks across [commuting zones](note:commuting-zone)."
+      }
+     ],
+     "words": 31,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Difference-in-Differences](note:difference-in-differences) · [Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls) · [Shift-Share Instrument](note:shift-share-instrument) · [Immigrant Share Wage Elasticity](note:immigrant-share-wage-elasticity) · [Tradable and Non-Tradable Occupations](note:tradable-and-non-tradable-occupations) · [Relative Supply and Demand](note:relative-supply-and-demand)\n- Paper: [Card 1990 - The Impact of the Mariel Boatlift](note:card-1990-the-impact-of-the-mariel-boatlift)\n- Paper: [Borjas 2003 - The Labor Demand Curve Is Downward Sloping](note:borjas-2003-the-labor-demand-curve-is-downward-sloping)\n- Paper: [Monras 2020 - Immigration and Wage Dynamics](note:monras-2020-immigration-and-wage-dynamics)\n- Paper: [Friedberg 2001 - The Impact of Mass Migration on the Israeli Labor Market](note:friedberg-2001-the-impact-of-mass-migration-on-the-israeli-labor-market)\n- Paper: [Burstein, Hanson, Tian and Vogel 2020 - Tradability and the Labor-Market Impact of Immigration](note:burstein-hanson-tian-and-vogel-2020-tradability-and-the-labor-market-impact-of-immigration)\n- Paper: [Clemens, Lewis and Postel 2018 - Immigration Restrictions as Active Labor Market Policy](note:clemens-lewis-and-postel-2018-immigration-restrictions-as-active-labor-market-policy)"
+      }
+     ],
+     "words": 98,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

@@ -321,6 +321,24 @@
    ]
   },
   {
+   "id": "steady-states-of-stocks-and-flows",
+   "heading": "Steady states of stocks and flows",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "steady-states-of-stocks-and-flows-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A steady state need not mean nothing moves. In a labor market, workers flow into unemployment as jobs end and out of it as they find work; the unemployment rate is constant when the two flows are equal, even though individuals keep moving ([Steady-State Unemployment Rate](note:steady-state-unemployment-rate))."
+      }
+     ],
+     "words": 46,
+     "symbols": []
+    }
+   ]
+  },
+  {
    "id": "links",
    "heading": "Links",
    "role": "other",

@@ -217,6 +217,29 @@
    ]
   },
   {
+   "id": "in-infinite-horizon-models",
+   "heading": "In infinite-horizon models",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "in-infinite-horizon-models-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With lifetime utility $\\sum_t\\beta^tu(c_t)$, the discount factor also pins down the long-run return on saving. In a steady state with constant consumption, the Euler equation requires a gross return of $1/\\beta$, so the net interest rate equals the rate of time preference $\\rho = 1/\\beta - 1$: 5.26% when $\\beta = 0.95$ ([Ramsey-Cass-Koopmans Model](note:ramsey-cass-koopmans-model))."
+      }
+     ],
+     "words": 45,
+     "symbols": [
+      "$\\beta$",
+      "$\\rho$",
+      "$u(\\cdot)$",
+      "$c_1$, $c_2$"
+     ]
+    }
+   ]
+  },
+  {
    "id": "links",
    "heading": "Links",
    "role": "other",

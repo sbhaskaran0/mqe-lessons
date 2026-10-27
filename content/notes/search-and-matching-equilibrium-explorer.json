@@ -1,0 +1,183 @@
+{
+ "slug": "search-and-matching-equilibrium-explorer",
+ "notation": [
+  {
+   "tex": "$\\bar{u}$",
+   "meaning": "Steady-state unemployment rate",
+   "kind": "Endogenous",
+   "typical": "5.5% in the example",
+   "keys": [
+    "bar(u)"
+   ],
+   "from": "diamond-mortensen-pissarides-model"
+  },
+  {
+   "tex": "$\\theta$",
+   "meaning": "Labor market tightness, $V/U$",
+   "kind": "Endogenous",
+   "typical": "1.08",
+   "keys": [
+    "theta"
+   ],
+   "from": "diamond-mortensen-pissarides-model"
+  },
+  {
+   "tex": "$w$",
+   "meaning": "Wage",
+   "kind": "Endogenous",
+   "typical": "0.969",
+   "keys": [
+    "w"
+   ],
+   "from": "diamond-mortensen-pissarides-model"
+  },
+  {
+   "tex": "$f$, $q$",
+   "meaning": "Job-finding and vacancy-filling rates",
+   "kind": "Endogenous",
+   "typical": "0.52, 0.48",
+   "keys": [
+    "f",
+    "q"
+   ],
+   "from": "diamond-mortensen-pissarides-model"
+  },
+  {
+   "tex": "$\\lambda$",
+   "meaning": "Separation rate; a job lasts $1/\\lambda$ periods on average",
+   "kind": "Parameter",
+   "typical": "0.03",
+   "keys": [
+    "lambda"
+   ],
+   "from": "diamond-mortensen-pissarides-model"
+  },
+  {
+   "tex": "$A$",
+   "meaning": "Matching efficiency",
+   "kind": "Parameter",
+   "typical": "0.5",
+   "keys": [
+    "A"
+   ],
+   "from": "diamond-mortensen-pissarides-model"
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "Elasticity of hires with respect to unemployment",
+   "kind": "Parameter",
+   "typical": "0.5",
+   "keys": [
+    "alpha"
+   ],
+   "from": "diamond-mortensen-pissarides-model"
+  },
+  {
+   "tex": "$y$",
+   "meaning": "Output of a filled job per period",
+   "kind": "Parameter",
+   "typical": "1",
+   "keys": [
+    "y"
+   ],
+   "from": "diamond-mortensen-pissarides-model"
+  },
+  {
+   "tex": "$\\kappa$",
+   "meaning": "Cost of posting a vacancy",
+   "kind": "Parameter",
+   "typical": "0.5",
+   "keys": [
+    "kappa"
+   ],
+   "from": "diamond-mortensen-pissarides-model"
+  },
+  {
+   "tex": "$\\beta$",
+   "meaning": "Worker's bargaining power",
+   "kind": "Parameter",
+   "typical": "0.5",
+   "keys": [
+    "beta"
+   ],
+   "from": "diamond-mortensen-pissarides-model"
+  },
+  {
+   "tex": "$b$",
+   "meaning": "Worker's outside benefit",
+   "kind": "Parameter",
+   "typical": "0.4",
+   "keys": [
+    "b"
+   ],
+   "from": "diamond-mortensen-pissarides-model"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "search-and-matching-equilibrium-explorer"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$\\bar{u}$",
+      "$\\theta$",
+      "$w$",
+      "$f$, $q$",
+      "$\\lambda$",
+      "$A$",
+      "$y$",
+      "$\\kappa$",
+      "$\\beta$",
+      "$b$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Purpose.** Draw the equilibrium the way the notes do: tightness $\\theta$ on the vertical axis of both panels, vacancy supply and wage setting crossing at $(w^{*}, \\theta^{*})$ on the left, and $\\theta^{*}$ carried across to the Beveridge curve on the right. Dashed curves stay at the practice numbers, so each shift in the notes' table can be seen against where it started.\n- **Model.** A view of [Search and Matching Equilibrium Model](note:search-and-matching-equilibrium-model) ($\\alpha = 1/2$).\n- **Elements.** Panel `wages`: curves `vs_curve`, `ws_curve`, `vs_base`, `ws_base`; points `eq`, `eq_base`. Panel `beveridge`: curves `bc_curve`, `bc_base`; line `th_line`; points `eq_u`, `eq_u_base`. Readouts `theta_out`, `w_out`, `f_out`, `u_out`."
+      }
+     ],
+     "words": 111,
+     "symbols": [
+      "$\\theta$",
+      "$\\alpha$"
+     ]
+    },
+    {
+     "id": "notes-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Tests.** Computed in Python from the closed form for each placement's state: $b = 0.5$, $\\lambda = 0.04$, $y = 1.1$."
+      }
+     ],
+     "words": 13,
+     "symbols": [
+      "$\\lambda$",
+      "$y$",
+      "$b$"
+     ]
+    }
+   ]
+  }
+ ]
+}

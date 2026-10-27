@@ -1,0 +1,242 @@
+{
+ "slug": "nash-bargaining",
+ "notation": [
+  {
+   "tex": "$S$, $S_W$, $S_F$",
+   "meaning": "Total, worker's and firm's surplus from a match",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "S"
+   ]
+  },
+  {
+   "tex": "$\\beta$",
+   "meaning": "Worker's bargaining power, share of the surplus (not a discount factor here)",
+   "kind": "Parameter in (0, 1)",
+   "typical": "0.5",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$w$",
+   "meaning": "Wage",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "w"
+   ]
+  },
+  {
+   "tex": "$y$",
+   "meaning": "Output (revenue) of a filled job per period",
+   "kind": "Parameter",
+   "typical": "1",
+   "keys": [
+    "y"
+   ]
+  },
+  {
+   "tex": "$b$",
+   "meaning": "Worker's outside benefit: leisure, home production or unemployment benefits",
+   "kind": "Parameter",
+   "typical": "0.4",
+   "keys": [
+    "b"
+   ]
+  },
+  {
+   "tex": "$\\theta$",
+   "meaning": "Labor market tightness",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "theta"
+   ]
+  },
+  {
+   "tex": "$\\kappa$",
+   "meaning": "Cost of posting a vacancy",
+   "kind": "Parameter",
+   "typical": "0.5",
+   "keys": [
+    "kappa"
+   ]
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "When a firm and a worker meet, working together creates value that neither has alone: the firm gets output, the worker gets pay rather than searching on. That extra value is the surplus. Nash bargaining is a rule for splitting it: each side gets what it could get by walking away, plus a fixed share of the surplus. The share reflects bargaining power. A worker with more power, or a better fallback such as unemployment benefits or quick re-employment in a busy job market, ends up with a higher wage. The wage can never fall below what the worker would get by staying unemployed, or the worker would walk away."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "In search models no market-clearing price exists, so bargaining is what sets the wage.",
+       "folded": false
+      }
+     ],
+     "words": 127,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Total surplus $S$ is split so the worker gets $S_W = \\beta S$ and the firm $S_F = (1-\\beta)S$. In the simple matching model, per period,"
+      },
+      {
+       "t": "math",
+       "tex": "S_F = y - w, \\qquad S_W = w - b - \\frac{\\beta}{1-\\beta}\\theta\\kappa, \\qquad S = y - b - \\frac{\\beta}{1-\\beta}\\theta\\kappa"
+      },
+      {
+       "t": "prose",
+       "md": "and $S_F = (1-\\beta)S$ gives the wage-setting (WS) curve"
+      },
+      {
+       "t": "math",
+       "tex": "w = \\beta(y + \\theta\\kappa) + (1-\\beta)b"
+      }
+     ],
+     "words": 24,
+     "symbols": [
+      "$S$, $S_W$, $S_F$",
+      "$\\beta$",
+      "$w$",
+      "$y$",
+      "$b$",
+      "$\\theta$",
+      "$\\kappa$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "reading-the-wage-equation",
+   "heading": "Reading the wage equation",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "reading-the-wage-equation-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **$\\beta \\to 0$:** $w = b$, the worker's reservation wage. Below $b$ the worker would rather stay unemployed.\n- **$\\beta \\to 1$:** $w = y + \\theta\\kappa$, the worker captures the whole surplus.\n- **Tightness raises the wage**: in a tight market an unemployed worker would soon find another job, which improves the worker's threat point; the term $\\theta\\kappa$ captures it.\n- **Outside option $b$** raises the wage by $1-\\beta$ for each unit of $b$."
+      }
+     ],
+     "words": 57,
+     "symbols": [
+      "$\\beta$",
+      "$w$",
+      "$y$",
+      "$b$",
+      "$\\theta$",
+      "$\\kappa$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$\\beta = 0.6$, $y = 1$, $\\theta = 0.2$, $\\kappa = 0.5$, $b = 0.4$: $w = 0.6(1 + 0.1) + 0.4 \\times 0.4 = 0.66 + 0.16 = 0.82$."
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$\\beta$",
+      "$w$",
+      "$y$",
+      "$b$",
+      "$\\theta$",
+      "$\\kappa$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Reading $\\beta$ as the firm's power.** It is the worker's share; the firm keeps $1 - \\beta$.\n- **Dropping the $\\theta\\kappa$ term**, which carries the effect of market conditions on the worker's fallback.\n- **Confusing the outside option with zero.** The worker compares the job with unemployment, worth $b$ plus the value of continued search."
+      }
+     ],
+     "words": 50,
+     "symbols": [
+      "$\\beta$",
+      "$b$",
+      "$\\theta$",
+      "$\\kappa$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Labor macroeconomics: wage determination in the [Diamond-Mortensen-Pissarides Model](note:diamond-mortensen-pissarides-model).\n- Game theory and industrial organization: any bilateral negotiation over a surplus."
+      }
+     ],
+     "words": 21,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Diamond-Mortensen-Pissarides Model](note:diamond-mortensen-pissarides-model) · [Matching Function](note:matching-function)"
+      }
+     ],
+     "words": 5,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

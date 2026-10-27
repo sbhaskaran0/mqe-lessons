@@ -1,0 +1,471 @@
+{
+ "slug": "poisson-pseudo-maximum-likelihood",
+ "notation": [
+  {
+   "tex": "$y_i$",
+   "meaning": "Outcome for observation $i$: any non-negative number, zeros allowed",
+   "kind": "Data",
+   "typical": "Trade flow, sales, count",
+   "keys": [
+    "y"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{x}_i$",
+   "meaning": "Regressors, including a constant; often logs, such as $\\ln$ distance",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "bold(x)"
+   ]
+  },
+  {
+   "tex": "$\\boldsymbol{\\beta}$",
+   "meaning": "Coefficients of the exponential mean",
+   "kind": "Parameter (vector)",
+   "typical": "—",
+   "keys": [
+    "bold(beta)"
+   ]
+  },
+  {
+   "tex": "$\\hat{\\boldsymbol{\\beta}}$",
+   "meaning": "The PPML estimate of $\\boldsymbol{\\beta}$",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "hat(bold(beta))"
+   ]
+  },
+  {
+   "tex": "$\\mu_i$",
+   "meaning": "Conditional mean, $\\mu_i = \\exp(\\mathbf{x}_i'\\boldsymbol{\\beta})$",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "mu"
+   ]
+  },
+  {
+   "tex": "$\\eta_i$",
+   "meaning": "Multiplicative error, $y_i = \\mu_i\\eta_i$ with $E[\\eta_i \\mid \\mathbf{x}_i] = 1$",
+   "kind": "Error term",
+   "typical": "1 on average",
+   "keys": [
+    "eta"
+   ]
+  },
+  {
+   "tex": "$\\sigma^2(\\mathbf{x}_i)$",
+   "meaning": "Variance of $\\ln\\eta_i$ given $\\mathbf{x}_i$ (in the worked example)",
+   "kind": "Function",
+   "typical": "$0.5x$ in the example",
+   "keys": [
+    "sigma"
+   ]
+  },
+  {
+   "tex": "$\\ell(\\boldsymbol{\\beta})$",
+   "meaning": "Poisson log-likelihood",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "ell"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{A}$, $\\mathbf{B}$",
+   "meaning": "Bread and meat of the sandwich variance",
+   "kind": "Matrix",
+   "typical": "—",
+   "keys": [
+    "bold(A)",
+    "bold(B)"
+   ]
+  },
+  {
+   "tex": "$n$",
+   "meaning": "Number of observations",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "n"
+   ]
+  },
+  {
+   "tex": "$y$, $x$",
+   "meaning": "Outcome and explanatory variable",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "y",
+    "x"
+   ],
+   "from": "functional-forms-and-elasticities"
+  },
+  {
+   "tex": "$\\beta_1$, $\\beta_2$",
+   "meaning": "Intercept and slope of the chosen form",
+   "kind": "Parameters",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ],
+   "from": "functional-forms-and-elasticities"
+  },
+  {
+   "tex": "$e$",
+   "meaning": "Error term in the quadratic example",
+   "kind": "Unobserved",
+   "typical": "—",
+   "keys": [
+    "e"
+   ],
+   "from": "functional-forms-and-elasticities"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Many outcomes grow multiplicatively: trade between two countries, a firm's sales, the number of crimes in a county each month. The usual habit is to take logs and run a straight-line regression. That habit has two problems. Zeros cannot be logged, so they get thrown away or patched. And when the outcome is noisier for some observations than others, the average of the log is not the log of the average, so the log regression can get the effects wrong even with millions of observations. Poisson pseudo-maximum likelihood fits the curve to the outcome itself instead of its log. It borrows the estimating rule of the Poisson model for counts, but it does not need the outcome to be a count or to follow a Poisson distribution; it only needs the average to have the right exponential shape."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the standard way to estimate constant-elasticity models, such as the gravity equation of trade, when the outcome has zeros or uneven noise, and it reads exactly like a log regression.",
+       "folded": false
+      }
+     ],
+     "words": 173,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "PPML estimates the parameters of an **exponential conditional mean**"
+      },
+      {
+       "t": "math",
+       "tex": "E[y_i \\mid \\mathbf{x}_i] = \\exp(\\mathbf{x}_i'\\boldsymbol{\\beta})"
+      },
+      {
+       "t": "prose",
+       "md": "by solving the first-order condition of the Poisson log-likelihood:"
+      },
+      {
+       "t": "math",
+       "tex": "\\sum_{i=1}^{n}\\left(y_i - \\exp(\\mathbf{x}_i'\\hat{\\boldsymbol{\\beta}})\\right)\\mathbf{x}_i = \\mathbf{0}"
+      },
+      {
+       "t": "prose",
+       "md": "It is consistent for $\\boldsymbol{\\beta}$ whenever the conditional mean is correctly specified, whatever the distribution of $y_i$, which only has to be non-negative ([robust standard errors](note:heteroskedasticity-consistent-standard-errors) are then required). The name \"pseudo\" (or quasi) means the Poisson likelihood is used as a device for estimation, not as a claim about the data."
+      }
+     ],
+     "words": 68,
+     "symbols": [
+      "$y_i$",
+      "$\\mathbf{x}_i$",
+      "$\\boldsymbol{\\beta}$",
+      "$\\hat{\\boldsymbol{\\beta}}$",
+      "$n$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "intuition",
+   "heading": "Intuition",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "intuition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Write the model as $y_i = \\mu_i\\eta_i$. Taking logs gives $\\ln y_i = \\mathbf{x}_i'\\boldsymbol{\\beta} + \\ln\\eta_i$, and OLS on that equation needs $E[\\ln\\eta_i \\mid \\mathbf{x}_i]$ to be a constant. But $E[\\eta_i \\mid \\mathbf{x}_i] = 1$ does not pin down $E[\\ln\\eta_i \\mid \\mathbf{x}_i]$: by Jensen's inequality the log of a noisy variable averages below the log of its mean, and the gap grows with the noise. If the noise depends on $\\mathbf{x}_i$, which is heteroskedasticity, the gap depends on $\\mathbf{x}_i$ too, and OLS on logs absorbs it into the slope. PPML never takes logs: it asks only that the residuals $y_i - \\mu_i$ be uncorrelated with the regressors, which is true whenever the mean is right."
+      }
+     ],
+     "words": 90,
+     "symbols": [
+      "$y_i$",
+      "$\\mathbf{x}_i$",
+      "$\\boldsymbol{\\beta}$",
+      "$\\mu_i$",
+      "$\\eta_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "derivation",
+   "heading": "Derivation",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "derivation-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Poisson log-likelihood.** If $y_i$ were Poisson with mean $\\mu_i = \\exp(\\mathbf{x}_i'\\boldsymbol{\\beta})$,"
+      },
+      {
+       "t": "math",
+       "tex": "\\ell(\\boldsymbol{\\beta}) = \\sum_{i=1}^{n}\\left[y_i\\,\\mathbf{x}_i'\\boldsymbol{\\beta} - \\exp(\\mathbf{x}_i'\\boldsymbol{\\beta}) - \\ln(y_i!)\\right]"
+      },
+      {
+       "t": "prose",
+       "md": "The last term does not involve $\\boldsymbol{\\beta}$, so it drops out of the first-order condition, and with it any need for $y_i$ to be an integer. Setting $\\partial\\ell/\\partial\\boldsymbol{\\beta} = \\mathbf{0}$ gives $\\sum_i(y_i - \\mu_i)\\mathbf{x}_i = \\mathbf{0}$, the defining condition."
+      },
+      {
+       "t": "prose",
+       "md": "**Why it is consistent without the Poisson assumption.** The population version of the condition is $E[(y_i - \\mu_i)\\mathbf{x}_i] = \\mathbf{0}$. By the law of iterated expectations, $E[(y_i - \\mu_i)\\mathbf{x}_i] = E[(E[y_i \\mid \\mathbf{x}_i] - \\mu_i)\\mathbf{x}_i]$, which is zero whenever $E[y_i \\mid \\mathbf{x}_i] = \\mu_i$. Nothing about the variance or the shape of the distribution enters (Gourieroux, Monfort and Trognon, 1984)."
+      },
+      {
+       "t": "prose",
+       "md": "**Why OLS on logs is not.** With $y_i = \\mu_i\\eta_i$, $E[\\ln y_i \\mid \\mathbf{x}_i] = \\mathbf{x}_i'\\boldsymbol{\\beta} + E[\\ln\\eta_i \\mid \\mathbf{x}_i]$. If $\\ln\\eta_i$ is normal with variance $\\sigma^2(\\mathbf{x}_i)$, then $E[\\eta_i \\mid \\mathbf{x}_i] = 1$ requires $E[\\ln\\eta_i \\mid \\mathbf{x}_i] = -\\sigma^2(\\mathbf{x}_i)/2$. When $\\sigma^2$ varies with $\\mathbf{x}_i$, the log regression estimates $\\boldsymbol{\\beta}$ plus the slope of $-\\sigma^2(\\mathbf{x}_i)/2$."
+      },
+      {
+       "t": "prose",
+       "md": "**Standard errors.** The Poisson model's own variance assumes $\\text{Var}(y_i \\mid \\mathbf{x}_i) = \\mu_i$, which real data rarely satisfy. Use the sandwich"
+      },
+      {
+       "t": "math",
+       "tex": "\\widehat{\\text{Var}}(\\hat{\\boldsymbol{\\beta}}) = \\mathbf{A}^{-1}\\mathbf{B}\\mathbf{A}^{-1}, \\qquad \\mathbf{A} = \\sum_{i}\\hat{\\mu}_i\\mathbf{x}_i\\mathbf{x}_i', \\qquad \\mathbf{B} = \\sum_{i}(y_i - \\hat{\\mu}_i)^2\\mathbf{x}_i\\mathbf{x}_i'"
+      }
+     ],
+     "words": 118,
+     "symbols": [
+      "$y_i$",
+      "$\\mathbf{x}_i$",
+      "$\\boldsymbol{\\beta}$",
+      "$\\hat{\\boldsymbol{\\beta}}$",
+      "$\\mu_i$",
+      "$\\eta_i$",
+      "$\\sigma^2(\\mathbf{x}_i)$",
+      "$\\ell(\\boldsymbol{\\beta})$",
+      "$\\mathbf{A}$, $\\mathbf{B}$",
+      "$n$"
+     ]
+    },
+    {
+     "id": "derivation-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "or its clustered version for panel data."
+      }
+     ],
+     "words": 7,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Simulated data (computed in Python, $n = 100{,}000$, seed 42): $x \\sim U(0, 2)$, $y = \\exp(1 + x)\\,\\eta$, with $\\ln\\eta$ normal, mean $-\\sigma^2(x)/2$ and variance $\\sigma^2(x) = 0.5x$, so $E[\\eta \\mid x] = 1$ and the true slope is 1. Then $E[\\ln y \\mid x] = 1 + x - 0.25x = 1 + 0.75x$."
+      },
+      {
+       "t": "table",
+       "md": "| Estimator | Slope on $x$ | True value |\n| --- | --- | --- |\n| OLS of $\\ln y$ on $x$ | 0.747 | 1 |\n| PPML (robust SE 0.006) | 0.992 | 1 |"
+      },
+      {
+       "t": "prose",
+       "md": "OLS on logs lands on 0.75, as the derivation predicts: it estimates the slope of $E[\\ln y \\mid x]$, not of $\\ln E[y \\mid x]$. At $x = 2$ the true mean is $e^{3} = 20.1$, while $\\exp(E[\\ln y \\mid x]) = e^{2.5} = 12.2$."
+      },
+      {
+       "t": "prose",
+       "md": "**With zeros.** Counts drawn as Poisson with mean $\\exp(-1 + 0.8x)$ (43% zeros, same $x$, same seed sequence):"
+      },
+      {
+       "t": "table",
+       "md": "| Estimator | Slope on $x$ | True value |\n| --- | --- | --- |\n| PPML | 0.790 | 0.8 |\n| OLS of $\\ln y$, zeros dropped | 0.255 | 0.8 |\n| OLS of $\\ln(1 + y)$ | 0.331 | 0.8 |"
+      }
+     ],
+     "words": 107,
+     "symbols": [
+      "$y_i$",
+      "$\\eta_i$",
+      "$\\sigma^2(\\mathbf{x}_i)$",
+      "$n$",
+      "$y$, $x$",
+      "$e$"
+     ]
+    },
+    {
+     "id": "worked-example-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Dropping zeros selects observations with lucky draws, and adding 1 changes the model; both distort the slope badly."
+      }
+     ],
+     "words": 18,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "properties-when-it-fails",
+   "heading": "Properties / when it fails",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "properties-when-it-fails-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Property | PPML | OLS on $\\ln y$ |\n| --- | --- | --- |\n| Consistent under heteroskedasticity | Yes, if the mean $\\exp(\\mathbf{x}'\\boldsymbol{\\beta})$ is right | No, unless the variance of $\\ln\\eta$ is constant |\n| Zeros in $y$ | Used directly | Dropped or patched |\n| $y$ must be an integer | No | No |\n| Coefficient on $\\ln x_k$ | Elasticity of $E[y \\mid \\mathbf{x}]$ | Elasticity of the geometric mean |\n| Coefficient on a dummy $d$ | $E[y]$ changes by $e^{\\beta} - 1$ | Geometric mean changes by $e^{\\beta} - 1$ |\n| Default standard errors | Wrong unless $\\text{Var}(y \\mid \\mathbf{x}) = \\mu$; use robust | Need robust under heteroskedasticity |"
+      },
+      {
+       "t": "prose",
+       "md": "**Implicit weighting.** Estimators of the same exponential mean differ only in how they weight observations, which amounts to an assumption about the variance:"
+      },
+      {
+       "t": "table",
+       "md": "| Estimator | Implied $\\text{Var}(y \\mid \\mathbf{x})$ | Weighting |\n| --- | --- | --- |\n| Nonlinear least squares | Constant | Large-$\\mu$ observations dominate |\n| PPML | Proportional to $\\mu$ | Every observation's residual weighted equally |\n| Gamma PML | Proportional to $\\mu^{2}$ | Small-$\\mu$ observations count more |"
+      }
+     ],
+     "words": 118,
+     "symbols": [
+      "$y_i$",
+      "$\\mathbf{x}_i$",
+      "$\\boldsymbol{\\beta}$",
+      "$\\mu_i$",
+      "$\\eta_i$",
+      "$y$, $x$",
+      "$\\beta_1$, $\\beta_2$",
+      "$e$"
+     ]
+    },
+    {
+     "id": "properties-when-it-fails-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "All three are consistent if the mean is right; PPML is the usual compromise because trade and similar data have variances that grow with the mean (Santos Silva and Tenreyro, 2006)."
+      },
+      {
+       "t": "prose",
+       "md": "**When it fails or needs care.**"
+      }
+     ],
+     "words": 37,
+     "symbols": []
+    },
+    {
+     "id": "properties-when-it-fails-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Wrong mean.** If $E[y \\mid \\mathbf{x}]$ is not exponential in $\\mathbf{x}'\\boldsymbol{\\beta}$ (an omitted variable, a missing interaction), PPML is inconsistent like any other estimator.\n- **Non-existence (separation).** If a regressor or fixed effect perfectly predicts zeros (a group that is always zero), the estimate may not exist or the algorithm may not converge. Drop those observations first; modern packages such as `ppmlhdfe` (Stata) and `fixest::fepois` (R) detect them.\n- **Fixed effects.** With one set of unit fixed effects in a panel, Poisson slope estimates stay consistent; the incidental-parameters problem that biases other nonlinear models does not arise. With the three sets of fixed effects of modern gravity models, standard errors need care (Weidner and Zylkin, 2021)."
+      }
+     ],
+     "words": 114,
+     "symbols": [
+      "$y_i$",
+      "$\\mathbf{x}_i$",
+      "$\\boldsymbol{\\beta}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Using the Poisson default standard errors.** They assume variance equals the mean; with overdispersed data they are far too small. Always use robust or clustered errors.\n- **Thinking the outcome must be a count.** Trade in dollars, expenditure or a share all work; only the mean has to be right.\n- **Switching to negative binomial for overdispersion.** Overdispersion affects only the standard errors, which robust errors fix. The negative binomial estimator is consistent only if its distribution is right, and its estimates depend on the units of $y$.\n- **Running $\\ln(1 + y)$ or dropping zeros.** Both change what is estimated; the example above shows slopes of 0.33 and 0.26 for a true 0.8."
+      }
+     ],
+     "words": 114,
+     "symbols": [
+      "$y_i$"
+     ]
+    },
+    {
+     "id": "common-mistakes-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Reading coefficients as level effects.** They are proportional effects on $E[y \\mid \\mathbf{x}]$: a slope of 0.8 on $x$ means about 0.8 log points, $e^{0.8} - 1 = 123\\%$, per unit of $x$.\n- **Comparing $R^2$ with the log regression.** The models fit different things ($y$ versus $\\ln y$); compare predictions of $y$ instead."
+      }
+     ],
+     "words": 42,
+     "symbols": [
+      "$y_i$",
+      "$\\mathbf{x}_i$",
+      "$y$, $x$",
+      "$e$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- International trade: the gravity equation, with trade flows (many zero) explained by GDPs, distance, borders and trade agreements; the benchmark since Santos Silva and Tenreyro (2006).\n- Econometrics: any non-negative outcome with a constant-elasticity or multiplicative model, such as counts of events (crimes, patents, visits), expenditure and sales, especially in panels with fixed effects.\n- Applied work in Python: `statsmodels` `GLM(y, X, family=Poisson()).fit(cov_type=\"HC1\")` or `pyfixest.fepois` for fixed effects."
+      }
+     ],
+     "words": 76,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Functional Forms and Elasticities](note:functional-forms-and-elasticities) · [Heteroskedasticity-Consistent Standard Errors](note:heteroskedasticity-consistent-standard-errors) · [Generalized Least Squares](note:generalized-least-squares) · [Fixed Effects Regression](note:fixed-effects-regression) · [Logarithms and Growth Rates](note:logarithms-and-growth-rates) · [Box-Cox and Power Transformations](note:box-cox-and-power-transformations)\n- Sources: Gourieroux, Monfort and Trognon (1984), \"Pseudo Maximum Likelihood Methods\", *Econometrica* 52(3); Santos Silva and Tenreyro (2006), \"The Log of Gravity\", *Review of Economics and Statistics* 88(4), 641–658."
+      }
+     ],
+     "words": 54,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

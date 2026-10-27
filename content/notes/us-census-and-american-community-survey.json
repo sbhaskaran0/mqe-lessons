@@ -1,0 +1,96 @@
+{
+ "slug": "us-census-and-american-community-survey",
+ "notation": [],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The decennial **US Census** asked a long-form questionnaire of a sample of households (about one in six) through 2000; public-use microdata samples cover 1–5% of the population. From 2005 the long form was replaced by the **American Community Survey (ACS)**, an annual survey of about 1% of households, often pooled over three or five years. **IPUMS** (University of Minnesota) distributes both with consistent variable codes."
+      }
+     ],
+     "words": 66,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "what-it-records",
+   "heading": "What it records",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-it-records-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Country of birth and citizenship, so immigrants can be identified (born abroad, whether naturalized or not)\n- Education, age (hence potential experience), occupation, industry and location (state, metropolitan area, county groups that map to commuting zones)\n- Prior-year earnings, weeks worked and usual hours, so annual and weekly earnings and hours can be built"
+      }
+     ],
+     "words": 55,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "strengths-and-weaknesses",
+   "heading": "Strengths and weaknesses",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "strengths-and-weaknesses-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Strength | Weakness |\n| --- | --- |\n| Very large samples: fine cells by education × experience, or by occupation × region | Only every ten years before 2005 |\n| Birthplace and citizenship for every person | Earnings are top-coded ([Top Coding](note:top-coding)) and self-reported |\n| Consistent coding across decades via IPUMS | Occupation and geography codes change over time and need crosswalks |"
+      }
+     ],
+     "words": 51,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "in-the-immigration-literature",
+   "heading": "In the immigration literature",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "in-the-immigration-literature-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Borjas (2003) builds 160 education × experience × census-year cells from the 1960–1990 Censuses (and pooled March CPS files for 2000).\n- Burstein, Hanson, Tian and Vogel (2020) use the 1980 Census and the 2012 three-year ACS to measure changes in native and immigrant employment by commuting zone and occupation."
+      }
+     ],
+     "words": 50,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Current Population Survey (CPS)](note:current-population-survey-cps) · [Commuting Zone](note:commuting-zone) · [Research Designs for Immigration Effects](note:research-designs-for-immigration-effects)\n- Paper: [Borjas 2003 - The Labor Demand Curve Is Downward Sloping](note:borjas-2003-the-labor-demand-curve-is-downward-sloping)\n- Paper: [Burstein, Hanson, Tian and Vogel 2020 - Tradability and the Labor-Market Impact of Immigration](note:burstein-hanson-tian-and-vogel-2020-tradability-and-the-labor-market-impact-of-immigration)"
+      }
+     ],
+     "words": 40,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

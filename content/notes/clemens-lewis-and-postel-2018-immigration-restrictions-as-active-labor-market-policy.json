@@ -1,0 +1,247 @@
+{
+ "slug": "clemens-lewis-and-postel-2018-immigration-restrictions-as-active-labor-market-policy",
+ "notation": [
+  {
+   "tex": "$\\varepsilon_{it}$",
+   "meaning": "Error",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "varepsilon"
+   ],
+   "from": "difference-in-differences"
+  },
+  {
+   "tex": "$\\beta$",
+   "meaning": "Coefficients of interest",
+   "kind": "Parameter",
+   "typical": "2 in the example",
+   "keys": [
+    "beta"
+   ],
+   "from": "fixed-effects-regression"
+  },
+  {
+   "tex": "$\\alpha_i$",
+   "meaning": "Unit fixed effect: everything permanent about unit $i$",
+   "kind": "Parameter (one per unit)",
+   "typical": "—",
+   "keys": [
+    "alpha"
+   ],
+   "from": "fixed-effects-regression"
+  }
+ ],
+ "sections": [
+  {
+   "id": "key-takeaways",
+   "heading": "Key takeaways",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "key-takeaways-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. **Card in reverse.** A large *removal* of immigrants: the bracero program of temporary Mexican farm labor was wound down from March 1962 and ended on December 31, 1964.\n2. **No differential wage effect.** Farm wages rose everywhere after 1965, but not more in states that had relied more on braceros.\n3. **The mechanism is technical change.** Exposed farms changed crop choice and mechanized where they could: tomato harvesting in California mechanized almost exactly as braceros left; crops that were hard to mechanize shrank."
+      }
+     ],
+     "words": 84,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "research-question",
+   "heading": "Research question",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "research-question-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "What is the impact of a large removal of immigrants on native outcomes, and what are the mechanisms?"
+      }
+     ],
+     "words": 18,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "data-and-setting",
+   "heading": "Data and setting",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "data-and-setting-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Three bilateral US–Mexico agreements regulated temporary low-skill labor from 1942 to 1964: started in WWII to fill labor shortages, kept for agriculture afterwards, almost half a million seasonal workers (6 weeks to 6 months) each year. To help US workers, Kennedy began excluding braceros in March 1962; the Johnson administration ended the program on December 31, 1964. States are grouped by exposure: high (braceros above 20% of seasonal farm labor in 1955), low, and none."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Mexican share of seasonal farm workers by bracero exposure 1954-1972.png",
+       "alt": "Mexican share of seasonal farm workers by bracero exposure 1954-1972"
+      }
+     ],
+     "words": 76,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "empirical-strategy",
+   "heading": "Empirical strategy",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "empirical-strategy-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A [Difference-in-Differences](note:difference-in-differences) with continuous treatment across states $s$ and quarters $t$:"
+      },
+      {
+       "t": "math",
+       "tex": "\\log(wage_{st}) = \\alpha_s + \\alpha_t + \\beta\\,\\mathbb{I}_{t \\geq 1965}\\,\\bar{\\ell}_s^{1955} + \\varepsilon_{st}"
+      },
+      {
+       "t": "prose",
+       "md": "$\\bar{\\ell}_s^{1955}$ is the Mexican share of the state's hired seasonal farm workers in 1955: the intensity of exposure to the exclusion. State and quarter-by-year fixed effects; standard errors clustered by state."
+      }
+     ],
+     "words": 39,
+     "symbols": [
+      "$\\varepsilon_{it}$",
+      "$\\beta$",
+      "$\\alpha_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "results",
+   "heading": "Results",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "results-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Real farm wages by bracero exposure 1948-1971.png",
+       "alt": "Real farm wages by bracero exposure 1948-1971",
+       "caption": "Real farm wages rose in all three groups after 1965; the high-exposure line does not pull away. Outside the regression: the United Farm Workers won a 40% wage increase in table grapes in 1966, and a minimum wage was raised from $1.25 to $1.75 when the federal minimum was $1.25 — but these do not identify the effect of exclusion."
+      }
+     ],
+     "words": 59,
+     "symbols": []
+    },
+    {
+     "id": "results-2",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Bracero exclusion and farm wages difference-in-differences.png",
+       "alt": "Table - Bracero exclusion and farm wages difference-in-differences"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    },
+    {
+     "id": "results-3",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| | Hourly composite, all years | Daily w/o board, all years | Hourly, 1960–70 | Daily, 1960–70 |\n| --- | --- | --- | --- | --- |\n| $\\mathbb{I}_{t\\ge 1965}\\cdot\\bar{\\ell}_s^{1955}$ (wage level) | −0.0356 (0.0426) | −0.385 (0.495) | −0.0401 (0.0315) | −0.0247 (0.309) |\n| Semi-elasticity (ln wage) | −0.0831 (0.0654) | −0.110 (0.0916) | −0.0750 (0.0507) | −0.0410 (0.0541) |\n| p-value, semi-elasticity = 0.1 | 0.0075 | 0.0263 | 0.0012 | 0.0124 |"
+      },
+      {
+       "t": "prose",
+       "md": "The lecture's reading: the \"expected\" sign, but insignificant and not large, and a semi-elasticity of 0.1 is rejected in every column."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Bracero stock and tomato harvest mechanization in California and Ohio 1955-1975.png",
+       "alt": "Bracero stock and tomato harvest mechanization in California and Ohio 1955-1975",
+       "caption": "California's tomato harvest went from near 0% to near 100% mechanized as its braceros disappeared; Ohio, with almost no braceros, mechanized years later."
+      }
+     ],
+     "words": 115,
+     "symbols": []
+    },
+    {
+     "id": "results-4",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Event-study crop production after bracero exclusion by crop.png",
+       "alt": "Event-study crop production after bracero exclusion by crop",
+       "caption": "Event-study production in more- versus less-exposed states: tomatoes and cotton (easy to mechanize) held up; other bracero-intensive crops, such as asparagus, strawberries, lettuce, celery, pickling cucumbers and citrus, did not."
+      }
+     ],
+     "words": 30,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "caveats",
+   "heading": "Caveats",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "caveats-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Wage data are thin: hourly wages cover 1948–1971 but daily wages are missing for California, Oregon and Washington in most quarters after 1949.\n- With 46 state clusters, the estimates are imprecise."
+      }
+     ],
+     "words": 34,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "in-econ-424-l7-immigration-across-skills-jobs-and-places",
+   "heading": "In Econ 424 L7 Immigration Across Skills, Jobs and Places",
+   "role": "paper-in-lesson",
+   "steps": [
+    {
+     "id": "in-econ-424-l7-immigration-across-skills-jobs-and-places-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The lecture closes with it: \"Card in reverse\" gives Card-like (null) wage effects, probably because employers changed technology rather than paying more. Be able to describe the continuous-treatment DiD, read the table and name the mechanism."
+      }
+     ],
+     "words": 36,
+     "symbols": []
+    }
+   ],
+   "lesson": "econ-424-l7-immigration-across-skills-jobs-and-places"
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Difference-in-Differences](note:difference-in-differences) · [Fixed Effects Regression](note:fixed-effects-regression) · [Research Designs for Immigration Effects](note:research-designs-for-immigration-effects)"
+      }
+     ],
+     "words": 10,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

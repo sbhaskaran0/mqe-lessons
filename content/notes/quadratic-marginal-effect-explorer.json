@@ -1,0 +1,101 @@
+{
+ "slug": "quadratic-marginal-effect-explorer",
+ "notation": [
+  {
+   "tex": "$E[y]$",
+   "meaning": "Expected outcome given the regressors",
+   "kind": "—",
+   "typical": "Expected $SALES$",
+   "keys": [
+    "~E[y]"
+   ],
+   "from": "marginal-effects"
+  },
+  {
+   "tex": "$x$",
+   "meaning": "The regressor whose effect is wanted",
+   "kind": "Data",
+   "typical": "$ADVERT$, \\$1000s",
+   "keys": [
+    "x"
+   ],
+   "from": "marginal-effects"
+  },
+  {
+   "tex": "$z$",
+   "meaning": "Another regressor, held fixed",
+   "kind": "Data",
+   "typical": "$PRICE$",
+   "keys": [
+    "z"
+   ],
+   "from": "marginal-effects"
+  },
+  {
+   "tex": "$ME(x)$",
+   "meaning": "Marginal effect of $x$ at a value of $x$",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "~ME(x)"
+   ],
+   "from": "marginal-effects"
+  },
+  {
+   "tex": "$A$",
+   "meaning": "Advertising level where the marginal effect equals the marginal cost",
+   "kind": "Constant",
+   "typical": "2.014",
+   "keys": [
+    "A"
+   ],
+   "from": "marginal-effects"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "quadratic-marginal-effect-explorer"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$E[y]$",
+      "$x$",
+      "$z$",
+      "$ME(x)$",
+      "$A$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Purpose.** See a marginal effect as the slope of a curve that changes with $x$: steep at low advertising, flat at the peak $x_0 = 2.195$, negative beyond it.\n- **Model.** A view of [Quadratic Advertising Sales Model](note:quadratic-advertising-sales-model).\n- **Elements.** Panel `sales_panel`: curves `sales_curve`, `tangent`; points `here` (draggable, bound to `xc`), `peak`. Readouts `me_out`, `turn_out`, `opt_out`.\n- **Tests.** Computed in Python: at $x = 2.5$ the marginal effect is $12.1512 - 5.536 \\times 2.5 = -1.689$; the tangent at $x = 1$ reaches $75.554 + 6.615 = 82.169$ at $x = 2$."
+      }
+     ],
+     "words": 73,
+     "symbols": [
+      "$x$"
+     ]
+    }
+   ]
+  }
+ ]
+}

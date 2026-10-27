@@ -75,11 +75,12 @@
      "blocks": [
       {
        "t": "interactive",
-       "widget": "ols-sampling-model"
+       "widget": "ols-sampling-distribution"
       }
      ],
      "words": 0,
      "symbols": [
+      "$b_k$",
       "$\\beta_k$",
       "$\\sigma^2$",
       "$N$, $K$"

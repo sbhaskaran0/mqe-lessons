@@ -1,0 +1,186 @@
+{
+ "slug": "petrongolo-and-pissarides-2001-looking-into-the-black-box",
+ "notation": [
+  {
+   "tex": "$H$",
+   "meaning": "Hires (matches) per period",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "H"
+   ],
+   "from": "matching-function"
+  },
+  {
+   "tex": "$U$",
+   "meaning": "Unemployed workers searching",
+   "kind": "State variable",
+   "typical": "—",
+   "keys": [
+    "U"
+   ],
+   "from": "matching-function"
+  },
+  {
+   "tex": "$V$",
+   "meaning": "Vacancies (job openings)",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "V"
+   ],
+   "from": "matching-function"
+  }
+ ],
+ "sections": [
+  {
+   "id": "key-takeaways",
+   "heading": "Key takeaways",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "key-takeaways-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. **Constant returns is a good approximation.** Aggregate estimates generally support a Cobb-Douglas matching function with constant returns to scale in vacancies and unemployment; departures are \"only mild and rare\" (beyond the lecture: the lecture cites the survey for this point only).\n2. **(Beyond the lecture)** A plausible range for the elasticity of hires with respect to unemployment is 0.5 to 0.7.\n3. **(Beyond the lecture)** Some industry studies find increasing returns, for example in US manufacturing (sum of elasticities about 1.4)."
+      }
+     ],
+     "words": 85,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "research-question",
+   "heading": "Research question",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "research-question-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "What do the theoretical microfoundations and the empirical estimates say about the aggregate matching function, the \"black box\" that turns unemployed workers and vacancies into hires?"
+      }
+     ],
+     "words": 26,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "data-and-setting",
+   "heading": "Data and setting",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "data-and-setting-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A survey of studies estimating $H = H(U, V)$ with aggregate time series, regional panels and cross-sections in several countries."
+      }
+     ],
+     "words": 16,
+     "symbols": [
+      "$H$",
+      "$U$",
+      "$V$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "empirical-strategy",
+   "heading": "Empirical strategy",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "empirical-strategy-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Most surveyed studies regress log hires (or outflows from unemployment) on log unemployment and log vacancies, testing whether the two elasticities sum to one ([Matching Function](note:matching-function))."
+      }
+     ],
+     "words": 26,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "results",
+   "heading": "Results",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "results-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Constant returns to scale is supported in most aggregate studies.\n- Elasticity on unemployment in the range 0.5–0.7 (beyond the lecture).\n- Exceptions: increasing returns in some manufacturing studies, with elasticity sums of about 1.2–1.4 (beyond the lecture)."
+      }
+     ],
+     "words": 45,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "caveats",
+   "heading": "Caveats",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "caveats-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Vacancy data are often incomplete, and hires come from employed job-seekers and people outside the labor force too, which biases simple estimates (beyond the lecture)."
+      }
+     ],
+     "words": 26,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "in-econ-402a-l5-a-search-and-matching-model-of-the-labor-market",
+   "heading": "In Econ 402A L5 A Search and Matching Model of the Labor Market",
+   "role": "paper-in-lesson",
+   "steps": [
+    {
+     "id": "in-econ-402a-l5-a-search-and-matching-model-of-the-labor-market-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The typed notes cite the survey to justify the Cobb-Douglas, constant-returns matching function: one could imagine more searchers and vacancies raising the chance of a good match (increasing returns), but empirical work suggests constant returns is not a bad approximation. What to be able to do: say what constant returns means for the matching function and why it makes the matching rates depend only on tightness."
+      }
+     ],
+     "words": 66,
+     "symbols": []
+    }
+   ],
+   "lesson": "econ-402a-l5-a-search-and-matching-model-of-the-labor-market"
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Matching Function](note:matching-function) · [Diamond-Mortensen-Pissarides Model](note:diamond-mortensen-pissarides-model)"
+      }
+     ],
+     "words": 5,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

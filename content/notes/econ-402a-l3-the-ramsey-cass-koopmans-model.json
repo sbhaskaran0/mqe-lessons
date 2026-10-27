@@ -1,0 +1,1714 @@
+{
+ "slug": "econ-402a-l3-the-ramsey-cass-koopmans-model",
+ "notation": [
+  {
+   "tex": "$c_t$",
+   "meaning": "Consumption per worker in period $t$",
+   "kind": "Choice",
+   "typical": "—",
+   "keys": [
+    "c"
+   ],
+   "from": "ramsey-cass-koopmans-model"
+  },
+  {
+   "tex": "$k_1$, $k_2$",
+   "meaning": "Two-period version: capital given in period 1, capital chosen for period 2",
+   "kind": "State variable / choice",
+   "typical": "9 and 1 in the example",
+   "keys": [
+    "k"
+   ],
+   "from": "ramsey-cass-koopmans-model"
+  },
+  {
+   "tex": "$s_1$",
+   "meaning": "Two-period version: share of period-1 output saved, $k_2/f(k_1)$",
+   "kind": "Endogenous",
+   "typical": "1/3 in the example",
+   "keys": [
+    "s"
+   ],
+   "from": "ramsey-cass-koopmans-model"
+  },
+  {
+   "tex": "$i_t$",
+   "meaning": "Investment per worker",
+   "kind": "Choice",
+   "typical": "$\\delta\\bar{k}$ in steady state",
+   "keys": [
+    "i"
+   ],
+   "from": "ramsey-cass-koopmans-model"
+  },
+  {
+   "tex": "$y_t = f(k_t)$",
+   "meaning": "Output per worker",
+   "kind": "Function",
+   "typical": "$Ak^{\\alpha}$",
+   "keys": [
+    "y"
+   ],
+   "from": "ramsey-cass-koopmans-model"
+  },
+  {
+   "tex": "$f'(k)$",
+   "meaning": "Marginal product of capital (MPK)",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "f"
+   ],
+   "from": "ramsey-cass-koopmans-model"
+  },
+  {
+   "tex": "$U(c)$, $U'(c)$",
+   "meaning": "Period utility and marginal utility",
+   "kind": "Function",
+   "typical": "$\\ln c$",
+   "keys": [
+    "U"
+   ],
+   "from": "ramsey-cass-koopmans-model"
+  },
+  {
+   "tex": "$\\beta$",
+   "meaning": "Discount factor",
+   "kind": "Parameter in (0, 1)",
+   "typical": "0.95",
+   "keys": [
+    "beta"
+   ],
+   "from": "ramsey-cass-koopmans-model"
+  },
+  {
+   "tex": "$\\delta$",
+   "meaning": "Depreciation rate",
+   "kind": "Parameter",
+   "typical": "0.1",
+   "keys": [
+    "delta"
+   ],
+   "from": "ramsey-cass-koopmans-model"
+  },
+  {
+   "tex": "$T$",
+   "meaning": "Last period of a finite horizon",
+   "kind": "Parameter",
+   "typical": "$\\infty$ in the main model",
+   "keys": [
+    "T"
+   ],
+   "from": "ramsey-cass-koopmans-model"
+  },
+  {
+   "tex": "$\\mu_t$",
+   "meaning": "Multiplier on period $t$'s resource constraint",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "mu"
+   ],
+   "from": "ramsey-cass-koopmans-model"
+  },
+  {
+   "tex": "$\\lambda_t$",
+   "meaning": "Current-value multiplier, $\\lambda_t = \\beta^{-t}\\mu_t$",
+   "kind": "Endogenous",
+   "typical": "$U'(c_t)$",
+   "keys": [
+    "lambda"
+   ],
+   "from": "ramsey-cass-koopmans-model"
+  },
+  {
+   "tex": "$\\bar{k}$, $\\bar{c}$, $\\bar{y}$",
+   "meaning": "Steady-state capital, consumption and output",
+   "kind": "Endogenous",
+   "typical": "10.73, 2.20, 3.28 in the example",
+   "keys": [
+    "bar(k)",
+    "bar(c)",
+    "bar(y)"
+   ],
+   "from": "ramsey-cass-koopmans-model"
+  },
+  {
+   "tex": "$A$, $\\alpha$",
+   "meaning": "Productivity and capital share in $f(k) = Ak^{\\alpha}$",
+   "kind": "Parameters",
+   "typical": "1, 0.5",
+   "keys": [
+    "A",
+    "alpha"
+   ],
+   "from": "ramsey-cass-koopmans-model"
+  },
+  {
+   "tex": "$k^{*}$",
+   "meaning": "Golden-rule capital, $f'(k^{*}) = \\delta$",
+   "kind": "Endogenous",
+   "typical": "25 in the example",
+   "keys": [
+    "k*"
+   ],
+   "from": "ramsey-cass-koopmans-model"
+  },
+  {
+   "tex": "$w_t$, $r_t$",
+   "meaning": "Wage and rental rate of capital",
+   "kind": "Prices",
+   "typical": "$r = f'(k)$",
+   "keys": [
+    "w",
+    "r"
+   ],
+   "from": "ramsey-cass-koopmans-model"
+  },
+  {
+   "tex": "$R_t$",
+   "meaning": "Interest rate on bonds",
+   "kind": "Price",
+   "typical": "$1/\\beta - 1$ in steady state",
+   "keys": [
+    "R"
+   ],
+   "from": "ramsey-cass-koopmans-model"
+  },
+  {
+   "tex": "$b_t$",
+   "meaning": "Bonds held at the start of period $t$",
+   "kind": "State variable",
+   "typical": "0 in equilibrium",
+   "keys": [
+    "b"
+   ],
+   "from": "ramsey-cass-koopmans-model"
+  },
+  {
+   "tex": "$F(K, L)$, $K$, $L$",
+   "meaning": "Aggregate production function, capital and labor",
+   "kind": "Function / inputs",
+   "typical": "$L = 1$",
+   "keys": [
+    "F",
+    "K",
+    "L"
+   ],
+   "from": "ramsey-cass-koopmans-model"
+  },
+  {
+   "tex": "$u'(c)$",
+   "meaning": "Marginal utility of consumption",
+   "kind": "Function",
+   "typical": "$1/c$ with log utility",
+   "keys": [
+    "u"
+   ],
+   "from": "consumption-euler-equation"
+  },
+  {
+   "tex": "$t$",
+   "meaning": "Period",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "t"
+   ],
+   "from": "transversality-condition"
+  },
+  {
+   "tex": "$k^*, y^*, c^*$",
+   "meaning": "Golden-rule steady-state capital, output, consumption",
+   "kind": "Endogenous",
+   "typical": "7.13, 1.92, 1.28 per effective worker in the growth example; 25, 5, 2.5 per worker in the basic example",
+   "keys": [
+    "k*",
+    "y*",
+    "c*"
+   ],
+   "from": "golden-rule-saving-rate"
+  },
+  {
+   "tex": "$\\mathcal{L}$",
+   "meaning": "Lagrangian",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "cal(L)"
+   ],
+   "from": "constrained-optimization-and-lagrange-multipliers"
+  },
+  {
+   "tex": "$p_x$, $p_y$, $m$",
+   "meaning": "Prices and income in the example",
+   "kind": "Parameters",
+   "typical": "2, 5, 100",
+   "keys": [
+    "p",
+    "m"
+   ],
+   "from": "constrained-optimization-and-lagrange-multipliers"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**This lecture combines the capital accumulation of the Solow model with the saving decision of the last lecture. In two periods, a planner splits output between consumption and capital and sets the marginal rate of substitution equal to the marginal product of capital, $f'(k_2)$, where the consumer used to set it equal to $1 + r$; in the notes' example, with $f(k) = \\sqrt{k}$ and $k_1 = 9$, it keeps 1 of its 3 units of output as capital. With many periods the same logic gives an Euler equation, a resource constraint and a boundary (or transversality) condition, and the economy settles at a steady state where $1/\\beta = f'(\\bar{k}) + 1 - \\delta$. Setting $\\beta = 1$ gives back the golden rule; with $\\beta = 0.95$ capital stops at 10.7, well below the golden rule's 25.**"
+      }
+     ],
+     "words": 115,
+     "symbols": [
+      "$k_1$, $k_2$",
+      "$f'(k)$",
+      "$\\beta$",
+      "$\\delta$",
+      "$\\bar{k}$, $\\bar{c}$, $\\bar{y}$",
+      "$w_t$, $r_t$"
+     ]
+    },
+    {
+     "id": "intro-2",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "info",
+       "title": "Sources",
+       "md": "This summary follows the professor's **handwritten notes**: the two-period version and its worked example, the many-period planner's problem, the infinite horizon and the steady state. The **typed notes** add the comparison with Solow (§8) and the competitive equilibrium (§9), which the handwritten notes do not cover. Numbers beyond the handwritten example ($\\alpha = 0.5$, $\\delta = 0.1$ and $A = 1$, the basic economy of [Econ 402A L1 Solow Growth Model](note:econ-402a-l1-solow-growth-model)) are added for practice.",
+       "folded": false
+      }
+     ],
+     "words": 67,
+     "symbols": [
+      "$\\delta$",
+      "$A$, $\\alpha$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1-where-this-fits",
+   "heading": "1. Where this fits",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-where-this-fits-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The [Solow Growth Model](note:solow-growth-model) explains long-run growth but assumes the saving rate. The [Two-Period Consumption-Saving Model](note:two-period-consumption-saving-model) explains saving but has no growth. The Ramsey-Cass-Koopmans model keeps Solow's production and capital accumulation and makes saving the outcome of the consumer's optimization ([Ramsey-Cass-Koopmans Model](note:ramsey-cass-koopmans-model))."
+      }
+     ],
+     "words": 42,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "2-two-periods-with-capital",
+   "heading": "2. Two periods with capital",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-two-periods-with-capital-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Start with two periods and capital in place of the bond. Output is produced by $y = f(k)$ and divided between consumption and capital for next period, which fully depreciates:"
+      },
+      {
+       "t": "math",
+       "tex": "f(k_1) = c_1 + k_2, \\qquad f(k_2) = c_2"
+      },
+      {
+       "t": "prose",
+       "md": "The consumer maximizes $U(c_1, c_2)$ over $c_1$, $c_2$ and $k_2$, with $k_1$ given. With a multiplier on each constraint, the Lagrangian $\\mathcal{L} = U(c_1, c_2) + \\lambda_1(f(k_1) - c_1 - k_2) + \\lambda_2(f(k_2) - c_2)$ gives $\\partial U/\\partial c_1 = \\lambda_1$, $\\partial U/\\partial c_2 = \\lambda_2$ and, for $k_2$, $-\\lambda_1 + \\lambda_2 f'(k_2) = 0$. Together:"
+      },
+      {
+       "t": "math",
+       "tex": "\\frac{\\partial U/\\partial c_1}{\\partial U/\\partial c_2} = f'(k_2)"
+      },
+      {
+       "t": "prose",
+       "md": "Last time the [Marginal Rate of Substitution](note:marginal-rate-of-substitution) equalled $1 + r$; now it equals the marginal product of capital. Investing is how this economy saves, and the MPK is its return (L2 §11)."
+      }
+     ],
+     "words": 76,
+     "symbols": [
+      "$c_t$",
+      "$k_1$, $k_2$",
+      "$y_t = f(k_t)$",
+      "$f'(k)$",
+      "$U(c)$, $U'(c)$",
+      "$\\lambda_t$",
+      "$w_t$, $r_t$",
+      "$\\mathcal{L}$"
+     ]
+    },
+    {
+     "id": "2-two-periods-with-capital-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "In the two-period capital problem, the consumer is at an optimum. Then a change in technology lowers the marginal product of capital at every $k$. What should the consumer do?",
+       "options": [
+        {
+         "md": "Invest more, to make up for the lower return",
+         "correct": false,
+         "feedback": "A lower return makes each unit invested buy less tomorrow; that pushes toward investing less, not more. (Income effects can work the other way, but the notes' reading is the price of waiting.)"
+        },
+        {
+         "md": "Consume more of today's output and invest less, since a unit saved now buys less consumption tomorrow",
+         "correct": true
+        },
+        {
+         "md": "Nothing: the MRS does not depend on technology",
+         "correct": false,
+         "feedback": "The MRS must *equal* $f'(k_2)$ at the optimum. If $f'(k_2)$ falls, the old plan has MRS $> f'(k_2)$ and is no longer optimal."
+        },
+        {
+         "md": "Consume less in both periods",
+         "correct": false,
+         "feedback": "Output today, $f(k_1)$, is already produced and must be used; the question is only how to split it."
+        }
+       ],
+       "why": "The optimum sets MRS $= f'(k_2)$. With a lower MPK, giving up a unit today buys less tomorrow, so at the old plan the value of consuming today exceeds the return to waiting. The notes: \"If MPK falls, the consumer would be better off using more of its output on consumption today.\"",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 68,
+     "symbols": [
+      "$k_1$, $k_2$",
+      "$f'(k)$"
+     ]
+    },
+    {
+     "id": "2-two-periods-with-capital-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**The notes' example.** Take $U = \\ln c_1 + \\ln c_2$, $f(k) = k^{1/2}$ and $k_1 = 9$. Output is $f(9) = 3$, to be split between $c_1$ and $k_2$. The MRS is $(1/c_1)/(1/c_2) = c_2/c_1$, and it must equal $f'(k_2) = \\tfrac{1}{2}k_2^{-1/2}$, with $c_2 = f(k_2) = k_2^{1/2}$ and $c_1 = 3 - k_2$. Eliminating $k_2$ gives the frontier $c_2 = (3 - c_1)^{1/2}$: every unit not eaten today becomes capital and produces tomorrow, and the slope of the frontier is $-f'(k_2)$. Before solving, find the best plan on the frontier."
+      },
+      {
+       "t": "interactive",
+       "widget": "two-period-capital-choice-explorer",
+       "state": {
+        "k1": 9,
+        "alpha": 0.5,
+        "beta": 1,
+        "c1p": 2.6
+       },
+       "lock": [
+        "k1",
+        "alpha",
+        "beta"
+       ],
+       "show": [
+        "frontier",
+        "ic_plan_curve",
+        "plan",
+        "mrs_out",
+        "mpk_out"
+       ],
+       "highlight": "plan",
+       "prompt": "Drag the plan along the frontier until the indifference curve through it just touches",
+       "goal": {
+        "when": "abs(cp - c1) < 0.03",
+        "success": "At $c_1 = 2$ the indifference curve through the plan touches the frontier: $k_2 = 1$, $c_2 = f(1) = 1$, and the MRS $c_2/c_1 = 0.5$ equals $f'(k_2) = \\tfrac{1}{2}k_2^{-1/2} = 0.5$. The planner eats 2 of the 3 units of output and invests 1.",
+        "hint": "Compare the two readouts. Where $f'(k_2)$ is above the MRS, a unit invested returns more tomorrow than it is worth giving up today, so eat less now and move left; where the MRS is above $f'(k_2)$, eat more now."
+       },
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 65,
+     "symbols": [
+      "$c_t$",
+      "$k_1$, $k_2$",
+      "$s_1$",
+      "$f'(k)$",
+      "$U(c)$, $U'(c)$",
+      "$\\beta$",
+      "$A$, $\\alpha$"
+     ]
+    },
+    {
+     "id": "2-two-periods-with-capital-4",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The notes solve it in two lines: $k_2^{1/2}/(3 - k_2) = \\tfrac{1}{2}k_2^{-1/2}$, so $2k_2 = 3 - k_2$ and $k_2 = 1$. Then $c_1 = 3 - 1 = 2$, $c_2 = 1^{1/2} = 1$, and the planner saves $s_1 = 1/3$ of its income."
+      },
+      {
+       "t": "interactive",
+       "widget": "two-period-capital-choice-explorer",
+       "state": {
+        "k1": 16,
+        "alpha": 0.5,
+        "beta": 1,
+        "c1p": 2
+       },
+       "lock": [
+        "alpha",
+        "beta",
+        "c1p"
+       ],
+       "show": [
+        "frontier",
+        "ic_best",
+        "best",
+        "k2_out",
+        "c1_out",
+        "c2_out",
+        "s1_out"
+       ],
+       "highlight": "best",
+       "prompt": "Give the planner more capital and see what share of output it saves",
+       "predict": {
+        "hide": [
+         "ic_best",
+         "best",
+         "k2_out",
+         "c1_out",
+         "c2_out",
+         "s1_out"
+        ],
+        "ask": "With $k_1 = 9$ the planner saved a third of its output. Now $k_1 = 16$, so output is $\\sqrt{16} = 4$ instead of 3. What share of output does it save?",
+        "options": [
+         "Still a third",
+         "More than a third: a richer economy can afford to save a larger share",
+         "Less than a third: with more capital the marginal product is lower, so saving pays less"
+        ],
+        "answer": 0,
+        "why": "$k_2 = 4/3$, $c_1 = 8/3$ and $c_2 = 1.155$, so $s_1 = (4/3)/4 = 1/3$ again. With $U = \\ln c_1 + \\beta\\ln c_2$ and $f(k) = k^{\\alpha}$, MRS $= f'(k_2)$ gives $k_2 = \\alpha\\beta(f(k_1) - k_2)$, so $s_1 = \\alpha\\beta/(1 + \\alpha\\beta)$ whatever $k_1$ is: here $0.5/1.5 = 1/3$. Try $\\beta$ and $\\alpha$ too.",
+        "feedback": [
+         null,
+         "More output raises consumption in both periods. With log utility the MRS $c_2/c_1$ and the MPK at the optimum fall together, so the split of output does not change.",
+         "The MPK at the optimum is lower (0.433 against 0.5), but the MRS falls by just as much, because both periods' consumption rise. With log utility and $f(k) = k^{\\alpha}$ the two effects cancel."
+        ]
+       },
+       "objectives": [
+        1
+       ]
+      },
+      {
+       "t": "prose",
+       "md": "That general result is worked out in [Ramsey-Cass-Koopmans Model](note:ramsey-cass-koopmans-model#two-period-version); the notes stop at the example."
+      }
+     ],
+     "words": 45,
+     "symbols": [
+      "$c_t$",
+      "$k_1$, $k_2$",
+      "$s_1$",
+      "$f'(k)$",
+      "$U(c)$, $U'(c)$",
+      "$\\beta$",
+      "$A$, $\\alpha$"
+     ]
+    },
+    {
+     "id": "2-two-periods-with-capital-5",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "Same technology, $f(k) = \\sqrt{k}$ and $k_1 = 9$, but now the planner discounts the future: $U = \\ln c_1 + 0.8\\ln c_2$. How much capital does it carry into period 2? Give three decimals.",
+       "answer": 0.857,
+       "tol": 0.003,
+       "wrong": [
+        {
+         "answer": 1.0,
+         "tol": 0.003,
+         "md": "that is the notes' answer with $\\beta = 1$; discounting changes the MRS to $c_2/(0.8c_1)$"
+        },
+        {
+         "answer": 1.154,
+         "tol": 0.003,
+         "md": "that puts $\\beta$ on the wrong side: the MRS is $(1/c_1)/(\\beta/c_2) = c_2/(\\beta c_1)$, so $\\beta$ divides"
+        },
+        {
+         "answer": 1.2,
+         "tol": 0.003,
+         "md": "that is $0.4 \\times 3$: in $k_2 = 0.4(3 - k_2)$ the $k_2$ on the right still has to be collected"
+        }
+       ],
+       "why": "MRS $= c_2/(\\beta c_1) = f'(k_2)$ with $c_2 = k_2^{1/2}$ and $c_1 = 3 - k_2$ gives $k_2^{1/2}/(0.8(3 - k_2)) = \\tfrac{1}{2}k_2^{-1/2}$, so $k_2 = 0.4(3 - k_2)$ and $1.4k_2 = 1.2$: $k_2 = 0.857$, a saved share of 0.286 against the patient planner's 1/3.",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 22,
+     "symbols": [
+      "$c_t$",
+      "$k_1$, $k_2$",
+      "$f'(k)$",
+      "$U(c)$, $U'(c)$",
+      "$\\beta$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "3-many-periods-the-planners-problem",
+   "heading": "3. Many periods: the planner's problem",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "3-many-periods-the-planners-problem-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Now the horizon runs $T$ periods. Utility is $\\sum_{t=0}^{T}\\beta^tU(c_t)$ (with log utility, $\\ln c_0 + \\beta\\ln c_1 + \\beta^2\\ln c_2 + \\dots$), with $0 < \\beta < 1$ the [Discount Factor](note:discount-factor) and $U$ increasing and concave, satisfying the Inada conditions $\\lim_{c\\to 0}U'(c) = \\infty$ and $\\lim_{c\\to\\infty}U'(c) = 0$. Output $y_t = f(k_t)$ is split into consumption and investment, $y_t = c_t + i_t$, and capital follows the law of motion $k_{t+1} = (1-\\delta)k_t + i_t$ ([Capital Accumulation Equation](note:capital-accumulation-equation))."
+      }
+     ],
+     "words": 40,
+     "symbols": [
+      "$c_t$",
+      "$k_1$, $k_2$",
+      "$i_t$",
+      "$y_t = f(k_t)$",
+      "$f'(k)$",
+      "$U(c)$, $U'(c)$",
+      "$\\beta$",
+      "$\\delta$",
+      "$T$",
+      "$t$"
+     ]
+    },
+    {
+     "id": "3-many-periods-the-planners-problem-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Combine $y_t = f(k_t)$, $y_t = c_t + i_t$ and $k_{t+1} = (1-\\delta)k_t + i_t$ by eliminating $y_t$ and $i_t$. Which resource constraint results?",
+       "options": [
+        {
+         "md": "$c_t + k_{t+1} = f(k_t)$",
+         "correct": false,
+         "feedback": "That treats capital as fully used up each period. Only $\\delta k_t$ wears out; the remaining $(1-\\delta)k_t$ is still available."
+        },
+        {
+         "md": "$c_t + k_{t+1} = f(k_t) + (1-\\delta)k_t$",
+         "correct": true
+        },
+        {
+         "md": "$c_t + i_t = f(k_t) - \\delta k_t$",
+         "correct": false,
+         "feedback": "Depreciation is not subtracted from output: output is split into $c_t$ and $i_t$ in full, and depreciation enters through the law of motion."
+        },
+        {
+         "md": "$c_t + k_{t+1} = f(k_t) - \\delta k_t$",
+         "correct": false,
+         "feedback": "The sign on capital is reversed: next period's capital includes what survives, $(1-\\delta)k_t$, which is added to the resources available."
+        }
+       ],
+       "why": "From the law of motion, $i_t = k_{t+1} - (1-\\delta)k_t$; substituting into $f(k_t) = c_t + i_t$ gives $c_t + k_{t+1} = f(k_t) + (1-\\delta)k_t$. Resources each period are this period's output plus the capital left after depreciation; they are either eaten or carried forward.",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 9,
+     "symbols": [
+      "$c_t$",
+      "$k_1$, $k_2$",
+      "$i_t$",
+      "$y_t = f(k_t)$",
+      "$f'(k)$",
+      "$\\delta$"
+     ]
+    },
+    {
+     "id": "3-many-periods-the-planners-problem-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A social planner chooses $\\{c_t, k_{t+1}\\}_{t=0}^{T}$ to maximize $\\sum_t\\beta^tU(c_t)$ subject to this constraint in every period, with $c_t \\ge 0$, $k_{t+1} \\ge 0$ and $k_0$ given."
+      }
+     ],
+     "words": 16,
+     "symbols": [
+      "$c_t$",
+      "$k_1$, $k_2$",
+      "$U(c)$, $U'(c)$",
+      "$\\beta$",
+      "$T$",
+      "$t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "4-solving-it-the-euler-equation",
+   "heading": "4. Solving it: the Euler equation",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "4-solving-it-the-euler-equation-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The Lagrangian puts a multiplier $\\mu_t$ on each period's constraint; rescaling it as $\\lambda_t = \\beta^{-t}\\mu_t$ gives"
+      },
+      {
+       "t": "math",
+       "tex": "\\mathcal{L} = \\sum_{t=0}^{T}\\beta^t\\left\\{U(c_t) + \\lambda_t\\left[f(k_t) + (1-\\delta)k_t - k_{t+1} - c_t\\right]\\right\\}"
+      },
+      {
+       "t": "prose",
+       "md": "The condition for $c_t$ is $U'(c_t) = \\lambda_t$. Capital $k_{t+1}$ appears twice, in period $t$'s constraint and in period $t+1$'s, which gives $\\lambda_t = \\beta[f'(k_{t+1}) + 1 - \\delta]\\lambda_{t+1}$."
+      }
+     ],
+     "words": 30,
+     "symbols": [
+      "$c_t$",
+      "$k_1$, $k_2$",
+      "$f'(k)$",
+      "$U(c)$, $U'(c)$",
+      "$\\beta$",
+      "$\\delta$",
+      "$T$",
+      "$\\mu_t$",
+      "$\\lambda_t$",
+      "$t$",
+      "$\\mathcal{L}$"
+     ]
+    },
+    {
+     "id": "4-solving-it-the-euler-equation-2",
+     "blocks": [
+      {
+       "t": "derive",
+       "title": "Combine the first-order conditions into the Euler equation",
+       "objectives": [
+        3
+       ],
+       "symbols": [
+        "\\lambda_1",
+        "m \\in (0.05, 0.5)",
+        "\\beta \\in (0.85, 0.99)",
+        "\\delta \\in (0.02, 0.2)"
+       ],
+       "inherited": [
+        {
+         "tex": "$c_t$",
+         "typical": "—",
+         "from": "ramsey-cass-koopmans-model"
+        },
+        {
+         "tex": "$k_1$, $k_2$",
+         "typical": "9 and 1 in the example",
+         "from": "ramsey-cass-koopmans-model"
+        },
+        {
+         "tex": "$f'(k)$",
+         "typical": "—",
+         "from": "ramsey-cass-koopmans-model"
+        },
+        {
+         "tex": "$U(c)$, $U'(c)$",
+         "typical": "$\\ln c$",
+         "from": "ramsey-cass-koopmans-model"
+        },
+        {
+         "tex": "$\\beta$",
+         "typical": "0.95",
+         "from": "ramsey-cass-koopmans-model"
+        },
+        {
+         "tex": "$\\delta$",
+         "typical": "0.1",
+         "from": "ramsey-cass-koopmans-model"
+        },
+        {
+         "tex": "$\\lambda_t$",
+         "typical": "$U'(c_t)$",
+         "from": "ramsey-cass-koopmans-model"
+        }
+       ],
+       "unknowns": [
+        "$u_0$",
+        "$u_1$",
+        "$\\lambda_0$"
+       ],
+       "dims": [],
+       "data": [],
+       "matrices": [],
+       "define": [],
+       "given": [
+        "u_0 = \\lambda_0",
+        "u_1 = \\lambda_1",
+        "\\lambda_0 = \\beta(m + 1 - \\delta)\\lambda_1"
+       ],
+       "steps": [
+        {
+         "md": "Write $u_0$ for $U'(c_t)$, $u_1$ for $U'(c_{t+1})$, $\\lambda_0$ and $\\lambda_1$ for $\\lambda_t$ and $\\lambda_{t+1}$, and $m$ for $f'(k_{t+1})$. Setting $\\partial\\mathcal{L}/\\partial k_{t+1} = 0$ gives: $\\lambda_0 = \\beta(m + 1 - \\delta)\\lambda_1$",
+         "tex": "\\lambda_0 = \\beta(m + 1 - \\delta)\\lambda_1",
+         "justify": {
+          "prompt": "Why does $f'(k_{t+1}) + 1 - \\delta$ appear?",
+          "options": [
+           {
+            "md": "Because $k_{t+1}$ is produced with marginal product $f'(k_{t+1})$ in period $t$",
+            "correct": false
+           },
+           {
+            "md": "In period $t+1$'s constraint, one more unit of $k_{t+1}$ adds $f'(k_{t+1})$ of output plus $1 - \\delta$ of capital that survives; in period $t$'s it costs one unit",
+            "correct": true
+           },
+           {
+            "md": "Because the multiplier $\\lambda_{t+1}$ already includes depreciation",
+            "correct": false
+           }
+          ]
+         }
+        },
+        {
+         "md": "Substitute $u_0 = \\lambda_0$ and $u_1 = \\lambda_1$ and divide by $\\beta u_1$: $\\frac{u_0}{\\beta u_1} = m + 1 - \\delta$",
+         "tex": "\\frac{u_0}{\\beta u_1} = m + 1 - \\delta"
+        }
+       ],
+       "accept": [
+        "u_0 = \\beta(m + 1 - \\delta)u_1"
+       ],
+       "reject": [
+        {
+         "tex": "\\frac{u_0}{\\beta u_1} = m",
+         "md": "that forgets the capital that survives depreciation; it holds only when $\\delta = 1$, as in the two-period problem"
+        },
+        {
+         "tex": "\\frac{\\beta u_0}{u_1} = m + 1 - \\delta",
+         "md": "$\\beta$ discounts tomorrow's marginal utility, so it multiplies $u_1$ in the denominator"
+        },
+        {
+         "tex": "\\frac{u_0}{\\beta u_1} = m - \\delta",
+         "md": "the gross return includes the unit of capital itself: $m + 1 - \\delta$, not the net return $m - \\delta$"
+        }
+       ]
+      }
+     ],
+     "words": 23,
+     "symbols": [
+      "$c_t$",
+      "$k_1$, $k_2$",
+      "$f'(k)$",
+      "$U(c)$, $U'(c)$",
+      "$\\beta$",
+      "$\\delta$",
+      "$\\lambda_t$",
+      "$u'(c)$",
+      "$t$",
+      "$\\mathcal{L}$",
+      "$p_x$, $p_y$, $m$"
+     ]
+    },
+    {
+     "id": "4-solving-it-the-euler-equation-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The result is the **Euler equation** ([Consumption Euler Equation](note:consumption-euler-equation)):"
+      },
+      {
+       "t": "math",
+       "tex": "\\frac{U'(c_t)}{\\beta U'(c_{t+1})} = f'(k_{t+1}) + (1-\\delta)"
+      },
+      {
+       "t": "prose",
+       "md": "It reads like the two-period condition: the MRS between today and tomorrow equals the gross return on saving, now the MPK plus the capital that survives depreciation."
+      }
+     ],
+     "words": 36,
+     "symbols": [
+      "$c_t$",
+      "$k_1$, $k_2$",
+      "$f'(k)$",
+      "$U(c)$, $U'(c)$",
+      "$\\beta$",
+      "$\\delta$"
+     ]
+    },
+    {
+     "id": "4-solving-it-the-euler-equation-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Along a proposed plan, $U'(c_t)/(\\beta U'(c_{t+1})) = 1.25$ while $f'(k_{t+1}) + 1 - \\delta = 1.15$. How should the plan change?",
+       "options": [
+        {
+         "md": "Consume more in period $t$ and carry less capital into $t+1$: a unit invested returns only 1.15, but consuming it today is worth 1.25 units of tomorrow's consumption",
+         "correct": true
+        },
+        {
+         "md": "Invest more, since the MRS exceeds the return",
+         "correct": false,
+         "feedback": "An MRS above the return means today's consumption is worth more than what investing it would bring; investing more widens the gap."
+        },
+        {
+         "md": "Nothing: the Euler equation only needs to hold in the steady state",
+         "correct": false,
+         "feedback": "It must hold in every period along the optimal path, not only at the steady state."
+        },
+        {
+         "md": "Raise depreciation until the two sides match",
+         "correct": false,
+         "feedback": "$\\delta$ is a technology parameter, not a choice; the planner can change only consumption and capital."
+        }
+       ],
+       "why": "MRS $>$ gross return means one unit consumed today is worth 1.25 units tomorrow, while saving it yields 1.15. Shifting consumption toward today raises utility. As $c_t$ rises and $k_{t+1}$ falls, $U'(c_t)$ falls and $f'(k_{t+1})$ rises, closing the gap.",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 65,
+     "symbols": [
+      "$c_t$",
+      "$k_1$, $k_2$",
+      "$f'(k)$",
+      "$U(c)$, $U'(c)$",
+      "$\\beta$",
+      "$\\delta$",
+      "$t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "5-closing-a-finite-horizon-the-boundary-condition",
+   "heading": "5. Closing a finite horizon: the boundary condition",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "5-closing-a-finite-horizon-the-boundary-condition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The Euler equation and the resource constraint hold every period, but a last condition is needed. Capital converts one-for-one into consumption, so nothing should be carried past period $T$: the boundary condition is $k_{T+1} = 0$. Together, the Euler equation, the resource constraint and $k_{T+1} = 0$ pin down the whole path from $k_0$."
+      }
+     ],
+     "words": 46,
+     "symbols": [
+      "$k_1$, $k_2$",
+      "$T$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "6-infinite-horizon-the-transversality-condition",
+   "heading": "6. Infinite horizon: the transversality condition",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "6-infinite-horizon-the-transversality-condition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Letting $T \\to \\infty$ (the world may end, but nobody knows when, so act as if it never will) changes only the boundary condition: there is no last period. It is replaced by the [Transversality Condition](note:transversality-condition):"
+      },
+      {
+       "t": "math",
+       "tex": "\\lim_{t\\to\\infty}\\beta^tU'(c_t)\\,k_{t+1} = 0"
+      },
+      {
+       "t": "prose",
+       "md": "The discounted value of the capital carried forward must vanish, which does the work $k_{T+1} = 0$ did in the finite problem."
+      },
+      {
+       "t": "callout",
+       "kind": "warning",
+       "title": "Notation slips in the typed notes (the handwritten notes have these right)",
+       "md": "- The transversality condition is printed without its \"$= 0$\".\n- The $\\partial\\mathcal{L}/\\partial\\lambda_t$ condition prints $f'(k_t)$; it is the resource constraint, $f(k_t) + (1-\\delta)k_t - c_t - k_{t+1} = 0$, with $f$, not $f'$. A bracket is also missing in the $k_{t+1}$ condition: it should read $\\lambda_t = \\beta[f'(k_{t+1}) + 1 - \\delta]\\lambda_{t+1}$.",
+       "folded": false
+      }
+     ],
+     "words": 94,
+     "symbols": [
+      "$c_t$",
+      "$k_1$, $k_2$",
+      "$f'(k)$",
+      "$U(c)$, $U'(c)$",
+      "$\\beta$",
+      "$\\delta$",
+      "$T$",
+      "$\\lambda_t$",
+      "$t$",
+      "$\\mathcal{L}$"
+     ]
+    },
+    {
+     "id": "6-infinite-horizon-the-transversality-condition-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "What does the transversality condition $\\lim_{t\\to\\infty}\\beta^tU'(c_t)\\,k_{t+1} = 0$ require?",
+       "options": [
+        {
+         "md": "Capital must fall to zero in the long run",
+         "correct": false,
+         "feedback": "The steady state has $k_{t+1} = \\bar{k} > 0$ forever, and it satisfies the condition: $\\beta^t \\to 0$ shrinks the product even though $\\bar{k}$ stays positive."
+        },
+        {
+         "md": "Consumption must grow without limit",
+         "correct": false,
+         "feedback": "Nothing requires growing consumption; in the steady state it is constant."
+        },
+        {
+         "md": "The value of the capital carried forward, measured in today's utility, must go to zero: the infinite-horizon counterpart of leaving no capital after the last period",
+         "correct": true
+        },
+        {
+         "md": "The Euler equation must hold with equality in the last period",
+         "correct": false,
+         "feedback": "With an infinite horizon there is no last period; that is exactly why a limit condition is needed."
+        }
+       ],
+       "why": "$\\beta^tU'(c_t)$ converts a unit of period-$t$ output into today's utility, so the product is the present value of capital still held. In the finite problem $k_{T+1} = 0$ says leftover capital is wasted; with no last date, the condition requires that its discounted value vanish, ruling out plans that accumulate capital forever without consuming it.",
+       "objectives": [
+        4
+       ]
+      }
+     ],
+     "words": 57,
+     "symbols": [
+      "$c_t$",
+      "$k_1$, $k_2$",
+      "$U(c)$, $U'(c)$",
+      "$\\beta$",
+      "$\\bar{k}$, $\\bar{c}$, $\\bar{y}$",
+      "$t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "7-the-steady-state",
+   "heading": "7. The steady state",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "7-the-steady-state-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The infinite path cannot be solved period by period, but it converges to a [Steady State](note:steady-state): assume constants $\\bar{k} = k_t = k_{t+1}$ and $\\bar{c} = c_t = c_{t+1}$. In the Euler equation the marginal utilities cancel:"
+      },
+      {
+       "t": "math",
+       "tex": "\\frac{1}{\\beta} = 1 - \\delta + f'(\\bar{k}), \\qquad \\bar{c} = f(\\bar{k}) - \\delta\\bar{k}, \\qquad s = \\frac{\\delta\\bar{k}}{f(\\bar{k})}"
+      },
+      {
+       "t": "prose",
+       "md": "Investment just replaces depreciation, $\\delta\\bar{k}$, so the saving rate is $\\delta\\bar{k}/f(\\bar{k})$. The form of $U$ never appears: the steady state depends only on the production function, $\\delta$ and $\\beta$."
+      },
+      {
+       "t": "prose",
+       "md": "The notes take $f(k) = k^{\\alpha}$; keeping a productivity term, $f(k) = Ak^{\\alpha}$, the first condition becomes $1/\\beta = 1 - \\delta + A\\alpha\\bar{k}^{\\alpha-1}$."
+      }
+     ],
+     "words": 62,
+     "symbols": [
+      "$c_t$",
+      "$k_1$, $k_2$",
+      "$s_1$",
+      "$f'(k)$",
+      "$U(c)$, $U'(c)$",
+      "$\\beta$",
+      "$\\delta$",
+      "$\\bar{k}$, $\\bar{c}$, $\\bar{y}$",
+      "$A$, $\\alpha$"
+     ]
+    },
+    {
+     "id": "7-the-steady-state-2",
+     "blocks": [
+      {
+       "t": "derive",
+       "title": "Solve for steady-state capital with Cobb-Douglas production",
+       "objectives": [
+        5
+       ],
+       "symbols": [
+        "A",
+        "\\alpha \\in (0.2, 0.8)",
+        "\\beta \\in (0.85, 0.99)",
+        "\\delta \\in (0.02, 0.2)",
+        "k"
+       ],
+       "inherited": [
+        {
+         "tex": "$k_1$, $k_2$",
+         "typical": "9 and 1 in the example",
+         "from": "ramsey-cass-koopmans-model"
+        },
+        {
+         "tex": "$\\beta$",
+         "typical": "0.95",
+         "from": "ramsey-cass-koopmans-model"
+        },
+        {
+         "tex": "$\\delta$",
+         "typical": "0.1",
+         "from": "ramsey-cass-koopmans-model"
+        },
+        {
+         "tex": "$A$, $\\alpha$",
+         "typical": "1, 0.5",
+         "from": "ramsey-cass-koopmans-model"
+        }
+       ],
+       "unknowns": [
+        "$k$"
+       ],
+       "dims": [],
+       "data": [],
+       "matrices": [],
+       "define": [],
+       "given": [
+        "\\frac{1}{\\beta} = 1 - \\delta + A\\alpha k^{\\alpha - 1}"
+       ],
+       "steps": [
+        {
+         "md": "Isolate the marginal product and solve for $k$: $k = \\left(\\frac{A\\alpha}{1/\\beta - 1 + \\delta}\\right)^{\\frac{1}{1-\\alpha}}$",
+         "tex": "k = \\left(\\frac{A\\alpha}{1/\\beta - 1 + \\delta}\\right)^{\\frac{1}{1-\\alpha}}",
+         "hint": "First $A\\alpha k^{\\alpha-1} = 1/\\beta - 1 + \\delta$. Then $k^{\\alpha - 1} = (1/\\beta - 1 + \\delta)/(A\\alpha)$; raise both sides to the power $-1/(1-\\alpha)$, which flips the fraction."
+        }
+       ],
+       "accept": [
+        "A\\alpha k^{\\alpha - 1} = \\frac{1}{\\beta} - 1 + \\delta"
+       ],
+       "reject": [
+        {
+         "tex": "k = \\left(\\frac{A\\alpha}{\\delta}\\right)^{\\frac{1}{1-\\alpha}}",
+         "md": "that is the golden-rule capital $k^{*}$, where $f'(k) = \\delta$; the planner also requires a return of $1/\\beta - 1$ for waiting"
+        },
+        {
+         "tex": "k = \\left(\\frac{A\\alpha}{\\beta - 1 + \\delta}\\right)^{\\frac{1}{1-\\alpha}}",
+         "md": "the required gross return is $1/\\beta$, not $\\beta$: an impatient planner needs more than one unit back"
+        },
+        {
+         "tex": "k = \\frac{A\\alpha}{1/\\beta - 1 + \\delta}",
+         "md": "that is $k^{1-\\alpha}$; raise it to the power $1/(1-\\alpha)$ to get $k$"
+        }
+       ]
+      }
+     ],
+     "words": 14,
+     "symbols": [
+      "$k_1$, $k_2$",
+      "$f'(k)$",
+      "$\\beta$",
+      "$\\delta$",
+      "$A$, $\\alpha$",
+      "$k^{*}$"
+     ]
+    },
+    {
+     "id": "7-the-steady-state-3",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "\\bar{k} = \\left(\\frac{A\\alpha}{1/\\beta - 1 + \\delta}\\right)^{\\frac{1}{1-\\alpha}}"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$\\beta$",
+      "$\\delta$",
+      "$\\bar{k}$, $\\bar{c}$, $\\bar{y}$",
+      "$A$, $\\alpha$"
+     ]
+    },
+    {
+     "id": "7-the-steady-state-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "With $f(k) = Ak^{\\alpha}$, $A = 1$, $\\alpha = 0.5$, $\\delta = 0.1$ and $\\beta = 0.95$, what is steady-state capital $\\bar{k}$? Give two decimals.",
+       "answer": 10.73,
+       "tol": 0.02,
+       "vary": [
+        {
+         "sym": "\\beta",
+         "values": [
+          0.9,
+          0.93,
+          0.95,
+          0.97,
+          0.99
+         ]
+        }
+       ],
+       "compute": "\\left(\\frac{A\\alpha}{1/\\beta - 1 + \\delta}\\right)^{\\frac{1}{1-\\alpha}}",
+       "bindings": [
+        {
+         "sym": "A",
+         "value": 1.0,
+         "span": "$A = 1$"
+        },
+        {
+         "sym": "\\alpha",
+         "value": 0.5,
+         "span": "$\\alpha = 0.5$"
+        },
+        {
+         "sym": "\\delta",
+         "value": 0.1,
+         "span": "$\\delta = 0.1$"
+        },
+        {
+         "sym": "\\beta",
+         "value": 0.95,
+         "span": "$\\beta = 0.95$"
+        }
+       ],
+       "wrongCompute": [
+        {
+         "tex": "\\left(\\frac{A\\alpha}{\\delta}\\right)^{\\frac{1}{1-\\alpha}}",
+         "md": "that is the golden-rule capital, $f'(k) = \\delta$; the planner also requires a return of $1/\\beta - 1$ for waiting"
+        },
+        {
+         "tex": "\\frac{A\\alpha}{1/\\beta - 1 + \\delta}",
+         "md": "that is $\\bar{k}^{1-\\alpha}$; with $\\alpha = 0.5$ it still has to be squared"
+        },
+        {
+         "tex": "\\left(\\frac{A\\alpha}{1/\\beta + \\delta}\\right)^{\\frac{1}{1-\\alpha}}",
+         "md": "that adds the whole gross return $1/\\beta$; the required MPK is $1/\\beta - 1 + \\delta$"
+        }
+       ],
+       "why": "The required MPK is $1/\\beta - 1 + \\delta = 1.0526 - 1 + 0.1 = 0.1526$. Then $\\bar{k} = (0.5/0.1526)^2 = 3.276^2 = 10.73$, with $\\bar{y} = \\sqrt{10.73} = 3.276$ and $\\bar{c} = 3.276 - 1.073 = 2.20$.",
+       "objectives": [
+        5
+       ]
+      }
+     ],
+     "words": 9,
+     "symbols": [
+      "$k_1$, $k_2$",
+      "$f'(k)$",
+      "$\\beta$",
+      "$\\delta$",
+      "$\\bar{k}$, $\\bar{c}$, $\\bar{y}$",
+      "$A$, $\\alpha$"
+     ]
+    },
+    {
+     "id": "7-the-steady-state-5",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "In the same economy ($A = 1$, $\\alpha = 0.5$, $\\delta = 0.1$, $\\beta = 0.95$), what is the steady-state saving rate $s = \\delta\\bar{k}/f(\\bar{k})$? Give three decimals.",
+       "answer": 0.328,
+       "tol": 0.002,
+       "wrong": [
+        {
+         "answer": 0.5,
+         "tol": 0.002,
+         "md": "that is $\\alpha$, the golden-rule saving rate; the planner saves less because it discounts the future"
+        },
+        {
+         "answer": 0.672,
+         "tol": 0.002,
+         "md": "that is the consumption share, $\\bar{c}/\\bar{y} = 1 - s$"
+        },
+        {
+         "answer": 0.153,
+         "tol": 0.002,
+         "md": "that is the required MPK, $1/\\beta - 1 + \\delta$, not a share of output"
+        }
+       ],
+       "why": "With Cobb-Douglas, $s = \\delta\\bar{k}/(A\\bar{k}^{\\alpha}) = \\alpha\\delta/(1/\\beta - 1 + \\delta) = 0.05/0.1526 = 0.328$. Check: $\\delta\\bar{k} = 1.073$ out of $\\bar{y} = 3.276$.",
+       "objectives": [
+        5
+       ]
+      }
+     ],
+     "words": 13,
+     "symbols": [
+      "$s_1$",
+      "$f'(k)$",
+      "$\\beta$",
+      "$\\delta$",
+      "$\\bar{k}$, $\\bar{c}$, $\\bar{y}$",
+      "$A$, $\\alpha$"
+     ]
+    },
+    {
+     "id": "7-the-steady-state-6",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The notes end with the case $\\beta = 1$. Predict it first."
+      },
+      {
+       "t": "interactive",
+       "widget": "ramsey-steady-state-explorer",
+       "state": {
+        "beta": 0.9,
+        "alpha": 0.5,
+        "delta": 0.1
+       },
+       "lock": [
+        "alpha",
+        "delta"
+       ],
+       "show": [
+        "mpk_curve",
+        "req_line",
+        "gold_line",
+        "ramsey",
+        "golden",
+        "output",
+        "depreciation",
+        "cbar_gap",
+        "cgold_gap",
+        "req_out",
+        "kbar_out",
+        "s_out",
+        "kgold_out",
+        "cbar_out",
+        "cgold_out"
+       ],
+       "highlight": "req_line",
+       "prompt": "Raise the discount factor toward 1 and watch where the Ramsey steady state heads",
+       "predict": {
+        "hide": [
+         "ramsey",
+         "req_line",
+         "cbar_gap",
+         "req_out",
+         "kbar_out",
+         "s_out",
+         "cbar_out"
+        ],
+        "ask": "At $\\beta = 0.90$ the steady state has $\\bar{k} = 5.61$. As $\\beta$ rises toward 1, where does $\\bar{k}$ go?",
+        "options": [
+         "Up toward 25, the golden-rule capital where $f'(k) = \\delta$",
+         "Up without limit: a planner who does not discount keeps saving",
+         "Nowhere: patience changes the path to the steady state, not the steady state"
+        ],
+        "answer": 0,
+        "why": "Raising $\\beta$ lowers the required return $1/\\beta - 1 + \\delta$ (0.211 at $\\beta = 0.90$, 0.153 at 0.95, 0.110 at 0.99), so the crossing with the MPK curve slides right: $\\bar{k}$ = 5.61, 10.73 and 20.62, and $s$ = 0.237, 0.328 and 0.454. At $\\beta = 1$ the required return is $\\delta$ and $\\bar{k} = 25$, the golden rule.",
+        "feedback": [
+         null,
+         "The required return $1/\\beta - 1 + \\delta$ falls only to $\\delta$ as $\\beta \\to 1$. With diminishing returns the MPK reaches $\\delta$ at a finite capital stock, $(\\alpha/\\delta)^{1/(1-\\alpha)} = 25$, and stops there.",
+         "That is true of the *curvature* of utility, which cancels from the steady-state Euler equation. The discount factor does not cancel: $1/\\beta = f'(\\bar{k}) + 1 - \\delta$."
+        ]
+       },
+       "objectives": [
+        6
+       ]
+      },
+      {
+       "t": "prose",
+       "md": "Set $\\beta = 1$ in the steady-state formula, as the notes do: $1/\\beta - (1 - \\delta) = \\delta$, so"
+      },
+      {
+       "t": "math",
+       "tex": "\\bar{k} = \\left(\\frac{\\alpha}{\\delta}\\right)^{\\frac{1}{1-\\alpha}}"
+      },
+      {
+       "t": "prose",
+       "md": "the golden-rule capital stock of the Solow model, where $f'(k) = \\delta$ and steady-state consumption is as high as it can be ([Golden Rule Saving Rate](note:golden-rule-saving-rate)). In the example that is $(0.5/0.1)^2 = 25$."
+      }
+     ],
+     "words": 61,
+     "symbols": [
+      "$k_1$, $k_2$",
+      "$s_1$",
+      "$f'(k)$",
+      "$\\beta$",
+      "$\\delta$",
+      "$\\bar{k}$, $\\bar{c}$, $\\bar{y}$",
+      "$A$, $\\alpha$",
+      "$k^{*}$",
+      "$k^*, y^*, c^*$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "8-discussion-ramsey-versus-solow-typed-notes",
+   "heading": "8. Discussion: Ramsey versus Solow (typed notes)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "8-discussion-ramsey-versus-solow-typed-notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Compare with the Solow steady state, $\\bar{k}_{Solow} = (As/\\delta)^{1/(1-\\alpha)}$. Two differences stand out."
+      },
+      {
+       "t": "prose",
+       "md": "1. **The golden rule emerges by itself.** In Solow, the [Golden Rule Saving Rate](note:golden-rule-saving-rate) $s = \\alpha$ had to be chosen to maximize steady-state consumption. Here, setting $\\beta = 1$ gives $f'(\\bar{k}) = \\delta$ and a saving rate of exactly $\\alpha$.\n2. **Discounting pushes saving below $\\alpha$.** With $\\beta < 1$, current consumption is valued more, the willingness to save falls, and $s < \\alpha$. The goal is no longer to maximize steady-state consumption but utility: the extra consumption a higher capital stock would eventually bring is worth less than the immediate benefit of saving less now."
+      }
+     ],
+     "words": 90,
+     "symbols": [
+      "$s_1$",
+      "$f'(k)$",
+      "$\\beta$",
+      "$\\delta$",
+      "$\\bar{k}$, $\\bar{c}$, $\\bar{y}$",
+      "$A$, $\\alpha$"
+     ]
+    },
+    {
+     "id": "8-discussion-ramsey-versus-solow-typed-notes-2",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| $\\beta$ | Required MPK | $\\bar{k}$ | $\\bar{c}$ | $s$ |\n| --- | --- | --- | --- | --- |\n| 0.90 | 0.211 | 5.61 | 1.81 | 0.237 |\n| 0.95 | 0.153 | 10.73 | 2.20 | 0.328 |\n| 0.99 | 0.110 | 20.62 | 2.48 | 0.454 |\n| 1 (limit) | 0.100 | 25.00 | 2.50 | 0.500 |"
+      },
+      {
+       "t": "prose",
+       "md": "The more patient the planner, the closer it comes to the golden rule. (With $\\beta = 1$ the infinite sum of utilities need not converge, so the golden rule is the limit of the model rather than a case of it.)"
+      }
+     ],
+     "words": 85,
+     "symbols": [
+      "$s_1$",
+      "$\\beta$",
+      "$\\bar{k}$, $\\bar{c}$, $\\bar{y}$"
+     ]
+    },
+    {
+     "id": "8-discussion-ramsey-versus-solow-typed-notes-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Starting from the Ramsey steady state, households become less patient: $\\beta$ falls. What happens to the new steady state?",
+       "options": [
+        {
+         "md": "Capital and the saving rate rise, because a lower $\\beta$ raises the required return and capital earns more",
+         "correct": false,
+         "feedback": "A higher required return is met by a *higher* MPK, and with diminishing returns that means *less* capital."
+        },
+        {
+         "md": "Capital and the saving rate fall: the required MPK $1/\\beta - 1 + \\delta$ rises, and diminishing returns deliver it only at a lower $\\bar{k}$",
+         "correct": true
+        },
+        {
+         "md": "Nothing, because the steady state does not depend on preferences",
+         "correct": false,
+         "feedback": "It does not depend on the *utility function* $U$, but it does depend on the discount factor $\\beta$."
+        },
+        {
+         "md": "Capital falls, but the saving rate stays at $\\alpha$",
+         "correct": false,
+         "feedback": "$s = \\alpha\\delta/(1/\\beta - 1 + \\delta)$ falls with $\\beta$; it equals $\\alpha$ only in the limit $\\beta = 1$."
+        }
+       ],
+       "why": "$f'(\\bar{k}) = 1/\\beta - 1 + \\delta$: a lower $\\beta$ raises the right side, so $\\bar{k}$ must fall to raise the MPK. In the example, $\\beta = 0.95 \\to 0.90$ takes $\\bar{k}$ from 10.73 to 5.61 and $s$ from 0.328 to 0.237.",
+       "objectives": [
+        6
+       ]
+      }
+     ],
+     "words": 72,
+     "symbols": [
+      "$s_1$",
+      "$f'(k)$",
+      "$U(c)$, $U'(c)$",
+      "$\\beta$",
+      "$\\delta$",
+      "$\\bar{k}$, $\\bar{c}$, $\\bar{y}$",
+      "$A$, $\\alpha$"
+     ]
+    },
+    {
+     "id": "8-discussion-ramsey-versus-solow-typed-notes-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Two economies have the same technology, $\\delta$ and $\\beta$, but one has log utility and the other a much more curved utility function. How do their Ramsey steady states compare?",
+       "options": [
+        {
+         "md": "They are the same: utility cancels from the steady-state Euler equation, which depends only on $f$, $\\delta$ and $\\beta$",
+         "correct": true
+        },
+        {
+         "md": "The economy with more curved utility saves more, to smooth consumption",
+         "correct": false,
+         "feedback": "Curvature governs how willing households are to let consumption change *along the path*; in the steady state consumption is constant, so it plays no role."
+        },
+        {
+         "md": "The more curved economy has lower capital, because marginal utility falls faster",
+         "correct": false,
+         "feedback": "In a steady state $U'(c_t) = U'(c_{t+1})$, so the ratio is 1 whatever the curvature."
+        },
+        {
+         "md": "They cannot be compared without solving the full dynamic path",
+         "correct": false,
+         "feedback": "The steady state is pinned by $1/\\beta = 1 - \\delta + f'(\\bar{k})$ alone; the path matters only for how the economy gets there."
+        }
+       ],
+       "why": "With $c_t = c_{t+1} = \\bar{c}$, the Euler equation's left side is $U'(\\bar{c})/(\\beta U'(\\bar{c})) = 1/\\beta$ for any $U$. So $\\bar{k}$, $\\bar{c}$ and $s$ come from technology, depreciation and patience only, as the notes stress.",
+       "objectives": [
+        6
+       ]
+      }
+     ],
+     "words": 77,
+     "symbols": [
+      "$c_t$",
+      "$s_1$",
+      "$f'(k)$",
+      "$U(c)$, $U'(c)$",
+      "$\\beta$",
+      "$\\delta$",
+      "$\\bar{k}$, $\\bar{c}$, $\\bar{y}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "9-the-competitive-equilibrium-typed-notes-only",
+   "heading": "9. The competitive equilibrium (typed notes only)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "9-the-competitive-equilibrium-typed-notes-only-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The handwritten notes stop at the steady state; this section follows the typed notes, which mark it \"if there is time\". The same allocation arises without a planner. A representative household supplies one unit of labor at wage $w_t$, rents its capital at $r_t$, holds bonds paying $R_t$, and faces"
+      },
+      {
+       "t": "math",
+       "tex": "c_t + k_{t+1} + b_{t+1} = (1-\\delta)k_t + r_tk_t + (1+R_t)b_t + w_t"
+      }
+     ],
+     "words": 47,
+     "symbols": [
+      "$c_t$",
+      "$k_1$, $k_2$",
+      "$\\delta$",
+      "$w_t$, $r_t$",
+      "$R_t$",
+      "$b_t$"
+     ]
+    },
+    {
+     "id": "9-the-competitive-equilibrium-typed-notes-only-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Its first-order conditions give two Euler equations, $U'(c_t)/(\\beta U'(c_{t+1})) = r_{t+1} + 1 - \\delta$ for capital and $= 1 + R_{t+1}$ for bonds, so $R_t = r_t - \\delta$: bonds must pay what capital pays, net of depreciation. A firm maximizing $F(K, L) - wL - rK$ pays $w = \\partial F/\\partial L$ and $r = \\partial F/\\partial K$, which per worker are $w = f(k) - f'(k)k$ and $r = f'(k)$ (the notes say \"with Cobb-Douglas\"; constant returns is enough, see [Homogeneous Functions and Euler's Theorem](note:homogeneous-functions-and-eulers-theorem)). Substituting these prices reproduces the planner's Euler equation and resource constraint. By the first and second welfare theorems the market outcome is Pareto optimal: the planner cannot improve on it."
+      }
+     ],
+     "words": 77,
+     "symbols": [
+      "$c_t$",
+      "$k_1$, $k_2$",
+      "$f'(k)$",
+      "$U(c)$, $U'(c)$",
+      "$\\beta$",
+      "$\\delta$",
+      "$w_t$, $r_t$",
+      "$R_t$",
+      "$F(K, L)$, $K$, $L$"
+     ]
+    },
+    {
+     "id": "9-the-competitive-equilibrium-typed-notes-only-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "In the competitive equilibrium with $\\beta = 0.95$ and $\\delta = 0.1$, what is the interest rate on bonds $R$ in the steady state? Give the answer in percent, two decimals.",
+       "answer": 5.26,
+       "tol": 0.02,
+       "wrong": [
+        {
+         "answer": 15.26,
+         "tol": 0.02,
+         "md": "that is the rental rate of capital, $r = f'(\\bar{k}) = 1/\\beta - 1 + \\delta$; bonds pay it net of depreciation, $R = r - \\delta$"
+        },
+        {
+         "answer": 5.0,
+         "tol": 0.02,
+         "md": "that is $1 - \\beta$; the steady-state Euler equation for bonds gives $1 + R = 1/\\beta$, so $R = 1/0.95 - 1$"
+        },
+        {
+         "answer": 10.0,
+         "tol": 0.02,
+         "md": "that is $\\delta$, the depreciation rate"
+        }
+       ],
+       "why": "In the steady state the bond Euler equation reads $1/\\beta = 1 + R$, so $R = 1/0.95 - 1 = 0.0526$. The rental rate is $r = R + \\delta = 0.1526$, which is the MPK at $\\bar{k} = 10.73$: the market reproduces the planner's steady state.",
+       "objectives": [
+        7
+       ]
+      }
+     ],
+     "words": 24,
+     "symbols": [
+      "$f'(k)$",
+      "$\\beta$",
+      "$\\delta$",
+      "$\\bar{k}$, $\\bar{c}$, $\\bar{y}$",
+      "$w_t$, $r_t$",
+      "$R_t$"
+     ]
+    },
+    {
+     "id": "9-the-competitive-equilibrium-typed-notes-only-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Why must $R_t = r_t - \\delta$ hold in the competitive equilibrium?",
+       "options": [
+        {
+         "md": "Because the firm sets the interest rate equal to the marginal product of capital",
+         "correct": false,
+         "feedback": "The firm pays the *rental* rate $r = f'(k)$; it does not set the bond rate, which comes from the household's choices."
+        },
+        {
+         "md": "Both assets carry a unit of consumption from $t$ to $t+1$; if one paid more net of depreciation, households would hold only that one, so both Euler equations must give the same return",
+         "correct": true
+        },
+        {
+         "md": "Because bonds depreciate at rate $\\delta$",
+         "correct": false,
+         "feedback": "Bonds do not depreciate; capital does, which is why its return is $r + 1 - \\delta$ against the bond's $1 + R$."
+        },
+        {
+         "md": "Because the planner imposes it",
+         "correct": false,
+         "feedback": "There is no planner in the competitive equilibrium; it follows from the household's optimization."
+        }
+       ],
+       "why": "The household's two Euler equations have the same left side, $U'(c_t)/(\\beta U'(c_{t+1}))$, so their right sides must match: $1 + R_{t+1} = r_{t+1} + 1 - \\delta$. So the bond rate equals the return on capital net of depreciation.",
+       "objectives": [
+        7
+       ]
+      }
+     ],
+     "words": 62,
+     "symbols": [
+      "$c_t$",
+      "$k_1$, $k_2$",
+      "$f'(k)$",
+      "$U(c)$, $U'(c)$",
+      "$\\beta$",
+      "$\\delta$",
+      "$w_t$, $r_t$",
+      "$R_t$",
+      "$t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "math-refresher",
+   "heading": "Math refresher",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "math-refresher-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Math Prep L6 Optimization](note:math-prep-l6-optimization) — Lagrangians with many constraints and first-order conditions\n- [Math Prep L7 Approximations Logs and Series](note:math-prep-l7-approximations-logs-and-series) — discounted sums and geometric series\n- [Math Prep L4 Multivariable Differentiation](note:math-prep-l4-multivariable-differentiation) — marginal products and Euler's theorem for homogeneous functions"
+      }
+     ],
+     "words": 39,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Write the two-period problem with capital, derive MRS $= f'(k_2)$, solve the notes' log and square-root example for $k_2$, $c_1$, $c_2$ and the saved share, and explain why the MPK acts like an interest rate.\n2. Build the many-period resource constraint from production, the use of output and the law of motion of capital, and state the planner's problem.\n3. Derive the Euler equation from the Lagrangian and use it to say how a plan should change when it fails.\n4. Explain the boundary condition $k_{T+1} = 0$ and the transversality condition that replaces it with an infinite horizon.\n5. Solve for steady-state capital, consumption and the saving rate, in general and with Cobb-Douglas production."
+      }
+     ],
+     "words": 108,
+     "symbols": [
+      "$c_t$",
+      "$k_1$, $k_2$",
+      "$f'(k)$"
+     ]
+    },
+    {
+     "id": "what-to-be-able-to-do-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "6. Show that $\\beta = 1$ gives the golden rule, $\\bar{k} = (\\alpha/\\delta)^{1/(1-\\alpha)}$, compare the Ramsey steady state with Solow, and explain how the discount factor and the utility function affect it.\n7. Set up the competitive equilibrium, derive the bond and capital returns, and explain why it reproduces the planner's solution."
+      }
+     ],
+     "words": 46,
+     "symbols": [
+      "$\\beta$",
+      "$\\delta$",
+      "$\\bar{k}$, $\\bar{c}$, $\\bar{y}$",
+      "$A$, $\\alpha$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "ramsey-cass-koopmans-model",
+        "consumption-euler-equation",
+        "transversality-condition",
+        "golden-rule-saving-rate",
+        "discount-factor",
+        "steady-state",
+        "capital-accumulation-equation",
+        "marginal-rate-of-substitution",
+        "constrained-optimization-and-lagrange-multipliers",
+        "cobb-douglas-production-function",
+        "homogeneous-functions-and-eulers-theorem"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

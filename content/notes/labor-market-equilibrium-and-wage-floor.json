@@ -1,0 +1,182 @@
+{
+ "slug": "labor-market-equilibrium-and-wage-floor",
+ "notation": [
+  {
+   "tex": "$w$",
+   "meaning": "Wage per hour (the market wage, with $p = 1$)",
+   "kind": "Endogenous",
+   "typical": "20 in equilibrium",
+   "keys": [
+    "w"
+   ],
+   "from": "classical-labor-market-model"
+  },
+  {
+   "tex": "$p$",
+   "meaning": "Price of the consumption good",
+   "kind": "Exogenous",
+   "typical": "1 (normalized)",
+   "keys": [
+    "p"
+   ],
+   "from": "classical-labor-market-model"
+  },
+  {
+   "tex": "$w/p$",
+   "meaning": "Real wage",
+   "kind": "Endogenous",
+   "typical": "20",
+   "keys": [
+    "~w/p"
+   ],
+   "from": "classical-labor-market-model"
+  },
+  {
+   "tex": "$L$",
+   "meaning": "Hours of labor per day",
+   "kind": "Endogenous",
+   "typical": "2,000 in equilibrium",
+   "keys": [
+    "L"
+   ],
+   "from": "classical-labor-market-model"
+  },
+  {
+   "tex": "$L^S$",
+   "meaning": "Market labor supply: hours households offer",
+   "kind": "Function",
+   "typical": "$100\\,w/p$",
+   "keys": [
+    "~L^S"
+   ],
+   "from": "classical-labor-market-model"
+  },
+  {
+   "tex": "$L^D$",
+   "meaning": "Labor demand: hours firms want",
+   "kind": "Function",
+   "typical": "$40{,}000/(w/p)$",
+   "keys": [
+    "~L^D"
+   ],
+   "from": "classical-labor-market-model"
+  },
+  {
+   "tex": "$L^*$",
+   "meaning": "Equilibrium hours",
+   "kind": "Endogenous",
+   "typical": "2,000",
+   "keys": [
+    "L*"
+   ],
+   "from": "classical-labor-market-model"
+  },
+  {
+   "tex": "$w^*$",
+   "meaning": "Equilibrium wage",
+   "kind": "Endogenous",
+   "typical": "20",
+   "keys": [
+    "w*"
+   ],
+   "from": "classical-labor-market-model"
+  },
+  {
+   "tex": "$a$",
+   "meaning": "Scale of the firm's production function $F(L) = a\\ln L$",
+   "kind": "Parameter",
+   "typical": "40,000",
+   "keys": [
+    "a"
+   ],
+   "from": "classical-labor-market-model"
+  },
+  {
+   "tex": "$\\bar{w}$",
+   "meaning": "Wage floor (minimum wage or union wage)",
+   "kind": "Policy parameter",
+   "typical": "25",
+   "keys": [
+    "bar(w)"
+   ],
+   "from": "classical-labor-market-model"
+  },
+  {
+   "tex": "$\\tau_w$",
+   "meaning": "Tax per hour paid by the worker",
+   "kind": "Policy parameter",
+   "typical": "0 or 5",
+   "keys": [
+    "tau"
+   ],
+   "from": "classical-labor-market-model"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "labor-market-equilibrium-and-wage-floor"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$w$",
+      "$p$",
+      "$w/p$",
+      "$L$",
+      "$L^S$",
+      "$L^D$",
+      "$L^*$",
+      "$w^*$",
+      "$a$",
+      "$\\bar{w}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Purpose.** Find the market-clearing wage by hand: at a trial wage above it households offer more hours than the firm wants; below it, fewer. Then hold the wage above equilibrium with a floor and read unemployment off the gap.\n- **Model.** A view of [Labor Market Supply and Demand Model](note:labor-market-supply-and-demand-model) with no taxes ($\\tau_w = \\tau_f = 0$ fixed): $L^S = 100w$, $L^D = a/w$.\n- **Elements.** Panel `market`: curves `supply`, `demand`; points `eq`, `probe_s` (draggable vertically, bound to `wp`), `probe_d`, `floor_s`, `floor_d`; lines `gap`, `floor`, `unemp_line`. Readouts `w_out`, `L_out`, `excess_out`, `unemp_out`, `emp_out`.\n- **Goal it supports.** `abs(excess) < 1` is met only at $w = 20$ on the 0.5 slider grid."
+      }
+     ],
+     "words": 110,
+     "symbols": [
+      "$w$",
+      "$L$",
+      "$L^S$",
+      "$L^D$",
+      "$a$",
+      "$\\tau_w$"
+     ]
+    },
+    {
+     "id": "notes-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Tests.** The lecture's example (equilibrium 20 and 2,000; floor at 25 with 900 hours unemployed) and the goal's grid points, computed independently in Python."
+      }
+     ],
+     "words": 26,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

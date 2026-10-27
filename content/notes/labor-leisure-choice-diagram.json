@@ -1,0 +1,158 @@
+{
+ "slug": "labor-leisure-choice-diagram",
+ "notation": [
+  {
+   "tex": "$U(c, l)$",
+   "meaning": "Utility from consumption and leisure",
+   "kind": "Function",
+   "typical": "$c^2 - 18(24-l)^4$ in the example",
+   "keys": [
+    "U"
+   ],
+   "from": "labor-leisure-choice"
+  },
+  {
+   "tex": "$c$",
+   "meaning": "Units of the consumption good bought",
+   "kind": "Choice",
+   "typical": "66.7 at $w = 20$ in the example",
+   "keys": [
+    "c"
+   ],
+   "from": "labor-leisure-choice"
+  },
+  {
+   "tex": "$l$",
+   "meaning": "Hours of leisure per day",
+   "kind": "Choice",
+   "typical": "20.67 at $w = 20$",
+   "keys": [
+    "l"
+   ],
+   "from": "labor-leisure-choice"
+  },
+  {
+   "tex": "$h$",
+   "meaning": "Hours worked per day",
+   "kind": "Choice",
+   "typical": "3.33 at $w = 20$",
+   "keys": [
+    "h"
+   ],
+   "from": "labor-leisure-choice"
+  },
+  {
+   "tex": "$w$",
+   "meaning": "Nominal wage per hour",
+   "kind": "Exogenous (to the worker)",
+   "typical": "20",
+   "keys": [
+    "w"
+   ],
+   "from": "labor-leisure-choice"
+  },
+  {
+   "tex": "$p$",
+   "meaning": "Price of the consumption good",
+   "kind": "Exogenous",
+   "typical": "1 (normalized)",
+   "keys": [
+    "p"
+   ],
+   "from": "labor-leisure-choice"
+  },
+  {
+   "tex": "$w/p$",
+   "meaning": "Real wage: goods one hour of work buys",
+   "kind": "Exogenous (to the worker)",
+   "typical": "20",
+   "keys": [
+    "~w/p"
+   ],
+   "from": "labor-leisure-choice"
+  },
+  {
+   "tex": "$MRS$",
+   "meaning": "Marginal rate of substitution of leisure for consumption, $U_l/U_c$",
+   "kind": "Statistic",
+   "typical": "equals $w/p$ at the optimum",
+   "keys": [
+    "~MRS"
+   ],
+   "from": "labor-leisure-choice"
+  },
+  {
+   "tex": "$\\tau$",
+   "meaning": "Tax per hour worked, paid by the worker",
+   "kind": "Parameter",
+   "typical": "5 in the tax example",
+   "keys": [
+    "tau"
+   ],
+   "from": "labor-leisure-choice"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "labor-leisure-choice-diagram"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$U(c, l)$",
+      "$c$",
+      "$l$",
+      "$h$",
+      "$w$",
+      "$p$",
+      "$MRS$",
+      "$\\tau$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Purpose.** See MRS $= w/p$ as a tangency: the best hours are where the highest reachable indifference curve just touches the budget line. Moving $w$ or $p$ shows that only the real wage moves hours ($h = w/(6p)$ in the example).\n- **Model.** A view of [Labor-Leisure Choice Model](note:labor-leisure-choice-model). Leisure is on the horizontal axis, so hours worked are read leftward from 24.\n- **Elements.** Panel `choice`: curves `budget`, `ic_opt`, `ic_probe` (dashed, through the trial point); points `optimum` and `probe` (draggable along the budget line, bound to `lp`). Readouts `h_out`, `l_out`, `c_out`, `mrs_out`, `hp_out`, `mrsp_out`."
+      }
+     ],
+     "words": 97,
+     "symbols": [
+      "$h$",
+      "$w$",
+      "$p$",
+      "$w/p$"
+     ]
+    },
+    {
+     "id": "notes-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Goal it supports.** `abs(lp - lstar) < 0.06`: with step 0.05 the slider meets it at 20.65 and 20.70.\n- **Tests.** Lecture example numbers and the goal's grid points, computed independently in Python."
+      }
+     ],
+     "words": 38,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

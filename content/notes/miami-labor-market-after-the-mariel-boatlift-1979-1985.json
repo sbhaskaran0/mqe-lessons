@@ -1,0 +1,290 @@
+{
+ "slug": "miami-labor-market-after-the-mariel-boatlift-1979-1985",
+ "notation": [
+  {
+   "tex": "$g$",
+   "meaning": "Group: 1 whites, 2 blacks, 3 Hispanics",
+   "kind": "Index",
+   "typical": "2",
+   "keys": [
+    "g"
+   ]
+  },
+  {
+   "tex": "$o$",
+   "meaning": "Outcome: 1 log real hourly wage, 2 unemployment rate (%)",
+   "kind": "Index",
+   "typical": "1",
+   "keys": [
+    "o"
+   ]
+  },
+  {
+   "tex": "$t_1$",
+   "meaning": "Year compared with 1979",
+   "kind": "Index",
+   "typical": "1982",
+   "keys": [
+    "t"
+   ]
+  },
+  {
+   "tex": "$\\hat{\\theta}_{DiD}$",
+   "meaning": "Difference-in-differences: Miami − comparison in $t_1$ minus the same in 1979",
+   "kind": "Statistic",
+   "typical": "−0.08 (blacks' log wage, 1982)",
+   "keys": [
+    "hat(theta)"
+   ]
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**About 125,000 Cubans arrived in Miami in mid-1980, raising its labor force by 7%. Relative to Atlanta, Houston, Los Angeles and Tampa–St. Petersburg, Miami's wages and unemployment show at most a small, short-lived deterioration over 1979–82: for blacks, the Miami−comparison gap in log wages was −0.15 in 1979, −0.23 in 1982 and −0.05 by 1985.**"
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Log real hourly earnings in Miami and comparison cities 1979-1985.png",
+       "alt": "Table - Log real hourly earnings in Miami and comparison cities 1979-1985"
+      }
+     ],
+     "words": 62,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "log-real-hourly-earnings-workers-aged-16-61-card-table-3",
+   "heading": "Log real hourly earnings, workers aged 16–61 (Card Table 3)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "log-real-hourly-earnings-workers-aged-16-61-card-table-3-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Group | 1979 | 1980 | 1981 | 1982 | 1983 | 1984 | 1985 |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| Miami whites | 1.85 | 1.83 | 1.85 | 1.82 | 1.82 | 1.82 | 1.82 |\n| Miami blacks | 1.59 | 1.55 | 1.61 | 1.48 | 1.48 | 1.57 | 1.60 |\n| Miami Cubans | 1.58 | 1.54 | 1.51 | 1.49 | 1.49 | 1.53 | 1.49 |\n| Miami Hispanics | 1.52 | 1.54 | 1.54 | 1.53 | 1.48 | 1.59 | 1.54 |\n| Comparison whites | 1.93 | 1.90 | 1.91 | 1.91 | 1.90 | 1.91 | 1.92 |\n| Comparison blacks | 1.74 | 1.70 | 1.72 | 1.71 | 1.69 | 1.67 | 1.65 |\n| Comparison Hispanics | 1.65 | 1.63 | 1.61 | 1.61 | 1.58 | 1.60 | 1.58 |"
+      }
+     ],
+     "words": 128,
+     "symbols": []
+    },
+    {
+     "id": "log-real-hourly-earnings-workers-aged-16-61-card-table-3-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Standard errors are about 0.02–0.06 in Miami and 0.01–0.03 in the comparison cities. Wages are deflated by the CPI (1980 = 100); the 1985 sample covers January–June only."
+      }
+     ],
+     "words": 34,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "unemployment-rates-percent-card-table-4",
+   "heading": "Unemployment rates, percent (Card Table 4)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "unemployment-rates-percent-card-table-4-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Unemployment rates in Miami and comparison cities 1979-1985.png",
+       "alt": "Table - Unemployment rates in Miami and comparison cities 1979-1985"
+      },
+      {
+       "t": "table",
+       "md": "| Group | 1979 | 1980 | 1981 | 1982 | 1983 | 1984 | 1985 |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| Miami whites | 5.1 | 2.5 | 3.9 | 5.2 | 6.7 | 3.6 | 4.9 |\n| Miami blacks | 8.3 | 5.6 | 9.6 | 16.0 | 18.4 | 14.2 | 7.8 |\n| Miami Cubans | 5.3 | 7.2 | 10.1 | 10.8 | 13.1 | 7.7 | 5.5 |\n| Miami Hispanics | 6.5 | 7.7 | 11.8 | 9.1 | 7.5 | 12.1 | 3.7 |\n| Comparison whites | 4.4 | 4.4 | 4.3 | 6.8 | 6.9 | 5.4 | 4.9 |\n| Comparison blacks | 10.3 | 12.6 | 12.6 | 12.7 | 18.4 | 12.1 | 13.3 |\n| Comparison Hispanics | 6.3 | 8.7 | 8.3 | 12.1 | 11.8 | 9.8 | 9.3 |"
+      }
+     ],
+     "words": 128,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "differences-and-differences-in-differences-computed-from-tables-3-and-4",
+   "heading": "Differences and differences-in-differences (computed from Tables 3 and 4)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "differences-and-differences-in-differences-computed-from-tables-3-and-4-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The first difference is Miami minus the comparison cities in a year; the difference-in-differences subtracts the 1979 first difference."
+      },
+      {
+       "t": "table",
+       "md": "| Blacks | 1979 | 1980 | 1981 | 1982 | 1983 | 1984 | 1985 |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| Log wage, Miami − comparison | −0.15 | −0.15 | −0.11 | −0.23 | −0.21 | −0.10 | −0.05 |\n| Log wage, DiD from 1979 | 0 | 0.00 | 0.04 | −0.08 | −0.06 | 0.05 | 0.10 |\n| Unemployment, Miami − comparison (pp) | −2.0 | −7.0 | −3.0 | 3.3 | 0.0 | 2.1 | −5.5 |\n| Unemployment, DiD from 1979 (pp) | 0 | −5.0 | −1.0 | 5.3 | 2.0 | 4.1 | −3.5 |"
+      }
+     ],
+     "words": 107,
+     "symbols": []
+    },
+    {
+     "id": "differences-and-differences-in-differences-computed-from-tables-3-and-4-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "For whites the log-wage DiD stays within ±0.02 in every year; for Hispanics it is positive (0.04 to 0.12)."
+      }
+     ],
+     "words": 22,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "blacks-in-miami-vs-the-comparison-cities-card-table-6",
+   "heading": "Blacks in Miami vs the comparison cities (Card Table 6)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "blacks-in-miami-vs-the-comparison-cities-card-table-6-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Wages and unemployment of blacks in Miami vs comparison cities 1979-1985.png",
+       "alt": "Table - Wages and unemployment of blacks in Miami vs comparison cities 1979-1985"
+      },
+      {
+       "t": "table",
+       "md": "| Year | Log wage, actual | Log wage, adjusted | Emp.-pop. rate | Unemp. rate | Low-ed: log wage, actual | Low-ed: unemp. rate |\n| --- | --- | --- | --- | --- | --- | --- |\n| 1979 | −0.15 | −0.12 | 0.00 | −2.0 | −0.13 | −0.8 |\n| 1980 | −0.16 | −0.12 | 0.05 | −7.1 | −0.07 | −8.2 |\n| 1981 | −0.11 | −0.10 | 0.02 | −3.0 | −0.05 | −7.7 |\n| 1982 | −0.24 | −0.20 | −0.06 | 3.3 | −0.17 | 0.6 |\n| 1983 | −0.21 | −0.15 | −0.02 | 0.1 | −0.13 | −3.3 |\n| 1984 | −0.10 | −0.05 | −0.04 | 2.1 | −0.04 | 0.1 |\n| 1985 | −0.05 | −0.01 | −0.06 | −5.5 | 0.18 | −4.7 |"
+      }
+     ],
+     "words": 117,
+     "symbols": []
+    },
+    {
+     "id": "blacks-in-miami-vs-the-comparison-cities-card-table-6-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Entries are Miami minus comparison cities. \"Adjusted\" controls for education, potential experience and other characteristics; low-education blacks have under 12 years of schooling. Table 6 differs from Table 3's gaps by up to 0.01 because of rounding."
+      }
+     ],
+     "words": 38,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "who-lived-in-miami-before-the-boatlift-card-table-1-1979",
+   "heading": "Who lived in Miami before the boatlift (Card Table 1, 1979)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "who-lived-in-miami-before-the-boatlift-card-table-1-1979-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Characteristics of 16-61-year-olds in Miami 1979.png",
+       "alt": "Table - Characteristics of 16-61-year-olds in Miami 1979"
+      },
+      {
+       "t": "table",
+       "md": "| Characteristic | Whites | Blacks | Cubans | Hispanics | All |\n| --- | --- | --- | --- | --- | --- |\n| Population 16–61 (1000s) | 319.3 | 244.1 | 252.4 | 102.9 | 928.4 |\n| Mean education (years) | 12.8 | 11.4 | 11.0 | 11.6 | 11.8 |\n| In labor force (1000s) | 241.3 | 166.6 | 194.7 | 70.8 | 678.2 |\n| Operatives (% of employed) | 4.4 | 8.4 | 19.4 | 16.7 | 11.1 |\n| Less-skilled service workers (%) | 5.0 | 13.3 | 6.1 | 10.2 | 8.0 |"
+      }
+     ],
+     "words": 79,
+     "symbols": []
+    },
+    {
+     "id": "who-lived-in-miami-before-the-boatlift-card-table-1-1979-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The table describes Miami's residents before the boatlift. The lecture's point is that the Mariel Cubans' education and jobs resembled those of Miami's blacks, Cubans and other Hispanics more than its whites, so those are the groups most exposed to the new arrivals."
+      }
+     ],
+     "words": 43,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "explore-the-numbers",
+   "heading": "Explore the numbers",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "explore-the-numbers-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "mariel-boatlift-miami-vs-comparison-cities",
+       "state": {
+        "g": 2,
+        "o": 1,
+        "t1": 1982
+       },
+       "show": [
+        "miami",
+        "comp",
+        "gap",
+        "did_out"
+       ],
+       "prompt": "Pick a group and an outcome; move the comparison year to see the difference-in-differences against 1979."
+      }
+     ],
+     "words": 16,
+     "symbols": [
+      "$g$",
+      "$o$",
+      "$t_1$",
+      "$\\hat{\\theta}_{DiD}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "reading-it-correctly",
+   "heading": "Reading it correctly",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "reading-it-correctly-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Not the immigrants' own outcomes.** Cubans in Miami include the new arrivals, so their wages fall partly because the group changed; there is no comparison-city Cuban series.\n- **Only six post years and one pre year.** With data starting in 1979, parallel trends cannot be checked.\n- **Noise.** Miami standard errors are 0.03 for log wages and 1–3 points for unemployment, so year-to-year swings of a few hundredths are within noise.\n- **Common shocks.** Unemployment rose in the comparison cities too in 1982–83 (a national recession, beyond the lecture); the comparison cities absorb such common shocks."
+      }
+     ],
+     "words": 100,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Difference-in-Differences](note:difference-in-differences) · [Current Population Survey (CPS)](note:current-population-survey-cps) · [Research Designs for Immigration Effects](note:research-designs-for-immigration-effects)\n- Paper: [Card 1990 - The Impact of the Mariel Boatlift](note:card-1990-the-impact-of-the-mariel-boatlift)"
+      }
+     ],
+     "words": 22,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

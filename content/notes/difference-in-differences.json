@@ -107,6 +107,17 @@
    "keys": [
     "tau"
    ]
+  },
+  {
+   "tex": "$g$, $G$",
+   "meaning": "Cluster index and number of clusters",
+   "kind": "Index / data",
+   "typical": "27 states; 3-digit industries",
+   "keys": [
+    "g",
+    "G"
+   ],
+   "from": "clustered-standard-errors"
   }
  ],
  "sections": [
@@ -196,6 +207,56 @@
      "symbols": [
       "$\\theta$",
       "$\\theta_\\tau$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example-reading-a-table-of-group-means-mariel-boatlift",
+   "heading": "Worked example — reading a table of group means (Mariel boatlift)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-reading-a-table-of-group-means-mariel-boatlift-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Card's tables give log wages for blacks in Miami and in four comparison cities. In 1979 the gap (Miami − comparison) was $1.59 - 1.74 = -0.15$; in 1982 it was $1.48 - 1.71 = -0.23$. Each gap is a **first difference** (a level comparison in one year); differencing the gaps across years gives the **difference in differences**, $-0.23 - (-0.15) = -0.08$. For unemployment the same steps give $3.3 - (-2.0) = +5.3$ points. With only one year before the shock, parallel trends cannot be checked. See [Miami Labor Market After the Mariel Boatlift 1979-1985](note:miami-labor-market-after-the-mariel-boatlift-1979-1985)."
+      },
+      {
+       "t": "interactive",
+       "widget": "mariel-boatlift-miami-vs-comparison-cities",
+       "state": {
+        "g": 2,
+        "o": 1,
+        "t1": 1982
+       },
+       "show": [
+        "miami",
+        "comp",
+        "gap",
+        "did_out"
+       ],
+       "prompt": "Move the year and switch group or outcome to read the difference-in-differences against 1979."
+      }
+     ],
+     "words": 89,
+     "symbols": [
+      "$\\hat{\\theta}_{DiD}$",
+      "$g$, $G$"
+     ]
+    },
+    {
+     "id": "worked-example-reading-a-table-of-group-means-mariel-boatlift-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Continuous treatment and a removal.** When the bracero program of Mexican farm labor ended in 1964, each state's exposure was its 1955 Mexican share of seasonal farm workers, $\\bar{\\ell}_s^{1955}$. Regressing log farm wages on $\\mathbb{1}\\{t \\geq 1965\\} \\times \\bar{\\ell}_s^{1955}$ with state and quarter-by-year effects is a DiD in which $D_i$ is that share."
+      }
+     ],
+     "words": 46,
+     "symbols": [
+      "$D_i$"
      ]
     }
    ]
@@ -315,10 +376,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "- Trade: effects of trade policy changes across industries or regions.\n- Labor and public economics: minimum wages, tax reforms, any policy with differential exposure."
+       "md": "- Trade: effects of trade policy changes across industries or regions.\n- Labor and public economics: minimum wages, tax reforms, any policy with differential exposure.\n- Labor: immigration supply shocks across cities (the Mariel boatlift) and removals of immigrants (bracero exclusion)."
       }
      ],
-     "words": 25,
+     "words": 41,
      "symbols": []
     }
    ]
@@ -333,10 +394,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "- [Fixed Effects Regression](note:fixed-effects-regression) · [Indicator Variables](note:indicator-variables) · [Clustered Standard Errors](note:clustered-standard-errors) · [OLS Estimator](note:ols-estimator)"
+       "md": "- [Fixed Effects Regression](note:fixed-effects-regression) · [Indicator Variables](note:indicator-variables) · [Clustered Standard Errors](note:clustered-standard-errors) · [OLS Estimator](note:ols-estimator)\n- Paper: [Card 1990 - The Impact of the Mariel Boatlift](note:card-1990-the-impact-of-the-mariel-boatlift)\n- Paper: [Clemens, Lewis and Postel 2018 - Immigration Restrictions as Active Labor Market Policy](note:clemens-lewis-and-postel-2018-immigration-restrictions-as-active-labor-market-policy)"
       }
      ],
-     "words": 11,
+     "words": 37,
      "symbols": []
     }
    ]
