@@ -1,0 +1,156 @@
+{
+ "slug": "keynesian-cross-explorer",
+ "notation": [
+  {
+   "tex": "$Y$",
+   "meaning": "Output (equal to income)",
+   "kind": "Endogenous",
+   "typical": "1,100 in the example",
+   "keys": [
+    "Y"
+   ],
+   "from": "keynesian-cross"
+  },
+  {
+   "tex": "$PE$",
+   "meaning": "Planned expenditure",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "~PE"
+   ],
+   "from": "keynesian-cross"
+  },
+  {
+   "tex": "$a$",
+   "meaning": "Autonomous consumption: spending that does not depend on income",
+   "kind": "Parameter",
+   "typical": "100 in the example",
+   "keys": [
+    "a"
+   ],
+   "from": "keynesian-cross"
+  },
+  {
+   "tex": "$b$",
+   "meaning": "Marginal propensity to consume (MPC): share of each extra unit of disposable income spent",
+   "kind": "Parameter in (0, 1)",
+   "typical": "0.8",
+   "keys": [
+    "b"
+   ],
+   "from": "keynesian-cross"
+  },
+  {
+   "tex": "$T$",
+   "meaning": "Taxes",
+   "kind": "Policy",
+   "typical": "100 in the example",
+   "keys": [
+    "T"
+   ],
+   "from": "keynesian-cross"
+  },
+  {
+   "tex": "$G$",
+   "meaning": "Government spending",
+   "kind": "Policy",
+   "typical": "100 in the example",
+   "keys": [
+    "G"
+   ],
+   "from": "keynesian-cross"
+  },
+  {
+   "tex": "$I^P$",
+   "meaning": "Planned investment: new capital goods and planned inventory changes",
+   "kind": "Exogenous (for now)",
+   "typical": "100 in the example",
+   "keys": [
+    "~I^P"
+   ],
+   "from": "keynesian-cross"
+  },
+  {
+   "tex": "$I^U$",
+   "meaning": "Unplanned investment: unplanned inventory changes",
+   "kind": "Endogenous",
+   "typical": "0 in equilibrium",
+   "keys": [
+    "~I^U"
+   ],
+   "from": "keynesian-cross"
+  },
+  {
+   "tex": "$I$",
+   "meaning": "Total investment, $I^P + I^U$",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "I"
+   ],
+   "from": "keynesian-cross"
+  },
+  {
+   "tex": "$Y^*$",
+   "meaning": "Equilibrium output",
+   "kind": "Endogenous",
+   "typical": "1,100 in the example",
+   "keys": [
+    "Y*"
+   ],
+   "from": "keynesian-cross"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "keynesian-cross-explorer"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$Y$",
+      "$PE$",
+      "$a$",
+      "$b$",
+      "$T$",
+      "$G$",
+      "$I^P$",
+      "$I^U$",
+      "$I$",
+      "$Y^*$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Purpose.** See equilibrium as the output at which nobody is surprised: where planned spending equals production and unplanned inventory investment is zero. Then see the multiplier as the horizontal jump in the crossing when the PE line shifts up.\n- **Model.** A view of [Keynesian Cross Expenditure Model](note:keynesian-cross-expenditure-model).\n- **Elements.** Panel `cross`: curves `line45`, `pe`; points `eq`, `produce` (draggable, bound to `Yp`), `spend`; line `gap`. Readouts `Ystar_out`, `Iu_out`, `mult_out`.\n- **Goal it supports.** `abs(Iu) < 1`: met only at $Y = 1{,}100$ on the step-10 grid.\n- **Tests.** Python, closed form."
+      }
+     ],
+     "words": 92,
+     "symbols": [
+      "$Y$"
+     ]
+    }
+   ]
+  }
+ ]
+}

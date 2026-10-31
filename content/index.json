@@ -1,10 +1,10 @@
 {
  "schema": "mqe-lessons/1",
- "generated_at": "2026-10-27T16:26:55Z",
+ "generated_at": "2026-10-31T17:40:51Z",
  "vault": {
-  "notes": 266,
+  "notes": 287,
   "errors": 0,
-  "warnings": 9
+  "warnings": 13
  },
  "courses": [
   {
@@ -16,7 +16,9 @@
     "econ-402a-l2-two-period-saving-model",
     "econ-402a-l3-the-ramsey-cass-koopmans-model",
     "econ-402a-l4-classical-labor-market",
-    "econ-402a-l5-a-search-and-matching-model-of-the-labor-market"
+    "econ-402a-l5-a-search-and-matching-model-of-the-labor-market",
+    "econ-402a-l6-keynesian-economics",
+    "econ-402a-l7-the-is-mp-pc-model"
    ],
    "practice": [
     "econ-402a-l1-solow-revision-lesson"
@@ -367,6 +369,7 @@
    "id": "macroeconomics",
    "label": "Macroeconomics",
    "notes": [
+    "adaptive-expectations",
     "balanced-growth-path",
     "beveridge-curve",
     "capital-accumulation-equation",
@@ -381,7 +384,17 @@
     "factor-augmenting-technology",
     "golden-rule-saving-rate",
     "homogeneous-functions-and-eulers-theorem",
+    "inflation-shock-paths",
     "intertemporal-budget-constraint",
+    "is-curve",
+    "is-lm-explorer",
+    "is-lm-model",
+    "is-mp-and-phillips-curve-diagram",
+    "is-mp-pc-model",
+    "keynesian-cross",
+    "keynesian-cross-expenditure-model",
+    "keynesian-cross-explorer",
+    "keynesian-multiplier",
     "labor-demand",
     "labor-market-equilibrium-and-wage-floor",
     "labor-market-supply-and-demand-model",
@@ -389,13 +402,19 @@
     "labor-leisure-choice",
     "labor-leisure-choice-diagram",
     "labor-leisure-choice-model",
+    "linear-is-lm-model",
+    "liquidity-preference",
+    "lm-curve",
     "petrongolo-and-pissarides-2001-looking-into-the-black-box",
     "marginal-rate-of-substitution",
     "market-clearing",
     "matching-function",
+    "monetary-policy-rule",
+    "phillips-curve",
     "ramsey-steady-state-explorer",
     "ramsey-steady-state-model",
     "ramsey-cass-koopmans-model",
+    "real-and-nominal-interest-rates",
     "bhattacharya-jackson-and-jenkins-2018-revisiting-unemployment-in-intermediate-macroeconomics",
     "saving-investment-identity",
     "search-and-matching-equilibrium-explorer",
@@ -413,12 +432,14 @@
     "steady-state",
     "steady-state-unemployment-rate",
     "fisher-1930-the-theory-of-interest",
+    "three-equation-macro-model",
     "transversality-condition",
     "two-period-capital-choice-explorer",
     "two-period-capital-choice-model",
     "two-period-consumer-model",
     "two-period-consumption-choice",
-    "two-period-consumption-saving-model"
+    "two-period-consumption-saving-model",
+    "zero-lower-bound"
    ]
   },
   {
@@ -499,6 +520,17 @@
     "nash-bargaining",
     "relative-supply-and-demand",
     "tax-incidence"
+   ]
+  },
+  {
+   "id": "monetary economics",
+   "label": "Monetary economics",
+   "notes": [
+    "liquidity-preference",
+    "lm-curve",
+    "monetary-policy-rule",
+    "real-and-nominal-interest-rates",
+    "zero-lower-bound"
    ]
   },
   {
@@ -656,13 +688,19 @@
    "envelope-theorem-and-job-switching",
    "immigrant-share-elasticity-explorer",
    "immigrant-share-elasticity-model",
+   "inflation-shock-paths",
+   "is-lm-explorer",
+   "is-mp-and-phillips-curve-diagram",
    "kernel-density-bandwidth-explorer",
+   "keynesian-cross-expenditure-model",
+   "keynesian-cross-explorer",
    "labor-leisure-choice-diagram",
    "labor-leisure-choice-model",
    "labor-market-equilibrium-and-wage-floor",
    "labor-market-supply-and-demand-model",
    "labor-tax-wedge",
    "leverage-and-influence-explorer",
+   "linear-is-lm-model",
    "log-change-taylor-expansion",
    "lognormal-inequality-explorer",
    "lowess-span-explorer",
@@ -688,6 +726,7 @@
    "solow-model-per-worker",
    "solow-steady-state-explorer",
    "taylor-approximation-of-log-change",
+   "three-equation-macro-model",
    "two-period-capital-choice-explorer",
    "two-period-capital-choice-model",
    "two-period-consumer-model",
@@ -706,11 +745,17 @@
    "envelope-theorem-and-job-switching",
    "immigrant-share-elasticity-explorer",
    "immigrant-share-elasticity-model",
+   "inflation-shock-paths",
+   "is-lm-explorer",
+   "is-mp-and-phillips-curve-diagram",
+   "keynesian-cross-expenditure-model",
+   "keynesian-cross-explorer",
    "labor-leisure-choice-diagram",
    "labor-leisure-choice-model",
    "labor-market-equilibrium-and-wage-floor",
    "labor-market-supply-and-demand-model",
    "labor-tax-wedge",
+   "linear-is-lm-model",
    "log-change-taylor-expansion",
    "ols-sampling-model",
    "projection-onto-a-vector",
@@ -730,6 +775,7 @@
    "solow-model-per-worker",
    "solow-steady-state-explorer",
    "taylor-approximation-of-log-change",
+   "three-equation-macro-model",
    "two-period-capital-choice-explorer",
    "two-period-capital-choice-model",
    "two-period-consumer-model",
@@ -844,6 +890,75 @@
    "words": 430,
    "created": "2026-10-08T16:40:31Z",
    "updated": "2026-10-08T16:41:06Z"
+  },
+  "adaptive-expectations": {
+   "slug": "adaptive-expectations",
+   "name": "Adaptive Expectations",
+   "title": "Adaptive Expectations",
+   "type": "concept",
+   "path": "Concepts/Adaptive Expectations.md",
+   "summary": "People forecast from the past; in the simplest form πᵉₜ = πₜ₋₁. Rational expectations instead use the whole model, including how the central bank will respond. Adaptive expectations make a one-period shock fade gradually.",
+   "domain": "macroeconomics",
+   "domains": [
+    "macroeconomics"
+   ],
+   "tags": [],
+   "aliases": [
+    "Rational expectations",
+    "Backward-looking expectations",
+    "Inflation expectations"
+   ],
+   "requires": [],
+   "lessons": [
+    "econ-402a-l7-the-is-mp-pc-model"
+   ],
+   "courses": [
+    "Econ 402A"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "related",
+      "note": "is-mp-pc-model"
+     },
+     {
+      "kind": "related",
+      "note": "monetary-policy-rule"
+     },
+     {
+      "kind": "related",
+      "note": "phillips-curve"
+     }
+    ],
+    "in": [
+     {
+      "kind": "covers",
+      "note": "econ-402a-l7-the-is-mp-pc-model"
+     },
+     {
+      "kind": "illustrates",
+      "note": "inflation-shock-paths"
+     },
+     {
+      "kind": "illustrates",
+      "note": "three-equation-macro-model"
+     },
+     {
+      "kind": "related",
+      "note": "is-mp-pc-model"
+     },
+     {
+      "kind": "related",
+      "note": "phillips-curve"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 255,
+   "created": "2026-10-28T20:07:03Z",
+   "updated": "2026-10-28T20:07:03Z"
   },
   "analysis-of-variance": {
    "slug": "analysis-of-variance",
@@ -5541,15 +5656,23 @@
      {
       "kind": "part_of",
       "note": "econ-402a-l5-a-search-and-matching-model-of-the-labor-market"
+     },
+     {
+      "kind": "part_of",
+      "note": "econ-402a-l6-keynesian-economics"
+     },
+     {
+      "kind": "part_of",
+      "note": "econ-402a-l7-the-is-mp-pc-model"
      }
     ]
    },
    "figures": [],
    "interactives": [],
    "checks": 0,
-   "words": 629,
+   "words": 821,
    "created": "2026-10-05T19:41:53Z",
-   "updated": "2026-10-21T19:59:56Z"
+   "updated": "2026-10-28T20:07:13Z"
   },
   "econ-402a-l1-solow-growth-model": {
    "slug": "econ-402a-l1-solow-growth-model",
@@ -6293,6 +6416,10 @@
       "note": "steady-state-unemployment-rate"
      },
      {
+      "kind": "next",
+      "note": "econ-402a-l6-keynesian-economics"
+     },
+     {
       "kind": "part_of",
       "note": "econ-402a"
      },
@@ -6364,7 +6491,284 @@
     }
    ],
    "created": "2026-10-22T01:57:58Z",
-   "updated": "2026-10-22T01:57:58Z"
+   "updated": "2026-10-28T20:07:13Z"
+  },
+  "econ-402a-l6-keynesian-economics": {
+   "slug": "econ-402a-l6-keynesian-economics",
+   "name": "Econ 402A L6 Keynesian Economics",
+   "title": "Keynesian Economics",
+   "type": "lecture",
+   "path": "Courses/Econ 402A/Lectures/Econ 402A L6 Keynesian Economics.md",
+   "summary": "Keynesian economics: demand creates supply. Output settles where planned expenditure equals output, Y* = (a − bT + Iᴾ + G)/(1 − b), with multiplier 1/(1 − b); adding interest rates and money gives IS-LM, crowding out and the liquidity trap.",
+   "tags": [],
+   "aliases": [],
+   "requires": [],
+   "lessons": [],
+   "courses": [
+    "Econ 402A"
+   ],
+   "course": "Econ 402A",
+   "lecture": 6,
+   "source": "Keynesian Economics-3.pdf (handwritten notes); 05 - Keynesian Economics.pdf (typed notes)",
+   "edges": {
+    "out": [
+     {
+      "kind": "covers",
+      "note": "geometric-series"
+     },
+     {
+      "kind": "covers",
+      "note": "is-curve"
+     },
+     {
+      "kind": "covers",
+      "note": "is-lm-model"
+     },
+     {
+      "kind": "covers",
+      "note": "keynesian-cross"
+     },
+     {
+      "kind": "covers",
+      "note": "keynesian-multiplier"
+     },
+     {
+      "kind": "covers",
+      "note": "liquidity-preference"
+     },
+     {
+      "kind": "covers",
+      "note": "lm-curve"
+     },
+     {
+      "kind": "covers",
+      "note": "saving-investment-identity"
+     },
+     {
+      "kind": "covers",
+      "note": "zero-lower-bound"
+     },
+     {
+      "kind": "next",
+      "note": "econ-402a-l7-the-is-mp-pc-model"
+     },
+     {
+      "kind": "part_of",
+      "note": "econ-402a"
+     },
+     {
+      "kind": "shows",
+      "note": "is-lm-explorer"
+     },
+     {
+      "kind": "shows",
+      "note": "keynesian-cross-explorer"
+     }
+    ],
+    "in": [
+     {
+      "kind": "next",
+      "note": "econ-402a-l5-a-search-and-matching-model-of-the-labor-market"
+     }
+    ]
+   },
+   "figures": [
+    "assets/Attachments/Keynesian economics - demand creates supply.png",
+    "assets/Attachments/Keynesian cross - planned and unplanned investment.png",
+    "assets/Attachments/Keynesian cross - equilibrium when unplanned investment is zero.png",
+    "assets/Attachments/Keynesian consumption function.png",
+    "assets/Attachments/Keynesian cross - solving for equilibrium output and the multiplier.png",
+    "assets/Attachments/Keynesian cross diagram (handwritten).png",
+    "assets/Attachments/Keynesian cross diagram.png",
+    "assets/Attachments/Keynesian multiplier - spending vs tax multiplier.png",
+    "assets/Attachments/Planned investment falls with the interest rate.png",
+    "assets/Attachments/From planned investment to the IS curve.png",
+    "assets/Attachments/IS curve (handwritten).png",
+    "assets/Attachments/Money market - liquidity preference.png",
+    "assets/Attachments/Money demand curve.png",
+    "assets/Attachments/Money market equilibrium.png",
+    "assets/Attachments/Money market - higher income raises money demand and the interest rate.png",
+    "assets/Attachments/LM curve (handwritten).png",
+    "assets/Attachments/Deriving the LM curve from money demand.png",
+    "assets/Attachments/IS-LM equilibrium (handwritten).png",
+    "assets/Attachments/IS-LM fiscal policy and crowding out (handwritten).png",
+    "assets/Attachments/IS-LM fiscal expansion.png",
+    "assets/Attachments/Monetary policy - open market purchase lowers the interest rate.png",
+    "assets/Attachments/IS-LM monetary expansion (handwritten).png",
+    "assets/Attachments/IS-LM interest rate targeting.png",
+    "assets/Attachments/IS-LM monetary offset.png",
+    "assets/Attachments/Zero lower bound and the liquidity trap (handwritten).png",
+    "assets/Attachments/IS-LM liquidity trap.png"
+   ],
+   "interactives": [
+    "keynesian-cross-explorer",
+    "is-lm-explorer"
+   ],
+   "checks": 8,
+   "derives": 1,
+   "words": 2176,
+   "objectives": [
+    {
+     "n": 1,
+     "md": "Contrast \"supply creates its own demand\" with \"demand creates supply\", define planned expenditure, and tell planned from unplanned investment.",
+     "tested": 1
+    },
+    {
+     "n": 2,
+     "md": "Explain why equilibrium requires $I^U = 0$, equivalently $PE = Y$ and $S = I^P$.",
+     "tested": 1
+    },
+    {
+     "n": 3,
+     "md": "Solve the Keynesian cross for $Y^* = (a - bT + I^P + G)/(1 - b)$, compute it, and draw the diagram, explaining what happens away from $Y^*$.",
+     "tested": 3
+    },
+    {
+     "n": 4,
+     "md": "Derive the spending and tax multipliers as geometric sums, explain why the tax multiplier is smaller, and compute both.",
+     "tested": 2
+    },
+    {
+     "n": 5,
+     "md": "Derive the IS curve from the dependence of planned investment on the interest rate, and say what moves along it and what shifts it.",
+     "tested": 1
+    },
+    {
+     "n": 6,
+     "md": "Explain liquidity preference and money-market equilibrium, and derive the LM curve and what shifts it.",
+     "tested": 1
+    },
+    {
+     "n": 7,
+     "md": "Use IS-LM to analyze fiscal policy (with crowding out), monetary policy, interest-rate targeting and monetary offset.",
+     "tested": 3
+    },
+    {
+     "n": 8,
+     "md": "Explain the zero lower bound and the liquidity trap, and why fiscal policy works better than monetary policy there.",
+     "tested": 1
+    }
+   ],
+   "created": "2026-10-28T20:07:00Z",
+   "updated": "2026-10-28T20:17:26Z"
+  },
+  "econ-402a-l7-the-is-mp-pc-model": {
+   "slug": "econ-402a-l7-the-is-mp-pc-model",
+   "name": "Econ 402A L7 The IS-MP-PC Model",
+   "title": "The IS-MP-PC Model",
+   "type": "lecture",
+   "path": "Courses/Econ 402A/Lectures/Econ 402A L7 The IS-MP-PC Model.md",
+   "summary": "A Phillips curve, an IS curve and an inflation-targeting rule replace IS-LM. A supply shock raises inflation and the policy rate and lowers output; a tougher central bank (larger β_π) accepts a deeper fall in output for less inflation.",
+   "tags": [],
+   "aliases": [],
+   "requires": [],
+   "lessons": [],
+   "courses": [
+    "Econ 402A"
+   ],
+   "course": "Econ 402A",
+   "lecture": 7,
+   "source": "06 - IS-LM-PC.pdf (typed notes; handwritten notes to come)",
+   "edges": {
+    "out": [
+     {
+      "kind": "covers",
+      "note": "adaptive-expectations"
+     },
+     {
+      "kind": "covers",
+      "note": "is-curve"
+     },
+     {
+      "kind": "covers",
+      "note": "is-lm-model"
+     },
+     {
+      "kind": "covers",
+      "note": "is-mp-pc-model"
+     },
+     {
+      "kind": "covers",
+      "note": "monetary-policy-rule"
+     },
+     {
+      "kind": "covers",
+      "note": "phillips-curve"
+     },
+     {
+      "kind": "covers",
+      "note": "real-and-nominal-interest-rates"
+     },
+     {
+      "kind": "covers",
+      "note": "zero-lower-bound"
+     },
+     {
+      "kind": "part_of",
+      "note": "econ-402a"
+     },
+     {
+      "kind": "shows",
+      "note": "inflation-shock-paths"
+     },
+     {
+      "kind": "shows",
+      "note": "is-mp-and-phillips-curve-diagram"
+     }
+    ],
+    "in": [
+     {
+      "kind": "next",
+      "note": "econ-402a-l6-keynesian-economics"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [
+    "is-mp-and-phillips-curve-diagram",
+    "inflation-shock-paths"
+   ],
+   "checks": 7,
+   "words": 1826,
+   "objectives": [
+    {
+     "n": 1,
+     "md": "Write the traditional and the expectations-augmented Phillips curve, explain why the second replaced the first, and use the output version with supply shocks.",
+     "tested": 1
+    },
+    {
+     "n": 2,
+     "md": "Write the IS curve in output-gap form, distinguish real from nominal rates, and explain the neutral rate and demand shocks.",
+     "tested": 1
+    },
+    {
+     "n": 3,
+     "md": "Write the inflation-targeting rule and the Taylor rule, explain why the real rate is neutral at target, and compute the rate the rule sets.",
+     "tested": 1
+    },
+    {
+     "n": 4,
+     "md": "Derive the IS-MP curve and explain why its slope depends on whether $\\beta_\\pi$ exceeds 1.",
+     "tested": 1
+    },
+    {
+     "n": 5,
+     "md": "Solve the model for inflation and output, define $\\theta$, and explain the trade-off a tougher central bank faces.",
+     "tested": 2
+    },
+    {
+     "n": 6,
+     "md": "Explain adaptive and rational expectations, and trace the notes' example: $\\pi_2 = 4$, $i_2 = 7$, $y_2 = 99$, then the gradual return.",
+     "tested": 3
+    },
+    {
+     "n": 7,
+     "md": "Explain why the zero lower bound limits monetary policy in this model.",
+     "tested": 1
+    }
+   ],
+   "created": "2026-10-28T20:07:00Z",
+   "updated": "2026-10-28T20:15:44Z"
   },
   "econ-424": {
    "slug": "econ-424",
@@ -10129,6 +10533,10 @@
     ],
     "in": [
      {
+      "kind": "cites",
+      "note": "real-and-nominal-interest-rates"
+     },
+     {
       "kind": "presents",
       "note": "econ-402a-l2-two-period-saving-model"
      }
@@ -10892,9 +11300,11 @@
    ],
    "requires": [],
    "lessons": [
+    "econ-402a-l6-keynesian-economics",
     "math-prep-l7-approximations-logs-and-series"
    ],
    "courses": [
+    "Econ 402A",
     "Math Prep"
    ],
    "edges": {
@@ -10915,6 +11325,10 @@
     "in": [
      {
       "kind": "covers",
+      "note": "econ-402a-l6-keynesian-economics"
+     },
+     {
+      "kind": "covers",
       "note": "math-prep-l7-approximations-logs-and-series"
      },
      {
@@ -10931,6 +11345,10 @@
      },
      {
       "kind": "related",
+      "note": "keynesian-multiplier"
+     },
+     {
+      "kind": "related",
       "note": "ramsey-cass-koopmans-model"
      },
      {
@@ -10943,8 +11361,8 @@
    "interactives": [],
    "checks": 0,
    "words": 211,
-   "created": "2026-10-04T21:53:30Z",
-   "updated": "2026-10-06T04:46:24Z"
+   "created": "2026-10-28T20:07:03Z",
+   "updated": "2026-10-28T20:07:03Z"
   },
   "gini-coefficient": {
    "slug": "gini-coefficient",
@@ -12351,6 +12769,62 @@
    "created": "2026-10-19T18:36:08Z",
    "updated": "2026-10-19T18:42:14Z"
   },
+  "inflation-shock-paths": {
+   "slug": "inflation-shock-paths",
+   "name": "Inflation Shock Paths",
+   "title": "Inflation Shock Paths",
+   "type": "interactive",
+   "path": "Interactives/Inflation Shock Paths.md",
+   "summary": "A one-period supply shock with adaptive expectations: inflation jumps, the central bank raises its rate, output dips, and all three return to target gradually; a tougher central bank gives a smaller jump, a deeper dip and a faster return.",
+   "domain": "macroeconomics",
+   "domains": [
+    "macroeconomics"
+   ],
+   "tags": [
+    "interactive",
+    "model"
+   ],
+   "aliases": [],
+   "requires": [],
+   "lessons": [
+    "econ-402a-l7-the-is-mp-pc-model"
+   ],
+   "courses": [
+    "Econ 402A"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "illustrates",
+      "note": "adaptive-expectations"
+     },
+     {
+      "kind": "illustrates",
+      "note": "is-mp-pc-model"
+     },
+     {
+      "kind": "illustrates",
+      "note": "monetary-policy-rule"
+     },
+     {
+      "kind": "illustrates",
+      "note": "real-and-nominal-interest-rates"
+     }
+    ],
+    "in": [
+     {
+      "kind": "shows",
+      "note": "econ-402a-l7-the-is-mp-pc-model"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 124,
+   "created": "2026-10-28T20:07:03Z",
+   "updated": "2026-10-28T20:07:03Z"
+  },
   "inner-products-and-orthogonality": {
    "slug": "inner-products-and-orthogonality",
    "name": "Inner Products and Orthogonality",
@@ -13058,6 +13532,469 @@
    "created": "2026-10-03T20:49:32Z",
    "updated": "2026-10-06T15:45:01Z"
   },
+  "is-curve": {
+   "slug": "is-curve",
+   "name": "IS Curve",
+   "title": "IS Curve",
+   "type": "concept",
+   "path": "Concepts/IS Curve.md",
+   "summary": "All combinations of output and the real interest rate at which the goods market is in equilibrium (PE = Y). It slopes down because a lower r raises planned investment; anything else that raises C, Iᴾ or G shifts it right.",
+   "domain": "macroeconomics",
+   "domains": [
+    "macroeconomics"
+   ],
+   "tags": [],
+   "aliases": [
+    "Investment-saving curve",
+    "IS relation",
+    "Neutral rate of interest",
+    "Natural rate of interest",
+    "Wicksellian rate"
+   ],
+   "requires": [
+    "keynesian-cross"
+   ],
+   "lessons": [
+    "econ-402a-l6-keynesian-economics",
+    "econ-402a-l7-the-is-mp-pc-model"
+   ],
+   "courses": [
+    "Econ 402A"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "related",
+      "note": "is-lm-model"
+     },
+     {
+      "kind": "related",
+      "note": "is-mp-pc-model"
+     },
+     {
+      "kind": "related",
+      "note": "keynesian-multiplier"
+     },
+     {
+      "kind": "related",
+      "note": "real-and-nominal-interest-rates"
+     },
+     {
+      "kind": "requires",
+      "note": "keynesian-cross"
+     }
+    ],
+    "in": [
+     {
+      "kind": "covers",
+      "note": "econ-402a-l6-keynesian-economics"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-402a-l7-the-is-mp-pc-model"
+     },
+     {
+      "kind": "illustrates",
+      "note": "is-lm-explorer"
+     },
+     {
+      "kind": "illustrates",
+      "note": "linear-is-lm-model"
+     },
+     {
+      "kind": "illustrates",
+      "note": "three-equation-macro-model"
+     },
+     {
+      "kind": "related",
+      "note": "keynesian-cross"
+     },
+     {
+      "kind": "related",
+      "note": "keynesian-multiplier"
+     },
+     {
+      "kind": "related",
+      "note": "lm-curve"
+     },
+     {
+      "kind": "related",
+      "note": "real-and-nominal-interest-rates"
+     },
+     {
+      "kind": "related",
+      "note": "saving-investment-identity"
+     },
+     {
+      "kind": "requires",
+      "note": "is-lm-model"
+     },
+     {
+      "kind": "requires",
+      "note": "is-mp-pc-model"
+     }
+    ]
+   },
+   "figures": [
+    "assets/Attachments/From planned investment to the IS curve.png"
+   ],
+   "interactives": [],
+   "checks": 0,
+   "words": 356,
+   "created": "2026-10-28T20:07:03Z",
+   "updated": "2026-10-28T20:08:12Z"
+  },
+  "is-lm-explorer": {
+   "slug": "is-lm-explorer",
+   "name": "IS-LM Explorer",
+   "title": "IS-LM Explorer",
+   "type": "interactive",
+   "path": "Interactives/IS-LM Explorer.md",
+   "summary": "Shift IS with government spending and LM with the money supply: see crowding out against the Keynesian-cross shift, hold the interest rate with accommodating money, and watch money lose its power at the zero lower bound.",
+   "domain": "macroeconomics",
+   "domains": [
+    "macroeconomics"
+   ],
+   "tags": [
+    "interactive",
+    "model"
+   ],
+   "aliases": [],
+   "requires": [],
+   "lessons": [
+    "econ-402a-l6-keynesian-economics"
+   ],
+   "courses": [
+    "Econ 402A"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "illustrates",
+      "note": "is-curve"
+     },
+     {
+      "kind": "illustrates",
+      "note": "is-lm-model"
+     },
+     {
+      "kind": "illustrates",
+      "note": "keynesian-multiplier"
+     },
+     {
+      "kind": "illustrates",
+      "note": "lm-curve"
+     },
+     {
+      "kind": "illustrates",
+      "note": "zero-lower-bound"
+     }
+    ],
+    "in": [
+     {
+      "kind": "shows",
+      "note": "econ-402a-l6-keynesian-economics"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 134,
+   "created": "2026-10-28T20:07:03Z",
+   "updated": "2026-10-28T20:07:03Z"
+  },
+  "is-lm-model": {
+   "slug": "is-lm-model",
+   "name": "IS-LM Model",
+   "title": "IS-LM Model",
+   "type": "concept",
+   "path": "Concepts/IS-LM Model.md",
+   "summary": "Output and the interest rate are set where the IS curve (goods market) meets the LM curve (money market). More G raises Y and r, so investment is crowded out and Y rises by less than ΔG/(1 − b); more money lowers r and raises Y.",
+   "domain": "macroeconomics",
+   "domains": [
+    "macroeconomics"
+   ],
+   "tags": [],
+   "aliases": [
+    "IS-LM",
+    "Crowding out",
+    "Interest rate targeting",
+    "Monetary offset",
+    "Monetary accommodation"
+   ],
+   "requires": [
+    "is-curve",
+    "lm-curve"
+   ],
+   "lessons": [
+    "econ-402a-l6-keynesian-economics",
+    "econ-402a-l7-the-is-mp-pc-model"
+   ],
+   "courses": [
+    "Econ 402A"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "related",
+      "note": "is-mp-pc-model"
+     },
+     {
+      "kind": "related",
+      "note": "keynesian-multiplier"
+     },
+     {
+      "kind": "related",
+      "note": "liquidity-preference"
+     },
+     {
+      "kind": "related",
+      "note": "monetary-policy-rule"
+     },
+     {
+      "kind": "related",
+      "note": "zero-lower-bound"
+     },
+     {
+      "kind": "requires",
+      "note": "is-curve"
+     },
+     {
+      "kind": "requires",
+      "note": "lm-curve"
+     }
+    ],
+    "in": [
+     {
+      "kind": "covers",
+      "note": "econ-402a-l6-keynesian-economics"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-402a-l7-the-is-mp-pc-model"
+     },
+     {
+      "kind": "illustrates",
+      "note": "is-lm-explorer"
+     },
+     {
+      "kind": "illustrates",
+      "note": "linear-is-lm-model"
+     },
+     {
+      "kind": "related",
+      "note": "is-curve"
+     },
+     {
+      "kind": "related",
+      "note": "is-mp-pc-model"
+     },
+     {
+      "kind": "related",
+      "note": "keynesian-cross"
+     },
+     {
+      "kind": "related",
+      "note": "keynesian-multiplier"
+     },
+     {
+      "kind": "related",
+      "note": "liquidity-preference"
+     },
+     {
+      "kind": "related",
+      "note": "lm-curve"
+     },
+     {
+      "kind": "related",
+      "note": "zero-lower-bound"
+     }
+    ]
+   },
+   "figures": [
+    "assets/Attachments/IS-LM equilibrium.png",
+    "assets/Attachments/IS-LM fiscal policy and crowding out (handwritten).png",
+    "assets/Attachments/IS-LM monetary expansion.png",
+    "assets/Attachments/IS-LM interest rate targeting.png",
+    "assets/Attachments/IS-LM monetary offset.png"
+   ],
+   "interactives": [],
+   "checks": 0,
+   "words": 429,
+   "created": "2026-10-28T20:07:03Z",
+   "updated": "2026-10-28T20:07:03Z"
+  },
+  "is-mp-and-phillips-curve-diagram": {
+   "slug": "is-mp-and-phillips-curve-diagram",
+   "name": "IS-MP and Phillips Curve Diagram",
+   "title": "IS-MP and Phillips Curve Diagram",
+   "type": "interactive",
+   "path": "Interactives/IS-MP and Phillips Curve Diagram.md",
+   "summary": "Inflation against output: the Phillips curve and the IS-MP curve cross at this period's inflation and output. Hit the economy with a supply or demand shock, or make the central bank tougher, and read the trade-off.",
+   "domain": "macroeconomics",
+   "domains": [
+    "macroeconomics"
+   ],
+   "tags": [
+    "interactive",
+    "model"
+   ],
+   "aliases": [],
+   "requires": [],
+   "lessons": [
+    "econ-402a-l7-the-is-mp-pc-model"
+   ],
+   "courses": [
+    "Econ 402A"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "illustrates",
+      "note": "is-mp-pc-model"
+     },
+     {
+      "kind": "illustrates",
+      "note": "monetary-policy-rule"
+     },
+     {
+      "kind": "illustrates",
+      "note": "phillips-curve"
+     },
+     {
+      "kind": "illustrates",
+      "note": "real-and-nominal-interest-rates"
+     }
+    ],
+    "in": [
+     {
+      "kind": "shows",
+      "note": "econ-402a-l7-the-is-mp-pc-model"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 139,
+   "created": "2026-10-28T20:07:03Z",
+   "updated": "2026-10-28T20:11:14Z"
+  },
+  "is-mp-pc-model": {
+   "slug": "is-mp-pc-model",
+   "name": "IS-MP-PC Model",
+   "title": "IS-MP-PC Model",
+   "type": "concept",
+   "path": "Concepts/IS-MP-PC Model.md",
+   "summary": "Three equations (IS, MP rule, Phillips curve) set output, inflation and the policy rate. With θ = 1/(1 + αγ(β_π − 1)), πₜ = θπᵉₜ + (1 − θ)π* + θ(γε^y + ε^π); a tougher central bank (larger β_π) holds inflation down at the cost of output.",
+   "domain": "macroeconomics",
+   "domains": [
+    "macroeconomics"
+   ],
+   "tags": [],
+   "aliases": [
+    "IS-MP-PC",
+    "Three-equation model",
+    "IS-MP curve",
+    "IS-PC-MR model"
+   ],
+   "requires": [
+    "is-curve",
+    "phillips-curve",
+    "monetary-policy-rule"
+   ],
+   "lessons": [
+    "econ-402a-l7-the-is-mp-pc-model"
+   ],
+   "courses": [
+    "Econ 402A"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "related",
+      "note": "adaptive-expectations"
+     },
+     {
+      "kind": "related",
+      "note": "is-lm-model"
+     },
+     {
+      "kind": "related",
+      "note": "real-and-nominal-interest-rates"
+     },
+     {
+      "kind": "related",
+      "note": "zero-lower-bound"
+     },
+     {
+      "kind": "requires",
+      "note": "is-curve"
+     },
+     {
+      "kind": "requires",
+      "note": "monetary-policy-rule"
+     },
+     {
+      "kind": "requires",
+      "note": "phillips-curve"
+     }
+    ],
+    "in": [
+     {
+      "kind": "covers",
+      "note": "econ-402a-l7-the-is-mp-pc-model"
+     },
+     {
+      "kind": "illustrates",
+      "note": "inflation-shock-paths"
+     },
+     {
+      "kind": "illustrates",
+      "note": "is-mp-and-phillips-curve-diagram"
+     },
+     {
+      "kind": "illustrates",
+      "note": "three-equation-macro-model"
+     },
+     {
+      "kind": "related",
+      "note": "adaptive-expectations"
+     },
+     {
+      "kind": "related",
+      "note": "is-curve"
+     },
+     {
+      "kind": "related",
+      "note": "is-lm-model"
+     },
+     {
+      "kind": "related",
+      "note": "monetary-policy-rule"
+     },
+     {
+      "kind": "related",
+      "note": "phillips-curve"
+     },
+     {
+      "kind": "related",
+      "note": "real-and-nominal-interest-rates"
+     },
+     {
+      "kind": "related",
+      "note": "zero-lower-bound"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 386,
+   "created": "2026-10-28T20:07:03Z",
+   "updated": "2026-10-28T20:07:03Z"
+  },
   "katz-and-murphy-1992-changes-in-relative-wages": {
    "slug": "katz-and-murphy-1992-changes-in-relative-wages",
    "name": "Katz and Murphy 1992 - Changes in Relative Wages",
@@ -13296,6 +14233,268 @@
    "words": 430,
    "created": "2026-10-18T20:03:12Z",
    "updated": "2026-10-18T20:03:12Z"
+  },
+  "keynesian-cross": {
+   "slug": "keynesian-cross",
+   "name": "Keynesian Cross",
+   "title": "Keynesian Cross",
+   "type": "concept",
+   "path": "Concepts/Keynesian Cross.md",
+   "summary": "Goods-market equilibrium where planned expenditure PE = C + Iᴾ + G equals output Y, so unplanned inventory investment is zero. With C = a + b(Y − T), Y* = (a − bT + Iᴾ + G)/(1 − b).",
+   "domain": "macroeconomics",
+   "domains": [
+    "macroeconomics"
+   ],
+   "tags": [],
+   "aliases": [
+    "Planned expenditure",
+    "Income-expenditure model",
+    "45-degree diagram",
+    "Keynesian consumption function",
+    "Marginal propensity to consume",
+    "MPC",
+    "Unplanned investment"
+   ],
+   "requires": [
+    "saving-investment-identity"
+   ],
+   "lessons": [
+    "econ-402a-l6-keynesian-economics"
+   ],
+   "courses": [
+    "Econ 402A"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "related",
+      "note": "is-curve"
+     },
+     {
+      "kind": "related",
+      "note": "is-lm-model"
+     },
+     {
+      "kind": "related",
+      "note": "keynesian-multiplier"
+     },
+     {
+      "kind": "requires",
+      "note": "saving-investment-identity"
+     }
+    ],
+    "in": [
+     {
+      "kind": "covers",
+      "note": "econ-402a-l6-keynesian-economics"
+     },
+     {
+      "kind": "illustrates",
+      "note": "keynesian-cross-expenditure-model"
+     },
+     {
+      "kind": "illustrates",
+      "note": "keynesian-cross-explorer"
+     },
+     {
+      "kind": "related",
+      "note": "saving-investment-identity"
+     },
+     {
+      "kind": "requires",
+      "note": "is-curve"
+     },
+     {
+      "kind": "requires",
+      "note": "keynesian-multiplier"
+     }
+    ]
+   },
+   "figures": [
+    "assets/Attachments/Keynesian cross diagram.png"
+   ],
+   "interactives": [],
+   "checks": 0,
+   "words": 377,
+   "created": "2026-10-28T20:07:03Z",
+   "updated": "2026-10-28T20:08:12Z"
+  },
+  "keynesian-cross-expenditure-model": {
+   "slug": "keynesian-cross-expenditure-model",
+   "name": "Keynesian Cross Expenditure Model",
+   "title": "Keynesian Cross Expenditure Model",
+   "type": "interactive",
+   "path": "Interactives/Keynesian Cross Expenditure Model.md",
+   "summary": "The Keynesian cross as one shared model - planned expenditure PE = a + b(Y − T) + Iᴾ + G against the 45° line, equilibrium Y* = (a − bT + Iᴾ + G)/(1 − b) and the spending and tax multipliers.",
+   "domain": "macroeconomics",
+   "domains": [
+    "macroeconomics"
+   ],
+   "tags": [
+    "interactive",
+    "model"
+   ],
+   "aliases": [],
+   "requires": [],
+   "lessons": [],
+   "courses": [],
+   "edges": {
+    "out": [
+     {
+      "kind": "illustrates",
+      "note": "keynesian-cross"
+     },
+     {
+      "kind": "illustrates",
+      "note": "keynesian-multiplier"
+     }
+    ],
+    "in": []
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 33,
+   "created": "2026-10-28T20:07:03Z",
+   "updated": "2026-10-28T20:07:03Z"
+  },
+  "keynesian-cross-explorer": {
+   "slug": "keynesian-cross-explorer",
+   "name": "Keynesian Cross Explorer",
+   "title": "Keynesian Cross Explorer",
+   "type": "interactive",
+   "path": "Interactives/Keynesian Cross Explorer.md",
+   "summary": "Drag output along the 45° line to see planned expenditure above or below it and the unplanned inventory change; move G, T, Iᴾ or the MPC to shift the PE line and watch equilibrium output move by the multiplier.",
+   "domain": "macroeconomics",
+   "domains": [
+    "macroeconomics"
+   ],
+   "tags": [
+    "interactive",
+    "model"
+   ],
+   "aliases": [],
+   "requires": [],
+   "lessons": [
+    "econ-402a-l6-keynesian-economics"
+   ],
+   "courses": [
+    "Econ 402A"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "illustrates",
+      "note": "keynesian-cross"
+     },
+     {
+      "kind": "illustrates",
+      "note": "keynesian-multiplier"
+     }
+    ],
+    "in": [
+     {
+      "kind": "shows",
+      "note": "econ-402a-l6-keynesian-economics"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 92,
+   "created": "2026-10-28T20:07:03Z",
+   "updated": "2026-10-28T20:11:00Z"
+  },
+  "keynesian-multiplier": {
+   "slug": "keynesian-multiplier",
+   "name": "Keynesian Multiplier",
+   "title": "Keynesian Multiplier",
+   "type": "concept",
+   "path": "Concepts/Keynesian Multiplier.md",
+   "summary": "With MPC b, a rise in spending raises output by 1/(1 − b) times as much (5× at b = 0.8: 100 → 500); a tax cut raises it by b/(1 − b) = 1/(1 − b) − 1 times (100 → 400), since its first round is not spent.",
+   "domain": "macroeconomics",
+   "domains": [
+    "macroeconomics"
+   ],
+   "tags": [],
+   "aliases": [
+    "Spending multiplier",
+    "Government spending multiplier",
+    "Tax multiplier",
+    "Fiscal multiplier"
+   ],
+   "requires": [
+    "keynesian-cross"
+   ],
+   "lessons": [
+    "econ-402a-l6-keynesian-economics"
+   ],
+   "courses": [
+    "Econ 402A"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "related",
+      "note": "geometric-series"
+     },
+     {
+      "kind": "related",
+      "note": "is-curve"
+     },
+     {
+      "kind": "related",
+      "note": "is-lm-model"
+     },
+     {
+      "kind": "requires",
+      "note": "keynesian-cross"
+     }
+    ],
+    "in": [
+     {
+      "kind": "covers",
+      "note": "econ-402a-l6-keynesian-economics"
+     },
+     {
+      "kind": "illustrates",
+      "note": "is-lm-explorer"
+     },
+     {
+      "kind": "illustrates",
+      "note": "keynesian-cross-expenditure-model"
+     },
+     {
+      "kind": "illustrates",
+      "note": "keynesian-cross-explorer"
+     },
+     {
+      "kind": "illustrates",
+      "note": "linear-is-lm-model"
+     },
+     {
+      "kind": "related",
+      "note": "is-curve"
+     },
+     {
+      "kind": "related",
+      "note": "is-lm-model"
+     },
+     {
+      "kind": "related",
+      "note": "keynesian-cross"
+     }
+    ]
+   },
+   "figures": [
+    "assets/Attachments/Keynesian multiplier - spending vs tax multiplier.png"
+   ],
+   "interactives": [],
+   "checks": 0,
+   "words": 406,
+   "created": "2026-10-28T20:07:03Z",
+   "updated": "2026-10-28T20:07:03Z"
   },
   "kovak-2013-regional-effects-of-trade-reform": {
    "slug": "kovak-2013-regional-effects-of-trade-reform",
@@ -14340,6 +15539,218 @@
    "words": 262,
    "created": "2026-10-04T21:50:23Z",
    "updated": "2026-10-06T04:44:45Z"
+  },
+  "linear-is-lm-model": {
+   "slug": "linear-is-lm-model",
+   "name": "Linear IS-LM Model",
+   "title": "Linear IS-LM Model",
+   "type": "interactive",
+   "path": "Interactives/Linear IS-LM Model.md",
+   "summary": "IS-LM with straight lines - IS from the Keynesian cross with Iᴾ = I₀ − dr, LM from M/P = kY − hr with the rate floored at zero - before and after a change in G or the money supply, with crowding out.",
+   "domain": "macroeconomics",
+   "domains": [
+    "macroeconomics"
+   ],
+   "tags": [
+    "interactive",
+    "model"
+   ],
+   "aliases": [],
+   "requires": [],
+   "lessons": [],
+   "courses": [],
+   "edges": {
+    "out": [
+     {
+      "kind": "illustrates",
+      "note": "is-curve"
+     },
+     {
+      "kind": "illustrates",
+      "note": "is-lm-model"
+     },
+     {
+      "kind": "illustrates",
+      "note": "keynesian-multiplier"
+     },
+     {
+      "kind": "illustrates",
+      "note": "lm-curve"
+     },
+     {
+      "kind": "illustrates",
+      "note": "zero-lower-bound"
+     }
+    ],
+    "in": []
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 99,
+   "created": "2026-10-28T20:07:03Z",
+   "updated": "2026-10-28T20:07:03Z"
+  },
+  "liquidity-preference": {
+   "slug": "liquidity-preference",
+   "name": "Liquidity Preference",
+   "title": "Liquidity Preference",
+   "type": "concept",
+   "path": "Concepts/Liquidity Preference.md",
+   "summary": "Keynes's theory of money demand: people hold money (r = 0, perfectly liquid) instead of bonds (r > 0) for transactions, precaution and speculation, so real money demand L(r, Y) falls with r and rises with Y.",
+   "domain": "macroeconomics",
+   "domains": [
+    "macroeconomics",
+    "monetary economics"
+   ],
+   "tags": [],
+   "aliases": [
+    "Money demand",
+    "Liquidity preference theory",
+    "Money market equilibrium",
+    "Speculative motive"
+   ],
+   "requires": [],
+   "lessons": [
+    "econ-402a-l6-keynesian-economics"
+   ],
+   "courses": [
+    "Econ 402A"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "related",
+      "note": "is-lm-model"
+     },
+     {
+      "kind": "related",
+      "note": "lm-curve"
+     },
+     {
+      "kind": "related",
+      "note": "zero-lower-bound"
+     }
+    ],
+    "in": [
+     {
+      "kind": "covers",
+      "note": "econ-402a-l6-keynesian-economics"
+     },
+     {
+      "kind": "related",
+      "note": "is-lm-model"
+     },
+     {
+      "kind": "requires",
+      "note": "lm-curve"
+     },
+     {
+      "kind": "requires",
+      "note": "zero-lower-bound"
+     }
+    ]
+   },
+   "figures": [
+    "assets/Attachments/Money market - liquidity preference.png",
+    "assets/Attachments/Money market equilibrium.png",
+    "assets/Attachments/Money market - higher income raises money demand and the interest rate.png"
+   ],
+   "interactives": [],
+   "checks": 0,
+   "words": 365,
+   "created": "2026-10-28T20:07:03Z",
+   "updated": "2026-10-28T20:07:03Z"
+  },
+  "lm-curve": {
+   "slug": "lm-curve",
+   "name": "LM Curve",
+   "title": "LM Curve",
+   "type": "concept",
+   "path": "Concepts/LM Curve.md",
+   "summary": "All combinations of output and the interest rate at which the money market clears. It slopes up: higher Y raises money demand and so r. A larger money supply shifts it right; higher money demand at every Y shifts it left.",
+   "domain": "macroeconomics",
+   "domains": [
+    "macroeconomics",
+    "monetary economics"
+   ],
+   "tags": [],
+   "aliases": [
+    "Liquidity preference-money curve",
+    "LM relation"
+   ],
+   "requires": [
+    "liquidity-preference"
+   ],
+   "lessons": [
+    "econ-402a-l6-keynesian-economics"
+   ],
+   "courses": [
+    "Econ 402A"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "related",
+      "note": "is-curve"
+     },
+     {
+      "kind": "related",
+      "note": "is-lm-model"
+     },
+     {
+      "kind": "related",
+      "note": "monetary-policy-rule"
+     },
+     {
+      "kind": "related",
+      "note": "zero-lower-bound"
+     },
+     {
+      "kind": "requires",
+      "note": "liquidity-preference"
+     }
+    ],
+    "in": [
+     {
+      "kind": "covers",
+      "note": "econ-402a-l6-keynesian-economics"
+     },
+     {
+      "kind": "illustrates",
+      "note": "is-lm-explorer"
+     },
+     {
+      "kind": "illustrates",
+      "note": "linear-is-lm-model"
+     },
+     {
+      "kind": "related",
+      "note": "liquidity-preference"
+     },
+     {
+      "kind": "related",
+      "note": "monetary-policy-rule"
+     },
+     {
+      "kind": "related",
+      "note": "zero-lower-bound"
+     },
+     {
+      "kind": "requires",
+      "note": "is-lm-model"
+     }
+    ]
+   },
+   "figures": [
+    "assets/Attachments/Deriving the LM curve from money demand.png",
+    "assets/Attachments/LM curve (handwritten).png"
+   ],
+   "interactives": [],
+   "checks": 0,
+   "words": 331,
+   "created": "2026-10-28T20:07:03Z",
+   "updated": "2026-10-28T20:07:03Z"
   },
   "log-change-taylor-expansion": {
    "slug": "log-change-taylor-expansion",
@@ -16651,6 +18062,112 @@
    "created": "2026-10-19T18:36:08Z",
    "updated": "2026-10-19T18:42:38Z"
   },
+  "monetary-policy-rule": {
+   "slug": "monetary-policy-rule",
+   "name": "Monetary Policy Rule",
+   "title": "Monetary Policy Rule",
+   "type": "concept",
+   "path": "Concepts/Monetary Policy Rule.md",
+   "summary": "Central banks set a nominal rate by rule: iₜ = r* + π* + β_π(πₜ − π*), plus β_y(yₜ − y*) in the Taylor rule. With β_π > 1 the real rate rises when inflation does, which pulls output and inflation back down.",
+   "domain": "macroeconomics",
+   "domains": [
+    "macroeconomics",
+    "monetary economics"
+   ],
+   "tags": [],
+   "aliases": [
+    "MP rule",
+    "Taylor rule",
+    "Inflation targeting rule",
+    "Taylor principle",
+    "Interest rate rule"
+   ],
+   "requires": [
+    "real-and-nominal-interest-rates"
+   ],
+   "lessons": [
+    "econ-402a-l7-the-is-mp-pc-model"
+   ],
+   "courses": [
+    "Econ 402A"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "related",
+      "note": "is-mp-pc-model"
+     },
+     {
+      "kind": "related",
+      "note": "lm-curve"
+     },
+     {
+      "kind": "related",
+      "note": "phillips-curve"
+     },
+     {
+      "kind": "related",
+      "note": "zero-lower-bound"
+     },
+     {
+      "kind": "requires",
+      "note": "real-and-nominal-interest-rates"
+     }
+    ],
+    "in": [
+     {
+      "kind": "covers",
+      "note": "econ-402a-l7-the-is-mp-pc-model"
+     },
+     {
+      "kind": "illustrates",
+      "note": "inflation-shock-paths"
+     },
+     {
+      "kind": "illustrates",
+      "note": "is-mp-and-phillips-curve-diagram"
+     },
+     {
+      "kind": "illustrates",
+      "note": "three-equation-macro-model"
+     },
+     {
+      "kind": "related",
+      "note": "adaptive-expectations"
+     },
+     {
+      "kind": "related",
+      "note": "is-lm-model"
+     },
+     {
+      "kind": "related",
+      "note": "lm-curve"
+     },
+     {
+      "kind": "related",
+      "note": "phillips-curve"
+     },
+     {
+      "kind": "related",
+      "note": "real-and-nominal-interest-rates"
+     },
+     {
+      "kind": "related",
+      "note": "zero-lower-bound"
+     },
+     {
+      "kind": "requires",
+      "note": "is-mp-pc-model"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 285,
+   "created": "2026-10-28T20:07:03Z",
+   "updated": "2026-10-28T20:07:03Z"
+  },
   "monras-2020-immigration-and-wage-dynamics": {
    "slug": "monras-2020-immigration-and-wage-dynamics",
    "name": "Monras 2020 - Immigration and Wage Dynamics",
@@ -18087,6 +19604,81 @@
    "created": "2026-10-21T19:59:26Z",
    "updated": "2026-10-21T19:59:26Z"
   },
+  "phillips-curve": {
+   "slug": "phillips-curve",
+   "name": "Phillips Curve",
+   "title": "Phillips Curve",
+   "type": "concept",
+   "path": "Concepts/Phillips Curve.md",
+   "summary": "Inflation rises when output is above potential: πₜ = πᵉₜ + γ(yₜ − y*) + ε^π. The original curve traded inflation against unemployment; Friedman and Phelps showed only surprises relative to expected inflation do.",
+   "domain": "macroeconomics",
+   "domains": [
+    "macroeconomics"
+   ],
+   "tags": [],
+   "aliases": [
+    "Expectations-augmented Phillips curve",
+    "PC",
+    "Output gap",
+    "Potential output",
+    "Aggregate supply shock"
+   ],
+   "requires": [],
+   "lessons": [
+    "econ-402a-l7-the-is-mp-pc-model"
+   ],
+   "courses": [
+    "Econ 402A"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "related",
+      "note": "adaptive-expectations"
+     },
+     {
+      "kind": "related",
+      "note": "is-mp-pc-model"
+     },
+     {
+      "kind": "related",
+      "note": "monetary-policy-rule"
+     }
+    ],
+    "in": [
+     {
+      "kind": "covers",
+      "note": "econ-402a-l7-the-is-mp-pc-model"
+     },
+     {
+      "kind": "illustrates",
+      "note": "is-mp-and-phillips-curve-diagram"
+     },
+     {
+      "kind": "illustrates",
+      "note": "three-equation-macro-model"
+     },
+     {
+      "kind": "related",
+      "note": "adaptive-expectations"
+     },
+     {
+      "kind": "related",
+      "note": "monetary-policy-rule"
+     },
+     {
+      "kind": "requires",
+      "note": "is-mp-pc-model"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 297,
+   "created": "2026-10-28T20:07:03Z",
+   "updated": "2026-10-28T20:08:12Z"
+  },
   "pierce-and-schott-2016-the-surprisingly-swift-decline-of-us-manufacturing-employment": {
    "slug": "pierce-and-schott-2016-the-surprisingly-swift-decline-of-us-manufacturing-employment",
    "name": "Pierce and Schott 2016 - The Surprisingly Swift Decline of US Manufacturing Employment",
@@ -19266,6 +20858,92 @@
    "created": "2026-10-21T20:14:28Z",
    "updated": "2026-10-21T20:14:28Z"
   },
+  "real-and-nominal-interest-rates": {
+   "slug": "real-and-nominal-interest-rates",
+   "name": "Real and Nominal Interest Rates",
+   "title": "Real and Nominal Interest Rates",
+   "type": "concept",
+   "path": "Concepts/Real and Nominal Interest Rates.md",
+   "summary": "The real interest rate is the nominal rate minus inflation, r ≈ i − π (the Fisher equation). Borrowing and saving respond to the real rate; central banks control the nominal rate.",
+   "domain": "macroeconomics",
+   "domains": [
+    "macroeconomics",
+    "monetary economics"
+   ],
+   "tags": [],
+   "aliases": [
+    "Fisher equation",
+    "Real interest rate",
+    "Nominal interest rate"
+   ],
+   "requires": [],
+   "lessons": [
+    "econ-402a-l7-the-is-mp-pc-model"
+   ],
+   "courses": [
+    "Econ 402A"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "cites",
+      "note": "fisher-1930-the-theory-of-interest"
+     },
+     {
+      "kind": "related",
+      "note": "is-curve"
+     },
+     {
+      "kind": "related",
+      "note": "is-mp-pc-model"
+     },
+     {
+      "kind": "related",
+      "note": "monetary-policy-rule"
+     },
+     {
+      "kind": "related",
+      "note": "zero-lower-bound"
+     }
+    ],
+    "in": [
+     {
+      "kind": "covers",
+      "note": "econ-402a-l7-the-is-mp-pc-model"
+     },
+     {
+      "kind": "illustrates",
+      "note": "inflation-shock-paths"
+     },
+     {
+      "kind": "illustrates",
+      "note": "is-mp-and-phillips-curve-diagram"
+     },
+     {
+      "kind": "illustrates",
+      "note": "three-equation-macro-model"
+     },
+     {
+      "kind": "related",
+      "note": "is-curve"
+     },
+     {
+      "kind": "related",
+      "note": "is-mp-pc-model"
+     },
+     {
+      "kind": "requires",
+      "note": "monetary-policy-rule"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 231,
+   "created": "2026-10-28T20:07:03Z",
+   "updated": "2026-10-28T20:07:03Z"
+  },
   "regression-diagnostics": {
    "slug": "regression-diagnostics",
    "name": "Regression Diagnostics",
@@ -19916,7 +21594,7 @@
    "title": "Saving-Investment Identity",
    "type": "concept",
    "path": "Concepts/Saving-Investment Identity.md",
-   "summary": "In a closed economy with no government, Y = C + I and S = Y − C, so saving equals investment (S = I); with a fixed saving rate, investment is sY.",
+   "summary": "In a closed economy, saving always equals investment (S = I); with a fixed saving rate I = sY. Investment includes unplanned inventory changes, so goods-market equilibrium is saving = planned investment, S = Iᴾ.",
    "domain": "macroeconomics",
    "domains": [
     "macroeconomics"
@@ -19929,7 +21607,8 @@
    ],
    "requires": [],
    "lessons": [
-    "econ-402a-l1-solow-growth-model"
+    "econ-402a-l1-solow-growth-model",
+    "econ-402a-l6-keynesian-economics"
    ],
    "courses": [
     "Econ 402A"
@@ -19942,6 +21621,14 @@
      },
      {
       "kind": "related",
+      "note": "is-curve"
+     },
+     {
+      "kind": "related",
+      "note": "keynesian-cross"
+     },
+     {
+      "kind": "related",
       "note": "solow-growth-model"
      }
     ],
@@ -19951,8 +21638,16 @@
       "note": "econ-402a-l1-solow-growth-model"
      },
      {
+      "kind": "covers",
+      "note": "econ-402a-l6-keynesian-economics"
+     },
+     {
       "kind": "related",
       "note": "capital-accumulation-equation"
+     },
+     {
+      "kind": "requires",
+      "note": "keynesian-cross"
      },
      {
       "kind": "requires",
@@ -19963,9 +21658,9 @@
    "figures": [],
    "interactives": [],
    "checks": 0,
-   "words": 186,
-   "created": "2026-10-05T19:37:15Z",
-   "updated": "2026-10-06T04:43:56Z"
+   "words": 295,
+   "created": "2026-10-28T20:07:03Z",
+   "updated": "2026-10-28T20:07:03Z"
   },
   "search-and-matching-equilibrium-explorer": {
    "slug": "search-and-matching-equilibrium-explorer",
@@ -22597,6 +24292,61 @@
    "words": 267,
    "created": "2026-10-04T21:53:30Z",
    "updated": "2026-10-19T18:42:55Z"
+  },
+  "three-equation-macro-model": {
+   "slug": "three-equation-macro-model",
+   "name": "Three-Equation Macro Model",
+   "title": "Three-Equation Macro Model",
+   "type": "interactive",
+   "path": "Interactives/Three-Equation Macro Model.md",
+   "summary": "The IS-MP-PC model as one shared model - Phillips curve, IS curve and inflation-targeting rule; θ = 1/(1 + αγ(β_π − 1)), inflation, output and the policy rate in a period, and the same period solved from last period's inflation.",
+   "domain": "macroeconomics",
+   "domains": [
+    "macroeconomics"
+   ],
+   "tags": [
+    "interactive",
+    "model"
+   ],
+   "aliases": [],
+   "requires": [],
+   "lessons": [],
+   "courses": [],
+   "edges": {
+    "out": [
+     {
+      "kind": "illustrates",
+      "note": "adaptive-expectations"
+     },
+     {
+      "kind": "illustrates",
+      "note": "is-curve"
+     },
+     {
+      "kind": "illustrates",
+      "note": "is-mp-pc-model"
+     },
+     {
+      "kind": "illustrates",
+      "note": "monetary-policy-rule"
+     },
+     {
+      "kind": "illustrates",
+      "note": "phillips-curve"
+     },
+     {
+      "kind": "illustrates",
+      "note": "real-and-nominal-interest-rates"
+     }
+    ],
+    "in": []
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 146,
+   "created": "2026-10-28T20:07:03Z",
+   "updated": "2026-10-28T20:11:14Z"
   },
   "top-coding": {
    "slug": "top-coding",
@@ -25257,6 +27007,110 @@
    "words": 580,
    "created": "2026-10-03T20:42:39Z",
    "updated": "2026-10-08T15:35:24Z"
+  },
+  "zero-lower-bound": {
+   "slug": "zero-lower-bound",
+   "name": "Zero Lower Bound",
+   "title": "Zero Lower Bound",
+   "type": "concept",
+   "path": "Concepts/Zero Lower Bound.md",
+   "summary": "Nominal interest rates cannot fall (much) below zero, because people can hold cash instead. At the bound the economy is in a liquidity trap: more money cannot lower rates or raise output, while fiscal policy is barely crowded out.",
+   "domain": "macroeconomics",
+   "domains": [
+    "macroeconomics",
+    "monetary economics"
+   ],
+   "tags": [],
+   "aliases": [
+    "ZLB",
+    "Liquidity trap",
+    "Effective lower bound"
+   ],
+   "requires": [
+    "liquidity-preference"
+   ],
+   "lessons": [
+    "econ-402a-l6-keynesian-economics",
+    "econ-402a-l7-the-is-mp-pc-model"
+   ],
+   "courses": [
+    "Econ 402A"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "related",
+      "note": "is-lm-model"
+     },
+     {
+      "kind": "related",
+      "note": "is-mp-pc-model"
+     },
+     {
+      "kind": "related",
+      "note": "lm-curve"
+     },
+     {
+      "kind": "related",
+      "note": "monetary-policy-rule"
+     },
+     {
+      "kind": "requires",
+      "note": "liquidity-preference"
+     }
+    ],
+    "in": [
+     {
+      "kind": "covers",
+      "note": "econ-402a-l6-keynesian-economics"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-402a-l7-the-is-mp-pc-model"
+     },
+     {
+      "kind": "illustrates",
+      "note": "is-lm-explorer"
+     },
+     {
+      "kind": "illustrates",
+      "note": "linear-is-lm-model"
+     },
+     {
+      "kind": "related",
+      "note": "is-lm-model"
+     },
+     {
+      "kind": "related",
+      "note": "is-mp-pc-model"
+     },
+     {
+      "kind": "related",
+      "note": "liquidity-preference"
+     },
+     {
+      "kind": "related",
+      "note": "lm-curve"
+     },
+     {
+      "kind": "related",
+      "note": "monetary-policy-rule"
+     },
+     {
+      "kind": "related",
+      "note": "real-and-nominal-interest-rates"
+     }
+    ]
+   },
+   "figures": [
+    "assets/Attachments/IS-LM liquidity trap.png",
+    "assets/Attachments/Zero lower bound and the liquidity trap (handwritten).png"
+   ],
+   "interactives": [],
+   "checks": 0,
+   "words": 336,
+   "created": "2026-10-28T20:07:03Z",
+   "updated": "2026-10-28T20:07:03Z"
   }
  },
  "widgets": {
@@ -26124,6 +27978,1249 @@
     }
    ]
   },
+  "inflation-shock-paths": {
+   "slug": "inflation-shock-paths",
+   "name": "Inflation Shock Paths",
+   "type": "panels",
+   "model": "three-equation-macro-model",
+   "spec": {
+    "type": "panels",
+    "title": "Inflation, output and interest rates after a supply shock",
+    "notation": "IS-MP-PC Model",
+    "params": {
+     "shock": {
+      "tex": "\\epsilon^\\pi_t",
+      "label": "Size of the one-period supply shock",
+      "min": -4,
+      "max": 6,
+      "step": 0.5,
+      "default": 3
+     },
+     "ts": {
+      "tex": "t",
+      "label": "Period the shock hits",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "default": 2
+     },
+     "bpi": {
+      "tex": "\\beta_\\pi",
+      "label": "Policy response to inflation",
+      "min": 1.25,
+      "max": 5,
+      "step": 0.25,
+      "default": 1.5
+     },
+     "alpha": {
+      "tex": "\\alpha",
+      "label": "Sensitivity of output to the real rate",
+      "min": 0.25,
+      "max": 3,
+      "step": 0.25,
+      "default": 1
+     },
+     "gamma": {
+      "tex": "\\gamma",
+      "label": "Slope of the Phillips curve",
+      "min": 0.25,
+      "max": 3,
+      "step": 0.25,
+      "default": 1
+     }
+    },
+    "fixed": {
+     "pistar": 2,
+     "ystar": 100,
+     "rstar": 2,
+     "pe": 2,
+     "epsp": 0,
+     "epsy": 0
+    },
+    "vars": {
+     "y": {
+      "tex": "y_t",
+      "label": "Output"
+     },
+     "pprev": {
+      "tex": "\\pi_{t-1}",
+      "label": "Last period's inflation"
+     }
+    },
+    "derived": {
+     "th": "1/(1 + alpha*gamma*(bpi - 1))",
+     "pist": "th*pe + (1 - th)*pistar + th*(gamma*epsy + epsp)",
+     "yst": "ystar - alpha*(bpi - 1)*(pist - pistar) + epsy",
+     "ist": "rstar + pistar + bpi*(pist - pistar)",
+     "rst": "ist - pist"
+    },
+    "equations": {
+     "pi_ad": "th*pprev + (1 - th)*pistar + th*(gamma*epsy + epsp)",
+     "y_ad": "ystar - alpha*(bpi - 1)*(pi_ad - pistar) + epsy",
+     "i_ad": "rstar + pistar + bpi*(pi_ad - pistar)",
+     "r_ad": "rstar + pistar + bpi*(pi_ad - pistar) - pi_ad"
+    },
+    "recurrence": {
+     "var": "pprev",
+     "tex": "\\pi_{t-1}",
+     "label": "Last period's inflation",
+     "init": "pistar",
+     "t0": 1,
+     "periods": 20,
+     "next": {
+      "of": "pi_ad",
+      "with": {
+       "epsp": "t == ts ? shock : 0"
+      }
+     }
+    },
+    "panels": [
+     {
+      "kind": "path",
+      "id": "infl",
+      "title": "Inflation",
+      "scale": "levels",
+      "series": [
+       {
+        "id": "inflation",
+        "expr": {
+         "of": "pi_ad",
+         "with": {
+          "epsp": "t == ts ? shock : 0"
+         }
+        },
+        "tex": "\\pi_t",
+        "label": "Inflation (%)"
+       },
+       {
+        "id": "target",
+        "expr": "pistar",
+        "tex": "\\pi^*",
+        "label": "Inflation target"
+       }
+      ]
+     },
+     {
+      "kind": "path",
+      "id": "outp",
+      "title": "Output",
+      "scale": "levels",
+      "series": [
+       {
+        "id": "output",
+        "expr": {
+         "of": "y_ad",
+         "with": {
+          "epsp": "t == ts ? shock : 0"
+         }
+        },
+        "tex": "y_t",
+        "label": "Output"
+       },
+       {
+        "id": "potential",
+        "expr": "ystar",
+        "tex": "y^*",
+        "label": "Potential output"
+       }
+      ]
+     },
+     {
+      "kind": "path",
+      "id": "rates",
+      "title": "Interest rates",
+      "scale": "levels",
+      "series": [
+       {
+        "id": "policy",
+        "expr": {
+         "of": "i_ad",
+         "with": {
+          "epsp": "t == ts ? shock : 0"
+         }
+        },
+        "tex": "i_t",
+        "label": "Nominal policy rate (%)"
+       },
+       {
+        "id": "real",
+        "expr": {
+         "of": "r_ad",
+         "with": {
+          "epsp": "t == ts ? shock : 0"
+         }
+        },
+        "tex": "r_t",
+        "label": "Real interest rate (%)"
+       }
+      ]
+     }
+    ],
+    "readouts": [
+     {
+      "id": "th_out",
+      "tex": "\\theta",
+      "label": "Share of last period's gap from target left this period",
+      "expr": "th",
+      "format": ".3f"
+     }
+    ],
+    "tests": [
+     {
+      "params": {
+       "pistar": 2,
+       "ystar": 100,
+       "rstar": 2,
+       "alpha": 1,
+       "gamma": 1,
+       "bpi": 1.5,
+       "epsy": 0,
+       "shock": 3,
+       "ts": 2
+      },
+      "expect": {
+       "inflation@1": 2,
+       "inflation@2": 4,
+       "inflation@3": 3.333333,
+       "inflation@4": 2.888889,
+       "inflation@5": 2.592593,
+       "output@1": 100,
+       "output@2": 99,
+       "output@3": 99.333333,
+       "output@4": 99.555556,
+       "policy@1": 4,
+       "policy@2": 7,
+       "policy@3": 6,
+       "policy@4": 5.333333,
+       "real@2": 3,
+       "target@3": 2,
+       "potential@3": 100,
+       "th_out": 0.666667
+      },
+      "tol": 1e-05
+     },
+     {
+      "params": {
+       "pistar": 2,
+       "ystar": 100,
+       "rstar": 2,
+       "alpha": 1,
+       "gamma": 1,
+       "bpi": 3,
+       "epsy": 0,
+       "shock": 3,
+       "ts": 2
+      },
+      "expect": {
+       "inflation@2": 3,
+       "inflation@3": 2.333333,
+       "inflation@4": 2.111111,
+       "output@2": 98,
+       "output@3": 99.333333,
+       "output@4": 99.777778,
+       "policy@2": 7,
+       "policy@3": 5,
+       "real@2": 4
+      },
+      "tol": 1e-05
+     }
+    ]
+   },
+   "illustrates": [
+    "is-mp-pc-model",
+    "adaptive-expectations",
+    "monetary-policy-rule",
+    "real-and-nominal-interest-rates"
+   ],
+   "notation": [
+    {
+     "tex": "$\\pi_t$",
+     "meaning": "Inflation",
+     "kind": "Endogenous",
+     "typical": "2 at target",
+     "keys": [
+      "pi"
+     ],
+     "from": "is-mp-pc-model"
+    },
+    {
+     "tex": "$\\pi^*$",
+     "meaning": "Inflation target",
+     "kind": "Policy parameter",
+     "typical": "2",
+     "keys": [
+      "pi*"
+     ],
+     "from": "is-mp-pc-model"
+    },
+    {
+     "tex": "$y_t$",
+     "meaning": "Output",
+     "kind": "Endogenous",
+     "typical": "100",
+     "keys": [
+      "y"
+     ],
+     "from": "is-mp-pc-model"
+    },
+    {
+     "tex": "$y^*$",
+     "meaning": "Potential output",
+     "kind": "Parameter",
+     "typical": "100",
+     "keys": [
+      "y*"
+     ],
+     "from": "is-mp-pc-model"
+    },
+    {
+     "tex": "$i_t$",
+     "meaning": "Nominal policy rate",
+     "kind": "Endogenous",
+     "typical": "4 at target",
+     "keys": [
+      "i"
+     ],
+     "from": "is-mp-pc-model"
+    },
+    {
+     "tex": "$\\alpha$",
+     "meaning": "Sensitivity of output to the real rate (IS slope)",
+     "kind": "Parameter",
+     "typical": "1",
+     "keys": [
+      "alpha"
+     ],
+     "from": "is-mp-pc-model"
+    },
+    {
+     "tex": "$\\gamma$",
+     "meaning": "Slope of the Phillips curve",
+     "kind": "Parameter",
+     "typical": "1",
+     "keys": [
+      "gamma"
+     ],
+     "from": "is-mp-pc-model"
+    },
+    {
+     "tex": "$\\beta_\\pi$",
+     "meaning": "Policy response to inflation",
+     "kind": "Parameter",
+     "typical": "1.5",
+     "keys": [
+      "beta"
+     ],
+     "from": "is-mp-pc-model"
+    },
+    {
+     "tex": "$\\theta$",
+     "meaning": "Weight on expectations and shocks, $1/(1 + \\alpha\\gamma(\\beta_\\pi - 1))$",
+     "kind": "Parameter combination",
+     "typical": "2/3",
+     "keys": [
+      "theta"
+     ],
+     "from": "is-mp-pc-model"
+    },
+    {
+     "tex": "$\\epsilon^\\pi_t$",
+     "meaning": "Aggregate supply shock",
+     "kind": "Exogenous",
+     "typical": "3 in the example",
+     "keys": [
+      "~\\epsilon^\\pi_t"
+     ],
+     "from": "is-mp-pc-model"
+    },
+    {
+     "tex": "$t$",
+     "meaning": "Period",
+     "kind": "Index",
+     "typical": "1, 2, 3, …",
+     "keys": [
+      "t"
+     ],
+     "from": "is-mp-pc-model"
+    },
+    {
+     "tex": "$r_t$",
+     "meaning": "Real interest rate",
+     "kind": "Endogenous",
+     "typical": "3 in the example",
+     "keys": [
+      "r"
+     ],
+     "from": "real-and-nominal-interest-rates"
+    }
+   ]
+  },
+  "is-lm-explorer": {
+   "slug": "is-lm-explorer",
+   "name": "IS-LM Explorer",
+   "type": "panels",
+   "model": "linear-is-lm-model",
+   "spec": {
+    "type": "panels",
+    "title": "Goods market, money market and policy",
+    "notation": "IS-LM Model",
+    "params": {
+     "dG": {
+      "tex": "\\Delta G",
+      "label": "Change in government spending",
+      "min": -100,
+      "max": 300,
+      "step": 25,
+      "default": 0
+     },
+     "dM": {
+      "tex": "\\Delta M",
+      "label": "Change in the real money supply",
+      "min": -300,
+      "max": 800,
+      "step": 50,
+      "default": 0
+     },
+     "G": {
+      "tex": "G",
+      "label": "Government spending (starting value)",
+      "min": 0,
+      "max": 400,
+      "step": 10,
+      "default": 100
+     },
+     "M": {
+      "tex": "M^S/P",
+      "label": "Real money supply (starting value)",
+      "min": 100,
+      "max": 1500,
+      "step": 50,
+      "default": 400
+     },
+     "b": {
+      "tex": "b",
+      "label": "Marginal propensity to consume",
+      "min": 0.5,
+      "max": 0.95,
+      "step": 0.01,
+      "default": 0.8
+     },
+     "d": {
+      "tex": "d",
+      "label": "Interest sensitivity of investment",
+      "min": 5,
+      "max": 50,
+      "step": 5,
+      "default": 20
+     },
+     "k": {
+      "tex": "k",
+      "label": "Income sensitivity of money demand",
+      "min": 0.1,
+      "max": 1,
+      "step": 0.05,
+      "default": 0.5
+     },
+     "h": {
+      "tex": "h",
+      "label": "Interest sensitivity of money demand",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "default": 50
+     }
+    },
+    "fixed": {
+     "a": 100,
+     "T": 100,
+     "I0": 200
+    },
+    "vars": {
+     "Y": {
+      "tex": "Y",
+      "label": "Output"
+     }
+    },
+    "derived": {
+     "A0": "a - b*T + I0 + G",
+     "A1": "a - b*T + I0 + G + dG",
+     "m1": "M + dM",
+     "Yu0": "(A0*h + d*M)/((1 - b)*h + d*k)",
+     "ru0": "(k*Yu0 - M)/h",
+     "Y0": "ru0 >= 0 ? Yu0 : A0/(1 - b)",
+     "r0": "max(0, ru0)",
+     "Yu1": "(A1*h + d*m1)/((1 - b)*h + d*k)",
+     "ru1": "(k*Yu1 - m1)/h",
+     "Y1": "ru1 >= 0 ? Yu1 : A1/(1 - b)",
+     "r1": "max(0, ru1)",
+     "dY": "Y1 - Y0",
+     "Ykc": "Y0 + dG/(1 - b)",
+     "crowd": "dG/(1 - b) - (Y1 - Y0)",
+     "Ip1": "I0 - d*r1"
+    },
+    "equations": {
+     "is0": "(a - b*T + I0 + G - (1 - b)*Y)/d",
+     "is1": "(a - b*T + I0 + G + dG - (1 - b)*Y)/d",
+     "lm0": "max(0, (k*Y - M)/h)",
+     "lm1": "max(0, (k*Y - (M + dM))/h)"
+    },
+    "panels": [
+     {
+      "kind": "curve",
+      "id": "islm",
+      "x": {
+       "var": "Y",
+       "tex": "Y",
+       "label": "Output",
+       "min": 0,
+       "max": 3000
+      },
+      "y": {
+       "tex": "r",
+       "label": "Interest rate (%)",
+       "min": 0,
+       "max": 12
+      },
+      "curves": [
+       {
+        "id": "is0",
+        "expr": "is0",
+        "tex": "IS",
+        "label": "IS before the change",
+        "style": "dashed"
+       },
+       {
+        "id": "lm0",
+        "expr": "lm0",
+        "tex": "LM",
+        "label": "LM before the change",
+        "style": "dashed"
+       },
+       {
+        "id": "is1",
+        "expr": "is1",
+        "tex": "IS",
+        "label": "IS after the change"
+       },
+       {
+        "id": "lm1",
+        "expr": "lm1",
+        "tex": "LM",
+        "label": "LM after the change"
+       }
+      ],
+      "points": [
+       {
+        "id": "eq0",
+        "x": "Y0",
+        "y": "r0",
+        "tex": "(Y^*, r^*)",
+        "label": "Equilibrium before",
+        "guides": true
+       },
+       {
+        "id": "eq1",
+        "x": "Y1",
+        "y": "r1",
+        "tex": "(Y^*, r^*)",
+        "label": "Equilibrium after",
+        "guides": true
+       },
+       {
+        "id": "kc",
+        "x": "Ykc",
+        "y": "r0",
+        "tex": "Y",
+        "label": "Keynesian-cross output: the old rate with the new spending"
+       }
+      ],
+      "lines": [
+       {
+        "id": "kcshift",
+        "from": [
+         "Y0",
+         "r0"
+        ],
+        "to": [
+         "Ykc",
+         "r0"
+        ],
+        "tex": "\\Delta G/(1-b)",
+        "label": "Shift of IS at the old interest rate",
+        "style": "dotted"
+       }
+      ]
+     }
+    ],
+    "readouts": [
+     {
+      "id": "Y1_out",
+      "tex": "Y^*",
+      "label": "Equilibrium output",
+      "expr": "Y1",
+      "format": ",.0f"
+     },
+     {
+      "id": "r1_out",
+      "tex": "r^*",
+      "label": "Equilibrium interest rate",
+      "expr": "r1",
+      "format": ".2f"
+     },
+     {
+      "id": "dY_out",
+      "tex": "\\Delta Y",
+      "label": "Change in output",
+      "expr": "dY",
+      "format": ",.0f"
+     },
+     {
+      "id": "crowd_out",
+      "tex": "\\Delta G/(1-b) - \\Delta Y",
+      "label": "Crowding out",
+      "expr": "crowd",
+      "format": ",.0f"
+     },
+     {
+      "id": "Ip_out",
+      "tex": "I^P",
+      "label": "Planned investment",
+      "expr": "Ip1",
+      "format": ",.0f"
+     }
+    ],
+    "tests": [
+     {
+      "params": {
+       "a": 100,
+       "b": 0.8,
+       "T": 100,
+       "G": 100,
+       "I0": 200,
+       "d": 20,
+       "M": 400,
+       "k": 0.5,
+       "h": 50,
+       "dG": 100,
+       "dM": 0
+      },
+      "expect": {
+       "Y1_out": 1450,
+       "r1_out": 6.5,
+       "dY_out": 250,
+       "crowd_out": 250,
+       "Ip_out": 70,
+       "Ykc": 1700,
+       "is0@1200": 4,
+       "lm0@1200": 4,
+       "is1@1450": 6.5,
+       "lm1@1450": 6.5,
+       "is1@1700": 4
+      },
+      "tol": 1e-06
+     },
+     {
+      "params": {
+       "a": 100,
+       "b": 0.8,
+       "T": 100,
+       "G": 100,
+       "I0": 200,
+       "d": 20,
+       "M": 400,
+       "k": 0.5,
+       "h": 50,
+       "dG": 100,
+       "dM": 250
+      },
+      "expect": {
+       "r1_out": 4,
+       "Y1_out": 1700,
+       "crowd_out": 0
+      },
+      "tol": 1e-06
+     },
+     {
+      "params": {
+       "a": 100,
+       "b": 0.8,
+       "T": 100,
+       "G": 100,
+       "I0": 200,
+       "d": 20,
+       "M": 1000,
+       "k": 0.5,
+       "h": 50,
+       "dG": 0,
+       "dM": 200
+      },
+      "expect": {
+       "Y1_out": 1600,
+       "r1_out": 0,
+       "dY_out": 0,
+       "lm1@1600": 0,
+       "lm1@2400": 0,
+       "lm1@2500": 1
+      },
+      "tol": 1e-06
+     },
+     {
+      "params": {
+       "a": 100,
+       "b": 0.8,
+       "T": 100,
+       "G": 100,
+       "I0": 200,
+       "d": 20,
+       "M": 1000,
+       "k": 0.5,
+       "h": 50,
+       "dG": 100,
+       "dM": 0
+      },
+      "expect": {
+       "Y1_out": 2050,
+       "r1_out": 0.5,
+       "dY_out": 450,
+       "crowd_out": 50
+      },
+      "tol": 1e-06
+     }
+    ],
+    "compare_figure": "assets/Attachments/IS-LM fiscal policy and crowding out (handwritten).png"
+   },
+   "illustrates": [
+    "is-lm-model",
+    "is-curve",
+    "lm-curve",
+    "zero-lower-bound",
+    "keynesian-multiplier"
+   ],
+   "notation": [
+    {
+     "tex": "$Y$, $Y^*$",
+     "meaning": "Output, equilibrium output",
+     "kind": "Endogenous",
+     "typical": "1,200 in the example",
+     "keys": [
+      "Y",
+      "Y*"
+     ],
+     "from": "is-lm-model"
+    },
+    {
+     "tex": "$r$, $r^*$",
+     "meaning": "Interest rate, equilibrium rate",
+     "kind": "Endogenous",
+     "typical": "4 in the example",
+     "keys": [
+      "r",
+      "r*"
+     ],
+     "from": "is-lm-model"
+    },
+    {
+     "tex": "$a$, $b$",
+     "meaning": "Autonomous consumption, marginal propensity to consume",
+     "kind": "Parameters",
+     "typical": "100, 0.8",
+     "keys": [
+      "a",
+      "b"
+     ],
+     "from": "is-lm-model"
+    },
+    {
+     "tex": "$T$, $G$",
+     "meaning": "Taxes, government spending",
+     "kind": "Policy",
+     "typical": "100, 100",
+     "keys": [
+      "T",
+      "G"
+     ],
+     "from": "is-lm-model"
+    },
+    {
+     "tex": "$I_0$, $d$",
+     "meaning": "Autonomous investment and its interest sensitivity",
+     "kind": "Parameters",
+     "typical": "200, 20",
+     "keys": [
+      "I",
+      "d"
+     ],
+     "from": "is-lm-model"
+    },
+    {
+     "tex": "$M^S/P$",
+     "meaning": "Real money supply",
+     "kind": "Policy",
+     "typical": "400",
+     "keys": [
+      "~M^S/P"
+     ],
+     "from": "is-lm-model"
+    },
+    {
+     "tex": "$L(r, Y)$",
+     "meaning": "Real money demand, $kY - hr$ in the example",
+     "kind": "Function",
+     "typical": "—",
+     "keys": [
+      "L"
+     ],
+     "from": "is-lm-model"
+    },
+    {
+     "tex": "$k$, $h$",
+     "meaning": "Income and interest sensitivity of money demand",
+     "kind": "Parameters",
+     "typical": "0.5, 50",
+     "keys": [
+      "k",
+      "h"
+     ],
+     "from": "is-lm-model"
+    },
+    {
+     "tex": "$\\Delta G$, $\\Delta I^P$",
+     "meaning": "Changes in government spending and planned investment",
+     "kind": "—",
+     "typical": "100, −50",
+     "keys": [
+      "~\\DeltaG",
+      "~\\DeltaI^P"
+     ],
+     "from": "is-lm-model"
+    },
+    {
+     "tex": "$\\Delta M$",
+     "meaning": "Change in the real money supply",
+     "kind": "Policy",
+     "typical": "100",
+     "keys": [
+      "~\\DeltaM"
+     ],
+     "from": "is-lm-model"
+    },
+    {
+     "tex": "$\\Delta Y$",
+     "meaning": "Change in equilibrium output",
+     "kind": "Endogenous",
+     "typical": "500",
+     "keys": [
+      "~\\DeltaY"
+     ],
+     "from": "keynesian-multiplier"
+    }
+   ]
+  },
+  "is-mp-and-phillips-curve-diagram": {
+   "slug": "is-mp-and-phillips-curve-diagram",
+   "name": "IS-MP and Phillips Curve Diagram",
+   "type": "panels",
+   "model": "three-equation-macro-model",
+   "spec": {
+    "type": "panels",
+    "title": "IS-MP and Phillips curves",
+    "notation": "IS-MP-PC Model",
+    "params": {
+     "epsp": {
+      "tex": "\\epsilon^\\pi_t",
+      "label": "Aggregate supply shock",
+      "min": -4,
+      "max": 6,
+      "step": 0.5,
+      "default": 0
+     },
+     "epsy": {
+      "tex": "\\epsilon^y_t",
+      "label": "Aggregate demand shock",
+      "min": -4,
+      "max": 4,
+      "step": 0.5,
+      "default": 0
+     },
+     "pe": {
+      "tex": "\\pi^e_t",
+      "label": "Expected inflation (%)",
+      "min": 0,
+      "max": 8,
+      "step": 0.5,
+      "default": 2
+     },
+     "bpi": {
+      "tex": "\\beta_\\pi",
+      "label": "Policy response to inflation",
+      "min": 1.25,
+      "max": 5,
+      "step": 0.25,
+      "default": 1.5
+     },
+     "alpha": {
+      "tex": "\\alpha",
+      "label": "Sensitivity of output to the real rate",
+      "min": 0.25,
+      "max": 3,
+      "step": 0.25,
+      "default": 1
+     },
+     "gamma": {
+      "tex": "\\gamma",
+      "label": "Slope of the Phillips curve",
+      "min": 0.25,
+      "max": 3,
+      "step": 0.25,
+      "default": 1
+     }
+    },
+    "fixed": {
+     "pistar": 2,
+     "ystar": 100,
+     "rstar": 2
+    },
+    "vars": {
+     "y": {
+      "tex": "y_t",
+      "label": "Output"
+     },
+     "pprev": {
+      "tex": "\\pi_{t-1}",
+      "label": "Last period's inflation"
+     }
+    },
+    "derived": {
+     "th": "1/(1 + alpha*gamma*(bpi - 1))",
+     "pist": "th*pe + (1 - th)*pistar + th*(gamma*epsy + epsp)",
+     "yst": "ystar - alpha*(bpi - 1)*(pist - pistar) + epsy",
+     "ist": "rstar + pistar + bpi*(pist - pistar)",
+     "rst": "ist - pist"
+    },
+    "equations": {
+     "pi_ad": "th*pprev + (1 - th)*pistar + th*(gamma*epsy + epsp)",
+     "y_ad": "ystar - alpha*(bpi - 1)*(pi_ad - pistar) + epsy",
+     "i_ad": "rstar + pistar + bpi*(pi_ad - pistar)",
+     "r_ad": "rstar + pistar + bpi*(pi_ad - pistar) - pi_ad"
+    },
+    "panels": [
+     {
+      "kind": "curve",
+      "id": "ismppc",
+      "x": {
+       "var": "y",
+       "tex": "y_t",
+       "label": "Output",
+       "min": 94,
+       "max": 106
+      },
+      "y": {
+       "tex": "\\pi_t",
+       "label": "Inflation (%)",
+       "min": -2,
+       "max": 10
+      },
+      "curves": [
+       {
+        "id": "pc0",
+        "expr": "pistar + gamma*(y - ystar)",
+        "tex": "\\pi_t = \\pi^* + \\gamma(y_t - y^*)",
+        "label": "Phillips curve with expectations at target and no shock",
+        "style": "dashed"
+       },
+       {
+        "id": "ismp0",
+        "expr": "pistar - (y - ystar)/(alpha*(bpi - 1))",
+        "tex": "y_t = y^* - \\alpha(\\beta_\\pi - 1)(\\pi_t - \\pi^*)",
+        "label": "IS-MP curve with no demand shock",
+        "style": "dashed"
+       },
+       {
+        "id": "pc",
+        "expr": "pe + gamma*(y - ystar) + epsp",
+        "tex": "\\pi_t = \\pi^e_t + \\gamma(y_t - y^*) + \\epsilon^\\pi_t",
+        "label": "Phillips curve"
+       },
+       {
+        "id": "ismp",
+        "expr": "pistar - (y - ystar - epsy)/(alpha*(bpi - 1))",
+        "tex": "y_t = y^* - \\alpha(\\beta_\\pi - 1)(\\pi_t - \\pi^*) + \\epsilon^y_t",
+        "label": "IS-MP curve"
+       }
+      ],
+      "points": [
+       {
+        "id": "target",
+        "x": "ystar",
+        "y": "pistar",
+        "tex": "(y^*, \\pi^*)",
+        "label": "Potential output and the inflation target"
+       },
+       {
+        "id": "eq",
+        "x": "yst",
+        "y": "pist",
+        "tex": "(y_t, \\pi_t)",
+        "label": "This period's output and inflation",
+        "guides": true
+       }
+      ]
+     }
+    ],
+    "readouts": [
+     {
+      "id": "pi_out",
+      "tex": "\\pi_t",
+      "label": "Inflation (%)",
+      "expr": "pist",
+      "format": ".2f"
+     },
+     {
+      "id": "y_out",
+      "tex": "y_t",
+      "label": "Output",
+      "expr": "yst",
+      "format": ".2f"
+     },
+     {
+      "id": "i_out",
+      "tex": "i_t",
+      "label": "Nominal policy rate (%)",
+      "expr": "ist",
+      "format": ".2f"
+     },
+     {
+      "id": "r_out",
+      "tex": "r_t",
+      "label": "Real interest rate (%)",
+      "expr": "rst",
+      "format": ".2f"
+     },
+     {
+      "id": "th_out",
+      "tex": "\\theta",
+      "label": "Weight on expectations and shocks",
+      "expr": "th",
+      "format": ".3f"
+     }
+    ],
+    "tests": [
+     {
+      "params": {
+       "pistar": 2,
+       "ystar": 100,
+       "rstar": 2,
+       "alpha": 1,
+       "gamma": 1,
+       "bpi": 1.5,
+       "pe": 2,
+       "epsp": 3,
+       "epsy": 0
+      },
+      "expect": {
+       "pi_out": 4,
+       "y_out": 99,
+       "i_out": 7,
+       "r_out": 3,
+       "pc@99": 4,
+       "ismp@99": 4,
+       "pc0@99": 1,
+       "pc0@100": 2,
+       "ismp0@100": 2,
+       "ismp@98": 6
+      },
+      "tol": 1e-05
+     },
+     {
+      "params": {
+       "pistar": 2,
+       "ystar": 100,
+       "rstar": 2,
+       "alpha": 1,
+       "gamma": 1,
+       "bpi": 3,
+       "pe": 2,
+       "epsp": 3,
+       "epsy": 0
+      },
+      "expect": {
+       "pi_out": 3,
+       "y_out": 98,
+       "i_out": 7,
+       "r_out": 4,
+       "ismp@98": 3,
+       "pc@98": 3
+      },
+      "tol": 1e-05
+     },
+     {
+      "params": {
+       "pistar": 2,
+       "ystar": 100,
+       "rstar": 2,
+       "alpha": 1,
+       "gamma": 1,
+       "bpi": 2.75,
+       "pe": 2,
+       "epsp": 3,
+       "epsy": 0
+      },
+      "expect": {
+       "pist": 3.090909
+      },
+      "tol": 1e-05
+     }
+    ]
+   },
+   "illustrates": [
+    "is-mp-pc-model",
+    "phillips-curve",
+    "monetary-policy-rule",
+    "real-and-nominal-interest-rates"
+   ],
+   "notation": [
+    {
+     "tex": "$\\pi_t$",
+     "meaning": "Inflation",
+     "kind": "Endogenous",
+     "typical": "2 at target",
+     "keys": [
+      "pi"
+     ],
+     "from": "is-mp-pc-model"
+    },
+    {
+     "tex": "$\\pi^e_t$",
+     "meaning": "Expected inflation",
+     "kind": "State (given in the period)",
+     "typical": "2",
+     "keys": [
+      "~\\pi^e_t"
+     ],
+     "from": "is-mp-pc-model"
+    },
+    {
+     "tex": "$\\pi^*$",
+     "meaning": "Inflation target",
+     "kind": "Policy parameter",
+     "typical": "2",
+     "keys": [
+      "pi*"
+     ],
+     "from": "is-mp-pc-model"
+    },
+    {
+     "tex": "$y_t$",
+     "meaning": "Output",
+     "kind": "Endogenous",
+     "typical": "100",
+     "keys": [
+      "y"
+     ],
+     "from": "is-mp-pc-model"
+    },
+    {
+     "tex": "$y^*$",
+     "meaning": "Potential output",
+     "kind": "Parameter",
+     "typical": "100",
+     "keys": [
+      "y*"
+     ],
+     "from": "is-mp-pc-model"
+    },
+    {
+     "tex": "$i_t$",
+     "meaning": "Nominal policy rate",
+     "kind": "Endogenous",
+     "typical": "4 at target",
+     "keys": [
+      "i"
+     ],
+     "from": "is-mp-pc-model"
+    },
+    {
+     "tex": "$\\alpha$",
+     "meaning": "Sensitivity of output to the real rate (IS slope)",
+     "kind": "Parameter",
+     "typical": "1",
+     "keys": [
+      "alpha"
+     ],
+     "from": "is-mp-pc-model"
+    },
+    {
+     "tex": "$\\gamma$",
+     "meaning": "Slope of the Phillips curve",
+     "kind": "Parameter",
+     "typical": "1",
+     "keys": [
+      "gamma"
+     ],
+     "from": "is-mp-pc-model"
+    },
+    {
+     "tex": "$\\beta_\\pi$",
+     "meaning": "Policy response to inflation",
+     "kind": "Parameter",
+     "typical": "1.5",
+     "keys": [
+      "beta"
+     ],
+     "from": "is-mp-pc-model"
+    },
+    {
+     "tex": "$\\theta$",
+     "meaning": "Weight on expectations and shocks, $1/(1 + \\alpha\\gamma(\\beta_\\pi - 1))$",
+     "kind": "Parameter combination",
+     "typical": "2/3",
+     "keys": [
+      "theta"
+     ],
+     "from": "is-mp-pc-model"
+    },
+    {
+     "tex": "$\\epsilon^\\pi_t$",
+     "meaning": "Aggregate supply shock",
+     "kind": "Exogenous",
+     "typical": "3 in the example",
+     "keys": [
+      "~\\epsilon^\\pi_t"
+     ],
+     "from": "is-mp-pc-model"
+    },
+    {
+     "tex": "$\\epsilon^y_t$",
+     "meaning": "Aggregate demand shock",
+     "kind": "Exogenous",
+     "typical": "0",
+     "keys": [
+      "~\\epsilon^y_t"
+     ],
+     "from": "is-mp-pc-model"
+    },
+    {
+     "tex": "$y_t - y^*$",
+     "meaning": "Output gap",
+     "kind": "Endogenous",
+     "typical": "0",
+     "keys": [
+      "~y_t-y^*"
+     ],
+     "from": "phillips-curve"
+    },
+    {
+     "tex": "$r_t$",
+     "meaning": "Real interest rate",
+     "kind": "Endogenous",
+     "typical": "3 in the example",
+     "keys": [
+      "r"
+     ],
+     "from": "real-and-nominal-interest-rates"
+    }
+   ]
+  },
   "kernel-density-bandwidth-explorer": {
    "slug": "kernel-density-bandwidth-explorer",
    "name": "Kernel Density Bandwidth Explorer",
@@ -26290,6 +29387,583 @@
       "h"
      ],
      "from": "kernel-density-estimation"
+    }
+   ]
+  },
+  "keynesian-cross-expenditure-model": {
+   "slug": "keynesian-cross-expenditure-model",
+   "name": "Keynesian Cross Expenditure Model",
+   "type": "panels",
+   "spec": {
+    "type": "panels",
+    "title": "Keynesian cross",
+    "notation": "Keynesian Cross",
+    "params": {
+     "a": {
+      "tex": "a",
+      "label": "Autonomous consumption",
+      "min": 0,
+      "max": 300,
+      "step": 10,
+      "default": 100
+     },
+     "b": {
+      "tex": "b",
+      "label": "Marginal propensity to consume",
+      "min": 0.5,
+      "max": 0.95,
+      "step": 0.01,
+      "default": 0.8
+     },
+     "T": {
+      "tex": "T",
+      "label": "Taxes",
+      "min": 0,
+      "max": 300,
+      "step": 10,
+      "default": 100
+     },
+     "Ip": {
+      "tex": "I^P",
+      "label": "Planned investment",
+      "min": 0,
+      "max": 400,
+      "step": 10,
+      "default": 100
+     },
+     "G": {
+      "tex": "G",
+      "label": "Government spending",
+      "min": 0,
+      "max": 400,
+      "step": 10,
+      "default": 100
+     }
+    },
+    "vars": {
+     "Y": {
+      "tex": "Y",
+      "label": "Output (income)"
+     }
+    },
+    "derived": {
+     "auto": "a - b*T + Ip + G",
+     "Ystar": "(a - b*T + Ip + G)/(1 - b)",
+     "mult": "1/(1 - b)",
+     "taxmult": "b/(1 - b)"
+    },
+    "equations": {
+     "pe": "a + b*(Y - T) + Ip + G",
+     "line45": "Y"
+    },
+    "panels": [],
+    "readouts": [
+     {
+      "id": "Ystar_out",
+      "tex": "Y^*",
+      "label": "Equilibrium output",
+      "expr": "Ystar",
+      "format": ",.0f"
+     },
+     {
+      "id": "mult_out",
+      "tex": "\\frac{1}{1-b}",
+      "label": "Spending multiplier",
+      "expr": "mult",
+      "format": ".2f"
+     },
+     {
+      "id": "tax_out",
+      "tex": "\\frac{b}{1-b}",
+      "label": "Tax multiplier",
+      "expr": "taxmult",
+      "format": ".2f"
+     }
+    ],
+    "tests": [
+     {
+      "params": {
+       "a": 100,
+       "b": 0.8,
+       "T": 100,
+       "Ip": 100,
+       "G": 100
+      },
+      "at": {
+       "Y": 600
+      },
+      "expect": {
+       "Ystar": 1100,
+       "mult": 5,
+       "taxmult": 4,
+       "pe": 700,
+       "line45": 600,
+       "auto": 220
+      },
+      "tol": 1e-06
+     },
+     {
+      "params": {
+       "a": 100,
+       "b": 0.8,
+       "T": 100,
+       "Ip": 100,
+       "G": 200
+      },
+      "expect": {
+       "Ystar": 1600
+      },
+      "tol": 1e-06
+     },
+     {
+      "params": {
+       "a": 100,
+       "b": 0.8,
+       "T": 0,
+       "Ip": 100,
+       "G": 100
+      },
+      "expect": {
+       "Ystar": 1500
+      },
+      "tol": 1e-06
+     }
+    ]
+   },
+   "illustrates": [
+    "keynesian-cross",
+    "keynesian-multiplier"
+   ],
+   "notation": [
+    {
+     "tex": "$Y$",
+     "meaning": "Output (equal to income)",
+     "kind": "Endogenous",
+     "typical": "1,100 in the example",
+     "keys": [
+      "Y"
+     ],
+     "from": "keynesian-cross"
+    },
+    {
+     "tex": "$a$",
+     "meaning": "Autonomous consumption: spending that does not depend on income",
+     "kind": "Parameter",
+     "typical": "100 in the example",
+     "keys": [
+      "a"
+     ],
+     "from": "keynesian-cross"
+    },
+    {
+     "tex": "$b$",
+     "meaning": "Marginal propensity to consume (MPC): share of each extra unit of disposable income spent",
+     "kind": "Parameter in (0, 1)",
+     "typical": "0.8",
+     "keys": [
+      "b"
+     ],
+     "from": "keynesian-cross"
+    },
+    {
+     "tex": "$T$",
+     "meaning": "Taxes",
+     "kind": "Policy",
+     "typical": "100 in the example",
+     "keys": [
+      "T"
+     ],
+     "from": "keynesian-cross"
+    },
+    {
+     "tex": "$G$",
+     "meaning": "Government spending",
+     "kind": "Policy",
+     "typical": "100 in the example",
+     "keys": [
+      "G"
+     ],
+     "from": "keynesian-cross"
+    },
+    {
+     "tex": "$I^P$",
+     "meaning": "Planned investment: new capital goods and planned inventory changes",
+     "kind": "Exogenous (for now)",
+     "typical": "100 in the example",
+     "keys": [
+      "~I^P"
+     ],
+     "from": "keynesian-cross"
+    },
+    {
+     "tex": "$I$",
+     "meaning": "Total investment, $I^P + I^U$",
+     "kind": "Endogenous",
+     "typical": "—",
+     "keys": [
+      "I"
+     ],
+     "from": "keynesian-cross"
+    },
+    {
+     "tex": "$Y^*$",
+     "meaning": "Equilibrium output",
+     "kind": "Endogenous",
+     "typical": "1,100 in the example",
+     "keys": [
+      "Y*"
+     ],
+     "from": "keynesian-cross"
+    }
+   ]
+  },
+  "keynesian-cross-explorer": {
+   "slug": "keynesian-cross-explorer",
+   "name": "Keynesian Cross Explorer",
+   "type": "panels",
+   "model": "keynesian-cross-expenditure-model",
+   "spec": {
+    "type": "panels",
+    "title": "Planned expenditure and output",
+    "notation": "Keynesian Cross",
+    "params": {
+     "a": {
+      "tex": "a",
+      "label": "Autonomous consumption",
+      "min": 0,
+      "max": 300,
+      "step": 10,
+      "default": 100
+     },
+     "b": {
+      "tex": "b",
+      "label": "Marginal propensity to consume",
+      "min": 0.5,
+      "max": 0.95,
+      "step": 0.01,
+      "default": 0.8
+     },
+     "T": {
+      "tex": "T",
+      "label": "Taxes",
+      "min": 0,
+      "max": 300,
+      "step": 10,
+      "default": 100
+     },
+     "Ip": {
+      "tex": "I^P",
+      "label": "Planned investment",
+      "min": 0,
+      "max": 400,
+      "step": 10,
+      "default": 100
+     },
+     "G": {
+      "tex": "G",
+      "label": "Government spending",
+      "min": 0,
+      "max": 400,
+      "step": 10,
+      "default": 100
+     },
+     "Yp": {
+      "tex": "Y",
+      "label": "Output firms produce (drag)",
+      "min": 0,
+      "max": 2500,
+      "step": 10,
+      "default": 600
+     }
+    },
+    "vars": {
+     "Y": {
+      "tex": "Y",
+      "label": "Output (income)"
+     }
+    },
+    "derived": {
+     "auto": "a - b*T + Ip + G",
+     "Ystar": "(a - b*T + Ip + G)/(1 - b)",
+     "mult": "1/(1 - b)",
+     "taxmult": "b/(1 - b)",
+     "peP": "a + b*(Yp - T) + Ip + G",
+     "Iu": "Yp - (a + b*(Yp - T) + Ip + G)"
+    },
+    "equations": {
+     "pe": "a + b*(Y - T) + Ip + G",
+     "line45": "Y"
+    },
+    "panels": [
+     {
+      "kind": "curve",
+      "id": "cross",
+      "x": {
+       "var": "Y",
+       "tex": "Y",
+       "label": "Output (income)",
+       "min": 0,
+       "max": 2500
+      },
+      "y": {
+       "tex": "PE",
+       "label": "Planned expenditure",
+       "min": 0,
+       "max": 2500
+      },
+      "curves": [
+       {
+        "id": "line45",
+        "expr": "line45",
+        "tex": "PE = Y",
+        "label": "45° line: planned expenditure equals output",
+        "style": "dashed"
+       },
+       {
+        "id": "pe",
+        "expr": "pe",
+        "tex": "PE = a + b(Y - T) + I^P + G",
+        "label": "Planned expenditure"
+       }
+      ],
+      "points": [
+       {
+        "id": "eq",
+        "x": "Ystar",
+        "y": "Ystar",
+        "tex": "Y^*",
+        "label": "Equilibrium: PE = Y",
+        "guides": true
+       },
+       {
+        "id": "produce",
+        "x": "Yp",
+        "y": "Yp",
+        "tex": "Y",
+        "label": "Output produced (drag along the axis)",
+        "drag": {
+         "x": "Yp"
+        }
+       },
+       {
+        "id": "spend",
+        "x": "Yp",
+        "y": "peP",
+        "tex": "PE",
+        "label": "Planned spending at that output"
+       }
+      ],
+      "lines": [
+       {
+        "id": "gap",
+        "from": [
+         "Yp",
+         "peP"
+        ],
+        "to": [
+         "Yp",
+         "Yp"
+        ],
+        "tex": "I^U",
+        "label": "Unplanned investment: output minus planned spending",
+        "style": "dashed"
+       }
+      ]
+     }
+    ],
+    "readouts": [
+     {
+      "id": "Ystar_out",
+      "tex": "Y^*",
+      "label": "Equilibrium output",
+      "expr": "Ystar",
+      "format": ",.0f"
+     },
+     {
+      "id": "Iu_out",
+      "tex": "I^U",
+      "label": "Unplanned investment at this output",
+      "expr": "Iu",
+      "format": ",.0f"
+     },
+     {
+      "id": "mult_out",
+      "tex": "\\frac{1}{1-b}",
+      "label": "Spending multiplier",
+      "expr": "mult",
+      "format": ".2f"
+     }
+    ],
+    "tests": [
+     {
+      "params": {
+       "a": 100,
+       "b": 0.8,
+       "T": 100,
+       "Ip": 100,
+       "G": 100,
+       "Yp": 600
+      },
+      "expect": {
+       "peP": 700,
+       "Iu": -100,
+       "Iu_out": -100,
+       "Ystar_out": 1100,
+       "pe@0": 220,
+       "pe@1100": 1100,
+       "line45@1100": 1100
+      },
+      "tol": 1e-06
+     },
+     {
+      "params": {
+       "a": 100,
+       "b": 0.8,
+       "T": 100,
+       "Ip": 100,
+       "G": 100,
+       "Yp": 1090
+      },
+      "expect": {
+       "Iu": -2
+      },
+      "tol": 1e-06
+     },
+     {
+      "params": {
+       "a": 100,
+       "b": 0.8,
+       "T": 100,
+       "Ip": 100,
+       "G": 100,
+       "Yp": 1100
+      },
+      "expect": {
+       "Iu": 0
+      },
+      "tol": 1e-06
+     },
+     {
+      "params": {
+       "a": 100,
+       "b": 0.8,
+       "T": 100,
+       "Ip": 100,
+       "G": 200,
+       "Yp": 600
+      },
+      "expect": {
+       "Ystar_out": 1600
+      },
+      "tol": 1e-06
+     }
+    ],
+    "compare_figure": "assets/Attachments/Keynesian cross diagram (handwritten).png"
+   },
+   "illustrates": [
+    "keynesian-cross",
+    "keynesian-multiplier"
+   ],
+   "notation": [
+    {
+     "tex": "$Y$",
+     "meaning": "Output (equal to income)",
+     "kind": "Endogenous",
+     "typical": "1,100 in the example",
+     "keys": [
+      "Y"
+     ],
+     "from": "keynesian-cross"
+    },
+    {
+     "tex": "$PE$",
+     "meaning": "Planned expenditure",
+     "kind": "Endogenous",
+     "typical": "—",
+     "keys": [
+      "~PE"
+     ],
+     "from": "keynesian-cross"
+    },
+    {
+     "tex": "$a$",
+     "meaning": "Autonomous consumption: spending that does not depend on income",
+     "kind": "Parameter",
+     "typical": "100 in the example",
+     "keys": [
+      "a"
+     ],
+     "from": "keynesian-cross"
+    },
+    {
+     "tex": "$b$",
+     "meaning": "Marginal propensity to consume (MPC): share of each extra unit of disposable income spent",
+     "kind": "Parameter in (0, 1)",
+     "typical": "0.8",
+     "keys": [
+      "b"
+     ],
+     "from": "keynesian-cross"
+    },
+    {
+     "tex": "$T$",
+     "meaning": "Taxes",
+     "kind": "Policy",
+     "typical": "100 in the example",
+     "keys": [
+      "T"
+     ],
+     "from": "keynesian-cross"
+    },
+    {
+     "tex": "$G$",
+     "meaning": "Government spending",
+     "kind": "Policy",
+     "typical": "100 in the example",
+     "keys": [
+      "G"
+     ],
+     "from": "keynesian-cross"
+    },
+    {
+     "tex": "$I^P$",
+     "meaning": "Planned investment: new capital goods and planned inventory changes",
+     "kind": "Exogenous (for now)",
+     "typical": "100 in the example",
+     "keys": [
+      "~I^P"
+     ],
+     "from": "keynesian-cross"
+    },
+    {
+     "tex": "$I^U$",
+     "meaning": "Unplanned investment: unplanned inventory changes",
+     "kind": "Endogenous",
+     "typical": "0 in equilibrium",
+     "keys": [
+      "~I^U"
+     ],
+     "from": "keynesian-cross"
+    },
+    {
+     "tex": "$I$",
+     "meaning": "Total investment, $I^P + I^U$",
+     "kind": "Endogenous",
+     "typical": "—",
+     "keys": [
+      "I"
+     ],
+     "from": "keynesian-cross"
+    },
+    {
+     "tex": "$Y^*$",
+     "meaning": "Equilibrium output",
+     "kind": "Endogenous",
+     "typical": "1,100 in the example",
+     "keys": [
+      "Y*"
+     ],
+     "from": "keynesian-cross"
     }
    ]
   },
@@ -28339,6 +32013,504 @@
       "x"
      ],
      "from": "simple-linear-regression-model"
+    }
+   ]
+  },
+  "linear-is-lm-model": {
+   "slug": "linear-is-lm-model",
+   "name": "Linear IS-LM Model",
+   "type": "panels",
+   "spec": {
+    "type": "panels",
+    "title": "Linear IS-LM",
+    "notation": "IS-LM Model",
+    "params": {
+     "a": {
+      "tex": "a",
+      "label": "Autonomous consumption",
+      "min": 0,
+      "max": 300,
+      "step": 10,
+      "default": 100
+     },
+     "b": {
+      "tex": "b",
+      "label": "Marginal propensity to consume",
+      "min": 0.5,
+      "max": 0.95,
+      "step": 0.01,
+      "default": 0.8
+     },
+     "T": {
+      "tex": "T",
+      "label": "Taxes",
+      "min": 0,
+      "max": 300,
+      "step": 10,
+      "default": 100
+     },
+     "G": {
+      "tex": "G",
+      "label": "Government spending (starting value)",
+      "min": 0,
+      "max": 400,
+      "step": 10,
+      "default": 100
+     },
+     "I0": {
+      "tex": "I_0",
+      "label": "Autonomous investment",
+      "min": 0,
+      "max": 400,
+      "step": 10,
+      "default": 200
+     },
+     "d": {
+      "tex": "d",
+      "label": "Interest sensitivity of investment",
+      "min": 5,
+      "max": 50,
+      "step": 5,
+      "default": 20
+     },
+     "M": {
+      "tex": "M^S/P",
+      "label": "Real money supply (starting value)",
+      "min": 100,
+      "max": 1500,
+      "step": 50,
+      "default": 400
+     },
+     "k": {
+      "tex": "k",
+      "label": "Income sensitivity of money demand",
+      "min": 0.1,
+      "max": 1,
+      "step": 0.05,
+      "default": 0.5
+     },
+     "h": {
+      "tex": "h",
+      "label": "Interest sensitivity of money demand",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "default": 50
+     },
+     "dG": {
+      "tex": "\\Delta G",
+      "label": "Change in government spending",
+      "min": -100,
+      "max": 300,
+      "step": 25,
+      "default": 0
+     },
+     "dM": {
+      "tex": "\\Delta M",
+      "label": "Change in the real money supply",
+      "min": -300,
+      "max": 800,
+      "step": 50,
+      "default": 0
+     }
+    },
+    "vars": {
+     "Y": {
+      "tex": "Y",
+      "label": "Output"
+     }
+    },
+    "derived": {
+     "A0": "a - b*T + I0 + G",
+     "A1": "a - b*T + I0 + G + dG",
+     "m1": "M + dM",
+     "Yu0": "(A0*h + d*M)/((1 - b)*h + d*k)",
+     "ru0": "(k*Yu0 - M)/h",
+     "Y0": "ru0 >= 0 ? Yu0 : A0/(1 - b)",
+     "r0": "max(0, ru0)",
+     "Yu1": "(A1*h + d*m1)/((1 - b)*h + d*k)",
+     "ru1": "(k*Yu1 - m1)/h",
+     "Y1": "ru1 >= 0 ? Yu1 : A1/(1 - b)",
+     "r1": "max(0, ru1)",
+     "dY": "Y1 - Y0",
+     "Ykc": "Y0 + dG/(1 - b)",
+     "crowd": "dG/(1 - b) - (Y1 - Y0)",
+     "Ip1": "I0 - d*r1"
+    },
+    "equations": {
+     "is0": "(a - b*T + I0 + G - (1 - b)*Y)/d",
+     "is1": "(a - b*T + I0 + G + dG - (1 - b)*Y)/d",
+     "lm0": "max(0, (k*Y - M)/h)",
+     "lm1": "max(0, (k*Y - (M + dM))/h)"
+    },
+    "panels": [],
+    "readouts": [
+     {
+      "id": "Y1_out",
+      "tex": "Y^*",
+      "label": "Equilibrium output",
+      "expr": "Y1",
+      "format": ",.0f"
+     },
+     {
+      "id": "r1_out",
+      "tex": "r^*",
+      "label": "Equilibrium interest rate",
+      "expr": "r1",
+      "format": ".2f"
+     },
+     {
+      "id": "dY_out",
+      "tex": "\\Delta Y",
+      "label": "Change in output",
+      "expr": "dY",
+      "format": ",.0f"
+     },
+     {
+      "id": "crowd_out",
+      "tex": "\\Delta G/(1-b) - \\Delta Y",
+      "label": "Crowding out: the cross's rise in output minus the actual rise",
+      "expr": "crowd",
+      "format": ",.0f"
+     },
+     {
+      "id": "Ip_out",
+      "tex": "I^P",
+      "label": "Planned investment",
+      "expr": "Ip1",
+      "format": ",.0f"
+     }
+    ],
+    "tests": [
+     {
+      "params": {
+       "a": 100,
+       "b": 0.8,
+       "T": 100,
+       "G": 100,
+       "I0": 200,
+       "d": 20,
+       "M": 400,
+       "k": 0.5,
+       "h": 50,
+       "dG": 0,
+       "dM": 0
+      },
+      "at": {
+       "Y": 1200
+      },
+      "expect": {
+       "Y0": 1200,
+       "r0": 4,
+       "Y1": 1200,
+       "r1": 4,
+       "is0": 4,
+       "lm0": 4,
+       "dY": 0,
+       "Ip1": 120
+      },
+      "tol": 1e-06
+     },
+     {
+      "params": {
+       "a": 100,
+       "b": 0.8,
+       "T": 100,
+       "G": 100,
+       "I0": 200,
+       "d": 20,
+       "M": 400,
+       "k": 0.5,
+       "h": 50,
+       "dG": 100,
+       "dM": 0
+      },
+      "at": {
+       "Y": 1450
+      },
+      "expect": {
+       "Y1": 1450,
+       "r1": 6.5,
+       "dY": 250,
+       "Ykc": 1700,
+       "crowd": 250,
+       "Ip1": 70,
+       "is1": 6.5,
+       "lm1": 6.5
+      },
+      "tol": 1e-06
+     },
+     {
+      "params": {
+       "a": 100,
+       "b": 0.8,
+       "T": 100,
+       "G": 100,
+       "I0": 200,
+       "d": 20,
+       "M": 400,
+       "k": 0.5,
+       "h": 50,
+       "dG": 0,
+       "dM": 100
+      },
+      "expect": {
+       "Y1": 1300,
+       "r1": 3,
+       "dY": 100
+      },
+      "tol": 1e-06
+     },
+     {
+      "params": {
+       "a": 100,
+       "b": 0.8,
+       "T": 100,
+       "G": 100,
+       "I0": 200,
+       "d": 20,
+       "M": 400,
+       "k": 0.5,
+       "h": 50,
+       "dG": 100,
+       "dM": 250
+      },
+      "expect": {
+       "Y1": 1700,
+       "r1": 4,
+       "dY": 500,
+       "crowd": 0
+      },
+      "tol": 1e-06
+     },
+     {
+      "params": {
+       "a": 100,
+       "b": 0.8,
+       "T": 100,
+       "G": 100,
+       "I0": 200,
+       "d": 20,
+       "M": 400,
+       "k": 0.5,
+       "h": 50,
+       "dG": 100,
+       "dM": -250
+      },
+      "expect": {
+       "Y1": 1200,
+       "r1": 9,
+       "dY": 0
+      },
+      "tol": 1e-06
+     },
+     {
+      "params": {
+       "a": 100,
+       "b": 0.8,
+       "T": 100,
+       "G": 100,
+       "I0": 200,
+       "d": 20,
+       "M": 400,
+       "k": 0.5,
+       "h": 50,
+       "dG": 100,
+       "dM": 200
+      },
+      "expect": {
+       "r1": 4.5,
+       "Y1": 1650
+      },
+      "tol": 1e-06
+     },
+     {
+      "params": {
+       "a": 100,
+       "b": 0.8,
+       "T": 100,
+       "G": 100,
+       "I0": 200,
+       "d": 20,
+       "M": 400,
+       "k": 0.5,
+       "h": 50,
+       "dG": 100,
+       "dM": 300
+      },
+      "expect": {
+       "r1": 3.5,
+       "Y1": 1750
+      },
+      "tol": 1e-06
+     },
+     {
+      "params": {
+       "a": 100,
+       "b": 0.8,
+       "T": 100,
+       "G": 100,
+       "I0": 200,
+       "d": 20,
+       "M": 1000,
+       "k": 0.5,
+       "h": 50,
+       "dG": 0,
+       "dM": 200
+      },
+      "at": {
+       "Y": 1600
+      },
+      "expect": {
+       "Y0": 1600,
+       "r0": 0,
+       "Y1": 1600,
+       "r1": 0,
+       "dY": 0,
+       "lm0": 0,
+       "lm1": 0,
+       "is0": 0
+      },
+      "tol": 1e-06
+     },
+     {
+      "params": {
+       "a": 100,
+       "b": 0.8,
+       "T": 100,
+       "G": 100,
+       "I0": 200,
+       "d": 20,
+       "M": 1000,
+       "k": 0.5,
+       "h": 50,
+       "dG": 100,
+       "dM": 0
+      },
+      "expect": {
+       "Y1": 2050,
+       "r1": 0.5,
+       "dY": 450,
+       "crowd": 50
+      },
+      "tol": 1e-06
+     }
+    ]
+   },
+   "illustrates": [
+    "is-lm-model",
+    "is-curve",
+    "lm-curve",
+    "zero-lower-bound",
+    "keynesian-multiplier"
+   ],
+   "notation": [
+    {
+     "tex": "$Y$, $Y^*$",
+     "meaning": "Output, equilibrium output",
+     "kind": "Endogenous",
+     "typical": "1,200 in the example",
+     "keys": [
+      "Y",
+      "Y*"
+     ],
+     "from": "is-lm-model"
+    },
+    {
+     "tex": "$r$, $r^*$",
+     "meaning": "Interest rate, equilibrium rate",
+     "kind": "Endogenous",
+     "typical": "4 in the example",
+     "keys": [
+      "r",
+      "r*"
+     ],
+     "from": "is-lm-model"
+    },
+    {
+     "tex": "$a$, $b$",
+     "meaning": "Autonomous consumption, marginal propensity to consume",
+     "kind": "Parameters",
+     "typical": "100, 0.8",
+     "keys": [
+      "a",
+      "b"
+     ],
+     "from": "is-lm-model"
+    },
+    {
+     "tex": "$T$, $G$",
+     "meaning": "Taxes, government spending",
+     "kind": "Policy",
+     "typical": "100, 100",
+     "keys": [
+      "T",
+      "G"
+     ],
+     "from": "is-lm-model"
+    },
+    {
+     "tex": "$I_0$, $d$",
+     "meaning": "Autonomous investment and its interest sensitivity",
+     "kind": "Parameters",
+     "typical": "200, 20",
+     "keys": [
+      "I",
+      "d"
+     ],
+     "from": "is-lm-model"
+    },
+    {
+     "tex": "$M^S/P$",
+     "meaning": "Real money supply",
+     "kind": "Policy",
+     "typical": "400",
+     "keys": [
+      "~M^S/P"
+     ],
+     "from": "is-lm-model"
+    },
+    {
+     "tex": "$k$, $h$",
+     "meaning": "Income and interest sensitivity of money demand",
+     "kind": "Parameters",
+     "typical": "0.5, 50",
+     "keys": [
+      "k",
+      "h"
+     ],
+     "from": "is-lm-model"
+    },
+    {
+     "tex": "$\\Delta G$, $\\Delta I^P$",
+     "meaning": "Changes in government spending and planned investment",
+     "kind": "—",
+     "typical": "100, −50",
+     "keys": [
+      "~\\DeltaG",
+      "~\\DeltaI^P"
+     ],
+     "from": "is-lm-model"
+    },
+    {
+     "tex": "$\\Delta M$",
+     "meaning": "Change in the real money supply",
+     "kind": "Policy",
+     "typical": "100",
+     "keys": [
+      "~\\DeltaM"
+     ],
+     "from": "is-lm-model"
+    },
+    {
+     "tex": "$\\Delta Y$",
+     "meaning": "Change in equilibrium output",
+     "kind": "Endogenous",
+     "typical": "500",
+     "keys": [
+      "~\\DeltaY"
+     ],
+     "from": "keynesian-multiplier"
     }
    ]
   },
@@ -35631,6 +39803,459 @@
       "Y"
      ],
      "from": "logarithms-and-growth-rates"
+    }
+   ]
+  },
+  "three-equation-macro-model": {
+   "slug": "three-equation-macro-model",
+   "name": "Three-Equation Macro Model",
+   "type": "panels",
+   "spec": {
+    "type": "panels",
+    "title": "IS-MP-PC model",
+    "notation": "IS-MP-PC Model",
+    "params": {
+     "pistar": {
+      "tex": "\\pi^*",
+      "label": "Inflation target (%)",
+      "min": 0,
+      "max": 5,
+      "step": 0.5,
+      "default": 2
+     },
+     "ystar": {
+      "tex": "y^*",
+      "label": "Potential output",
+      "min": 90,
+      "max": 110,
+      "step": 1,
+      "default": 100
+     },
+     "rstar": {
+      "tex": "r^*",
+      "label": "Neutral real interest rate (%)",
+      "min": 0,
+      "max": 5,
+      "step": 0.5,
+      "default": 2
+     },
+     "alpha": {
+      "tex": "\\alpha",
+      "label": "Sensitivity of output to the real rate",
+      "min": 0.25,
+      "max": 3,
+      "step": 0.25,
+      "default": 1
+     },
+     "gamma": {
+      "tex": "\\gamma",
+      "label": "Slope of the Phillips curve",
+      "min": 0.25,
+      "max": 3,
+      "step": 0.25,
+      "default": 1
+     },
+     "bpi": {
+      "tex": "\\beta_\\pi",
+      "label": "Policy response to inflation",
+      "min": 1.25,
+      "max": 5,
+      "step": 0.25,
+      "default": 1.5
+     },
+     "pe": {
+      "tex": "\\pi^e_t",
+      "label": "Expected inflation (%)",
+      "min": 0,
+      "max": 8,
+      "step": 0.5,
+      "default": 2
+     },
+     "epsp": {
+      "tex": "\\epsilon^\\pi_t",
+      "label": "Aggregate supply shock",
+      "min": -4,
+      "max": 6,
+      "step": 0.5,
+      "default": 0
+     },
+     "epsy": {
+      "tex": "\\epsilon^y_t",
+      "label": "Aggregate demand shock",
+      "min": -4,
+      "max": 4,
+      "step": 0.5,
+      "default": 0
+     }
+    },
+    "vars": {
+     "y": {
+      "tex": "y_t",
+      "label": "Output"
+     },
+     "pprev": {
+      "tex": "\\pi_{t-1}",
+      "label": "Last period's inflation"
+     }
+    },
+    "derived": {
+     "th": "1/(1 + alpha*gamma*(bpi - 1))",
+     "pist": "th*pe + (1 - th)*pistar + th*(gamma*epsy + epsp)",
+     "yst": "ystar - alpha*(bpi - 1)*(pist - pistar) + epsy",
+     "ist": "rstar + pistar + bpi*(pist - pistar)",
+     "rst": "ist - pist"
+    },
+    "equations": {
+     "pi_ad": "th*pprev + (1 - th)*pistar + th*(gamma*epsy + epsp)",
+     "y_ad": "ystar - alpha*(bpi - 1)*(pi_ad - pistar) + epsy",
+     "i_ad": "rstar + pistar + bpi*(pi_ad - pistar)",
+     "r_ad": "rstar + pistar + bpi*(pi_ad - pistar) - pi_ad"
+    },
+    "panels": [],
+    "readouts": [
+     {
+      "id": "th_out",
+      "tex": "\\theta",
+      "label": "Weight on expectations and shocks",
+      "expr": "th",
+      "format": ".3f"
+     },
+     {
+      "id": "pi_out",
+      "tex": "\\pi_t",
+      "label": "Inflation (%)",
+      "expr": "pist",
+      "format": ".2f"
+     },
+     {
+      "id": "y_out",
+      "tex": "y_t",
+      "label": "Output",
+      "expr": "yst",
+      "format": ".2f"
+     },
+     {
+      "id": "i_out",
+      "tex": "i_t",
+      "label": "Nominal policy rate (%)",
+      "expr": "ist",
+      "format": ".2f"
+     },
+     {
+      "id": "r_out",
+      "tex": "r_t",
+      "label": "Real interest rate (%)",
+      "expr": "rst",
+      "format": ".2f"
+     }
+    ],
+    "tests": [
+     {
+      "params": {
+       "pistar": 2,
+       "ystar": 100,
+       "rstar": 2,
+       "alpha": 1,
+       "gamma": 1,
+       "bpi": 1.5,
+       "pe": 2,
+       "epsp": 0,
+       "epsy": 0
+      },
+      "at": {
+       "y": 100,
+       "pprev": 2
+      },
+      "expect": {
+       "th": 0.666667,
+       "pist": 2,
+       "yst": 100,
+       "ist": 4,
+       "rst": 2,
+       "pi_ad": 2,
+       "y_ad": 100,
+       "i_ad": 4
+      },
+      "tol": 1e-05
+     },
+     {
+      "params": {
+       "pistar": 2,
+       "ystar": 100,
+       "rstar": 2,
+       "alpha": 1,
+       "gamma": 1,
+       "bpi": 1.5,
+       "pe": 2,
+       "epsp": 3,
+       "epsy": 0
+      },
+      "at": {
+       "y": 99,
+       "pprev": 2
+      },
+      "expect": {
+       "pist": 4,
+       "yst": 99,
+       "ist": 7,
+       "rst": 3,
+       "pi_ad": 4,
+       "y_ad": 99,
+       "i_ad": 7,
+       "r_ad": 3
+      },
+      "tol": 1e-05
+     },
+     {
+      "params": {
+       "pistar": 2,
+       "ystar": 100,
+       "rstar": 2,
+       "alpha": 1,
+       "gamma": 1,
+       "bpi": 1.5,
+       "pe": 4,
+       "epsp": 0,
+       "epsy": 0
+      },
+      "at": {
+       "y": 100,
+       "pprev": 4
+      },
+      "expect": {
+       "pist": 3.333333,
+       "yst": 99.333333,
+       "ist": 6,
+       "pi_ad": 3.333333,
+       "y_ad": 99.333333,
+       "i_ad": 6
+      },
+      "tol": 1e-05
+     },
+     {
+      "params": {
+       "pistar": 2,
+       "ystar": 100,
+       "rstar": 2,
+       "alpha": 1,
+       "gamma": 1,
+       "bpi": 3,
+       "pe": 2,
+       "epsp": 3,
+       "epsy": 0
+      },
+      "expect": {
+       "th": 0.333333,
+       "pist": 3,
+       "yst": 98,
+       "ist": 7,
+       "rst": 4
+      },
+      "tol": 1e-05
+     },
+     {
+      "params": {
+       "pistar": 2,
+       "ystar": 100,
+       "rstar": 2,
+       "alpha": 1,
+       "gamma": 1,
+       "bpi": 2.75,
+       "pe": 2,
+       "epsp": 3,
+       "epsy": 0
+      },
+      "expect": {
+       "pist": 3.090909
+      },
+      "tol": 1e-05
+     },
+     {
+      "params": {
+       "pistar": 2,
+       "ystar": 100,
+       "rstar": 2,
+       "alpha": 1,
+       "gamma": 1,
+       "bpi": 3.25,
+       "pe": 2,
+       "epsp": 3,
+       "epsy": 0
+      },
+      "expect": {
+       "pist": 2.923077
+      },
+      "tol": 1e-05
+     },
+     {
+      "params": {
+       "pistar": 2,
+       "ystar": 100,
+       "rstar": 2,
+       "alpha": 1,
+       "gamma": 1,
+       "bpi": 1.5,
+       "pe": 2,
+       "epsp": 0,
+       "epsy": 2
+      },
+      "expect": {
+       "pist": 3.333333,
+       "yst": 101.333333,
+       "ist": 6
+      },
+      "tol": 1e-05
+     }
+    ]
+   },
+   "illustrates": [
+    "is-mp-pc-model",
+    "phillips-curve",
+    "monetary-policy-rule",
+    "is-curve",
+    "real-and-nominal-interest-rates",
+    "adaptive-expectations"
+   ],
+   "notation": [
+    {
+     "tex": "$\\pi_t$",
+     "meaning": "Inflation",
+     "kind": "Endogenous",
+     "typical": "2 at target",
+     "keys": [
+      "pi"
+     ],
+     "from": "is-mp-pc-model"
+    },
+    {
+     "tex": "$\\pi^e_t$",
+     "meaning": "Expected inflation",
+     "kind": "State (given in the period)",
+     "typical": "2",
+     "keys": [
+      "~\\pi^e_t"
+     ],
+     "from": "is-mp-pc-model"
+    },
+    {
+     "tex": "$\\pi^*$",
+     "meaning": "Inflation target",
+     "kind": "Policy parameter",
+     "typical": "2",
+     "keys": [
+      "pi*"
+     ],
+     "from": "is-mp-pc-model"
+    },
+    {
+     "tex": "$y_t$",
+     "meaning": "Output",
+     "kind": "Endogenous",
+     "typical": "100",
+     "keys": [
+      "y"
+     ],
+     "from": "is-mp-pc-model"
+    },
+    {
+     "tex": "$y^*$",
+     "meaning": "Potential output",
+     "kind": "Parameter",
+     "typical": "100",
+     "keys": [
+      "y*"
+     ],
+     "from": "is-mp-pc-model"
+    },
+    {
+     "tex": "$i_t$",
+     "meaning": "Nominal policy rate",
+     "kind": "Endogenous",
+     "typical": "4 at target",
+     "keys": [
+      "i"
+     ],
+     "from": "is-mp-pc-model"
+    },
+    {
+     "tex": "$r^*$",
+     "meaning": "Neutral real rate",
+     "kind": "Parameter",
+     "typical": "2",
+     "keys": [
+      "r*"
+     ],
+     "from": "is-mp-pc-model"
+    },
+    {
+     "tex": "$\\alpha$",
+     "meaning": "Sensitivity of output to the real rate (IS slope)",
+     "kind": "Parameter",
+     "typical": "1",
+     "keys": [
+      "alpha"
+     ],
+     "from": "is-mp-pc-model"
+    },
+    {
+     "tex": "$\\gamma$",
+     "meaning": "Slope of the Phillips curve",
+     "kind": "Parameter",
+     "typical": "1",
+     "keys": [
+      "gamma"
+     ],
+     "from": "is-mp-pc-model"
+    },
+    {
+     "tex": "$\\beta_\\pi$",
+     "meaning": "Policy response to inflation",
+     "kind": "Parameter",
+     "typical": "1.5",
+     "keys": [
+      "beta"
+     ],
+     "from": "is-mp-pc-model"
+    },
+    {
+     "tex": "$\\theta$",
+     "meaning": "Weight on expectations and shocks, $1/(1 + \\alpha\\gamma(\\beta_\\pi - 1))$",
+     "kind": "Parameter combination",
+     "typical": "2/3",
+     "keys": [
+      "theta"
+     ],
+     "from": "is-mp-pc-model"
+    },
+    {
+     "tex": "$\\epsilon^\\pi_t$",
+     "meaning": "Aggregate supply shock",
+     "kind": "Exogenous",
+     "typical": "3 in the example",
+     "keys": [
+      "~\\epsilon^\\pi_t"
+     ],
+     "from": "is-mp-pc-model"
+    },
+    {
+     "tex": "$\\epsilon^y_t$",
+     "meaning": "Aggregate demand shock",
+     "kind": "Exogenous",
+     "typical": "0",
+     "keys": [
+      "~\\epsilon^y_t"
+     ],
+     "from": "is-mp-pc-model"
+    },
+    {
+     "tex": "$r$",
+     "meaning": "Real interest rate (cost of borrowing)",
+     "kind": "Endogenous",
+     "typical": "—",
+     "keys": [
+      "r"
+     ],
+     "from": "is-curve"
     }
    ]
   },

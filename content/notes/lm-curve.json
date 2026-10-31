@@ -1,0 +1,283 @@
+{
+ "slug": "lm-curve",
+ "notation": [
+  {
+   "tex": "$Y$",
+   "meaning": "Output",
+   "kind": "Endogenous",
+   "typical": "1,200 in the example",
+   "keys": [
+    "Y"
+   ]
+  },
+  {
+   "tex": "$r$",
+   "meaning": "Interest rate",
+   "kind": "Endogenous",
+   "typical": "4 in the example",
+   "keys": [
+    "r"
+   ]
+  },
+  {
+   "tex": "$M^S/P$",
+   "meaning": "Real money supply",
+   "kind": "Policy",
+   "typical": "400 in the example",
+   "keys": [
+    "~M^S/P"
+   ]
+  },
+  {
+   "tex": "$L(r, Y)$",
+   "meaning": "Real money demand",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "L"
+   ]
+  },
+  {
+   "tex": "$k$, $h$",
+   "meaning": "Income and interest sensitivity of money demand (linear example)",
+   "kind": "Parameters",
+   "typical": "0.5, 50",
+   "keys": [
+    "k",
+    "h"
+   ]
+  },
+  {
+   "tex": "$M^S$",
+   "meaning": "Money supply, set by the central bank",
+   "kind": "Policy",
+   "typical": "400 (real) in the example",
+   "keys": [
+    "~M^S"
+   ],
+   "from": "liquidity-preference"
+  },
+  {
+   "tex": "$M^d$",
+   "meaning": "Money demanded",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "~M^d"
+   ],
+   "from": "liquidity-preference"
+  },
+  {
+   "tex": "$P$",
+   "meaning": "Price level",
+   "kind": "Exogenous (short run)",
+   "typical": "—",
+   "keys": [
+    "P"
+   ],
+   "from": "liquidity-preference"
+  },
+  {
+   "tex": "$I_0$, $d$",
+   "meaning": "Autonomous investment and its interest sensitivity",
+   "kind": "Parameters",
+   "typical": "200, 20",
+   "keys": [
+    "I",
+    "d"
+   ],
+   "from": "is-lm-model"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The money market clears where the money people want to hold equals the money the central bank supplies. When the economy produces and earns more, people want more money for their purchases. With the money supply fixed, they try to get it by selling bonds, which pushes interest rates up until they are content with the money there is. So higher output goes with a higher interest rate. Plotting each level of output against the interest rate that clears the money market gives an upward-sloping line. If the central bank prints more money, the same output is consistent with a lower rate, and the line shifts right."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is how monetary policy enters the IS-LM model, and how higher output feeds back into higher interest rates that crowd out investment.",
+       "folded": false
+      }
+     ],
+     "words": 133,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The LM curve is the set of $(Y, r)$ pairs satisfying money-market equilibrium:"
+      },
+      {
+       "t": "math",
+       "tex": "\\frac{M^S}{P} = L(r, Y)"
+      },
+      {
+       "t": "prose",
+       "md": "Because $L$ rises with $Y$ and falls with $r$, holding $M^S/P$ fixed requires $r$ to rise with $Y$."
+      }
+     ],
+     "words": 23,
+     "symbols": [
+      "$Y$",
+      "$r$",
+      "$M^S/P$",
+      "$L(r, Y)$",
+      "$M^S$",
+      "$P$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "derivation",
+   "heading": "Derivation",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "derivation-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Deriving the LM curve from money demand.png",
+       "alt": "Deriving the LM curve from money demand"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    },
+    {
+     "id": "derivation-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Start at $Y_1$: money demand $L(r, Y_1)$ meets the fixed supply at $r_1$.\n2. At $Y_2 > Y_1$, money demand shifts right; with supply fixed, the rate rises to $r_2$.\n3. Plotting $(Y_1, r_1)$, $(Y_2, r_2)$ and every other pair gives an upward-sloping curve."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/LM curve (handwritten).png",
+       "alt": "LM curve (handwritten)"
+      },
+      {
+       "t": "callout",
+       "kind": "note",
+       "title": "Beyond the lecture",
+       "md": "With $L = kY - hr$, the LM curve is $r = (kY - M^S/P)/h$, a line with slope $k/h$. With $k = 0.5$, $h = 50$ and $M^S/P = 400$: $r = 0.01Y - 8$.",
+       "folded": false
+      }
+     ],
+     "words": 47,
+     "symbols": [
+      "$Y$",
+      "$r$",
+      "$M^S/P$",
+      "$L(r, Y)$",
+      "$k$, $h$",
+      "$M^S$",
+      "$P$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "shifts",
+   "heading": "Shifts",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "shifts-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Change | Money market | LM curve |\n| --- | --- | --- |\n| Money supply rises | $M^S$ shifts right, $r$ falls at every $Y$ | Shifts right (down) |\n| Money more attractive to hold (e.g. a recession raises uncertainty) | $M^d$ shifts right, $r$ rises at every $Y$ | Shifts left (up) |\n| Output rises | Movement along the curve | — |"
+      }
+     ],
+     "words": 44,
+     "symbols": [
+      "$Y$",
+      "$r$",
+      "$M^S$",
+      "$M^d$",
+      "$I_0$, $d$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Treating a rise in $Y$ as a shift of LM: income moves you *along* the LM curve; it shifts the money-demand curve.\n- Forgetting the floor: when the interest rate hits zero, the LM curve becomes flat at $r = 0$ ([Zero Lower Bound](note:zero-lower-bound))."
+      }
+     ],
+     "words": 41,
+     "symbols": [
+      "$Y$",
+      "$r$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Macro: the money-market block of the [IS-LM Model](note:is-lm-model). Modern models replace it with an interest-rate rule ([Monetary Policy Rule](note:monetary-policy-rule)), since central banks set rates rather than the money supply."
+      }
+     ],
+     "words": 30,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Liquidity Preference](note:liquidity-preference) · [IS-LM Model](note:is-lm-model) · [IS Curve](note:is-curve) · [Zero Lower Bound](note:zero-lower-bound) · [Monetary Policy Rule](note:monetary-policy-rule)"
+      }
+     ],
+     "words": 13,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

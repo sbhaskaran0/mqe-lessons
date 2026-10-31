@@ -1,0 +1,277 @@
+{
+ "slug": "three-equation-macro-model",
+ "notation": [
+  {
+   "tex": "$\\pi_t$",
+   "meaning": "Inflation",
+   "kind": "Endogenous",
+   "typical": "2 at target",
+   "keys": [
+    "pi"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$\\pi^e_t$",
+   "meaning": "Expected inflation",
+   "kind": "State (given in the period)",
+   "typical": "2",
+   "keys": [
+    "~\\pi^e_t"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$\\pi^*$",
+   "meaning": "Inflation target",
+   "kind": "Policy parameter",
+   "typical": "2",
+   "keys": [
+    "pi*"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$y_t$",
+   "meaning": "Output",
+   "kind": "Endogenous",
+   "typical": "100",
+   "keys": [
+    "y"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$y^*$",
+   "meaning": "Potential output",
+   "kind": "Parameter",
+   "typical": "100",
+   "keys": [
+    "y*"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$i_t$",
+   "meaning": "Nominal policy rate",
+   "kind": "Endogenous",
+   "typical": "4 at target",
+   "keys": [
+    "i"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$r^*$",
+   "meaning": "Neutral real rate",
+   "kind": "Parameter",
+   "typical": "2",
+   "keys": [
+    "r*"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "Sensitivity of output to the real rate (IS slope)",
+   "kind": "Parameter",
+   "typical": "1",
+   "keys": [
+    "alpha"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$\\gamma$",
+   "meaning": "Slope of the Phillips curve",
+   "kind": "Parameter",
+   "typical": "1",
+   "keys": [
+    "gamma"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$\\beta_\\pi$",
+   "meaning": "Policy response to inflation",
+   "kind": "Parameter",
+   "typical": "1.5",
+   "keys": [
+    "beta"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$\\theta$",
+   "meaning": "Weight on expectations and shocks, $1/(1 + \\alpha\\gamma(\\beta_\\pi - 1))$",
+   "kind": "Parameter combination",
+   "typical": "2/3",
+   "keys": [
+    "theta"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$\\epsilon^\\pi_t$",
+   "meaning": "Aggregate supply shock",
+   "kind": "Exogenous",
+   "typical": "3 in the example",
+   "keys": [
+    "~\\epsilon^\\pi_t"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$\\epsilon^y_t$",
+   "meaning": "Aggregate demand shock",
+   "kind": "Exogenous",
+   "typical": "0",
+   "keys": [
+    "~\\epsilon^y_t"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$t$",
+   "meaning": "Period",
+   "kind": "Index",
+   "typical": "1, 2, 3, …",
+   "keys": [
+    "t"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$y_t - y^*$",
+   "meaning": "Output gap",
+   "kind": "Endogenous",
+   "typical": "0",
+   "keys": [
+    "~y_t-y^*"
+   ],
+   "from": "phillips-curve"
+  },
+  {
+   "tex": "$r$",
+   "meaning": "Real interest rate (cost of borrowing)",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "r"
+   ],
+   "from": "is-curve"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "is-mp-and-phillips-curve-diagram"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$\\pi_t$",
+      "$\\pi^e_t$",
+      "$\\pi^*$",
+      "$y_t$",
+      "$y^*$",
+      "$i_t$",
+      "$\\alpha$",
+      "$\\gamma$",
+      "$\\beta_\\pi$",
+      "$\\theta$",
+      "$\\epsilon^\\pi_t$",
+      "$\\epsilon^y_t$",
+      "$y_t - y^*$",
+      "$r$"
+     ]
+    },
+    {
+     "id": "widget-2",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "inflation-shock-paths"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$\\pi_t$",
+      "$\\pi^*$",
+      "$y_t$",
+      "$y^*$",
+      "$i_t$",
+      "$\\alpha$",
+      "$\\gamma$",
+      "$\\beta_\\pi$",
+      "$\\theta$",
+      "$\\epsilon^\\pi_t$",
+      "$t$",
+      "$r$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The model behind [IS-MP and Phillips Curve Diagram](note:is-mp-and-phillips-curve-diagram) and [Inflation Shock Paths](note:inflation-shock-paths). Place those views, not this note."
+      },
+      {
+       "t": "prose",
+       "md": "- **Model.** [IS-MP-PC Model](note:is-mp-pc-model): Phillips curve $\\pi_t = \\pi^e_t + \\gamma(y_t - y^*) + \\epsilon^\\pi_t$ ([Phillips Curve](note:phillips-curve)), IS curve $y_t = y^* - \\alpha(i_t - \\pi_t - r^*) + \\epsilon^y_t$ ([IS Curve](note:is-curve)), rule $i_t = r^* + \\pi^* + \\beta_\\pi(\\pi_t - \\pi^*)$ ([Monetary Policy Rule](note:monetary-policy-rule)). The derived values are the closed-form solution with $\\theta = 1/(1 + \\alpha\\gamma(\\beta_\\pi - 1))$.\n- **Two variables.** `y` is output on a diagram's horizontal axis; [IS-MP and Phillips Curve Diagram](note:is-mp-and-phillips-curve-diagram) draws the curves as inflation at each output. `pprev` is last period's inflation: with [Adaptive Expectations](note:adaptive-expectations) it is this period's expected inflation, so `pi_ad`, `y_ad`, `i_ad`, `r_ad` solve a period from the one before, which is what [Inflation Shock Paths](note:inflation-shock-paths) iterates.\n- **Range of $\\beta_\\pi$.** From 1.25, so the IS-MP curve slopes down and its slope $-1/(\\alpha(\\beta_\\pi - 1))$ is finite; the case $\\beta_\\pi < 1$ is discussed in the concept note."
+      }
+     ],
+     "words": 128,
+     "symbols": [
+      "$\\pi_t$",
+      "$\\pi^e_t$",
+      "$\\pi^*$",
+      "$y_t$",
+      "$y^*$",
+      "$i_t$",
+      "$r^*$",
+      "$\\alpha$",
+      "$\\gamma$",
+      "$\\beta_\\pi$",
+      "$\\theta$",
+      "$\\epsilon^\\pi_t$",
+      "$\\epsilon^y_t$",
+      "$y_t - y^*$"
+     ]
+    },
+    {
+     "id": "notes-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Tests.** The notes' worked example ($\\theta = 2/3$; $\\pi_2 = 4$, $i_2 = 7$, $y_2 = 99$) and computed cases, each checked in Python against the three original equations."
+      }
+     ],
+     "words": 18,
+     "symbols": [
+      "$\\pi_t$",
+      "$y_t$",
+      "$i_t$",
+      "$\\theta$"
+     ]
+    }
+   ]
+  }
+ ]
+}

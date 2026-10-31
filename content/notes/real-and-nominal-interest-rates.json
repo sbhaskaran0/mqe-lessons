@@ -1,0 +1,161 @@
+{
+ "slug": "real-and-nominal-interest-rates",
+ "notation": [
+  {
+   "tex": "$r_t$",
+   "meaning": "Real interest rate",
+   "kind": "Endogenous",
+   "typical": "3 in the example",
+   "keys": [
+    "r"
+   ]
+  },
+  {
+   "tex": "$i_t$",
+   "meaning": "Nominal interest rate",
+   "kind": "Policy / endogenous",
+   "typical": "7 in the example",
+   "keys": [
+    "i"
+   ]
+  },
+  {
+   "tex": "$\\pi_t$",
+   "meaning": "Inflation rate",
+   "kind": "Endogenous",
+   "typical": "4 in the example",
+   "keys": [
+    "pi"
+   ]
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A loan at 7 percent sounds expensive, but if prices are rising 4 percent a year, the money you repay buys less than the money you borrowed, so in goods the loan costs only about 3 percent. The nominal rate is the rate written on the contract; the real rate is what it costs in goods once inflation is taken out. Firms deciding whether to build a factory, and households deciding whether to save, care about the real rate. Central banks, though, can only set the nominal rate directly, so what they do to real rates depends on inflation too."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "Every monetary policy model has to translate the rate the central bank sets into the real rate that drives spending.",
+       "folded": false
+      }
+     ],
+     "words": 123,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "r_t = i_t - \\pi_t"
+      },
+      {
+       "t": "prose",
+       "md": "This is the approximate Fisher equation. (Beyond the lecture: the exact form is $1 + r = (1 + i)/(1 + \\pi)$, and strictly the rate that matters uses *expected* inflation.)"
+      }
+     ],
+     "words": 22,
+     "symbols": [
+      "$r_t$",
+      "$i_t$",
+      "$\\pi_t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With $i_t = 7$ and $\\pi_t = 4$: $r_t = 3$. If inflation were 2 at the same nominal rate, the real rate would be 5."
+      }
+     ],
+     "words": 17,
+     "symbols": [
+      "$r_t$",
+      "$i_t$",
+      "$\\pi_t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Treating a high nominal rate as tight policy: with high inflation the real rate can be low or negative.\n- Forgetting that a nominal rate stuck at zero still lets the real rate move with inflation."
+      }
+     ],
+     "words": 37,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Macro: the IS curve in the [IS-MP-PC Model](note:is-mp-pc-model), [policy rules](note:monetary-policy-rule), the [Zero Lower Bound](note:zero-lower-bound)."
+      }
+     ],
+     "words": 15,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [IS Curve](note:is-curve) · [Monetary Policy Rule](note:monetary-policy-rule) · [IS-MP-PC Model](note:is-mp-pc-model)\n- Paper: [Fisher 1930 - The Theory of Interest](note:fisher-1930-the-theory-of-interest)"
+      }
+     ],
+     "words": 17,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,191 @@
+{
+ "slug": "is-lm-explorer",
+ "notation": [
+  {
+   "tex": "$Y$, $Y^*$",
+   "meaning": "Output, equilibrium output",
+   "kind": "Endogenous",
+   "typical": "1,200 in the example",
+   "keys": [
+    "Y",
+    "Y*"
+   ],
+   "from": "is-lm-model"
+  },
+  {
+   "tex": "$r$, $r^*$",
+   "meaning": "Interest rate, equilibrium rate",
+   "kind": "Endogenous",
+   "typical": "4 in the example",
+   "keys": [
+    "r",
+    "r*"
+   ],
+   "from": "is-lm-model"
+  },
+  {
+   "tex": "$a$, $b$",
+   "meaning": "Autonomous consumption, marginal propensity to consume",
+   "kind": "Parameters",
+   "typical": "100, 0.8",
+   "keys": [
+    "a",
+    "b"
+   ],
+   "from": "is-lm-model"
+  },
+  {
+   "tex": "$T$, $G$",
+   "meaning": "Taxes, government spending",
+   "kind": "Policy",
+   "typical": "100, 100",
+   "keys": [
+    "T",
+    "G"
+   ],
+   "from": "is-lm-model"
+  },
+  {
+   "tex": "$I_0$, $d$",
+   "meaning": "Autonomous investment and its interest sensitivity",
+   "kind": "Parameters",
+   "typical": "200, 20",
+   "keys": [
+    "I",
+    "d"
+   ],
+   "from": "is-lm-model"
+  },
+  {
+   "tex": "$M^S/P$",
+   "meaning": "Real money supply",
+   "kind": "Policy",
+   "typical": "400",
+   "keys": [
+    "~M^S/P"
+   ],
+   "from": "is-lm-model"
+  },
+  {
+   "tex": "$L(r, Y)$",
+   "meaning": "Real money demand, $kY - hr$ in the example",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "L"
+   ],
+   "from": "is-lm-model"
+  },
+  {
+   "tex": "$k$, $h$",
+   "meaning": "Income and interest sensitivity of money demand",
+   "kind": "Parameters",
+   "typical": "0.5, 50",
+   "keys": [
+    "k",
+    "h"
+   ],
+   "from": "is-lm-model"
+  },
+  {
+   "tex": "$\\Delta G$, $\\Delta I^P$",
+   "meaning": "Changes in government spending and planned investment",
+   "kind": "—",
+   "typical": "100, −50",
+   "keys": [
+    "~\\DeltaG",
+    "~\\DeltaI^P"
+   ],
+   "from": "is-lm-model"
+  },
+  {
+   "tex": "$\\Delta M$",
+   "meaning": "Change in the real money supply",
+   "kind": "Policy",
+   "typical": "100",
+   "keys": [
+    "~\\DeltaM"
+   ],
+   "from": "is-lm-model"
+  },
+  {
+   "tex": "$\\Delta Y$",
+   "meaning": "Change in equilibrium output",
+   "kind": "Endogenous",
+   "typical": "500",
+   "keys": [
+    "~\\DeltaY"
+   ],
+   "from": "keynesian-multiplier"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "is-lm-explorer"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$Y$, $Y^*$",
+      "$r$, $r^*$",
+      "$a$, $b$",
+      "$T$, $G$",
+      "$I_0$, $d$",
+      "$M^S/P$",
+      "$L(r, Y)$",
+      "$k$, $h$",
+      "$\\Delta G$, $\\Delta I^P$",
+      "$\\Delta M$",
+      "$\\Delta Y$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Purpose.** Compare the Keynesian-cross shift of IS ($\\Delta G/(1 - b)$ at an unchanged rate) with the IS-LM outcome, where higher output raises money demand and the rate, crowding out investment. Then use the money supply: shift LM, hold the rate fixed against a fiscal expansion (interest-rate targeting) or offset it, and see that at the zero lower bound extra money changes nothing while fiscal policy is barely crowded out.\n- **Model.** A view of [Linear IS-LM Model](note:linear-is-lm-model); dashed curves are before the change, solid after.\n- **Elements.** Panel `islm`: curves `is0`, `lm0`, `is1`, `lm1`; points `eq0`, `eq1`, `kc`; line `kcshift`. Readouts `Y1_out`, `r1_out`, `dY_out`, `crowd_out`, `Ip_out`."
+      }
+     ],
+     "words": 109,
+     "symbols": [
+      "$a$, $b$",
+      "$T$, $G$",
+      "$\\Delta G$, $\\Delta I^P$"
+     ]
+    },
+    {
+     "id": "notes-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Goal it supports.** `abs(r1 - r0) < 0.01` with $\\Delta G = 100$: met only at $\\Delta M = 250$ on the step-50 grid.\n- **Tests.** Python, closed form and root-finder."
+      }
+     ],
+     "words": 25,
+     "symbols": [
+      "$T$, $G$",
+      "$\\Delta G$, $\\Delta I^P$",
+      "$\\Delta M$"
+     ]
+    }
+   ]
+  }
+ ]
+}

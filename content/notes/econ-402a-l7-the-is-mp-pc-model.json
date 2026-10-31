@@ -1,0 +1,1217 @@
+{
+ "slug": "econ-402a-l7-the-is-mp-pc-model",
+ "notation": [
+  {
+   "tex": "$\\pi_t$",
+   "meaning": "Inflation",
+   "kind": "Endogenous",
+   "typical": "2 at target",
+   "keys": [
+    "pi"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$\\pi^e_t$",
+   "meaning": "Expected inflation",
+   "kind": "State (given in the period)",
+   "typical": "2",
+   "keys": [
+    "~\\pi^e_t"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$\\pi^*$",
+   "meaning": "Inflation target",
+   "kind": "Policy parameter",
+   "typical": "2",
+   "keys": [
+    "pi*"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$y_t$",
+   "meaning": "Output",
+   "kind": "Endogenous",
+   "typical": "100",
+   "keys": [
+    "y"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$y^*$",
+   "meaning": "Potential output",
+   "kind": "Parameter",
+   "typical": "100",
+   "keys": [
+    "y*"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$i_t$",
+   "meaning": "Nominal policy rate",
+   "kind": "Endogenous",
+   "typical": "4 at target",
+   "keys": [
+    "i"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$r^*$",
+   "meaning": "Neutral real rate",
+   "kind": "Parameter",
+   "typical": "2",
+   "keys": [
+    "r*"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "Sensitivity of output to the real rate (IS slope)",
+   "kind": "Parameter",
+   "typical": "1",
+   "keys": [
+    "alpha"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$\\gamma$",
+   "meaning": "Slope of the Phillips curve",
+   "kind": "Parameter",
+   "typical": "1",
+   "keys": [
+    "gamma"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$\\beta_\\pi$",
+   "meaning": "Policy response to inflation",
+   "kind": "Parameter",
+   "typical": "1.5",
+   "keys": [
+    "beta"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$\\theta$",
+   "meaning": "Weight on expectations and shocks, $1/(1 + \\alpha\\gamma(\\beta_\\pi - 1))$",
+   "kind": "Parameter combination",
+   "typical": "2/3",
+   "keys": [
+    "theta"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$\\epsilon^\\pi_t$",
+   "meaning": "Aggregate supply shock",
+   "kind": "Exogenous",
+   "typical": "3 in the example",
+   "keys": [
+    "~\\epsilon^\\pi_t"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$\\epsilon^y_t$",
+   "meaning": "Aggregate demand shock",
+   "kind": "Exogenous",
+   "typical": "0",
+   "keys": [
+    "~\\epsilon^y_t"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$t$",
+   "meaning": "Period",
+   "kind": "Index",
+   "typical": "1, 2, 3, …",
+   "keys": [
+    "t"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$u_t$",
+   "meaning": "Unemployment rate",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "u"
+   ],
+   "from": "phillips-curve"
+  },
+  {
+   "tex": "$u^*$",
+   "meaning": "Natural rate of unemployment: the rate the economy returns to in the long run",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "u*"
+   ],
+   "from": "phillips-curve"
+  },
+  {
+   "tex": "$y_t - y^*$",
+   "meaning": "Output gap",
+   "kind": "Endogenous",
+   "typical": "0",
+   "keys": [
+    "~y_t-y^*"
+   ],
+   "from": "phillips-curve"
+  },
+  {
+   "tex": "$r$",
+   "meaning": "Real interest rate (cost of borrowing)",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "r"
+   ],
+   "from": "is-curve"
+  },
+  {
+   "tex": "$Y$, $Y^*$",
+   "meaning": "Output, equilibrium output",
+   "kind": "Endogenous",
+   "typical": "1,200 in the example",
+   "keys": [
+    "Y",
+    "Y*"
+   ],
+   "from": "is-lm-model"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**IS-LM assumed the central bank picks a money supply; modern central banks set an interest rate instead, and IS-LM said nothing about inflation. This lecture builds a three-equation model, a simplified New Keynesian model, that fixes both. The Phillips curve links inflation to expected inflation, the output gap and supply shocks; the IS curve links the output gap to the real interest rate's distance from its neutral level; and a monetary policy rule raises the nominal rate when inflation is above target. Folding the rule into the IS curve gives the IS-MP curve, which slopes down when the bank raises rates more than one-for-one with inflation ($\\beta_\\pi > 1$). Solving, inflation is a weighted average of expected inflation and the target plus shocks, with weight $\\theta = 1/(1 + \\alpha\\gamma(\\beta_\\pi - 1))$ on expectations and shocks. In the notes' example a supply shock of 3 lifts inflation from 2 to 4; the bank raises its rate from 4 to 7, and output falls from 100 to 99. A tougher bank keeps inflation closer to target but at a larger cost in output, and with adaptive expectations the shock fades only gradually.**"
+      }
+     ],
+     "words": 181,
+     "symbols": [
+      "$\\alpha$",
+      "$\\gamma$",
+      "$\\beta_\\pi$",
+      "$\\theta$"
+     ]
+    },
+    {
+     "id": "intro-2",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "info",
+       "title": "Sources and notation",
+       "md": "This summary follows the **typed notes** only; the professor's **handwritten notes for this lecture are to come**. When they arrive, the summary will be re-ordered to follow them and their diagrams added. The typed notes have no figures: the IS-MP and Phillips-curve diagram and the time paths below are widgets built from the notes' equations and worked example. The typed notes say they are \"heavily inspired\" by Karl Whelan's lecture notes.\n**Notation:** lower-case $y_t$ is output and $y^*$ **potential** output (in [L6](note:econ-402a-l6-keynesian-economics), $Y^*$ was equilibrium output). $r^*$ is the **neutral** real rate (in L6, $r^*$ was the equilibrium rate), $\\pi^*$ the inflation target, $i_t$ the nominal policy rate. $\\alpha$ is the sensitivity of output to the real rate, $\\gamma$ the slope of the Phillips curve. The notes write potential output both as $y^*$ and $y^*_t$; it is constant here.",
+       "folded": false
+      }
+     ],
+     "words": 131,
+     "symbols": [
+      "$\\pi^*$",
+      "$y_t$",
+      "$y^*$",
+      "$i_t$",
+      "$r^*$",
+      "$\\alpha$",
+      "$\\gamma$",
+      "$Y$, $Y^*$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1-where-this-fits",
+   "heading": "1. Where this fits",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-where-this-fits-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The IS-LM model of L6 has two problems for describing policy today. Central banks do not choose a money supply; they set a target interest rate and steer markets to it. And IS-LM has no inflation. The IS-MP-PC model keeps the IS curve, replaces LM with a **monetary policy rule** (MP), and adds a **Phillips curve** (PC) for inflation ([IS-MP-PC Model](note:is-mp-pc-model)). It is not derived from microfoundations as a full New Keynesian model would be, but it captures much of the intuition."
+      }
+     ],
+     "words": 82,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "2-the-phillips-curve",
+   "heading": "2. The Phillips curve",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-the-phillips-curve-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A. W. Phillips found in 1958 that UK wage growth was strongly negatively related to unemployment, and Samuelson and Solow found the same for US price inflation in the 1960s. A linear version is"
+      },
+      {
+       "t": "math",
+       "tex": "\\pi_t = \\alpha - \\gamma u_t"
+      },
+      {
+       "t": "prose",
+       "md": "(here $\\alpha$ is just an intercept). In the 1970s and 1980s the relationship broke down: inflation and unemployment rose together. Friedman and Phelps argued that what moves with unemployment is not inflation but inflation relative to what people expected. The **expectations-augmented Phillips curve** is"
+      },
+      {
+       "t": "math",
+       "tex": "\\pi_t = \\pi^e_t - \\gamma(u_t - u^*)"
+      },
+      {
+       "t": "prose",
+       "md": "where $u^*$ is the natural rate of unemployment, the rate the economy returns to in the long run. Replacing unemployment with output, and the natural rate with **potential output** $y^*$, and adding an **aggregate supply shock** $\\epsilon^\\pi_t$, gives the curve the model uses ([Phillips Curve](note:phillips-curve)):"
+      },
+      {
+       "t": "math",
+       "tex": "\\pi_t = \\pi^e_t + \\gamma(y_t - y^*) + \\epsilon^\\pi_t"
+      }
+     ],
+     "words": 119,
+     "symbols": [
+      "$\\pi_t$",
+      "$\\pi^e_t$",
+      "$y_t$",
+      "$y^*$",
+      "$\\alpha$",
+      "$\\gamma$",
+      "$\\epsilon^\\pi_t$",
+      "$u_t$",
+      "$u^*$",
+      "$y_t - y^*$"
+     ]
+    },
+    {
+     "id": "2-the-phillips-curve-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$y_t - y^*$ is the **output gap**."
+      }
+     ],
+     "words": 4,
+     "symbols": [
+      "$y_t$",
+      "$y^*$",
+      "$y_t - y^*$"
+     ]
+    },
+    {
+     "id": "2-the-phillips-curve-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "With $\\gamma = 1$, $y^* = 100$ and no supply shock, people expect 5% inflation and output is at potential, $y_t = 100$. What does the expectations-augmented Phillips curve give for inflation?",
+       "options": [
+        {
+         "md": "5%",
+         "correct": true
+        },
+        {
+         "md": "0%: output is at potential, so there is no pressure on prices",
+         "correct": false,
+         "feedback": "With no output gap inflation equals *expected* inflation, not zero. Only the gap and shocks push it away from expectations."
+        },
+        {
+         "md": "2%, the central bank's target",
+         "correct": false,
+         "feedback": "The Phillips curve does not contain the target; the target enters only through the policy rule."
+        },
+        {
+         "md": "It cannot be pinned down without the unemployment rate",
+         "correct": false,
+         "feedback": "The output version replaces unemployment with output: $y_t = y^*$ is the same as unemployment at its natural rate."
+        }
+       ],
+       "why": "$\\pi_t = 5 + 1 \\times (100 - 100) + 0 = 5$. Inflation above target does not by itself require output above potential: once it is expected, it can persist with no gap. That is why the original curve's \"menu\" broke down.",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 50,
+     "symbols": [
+      "$\\pi_t$",
+      "$y_t$",
+      "$y^*$",
+      "$\\gamma$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "3-the-is-curve",
+   "heading": "3. The IS curve",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "3-the-is-curve-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The IS curve keeps L6's logic — higher interest rates mean less investment and so less output — with three changes ([IS Curve](note:is-curve))."
+      },
+      {
+       "t": "prose",
+       "md": "- It relates the **output gap** to the gap between the real interest rate and the **neutral rate** $r^*$ (also called the natural or Wicksellian rate): the real rate at which output equals potential. So $y_t - y^* = -\\alpha(r_t - r^*)$.\n- It distinguishes **real** and **nominal** rates ([Real and Nominal Interest Rates](note:real-and-nominal-interest-rates)): roughly $r_t = i_t - \\pi_t$. Borrowing and saving respond to the real rate, but the central bank sets the nominal one.\n- It adds an **aggregate demand shock** $\\epsilon^y_t$: anything other than the interest rate that moves spending, such as consumption, government spending or investment shocks."
+      },
+      {
+       "t": "math",
+       "tex": "y_t = y^* - \\alpha(i_t - \\pi_t - r^*) + \\epsilon^y_t"
+      }
+     ],
+     "words": 108,
+     "symbols": [
+      "$\\pi_t$",
+      "$y_t$",
+      "$y^*$",
+      "$i_t$",
+      "$r^*$",
+      "$\\alpha$",
+      "$\\epsilon^y_t$",
+      "$y_t - y^*$",
+      "$r$"
+     ]
+    },
+    {
+     "id": "3-the-is-curve-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "The neutral real rate is 2%, inflation is 3% and the central bank's nominal rate is 4%. With no demand shock, where is output?",
+       "options": [
+        {
+         "md": "Above potential: the real rate is 1%, below neutral",
+         "correct": true
+        },
+        {
+         "md": "Below potential: the nominal rate of 4% is above the neutral rate of 2%",
+         "correct": false,
+         "feedback": "Spending responds to the *real* rate, $4 - 3 = 1\\%$, and that is below neutral."
+        },
+        {
+         "md": "At potential: $4 - 2 = 2$, the neutral rate",
+         "correct": false,
+         "feedback": "That subtracts the neutral rate from the nominal rate; the real rate subtracts inflation, $4 - 3$."
+        },
+        {
+         "md": "It cannot be told without knowing $\\alpha$",
+         "correct": false,
+         "feedback": "$\\alpha$ sets *how far* output is from potential, $\\alpha \\times 1$, not which side."
+        }
+       ],
+       "why": "$r_t = i_t - \\pi_t = 1$, one point below $r^* = 2$, so $y_t - y^* = -\\alpha(1 - 2) = +\\alpha$: policy is loose and output is above potential.",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 58,
+     "symbols": [
+      "$\\pi_t$",
+      "$y_t$",
+      "$y^*$",
+      "$i_t$",
+      "$r^*$",
+      "$\\alpha$",
+      "$y_t - y^*$",
+      "$r$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "4-a-monetary-policy-rule",
+   "heading": "4. A monetary policy rule",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "4-a-monetary-policy-rule-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "An inflation-targeting central bank sets its rate by a rule ([Monetary Policy Rule](note:monetary-policy-rule)):"
+      },
+      {
+       "t": "math",
+       "tex": "i_t = r^* + \\pi^* + \\beta_\\pi(\\pi_t - \\pi^*)"
+      },
+      {
+       "t": "prose",
+       "md": "At target, $\\pi_t = \\pi^*$, the bank sets $i_t = r^* + \\pi^*$, so the real rate is the neutral rate: policy neither stimulates nor slows the economy. When inflation is above target, it raises the nominal rate, which raises the real rate, cuts spending and output, and pushes inflation down; below target it cuts. $\\beta_\\pi$ is how hard it responds."
+      }
+     ],
+     "words": 65,
+     "symbols": [
+      "$\\pi_t$",
+      "$\\pi^*$",
+      "$i_t$",
+      "$r^*$",
+      "$\\beta_\\pi$"
+     ]
+    },
+    {
+     "id": "4-a-monetary-policy-rule-2",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "warning",
+       "title": "Slips in the typed notes",
+       "md": "- They call $\\pi^*$ \"the target interest rate set by the central bank\". It is the **inflation** target.\n- Their numerical illustration has a neutral rate of 3%, a 2% target, and a nominal rate of 3% \"so that $r_t = i_t - \\pi_t = 2\\% = r^*$\". Those numbers do not fit together ($3 - 2 = 1$). A consistent version, the one their own worked example uses: neutral rate 2%, target 2%, so at target the bank sets $i = 4\\%$ and $r = 4 - 2 = 2\\% = r^*$.",
+       "folded": false
+      },
+      {
+       "t": "prose",
+       "md": "The Federal Reserve has a **dual mandate**, stable prices and maximum employment, which a **Taylor rule** captures by also responding to the output gap:"
+      },
+      {
+       "t": "math",
+       "tex": "i_t = r^* + \\pi^* + \\beta_\\pi(\\pi_t - \\pi^*) + \\beta_y(y_t - y^*)"
+      }
+     ],
+     "words": 95,
+     "symbols": [
+      "$\\pi_t$",
+      "$\\pi^*$",
+      "$y_t$",
+      "$y^*$",
+      "$i_t$",
+      "$r^*$",
+      "$\\beta_\\pi$",
+      "$y_t - y^*$",
+      "$r$"
+     ]
+    },
+    {
+     "id": "4-a-monetary-policy-rule-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "John Taylor showed that a rule of this form roughly matched how the Fed set rates in the 1980s. The dynamics are similar either way, so the notes use pure inflation targeting from here on."
+      }
+     ],
+     "words": 35,
+     "symbols": []
+    },
+    {
+     "id": "4-a-monetary-policy-rule-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "With $r^* = 2$, $\\pi^* = 2$ and $\\beta_\\pi = 1.5$, inflation is 3%. What nominal rate does the rule set?",
+       "answer": 5.5,
+       "tol": 0.01,
+       "wrong": [
+        {
+         "answer": 5.0,
+         "tol": 0.01,
+         "md": "that raises the rate one-for-one with inflation; the rule moves it by $\\beta_\\pi = 1.5$ times the gap from target"
+        },
+        {
+         "answer": 4.0,
+         "tol": 0.01,
+         "md": "that is the rate at target; inflation is 1 point above target, so the rule adds $1.5 \\times 1$"
+        },
+        {
+         "answer": 2.5,
+         "tol": 0.01,
+         "md": "that is the real rate $i - \\pi$ the rule delivers; the rule itself sets the nominal rate"
+        }
+       ],
+       "why": "$i = 2 + 2 + 1.5(3 - 2) = 5.5$. The real rate is $5.5 - 3 = 2.5$, half a point above neutral: policy leans against inflation.",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 12,
+     "symbols": [
+      "$\\pi_t$",
+      "$\\pi^*$",
+      "$i_t$",
+      "$r^*$",
+      "$\\beta_\\pi$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "5-the-is-mp-curve",
+   "heading": "5. The IS-MP curve",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "5-the-is-mp-curve-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Substituting the rule into the IS curve removes the nominal rate and leaves a relation between output and inflation."
+      },
+      {
+       "t": "prose",
+       "md": "Replace $i_t$ in the IS curve with the rule:"
+      },
+      {
+       "t": "math",
+       "tex": "y_t = y^* - \\alpha\\left(r^* + \\pi^* + \\beta_\\pi(\\pi_t - \\pi^*) - \\pi_t - r^*\\right) + \\epsilon^y_t"
+      },
+      {
+       "t": "prose",
+       "md": "The $r^*$ terms cancel, and $\\pi^* - \\pi_t = -(\\pi_t - \\pi^*)$, so the bracket is $\\beta_\\pi(\\pi_t - \\pi^*) - (\\pi_t - \\pi^*)$. Factoring out $\\pi_t - \\pi^*$:"
+      },
+      {
+       "t": "math",
+       "tex": "y_t = y^* - \\alpha(\\beta_\\pi - 1)(\\pi_t - \\pi^*) + \\epsilon^y_t"
+      },
+      {
+       "t": "prose",
+       "md": "This is the **IS-MP curve**. With $\\alpha > 0$, its slope depends on whether $\\beta_\\pi$ is above or below 1. If $\\beta_\\pi > 1$, the nominal rate rises by more than inflation, the real rate rises, and output falls: the curve slopes down in $(y, \\pi)$, which the notes assume from here on. If $\\beta_\\pi < 1$, the nominal rate rises too little to keep up with inflation, the real rate falls, and output *rises*. Because the rule is built in, the IS-MP curve shifts only with demand shocks $\\epsilon^y_t$, not with the bank's rate decisions."
+      }
+     ],
+     "words": 120,
+     "symbols": [
+      "$\\pi_t$",
+      "$\\pi^*$",
+      "$y_t$",
+      "$y^*$",
+      "$i_t$",
+      "$r^*$",
+      "$\\alpha$",
+      "$\\beta_\\pi$",
+      "$\\epsilon^y_t$"
+     ]
+    },
+    {
+     "id": "5-the-is-mp-curve-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "A central bank follows the rule with $r^* = 2$, $\\pi^* = 2$ and $\\beta_\\pi = 0.5$. Inflation rises from 2% to 4%. What happens to the real interest rate?",
+       "options": [
+        {
+         "md": "It falls, from 2% to 1%, so demand and output rise",
+         "correct": true
+        },
+        {
+         "md": "It rises, because the bank raised its rate",
+         "correct": false,
+         "feedback": "The nominal rate rises by $0.5 \\times 2 = 1$ point, but inflation rose by 2: the real rate $i - \\pi$ falls."
+        },
+        {
+         "md": "It stays at the neutral rate, 2%",
+         "correct": false,
+         "feedback": "That would need the nominal rate to rise one-for-one, $\\beta_\\pi = 1$."
+        },
+        {
+         "md": "It rises from 2% to 3%",
+         "correct": false,
+         "feedback": "That is the case $\\beta_\\pi = 1.5$ from the worked example; with $\\beta_\\pi = 0.5$ the nominal rate rises only to 5."
+        }
+       ],
+       "why": "$i = 2 + 2 + 0.5(4 - 2) = 5$, so $r = 5 - 4 = 1$, down from $4 - 2 = 2$. With $\\beta_\\pi < 1$ policy *loosens* as inflation rises, the IS-MP curve slopes up, and inflation feeds on itself.",
+       "objectives": [
+        4
+       ]
+      }
+     ],
+     "words": 53,
+     "symbols": [
+      "$\\pi_t$",
+      "$\\pi^*$",
+      "$i_t$",
+      "$r^*$",
+      "$\\beta_\\pi$",
+      "$r$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "6-solving-the-model",
+   "heading": "6. Solving the model",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "6-solving-the-model-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With expected inflation, potential output, the neutral rate and the parameters given, two equations remain in $\\pi_t$ and $y_t$: the Phillips curve and the IS-MP curve. Substituting the output gap from IS-MP into the Phillips curve and solving gives"
+      },
+      {
+       "t": "math",
+       "tex": "\\pi_t = \\theta\\pi^e_t + (1 - \\theta)\\pi^* + \\theta(\\gamma\\epsilon^y_t + \\epsilon^\\pi_t), \\qquad \\theta = \\frac{1}{1 + \\alpha\\gamma(\\beta_\\pi - 1)}"
+      },
+      {
+       "t": "prose",
+       "md": "Inflation is a weighted average of expected inflation and the target, plus the shocks. Subtracting $\\pi^*$ and substituting back into IS-MP gives output:"
+      },
+      {
+       "t": "math",
+       "tex": "y_t = y^* - \\alpha\\theta(\\beta_\\pi - 1)(\\pi^e_t - \\pi^* + \\epsilon^\\pi_t) + \\left(1 - \\theta\\alpha\\gamma(\\beta_\\pi - 1)\\right)\\epsilon^y_t"
+      },
+      {
+       "t": "prose",
+       "md": "A supply shock or higher expected inflation lowers output; a demand shock raises it. An aggressive bank (large $\\beta_\\pi$) has a small $\\theta$: it holds inflation close to target, but inflationary shocks then cost more output. If it wants to return to target quickly, it must accept a larger fall in output."
+      }
+     ],
+     "words": 109,
+     "symbols": [
+      "$\\pi_t$",
+      "$\\pi^e_t$",
+      "$\\pi^*$",
+      "$y_t$",
+      "$y^*$",
+      "$\\alpha$",
+      "$\\gamma$",
+      "$\\beta_\\pi$",
+      "$\\theta$",
+      "$\\epsilon^\\pi_t$",
+      "$\\epsilon^y_t$"
+     ]
+    },
+    {
+     "id": "6-solving-the-model-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "With $\\alpha = \\gamma = 1$ and $\\beta_{\\pi} = 1.5$, what is $\\theta$? Give three decimals.",
+       "answer": 0.667,
+       "tol": 0.005,
+       "vary": [
+        {
+         "sym": "\\beta_{\\pi}",
+         "values": [
+          1.5,
+          2.5,
+          3.0,
+          5.0
+         ]
+        }
+       ],
+       "compute": "\\frac{1}{\\beta_{\\pi}}",
+       "bindings": [
+        {
+         "sym": "\\beta_{\\pi}",
+         "value": 1.5,
+         "span": "$\\beta_{\\pi} = 1.5$"
+        }
+       ],
+       "wrongCompute": [
+        {
+         "tex": "\\beta_{\\pi}",
+         "md": "that is the denominator $1 + \\alpha\\gamma(\\beta_\\pi - 1)$; $\\theta$ is one over it"
+        },
+        {
+         "tex": "1 - \\frac{1}{\\beta_{\\pi}}",
+         "md": "that is $1 - \\theta$, the weight on the target"
+        },
+        {
+         "tex": "\\frac{1}{\\beta_{\\pi} - 1}",
+         "md": "the denominator is $1 + \\alpha\\gamma(\\beta_\\pi - 1)$: the 1 is missing"
+        }
+       ],
+       "why": "$\\theta = 1/(1 + 1 \\times 1 \\times 0.5) = 2/3$. Inflation puts weight $2/3$ on expectations and shocks and $1/3$ on the target. A larger $\\beta_\\pi$ lowers $\\theta$: with $\\alpha = \\gamma = 1$, $\\theta = 1/\\beta_\\pi$.",
+       "objectives": [
+        5
+       ]
+      }
+     ],
+     "words": 7,
+     "symbols": [
+      "$\\alpha$",
+      "$\\gamma$",
+      "$\\beta_\\pi$",
+      "$\\theta$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "7-expectations",
+   "heading": "7. Expectations",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "7-expectations-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The model needs a rule for $\\pi^e_t$. The simplest is **adaptive expectations** ([Adaptive Expectations](note:adaptive-expectations)), central to Friedman's and Phelps's Phillips-curve work in the 1960s: people forecast from past data, in the simplest form"
+      },
+      {
+       "t": "math",
+       "tex": "\\pi^e_t = \\pi_{t-1}"
+      },
+      {
+       "t": "prose",
+       "md": "More elaborate versions use several past periods. Robert Lucas and others later introduced **rational expectations**: people understand how the economy works, so, for example, they expect the central bank to raise rates after a shock and revise their forecasts accordingly. The course uses the simpler adaptive form."
+      },
+      {
+       "t": "callout",
+       "kind": "warning",
+       "title": "Slip in the typed notes",
+       "md": "They gloss $\\pi^e_t = \\pi_{t-1}$ as \"consumers expect inflation this period to be equal to inflation next period\". It means they expect inflation this period to equal inflation **last** period.",
+       "folded": false
+      }
+     ],
+     "words": 111,
+     "symbols": [
+      "$\\pi_t$",
+      "$\\pi^e_t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "8-a-worked-example",
+   "heading": "8. A worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "8-a-worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The notes set $\\pi^* = 2$, $y^* = 100$, $r^* = 2$, $\\alpha = \\gamma = 1$ and $\\beta_\\pi = 1.5$, so $\\theta = 2/3$ and"
+      },
+      {
+       "t": "math",
+       "tex": "\\pi_t = \\tfrac{2}{3}\\pi^e_t + \\tfrac{1}{3}(2) + \\tfrac{2}{3}(\\epsilon^y_t + \\epsilon^\\pi_t), \\qquad y_t = 100 - \\tfrac{1}{3}(\\pi^e_t - 2 + \\epsilon^\\pi_t) + \\tfrac{2}{3}\\epsilon^y_t"
+      },
+      {
+       "t": "prose",
+       "md": "In period 1 expectations are at target and there are no shocks: $\\pi_1 = 2$, $y_1 = 100$, and the bank sets $i_1 = 2 + 2 = 4$. In period 2 a negative supply shock sets $\\epsilon^\\pi_2 = 3$, with expectations formed adaptively, $\\pi^e_2 = \\pi_1 = 2$."
+      },
+      {
+       "t": "interactive",
+       "widget": "is-mp-and-phillips-curve-diagram",
+       "state": {
+        "alpha": 1,
+        "gamma": 1,
+        "bpi": 1.5,
+        "pe": 2,
+        "epsp": 3,
+        "epsy": 0
+       },
+       "lock": [
+        "pe",
+        "epsp",
+        "bpi",
+        "alpha",
+        "gamma",
+        "epsy"
+       ],
+       "show": [
+        "pc0",
+        "ismp0",
+        "pc",
+        "ismp",
+        "target",
+        "eq",
+        "pi_out",
+        "y_out",
+        "i_out",
+        "r_out"
+       ],
+       "highlight": "pc",
+       "prompt": "A supply shock of 3 hits in period 2: predict inflation",
+       "predict": {
+        "hide": [
+         "pc",
+         "eq",
+         "pi_out",
+         "y_out",
+         "i_out",
+         "r_out"
+        ],
+        "ask": "Expected inflation is 2 and a supply shock of $\\epsilon^\\pi_2 = 3$ hits. With $\\theta = 2/3$, what is inflation in period 2?",
+        "readout": "pi_out",
+        "tol": 0.05
+       },
+       "objectives": [
+        6
+       ]
+      }
+     ],
+     "words": 45,
+     "symbols": [
+      "$\\pi_t$",
+      "$\\pi^e_t$",
+      "$\\pi^*$",
+      "$y_t$",
+      "$y^*$",
+      "$i_t$",
+      "$r^*$",
+      "$\\alpha$",
+      "$\\gamma$",
+      "$\\beta_\\pi$",
+      "$\\theta$",
+      "$\\epsilon^\\pi_t$",
+      "$\\epsilon^y_t$",
+      "$y_t - y^*$",
+      "$r$"
+     ]
+    },
+    {
+     "id": "8-a-worked-example-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Inflation rises to $\\pi_2 = \\tfrac{2}{3}(2) + \\tfrac{1}{3}(2) + \\tfrac{2}{3}(3) = 4$, not the full $2 + 3 = 5$: the bank's response absorbs part of the shock. By the rule it sets $i_2 = 2 + 2 + 1.5(4 - 2) = 7$, raising the nominal rate 3 points for a 2-point rise in inflation, so the real rate rises from 2 to 3. Through the IS curve, $y_2 = 100 - (7 - 4 - 2) = 99$: output falls one unit below potential. In the diagram, the shock shifts the Phillips curve up by 3 and the economy moves up and to the left along the IS-MP curve."
+      },
+      {
+       "t": "interactive",
+       "widget": "is-mp-and-phillips-curve-diagram",
+       "state": {
+        "alpha": 1,
+        "gamma": 1,
+        "bpi": 3,
+        "pe": 2,
+        "epsp": 3,
+        "epsy": 0
+       },
+       "lock": [
+        "pe",
+        "epsp",
+        "alpha",
+        "gamma",
+        "epsy"
+       ],
+       "show": [
+        "pc0",
+        "ismp0",
+        "pc",
+        "ismp",
+        "target",
+        "eq",
+        "pi_out",
+        "y_out",
+        "i_out",
+        "th_out"
+       ],
+       "highlight": "ismp",
+       "prompt": "A tougher central bank faces the same shock: predict what changes",
+       "predict": {
+        "hide": [
+         "ismp",
+         "eq",
+         "pi_out",
+         "y_out",
+         "i_out",
+         "th_out"
+        ],
+        "ask": "The same supply shock hits, but the bank responds with $\\beta_\\pi = 3$ instead of 1.5. Compared with $\\pi_2 = 4$ and $y_2 = 99$:",
+        "options": [
+         "Inflation is lower and output is lower",
+         "Inflation is lower and output is higher",
+         "Inflation is higher and output is lower",
+         "Nothing changes: the shock is the same"
+        ],
+        "answer": 0,
+        "why": "With $\\beta_\\pi = 3$, $\\theta = 1/3$: inflation rises only to 3, but output falls to 98. The IS-MP curve is flatter in $(y, \\pi)$, so the upward shift of the Phillips curve shows up more in output and less in inflation. Try other values of $\\beta_\\pi$: inflation is 3 only at $\\beta_\\pi = 3$.",
+        "feedback": [
+         null,
+         "Holding inflation down takes a higher real rate, and a higher real rate cuts spending: output falls further, not less.",
+         "A larger $\\beta_\\pi$ lowers $\\theta$, the weight inflation puts on the shock: inflation rises less.",
+         "The shock is the same, but the response is not: $\\beta_\\pi$ sets the slope of IS-MP and the split of the shock between inflation and output."
+        ]
+       },
+       "objectives": [
+        5
+       ]
+      },
+      {
+       "t": "prose",
+       "md": "From period 3 the shock is gone, but expectations have caught up with it: $\\pi^e_3 = \\pi_2 = 4$."
+      }
+     ],
+     "words": 100,
+     "symbols": [
+      "$\\pi_t$",
+      "$\\pi^e_t$",
+      "$\\pi^*$",
+      "$y_t$",
+      "$y^*$",
+      "$i_t$",
+      "$\\alpha$",
+      "$\\gamma$",
+      "$\\beta_\\pi$",
+      "$\\theta$",
+      "$\\epsilon^\\pi_t$",
+      "$\\epsilon^y_t$",
+      "$y_t - y^*$",
+      "$r$"
+     ]
+    },
+    {
+     "id": "8-a-worked-example-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "In the notes' example ($\\beta_\\pi = 1.5$, $\\theta = 2/3$), the shock lasts only for period 2, when inflation reached 4. Expectations are adaptive. What is inflation in period 3? Give two decimals.",
+       "answer": 3.33,
+       "tol": 0.01,
+       "wrong": [
+        {
+         "answer": 2.0,
+         "tol": 0.01,
+         "md": "the shock is gone, but expected inflation is now last period's 4, not the target"
+        },
+        {
+         "answer": 4.0,
+         "tol": 0.01,
+         "md": "inflation puts weight only $2/3$ on expectations; the other third is on the target, 2"
+        },
+        {
+         "answer": 5.33,
+         "tol": 0.01,
+         "md": "that adds the shock again; in period 3 $\\epsilon^\\pi_3 = 0$"
+        }
+       ],
+       "why": "$\\pi_3 = \\tfrac{2}{3}(4) + \\tfrac{1}{3}(2) = 3.33$. The bank sets $i_3 = 4 + 1.5(1.33) = 6$, and output is $99.33$: still below potential, because expectations keep inflation above target.",
+       "objectives": [
+        6
+       ]
+      }
+     ],
+     "words": 27,
+     "symbols": [
+      "$\\pi_t$",
+      "$i_t$",
+      "$\\beta_\\pi$",
+      "$\\theta$"
+     ]
+    },
+    {
+     "id": "8-a-worked-example-4",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "inflation-shock-paths",
+       "state": {
+        "alpha": 1,
+        "gamma": 1,
+        "bpi": 1.5,
+        "shock": 3,
+        "ts": 2
+       },
+       "lock": [
+        "shock",
+        "ts",
+        "alpha",
+        "gamma"
+       ],
+       "show": [
+        "infl",
+        "outp",
+        "rates",
+        "inflation",
+        "target",
+        "output",
+        "potential",
+        "policy",
+        "real",
+        "th_out"
+       ],
+       "highlight": "inflation",
+       "prompt": "Follow the shock over time: predict the path of inflation after period 2",
+       "predict": {
+        "hide": [
+         "inflation",
+         "output",
+         "policy",
+         "real"
+        ],
+        "ask": "After the one-period shock in period 2, with adaptive expectations and $\\beta_\\pi = 1.5$, how does inflation behave from period 3 on?",
+        "options": [
+         "It returns to 2 in period 3, because the shock is over",
+         "It falls back toward 2 gradually, closing a third of the remaining gap each period",
+         "It stays at 4, because people now expect 4",
+         "It falls below 2 and then climbs back"
+        ],
+        "answer": 1,
+        "why": "Inflation goes 4, 3.33, 2.89, 2.59, …: each period $\\pi_t - 2 = \\tfrac{2}{3}(\\pi_{t-1} - 2)$. The policy rate stays above 4 and output below 100 until it is back. Raise $\\beta_\\pi$ to 3: the jump is smaller (to 3), output falls further (to 98), and the return is faster, a gap of $\\theta = 1/3$ carried over each period.",
+        "feedback": [
+         "Expected inflation in period 3 is last period's 4, and expectations carry two thirds weight: inflation is still 3.33.",
+         null,
+         "The bank keeps the real rate above neutral while inflation is above target, so output stays below potential and pulls inflation down.",
+         "With adaptive expectations inflation stays above target all the way: each period keeps two thirds of the last period's gap."
+        ]
+       },
+       "objectives": [
+        6
+       ]
+      }
+     ],
+     "words": 13,
+     "symbols": [
+      "$\\pi_t$",
+      "$\\pi^*$",
+      "$y_t$",
+      "$y^*$",
+      "$i_t$",
+      "$\\alpha$",
+      "$\\gamma$",
+      "$\\beta_\\pi$",
+      "$\\theta$",
+      "$\\epsilon^\\pi_t$",
+      "$t$",
+      "$r$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "9-the-zero-lower-bound",
+   "heading": "9. The zero lower bound",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "9-the-zero-lower-bound-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Monetary policy works in this model by moving the nominal rate, which moves the real rate, which moves output. But as in L6, nominal rates cannot go (much) below zero, because people can hold cash ([Zero Lower Bound](note:zero-lower-bound)). The rule can prescribe a negative rate, for instance after a large negative demand shock; the best the bank can then do is hold the rate at zero, and it can no longer respond to shocks with its usual tool. The notes return to what central banks can do at the zero lower bound in the second half of the course."
+      }
+     ],
+     "words": 99,
+     "symbols": []
+    },
+    {
+     "id": "9-the-zero-lower-bound-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "After a large fall in demand, the rule calls for a nominal rate of $-1\\%$. What happens?",
+       "options": [
+        {
+         "md": "The bank holds the rate at 0, so the real rate is higher than the rule wants and output falls further than under the rule",
+         "correct": true
+        },
+        {
+         "md": "The bank sets $-1\\%$ and the economy follows the rule",
+         "correct": false,
+         "feedback": "People could hold cash, which pays 0, rather than lend at $-1\\%$; the rate cannot go much below zero."
+        },
+        {
+         "md": "The bank raises the rate to keep inflation from falling",
+         "correct": false,
+         "feedback": "The rule asks for a *cut*; the problem is that it cannot cut far enough."
+        },
+        {
+         "md": "Nothing: the zero bound affects only the money supply in IS-LM",
+         "correct": false,
+         "feedback": "It binds on the nominal rate in any model where policy works through that rate, including this one."
+        }
+       ],
+       "why": "Stuck at $i = 0$, the real rate $0 - \\pi_t$ stays above what the rule would deliver, so policy is tighter than intended and the fall in demand hits output harder.",
+       "objectives": [
+        7
+       ]
+      }
+     ],
+     "words": 71,
+     "symbols": [
+      "$\\pi_t$",
+      "$i_t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Write the traditional and the expectations-augmented Phillips curve, explain why the second replaced the first, and use the output version with supply shocks.\n2. Write the IS curve in output-gap form, distinguish real from nominal rates, and explain the neutral rate and demand shocks.\n3. Write the inflation-targeting rule and the Taylor rule, explain why the real rate is neutral at target, and compute the rate the rule sets.\n4. Derive the IS-MP curve and explain why its slope depends on whether $\\beta_\\pi$ exceeds 1.\n5. Solve the model for inflation and output, define $\\theta$, and explain the trade-off a tougher central bank faces.\n6. Explain adaptive and rational expectations, and trace the notes' example: $\\pi_2 = 4$, $i_2 = 7$, $y_2 = 99$, then the gradual return."
+      }
+     ],
+     "words": 118,
+     "symbols": [
+      "$\\pi_t$",
+      "$y_t$",
+      "$i_t$",
+      "$\\beta_\\pi$",
+      "$\\theta$"
+     ]
+    },
+    {
+     "id": "what-to-be-able-to-do-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "7. Explain why the zero lower bound limits monetary policy in this model."
+      }
+     ],
+     "words": 13,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "is-mp-pc-model",
+        "phillips-curve",
+        "is-curve",
+        "real-and-nominal-interest-rates",
+        "monetary-policy-rule",
+        "adaptive-expectations",
+        "zero-lower-bound",
+        "is-lm-model"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

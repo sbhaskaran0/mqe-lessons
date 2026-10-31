@@ -1,0 +1,401 @@
+{
+ "slug": "keynesian-cross",
+ "notation": [
+  {
+   "tex": "$Y$",
+   "meaning": "Output (equal to income)",
+   "kind": "Endogenous",
+   "typical": "1,100 in the example",
+   "keys": [
+    "Y"
+   ]
+  },
+  {
+   "tex": "$PE$",
+   "meaning": "Planned expenditure",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "~PE"
+   ]
+  },
+  {
+   "tex": "$C$",
+   "meaning": "Consumption",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "C"
+   ]
+  },
+  {
+   "tex": "$a$",
+   "meaning": "Autonomous consumption: spending that does not depend on income",
+   "kind": "Parameter",
+   "typical": "100 in the example",
+   "keys": [
+    "a"
+   ]
+  },
+  {
+   "tex": "$b$",
+   "meaning": "Marginal propensity to consume (MPC): share of each extra unit of disposable income spent",
+   "kind": "Parameter in (0, 1)",
+   "typical": "0.8",
+   "keys": [
+    "b"
+   ]
+  },
+  {
+   "tex": "$T$",
+   "meaning": "Taxes",
+   "kind": "Policy",
+   "typical": "100 in the example",
+   "keys": [
+    "T"
+   ]
+  },
+  {
+   "tex": "$G$",
+   "meaning": "Government spending",
+   "kind": "Policy",
+   "typical": "100 in the example",
+   "keys": [
+    "G"
+   ]
+  },
+  {
+   "tex": "$I^P$",
+   "meaning": "Planned investment: new capital goods and planned inventory changes",
+   "kind": "Exogenous (for now)",
+   "typical": "100 in the example",
+   "keys": [
+    "~I^P"
+   ]
+  },
+  {
+   "tex": "$I^U$",
+   "meaning": "Unplanned investment: unplanned inventory changes",
+   "kind": "Endogenous",
+   "typical": "0 in equilibrium",
+   "keys": [
+    "~I^U"
+   ]
+  },
+  {
+   "tex": "$I$",
+   "meaning": "Total investment, $I^P + I^U$",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "I"
+   ]
+  },
+  {
+   "tex": "$Y^*$",
+   "meaning": "Equilibrium output",
+   "kind": "Endogenous",
+   "typical": "1,100 in the example",
+   "keys": [
+    "Y*"
+   ]
+  },
+  {
+   "tex": "$S$",
+   "meaning": "National saving, $Y - C - G$",
+   "kind": "Endogenous",
+   "typical": "equals $I^P$ in equilibrium",
+   "keys": [
+    "S"
+   ]
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Firms decide how much to produce based on what they expect to sell. Households, firms and the government then decide how much to spend. If they spend less than was produced, unsold goods pile up in warehouses, and firms cut production; if they spend more, shelves empty and firms produce more. Output settles where planned spending exactly equals what is produced, so no one is surprised by their inventories. Because households spend part of every extra dollar of income, a rise in spending raises income, which raises spending again: demand, not supply, pins down how much the economy produces."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the simplest model in which total spending determines output, the starting point for the multiplier, the IS curve and fiscal policy.",
+       "folded": false
+      }
+     ],
+     "words": 125,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Planned expenditure in a closed economy is consumption plus planned investment plus government spending. With a linear consumption function,"
+      },
+      {
+       "t": "math",
+       "tex": "PE = C + I^P + G, \\qquad C = a + b(Y - T)"
+      },
+      {
+       "t": "prose",
+       "md": "Equilibrium requires planned expenditure to equal output, $PE = Y$, which solves to"
+      },
+      {
+       "t": "math",
+       "tex": "Y^* = \\frac{a - bT + I^P + G}{1 - b}"
+      }
+     ],
+     "words": 29,
+     "symbols": [
+      "$Y$",
+      "$PE$",
+      "$C$",
+      "$a$",
+      "$b$",
+      "$T$",
+      "$G$",
+      "$I^P$",
+      "$I$",
+      "$Y^*$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "planned-and-unplanned-investment",
+   "heading": "Planned and unplanned investment",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "planned-and-unplanned-investment-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Measured GDP is $Y = C + I + G$, with total investment $I = I^P + I^U$. Planned expenditure leaves out $I^U$, so"
+      },
+      {
+       "t": "math",
+       "tex": "PE = Y \\iff I^U = 0 \\iff I = I^P"
+      },
+      {
+       "t": "prose",
+       "md": "- $I^U > 0$: firms sold less than they produced; inventories pile up and they cut output.\n- $I^U < 0$: firms sold more than they produced; inventories run down and they raise output."
+      },
+      {
+       "t": "prose",
+       "md": "A firm that planned to sell 100 units but sold 80 adds 20 to inventories as unplanned investment."
+      }
+     ],
+     "words": 57,
+     "symbols": [
+      "$Y$",
+      "$PE$",
+      "$C$",
+      "$G$",
+      "$I^P$",
+      "$I^U$",
+      "$I$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "the-diagram",
+   "heading": "The diagram",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-diagram-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Plot $PE$ against $Y$. The 45° line marks every point where $PE = Y$. The planned-expenditure line has intercept $a - bT + I^P + G$ and slope $b < 1$, so it crosses the 45° line exactly once, at $Y^*$. To the left of $Y^*$, $PE > Y$: inventories fall and output rises. To the right, $PE < Y$ and output falls."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Keynesian cross diagram.png",
+       "alt": "Keynesian cross diagram"
+      }
+     ],
+     "words": 40,
+     "symbols": [
+      "$Y$",
+      "$PE$",
+      "$a$",
+      "$b$",
+      "$T$",
+      "$G$",
+      "$I^P$",
+      "$I$",
+      "$Y^*$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "derivation",
+   "heading": "Derivation",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "derivation-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Substitute the consumption function into $PE = Y$:"
+      },
+      {
+       "t": "math",
+       "tex": "a + b(Y - T) + I^P + G = Y \\;\\Rightarrow\\; (1 - b)Y = a - bT + I^P + G"
+      },
+      {
+       "t": "prose",
+       "md": "and divide by $1 - b$. Since $0 < b < 1$, the factor $1/(1 - b)$ exceeds 1: see [Keynesian Multiplier](note:keynesian-multiplier)."
+      }
+     ],
+     "words": 16,
+     "symbols": [
+      "$Y$",
+      "$PE$",
+      "$a$",
+      "$b$",
+      "$T$",
+      "$G$",
+      "$I^P$",
+      "$I$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With $a = 100$, $b = 0.8$, $T = 100$, $I^P = 100$ and $G = 100$: $Y^* = (100 - 80 + 100 + 100)/0.2 = 1{,}100$. At $Y = 600$, planned expenditure is $100 + 0.8 \\times 500 + 200 = 700$, so $I^U = 600 - 700 = -100$: firms sell more than they make and expand output."
+      }
+     ],
+     "words": 16,
+     "symbols": [
+      "$Y$",
+      "$a$",
+      "$b$",
+      "$T$",
+      "$G$",
+      "$I^P$",
+      "$I^U$",
+      "$I$",
+      "$Y^*$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "saving-equals-planned-investment",
+   "heading": "Saving equals planned investment",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "saving-equals-planned-investment-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Define national saving $S = Y - C - G$. By the [Saving-Investment Identity](note:saving-investment-identity), $S = I = I^P + I^U$ always; in equilibrium $I^U = 0$, so $S = I^P$. Saving splits into private saving $Y - T - C$ and public saving $T - G$."
+      }
+     ],
+     "words": 19,
+     "symbols": [
+      "$Y$",
+      "$C$",
+      "$T$",
+      "$G$",
+      "$I^P$",
+      "$I^U$",
+      "$I$",
+      "$S$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Confusing $I$ and $I^P$.** Measured investment always equals saving; only *planned* investment equals saving in equilibrium.\n- **Reading $b$ as the saving rate.** $b$ is the share of *disposable* income consumed; $1 - b$ is the share saved.\n- **Forgetting taxes enter through $b$.** A tax rise of 100 lowers $PE$ by $b \\times 100$, not by 100."
+      }
+     ],
+     "words": 47,
+     "symbols": [
+      "$PE$",
+      "$b$",
+      "$I^P$",
+      "$I$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Macro: short-run output determination, the [Keynesian Multiplier](note:keynesian-multiplier), and the goods-market half of the [IS Curve](note:is-curve) and [IS-LM Model](note:is-lm-model)."
+      }
+     ],
+     "words": 19,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Keynesian Multiplier](note:keynesian-multiplier) · [IS Curve](note:is-curve) · [IS-LM Model](note:is-lm-model) · [Saving-Investment Identity](note:saving-investment-identity)"
+      }
+     ],
+     "words": 9,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

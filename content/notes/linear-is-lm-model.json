@@ -1,0 +1,186 @@
+{
+ "slug": "linear-is-lm-model",
+ "notation": [
+  {
+   "tex": "$Y$, $Y^*$",
+   "meaning": "Output, equilibrium output",
+   "kind": "Endogenous",
+   "typical": "1,200 in the example",
+   "keys": [
+    "Y",
+    "Y*"
+   ],
+   "from": "is-lm-model"
+  },
+  {
+   "tex": "$r$, $r^*$",
+   "meaning": "Interest rate, equilibrium rate",
+   "kind": "Endogenous",
+   "typical": "4 in the example",
+   "keys": [
+    "r",
+    "r*"
+   ],
+   "from": "is-lm-model"
+  },
+  {
+   "tex": "$a$, $b$",
+   "meaning": "Autonomous consumption, marginal propensity to consume",
+   "kind": "Parameters",
+   "typical": "100, 0.8",
+   "keys": [
+    "a",
+    "b"
+   ],
+   "from": "is-lm-model"
+  },
+  {
+   "tex": "$T$, $G$",
+   "meaning": "Taxes, government spending",
+   "kind": "Policy",
+   "typical": "100, 100",
+   "keys": [
+    "T",
+    "G"
+   ],
+   "from": "is-lm-model"
+  },
+  {
+   "tex": "$I_0$, $d$",
+   "meaning": "Autonomous investment and its interest sensitivity",
+   "kind": "Parameters",
+   "typical": "200, 20",
+   "keys": [
+    "I",
+    "d"
+   ],
+   "from": "is-lm-model"
+  },
+  {
+   "tex": "$M^S/P$",
+   "meaning": "Real money supply",
+   "kind": "Policy",
+   "typical": "400",
+   "keys": [
+    "~M^S/P"
+   ],
+   "from": "is-lm-model"
+  },
+  {
+   "tex": "$L(r, Y)$",
+   "meaning": "Real money demand, $kY - hr$ in the example",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "L"
+   ],
+   "from": "is-lm-model"
+  },
+  {
+   "tex": "$k$, $h$",
+   "meaning": "Income and interest sensitivity of money demand",
+   "kind": "Parameters",
+   "typical": "0.5, 50",
+   "keys": [
+    "k",
+    "h"
+   ],
+   "from": "is-lm-model"
+  },
+  {
+   "tex": "$\\Delta G$, $\\Delta I^P$",
+   "meaning": "Changes in government spending and planned investment",
+   "kind": "—",
+   "typical": "100, −50",
+   "keys": [
+    "~\\DeltaG",
+    "~\\DeltaI^P"
+   ],
+   "from": "is-lm-model"
+  },
+  {
+   "tex": "$\\Delta M$",
+   "meaning": "Change in the real money supply",
+   "kind": "Policy",
+   "typical": "100",
+   "keys": [
+    "~\\DeltaM"
+   ],
+   "from": "is-lm-model"
+  },
+  {
+   "tex": "$\\Delta Y$",
+   "meaning": "Change in equilibrium output",
+   "kind": "Endogenous",
+   "typical": "500",
+   "keys": [
+    "~\\DeltaY"
+   ],
+   "from": "keynesian-multiplier"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "is-lm-explorer"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$Y$, $Y^*$",
+      "$r$, $r^*$",
+      "$a$, $b$",
+      "$T$, $G$",
+      "$I_0$, $d$",
+      "$M^S/P$",
+      "$L(r, Y)$",
+      "$k$, $h$",
+      "$\\Delta G$, $\\Delta I^P$",
+      "$\\Delta M$",
+      "$\\Delta Y$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The model behind [IS-LM Explorer](note:is-lm-explorer). Place that view, not this note."
+      },
+      {
+       "t": "prose",
+       "md": "- **Model.** [IS Curve](note:is-curve): the [Keynesian Cross](note:keynesian-cross) with $I^P = I_0 - dr$, so $Y = (a - bT + I_0 + G - dr)/(1 - b)$. [LM Curve](note:lm-curve): $M^S/P = kY - hr$, so $r = (kY - M^S/P)/h$, never below zero ([Zero Lower Bound](note:zero-lower-bound)). Equilibrium $Y = (Ah + dM)/((1 - b)h + dk)$ with $A = a - bT + I_0 + G$, unless that gives $r < 0$; then $r = 0$ and $Y = A/(1 - b)$.\n- **Before and after.** `is0`, `lm0`, `Y0`, `r0` are at the starting $G$ and $M^S/P$; `is1`, `lm1`, `Y1`, `r1` after the changes $\\Delta G$ and $\\Delta M$. Crowding out compares the actual rise in output with the Keynesian-cross rise $\\Delta G/(1 - b)$ at an unchanged rate ([Keynesian Multiplier](note:keynesian-multiplier)).\n- **Numbers.** Illustrative, not from the lecture (the notes draw the diagrams without numbers): $a = 100$, $b = 0.8$, $T = G = 100$, $I_0 = 200$, $d = 20$, $M^S/P = 400$, $k = 0.5$, $h = 50$.\n- **Tests.** Closed forms, each checked by root-finding in Python."
+      }
+     ],
+     "words": 99,
+     "symbols": [
+      "$Y$, $Y^*$",
+      "$r$, $r^*$",
+      "$a$, $b$",
+      "$T$, $G$",
+      "$I_0$, $d$",
+      "$M^S/P$",
+      "$k$, $h$",
+      "$\\Delta G$, $\\Delta I^P$",
+      "$\\Delta M$"
+     ]
+    }
+   ]
+  }
+ ]
+}

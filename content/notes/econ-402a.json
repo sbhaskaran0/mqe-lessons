@@ -44,10 +44,21 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "4. [Econ 402A L4 Classical Labor Market](note:econ-402a-l4-classical-labor-market) — written notes (typed notes for the discussion and diagram): labor supply from MRS = w/p, labor demand from MPL = w/p, equilibrium at w/p = 20 and 2,000 hours; wage floors, labor taxes, unions\n5. [Econ 402A L5 A Search and Matching Model of the Labor Market](note:econ-402a-l5-a-search-and-matching-model-of-the-labor-market) — typed notes (handwritten notes to come): matching function, steady-state unemployment and the Beveridge curve, free-entry vacancy supply, Nash-bargained wages, three-curve equilibrium"
+       "md": "4. [Econ 402A L4 Classical Labor Market](note:econ-402a-l4-classical-labor-market) — written notes (typed notes for the discussion and diagram): labor supply from MRS = w/p, labor demand from MPL = w/p, equilibrium at w/p = 20 and 2,000 hours; wage floors, labor taxes, unions\n5. [Econ 402A L5 A Search and Matching Model of the Labor Market](note:econ-402a-l5-a-search-and-matching-model-of-the-labor-market) — typed notes (handwritten notes to come): matching function, steady-state unemployment and the Beveridge curve, free-entry vacancy supply, Nash-bargained wages, three-curve equilibrium\n6. [Econ 402A L6 Keynesian Economics](note:econ-402a-l6-keynesian-economics) — written notes (typed notes for the coordination view, Keynes's money motives and three monetary-policy cases): Keynesian cross, spending and tax multipliers, IS and LM curves, crowding out, monetary policy, the zero lower bound"
       }
      ],
-     "words": 76,
+     "words": 115,
+     "symbols": []
+    },
+    {
+     "id": "lectures-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "7. [Econ 402A L7 The IS-MP-PC Model](note:econ-402a-l7-the-is-mp-pc-model) — typed notes (handwritten notes to come): Phillips curve, IS curve in the output gap, inflation-targeting rule, IS-MP curve, θ and the inflation-output trade-off, adaptive expectations, zero lower bound"
+      }
+     ],
+     "words": 34,
      "symbols": []
     }
    ]
@@ -110,13 +121,35 @@
       {
        "t": "prose",
        "md": "[Econ 402A L5 A Search and Matching Model of the Labor Market](note:econ-402a-l5-a-search-and-matching-model-of-the-labor-market) replaces the single market-clearing wage with search. A [Matching Function](note:matching-function) turns unemployed workers and vacancies into hires; inflows and outflows settle at a [Steady-State Unemployment Rate](note:steady-state-unemployment-rate) that falls with tightness, which is the [Beveridge Curve](note:beveridge-curve). Free entry of vacancies and [Nash Bargaining](note:nash-bargaining) over wages pin down tightness, so unemployment exists in equilibrium ([Diamond-Mortensen-Pissarides Model](note:diamond-mortensen-pissarides-model))."
+      }
+     ],
+     "words": 66,
+     "symbols": []
+    },
+    {
+     "id": "course-arc-so-far-6",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Econ 402A L6 Keynesian Economics](note:econ-402a-l6-keynesian-economics) leaves the classical world for the short run, where demand decides output. Output settles where planned spending equals production ([Keynesian Cross](note:keynesian-cross)), and spending changes are amplified by the [Keynesian Multiplier](note:keynesian-multiplier). Letting investment fall with the interest rate gives the [IS Curve](note:is-curve); [Liquidity Preference](note:liquidity-preference) gives the [LM Curve](note:lm-curve); together they form the [IS-LM Model](note:is-lm-model), with crowding out, monetary policy and the [Zero Lower Bound](note:zero-lower-bound)."
       },
+      {
+       "t": "prose",
+       "md": "[Econ 402A L7 The IS-MP-PC Model](note:econ-402a-l7-the-is-mp-pc-model) modernizes IS-LM: a [Monetary Policy Rule](note:monetary-policy-rule) for the interest rate replaces LM, and a [Phillips Curve](note:phillips-curve) adds inflation ([IS-MP-PC Model](note:is-mp-pc-model)). A supply shock raises inflation and lowers output, and how hard the central bank responds decides the split; with [Adaptive Expectations](note:adaptive-expectations) the shock fades gradually."
+      }
+     ],
+     "words": 119,
+     "symbols": []
+    },
+    {
+     "id": "course-arc-so-far-7",
+     "blocks": [
       {
        "t": "prose",
        "md": "So far the course moves from a mechanical saving rule to the optimizing behavior behind it. Both lectures use [Partial Derivatives and the Gradient](note:partial-derivatives-and-the-gradient); L1's golden rule is an [Unconstrained Optimization](note:unconstrained-optimization), and L2's consumer problem uses [Constrained Optimization and Lagrange Multipliers](note:constrained-optimization-and-lagrange-multipliers) (see the math refresher below)."
       }
      ],
-     "words": 112,
+     "words": 46,
      "symbols": []
     }
    ]

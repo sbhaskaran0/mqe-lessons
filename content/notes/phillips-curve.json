@@ -1,0 +1,263 @@
+{
+ "slug": "phillips-curve",
+ "notation": [
+  {
+   "tex": "$\\pi_t$",
+   "meaning": "Inflation in period $t$ (percent)",
+   "kind": "Endogenous",
+   "typical": "2 at target",
+   "keys": [
+    "pi"
+   ]
+  },
+  {
+   "tex": "$\\pi^e_t$",
+   "meaning": "Expected inflation for period $t$",
+   "kind": "Exogenous in the period",
+   "typical": "2",
+   "keys": [
+    "~\\pi^e_t"
+   ]
+  },
+  {
+   "tex": "$u_t$",
+   "meaning": "Unemployment rate",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "u"
+   ]
+  },
+  {
+   "tex": "$u^*$",
+   "meaning": "Natural rate of unemployment: the rate the economy returns to in the long run",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "u*"
+   ]
+  },
+  {
+   "tex": "$y_t$",
+   "meaning": "Output",
+   "kind": "Endogenous",
+   "typical": "100",
+   "keys": [
+    "y"
+   ]
+  },
+  {
+   "tex": "$y^*$",
+   "meaning": "Potential output: output consistent with the natural rate",
+   "kind": "Parameter",
+   "typical": "100",
+   "keys": [
+    "y*"
+   ]
+  },
+  {
+   "tex": "$y_t - y^*$",
+   "meaning": "Output gap",
+   "kind": "Endogenous",
+   "typical": "0",
+   "keys": [
+    "~y_t-y^*"
+   ]
+  },
+  {
+   "tex": "$\\gamma$",
+   "meaning": "Slope: how strongly inflation responds to the gap",
+   "kind": "Parameter",
+   "typical": "1",
+   "keys": [
+    "gamma"
+   ]
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "Intercept of the traditional curve (here not the IS slope)",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "alpha"
+   ]
+  },
+  {
+   "tex": "$\\epsilon^\\pi_t$",
+   "meaning": "Aggregate supply (inflation) shock",
+   "kind": "Exogenous",
+   "typical": "3 in the example",
+   "keys": [
+    "~\\epsilon^\\pi_t"
+   ]
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "When the economy runs hot, with output above what it can normally sustain, firms struggle to find workers and raise wages and prices faster, so inflation rises. When it runs cold, inflation falls. The first versions of this idea promised a stable menu: accept more inflation and get permanently lower unemployment. That broke down in the 1970s, when inflation and unemployment rose together. The fix was to add expectations: what pushes inflation up is not a strong economy as such, but a strong economy relative to what people already expect inflation to be. Supply shocks, such as an oil price jump, push inflation up on top."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the supply side of modern short-run models: the link from the output gap to inflation that central banks must manage.",
+       "folded": false
+      }
+     ],
+     "words": 131,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The traditional Phillips curve relates inflation to unemployment, $\\pi_t = \\alpha - \\gamma u_t$. The **expectations-augmented** version uses deviations from expectations and the natural rate,"
+      },
+      {
+       "t": "math",
+       "tex": "\\pi_t = \\pi^e_t - \\gamma(u_t - u^*)"
+      },
+      {
+       "t": "prose",
+       "md": "and, replacing unemployment with output, with an aggregate supply shock:"
+      },
+      {
+       "t": "math",
+       "tex": "\\pi_t = \\pi^e_t + \\gamma(y_t - y^*) + \\epsilon^\\pi_t"
+      }
+     ],
+     "words": 29,
+     "symbols": [
+      "$\\pi_t$",
+      "$\\pi^e_t$",
+      "$u_t$",
+      "$u^*$",
+      "$y_t$",
+      "$y^*$",
+      "$y_t - y^*$",
+      "$\\gamma$",
+      "$\\alpha$",
+      "$\\epsilon^\\pi_t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "history",
+   "heading": "History",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "history-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Version | Relationship | Origin |\n| --- | --- | --- |\n| Traditional | Wage growth (later price inflation) falls with unemployment | Phillips (1958), UK data; Samuelson and Solow, US 1960s |\n| Breakdown | Inflation and unemployment rose together in the 1970s and 1980s | — |\n| Expectations-augmented | Only inflation *surprises* move with unemployment | Friedman and Phelps |"
+      }
+     ],
+     "words": 45,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With $\\pi^e_t = 2$, $\\gamma = 1$ and $y^* = 100$: at $y_t = 99$ and no shock, $\\pi_t = 2 + (99 - 100) = 1$; a supply shock $\\epsilon^\\pi_t = 3$ at the same output gives $\\pi_t = 4$."
+      }
+     ],
+     "words": 14,
+     "symbols": [
+      "$\\pi_t$",
+      "$\\pi^e_t$",
+      "$y_t$",
+      "$y^*$",
+      "$\\gamma$",
+      "$\\epsilon^\\pi_t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Treating it as a menu.** Higher inflation buys lower unemployment only while it is unexpected; once $\\pi^e$ catches up, the gap closes.\n- **Sign of the slope.** In unemployment the slope is negative ($-\\gamma$); in output it is positive ($+\\gamma$).\n- **Shocks.** $\\epsilon^\\pi$ raises inflation at every level of output: a supply shock shifts the curve up."
+      }
+     ],
+     "words": 54,
+     "symbols": [
+      "$\\pi_t$",
+      "$\\gamma$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Macro: the supply block of the [IS-MP-PC Model](note:is-mp-pc-model) and of New Keynesian models; inflation forecasting."
+      }
+     ],
+     "words": 16,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [IS-MP-PC Model](note:is-mp-pc-model) · [Adaptive Expectations](note:adaptive-expectations) · [Monetary Policy Rule](note:monetary-policy-rule)"
+      }
+     ],
+     "words": 8,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

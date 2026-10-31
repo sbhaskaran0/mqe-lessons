@@ -1,0 +1,1883 @@
+{
+ "slug": "econ-402a-l6-keynesian-economics",
+ "notation": [
+  {
+   "tex": "$Y$",
+   "meaning": "Output (equal to income)",
+   "kind": "Endogenous",
+   "typical": "1,100 in the example",
+   "keys": [
+    "Y"
+   ],
+   "from": "keynesian-cross"
+  },
+  {
+   "tex": "$PE$",
+   "meaning": "Planned expenditure",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "~PE"
+   ],
+   "from": "keynesian-cross"
+  },
+  {
+   "tex": "$C$",
+   "meaning": "Consumption",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "C"
+   ],
+   "from": "keynesian-cross"
+  },
+  {
+   "tex": "$a$",
+   "meaning": "Autonomous consumption: spending that does not depend on income",
+   "kind": "Parameter",
+   "typical": "100 in the example",
+   "keys": [
+    "a"
+   ],
+   "from": "keynesian-cross"
+  },
+  {
+   "tex": "$b$",
+   "meaning": "Marginal propensity to consume (MPC): share of each extra unit of disposable income spent",
+   "kind": "Parameter in (0, 1)",
+   "typical": "0.8",
+   "keys": [
+    "b"
+   ],
+   "from": "keynesian-cross"
+  },
+  {
+   "tex": "$T$",
+   "meaning": "Taxes",
+   "kind": "Policy",
+   "typical": "100 in the example",
+   "keys": [
+    "T"
+   ],
+   "from": "keynesian-cross"
+  },
+  {
+   "tex": "$G$",
+   "meaning": "Government spending",
+   "kind": "Policy",
+   "typical": "100 in the example",
+   "keys": [
+    "G"
+   ],
+   "from": "keynesian-cross"
+  },
+  {
+   "tex": "$I^P$",
+   "meaning": "Planned investment: new capital goods and planned inventory changes",
+   "kind": "Exogenous (for now)",
+   "typical": "100 in the example",
+   "keys": [
+    "~I^P"
+   ],
+   "from": "keynesian-cross"
+  },
+  {
+   "tex": "$I^U$",
+   "meaning": "Unplanned investment: unplanned inventory changes",
+   "kind": "Endogenous",
+   "typical": "0 in equilibrium",
+   "keys": [
+    "~I^U"
+   ],
+   "from": "keynesian-cross"
+  },
+  {
+   "tex": "$I$",
+   "meaning": "Total investment, $I^P + I^U$",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "I"
+   ],
+   "from": "keynesian-cross"
+  },
+  {
+   "tex": "$Y^*$",
+   "meaning": "Equilibrium output",
+   "kind": "Endogenous",
+   "typical": "1,100 in the example",
+   "keys": [
+    "Y*"
+   ],
+   "from": "keynesian-cross"
+  },
+  {
+   "tex": "$S$",
+   "meaning": "National saving, $Y - C - G$",
+   "kind": "Endogenous",
+   "typical": "equals $I^P$ in equilibrium",
+   "keys": [
+    "S"
+   ],
+   "from": "keynesian-cross"
+  },
+  {
+   "tex": "$\\Delta G$",
+   "meaning": "Change in government spending",
+   "kind": "Policy",
+   "typical": "100",
+   "keys": [
+    "~\\DeltaG"
+   ],
+   "from": "keynesian-multiplier"
+  },
+  {
+   "tex": "$\\Delta I^P$",
+   "meaning": "Change in planned investment",
+   "kind": "Exogenous",
+   "typical": "100",
+   "keys": [
+    "~\\DeltaI^P"
+   ],
+   "from": "keynesian-multiplier"
+  },
+  {
+   "tex": "$\\Delta Y$",
+   "meaning": "Change in equilibrium output",
+   "kind": "Endogenous",
+   "typical": "500",
+   "keys": [
+    "~\\DeltaY"
+   ],
+   "from": "keynesian-multiplier"
+  },
+  {
+   "tex": "$r$",
+   "meaning": "Real interest rate (cost of borrowing)",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "r"
+   ],
+   "from": "is-curve"
+  },
+  {
+   "tex": "$d$",
+   "meaning": "Sensitivity of investment to the interest rate (per percentage point)",
+   "kind": "Parameter",
+   "typical": "20",
+   "keys": [
+    "d"
+   ],
+   "from": "is-curve"
+  },
+  {
+   "tex": "$y_t$, $y^*$",
+   "meaning": "Output and potential output (output-gap form)",
+   "kind": "Endogenous / exogenous",
+   "typical": "100",
+   "keys": [
+    "y",
+    "y*"
+   ],
+   "from": "is-curve"
+  },
+  {
+   "tex": "$r^*$",
+   "meaning": "Neutral (natural, Wicksellian) real rate: output equals potential when $r_t = r^*$",
+   "kind": "Parameter",
+   "typical": "2",
+   "keys": [
+    "r*"
+   ],
+   "from": "is-curve"
+  },
+  {
+   "tex": "$M^S$",
+   "meaning": "Money supply, set by the central bank",
+   "kind": "Policy",
+   "typical": "400 (real) in the example",
+   "keys": [
+    "~M^S"
+   ],
+   "from": "liquidity-preference"
+  },
+  {
+   "tex": "$M^d$",
+   "meaning": "Money demanded",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "~M^d"
+   ],
+   "from": "liquidity-preference"
+  },
+  {
+   "tex": "$P$",
+   "meaning": "Price level",
+   "kind": "Exogenous (short run)",
+   "typical": "—",
+   "keys": [
+    "P"
+   ],
+   "from": "liquidity-preference"
+  },
+  {
+   "tex": "$L(r, Y)$",
+   "meaning": "Real money demand (\"liquidity\")",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "L"
+   ],
+   "from": "liquidity-preference"
+  },
+  {
+   "tex": "$k$",
+   "meaning": "Sensitivity of money demand to income (linear example)",
+   "kind": "Parameter",
+   "typical": "0.5",
+   "keys": [
+    "k"
+   ],
+   "from": "liquidity-preference"
+  },
+  {
+   "tex": "$h$",
+   "meaning": "Sensitivity of money demand to the interest rate (linear example)",
+   "kind": "Parameter",
+   "typical": "50",
+   "keys": [
+    "h"
+   ],
+   "from": "liquidity-preference"
+  },
+  {
+   "tex": "$M^S/P$",
+   "meaning": "Real money supply",
+   "kind": "Policy",
+   "typical": "400 in the example",
+   "keys": [
+    "~M^S/P"
+   ],
+   "from": "lm-curve"
+  },
+  {
+   "tex": "$\\Delta M$",
+   "meaning": "Change in the real money supply",
+   "kind": "Policy",
+   "typical": "100",
+   "keys": [
+    "~\\DeltaM"
+   ],
+   "from": "is-lm-model"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Until now the course has let prices and wages adjust so that whatever is produced is bought: supply creates its own demand. Keynesian economics turns that around for the short run: demand creates supply. Output settles where planned spending, $PE = C + I^P + G$, equals output, so that no firm is surprised by its sales. With consumption $C = a + b(Y - T)$ that gives $Y^* = (a - bT + I^P + G)/(1 - b)$, and every extra unit of spending raises output by the multiplier $1/(1 - b)$, 5 when $b = 0.8$. Letting investment fall with the interest rate turns the goods market into the IS curve; the money market, where the interest rate balances money demand and the central bank's money supply, gives the LM curve. Their crossing is the IS-LM model: fiscal expansion raises output by less than the multiplier because it pushes up the interest rate (crowding out), monetary expansion lowers the rate and raises output, and at a zero interest rate money stops working while fiscal policy works almost fully.**"
+      }
+     ],
+     "words": 149,
+     "symbols": [
+      "$Y$",
+      "$PE$",
+      "$C$",
+      "$a$",
+      "$b$",
+      "$T$",
+      "$G$",
+      "$I^P$",
+      "$I$",
+      "$Y^*$",
+      "$P$"
+     ]
+    },
+    {
+     "id": "intro-2",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "info",
+       "title": "Sources and notation",
+       "md": "This summary follows the professor's **handwritten notes**, including their diagrams. The **typed notes** add the coordination view of equilibrium, saving and investment, the road example of the multiplier, Keynes's motives for holding money, and three monetary-policy cases (interest-rate targeting, monetary offset, the liquidity trap); their figures appear alongside. Neither set of notes has numbers for IS-LM: the widgets use illustrative values (IS: $Y = 1{,}600 - 100r$; LM: $r = 0.01Y - 8$), labelled as such.\n**Notation:** $Y^*$ and $r^*$ here are *equilibrium* output and interest rate. In the next lecture $y^*$ is potential output and $r^*$ the neutral rate. $I^P$ is planned and $I^U$ unplanned investment; $M^S$ is the money supply and $M^d$ (or $L$) money demand.\n**A wording point in both sets of notes:** they say consumption is \"a fixed fraction of income\" but write $C = a + b(Y - T)$: consumption is a fixed amount $a$ plus a fixed fraction $b$ of each extra unit of disposable income.",
+       "folded": false
+      }
+     ],
+     "words": 137,
+     "symbols": [
+      "$Y$",
+      "$C$",
+      "$a$",
+      "$b$",
+      "$T$",
+      "$I^P$",
+      "$I^U$",
+      "$I$",
+      "$Y^*$",
+      "$S$",
+      "$r$",
+      "$d$",
+      "$y_t$, $y^*$",
+      "$r^*$",
+      "$M^S$",
+      "$M^d$",
+      "$P$",
+      "$L(r, Y)$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1-where-this-fits",
+   "heading": "1. Where this fits",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-where-this-fits-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Lectures 1–5 were classical: the interest rate and the real wage adjust until saving equals investment and the labor market clears, so output is set by what the economy can supply. The handwritten notes sum this up as \"supply creates its own demand\". Keynesian economics is a short-run model in which the order is reversed: firms produce what they expect to sell, so total spending decides output — \"demand creates supply\". As the typed notes put it, many features of the model are outdated, but it is still a useful way to think about the economy, and it is the starting point for the modern model in [L7](note:econ-402a-l7-the-is-mp-pc-model)."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Keynesian economics - demand creates supply.png",
+       "alt": "Keynesian economics - demand creates supply"
+      }
+     ],
+     "words": 108,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "2-planned-expenditure-and-unplanned-investment",
+   "heading": "2. Planned expenditure and unplanned investment",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-planned-expenditure-and-unplanned-investment-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Planned expenditure is what households, firms and the government intend to spend:"
+      },
+      {
+       "t": "math",
+       "tex": "PE = C + I^P + G"
+      },
+      {
+       "t": "prose",
+       "md": "It looks like the GDP identity with one change: investment is *planned* investment $I^P$ — new factories and machines, plus inventory changes firms intend. Investment also has an unplanned part $I^U$: changes in inventories that happen because demand did not match supply. When $I^U > 0$, firms sold less than they produced; when $I^U < 0$, they sold more. The typed notes' example: a firm expects to sell 100 units but sells 80, so 20 go into inventories as unplanned investment."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Keynesian cross - planned and unplanned investment.png",
+       "alt": "Keynesian cross - planned and unplanned investment"
+      }
+     ],
+     "words": 84,
+     "symbols": [
+      "$PE$",
+      "$C$",
+      "$G$",
+      "$I^P$",
+      "$I^U$",
+      "$I$",
+      "$P$"
+     ]
+    },
+    {
+     "id": "2-planned-expenditure-and-unplanned-investment-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "A firm produces 100 units, planning to sell all of them, but sells 120 by running down its stock. What is its unplanned investment $I^U$?",
+       "options": [
+        {
+         "md": "$+20$",
+         "correct": false,
+         "feedback": "Positive unplanned investment means goods piled up unsold. Here sales beat production, so inventories fell."
+        },
+        {
+         "md": "$-20$",
+         "correct": true
+        },
+        {
+         "md": "$0$, because the firm planned no inventory change",
+         "correct": false,
+         "feedback": "Its plan was no change, but the surprise in sales changed inventories anyway: that surprise is exactly $I^U$."
+        },
+        {
+         "md": "$120$",
+         "correct": false,
+         "feedback": "120 is sales. Unplanned investment is the unplanned change in inventories, production minus sales here."
+        }
+       ],
+       "why": "Inventories fell by 20 that the firm did not plan, so $I^U = -20$: it sold more than it produced.",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 31,
+     "symbols": [
+      "$I^U$",
+      "$I$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "3-equilibrium-no-one-is-surprised",
+   "heading": "3. Equilibrium: no one is surprised",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "3-equilibrium-no-one-is-surprised-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "GDP counts all investment, planned or not: $Y = C + I + G$ with $I = I^P + I^U$. Keynes's idea of equilibrium is that everyone's plans work out, so no firm is surprised by its sales. In the goods market that means"
+      },
+      {
+       "t": "math",
+       "tex": "I^U = 0 \\iff I = I^P \\iff PE = Y"
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Keynesian cross - equilibrium when unplanned investment is zero.png",
+       "alt": "Keynesian cross - equilibrium when unplanned investment is zero"
+      },
+      {
+       "t": "prose",
+       "md": "The typed notes add the saving view ([Saving-Investment Identity](note:saving-investment-identity)). National saving $S = Y - C - G$ always equals total investment, $S = I^P + I^U$, because unsold goods count as investment. In equilibrium $I^U = 0$, so saving equals *planned* investment, $S = I^P$ — the \"investment = saving\" that gives the IS curve its name. Saving splits into private saving $Y - T - C$ and public saving $T - G$."
+      }
+     ],
+     "words": 78,
+     "symbols": [
+      "$Y$",
+      "$PE$",
+      "$C$",
+      "$T$",
+      "$G$",
+      "$I^P$",
+      "$I^U$",
+      "$I$",
+      "$S$",
+      "$P$"
+     ]
+    },
+    {
+     "id": "3-equilibrium-no-one-is-surprised-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Firms are producing more than households, firms and the government plan to buy, $Y > PE$. Which is true?",
+       "options": [
+        {
+         "md": "Unplanned inventory investment is positive, saving exceeds planned investment, and firms will cut production",
+         "correct": true
+        },
+        {
+         "md": "Unplanned investment is negative, and firms will raise production",
+         "correct": false,
+         "feedback": "Negative $I^U$ means sales beat production, which happens when $PE > Y$."
+        },
+        {
+         "md": "Saving no longer equals investment",
+         "correct": false,
+         "feedback": "$S = I$ always holds, because unsold goods count as (unplanned) investment. What fails is $S = I^P$."
+        },
+        {
+         "md": "The economy is in equilibrium, because everything produced is counted in GDP",
+         "correct": false,
+         "feedback": "Everything produced is counted, but not all of it was wanted: equilibrium needs $I^U = 0$."
+        }
+       ],
+       "why": "Goods produced but not bought pile up as inventories, $I^U = Y - PE > 0$. Saving equals total investment $I^P + I^U$, so it exceeds $I^P$. Firms that did not plan the stockpile cut back, and output falls toward $Y^*$.",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 56,
+     "symbols": [
+      "$Y$",
+      "$PE$",
+      "$I^P$",
+      "$I^U$",
+      "$I$",
+      "$Y^*$",
+      "$S$",
+      "$P$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "4-consumption-and-equilibrium-output",
+   "heading": "4. Consumption and equilibrium output",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "4-consumption-and-equilibrium-output-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Consumption has an autonomous part $a$ and rises with disposable income:"
+      },
+      {
+       "t": "math",
+       "tex": "C = a + b(Y - T), \\qquad 0 < b < 1"
+      },
+      {
+       "t": "prose",
+       "md": "$b$ is the **marginal propensity to consume**: the share of each extra unit of after-tax income that is spent."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Keynesian consumption function.png",
+       "alt": "Keynesian consumption function"
+      },
+      {
+       "t": "prose",
+       "md": "Equilibrium sets planned expenditure equal to output ([Keynesian Cross](note:keynesian-cross))."
+      }
+     ],
+     "words": 37,
+     "symbols": [
+      "$Y$",
+      "$C$",
+      "$a$",
+      "$b$",
+      "$T$"
+     ]
+    },
+    {
+     "id": "4-consumption-and-equilibrium-output-2",
+     "blocks": [
+      {
+       "t": "derive",
+       "title": "Solve $PE = Y$ for equilibrium output",
+       "objectives": [
+        3
+       ],
+       "symbols": [
+        "a",
+        "b",
+        "T",
+        "I_P",
+        "G"
+       ],
+       "inherited": [
+        {
+         "tex": "$Y$",
+         "typical": "1,100 in the example",
+         "from": "keynesian-cross"
+        },
+        {
+         "tex": "$PE$",
+         "typical": "—",
+         "from": "keynesian-cross"
+        },
+        {
+         "tex": "$a$",
+         "typical": "100 in the example",
+         "from": "keynesian-cross"
+        },
+        {
+         "tex": "$b$",
+         "typical": "0.8",
+         "from": "keynesian-cross"
+        },
+        {
+         "tex": "$T$",
+         "typical": "100 in the example",
+         "from": "keynesian-cross"
+        },
+        {
+         "tex": "$G$",
+         "typical": "100 in the example",
+         "from": "keynesian-cross"
+        },
+        {
+         "tex": "$I$",
+         "typical": "—",
+         "from": "keynesian-cross"
+        }
+       ],
+       "unknowns": [
+        "$Y$",
+        "$PE$"
+       ],
+       "dims": [],
+       "data": [],
+       "matrices": [],
+       "define": [],
+       "given": [
+        "PE = a + b(Y - T) + I_P + G",
+        "PE = Y"
+       ],
+       "steps": [
+        {
+         "md": "Set planned expenditure equal to output: $Y = a + b(Y - T) + I_P + G$",
+         "tex": "Y = a + b(Y - T) + I_P + G",
+         "hint": "In this derivation $I_P$ is planned investment, written $I^P$ in the notes."
+        },
+        {
+         "md": "Collect the terms in $Y$ on the left: $(1 - b)Y = a - bT + I_P + G$",
+         "tex": "(1 - b)Y = a - bT + I_P + G",
+         "hint": "Subtract $bY$ from both sides; the tax term stays as $-bT$."
+        },
+        {
+         "md": "Divide by $1 - b$: $Y = \\frac{a - bT + I_P + G}{1 - b}$",
+         "tex": "Y = \\frac{a - bT + I_P + G}{1 - b}"
+        }
+       ],
+       "accept": [],
+       "reject": [
+        {
+         "tex": "Y = \\frac{a - bT + I_P + G}{b}",
+         "md": "the $Y$ terms leave $(1 - b)Y$ on the left, so divide by $1 - b$, not $b$"
+        },
+        {
+         "tex": "Y = \\frac{a - T + I_P + G}{1 - b}",
+         "md": "taxes reduce consumption only by the share $b$ that would have been spent, so the term is $-bT$"
+        },
+        {
+         "tex": "Y = \\frac{a + bT + I_P + G}{1 - b}",
+         "md": "taxes lower disposable income, so they enter with a minus sign"
+        }
+       ]
+      }
+     ],
+     "words": 19,
+     "symbols": [
+      "$Y$",
+      "$PE$",
+      "$a$",
+      "$b$",
+      "$T$",
+      "$G$",
+      "$I^P$",
+      "$I$",
+      "$P$"
+     ]
+    },
+    {
+     "id": "4-consumption-and-equilibrium-output-3",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "Y^* = \\frac{1}{1 - b}\\left(a - bT + I^P + G\\right)"
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Keynesian cross - solving for equilibrium output and the multiplier.png",
+       "alt": "Keynesian cross - solving for equilibrium output and the multiplier",
+       "caption": "Hand-drawn: solving $PE = Y$, and the start of the multiplier example with $b = 0.8$."
+      }
+     ],
+     "words": 10,
+     "symbols": [
+      "$Y$",
+      "$PE$",
+      "$a$",
+      "$b$",
+      "$T$",
+      "$G$",
+      "$I^P$",
+      "$I$",
+      "$Y^*$",
+      "$P$"
+     ]
+    },
+    {
+     "id": "4-consumption-and-equilibrium-output-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "With $a = 100$, $b = 0.8$, $T = 100$, $I^P = 100$ and $G = 100$, what is equilibrium output $Y^*$?",
+       "answer": 1100.0,
+       "tol": 1.0,
+       "vary": [
+        {
+         "sym": "b",
+         "values": [
+          0.5,
+          0.6,
+          0.75,
+          0.8,
+          0.9
+         ]
+        }
+       ],
+       "compute": "\\frac{300 - 100b}{1 - b}",
+       "bindings": [
+        {
+         "sym": "a",
+         "value": 100.0,
+         "span": "$a = 100$"
+        },
+        {
+         "sym": "b",
+         "value": 0.8,
+         "span": "$b = 0.8$"
+        },
+        {
+         "sym": "T",
+         "value": 100.0,
+         "span": "$T = 100$"
+        },
+        {
+         "sym": "I^P",
+         "value": 100.0,
+         "span": "$I^P = 100$"
+        },
+        {
+         "sym": "G",
+         "value": 100.0,
+         "span": "$G = 100$"
+        }
+       ],
+       "wrongCompute": [
+        {
+         "tex": "\\frac{300}{1 - b}",
+         "md": "that leaves out the taxes: they lower consumption by $bT$"
+        },
+        {
+         "tex": "300 - 100b",
+         "md": "that is the bracket $a - bT + I^P + G$; multiply it by $1/(1 - b)$"
+        },
+        {
+         "tex": "\\frac{200}{1 - b}",
+         "md": "that subtracts the whole tax $T$ instead of $bT$"
+        }
+       ],
+       "why": "$a - bT + I^P + G = 100 - 80 + 100 + 100 = 220$, and $1/(1 - 0.8) = 5$, so $Y^* = 1{,}100$. Check: $C = 100 + 0.8 \\times 1{,}000 = 900$, and $900 + 100 + 100 = 1{,}100$.",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 6,
+     "symbols": [
+      "$C$",
+      "$a$",
+      "$b$",
+      "$T$",
+      "$G$",
+      "$I^P$",
+      "$I$",
+      "$Y^*$",
+      "$P$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "5-the-keynesian-cross",
+   "heading": "5. The Keynesian cross",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "5-the-keynesian-cross-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Plot planned expenditure against output. The 45° line marks every point where $PE = Y$; the planned-expenditure line has intercept $a - bT + I^P + G$ and slope $b < 1$, so it crosses the 45° line exactly once, at $Y^*$. To the left of $Y^*$ planned spending exceeds output: firms sell more than they make, inventories run down ($I^U < 0$), and they raise production. To the right, unsold goods pile up and they cut back."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Keynesian cross diagram (handwritten).png",
+       "alt": "Keynesian cross diagram (handwritten)",
+       "caption": "Hand-drawn: below $Y^*$, $PE > Y$."
+      }
+     ],
+     "words": 62,
+     "symbols": [
+      "$Y$",
+      "$PE$",
+      "$a$",
+      "$b$",
+      "$T$",
+      "$G$",
+      "$I^P$",
+      "$I^U$",
+      "$I$",
+      "$Y^*$",
+      "$P$"
+     ]
+    },
+    {
+     "id": "5-the-keynesian-cross-2",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Keynesian cross diagram.png",
+       "alt": "Keynesian cross diagram",
+       "caption": "Typed notes: the same diagram."
+      }
+     ],
+     "words": 5,
+     "symbols": []
+    },
+    {
+     "id": "5-the-keynesian-cross-3",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "keynesian-cross-explorer",
+       "state": {
+        "a": 100,
+        "b": 0.8,
+        "T": 100,
+        "Ip": 100,
+        "G": 100,
+        "Yp": 600
+       },
+       "lock": [
+        "a",
+        "b",
+        "T",
+        "Ip",
+        "G"
+       ],
+       "show": [
+        "line45",
+        "pe",
+        "produce",
+        "spend",
+        "gap"
+       ],
+       "highlight": "gap",
+       "prompt": "Drag output along the axis until planned spending equals what firms produce",
+       "goal": {
+        "when": "abs(Iu) < 1",
+        "success": "At $Y = 1{,}100$ planned expenditure is $100 + 0.8(1{,}100 - 100) + 100 + 100 = 1{,}100$: firms sell exactly what they make and $I^U = 0$. That is $Y^* = 220/(1 - 0.8)$.",
+        "hint": "At $Y = 600$ planned spending is 700: firms sell 100 more than they produce and inventories run down. Produce more."
+       },
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 12,
+     "symbols": [
+      "$Y$",
+      "$PE$",
+      "$a$",
+      "$b$",
+      "$T$",
+      "$G$",
+      "$I^P$",
+      "$I^U$",
+      "$I$",
+      "$Y^*$",
+      "$P$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "6-the-multiplier",
+   "heading": "6. The multiplier",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "6-the-multiplier-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Raise planned investment by 100 with $b = 0.8$. The 100 of new investment is income for someone, who spends 80 of it; that is income for someone else, who spends 64; and so on ([Keynesian Multiplier](note:keynesian-multiplier), a [Geometric Series](note:geometric-series)):"
+      },
+      {
+       "t": "math",
+       "tex": "100 + 0.8(100) + 0.8^2(100) + \\dots = \\frac{100}{1 - 0.8} = 500"
+      },
+      {
+       "t": "prose",
+       "md": "The **spending multiplier** is $1/(1 - b)$. A rise in $G$ has the same effect. The typed notes' road example: a 1 billion dollar road raises output by $1{,}000/(1 - 0.8) = 5{,}000$ million."
+      },
+      {
+       "t": "prose",
+       "md": "A **tax cut** of 100 has no first round: the government buys nothing, and households spend only 80 of the 100 they get back. The sum starts one step later:"
+      },
+      {
+       "t": "math",
+       "tex": "0.8(100) + 0.8^2(100) + \\dots = \\frac{b}{1 - b}(100) = \\left(\\frac{1}{1 - b} - 1\\right)(100) = 400"
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Keynesian multiplier - spending vs tax multiplier.png",
+       "alt": "Keynesian multiplier - spending vs tax multiplier"
+      }
+     ],
+     "words": 92,
+     "symbols": [
+      "$b$",
+      "$G$"
+     ]
+    },
+    {
+     "id": "6-the-multiplier-2",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "keynesian-cross-explorer",
+       "state": {
+        "a": 100,
+        "b": 0.8,
+        "T": 100,
+        "Ip": 100,
+        "G": 200,
+        "Yp": 1100
+       },
+       "lock": [
+        "a",
+        "b",
+        "T",
+        "Ip",
+        "G",
+        "Yp"
+       ],
+       "show": [
+        "line45",
+        "pe",
+        "eq",
+        "Ystar_out",
+        "mult_out"
+       ],
+       "highlight": "eq",
+       "prompt": "Raise government spending from 100 to 200 and predict the new equilibrium",
+       "predict": {
+        "hide": [
+         "eq",
+         "Ystar_out",
+         "mult_out"
+        ],
+        "ask": "With $b = 0.8$, equilibrium output was 1,100 when $G = 100$. Government spending rises to 200. What is the new equilibrium output?",
+        "readout": "Ystar_out",
+        "tol": 1
+       },
+       "objectives": [
+        4
+       ]
+      },
+      {
+       "t": "prose",
+       "md": "The planned-expenditure line shifts up by 100, but the crossing moves right by 500. A higher $b$ makes the line steeper and the multiplier larger: with $b = 0.9$ it is 10."
+      }
+     ],
+     "words": 40,
+     "symbols": [
+      "$Y$",
+      "$PE$",
+      "$a$",
+      "$b$",
+      "$T$",
+      "$G$",
+      "$I^P$",
+      "$I^U$",
+      "$I$",
+      "$Y^*$",
+      "$P$"
+     ]
+    },
+    {
+     "id": "6-the-multiplier-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "The government cuts taxes by 1,000 (one billion dollars). With a marginal propensity to consume of $b = 0.8$, by how much does equilibrium output rise?",
+       "answer": 4000.0,
+       "tol": 1.0,
+       "vary": [
+        {
+         "sym": "b",
+         "values": [
+          0.5,
+          0.6,
+          0.75,
+          0.8,
+          0.9
+         ]
+        }
+       ],
+       "compute": "\\frac{1000b}{1 - b}",
+       "bindings": [
+        {
+         "sym": "b",
+         "value": 0.8,
+         "span": "$b = 0.8$"
+        }
+       ],
+       "wrongCompute": [
+        {
+         "tex": "\\frac{1000}{1 - b}",
+         "md": "that is the spending multiplier; a tax cut has no first round of government purchases, so it is $b/(1 - b)$"
+        },
+        {
+         "tex": "1000b",
+         "md": "that is only the first round of extra consumption; each round is income for someone who spends the share $b$ of it"
+        }
+       ],
+       "why": "The rounds are $1{,}000(0.8) + 1{,}000(0.8)^2 + \\dots = 1{,}000 \\times 0.8/0.2 = 4{,}000$: one round less than the spending multiplier's $5{,}000$.",
+       "objectives": [
+        4
+       ]
+      }
+     ],
+     "words": 24,
+     "symbols": [
+      "$b$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "7-interest-rates-and-the-is-curve",
+   "heading": "7. Interest rates and the IS curve",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "7-interest-rates-and-the-is-curve-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "So far planned investment was fixed. But the interest rate is the cost of borrowing: when it is high, only the most profitable projects are worth doing, so planned investment falls as $r$ rises."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Planned investment falls with the interest rate.png",
+       "alt": "Planned investment falls with the interest rate"
+      }
+     ],
+     "words": 33,
+     "symbols": [
+      "$r$"
+     ]
+    },
+    {
+     "id": "7-interest-rates-and-the-is-curve-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A lower interest rate raises $I^P$, which shifts the planned-expenditure line up and raises equilibrium output. Doing this at every interest rate traces out the **IS curve** ([IS Curve](note:is-curve)): all combinations of $Y$ and $r$ at which the goods market is in equilibrium, $PE = Y$. It slopes down."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/From planned investment to the IS curve.png",
+       "alt": "From planned investment to the IS curve",
+       "caption": "Typed notes: two interest rates, two levels of planned investment, two equilibria on the Keynesian cross."
+      }
+     ],
+     "words": 59,
+     "symbols": [
+      "$Y$",
+      "$PE$",
+      "$I^P$",
+      "$I$",
+      "$r$",
+      "$P$"
+     ]
+    },
+    {
+     "id": "7-interest-rates-and-the-is-curve-3",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/IS curve (handwritten).png",
+       "alt": "IS curve (handwritten)"
+      },
+      {
+       "t": "prose",
+       "md": "Moving along the IS curve is a change in $r$. Anything else that raises $C$, $I$ or $G$ at a given interest rate — more government spending, lower taxes, more optimistic firms — shifts the IS curve right, by the multiplier times the change in spending."
+      }
+     ],
+     "words": 40,
+     "symbols": [
+      "$C$",
+      "$G$",
+      "$I$",
+      "$r$"
+     ]
+    },
+    {
+     "id": "7-interest-rates-and-the-is-curve-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Which of these shifts the IS curve to the right?",
+       "options": [
+        {
+         "md": "Government spending rises",
+         "correct": true
+        },
+        {
+         "md": "The interest rate falls",
+         "correct": false,
+         "feedback": "A lower rate raises investment and output, but that is a movement along the IS curve, which already plots output at every rate."
+        },
+        {
+         "md": "The central bank raises the money supply",
+         "correct": false,
+         "feedback": "The money supply is not in the goods market; it shifts the LM curve."
+        },
+        {
+         "md": "Taxes rise",
+         "correct": false,
+         "feedback": "Higher taxes cut disposable income and consumption at every rate: IS shifts left."
+        }
+       ],
+       "why": "The IS curve already shows output at every interest rate, so a change in $r$ moves along it. Anything that raises spending at a *given* rate shifts it: more $G$ raises planned expenditure by $\\Delta G$ and output by $\\Delta G/(1 - b)$ at each rate.",
+       "objectives": [
+        5
+       ]
+      }
+     ],
+     "words": 26,
+     "symbols": [
+      "$b$",
+      "$G$",
+      "$\\Delta G$",
+      "$r$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "8-the-money-market",
+   "heading": "8. The money market",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "8-the-money-market-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The money supply $M^S$ is set by the central bank. Money demand comes from **liquidity preference** ([Liquidity Preference](note:liquidity-preference)): people choose between cash, which pays $r = 0$ but is perfectly liquid, and bonds, which pay $r > 0$ but are less liquid. A higher interest rate makes holding cash more costly, so people hold more bonds and less cash: money demand slopes down in $r$."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Money market - liquidity preference.png",
+       "alt": "Money market - liquidity preference"
+      }
+     ],
+     "words": 57,
+     "symbols": [
+      "$S$",
+      "$r$",
+      "$M^S$"
+     ]
+    },
+    {
+     "id": "8-the-money-market-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The typed notes give Keynes's three motives for holding money: transactions (everyday purchases), precautionary (emergencies) and speculative (to buy assets later, for instance if bond prices are expected to fall). The speculative motive is what ties money demand to the interest rate; the transactions motive ties it to income. The notes write real money demand as $L$ for liquidity and divide by the price level."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Money demand curve.png",
+       "alt": "Money demand curve",
+       "caption": "Typed notes: real money demand $L(r)$ falls as the interest rate rises."
+      }
+     ],
+     "words": 75,
+     "symbols": [
+      "$r$",
+      "$L(r, Y)$"
+     ]
+    },
+    {
+     "id": "8-the-money-market-3",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Money market equilibrium.png",
+       "alt": "Money market equilibrium",
+       "caption": "Typed notes: equilibrium where money demand meets the fixed real money supply $M^S/P$."
+      }
+     ],
+     "words": 12,
+     "symbols": [
+      "$S$",
+      "$M^S$",
+      "$P$",
+      "$M^S/P$"
+     ]
+    },
+    {
+     "id": "8-the-money-market-4",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "When income rises from $Y_1$ to $Y_2$, people need more money for transactions, so money demand shifts right. At the old rate they want more money than exists ($M^d > M^S$), so they sell bonds; bond prices fall, and the interest rate rises until money demand again equals supply."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Money market - higher income raises money demand and the interest rate.png",
+       "alt": "Money market - higher income raises money demand and the interest rate"
+      }
+     ],
+     "words": 44,
+     "symbols": [
+      "$Y$",
+      "$S$",
+      "$d$",
+      "$M^S$",
+      "$M^d$"
+     ]
+    },
+    {
+     "id": "8-the-money-market-5",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Income rises while the central bank keeps the money supply fixed. What happens in the money market?",
+       "options": [
+        {
+         "md": "Money demand rises; people sell bonds, bond prices fall and the interest rate rises",
+         "correct": true
+        },
+        {
+         "md": "Money demand rises and the central bank must print money to meet it",
+         "correct": false,
+         "feedback": "In this model the central bank sets $M^S$; here it holds it fixed, so the interest rate does the adjusting."
+        },
+        {
+         "md": "People buy bonds, bond prices rise and the interest rate falls",
+         "correct": false,
+         "feedback": "At the old rate people want *more* money than there is, so they sell bonds to get it, not buy them."
+        },
+        {
+         "md": "Nothing: money demand depends only on the interest rate",
+         "correct": false,
+         "feedback": "Through the transactions motive, money demand also rises with income."
+        }
+       ],
+       "why": "Higher income shifts money demand right. With $M^S$ fixed, people try to get more cash by selling bonds; bond prices fall, so their return, the interest rate, rises until money demand is back down to the supply. Plotting these pairs of $Y$ and $r$ is the LM curve.",
+       "objectives": [
+        6
+       ]
+      }
+     ],
+     "words": 64,
+     "symbols": [
+      "$Y$",
+      "$S$",
+      "$r$",
+      "$M^S$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "9-the-lm-curve",
+   "heading": "9. The LM curve",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "9-the-lm-curve-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The **LM curve** ([LM Curve](note:lm-curve)) plots all combinations of $Y$ and $r$ at which the money market is in equilibrium. Higher income raises money demand, which raises the interest rate, so LM slopes up. A larger money supply lowers the rate at every income: LM shifts right. Anything that makes money more attractive to hold (the typed notes' example: a recession that raises uncertainty) shifts it left."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/LM curve (handwritten).png",
+       "alt": "LM curve (handwritten)",
+       "caption": "Hand-drawn: higher $Y$ raises $M^d$, which raises $r$, so LM slopes up."
+      }
+     ],
+     "words": 74,
+     "symbols": [
+      "$Y$",
+      "$r$",
+      "$d$",
+      "$M^d$"
+     ]
+    },
+    {
+     "id": "9-the-lm-curve-2",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Deriving the LM curve from money demand.png",
+       "alt": "Deriving the LM curve from money demand",
+       "caption": "Typed notes: two income levels give two interest rates; plotting them gives LM."
+      }
+     ],
+     "words": 13,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "10-is-lm-equilibrium",
+   "heading": "10. IS-LM equilibrium",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "10-is-lm-equilibrium-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The IS curve gives the goods-market equilibria, the LM curve the money-market equilibria; the one point on both is the equilibrium of the [IS-LM Model](note:is-lm-model), $(Y^*, r^*)$."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/IS-LM equilibrium (handwritten).png",
+       "alt": "IS-LM equilibrium (handwritten)"
+      }
+     ],
+     "words": 25,
+     "symbols": [
+      "$Y^*$",
+      "$r^*$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "11-fiscal-policy-and-crowding-out",
+   "heading": "11. Fiscal policy and crowding out",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "11-fiscal-policy-and-crowding-out-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Fiscal policy is a change in $G$ or $T$. A rise in $G$ shifts IS right by $\\Delta G/(1 - b)$: at the old interest rate, output would reach the Keynesian-cross level $Y_{KC}$. But higher output raises money demand, which pushes the economy up along LM to a higher interest rate, and the higher rate cuts planned investment. Output rises from $Y_1$ to $Y_2$, short of $Y_{KC}$. The handwritten notes write the total change as"
+      },
+      {
+       "t": "math",
+       "tex": "\\Delta Y = \\frac{1}{1 - b}\\left(\\Delta G + \\Delta I^P\\right), \\qquad \\Delta I^P < 0"
+      },
+      {
+       "t": "prose",
+       "md": "The fall in investment is **crowding out**. Its size depends on how strongly investment responds to the interest rate and on the slope of LM."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/IS-LM fiscal policy and crowding out (handwritten).png",
+       "alt": "IS-LM fiscal policy and crowding out (handwritten)"
+      }
+     ],
+     "words": 89,
+     "symbols": [
+      "$Y$",
+      "$b$",
+      "$T$",
+      "$G$",
+      "$I^P$",
+      "$I$",
+      "$\\Delta G$",
+      "$\\Delta I^P$",
+      "$\\Delta Y$",
+      "$P$"
+     ]
+    },
+    {
+     "id": "11-fiscal-policy-and-crowding-out-2",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "is-lm-explorer",
+       "state": {
+        "b": 0.8,
+        "G": 100,
+        "d": 20,
+        "M": 400,
+        "k": 0.5,
+        "h": 50,
+        "dG": 100,
+        "dM": 0
+       },
+       "lock": [
+        "dG",
+        "dM",
+        "G",
+        "M",
+        "b",
+        "d",
+        "k",
+        "h"
+       ],
+       "show": [
+        "is0",
+        "lm0",
+        "is1",
+        "eq0",
+        "eq1",
+        "kc",
+        "kcshift",
+        "Y1_out",
+        "r1_out",
+        "dY_out",
+        "crowd_out",
+        "Ip_out"
+       ],
+       "highlight": "kcshift",
+       "prompt": "Raise government spending by 100 and predict how much output rises once the interest rate responds",
+       "predict": {
+        "hide": [
+         "is1",
+         "eq1",
+         "Y1_out",
+         "r1_out",
+         "dY_out",
+         "crowd_out",
+         "Ip_out"
+        ],
+        "ask": "In the illustrative economy, output is 1,200 and the interest rate 4. Government spending rises by 100, which shifts IS right by $100/(1 - 0.8) = 500$. By how much does equilibrium output rise?",
+        "readout": "dY_out",
+        "tol": 1
+       },
+       "objectives": [
+        7
+       ]
+      }
+     ],
+     "words": 16,
+     "symbols": [
+      "$Y$",
+      "$b$",
+      "$G$",
+      "$I^P$",
+      "$I$",
+      "$Y^*$",
+      "$S$",
+      "$\\Delta G$",
+      "$\\Delta Y$",
+      "$r$",
+      "$d$",
+      "$r^*$",
+      "$M^S$",
+      "$P$",
+      "$L(r, Y)$",
+      "$k$",
+      "$h$",
+      "$M^S/P$",
+      "$\\Delta M$"
+     ]
+    },
+    {
+     "id": "11-fiscal-policy-and-crowding-out-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Output rises by 250, to 1,450, and the rate rises to 6.5. At that rate planned investment is $200 - 20 \\times 6.5 = 70$ instead of 120: the fall of 50 in investment, multiplied by 5, is the 250 that is crowded out."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/IS-LM fiscal expansion.png",
+       "alt": "IS-LM fiscal expansion",
+       "caption": "Typed notes: the same shift, with $IS_1(G_1)$ and $IS_2(G_2)$."
+      }
+     ],
+     "words": 46,
+     "symbols": [
+      "$G$",
+      "$I$",
+      "$S$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "12-monetary-policy",
+   "heading": "12. Monetary policy",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "12-monetary-policy-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Before 2008, the handwritten notes say, the central bank controlled interest rates indirectly by moving the money supply. To raise it, the Fed buys bonds from the market and pays with newly created money: $M^S$ rises and the interest rate falls."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Monetary policy - open market purchase lowers the interest rate.png",
+       "alt": "Monetary policy - open market purchase lowers the interest rate"
+      }
+     ],
+     "words": 40,
+     "symbols": [
+      "$S$",
+      "$M^S$"
+     ]
+    },
+    {
+     "id": "12-monetary-policy-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "In IS-LM a larger money supply shifts LM right: the interest rate falls, planned investment rises, and output rises."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/IS-LM monetary expansion (handwritten).png",
+       "alt": "IS-LM monetary expansion (handwritten)"
+      }
+     ],
+     "words": 19,
+     "symbols": []
+    },
+    {
+     "id": "12-monetary-policy-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The typed notes add two strategies. Under **interest-rate targeting** — how the Fed actually works today — the central bank picks a rate and adjusts the money supply to hold it. If a fiscal expansion shifts IS right, it shifts LM right too, so the rate stays put, there is no crowding out, and the spending increase gets the full Keynesian multiplier."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/IS-LM interest rate targeting.png",
+       "alt": "IS-LM interest rate targeting"
+      }
+     ],
+     "words": 60,
+     "symbols": []
+    },
+    {
+     "id": "12-monetary-policy-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "In the illustrative economy, after government spending rises by 100 the IS curve is $Y = 2{,}100 - 100r$, and money-market equilibrium is $M^S/P = 0.5Y - 50r$ with $M^S/P = 400$ to start. By how much must the central bank raise the real money supply to keep the interest rate at 4?",
+       "answer": 250.0,
+       "tol": 1.0,
+       "wrong": [
+        {
+         "answer": 650.0,
+         "tol": 1.0,
+         "md": "that is the new money supply; the question asks for the increase from 400"
+        },
+        {
+         "answer": 500.0,
+         "tol": 1.0,
+         "md": "that is the rise in output at a constant rate; money demand rises by only $0.5 \\times 500$"
+        },
+        {
+         "answer": 100.0,
+         "tol": 1.0,
+         "md": "that matches the rise in government spending; what has to be met is the extra money demand from higher output"
+        }
+       ],
+       "why": "At $r = 4$ the new IS gives $Y = 2{,}100 - 400 = 1{,}700$. Money demand there is $0.5 \\times 1{,}700 - 50 \\times 4 = 650$, so the supply must rise from 400 to 650, by 250. Output rises by the full $100/(1 - 0.8) = 500$.",
+       "objectives": [
+        7
+       ]
+      }
+     ],
+     "words": 40,
+     "symbols": [
+      "$Y$",
+      "$S$",
+      "$r$",
+      "$M^S$",
+      "$P$",
+      "$M^S/P$"
+     ]
+    },
+    {
+     "id": "12-monetary-policy-5",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Under **monetary offset**, the central bank works against fiscal policy: if it thinks the economy is near full employment, it may raise rates to prevent inflation, shifting LM left so that output stays at $Y^*$ and only the interest rate rises."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/IS-LM monetary offset.png",
+       "alt": "IS-LM monetary offset"
+      }
+     ],
+     "words": 40,
+     "symbols": [
+      "$Y^*$"
+     ]
+    },
+    {
+     "id": "12-monetary-policy-6",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "The government raises spending, and the central bank fully offsets it to keep output where it was. Compared with no policy response, what happens?",
+       "options": [
+        {
+         "md": "The money supply falls, the interest rate rises further, and output does not change",
+         "correct": true
+        },
+        {
+         "md": "The money supply rises, the interest rate stays put, and output rises by the full multiplier",
+         "correct": false,
+         "feedback": "That is interest-rate targeting, where the central bank accommodates the fiscal expansion."
+        },
+        {
+         "md": "The money supply falls and both the interest rate and output fall",
+         "correct": false,
+         "feedback": "The bank shifts LM left only until output is back at its old level, not below it."
+        },
+        {
+         "md": "Nothing: monetary policy cannot offset fiscal policy",
+         "correct": false,
+         "feedback": "Shifting LM left raises the rate until the fall in investment cancels the extra government spending."
+        }
+       ],
+       "why": "To keep output at its old level the bank shrinks the money supply, shifting LM left until it meets the new IS curve at the old output. The interest rate rises by more than under crowding out alone, and investment falls by exactly the rise in $G$. In the illustrative economy, after $G$ rises by 100 the money supply must fall by 250 and the rate rises to 9.",
+       "objectives": [
+        7
+       ]
+      }
+     ],
+     "words": 73,
+     "symbols": [
+      "$G$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "13-the-zero-lower-bound",
+   "heading": "13. The zero lower bound",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "13-the-zero-lower-bound-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Interest rates cannot be pushed below zero: rather than hold a bond paying less than nothing, everyone would just hold cash. Once the rate reaches zero, money and bonds are close substitutes and extra money is simply held — a **liquidity trap** ([Zero Lower Bound](note:zero-lower-bound)). The LM curve is flat at $r = 0$, and when IS crosses it there, shifting LM right does not raise output. The typed notes add the flip side: shifting IS is especially effective, because the interest rate barely moves and crowding out is small. This happens when spending is exceptionally low."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Zero lower bound and the liquidity trap (handwritten).png",
+       "alt": "Zero lower bound and the liquidity trap (handwritten)",
+       "caption": "Hand-drawn: money demand flat at $r = 0$ (left); IS meets the flat part of LM, and shifting LM right changes nothing (right)."
+      }
+     ],
+     "words": 113,
+     "symbols": [
+      "$r$"
+     ]
+    },
+    {
+     "id": "13-the-zero-lower-bound-2",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/IS-LM liquidity trap.png",
+       "alt": "IS-LM liquidity trap"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    },
+    {
+     "id": "13-the-zero-lower-bound-3",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "is-lm-explorer",
+       "state": {
+        "b": 0.8,
+        "G": 100,
+        "d": 20,
+        "M": 1000,
+        "k": 0.5,
+        "h": 50,
+        "dG": 0,
+        "dM": 200
+       },
+       "lock": [
+        "G",
+        "M",
+        "b",
+        "d",
+        "k",
+        "h"
+       ],
+       "show": [
+        "is0",
+        "lm0",
+        "is1",
+        "lm1",
+        "eq0",
+        "eq1",
+        "Y1_out",
+        "r1_out",
+        "dY_out"
+       ],
+       "highlight": "lm1",
+       "prompt": "At a zero interest rate, add money; then try government spending instead",
+       "predict": {
+        "hide": [
+         "lm1",
+         "eq1",
+         "Y1_out",
+         "r1_out",
+         "dY_out"
+        ],
+        "ask": "The real money supply is already 1,000: the interest rate is 0 and output 1,600. The central bank adds another 200. What happens?",
+        "options": [
+         "Output rises by about 100, as when money rose from 400 to 500",
+         "Nothing: the rate stays at 0 and output at 1,600",
+         "The interest rate turns negative and output rises",
+         "The interest rate rises and output falls"
+        ],
+        "answer": 1,
+        "why": "Shifting LM right only lengthens its flat part at $r = 0$, so it still meets IS at $Y = 1{,}600$. Now set $\\Delta M$ to 0 and raise $\\Delta G$ to 100: output rises by 450, almost the full 500, because the rate only rises to 0.5.",
+        "feedback": [
+         "That was on the rising part of LM, where more money lowers the rate. Here the rate is already 0 and cannot fall, so borrowing does not get cheaper.",
+         null,
+         "Nobody would hold a bond paying less than cash: the rate cannot go below zero.",
+         "More money never raises the rate here; at worst, as now, it leaves it unchanged."
+        ]
+       },
+       "objectives": [
+        8
+       ]
+      }
+     ],
+     "words": 12,
+     "symbols": [
+      "$Y$",
+      "$b$",
+      "$G$",
+      "$I^P$",
+      "$I$",
+      "$Y^*$",
+      "$S$",
+      "$\\Delta G$",
+      "$\\Delta Y$",
+      "$r$",
+      "$d$",
+      "$r^*$",
+      "$M^S$",
+      "$P$",
+      "$L(r, Y)$",
+      "$k$",
+      "$h$",
+      "$M^S/P$",
+      "$\\Delta M$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "math-refresher",
+   "heading": "Math refresher",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "math-refresher-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Math Prep L7 Approximations Logs and Series](note:math-prep-l7-approximations-logs-and-series) — the [Geometric Series](note:geometric-series) behind the multiplier"
+      }
+     ],
+     "words": 14,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Contrast \"supply creates its own demand\" with \"demand creates supply\", define planned expenditure, and tell planned from unplanned investment.\n2. Explain why equilibrium requires $I^U = 0$, equivalently $PE = Y$ and $S = I^P$.\n3. Solve the Keynesian cross for $Y^* = (a - bT + I^P + G)/(1 - b)$, compute it, and draw the diagram, explaining what happens away from $Y^*$.\n4. Derive the spending and tax multipliers as geometric sums, explain why the tax multiplier is smaller, and compute both.\n5. Derive the IS curve from the dependence of planned investment on the interest rate, and say what moves along it and what shifts it.\n6. Explain liquidity preference and money-market equilibrium, and derive the LM curve and what shifts it."
+      }
+     ],
+     "words": 105,
+     "symbols": [
+      "$Y$",
+      "$PE$",
+      "$a$",
+      "$b$",
+      "$T$",
+      "$G$",
+      "$I^P$",
+      "$I^U$",
+      "$I$",
+      "$Y^*$",
+      "$S$",
+      "$P$"
+     ]
+    },
+    {
+     "id": "what-to-be-able-to-do-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "7. Use IS-LM to analyze fiscal policy (with crowding out), monetary policy, interest-rate targeting and monetary offset.\n8. Explain the zero lower bound and the liquidity trap, and why fiscal policy works better than monetary policy there."
+      }
+     ],
+     "words": 37,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "keynesian-cross",
+        "keynesian-multiplier",
+        "saving-investment-identity",
+        "is-curve",
+        "liquidity-preference",
+        "lm-curve",
+        "is-lm-model",
+        "zero-lower-bound",
+        "geometric-series"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

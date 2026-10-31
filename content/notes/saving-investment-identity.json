@@ -64,6 +64,24 @@
    "keys": [
     "~NX"
    ]
+  },
+  {
+   "tex": "$I^P$",
+   "meaning": "Planned investment",
+   "kind": "Exogenous or $I^P(r)$",
+   "typical": "—",
+   "keys": [
+    "~I^P"
+   ]
+  },
+  {
+   "tex": "$I^U$",
+   "meaning": "Unplanned investment: unplanned inventory changes",
+   "kind": "Endogenous",
+   "typical": "0 in equilibrium",
+   "keys": [
+    "~I^U"
+   ]
   }
  ],
  "sections": [
@@ -179,6 +197,48 @@
    ]
   },
   {
+   "id": "planned-versus-actual-investment",
+   "heading": "Planned versus actual investment",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "planned-versus-actual-investment-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With a government, national saving is $S = Y - C - G$, and the identity still holds: $S = I$. But measured investment includes **unplanned** changes in inventories — goods produced and not sold — so"
+      },
+      {
+       "t": "math",
+       "tex": "S = I = I^P + I^U"
+      },
+      {
+       "t": "prose",
+       "md": "holds at every level of output. The identity says nothing about which output the economy settles at. In the [Keynesian Cross](note:keynesian-cross), equilibrium is where nothing is unplanned, $I^U = 0$, so"
+      },
+      {
+       "t": "math",
+       "tex": "S = I^P"
+      },
+      {
+       "t": "prose",
+       "md": "Saving equals *planned* investment: this is where the [IS Curve](note:is-curve) (investment = saving) gets its name. National saving splits into private saving $Y - T - C$ and public saving $T - G$."
+      }
+     ],
+     "words": 77,
+     "symbols": [
+      "$Y$",
+      "$C$",
+      "$I$",
+      "$S$",
+      "$T$, $G$",
+      "$I^P$",
+      "$I^U$"
+     ]
+    }
+   ]
+  },
+  {
    "id": "common-mistakes",
    "heading": "Common mistakes",
    "role": "depth",
@@ -188,12 +248,15 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "- Reading it as causal: it is an accounting identity. Behaviour enters through assumptions like a fixed $s$."
+       "md": "- Reading it as causal: it is an accounting identity. Behaviour enters through assumptions like a fixed $s$.\n- Confusing $S = I$ (always true, because $I$ includes unplanned inventories) with $S = I^P$ (true only in goods-market equilibrium)."
       }
      ],
-     "words": 17,
+     "words": 31,
      "symbols": [
-      "$s$"
+      "$I$",
+      "$S$",
+      "$s$",
+      "$I^P$"
      ]
     }
    ]
@@ -208,11 +271,15 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "- **Macro / growth**: links saving behaviour to the [Capital Accumulation Equation](note:capital-accumulation-equation) in the [Solow Growth Model](note:solow-growth-model)."
+       "md": "- **Macro / growth**: links saving behaviour to the [Capital Accumulation Equation](note:capital-accumulation-equation) in the [Solow Growth Model](note:solow-growth-model).\n- **Macro / short run**: goods-market equilibrium $S = I^P$ in the [Keynesian Cross](note:keynesian-cross) and the [IS Curve](note:is-curve)."
       }
      ],
-     "words": 16,
-     "symbols": []
+     "words": 30,
+     "symbols": [
+      "$I$",
+      "$S$",
+      "$I^P$"
+     ]
     }
    ]
   },
@@ -226,10 +293,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "- [Capital Accumulation Equation](note:capital-accumulation-equation)"
+       "md": "- [Capital Accumulation Equation](note:capital-accumulation-equation) · [Keynesian Cross](note:keynesian-cross) · [IS Curve](note:is-curve)"
       }
      ],
-     "words": 4,
+     "words": 8,
      "symbols": []
     }
    ]

@@ -1,0 +1,265 @@
+{
+ "slug": "monetary-policy-rule",
+ "notation": [
+  {
+   "tex": "$i_t$",
+   "meaning": "Nominal policy interest rate",
+   "kind": "Policy (endogenous to the rule)",
+   "typical": "4 at target in the example",
+   "keys": [
+    "i"
+   ]
+  },
+  {
+   "tex": "$r^*$",
+   "meaning": "Neutral real interest rate",
+   "kind": "Parameter",
+   "typical": "2",
+   "keys": [
+    "r*"
+   ]
+  },
+  {
+   "tex": "$\\pi^*$",
+   "meaning": "Inflation target",
+   "kind": "Policy parameter",
+   "typical": "2",
+   "keys": [
+    "pi*"
+   ]
+  },
+  {
+   "tex": "$\\pi_t$",
+   "meaning": "Inflation",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "pi"
+   ]
+  },
+  {
+   "tex": "$\\beta_\\pi$",
+   "meaning": "Response of the policy rate to inflation",
+   "kind": "Parameter",
+   "typical": "1.5",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$\\beta_y$",
+   "meaning": "Response to the output gap (Taylor rule)",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$y_t$, $y^*$",
+   "meaning": "Output and potential output",
+   "kind": "Endogenous / parameter",
+   "typical": "100",
+   "keys": [
+    "y",
+    "y*"
+   ]
+  },
+  {
+   "tex": "$r_t$",
+   "meaning": "Real interest rate",
+   "kind": "Endogenous",
+   "typical": "3 in the example",
+   "keys": [
+    "r"
+   ],
+   "from": "real-and-nominal-interest-rates"
+  },
+  {
+   "tex": "$y_t - y^*$",
+   "meaning": "Output gap",
+   "kind": "Endogenous",
+   "typical": "0",
+   "keys": [
+    "~y_t-y^*"
+   ],
+   "from": "phillips-curve"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Modern central banks do not pick a quantity of money; they pick an interest rate and steer markets to it. A rule says how: when inflation is on target, set the rate so that the real interest rate is at its neutral level, neither stimulating nor slowing the economy. When inflation runs above target, raise the rate; when below, cut it. How hard the bank reacts matters: if it raises the nominal rate by more than inflation rose, the real rate goes up and spending cools. A dual-mandate bank like the Federal Reserve also reacts to output being above or below potential."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It replaces the LM curve in modern models and determines how inflation and output respond to shocks.",
+       "folded": false
+      }
+     ],
+     "words": 122,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "An inflation-targeting rule:"
+      },
+      {
+       "t": "math",
+       "tex": "i_t = r^* + \\pi^* + \\beta_\\pi(\\pi_t - \\pi^*)"
+      },
+      {
+       "t": "prose",
+       "md": "The **Taylor rule** adds a response to the output gap:"
+      },
+      {
+       "t": "math",
+       "tex": "i_t = r^* + \\pi^* + \\beta_\\pi(\\pi_t - \\pi^*) + \\beta_y(y_t - y^*)"
+      }
+     ],
+     "words": 13,
+     "symbols": [
+      "$i_t$",
+      "$r^*$",
+      "$\\pi^*$",
+      "$\\pi_t$",
+      "$\\beta_\\pi$",
+      "$\\beta_y$",
+      "$y_t$, $y^*$",
+      "$y_t - y^*$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "how-the-rule-works",
+   "heading": "How the rule works",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "how-the-rule-works-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "At target ($\\pi_t = \\pi^*$), $i_t = r^* + \\pi^*$, so the real rate $i_t - \\pi_t$ equals $r^*$. When inflation rises by one point, the nominal rate rises by $\\beta_\\pi$ points and the real rate by $\\beta_\\pi - 1$. With $\\beta_\\pi > 1$ (the **Taylor principle**, beyond the lecture's name for it) the real rate rises and demand cools; with $\\beta_\\pi < 1$ the real rate *falls* and inflation feeds on itself."
+      }
+     ],
+     "words": 51,
+     "symbols": [
+      "$i_t$",
+      "$r^*$",
+      "$\\pi^*$",
+      "$\\pi_t$",
+      "$\\beta_\\pi$",
+      "$\\beta_y$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With $r^* = 2$, $\\pi^* = 2$, $\\beta_\\pi = 1.5$: at $\\pi_t = 2$, $i_t = 4$; at $\\pi_t = 4$, $i_t = 2 + 2 + 1.5 \\times 2 = 7$, so the real rate rises from 2 to 3."
+      }
+     ],
+     "words": 12,
+     "symbols": [
+      "$i_t$",
+      "$r^*$",
+      "$\\pi^*$",
+      "$\\pi_t$",
+      "$\\beta_\\pi$",
+      "$\\beta_y$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Nominal vs real.** The bank sets $i$; spending responds to $r = i - \\pi$ ([Real and Nominal Interest Rates](note:real-and-nominal-interest-rates)).\n- **Raising rates one-for-one is not enough.** With $\\beta_\\pi = 1$ the real rate does not change.\n- **The floor.** The rule can prescribe a negative rate; at the [Zero Lower Bound](note:zero-lower-bound) the bank can only hold $i = 0$."
+      }
+     ],
+     "words": 49,
+     "symbols": [
+      "$i_t$",
+      "$\\pi_t$",
+      "$\\beta_\\pi$",
+      "$\\beta_y$",
+      "$r_t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Macro: the MP block of the [IS-MP-PC Model](note:is-mp-pc-model); describing actual Fed behavior (Taylor's rule matched the Fed's 1980s rate setting reasonably well)."
+      }
+     ],
+     "words": 23,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [IS-MP-PC Model](note:is-mp-pc-model) · [Real and Nominal Interest Rates](note:real-and-nominal-interest-rates) · [LM Curve](note:lm-curve) · [Zero Lower Bound](note:zero-lower-bound) · [Phillips Curve](note:phillips-curve)"
+      }
+     ],
+     "words": 15,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

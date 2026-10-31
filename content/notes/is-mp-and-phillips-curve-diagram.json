@@ -1,0 +1,214 @@
+{
+ "slug": "is-mp-and-phillips-curve-diagram",
+ "notation": [
+  {
+   "tex": "$\\pi_t$",
+   "meaning": "Inflation",
+   "kind": "Endogenous",
+   "typical": "2 at target",
+   "keys": [
+    "pi"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$\\pi^e_t$",
+   "meaning": "Expected inflation",
+   "kind": "State (given in the period)",
+   "typical": "2",
+   "keys": [
+    "~\\pi^e_t"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$\\pi^*$",
+   "meaning": "Inflation target",
+   "kind": "Policy parameter",
+   "typical": "2",
+   "keys": [
+    "pi*"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$y_t$",
+   "meaning": "Output",
+   "kind": "Endogenous",
+   "typical": "100",
+   "keys": [
+    "y"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$y^*$",
+   "meaning": "Potential output",
+   "kind": "Parameter",
+   "typical": "100",
+   "keys": [
+    "y*"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$i_t$",
+   "meaning": "Nominal policy rate",
+   "kind": "Endogenous",
+   "typical": "4 at target",
+   "keys": [
+    "i"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "Sensitivity of output to the real rate (IS slope)",
+   "kind": "Parameter",
+   "typical": "1",
+   "keys": [
+    "alpha"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$\\gamma$",
+   "meaning": "Slope of the Phillips curve",
+   "kind": "Parameter",
+   "typical": "1",
+   "keys": [
+    "gamma"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$\\beta_\\pi$",
+   "meaning": "Policy response to inflation",
+   "kind": "Parameter",
+   "typical": "1.5",
+   "keys": [
+    "beta"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$\\theta$",
+   "meaning": "Weight on expectations and shocks, $1/(1 + \\alpha\\gamma(\\beta_\\pi - 1))$",
+   "kind": "Parameter combination",
+   "typical": "2/3",
+   "keys": [
+    "theta"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$\\epsilon^\\pi_t$",
+   "meaning": "Aggregate supply shock",
+   "kind": "Exogenous",
+   "typical": "3 in the example",
+   "keys": [
+    "~\\epsilon^\\pi_t"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$\\epsilon^y_t$",
+   "meaning": "Aggregate demand shock",
+   "kind": "Exogenous",
+   "typical": "0",
+   "keys": [
+    "~\\epsilon^y_t"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$y_t - y^*$",
+   "meaning": "Output gap",
+   "kind": "Endogenous",
+   "typical": "0",
+   "keys": [
+    "~y_t-y^*"
+   ],
+   "from": "phillips-curve"
+  },
+  {
+   "tex": "$r_t$",
+   "meaning": "Real interest rate",
+   "kind": "Endogenous",
+   "typical": "3 in the example",
+   "keys": [
+    "r"
+   ],
+   "from": "real-and-nominal-interest-rates"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "is-mp-and-phillips-curve-diagram"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$\\pi_t$",
+      "$\\pi^e_t$",
+      "$\\pi^*$",
+      "$y_t$",
+      "$y^*$",
+      "$i_t$",
+      "$\\alpha$",
+      "$\\gamma$",
+      "$\\beta_\\pi$",
+      "$\\theta$",
+      "$\\epsilon^\\pi_t$",
+      "$\\epsilon^y_t$",
+      "$y_t - y^*$",
+      "$r_t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Purpose.** See the period's outcome as the crossing of two curves in $(y, \\pi)$: the Phillips curve (supply) and the IS-MP curve (demand, with the central bank's rule built in). A supply shock shifts the Phillips curve up and the economy slides up and left along IS-MP: inflation up, output down. A tougher central bank flattens IS-MP, so the same shock raises inflation less and cuts output more.\n- **Model.** A view of [Three-Equation Macro Model](note:three-equation-macro-model); dashed curves are the no-shock, expectations-at-target references.\n- **Elements.** Panel `ismppc`: curves `pc0`, `ismp0`, `pc`, `ismp`; points `target`, `eq`. Readouts `pi_out`, `y_out`, `i_out`, `r_out`, `th_out`."
+      }
+     ],
+     "words": 105,
+     "symbols": [
+      "$\\pi_t$",
+      "$y_t$"
+     ]
+    },
+    {
+     "id": "notes-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Goal it supports.** `abs(pist - 3) < 0.01` with a supply shock of 3: met only at $\\beta_\\pi = 3$ on the 0.25 grid.\n- **Tests.** The notes' period-2 numbers and computed cases, Python."
+      }
+     ],
+     "words": 34,
+     "symbols": [
+      "$\\beta_\\pi$"
+     ]
+    }
+   ]
+  }
+ ]
+}

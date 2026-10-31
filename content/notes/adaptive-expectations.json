@@ -1,0 +1,183 @@
+{
+ "slug": "adaptive-expectations",
+ "notation": [
+  {
+   "tex": "$\\pi^e_t$",
+   "meaning": "Inflation expected for period $t$",
+   "kind": "Endogenous (state)",
+   "typical": "4 after a shock to 4",
+   "keys": [
+    "~\\pi^e_t"
+   ]
+  },
+  {
+   "tex": "$\\pi_{t-1}$",
+   "meaning": "Last period's inflation",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "pi"
+   ]
+  },
+  {
+   "tex": "$\\pi_t$",
+   "meaning": "Inflation in period $t$",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "pi"
+   ]
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "How do people guess next year's inflation? One simple answer is that they assume it will be like last year's. If prices rose 4 percent last year, they expect about 4 percent this year, and they set wages and prices accordingly. That rule looks backward and corrects itself only slowly. An alternative is that people understand how the economy works: if they know the central bank will raise rates hard after an inflation spike, they expect inflation to fall back quickly. That forward-looking view is called rational expectations."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "How expectations are formed decides whether an inflation shock dies out at once or lingers, and so how costly it is to bring inflation down.",
+       "folded": false
+      }
+     ],
+     "words": 116,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The simplest adaptive rule sets expected inflation equal to last period's actual inflation:"
+      },
+      {
+       "t": "math",
+       "tex": "\\pi^e_t = \\pi_{t-1}"
+      },
+      {
+       "t": "prose",
+       "md": "More elaborate versions weight several past periods. Under **rational expectations**, $\\pi^e_t$ is the model's own forecast given everything known, including policy responses."
+      }
+     ],
+     "words": 34,
+     "symbols": [
+      "$\\pi^e_t$",
+      "$\\pi_{t-1}$",
+      "$\\pi_t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "In a three-equation model where $\\pi_t = \\tfrac{2}{3}\\pi^e_t + \\tfrac{1}{3}\\cdot 2$ without shocks, a one-period supply shock that lifts inflation to 4 is followed, with $\\pi^e_t = \\pi_{t-1}$, by 3.33, 2.89, 2.59, … back toward 2. See [IS-MP-PC Model](note:is-mp-pc-model)."
+      }
+     ],
+     "words": 32,
+     "symbols": [
+      "$\\pi^e_t$",
+      "$\\pi_{t-1}$",
+      "$\\pi_t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Thinking adaptive expectations are never right: in a stable environment, last year's inflation is a decent forecast.\n- Confusing \"expectations equal last period\" with \"this period equals next period\"."
+      }
+     ],
+     "words": 30,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "history",
+   "heading": "History",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "history-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Adaptive expectations were central to Friedman's and Phelps's work on the Phillips curve in the 1960s; Robert Lucas and others developed rational expectations."
+      }
+     ],
+     "words": 23,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Macro: closing the [Phillips Curve](note:phillips-curve) in the [IS-MP-PC Model](note:is-mp-pc-model); inflation persistence."
+      }
+     ],
+     "words": 12,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Phillips Curve](note:phillips-curve) · [IS-MP-PC Model](note:is-mp-pc-model) · [Monetary Policy Rule](note:monetary-policy-rule)"
+      }
+     ],
+     "words": 8,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

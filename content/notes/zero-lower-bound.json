@@ -1,0 +1,232 @@
+{
+ "slug": "zero-lower-bound",
+ "notation": [
+  {
+   "tex": "$i$",
+   "meaning": "Nominal interest rate",
+   "kind": "Policy / endogenous",
+   "typical": "0 at the bound",
+   "keys": [
+    "i"
+   ]
+  },
+  {
+   "tex": "$r$",
+   "meaning": "Interest rate in the IS-LM diagram",
+   "kind": "Endogenous",
+   "typical": "0 at the bound",
+   "keys": [
+    "r"
+   ]
+  },
+  {
+   "tex": "$r^{LM}(Y)$",
+   "meaning": "Interest rate that clears the money market at output $Y$",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "~r^LM(Y)"
+   ]
+  },
+  {
+   "tex": "$i^{rule}$",
+   "meaning": "Rate an interest-rate rule would prescribe",
+   "kind": "Function",
+   "typical": "can be negative",
+   "keys": [
+    "~i^rule"
+   ]
+  },
+  {
+   "tex": "$Y$",
+   "meaning": "Output",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "Y"
+   ]
+  },
+  {
+   "tex": "$L(r, Y)$",
+   "meaning": "Real money demand (\"liquidity\")",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "L"
+   ],
+   "from": "liquidity-preference"
+  },
+  {
+   "tex": "$T$, $G$",
+   "meaning": "Taxes, government spending",
+   "kind": "Policy",
+   "typical": "100, 100",
+   "keys": [
+    "T",
+    "G"
+   ],
+   "from": "is-lm-model"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Cash pays zero interest, and nobody will lend at a negative rate if they can just keep the cash. So the central bank cannot push the interest rate much below zero. When spending is so weak that the rate needed to restore full employment would be negative, the central bank is stuck at zero: printing more money just adds to the cash people are already happy to hold, because at zero interest money and bonds are close substitutes. Monetary policy loses its usual lever. Government spending, on the other hand, works unusually well, because it does not push interest rates up and so does not crowd out private investment."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It explains why monetary policy can lose its usual lever in a deep slump, and why fiscal stimulus is strongest exactly then.",
+       "folded": false
+      }
+     ],
+     "words": 134,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The nominal interest rate satisfies $i \\ge 0$. In the [IS-LM Model](note:is-lm-model) money demand becomes flat at $r = 0$, so the LM curve is horizontal there:"
+      },
+      {
+       "t": "math",
+       "tex": "r = \\max\\left(r^{LM}(Y),\\; 0\\right)"
+      },
+      {
+       "t": "prose",
+       "md": "When the IS curve crosses the flat segment, equilibrium output is the IS output at $r = 0$, and shifting LM right leaves it unchanged. In an interest-rate-rule model the policy rate is $\\max(i^{rule}, 0)$."
+      }
+     ],
+     "words": 51,
+     "symbols": [
+      "$i$",
+      "$r$",
+      "$r^{LM}(Y)$",
+      "$i^{rule}$",
+      "$Y$",
+      "$L(r, Y)$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "note",
+       "title": "Beyond the lecture",
+       "md": "In the linear IS-LM example ($Y = 1{,}600 - 100r$, $L = 0.5Y - 50r$), a money supply of 1,000 would need $r = -2$, so the rate sits at 0 and $Y = 1{,}600$. Raising money to 1,200 leaves $Y = 1{,}600$. Raising $G$ by 100 moves output to 2,050 with $r = 0.5$, only 50 short of the 2,100 the Keynesian cross gives at $r = 0$.",
+       "folded": false
+      }
+     ],
+     "words": 50,
+     "symbols": [
+      "$r$",
+      "$Y$",
+      "$L(r, Y)$",
+      "$T$, $G$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "properties",
+   "heading": "Properties",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "properties-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Policy at the bound | Effect |\n| --- | --- |\n| More money (LM right) | None on $r$ or $Y$ |\n| More government spending (IS right) | Close to the full multiplier: little crowding out |"
+      }
+     ],
+     "words": 27,
+     "symbols": [
+      "$r$",
+      "$Y$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Saying rates can never be negative: (beyond the lecture) some central banks have set slightly negative rates, so the bound is \"effective\", near zero rather than exactly zero.\n- Thinking money stops mattering everywhere: only conventional rate cuts lose power; unconventional tools can still act."
+      }
+     ],
+     "words": 46,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Macro: liquidity traps, the case for fiscal stimulus in deep recessions, and unconventional monetary policy."
+      }
+     ],
+     "words": 16,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [IS-LM Model](note:is-lm-model) · [LM Curve](note:lm-curve) · [Liquidity Preference](note:liquidity-preference) · [Monetary Policy Rule](note:monetary-policy-rule) · [IS-MP-PC Model](note:is-mp-pc-model)"
+      }
+     ],
+     "words": 12,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

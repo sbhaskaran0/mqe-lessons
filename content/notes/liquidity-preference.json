@@ -1,0 +1,301 @@
+{
+ "slug": "liquidity-preference",
+ "notation": [
+  {
+   "tex": "$M^S$",
+   "meaning": "Money supply, set by the central bank",
+   "kind": "Policy",
+   "typical": "400 (real) in the example",
+   "keys": [
+    "~M^S"
+   ]
+  },
+  {
+   "tex": "$M^d$",
+   "meaning": "Money demanded",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "~M^d"
+   ]
+  },
+  {
+   "tex": "$P$",
+   "meaning": "Price level",
+   "kind": "Exogenous (short run)",
+   "typical": "—",
+   "keys": [
+    "P"
+   ]
+  },
+  {
+   "tex": "$L(r, Y)$",
+   "meaning": "Real money demand (\"liquidity\")",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "L"
+   ]
+  },
+  {
+   "tex": "$r$",
+   "meaning": "Interest rate: the return on bonds, the cost of holding money",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "r"
+   ]
+  },
+  {
+   "tex": "$Y$",
+   "meaning": "Income",
+   "kind": "Exogenous to the money market",
+   "typical": "—",
+   "keys": [
+    "Y"
+   ]
+  },
+  {
+   "tex": "$k$",
+   "meaning": "Sensitivity of money demand to income (linear example)",
+   "kind": "Parameter",
+   "typical": "0.5",
+   "keys": [
+    "k"
+   ]
+  },
+  {
+   "tex": "$h$",
+   "meaning": "Sensitivity of money demand to the interest rate (linear example)",
+   "kind": "Parameter",
+   "typical": "50",
+   "keys": [
+    "h"
+   ]
+  },
+  {
+   "tex": "$M^S/P$",
+   "meaning": "Real money supply",
+   "kind": "Policy",
+   "typical": "400 in the example",
+   "keys": [
+    "~M^S/P"
+   ],
+   "from": "lm-curve"
+  },
+  {
+   "tex": "$I_0$, $d$",
+   "meaning": "Autonomous investment and its interest sensitivity",
+   "kind": "Parameters",
+   "typical": "200, 20",
+   "keys": [
+    "I",
+    "d"
+   ],
+   "from": "is-lm-model"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "You can keep your wealth as cash, which earns nothing but can be spent instantly, or as bonds, which pay interest but take effort to turn into cash. People hold some cash to pay for everyday purchases, some for emergencies, and some to keep their options open in financial markets. The higher the interest rate on bonds, the more it costs to sit on cash, so people hold less of it. The richer the economy, the more transactions people make, so they hold more. Where the money people want to hold equals the money the central bank supplies, the interest rate settles."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It explains how the money supply and income determine the interest rate in the short run, which is the basis of the LM curve and of monetary policy before 2008.",
+       "folded": false
+      }
+     ],
+     "words": 135,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Real money demand depends negatively on the interest rate and positively on income; the money market clears when it equals the real money supply set by the central bank:"
+      },
+      {
+       "t": "math",
+       "tex": "\\frac{M^S}{P} = L(r, Y), \\qquad \\frac{\\partial L}{\\partial r} < 0, \\quad \\frac{\\partial L}{\\partial Y} > 0"
+      }
+     ],
+     "words": 29,
+     "symbols": [
+      "$M^S$",
+      "$P$",
+      "$L(r, Y)$",
+      "$r$",
+      "$Y$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "the-three-motives",
+   "heading": "The three motives",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-three-motives-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Motive | Money held for | Depends on |\n| --- | --- | --- |\n| Transactions | Everyday purchases | Income $Y$ |\n| Precautionary | Emergencies | Income, uncertainty |\n| Speculative | Buying assets later (if bond or stock prices are expected to fall) | The interest rate $r$ |"
+      },
+      {
+       "t": "prose",
+       "md": "The speculative motive is what makes money a financial asset rather than only a means of exchange, and ties its demand to $r$: bonds pay $r > 0$, cash pays 0, so a higher $r$ makes cash less attractive."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Money market - liquidity preference.png",
+       "alt": "Money market - liquidity preference"
+      }
+     ],
+     "words": 67,
+     "symbols": [
+      "$r$",
+      "$Y$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "equilibrium-and-adjustment",
+   "heading": "Equilibrium and adjustment",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "equilibrium-and-adjustment-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With the money supply fixed, $r$ adjusts until money demanded equals money supplied."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Money market equilibrium.png",
+       "alt": "Money market equilibrium"
+      }
+     ],
+     "words": 12,
+     "symbols": [
+      "$r$"
+     ]
+    },
+    {
+     "id": "equilibrium-and-adjustment-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "If income rises, money demand shifts right. At the old rate $M^d > M^S$: people sell bonds to get cash, bond prices fall, and the interest rate rises until demand again equals supply."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Money market - higher income raises money demand and the interest rate.png",
+       "alt": "Money market - higher income raises money demand and the interest rate"
+      },
+      {
+       "t": "callout",
+       "kind": "note",
+       "title": "Beyond the lecture",
+       "md": "A linear version is $L = kY - hr$. With $k = 0.5$, $h = 50$, $M^S/P = 400$ and $Y = 1{,}200$: $r = (0.5 \\times 1{,}200 - 400)/50 = 4$.",
+       "folded": false
+      }
+     ],
+     "words": 39,
+     "symbols": [
+      "$M^S$",
+      "$M^d$",
+      "$P$",
+      "$L(r, Y)$",
+      "$r$",
+      "$Y$",
+      "$k$",
+      "$h$",
+      "$M^S/P$",
+      "$I_0$, $d$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Shift vs movement.** A change in $r$ moves along money demand; a change in income or uncertainty shifts it.\n- **Bond prices and rates move oppositely.** Selling bonds lowers their price and raises their yield.\n- Dividing by $P$: demand is for *real* balances, so inflation alone does not change it."
+      }
+     ],
+     "words": 50,
+     "symbols": [
+      "$P$",
+      "$r$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Macro: the money-market block behind the [LM Curve](note:lm-curve); monetary policy by open-market operations; the [Zero Lower Bound](note:zero-lower-bound) (at $r = 0$ money and bonds are close substitutes)."
+      }
+     ],
+     "words": 25,
+     "symbols": [
+      "$r$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [LM Curve](note:lm-curve) · [IS-LM Model](note:is-lm-model) · [Zero Lower Bound](note:zero-lower-bound)"
+      }
+     ],
+     "words": 8,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

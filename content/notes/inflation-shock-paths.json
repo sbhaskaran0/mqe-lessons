@@ -1,0 +1,203 @@
+{
+ "slug": "inflation-shock-paths",
+ "notation": [
+  {
+   "tex": "$\\pi_t$",
+   "meaning": "Inflation",
+   "kind": "Endogenous",
+   "typical": "2 at target",
+   "keys": [
+    "pi"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$\\pi^e_t$",
+   "meaning": "Expected inflation",
+   "kind": "State (given in the period)",
+   "typical": "2",
+   "keys": [
+    "~\\pi^e_t"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$\\pi^*$",
+   "meaning": "Inflation target",
+   "kind": "Policy parameter",
+   "typical": "2",
+   "keys": [
+    "pi*"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$y_t$",
+   "meaning": "Output",
+   "kind": "Endogenous",
+   "typical": "100",
+   "keys": [
+    "y"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$y^*$",
+   "meaning": "Potential output",
+   "kind": "Parameter",
+   "typical": "100",
+   "keys": [
+    "y*"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$i_t$",
+   "meaning": "Nominal policy rate",
+   "kind": "Endogenous",
+   "typical": "4 at target",
+   "keys": [
+    "i"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "Sensitivity of output to the real rate (IS slope)",
+   "kind": "Parameter",
+   "typical": "1",
+   "keys": [
+    "alpha"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$\\gamma$",
+   "meaning": "Slope of the Phillips curve",
+   "kind": "Parameter",
+   "typical": "1",
+   "keys": [
+    "gamma"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$\\beta_\\pi$",
+   "meaning": "Policy response to inflation",
+   "kind": "Parameter",
+   "typical": "1.5",
+   "keys": [
+    "beta"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$\\theta$",
+   "meaning": "Weight on expectations and shocks, $1/(1 + \\alpha\\gamma(\\beta_\\pi - 1))$",
+   "kind": "Parameter combination",
+   "typical": "2/3",
+   "keys": [
+    "theta"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$\\epsilon^\\pi_t$",
+   "meaning": "Aggregate supply shock",
+   "kind": "Exogenous",
+   "typical": "3 in the example",
+   "keys": [
+    "~\\epsilon^\\pi_t"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$t$",
+   "meaning": "Period",
+   "kind": "Index",
+   "typical": "1, 2, 3, …",
+   "keys": [
+    "t"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$r_t$",
+   "meaning": "Real interest rate",
+   "kind": "Endogenous",
+   "typical": "3 in the example",
+   "keys": [
+    "r"
+   ],
+   "from": "real-and-nominal-interest-rates"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "inflation-shock-paths"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$\\pi_t$",
+      "$\\pi^*$",
+      "$y_t$",
+      "$y^*$",
+      "$i_t$",
+      "$\\alpha$",
+      "$\\gamma$",
+      "$\\beta_\\pi$",
+      "$\\theta$",
+      "$\\epsilon^\\pi_t$",
+      "$t$",
+      "$r_t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Purpose.** Trace the notes' example through time. With $\\pi^e_t = \\pi_{t-1}$ the shock outlives itself: in period 3 people expect last period's 4 percent, so inflation stays above target and the central bank keeps its rate high. Each period inflation keeps a share $\\theta$ of last period's gap from target, $\\pi_t - \\pi^* = \\theta(\\pi_{t-1} - \\pi^*)$, so it returns gradually; raising $\\beta_\\pi$ lowers $\\theta$ and speeds the return, at the cost of a deeper fall in output when the shock hits.\n- **Model.** A view of [Three-Equation Macro Model](note:three-equation-macro-model) iterating `pi_ad` from last period's inflation ([Adaptive Expectations](note:adaptive-expectations)). Period 1 starts at target.\n- **Elements.** Panels `infl`, `outp`, `rates`; series `inflation`, `target`, `output`, `potential`, `policy`, `real`. Readout `th_out`."
+      }
+     ],
+     "words": 108,
+     "symbols": [
+      "$\\pi_t$",
+      "$\\pi^e_t$",
+      "$\\pi^*$",
+      "$\\beta_\\pi$",
+      "$\\theta$"
+     ]
+    },
+    {
+     "id": "notes-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Tests.** The notes' worked example (periods 1–2) extended with adaptive expectations, computed in Python."
+      }
+     ],
+     "words": 16,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,352 @@
+{
+ "slug": "is-curve",
+ "notation": [
+  {
+   "tex": "$Y$",
+   "meaning": "Output",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "Y"
+   ]
+  },
+  {
+   "tex": "$r$",
+   "meaning": "Real interest rate (cost of borrowing)",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "r"
+   ]
+  },
+  {
+   "tex": "$I^P(r)$",
+   "meaning": "Planned investment, decreasing in $r$",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "~I^P(r)"
+   ]
+  },
+  {
+   "tex": "$a$, $b$",
+   "meaning": "Autonomous consumption and marginal propensity to consume",
+   "kind": "Parameters",
+   "typical": "100, 0.8",
+   "keys": [
+    "a",
+    "b"
+   ]
+  },
+  {
+   "tex": "$T$, $G$",
+   "meaning": "Taxes and government spending",
+   "kind": "Policy",
+   "typical": "100, 100",
+   "keys": [
+    "T",
+    "G"
+   ]
+  },
+  {
+   "tex": "$I_0$",
+   "meaning": "Autonomous investment in the linear example $I^P = I_0 - dr$",
+   "kind": "Parameter",
+   "typical": "200",
+   "keys": [
+    "I"
+   ]
+  },
+  {
+   "tex": "$d$",
+   "meaning": "Sensitivity of investment to the interest rate (per percentage point)",
+   "kind": "Parameter",
+   "typical": "20",
+   "keys": [
+    "d"
+   ]
+  },
+  {
+   "tex": "$y_t$, $y^*$",
+   "meaning": "Output and potential output (output-gap form)",
+   "kind": "Endogenous / exogenous",
+   "typical": "100",
+   "keys": [
+    "y",
+    "y*"
+   ]
+  },
+  {
+   "tex": "$r^*$",
+   "meaning": "Neutral (natural, Wicksellian) real rate: output equals potential when $r_t = r^*$",
+   "kind": "Parameter",
+   "typical": "2",
+   "keys": [
+    "r*"
+   ]
+  },
+  {
+   "tex": "$r_t$",
+   "meaning": "Real interest rate in period $t$",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "r"
+   ]
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "Sensitivity of the output gap to the real-rate gap",
+   "kind": "Parameter",
+   "typical": "1",
+   "keys": [
+    "alpha"
+   ]
+  },
+  {
+   "tex": "$\\epsilon^y_t$",
+   "meaning": "Aggregate demand shock",
+   "kind": "Exogenous",
+   "typical": "0",
+   "keys": [
+    "~\\epsilon^y_t"
+   ]
+  },
+  {
+   "tex": "$C$",
+   "meaning": "Consumption",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "C"
+   ],
+   "from": "keynesian-cross"
+  },
+  {
+   "tex": "$I^P$",
+   "meaning": "Planned investment: new capital goods and planned inventory changes",
+   "kind": "Exogenous (for now)",
+   "typical": "100 in the example",
+   "keys": [
+    "~I^P"
+   ],
+   "from": "keynesian-cross"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Interest rates are the cost of borrowing. When they are high, only the most profitable factories and machines are worth building, so firms invest little; when they are low, many more projects pay. More investment means more spending, and through the multiplier more output. So each interest rate goes with one level of output at which spending and production match. Plot those pairs and you get a downward-sloping line: low rates, high output; high rates, low output. Anything else that raises spending at every interest rate, such as more government purchases or more confident consumers, moves the whole line to the right."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the demand side of every short-run macro model, from IS-LM to the modern three-equation model, and it is how interest rates reach output.",
+       "folded": false
+      }
+     ],
+     "words": 130,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The IS curve is the set of $(Y, r)$ pairs at which planned expenditure equals output, with planned investment falling in the real interest rate, $I^P = I^P(r)$:"
+      },
+      {
+       "t": "math",
+       "tex": "Y = a + b(Y - T) + I^P(r) + G"
+      },
+      {
+       "t": "prose",
+       "md": "In output-gap form, used in the three-equation model, the gap responds to the gap between the real rate and the **neutral rate** $r^*$ (the real rate at which output equals potential), plus a demand shock:"
+      },
+      {
+       "t": "math",
+       "tex": "y_t - y^* = -\\alpha(r_t - r^*) + \\epsilon^y_t"
+      }
+     ],
+     "words": 57,
+     "symbols": [
+      "$Y$",
+      "$r$",
+      "$I^P(r)$",
+      "$a$, $b$",
+      "$T$, $G$",
+      "$I_0$",
+      "$y_t$, $y^*$",
+      "$r^*$",
+      "$r_t$",
+      "$\\alpha$",
+      "$\\epsilon^y_t$",
+      "$I^P$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "derivation-from-the-keynesian-cross",
+   "heading": "Derivation from the Keynesian cross",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "derivation-from-the-keynesian-cross-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. A lower interest rate raises planned investment: $r_2 < r_1 \\Rightarrow I^P_2 > I^P_1$.\n2. Higher $I^P$ shifts the planned-expenditure line up, so equilibrium output rises: $Y_2 > Y_1$.\n3. Plotting $(Y_1, r_1)$ and $(Y_2, r_2)$, and every other pair, traces a downward-sloping curve."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/From planned investment to the IS curve.png",
+       "alt": "From planned investment to the IS curve"
+      }
+     ],
+     "words": 30,
+     "symbols": [
+      "$Y$",
+      "$r$",
+      "$I_0$",
+      "$r_t$",
+      "$I^P$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example-linear",
+   "heading": "Worked example (linear)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-linear-1",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "note",
+       "title": "Beyond the lecture",
+       "md": "With $I^P = I_0 - dr$, the IS curve is $Y = \\dfrac{a - bT + I_0 + G - dr}{1 - b}$. With $a = 100$, $b = 0.8$, $T = 100$, $I_0 = 200$, $G = 100$ and $d = 20$: $Y = 1{,}600 - 100r$, so $r = 4$ gives $Y = 1{,}200$. Raising $G$ by 100 shifts the curve right by $100/0.2 = 500$ at every $r$.",
+       "folded": false
+      }
+     ],
+     "words": 22,
+     "symbols": [
+      "$Y$",
+      "$r$",
+      "$a$, $b$",
+      "$T$, $G$",
+      "$I_0$",
+      "$d$",
+      "$r_t$",
+      "$I^P$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "shifts",
+   "heading": "Shifts",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "shifts-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Change | IS curve |\n| --- | --- |\n| Lower $r$ | Movement down along the curve |\n| Higher $G$, lower $T$, higher $a$, higher business confidence ($I^P$ at every $r$) | Shifts right |\n| The reverse | Shifts left |"
+      },
+      {
+       "t": "prose",
+       "md": "Anything that changes $C$, $I^P$ or $G$ *without* working through the interest rate shifts the curve; the interest rate itself moves along it."
+      }
+     ],
+     "words": 45,
+     "symbols": [
+      "$r$",
+      "$a$, $b$",
+      "$T$, $G$",
+      "$I_0$",
+      "$r_t$",
+      "$C$",
+      "$I^P$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Shift vs movement.** A change in $r$ moves along the IS curve; it does not shift it.\n- **Nominal vs real.** Investment depends on the real rate, the nominal rate minus inflation ([Real and Nominal Interest Rates](note:real-and-nominal-interest-rates)); the central bank sets the nominal rate."
+      }
+     ],
+     "words": 44,
+     "symbols": [
+      "$r$",
+      "$r_t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Macro: the goods-market block of the [IS-LM Model](note:is-lm-model) and of the [IS-MP-PC Model](note:is-mp-pc-model)."
+      }
+     ],
+     "words": 14,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Keynesian Cross](note:keynesian-cross) · [Keynesian Multiplier](note:keynesian-multiplier) · [IS-LM Model](note:is-lm-model) · [IS-MP-PC Model](note:is-mp-pc-model) · [Real and Nominal Interest Rates](note:real-and-nominal-interest-rates)"
+      }
+     ],
+     "words": 14,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,168 @@
+{
+ "slug": "keynesian-cross-expenditure-model",
+ "notation": [
+  {
+   "tex": "$Y$",
+   "meaning": "Output (equal to income)",
+   "kind": "Endogenous",
+   "typical": "1,100 in the example",
+   "keys": [
+    "Y"
+   ],
+   "from": "keynesian-cross"
+  },
+  {
+   "tex": "$PE$",
+   "meaning": "Planned expenditure",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "~PE"
+   ],
+   "from": "keynesian-cross"
+  },
+  {
+   "tex": "$a$",
+   "meaning": "Autonomous consumption: spending that does not depend on income",
+   "kind": "Parameter",
+   "typical": "100 in the example",
+   "keys": [
+    "a"
+   ],
+   "from": "keynesian-cross"
+  },
+  {
+   "tex": "$b$",
+   "meaning": "Marginal propensity to consume (MPC): share of each extra unit of disposable income spent",
+   "kind": "Parameter in (0, 1)",
+   "typical": "0.8",
+   "keys": [
+    "b"
+   ],
+   "from": "keynesian-cross"
+  },
+  {
+   "tex": "$T$",
+   "meaning": "Taxes",
+   "kind": "Policy",
+   "typical": "100 in the example",
+   "keys": [
+    "T"
+   ],
+   "from": "keynesian-cross"
+  },
+  {
+   "tex": "$G$",
+   "meaning": "Government spending",
+   "kind": "Policy",
+   "typical": "100 in the example",
+   "keys": [
+    "G"
+   ],
+   "from": "keynesian-cross"
+  },
+  {
+   "tex": "$I^P$",
+   "meaning": "Planned investment: new capital goods and planned inventory changes",
+   "kind": "Exogenous (for now)",
+   "typical": "100 in the example",
+   "keys": [
+    "~I^P"
+   ],
+   "from": "keynesian-cross"
+  },
+  {
+   "tex": "$I^U$",
+   "meaning": "Unplanned investment: unplanned inventory changes",
+   "kind": "Endogenous",
+   "typical": "0 in equilibrium",
+   "keys": [
+    "~I^U"
+   ],
+   "from": "keynesian-cross"
+  },
+  {
+   "tex": "$I$",
+   "meaning": "Total investment, $I^P + I^U$",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "I"
+   ],
+   "from": "keynesian-cross"
+  },
+  {
+   "tex": "$Y^*$",
+   "meaning": "Equilibrium output",
+   "kind": "Endogenous",
+   "typical": "1,100 in the example",
+   "keys": [
+    "Y*"
+   ],
+   "from": "keynesian-cross"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "keynesian-cross-explorer"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$Y$",
+      "$PE$",
+      "$a$",
+      "$b$",
+      "$T$",
+      "$G$",
+      "$I^P$",
+      "$I^U$",
+      "$I$",
+      "$Y^*$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The model behind [Keynesian Cross Explorer](note:keynesian-cross-explorer). Place that view, not this note."
+      },
+      {
+       "t": "prose",
+       "md": "- **Model.** [Keynesian Cross](note:keynesian-cross): $PE = a + b(Y - T) + I^P + G$; equilibrium where $PE = Y$, $Y^* = (a - bT + I^P + G)/(1 - b)$. Multipliers from [Keynesian Multiplier](note:keynesian-multiplier).\n- **Tests.** Computed in Python (closed form, checked with a root-finder): $Y^* = 1{,}100$; $G = 200 \\to 1{,}600$; $T = 0 \\to 1{,}500$."
+      }
+     ],
+     "words": 33,
+     "symbols": [
+      "$Y$",
+      "$PE$",
+      "$a$",
+      "$b$",
+      "$T$",
+      "$G$",
+      "$I^P$",
+      "$I$",
+      "$Y^*$"
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,395 @@
+{
+ "slug": "is-lm-model",
+ "notation": [
+  {
+   "tex": "$Y$, $Y^*$",
+   "meaning": "Output, equilibrium output",
+   "kind": "Endogenous",
+   "typical": "1,200 in the example",
+   "keys": [
+    "Y",
+    "Y*"
+   ]
+  },
+  {
+   "tex": "$r$, $r^*$",
+   "meaning": "Interest rate, equilibrium rate",
+   "kind": "Endogenous",
+   "typical": "4 in the example",
+   "keys": [
+    "r",
+    "r*"
+   ]
+  },
+  {
+   "tex": "$a$, $b$",
+   "meaning": "Autonomous consumption, marginal propensity to consume",
+   "kind": "Parameters",
+   "typical": "100, 0.8",
+   "keys": [
+    "a",
+    "b"
+   ]
+  },
+  {
+   "tex": "$T$, $G$",
+   "meaning": "Taxes, government spending",
+   "kind": "Policy",
+   "typical": "100, 100",
+   "keys": [
+    "T",
+    "G"
+   ]
+  },
+  {
+   "tex": "$I^P(r)$",
+   "meaning": "Planned investment, $I_0 - dr$ in the example",
+   "kind": "Function",
+   "typical": "120 at $r = 4$",
+   "keys": [
+    "~I^P(r)"
+   ]
+  },
+  {
+   "tex": "$I_0$, $d$",
+   "meaning": "Autonomous investment and its interest sensitivity",
+   "kind": "Parameters",
+   "typical": "200, 20",
+   "keys": [
+    "I",
+    "d"
+   ]
+  },
+  {
+   "tex": "$M^S/P$",
+   "meaning": "Real money supply",
+   "kind": "Policy",
+   "typical": "400",
+   "keys": [
+    "~M^S/P"
+   ]
+  },
+  {
+   "tex": "$L(r, Y)$",
+   "meaning": "Real money demand, $kY - hr$ in the example",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "L"
+   ]
+  },
+  {
+   "tex": "$k$, $h$",
+   "meaning": "Income and interest sensitivity of money demand",
+   "kind": "Parameters",
+   "typical": "0.5, 50",
+   "keys": [
+    "k",
+    "h"
+   ]
+  },
+  {
+   "tex": "$\\Delta G$, $\\Delta I^P$",
+   "meaning": "Changes in government spending and planned investment",
+   "kind": "—",
+   "typical": "100, −50",
+   "keys": [
+    "~\\DeltaG",
+    "~\\DeltaI^P"
+   ]
+  },
+  {
+   "tex": "$\\Delta M$",
+   "meaning": "Change in the real money supply",
+   "kind": "Policy",
+   "typical": "100",
+   "keys": [
+    "~\\DeltaM"
+   ]
+  },
+  {
+   "tex": "$\\Delta Y$",
+   "meaning": "Change in equilibrium output",
+   "kind": "Endogenous",
+   "typical": "500",
+   "keys": [
+    "~\\DeltaY"
+   ],
+   "from": "keynesian-multiplier"
+  },
+  {
+   "tex": "$M^S$",
+   "meaning": "Money supply, set by the central bank",
+   "kind": "Policy",
+   "typical": "400 (real) in the example",
+   "keys": [
+    "~M^S"
+   ],
+   "from": "liquidity-preference"
+  },
+  {
+   "tex": "$P$",
+   "meaning": "Price level",
+   "kind": "Exogenous (short run)",
+   "typical": "—",
+   "keys": [
+    "P"
+   ],
+   "from": "liquidity-preference"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Two markets must clear at once. In the market for goods, a lower interest rate means more investment and more output. In the market for money, more output means people want more money, which pushes the interest rate up. Only one combination of output and interest rate satisfies both. If the government spends more, output rises, but the extra income raises money demand and the interest rate, which discourages some private investment: government spending partly crowds out private spending. If the central bank adds money, the interest rate falls and investment and output rise."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the classic framework for comparing fiscal and monetary policy in the short run, and it shows why the same fiscal stimulus can be powerful or weak depending on what happens to interest rates.",
+       "folded": false
+      }
+     ],
+     "words": 132,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Equilibrium is the $(Y^*, r^*)$ on both curves:"
+      },
+      {
+       "t": "math",
+       "tex": "\\text{IS: } Y = a + b(Y - T) + I^P(r) + G, \\qquad \\text{LM: } \\frac{M^S}{P} = L(r, Y)"
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/IS-LM equilibrium.png",
+       "alt": "IS-LM equilibrium"
+      }
+     ],
+     "words": 6,
+     "symbols": [
+      "$Y$, $Y^*$",
+      "$r$, $r^*$",
+      "$a$, $b$",
+      "$T$, $G$",
+      "$I^P(r)$",
+      "$I_0$, $d$",
+      "$L(r, Y)$",
+      "$M^S$",
+      "$P$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fiscal-policy-and-crowding-out",
+   "heading": "Fiscal policy and crowding out",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "fiscal-policy-and-crowding-out-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Higher $G$ shifts IS right by $\\Delta G/(1 - b)$ at the old interest rate (the Keynesian-cross effect). But higher output raises money demand, so the economy moves up the LM curve to a higher $r$, and planned investment falls. The total change in output is"
+      },
+      {
+       "t": "math",
+       "tex": "\\Delta Y = \\frac{1}{1 - b}\\left(\\Delta G + \\Delta I^P\\right), \\qquad \\Delta I^P < 0"
+      },
+      {
+       "t": "prose",
+       "md": "The fall in investment is **crowding out**. It is larger the more investment responds to $r$ and the steeper the LM curve."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/IS-LM fiscal policy and crowding out (handwritten).png",
+       "alt": "IS-LM fiscal policy and crowding out (handwritten)"
+      }
+     ],
+     "words": 61,
+     "symbols": [
+      "$Y$, $Y^*$",
+      "$r$, $r^*$",
+      "$a$, $b$",
+      "$T$, $G$",
+      "$I_0$, $d$",
+      "$\\Delta G$, $\\Delta I^P$",
+      "$\\Delta Y$",
+      "$P$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "monetary-policy",
+   "heading": "Monetary policy",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "monetary-policy-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Before 2008 the central bank moved the interest rate indirectly through the money supply: buying bonds with newly printed money raises $M^S$, lowers $r$, raises $I^P$ and so output. The LM curve shifts right."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/IS-LM monetary expansion.png",
+       "alt": "IS-LM monetary expansion"
+      }
+     ],
+     "words": 31,
+     "symbols": [
+      "$r$, $r^*$",
+      "$I_0$, $d$",
+      "$M^S$",
+      "$P$"
+     ]
+    },
+    {
+     "id": "monetary-policy-2",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Strategy | What the central bank does | Result of a rise in $G$ |\n| --- | --- | --- |\n| Fixed money supply | Nothing | $Y$ and $r$ rise; partial crowding out |\n| Interest-rate targeting (accommodation) | Raises $M^S$ to hold $r$ at its target | No crowding out: full multiplier $\\Delta G/(1 - b)$ |\n| Monetary offset | Raises its rate target (cuts $M^S$), e.g. to head off inflation | $r$ rises, $Y$ stays at $Y^*$ |"
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/IS-LM interest rate targeting.png",
+       "alt": "IS-LM interest rate targeting"
+      }
+     ],
+     "words": 53,
+     "symbols": [
+      "$Y$, $Y^*$",
+      "$r$, $r^*$",
+      "$a$, $b$",
+      "$T$, $G$",
+      "$\\Delta G$, $\\Delta I^P$",
+      "$M^S$"
+     ]
+    },
+    {
+     "id": "monetary-policy-3",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/IS-LM monetary offset.png",
+       "alt": "IS-LM monetary offset"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "note",
+       "title": "Beyond the lecture",
+       "md": "The lecture is graphical. With $I^P = 200 - 20r$, $L = 0.5Y - 50r$ and $a = 100$, $b = 0.8$, $T = 100$, $G = 100$, $M^S/P = 400$: IS is $Y = 1{,}600 - 100r$, LM is $r = 0.01Y - 8$, and equilibrium is $Y^* = 1{,}200$, $r^* = 4$.\n\n- **$G$ rises by 100:** IS becomes $Y = 2{,}100 - 100r$; equilibrium $Y = 1{,}450$, $r = 6.5$. At the old rate the Keynesian cross would give 1,700, so crowding out is 250. Investment falls from 120 to 70, and $\\frac{1}{0.2}(100 - 50) = 250$ checks the formula.\n- **$M^S/P$ rises to 500:** $Y = 1{,}300$, $r = 3$.",
+       "folded": false
+      }
+     ],
+     "words": 53,
+     "symbols": [
+      "$Y$, $Y^*$",
+      "$r$, $r^*$",
+      "$a$, $b$",
+      "$T$, $G$",
+      "$I_0$, $d$",
+      "$M^S/P$",
+      "$L(r, Y)$",
+      "$M^S$",
+      "$P$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Using the Keynesian-cross multiplier for the IS-LM effect of fiscal policy: it ignores the rise in $r$.\n- Saying more money shifts IS: it shifts LM. Only spending changes not caused by $r$ shift IS.\n- Forgetting the floor on $r$: at the [Zero Lower Bound](note:zero-lower-bound) the LM curve is flat, money has no effect and fiscal policy is not crowded out."
+      }
+     ],
+     "words": 60,
+     "symbols": [
+      "$r$, $r^*$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Macro: short-run policy analysis; the precursor of the [IS-MP-PC Model](note:is-mp-pc-model), which replaces LM with an interest-rate rule."
+      }
+     ],
+     "words": 18,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [IS Curve](note:is-curve) · [LM Curve](note:lm-curve) · [Keynesian Multiplier](note:keynesian-multiplier) · [Liquidity Preference](note:liquidity-preference) · [Zero Lower Bound](note:zero-lower-bound) · [Monetary Policy Rule](note:monetary-policy-rule)"
+      }
+     ],
+     "words": 15,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

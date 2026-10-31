@@ -1,0 +1,388 @@
+{
+ "slug": "is-mp-pc-model",
+ "notation": [
+  {
+   "tex": "$\\pi_t$",
+   "meaning": "Inflation",
+   "kind": "Endogenous",
+   "typical": "2 at target",
+   "keys": [
+    "pi"
+   ]
+  },
+  {
+   "tex": "$\\pi^e_t$",
+   "meaning": "Expected inflation",
+   "kind": "State (given in the period)",
+   "typical": "2",
+   "keys": [
+    "~\\pi^e_t"
+   ]
+  },
+  {
+   "tex": "$\\pi^*$",
+   "meaning": "Inflation target",
+   "kind": "Policy parameter",
+   "typical": "2",
+   "keys": [
+    "pi*"
+   ]
+  },
+  {
+   "tex": "$y_t$",
+   "meaning": "Output",
+   "kind": "Endogenous",
+   "typical": "100",
+   "keys": [
+    "y"
+   ]
+  },
+  {
+   "tex": "$y^*$",
+   "meaning": "Potential output",
+   "kind": "Parameter",
+   "typical": "100",
+   "keys": [
+    "y*"
+   ]
+  },
+  {
+   "tex": "$i_t$",
+   "meaning": "Nominal policy rate",
+   "kind": "Endogenous",
+   "typical": "4 at target",
+   "keys": [
+    "i"
+   ]
+  },
+  {
+   "tex": "$r^*$",
+   "meaning": "Neutral real rate",
+   "kind": "Parameter",
+   "typical": "2",
+   "keys": [
+    "r*"
+   ]
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "Sensitivity of output to the real rate (IS slope)",
+   "kind": "Parameter",
+   "typical": "1",
+   "keys": [
+    "alpha"
+   ]
+  },
+  {
+   "tex": "$\\gamma$",
+   "meaning": "Slope of the Phillips curve",
+   "kind": "Parameter",
+   "typical": "1",
+   "keys": [
+    "gamma"
+   ]
+  },
+  {
+   "tex": "$\\beta_\\pi$",
+   "meaning": "Policy response to inflation",
+   "kind": "Parameter",
+   "typical": "1.5",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$\\theta$",
+   "meaning": "Weight on expectations and shocks, $1/(1 + \\alpha\\gamma(\\beta_\\pi - 1))$",
+   "kind": "Parameter combination",
+   "typical": "2/3",
+   "keys": [
+    "theta"
+   ]
+  },
+  {
+   "tex": "$\\epsilon^\\pi_t$",
+   "meaning": "Aggregate supply shock",
+   "kind": "Exogenous",
+   "typical": "3 in the example",
+   "keys": [
+    "~\\epsilon^\\pi_t"
+   ]
+  },
+  {
+   "tex": "$\\epsilon^y_t$",
+   "meaning": "Aggregate demand shock",
+   "kind": "Exogenous",
+   "typical": "0",
+   "keys": [
+    "~\\epsilon^y_t"
+   ]
+  },
+  {
+   "tex": "$t$",
+   "meaning": "Period",
+   "kind": "Index",
+   "typical": "1, 2, 3, …",
+   "keys": [
+    "t"
+   ]
+  },
+  {
+   "tex": "$y_t - y^*$",
+   "meaning": "Output gap",
+   "kind": "Endogenous",
+   "typical": "0",
+   "keys": [
+    "~y_t-y^*"
+   ],
+   "from": "phillips-curve"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Three relationships run the short-run economy. Spending falls when real interest rates are high (the IS curve). The central bank raises its interest rate when inflation is above target (the policy rule). And inflation rises when output is above potential or when supply is hit by a shock (the Phillips curve). Put them together and a supply shock that pushes up prices leads the central bank to raise rates, which cools spending and output, which in turn holds inflation down. How hard the bank leans decides the split: a tough bank keeps inflation close to target but accepts a deeper drop in output."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is a compact version of the New Keynesian model central banks use, and it makes the inflation-output tradeoff of monetary policy explicit.",
+       "folded": false
+      }
+     ],
+     "words": 129,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "\\text{PC: } \\pi_t = \\pi^e_t + \\gamma(y_t - y^*) + \\epsilon^\\pi_t"
+      },
+      {
+       "t": "math",
+       "tex": "\\text{IS: } y_t = y^* - \\alpha(i_t - \\pi_t - r^*) + \\epsilon^y_t"
+      },
+      {
+       "t": "math",
+       "tex": "\\text{MP: } i_t = r^* + \\pi^* + \\beta_\\pi(\\pi_t - \\pi^*)"
+      },
+      {
+       "t": "prose",
+       "md": "Given $\\pi^e_t$, $y^*$, $r^*$, $\\pi^*$ and the parameters, these determine $\\pi_t$, $y_t$ and $i_t$."
+      }
+     ],
+     "words": 7,
+     "symbols": [
+      "$\\pi_t$",
+      "$\\pi^e_t$",
+      "$\\pi^*$",
+      "$y_t$",
+      "$y^*$",
+      "$i_t$",
+      "$r^*$",
+      "$\\alpha$",
+      "$\\gamma$",
+      "$\\beta_\\pi$",
+      "$\\epsilon^\\pi_t$",
+      "$\\epsilon^y_t$",
+      "$y_t - y^*$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "the-is-mp-curve",
+   "heading": "The IS-MP curve",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-is-mp-curve-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Substituting the MP rule into the IS curve removes $i_t$:"
+      },
+      {
+       "t": "math",
+       "tex": "y_t = y^* - \\alpha(\\beta_\\pi - 1)(\\pi_t - \\pi^*) + \\epsilon^y_t"
+      },
+      {
+       "t": "prose",
+       "md": "With $\\beta_\\pi > 1$ it slopes down in $(y, \\pi)$: higher inflation raises the real rate, which lowers output. With $\\beta_\\pi < 1$ the real rate falls when inflation rises, and the curve slopes up. Demand shocks shift it; the policy rule does not."
+      }
+     ],
+     "words": 45,
+     "symbols": [
+      "$\\pi_t$",
+      "$\\pi^*$",
+      "$y_t$",
+      "$y^*$",
+      "$i_t$",
+      "$\\alpha$",
+      "$\\beta_\\pi$",
+      "$\\epsilon^y_t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "solving-the-model",
+   "heading": "Solving the model",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "solving-the-model-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Substitute the IS-MP curve into the Phillips curve and solve:"
+      },
+      {
+       "t": "math",
+       "tex": "\\pi_t = \\theta\\pi^e_t + (1 - \\theta)\\pi^* + \\theta(\\gamma\\epsilon^y_t + \\epsilon^\\pi_t), \\qquad \\theta = \\frac{1}{1 + \\alpha\\gamma(\\beta_\\pi - 1)}"
+      },
+      {
+       "t": "math",
+       "tex": "y_t = y^* - \\alpha\\theta(\\beta_\\pi - 1)(\\pi^e_t - \\pi^* + \\epsilon^\\pi_t) + \\left(1 - \\theta\\alpha\\gamma(\\beta_\\pi - 1)\\right)\\epsilon^y_t"
+      },
+      {
+       "t": "prose",
+       "md": "- A larger $\\beta_\\pi$ lowers $\\theta$: inflation stays closer to $\\pi^*$, but supply shocks cut output more.\n- Inflation rises with both shocks and with expected inflation; output falls with supply shocks and higher expectations and rises with demand shocks."
+      }
+     ],
+     "words": 47,
+     "symbols": [
+      "$\\pi_t$",
+      "$\\pi^e_t$",
+      "$\\pi^*$",
+      "$y_t$",
+      "$y^*$",
+      "$\\alpha$",
+      "$\\gamma$",
+      "$\\beta_\\pi$",
+      "$\\theta$",
+      "$\\epsilon^\\pi_t$",
+      "$\\epsilon^y_t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With $\\pi^* = 2$, $y^* = 100$, $r^* = 2$, $\\alpha = \\gamma = 1$, $\\beta_\\pi = 1.5$: $\\theta = 1/(1 + 0.5) = 2/3$."
+      },
+      {
+       "t": "table",
+       "md": "| Period | Shock | $\\pi^e_t$ | $\\pi_t$ | $i_t$ | $y_t$ |\n| --- | --- | --- | --- | --- | --- |\n| 1 | none | 2 | 2 | 4 | 100 |\n| 2 | $\\epsilon^\\pi = 3$ | 2 | 4 | 7 | 99 |\n| 3 | none | 4 | 3.33 | 6 | 99.33 |\n| 4 | none | 3.33 | 2.89 | 5.33 | 99.56 |"
+      },
+      {
+       "t": "prose",
+       "md": "From period 3 on, expectations are adaptive ($\\pi^e_t = \\pi_{t-1}$, [Adaptive Expectations](note:adaptive-expectations)), so inflation falls back toward 2 gradually: each period it closes one third of the gap, $\\pi_t - 2 = \\tfrac{2}{3}(\\pi_{t-1} - 2)$. With $\\beta_\\pi = 3$ instead, $\\theta = 1/3$: the period-2 shock lifts inflation only to 3 but cuts output to 98."
+      }
+     ],
+     "words": 78,
+     "symbols": [
+      "$\\pi_t$",
+      "$\\pi^e_t$",
+      "$\\pi^*$",
+      "$y_t$",
+      "$y^*$",
+      "$i_t$",
+      "$r^*$",
+      "$\\alpha$",
+      "$\\gamma$",
+      "$\\beta_\\pi$",
+      "$\\theta$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Forgetting the real rate.** The IS curve uses $i_t - \\pi_t$; raising $i$ by less than $\\pi$ loosens policy.\n- **Reading θ backwards.** A *larger* $\\beta_\\pi$ means a *smaller* θ: inflation responds less, output more.\n- **Expectations timing.** Adaptive means $\\pi^e_t = \\pi_{t-1}$: last period's inflation, not next period's."
+      }
+     ],
+     "words": 39,
+     "symbols": [
+      "$\\pi_t$",
+      "$\\pi^e_t$",
+      "$i_t$",
+      "$\\beta_\\pi$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Macro: inflation targeting, supply shocks, the output cost of disinflation, and the [Zero Lower Bound](note:zero-lower-bound) (when the rule would set $i < 0$)."
+      }
+     ],
+     "words": 21,
+     "symbols": [
+      "$i_t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [IS Curve](note:is-curve) · [Phillips Curve](note:phillips-curve) · [Monetary Policy Rule](note:monetary-policy-rule) · [Adaptive Expectations](note:adaptive-expectations) · [Real and Nominal Interest Rates](note:real-and-nominal-interest-rates) · [IS-LM Model](note:is-lm-model) · [Zero Lower Bound](note:zero-lower-bound)"
+      }
+     ],
+     "words": 20,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

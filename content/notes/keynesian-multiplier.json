@@ -1,0 +1,365 @@
+{
+ "slug": "keynesian-multiplier",
+ "notation": [
+  {
+   "tex": "$b$",
+   "meaning": "Marginal propensity to consume",
+   "kind": "Parameter in (0, 1)",
+   "typical": "0.8",
+   "keys": [
+    "b"
+   ]
+  },
+  {
+   "tex": "$\\Delta G$",
+   "meaning": "Change in government spending",
+   "kind": "Policy",
+   "typical": "100",
+   "keys": [
+    "~\\DeltaG"
+   ]
+  },
+  {
+   "tex": "$\\Delta T$",
+   "meaning": "Change in taxes ($-\\Delta T$ is a tax cut)",
+   "kind": "Policy",
+   "typical": "−100",
+   "keys": [
+    "~\\DeltaT"
+   ]
+  },
+  {
+   "tex": "$\\Delta I^P$",
+   "meaning": "Change in planned investment",
+   "kind": "Exogenous",
+   "typical": "100",
+   "keys": [
+    "~\\DeltaI^P"
+   ]
+  },
+  {
+   "tex": "$\\Delta Y$",
+   "meaning": "Change in equilibrium output",
+   "kind": "Endogenous",
+   "typical": "500",
+   "keys": [
+    "~\\DeltaY"
+   ]
+  },
+  {
+   "tex": "$X$",
+   "meaning": "Size of an initial spending increase or tax cut",
+   "kind": "Policy",
+   "typical": "1,000",
+   "keys": [
+    "X"
+   ]
+  },
+  {
+   "tex": "$Y$",
+   "meaning": "Output (equal to income)",
+   "kind": "Endogenous",
+   "typical": "1,100 in the example",
+   "keys": [
+    "Y"
+   ],
+   "from": "keynesian-cross"
+  },
+  {
+   "tex": "$a$",
+   "meaning": "Autonomous consumption: spending that does not depend on income",
+   "kind": "Parameter",
+   "typical": "100 in the example",
+   "keys": [
+    "a"
+   ],
+   "from": "keynesian-cross"
+  },
+  {
+   "tex": "$T$",
+   "meaning": "Taxes",
+   "kind": "Policy",
+   "typical": "100 in the example",
+   "keys": [
+    "T"
+   ],
+   "from": "keynesian-cross"
+  },
+  {
+   "tex": "$G$",
+   "meaning": "Government spending",
+   "kind": "Policy",
+   "typical": "100 in the example",
+   "keys": [
+    "G"
+   ],
+   "from": "keynesian-cross"
+  },
+  {
+   "tex": "$I^P$",
+   "meaning": "Planned investment: new capital goods and planned inventory changes",
+   "kind": "Exogenous (for now)",
+   "typical": "100 in the example",
+   "keys": [
+    "~I^P"
+   ],
+   "from": "keynesian-cross"
+  },
+  {
+   "tex": "$I$",
+   "meaning": "Total investment, $I^P + I^U$",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "I"
+   ],
+   "from": "keynesian-cross"
+  },
+  {
+   "tex": "$Y^*$",
+   "meaning": "Equilibrium output",
+   "kind": "Endogenous",
+   "typical": "1,100 in the example",
+   "keys": [
+    "Y*"
+   ],
+   "from": "keynesian-cross"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "When the government pays 1,000 dollars to build a road, the workers and suppliers who receive that money spend most of it, say 800, in shops. The shop owners now have 800 more income and spend 640 of it, and so on. Each round is smaller than the last, but they add up: the economy's total spending rises by several times the original 1,000. A tax cut works the same way, except that its first round is missing: the government buys nothing itself, and households spend only part of the money they get back. So a tax cut of the same size raises output by a bit less than the spending increase."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is why, in the Keynesian view, a dollar of government spending can raise output by more than a dollar, and why spending and tax changes of the same size have different effects.",
+       "folded": false
+      }
+     ],
+     "words": 150,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "In the [Keynesian Cross](note:keynesian-cross), $Y^* = (a - bT + I^P + G)/(1 - b)$. The **spending multiplier** and **tax multiplier** are"
+      },
+      {
+       "t": "math",
+       "tex": "\\frac{\\Delta Y}{\\Delta G} = \\frac{1}{1 - b}, \\qquad \\frac{\\Delta Y}{-\\Delta T} = \\frac{b}{1 - b} = \\frac{1}{1 - b} - 1"
+      },
+      {
+       "t": "prose",
+       "md": "The spending multiplier applies equally to changes in $a$ and $I^P$."
+      }
+     ],
+     "words": 20,
+     "symbols": [
+      "$b$",
+      "$\\Delta G$",
+      "$\\Delta T$",
+      "$\\Delta Y$",
+      "$Y$",
+      "$a$",
+      "$T$",
+      "$G$",
+      "$I^P$",
+      "$I$",
+      "$Y^*$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "derivation-rounds-of-spending",
+   "heading": "Derivation: rounds of spending",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "derivation-rounds-of-spending-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "An initial increase $X$ in spending is income for someone, who spends $bX$; that is income for someone else, who spends $b^2X$, and so on, a [Geometric Series](note:geometric-series):"
+      },
+      {
+       "t": "math",
+       "tex": "X + bX + b^2X + \\dots = \\frac{X}{1 - b}"
+      },
+      {
+       "t": "prose",
+       "md": "A tax cut of $X$ raises disposable income by $X$, but only $bX$ is spent in the first round:"
+      },
+      {
+       "t": "math",
+       "tex": "bX + b^2X + \\dots = \\frac{bX}{1 - b} = X\\left(\\frac{1}{1 - b} - 1\\right)"
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Keynesian multiplier - spending vs tax multiplier.png",
+       "alt": "Keynesian multiplier - spending vs tax multiplier"
+      }
+     ],
+     "words": 41,
+     "symbols": [
+      "$b$",
+      "$X$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With $b = 0.8$ the spending multiplier is $1/0.2 = 5$: a rise in $I^P$ or $G$ of 100 raises output by 500, and a 1,000 (one billion) road raises it by 5,000. A tax cut of 100 raises output by $0.8 \\times 100/0.2 = 400$."
+      },
+      {
+       "t": "callout",
+       "kind": "note",
+       "title": "Beyond the lecture",
+       "md": "Raising $G$ and $T$ by the same amount raises output by $\\frac{1}{1-b} - \\frac{b}{1-b} = 1$ times the change: the \"balanced-budget multiplier\" is 1.",
+       "folded": false
+      }
+     ],
+     "words": 55,
+     "symbols": [
+      "$b$",
+      "$T$",
+      "$G$",
+      "$I^P$",
+      "$I$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "properties",
+   "heading": "Properties",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "properties-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| | Spending multiplier | Tax multiplier |\n| --- | --- | --- |\n| Formula | $1/(1 - b)$ | $b/(1 - b)$ |\n| At $b = 0.8$ | 5 | 4 |\n| Larger when | $b$ is larger | $b$ is larger |\n| First round | The spending itself | Only the part of the tax cut that is spent |"
+      }
+     ],
+     "words": 32,
+     "symbols": [
+      "$b$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "when-it-fails",
+   "heading": "When it fails",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "when-it-fails-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Interest rates rise.** In the [IS-LM Model](note:is-lm-model), higher output raises money demand and the interest rate, which lowers planned investment (\"crowding out\"), so output rises by less than $\\Delta G/(1 - b)$.\n- The multiplier assumes prices and the interest rate are fixed and that there are idle resources to produce more."
+      }
+     ],
+     "words": 49,
+     "symbols": [
+      "$b$",
+      "$\\Delta G$",
+      "$G$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Using $1/b$ or $1/(1 - b)$ for a tax cut: the first round is missing, so it is $b/(1 - b)$.\n- Treating the multiplier as the total effect in IS-LM: the Keynesian-cross multiplier holds the interest rate fixed."
+      }
+     ],
+     "words": 33,
+     "symbols": [
+      "$b$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Macro: fiscal policy analysis, the horizontal shift of the [IS Curve](note:is-curve) ($\\Delta G/(1 - b)$ at a given interest rate)."
+      }
+     ],
+     "words": 17,
+     "symbols": [
+      "$b$",
+      "$\\Delta G$",
+      "$G$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Keynesian Cross](note:keynesian-cross) · [Geometric Series](note:geometric-series) · [IS Curve](note:is-curve) · [IS-LM Model](note:is-lm-model)"
+      }
+     ],
+     "words": 9,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}
