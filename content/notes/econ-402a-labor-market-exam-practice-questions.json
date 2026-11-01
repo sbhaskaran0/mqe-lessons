@@ -1,0 +1,262 @@
+{
+ "slug": "econ-402a-labor-market-exam-practice-questions",
+ "notation": [
+  {
+   "tex": "$U(c, l)$",
+   "meaning": "Utility from consumption and leisure",
+   "kind": "Function",
+   "typical": "$c^2 - 18(24-l)^4$ in the example",
+   "keys": [
+    "U"
+   ],
+   "from": "labor-leisure-choice"
+  },
+  {
+   "tex": "$c$",
+   "meaning": "Units of the consumption good bought",
+   "kind": "Choice",
+   "typical": "66.7 at $w = 20$ in the example",
+   "keys": [
+    "c"
+   ],
+   "from": "labor-leisure-choice"
+  },
+  {
+   "tex": "$l$",
+   "meaning": "Hours of leisure per day",
+   "kind": "Choice",
+   "typical": "20.67 at $w = 20$",
+   "keys": [
+    "l"
+   ],
+   "from": "labor-leisure-choice"
+  },
+  {
+   "tex": "$w$",
+   "meaning": "Nominal wage per hour",
+   "kind": "Exogenous (to the worker)",
+   "typical": "20",
+   "keys": [
+    "w"
+   ],
+   "from": "labor-leisure-choice"
+  },
+  {
+   "tex": "$Y$",
+   "meaning": "Output",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "Y"
+   ],
+   "from": "labor-demand"
+  },
+  {
+   "tex": "$L$",
+   "meaning": "Labor hired, in hours",
+   "kind": "Choice",
+   "typical": "2,000 at $w/p = 20$",
+   "keys": [
+    "L"
+   ],
+   "from": "labor-demand"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The professor's labor-market practice exam, one numbered item per exam part (20–25 points each). Each item restates the setup. Work it on paper, including the graphs, then reveal the worked answer in [Econ 402A Labor Market Exam Practice Answers](note:econ-402a-labor-market-exam-practice-answers) and grade yourself against its key steps. Revise from [Econ 402A L4 Classical Labor Market](note:econ-402a-l4-classical-labor-market)."
+      }
+     ],
+     "words": 55,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "a-four-consumers-and-one-firm",
+   "heading": "A. Four consumers and one firm",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "a-four-consumers-and-one-firm-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. An economy has 4 identical consumers with $u(c, l) = 64c^{1/2} - 2(24 - l)^2$, 24 hours a day for leisure and work, wage $w$ per hour, all income spent on the consumption good (price 1). One firm produces $Y = 160L^{2/5}$. Each worker currently works 16 hours a day at $w = 12$. Could a consumer raise utility by working more or less? Explain the intuition using the marginal rate of substitution. → [Labor-Leisure Choice](note:labor-leisure-choice)\n2. Same economy (4 consumers with $u = 64c^{1/2} - 2(24 - l)^2$; firm $Y = 160L^{2/5}$; price 1). Find the equilibrium wage and total hours worked. → [Classical Labor Market Model](note:classical-labor-market-model)\n3. Same economy. The government imposes a minimum wage of 15. Calculate labor supply and labor demand, and show what happens on a labor supply and demand graph."
+      }
+     ],
+     "words": 110,
+     "symbols": [
+      "$c$",
+      "$l$",
+      "$w$",
+      "$Y$",
+      "$L$"
+     ]
+    },
+    {
+     "id": "a-four-consumers-and-one-firm-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "4. Same economy, no minimum wage. Immigration raises the number of identical consumers from 4 to 6. What happens to the equilibrium wage and hours worked? Show it on a graph."
+      }
+     ],
+     "words": 31,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "b-140-consumers-and-two-firms",
+   "heading": "B. 140 consumers and two firms",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "b-140-consumers-and-two-firms-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "5. An economy has 140 identical consumers with $U(c, l) = c - (24 - l)^2$ and two firms, a fast-food restaurant and a retail store, each with $Y = 120L - \\frac{1}{10}L^2$ and output price 1 (so real and nominal wages are equal). Derive each consumer's labor supply and each firm's labor demand (no Lagrangian needed, but show the other steps). → [Labor Demand](note:labor-demand)\n6. Same economy. Workers move freely between the two firms, so the wage is equal in both. Calculate the equilibrium wage and total hours worked."
+      }
+     ],
+     "words": 76,
+     "symbols": [
+      "$U(c, l)$",
+      "$c$",
+      "$l$",
+      "$Y$",
+      "$L$"
+     ]
+    },
+    {
+     "id": "b-140-consumers-and-two-firms-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "7. Same economy. California imposes a 20 minimum wage that applies only to fast-food firms. What does the model predict? Calculate how many workers work at each firm and what wage each pays, and compare with question 6. (Hint: start with the hours the fast-food firm wants at 20 and the hours each worker wants to work at 20.)"
+      }
+     ],
+     "words": 59,
+     "symbols": []
+    }
+   ]
+  }
+ ],
+ "practice": {
+  "answers": "econ-402a-labor-market-exam-practice-answers",
+  "items": [
+   {
+    "id": "q1",
+    "number": "1",
+    "group": "A. Four consumers and one firm",
+    "prompt": "An economy has 4 identical consumers with $u(c, l) = 64c^{1/2} - 2(24 - l)^2$, 24 hours a day for leisure and work, wage $w$ per hour, all income spent on the consumption good (price 1). One firm produces $Y = 160L^{2/5}$. Each worker currently works 16 hours a day at $w = 12$. Could a consumer raise utility by working more or less? Explain the intuition using the marginal rate of substitution. → [Labor-Leisure Choice](note:labor-leisure-choice)",
+    "answer": "With hours $h = 24 - l$ and $c = wh$: $u_c = 32c^{-1/2}$ and $u_l = 4(24 - l) = 4h$, so\n\n$$MRS = \\frac{u_l}{u_c} = \\frac{4h}{32c^{-1/2}} = \\frac{h\\sqrt{c}}{8}$$\n\nAt $h = 16$, $w = 12$: $c = 192$, $\\sqrt{c} = 13.86$, and $MRS = 16 \\times 13.86/8 = 27.7$. The optimum needs $MRS = w$. Here $27.7 > 12$: the last hour of leisure given up is worth 27.7 goods to the worker, but working it buys only 12 goods. She should **work less**: giving up an hour of work loses 12 goods but gains leisure worth 27.7, raising utility, and as she works less the MRS falls toward the wage.",
+    "rubric": [
+     "Marginal utilities: $u_c = 32c^{-1/2}$, $u_l = 4(24 - l)$",
+     "MRS at $h = 16$, $c = 192$: ≈ 27.7",
+     "Compare with $w = 12$: MRS > w",
+     "Conclude: work less; the value of leisure exceeds what an hour of work buys"
+    ],
+    "links": [
+     "labor-leisure-choice"
+    ]
+   },
+   {
+    "id": "q2",
+    "number": "2",
+    "group": "A. Four consumers and one firm",
+    "prompt": "Same economy (4 consumers with $u = 64c^{1/2} - 2(24 - l)^2$; firm $Y = 160L^{2/5}$; price 1). Find the equilibrium wage and total hours worked. → [Classical Labor Market Model](note:classical-labor-market-model)",
+    "answer": "Labor supply: $MRS = w$ with $c = wh$ gives $\\frac{h\\sqrt{wh}}{8} = w$, so $h^{3/2} = 8w^{1/2}$ and $h = 4w^{1/3}$; four consumers supply $L^S = 16w^{1/3}$. Labor demand: $MPL = 160 \\cdot \\frac{2}{5}L^{-3/5} = 64L^{-3/5} = w$, so $L^D = (64/w)^{5/3}$. Equilibrium:\n\n$$16w^{1/3} = 64^{5/3}w^{-5/3} = 1024\\,w^{-5/3} \\;\\Rightarrow\\; w^2 = 64 \\;\\Rightarrow\\; w = 8$$\n\nTotal hours $L = 16 \\times 8^{1/3} = 32$ (8 hours each). Check: $L^D = (64/8)^{5/3} = 32$.",
+    "rubric": [
+     "Individual supply from MRS = w: $h = 4w^{1/3}$; market supply $16w^{1/3}$",
+     "Demand from MPL = w: $L^D = (64/w)^{5/3}$",
+     "Equate: $w^2 = 64$, so $w = 8$",
+     "Hours: $L = 32$ (8 per worker)"
+    ],
+    "links": [
+     "classical-labor-market-model"
+    ]
+   },
+   {
+    "id": "q3",
+    "number": "3",
+    "group": "A. Four consumers and one firm",
+    "prompt": "Same economy. The government imposes a minimum wage of 15. Calculate labor supply and labor demand, and show what happens on a labor supply and demand graph.",
+    "answer": "At $w = 15$: $L^S = 16 \\times 15^{1/3} = 39.5$ hours offered, but $L^D = (64/15)^{5/3} = 11.2$ hours wanted. The firm hires only 11.2 hours; the gap of **28.2 hours is unemployment**. Hours worked fall from 32 to 11.2.\n\n![Labor practice - minimum wage of 15 and unemployment](<assets/Attachments/Labor practice - minimum wage of 15 and unemployment.png>)",
+    "rubric": [
+     "$L^S(15) \\approx 39.5$",
+     "$L^D(15) \\approx 11.2$; employment is the smaller, demand",
+     "Unemployment ≈ 28.2 hours",
+     "Graph: floor above the equilibrium (32, 8), gap between the curves at 15"
+    ],
+    "links": []
+   },
+   {
+    "id": "q4",
+    "number": "4",
+    "group": "A. Four consumers and one firm",
+    "prompt": "Same economy, no minimum wage. Immigration raises the number of identical consumers from 4 to 6. What happens to the equilibrium wage and hours worked? Show it on a graph.",
+    "answer": "Each consumer still supplies $h = 4w^{1/3}$, so supply becomes $L^S = 24w^{1/3}$ — the curve **shifts right**. Equilibrium: $24w^{1/3} = 1024w^{-5/3}$, so $w^2 = 1024/24 = 42.7$, **$w = 6.53$** (down from 8), and **total hours rise to 44.9** (from 32). Each worker works fewer hours ($4 \\times 6.53^{1/3} = 7.48$), but there are more workers.\n\n![Labor practice - more workers shift labor supply right](<assets/Attachments/Labor practice - more workers shift labor supply right.png>)",
+    "rubric": [
+     "Market supply becomes $24w^{1/3}$: shifts right",
+     "New equilibrium $w^2 = 1024/24$: $w \\approx 6.53$",
+     "Total hours ≈ 44.9 (each worker ≈ 7.48)",
+     "Graph: supply shifts right along a fixed demand curve; wage down, hours up"
+    ],
+    "links": []
+   },
+   {
+    "id": "q5",
+    "number": "5",
+    "group": "B. 140 consumers and two firms",
+    "prompt": "An economy has 140 identical consumers with $U(c, l) = c - (24 - l)^2$ and two firms, a fast-food restaurant and a retail store, each with $Y = 120L - \\frac{1}{10}L^2$ and output price 1 (so real and nominal wages are equal). Derive each consumer's labor supply and each firm's labor demand (no Lagrangian needed, but show the other steps). → [Labor Demand](note:labor-demand)",
+    "answer": "Consumer: $U = wh - h^2$ (substituting $c = wh$, $h = 24 - l$). $dU/dh = w - 2h = 0$, so **$h = w/2$**; 140 consumers supply $L^S = 70w$. Firm: profit $120L - \\frac{1}{10}L^2 - wL$; $MPL = 120 - \\frac{L}{5} = w$, so each firm demands **$L^D = 5(120 - w) = 600 - 5w$**.",
+    "rubric": [
+     "Substitute the budget and time constraints: $U = wh - h^2$",
+     "FOC $w = 2h$: $h = w/2$; market supply $70w$",
+     "Firm FOC $120 - L/5 = w$: $L^D = 600 - 5w$ per firm"
+    ],
+    "links": [
+     "labor-demand"
+    ]
+   },
+   {
+    "id": "q6",
+    "number": "6",
+    "group": "B. 140 consumers and two firms",
+    "prompt": "Same economy. Workers move freely between the two firms, so the wage is equal in both. Calculate the equilibrium wage and total hours worked.",
+    "answer": "Total demand $2(600 - 5w) = 1200 - 10w$ equals supply $70w$: $80w = 1200$, **$w = 15$**. Total hours **$L = 1050$**: 525 at each firm, 7.5 hours per worker.",
+    "rubric": [
+     "Add the two firms' demands: $1200 - 10w$",
+     "Equate with $70w$: $w = 15$",
+     "Total hours 1050 (525 per firm)"
+    ],
+    "links": []
+   },
+   {
+    "id": "q7",
+    "number": "7",
+    "group": "B. 140 consumers and two firms",
+    "prompt": "Same economy. California imposes a 20 minimum wage that applies only to fast-food firms. What does the model predict? Calculate how many workers work at each firm and what wage each pays, and compare with question 6. (Hint: start with the hours the fast-food firm wants at 20 and the hours each worker wants to work at 20.)",
+    "answer": "Fast food at 20: it hires $L^D = 600 - 5(20) = 500$ hours, and each worker at 20 wants $h = 10$ hours, so **50 workers** work there at **20**. The other **90 workers** go to retail, where the wage is free: supply $90 \\times \\frac{w}{2} = 45w$, demand $600 - 5w$, so $50w = 600$, **$w = 12$** and retail hours are 540 (6 per worker). Compared with question 6: fast-food workers earn more (20 vs 15) but fewer people work there (500 hours vs 525); displaced workers crowd into retail and push its wage down (12 vs 15); total hours fall slightly (1040 vs 1050). Like a union in the lecture, the floor helps the workers who keep the covered jobs at the expense of those in the uncovered sector.\n\n![Labor practice - fast-food minimum wage and the retail sector](<assets/Attachments/Labor practice - fast-food minimum wage and the retail sector.png>)",
+    "rubric": [
+     "Fast food at 20 hires 500 hours; workers want 10 hours each, so 50 workers",
+     "Remaining 90 workers supply $45w$ to retail",
+     "Retail clears at $w = 12$ with 540 hours",
+     "Compare: fast-food wage up, retail wage down, total hours 1040 < 1050"
+    ],
+    "links": []
+   }
+  ]
+ }
+}

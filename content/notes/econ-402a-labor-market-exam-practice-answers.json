@@ -1,0 +1,329 @@
+{
+ "slug": "econ-402a-labor-market-exam-practice-answers",
+ "notation": [
+  {
+   "tex": "$U(c, l)$",
+   "meaning": "Utility from consumption and leisure",
+   "kind": "Function",
+   "typical": "$c^2 - 18(24-l)^4$ in the example",
+   "keys": [
+    "U"
+   ],
+   "from": "labor-leisure-choice"
+  },
+  {
+   "tex": "$c$",
+   "meaning": "Units of the consumption good bought",
+   "kind": "Choice",
+   "typical": "66.7 at $w = 20$ in the example",
+   "keys": [
+    "c"
+   ],
+   "from": "labor-leisure-choice"
+  },
+  {
+   "tex": "$l$",
+   "meaning": "Hours of leisure per day",
+   "kind": "Choice",
+   "typical": "20.67 at $w = 20$",
+   "keys": [
+    "l"
+   ],
+   "from": "labor-leisure-choice"
+  },
+  {
+   "tex": "$h$",
+   "meaning": "Hours worked per day",
+   "kind": "Choice",
+   "typical": "3.33 at $w = 20$",
+   "keys": [
+    "h"
+   ],
+   "from": "labor-leisure-choice"
+  },
+  {
+   "tex": "$w$",
+   "meaning": "Nominal wage per hour",
+   "kind": "Exogenous (to the worker)",
+   "typical": "20",
+   "keys": [
+    "w"
+   ],
+   "from": "labor-leisure-choice"
+  },
+  {
+   "tex": "$MRS$",
+   "meaning": "Marginal rate of substitution of leisure for consumption, $U_l/U_c$",
+   "kind": "Statistic",
+   "typical": "equals $w/p$ at the optimum",
+   "keys": [
+    "~MRS"
+   ],
+   "from": "labor-leisure-choice"
+  },
+  {
+   "tex": "$L$",
+   "meaning": "Labor hired, in hours",
+   "kind": "Choice",
+   "typical": "2,000 at $w/p = 20$",
+   "keys": [
+    "L"
+   ],
+   "from": "labor-demand"
+  },
+  {
+   "tex": "$L^D$",
+   "meaning": "Labor demanded at a given real wage",
+   "kind": "Function",
+   "typical": "$40{,}000/(w/p)$",
+   "keys": [
+    "~L^D"
+   ],
+   "from": "labor-demand"
+  },
+  {
+   "tex": "$L^S$",
+   "meaning": "Market labor supply: hours households offer",
+   "kind": "Function",
+   "typical": "$100\\,w/p$",
+   "keys": [
+    "~L^S"
+   ],
+   "from": "classical-labor-market-model"
+  },
+  {
+   "tex": "$MPK$, $MPL$",
+   "meaning": "Marginal products of capital and labor",
+   "kind": "Partial derivatives",
+   "typical": "0.703, 0.486 in the example",
+   "keys": [
+    "~MPK",
+    "~MPL"
+   ],
+   "from": "partial-derivatives-and-the-gradient"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Answers to [Econ 402A Labor Market Exam Practice Questions](note:econ-402a-labor-market-exam-practice-questions). All numbers computed in Python; graphs drawn from the derived curves."
+      }
+     ],
+     "words": 20,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "a-four-consumers-and-one-firm",
+   "heading": "A. Four consumers and one firm",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "a-four-consumers-and-one-firm-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**1.** With hours $h = 24 - l$ and $c = wh$: $u_c = 32c^{-1/2}$ and $u_l = 4(24 - l) = 4h$, so"
+      },
+      {
+       "t": "math",
+       "tex": "MRS = \\frac{u_l}{u_c} = \\frac{4h}{32c^{-1/2}} = \\frac{h\\sqrt{c}}{8}"
+      },
+      {
+       "t": "prose",
+       "md": "At $h = 16$, $w = 12$: $c = 192$, $\\sqrt{c} = 13.86$, and $MRS = 16 \\times 13.86/8 = 27.7$. The optimum needs $MRS = w$. Here $27.7 > 12$: the last hour of leisure given up is worth 27.7 goods to the worker, but working it buys only 12 goods. She should **work less**: giving up an hour of work loses 12 goods but gains leisure worth 27.7, raising utility, and as she works less the MRS falls toward the wage."
+      },
+      {
+       "t": "callout",
+       "kind": "rubric",
+       "title": "Key steps",
+       "md": "- Marginal utilities: $u_c = 32c^{-1/2}$, $u_l = 4(24 - l)$\n- MRS at $h = 16$, $c = 192$: ≈ 27.7\n- Compare with $w = 12$: MRS > w\n- Conclude: work less; the value of leisure exceeds what an hour of work buys",
+       "folded": true
+      },
+      {
+       "t": "prose",
+       "md": "**2.** Labor supply: $MRS = w$ with $c = wh$ gives $\\frac{h\\sqrt{wh}}{8} = w$, so $h^{3/2} = 8w^{1/2}$ and $h = 4w^{1/3}$; four consumers supply $L^S = 16w^{1/3}$. Labor demand: $MPL = 160 \\cdot \\frac{2}{5}L^{-3/5} = 64L^{-3/5} = w$, so $L^D = (64/w)^{5/3}$. Equilibrium:"
+      },
+      {
+       "t": "math",
+       "tex": "16w^{1/3} = 64^{5/3}w^{-5/3} = 1024\\,w^{-5/3} \\;\\Rightarrow\\; w^2 = 64 \\;\\Rightarrow\\; w = 8"
+      },
+      {
+       "t": "prose",
+       "md": "Total hours $L = 16 \\times 8^{1/3} = 32$ (8 hours each). Check: $L^D = (64/8)^{5/3} = 32$."
+      }
+     ],
+     "words": 116,
+     "symbols": [
+      "$c$",
+      "$l$",
+      "$h$",
+      "$w$",
+      "$MRS$",
+      "$L$",
+      "$L^D$",
+      "$L^S$",
+      "$MPK$, $MPL$"
+     ]
+    },
+    {
+     "id": "a-four-consumers-and-one-firm-2",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "rubric",
+       "title": "Key steps",
+       "md": "- Individual supply from MRS = w: $h = 4w^{1/3}$; market supply $16w^{1/3}$\n- Demand from MPL = w: $L^D = (64/w)^{5/3}$\n- Equate: $w^2 = 64$, so $w = 8$\n- Hours: $L = 32$ (8 per worker)",
+       "folded": true
+      },
+      {
+       "t": "prose",
+       "md": "**3.** At $w = 15$: $L^S = 16 \\times 15^{1/3} = 39.5$ hours offered, but $L^D = (64/15)^{5/3} = 11.2$ hours wanted. The firm hires only 11.2 hours; the gap of **28.2 hours is unemployment**. Hours worked fall from 32 to 11.2."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Labor practice - minimum wage of 15 and unemployment.png",
+       "alt": "Labor practice - minimum wage of 15 and unemployment"
+      }
+     ],
+     "words": 53,
+     "symbols": [
+      "$h$",
+      "$w$",
+      "$L$",
+      "$L^D$",
+      "$L^S$"
+     ]
+    },
+    {
+     "id": "a-four-consumers-and-one-firm-3",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "rubric",
+       "title": "Key steps",
+       "md": "- $L^S(15) \\approx 39.5$\n- $L^D(15) \\approx 11.2$; employment is the smaller, demand\n- Unemployment ≈ 28.2 hours\n- Graph: floor above the equilibrium (32, 8), gap between the curves at 15",
+       "folded": true
+      },
+      {
+       "t": "prose",
+       "md": "**4.** Each consumer still supplies $h = 4w^{1/3}$, so supply becomes $L^S = 24w^{1/3}$ — the curve **shifts right**. Equilibrium: $24w^{1/3} = 1024w^{-5/3}$, so $w^2 = 1024/24 = 42.7$, **$w = 6.53$** (down from 8), and **total hours rise to 44.9** (from 32). Each worker works fewer hours ($4 \\times 6.53^{1/3} = 7.48$), but there are more workers."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Labor practice - more workers shift labor supply right.png",
+       "alt": "Labor practice - more workers shift labor supply right"
+      },
+      {
+       "t": "callout",
+       "kind": "rubric",
+       "title": "Key steps",
+       "md": "- Market supply becomes $24w^{1/3}$: shifts right\n- New equilibrium $w^2 = 1024/24$: $w \\approx 6.53$\n- Total hours ≈ 44.9 (each worker ≈ 7.48)\n- Graph: supply shifts right along a fixed demand curve; wage down, hours up",
+       "folded": true
+      }
+     ],
+     "words": 98,
+     "symbols": [
+      "$h$",
+      "$w$",
+      "$L$",
+      "$L^D$",
+      "$L^S$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "b-140-consumers-and-two-firms",
+   "heading": "B. 140 consumers and two firms",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "b-140-consumers-and-two-firms-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**5.** Consumer: $U = wh - h^2$ (substituting $c = wh$, $h = 24 - l$). $dU/dh = w - 2h = 0$, so **$h = w/2$**; 140 consumers supply $L^S = 70w$. Firm: profit $120L - \\frac{1}{10}L^2 - wL$; $MPL = 120 - \\frac{L}{5} = w$, so each firm demands **$L^D = 5(120 - w) = 600 - 5w$**."
+      },
+      {
+       "t": "callout",
+       "kind": "rubric",
+       "title": "Key steps",
+       "md": "- Substitute the budget and time constraints: $U = wh - h^2$\n- FOC $w = 2h$: $h = w/2$; market supply $70w$\n- Firm FOC $120 - L/5 = w$: $L^D = 600 - 5w$ per firm",
+       "folded": true
+      },
+      {
+       "t": "prose",
+       "md": "**6.** Total demand $2(600 - 5w) = 1200 - 10w$ equals supply $70w$: $80w = 1200$, **$w = 15$**. Total hours **$L = 1050$**: 525 at each firm, 7.5 hours per worker."
+      },
+      {
+       "t": "callout",
+       "kind": "rubric",
+       "title": "Key steps",
+       "md": "- Add the two firms' demands: $1200 - 10w$\n- Equate with $70w$: $w = 15$\n- Total hours 1050 (525 per firm)",
+       "folded": true
+      }
+     ],
+     "words": 65,
+     "symbols": [
+      "$U(c, l)$",
+      "$c$",
+      "$l$",
+      "$h$",
+      "$w$",
+      "$L$",
+      "$L^D$",
+      "$L^S$",
+      "$MPK$, $MPL$"
+     ]
+    },
+    {
+     "id": "b-140-consumers-and-two-firms-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**7.** Fast food at 20: it hires $L^D = 600 - 5(20) = 500$ hours, and each worker at 20 wants $h = 10$ hours, so **50 workers** work there at **20**. The other **90 workers** go to retail, where the wage is free: supply $90 \\times \\frac{w}{2} = 45w$, demand $600 - 5w$, so $50w = 600$, **$w = 12$** and retail hours are 540 (6 per worker). Compared with question 6: fast-food workers earn more (20 vs 15) but fewer people work there (500 hours vs 525); displaced workers crowd into retail and push its wage down (12 vs 15); total hours fall slightly (1040 vs 1050). Like a union in the lecture, the floor helps the workers who keep the covered jobs at the expense of those in the uncovered sector."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Labor practice - fast-food minimum wage and the retail sector.png",
+       "alt": "Labor practice - fast-food minimum wage and the retail sector"
+      }
+     ],
+     "words": 110,
+     "symbols": [
+      "$h$",
+      "$w$",
+      "$L$",
+      "$L^D$"
+     ]
+    },
+    {
+     "id": "b-140-consumers-and-two-firms-3",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "rubric",
+       "title": "Key steps",
+       "md": "- Fast food at 20 hires 500 hours; workers want 10 hours each, so 50 workers\n- Remaining 90 workers supply $45w$ to retail\n- Retail clears at $w = 12$ with 540 hours\n- Compare: fast-food wage up, retail wage down, total hours 1040 < 1050",
+       "folded": true
+      }
+     ],
+     "words": 44,
+     "symbols": [
+      "$w$"
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -141,9 +141,18 @@
       {
        "t": "math",
        "tex": "\\pi_t = \\pi^e_t + \\gamma(y_t - y^*) + \\epsilon^\\pi_t"
+      },
+      {
+       "t": "prose",
+       "md": "When expected inflation rises, the whole curve shifts up: the same unemployment rate comes with higher inflation, which is what the data of the 1970s showed."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Phillips curve - original and expectations-augmented (handwritten).png",
+       "alt": "Phillips curve - original and expectations-augmented (handwritten)"
       }
      ],
-     "words": 29,
+     "words": 55,
      "symbols": [
       "$\\pi_t$",
       "$\\pi^e_t$",

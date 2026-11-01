@@ -234,10 +234,10 @@
       },
       {
        "t": "prose",
-       "md": "- **Model.** [IS-MP-PC Model](note:is-mp-pc-model): Phillips curve $\\pi_t = \\pi^e_t + \\gamma(y_t - y^*) + \\epsilon^\\pi_t$ ([Phillips Curve](note:phillips-curve)), IS curve $y_t = y^* - \\alpha(i_t - \\pi_t - r^*) + \\epsilon^y_t$ ([IS Curve](note:is-curve)), rule $i_t = r^* + \\pi^* + \\beta_\\pi(\\pi_t - \\pi^*)$ ([Monetary Policy Rule](note:monetary-policy-rule)). The derived values are the closed-form solution with $\\theta = 1/(1 + \\alpha\\gamma(\\beta_\\pi - 1))$.\n- **Two variables.** `y` is output on a diagram's horizontal axis; [IS-MP and Phillips Curve Diagram](note:is-mp-and-phillips-curve-diagram) draws the curves as inflation at each output. `pprev` is last period's inflation: with [Adaptive Expectations](note:adaptive-expectations) it is this period's expected inflation, so `pi_ad`, `y_ad`, `i_ad`, `r_ad` solve a period from the one before, which is what [Inflation Shock Paths](note:inflation-shock-paths) iterates.\n- **Range of $\\beta_\\pi$.** From 1.25, so the IS-MP curve slopes down and its slope $-1/(\\alpha(\\beta_\\pi - 1))$ is finite; the case $\\beta_\\pi < 1$ is discussed in the concept note."
+       "md": "- **Model.** [IS-MP-PC Model](note:is-mp-pc-model): Phillips curve $\\pi_t = \\pi^e_t + \\gamma(y_t - y^*) + \\epsilon^\\pi_t$ ([Phillips Curve](note:phillips-curve)), IS curve $y_t = y^* - \\alpha(i_t - \\pi_t - r^*) + \\epsilon^y_t$ ([IS Curve](note:is-curve)), rule $i_t = r^* + \\pi^* + \\beta_\\pi(\\pi_t - \\pi^*)$ ([Monetary Policy Rule](note:monetary-policy-rule)). The derived values are the closed-form solution with $\\theta = 1/(1 + \\alpha\\gamma(\\beta_\\pi - 1))$.\n- **Two variables.** `y` is output on a diagram's horizontal axis; [IS-MP and Phillips Curve Diagram](note:is-mp-and-phillips-curve-diagram) draws the curves as inflation at each output. `pprev` is last period's inflation: with [Adaptive Expectations](note:adaptive-expectations) it is this period's expected inflation, so `pi_ad`, `y_ad`, `i_ad`, `r_ad` solve a period from the one before, which is what [Inflation Shock Paths](note:inflation-shock-paths) iterates."
       }
      ],
-     "words": 128,
+     "words": 103,
      "symbols": [
       "$\\pi_t$",
       "$\\pi^e_t$",
@@ -260,14 +260,16 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "- **Tests.** The notes' worked example ($\\theta = 2/3$; $\\pi_2 = 4$, $i_2 = 7$, $y_2 = 99$) and computed cases, each checked in Python against the three original equations."
+       "md": "- **Range of $\\beta_\\pi$.** From 1. At $\\beta_\\pi = 1$ the real rate does not respond to inflation, $\\theta = 1$, and a supply shock passes one-for-one into inflation with output unchanged (the IS-MP curve is vertical at $y^*$). The case $\\beta_\\pi < 1$ is discussed in the concept note.\n- **Tests.** The notes' worked example ($\\theta = 2/3$; $\\pi_2 = 4$, $i_2 = 7$, $y_2 = 99$) and computed cases, each checked in Python against the three original equations."
       }
      ],
-     "words": 18,
+     "words": 57,
      "symbols": [
       "$\\pi_t$",
       "$y_t$",
+      "$y^*$",
       "$i_t$",
+      "$\\beta_\\pi$",
       "$\\theta$"
      ]
     }

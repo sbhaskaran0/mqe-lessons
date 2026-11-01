@@ -1,0 +1,501 @@
+{
+ "slug": "econ-402a-fall-2025-midterm-answers",
+ "notation": [
+  {
+   "tex": "$\\pi_t$",
+   "meaning": "Inflation",
+   "kind": "Endogenous",
+   "typical": "2 at target",
+   "keys": [
+    "pi"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$\\pi^e_t$",
+   "meaning": "Expected inflation",
+   "kind": "State (given in the period)",
+   "typical": "2",
+   "keys": [
+    "~\\pi^e_t"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$y_t$",
+   "meaning": "Output",
+   "kind": "Endogenous",
+   "typical": "100",
+   "keys": [
+    "y"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$i_t$",
+   "meaning": "Nominal policy rate",
+   "kind": "Endogenous",
+   "typical": "4 at target",
+   "keys": [
+    "i"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "Sensitivity of output to the real rate (IS slope)",
+   "kind": "Parameter",
+   "typical": "1",
+   "keys": [
+    "alpha"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$\\gamma$",
+   "meaning": "Slope of the Phillips curve",
+   "kind": "Parameter",
+   "typical": "1",
+   "keys": [
+    "gamma"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$\\beta_\\pi$",
+   "meaning": "Policy response to inflation",
+   "kind": "Parameter",
+   "typical": "1.5",
+   "keys": [
+    "beta"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$\\theta$",
+   "meaning": "Weight on expectations and shocks, $1/(1 + \\alpha\\gamma(\\beta_\\pi - 1))$",
+   "kind": "Parameter combination",
+   "typical": "2/3",
+   "keys": [
+    "theta"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$u_t$",
+   "meaning": "Unemployment rate",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "u"
+   ],
+   "from": "phillips-curve"
+  },
+  {
+   "tex": "$Y$",
+   "meaning": "Output",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "Y"
+   ],
+   "from": "is-curve"
+  },
+  {
+   "tex": "$a$, $b$",
+   "meaning": "Autonomous consumption and marginal propensity to consume",
+   "kind": "Parameters",
+   "typical": "100, 0.8",
+   "keys": [
+    "a",
+    "b"
+   ],
+   "from": "is-curve"
+  },
+  {
+   "tex": "$T$, $G$",
+   "meaning": "Taxes and government spending",
+   "kind": "Policy",
+   "typical": "100, 100",
+   "keys": [
+    "T",
+    "G"
+   ],
+   "from": "is-curve"
+  },
+  {
+   "tex": "$L(r, Y)$",
+   "meaning": "Real money demand, $kY - hr$ in the example",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "L"
+   ],
+   "from": "is-lm-model"
+  },
+  {
+   "tex": "$k$, $h$",
+   "meaning": "Income and interest sensitivity of money demand",
+   "kind": "Parameters",
+   "typical": "0.5, 50",
+   "keys": [
+    "k",
+    "h"
+   ],
+   "from": "is-lm-model"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Answers to [Econ 402A Fall 2025 Midterm Questions](note:econ-402a-fall-2025-midterm-questions). These are model answers, not the official key; all numbers computed in Python. Question C has no single right answer — the rubric lists what a full answer covers."
+      }
+     ],
+     "words": 36,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "a-solow-1-3-s-0-9-0-05",
+   "heading": "A. Solow (α = 1/3, s = 0.9, δ = 0.05)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "a-solow-1-3-s-0-9-0-05-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**1.** $Y = 1000^{1/3} = 10$. Investment $sY = 0.9 \\times 10 = 9$; depreciation $\\delta K = 0.05 \\times 1000 = 50$. Next period $K = 1000 + 9 - 50 = 959$. Capital falls because investment is less than depreciation, which happens only **above** the steady state; so steady-state capital is **below 1,000**. (It is $(0.9/0.05)^{3/2} = 76.4$.)"
+      },
+      {
+       "t": "callout",
+       "kind": "rubric",
+       "title": "Key steps",
+       "md": "- Output 10, investment 9, depreciation 50\n- Next-period capital 959\n- Investment < depreciation means capital is above its steady state, so $\\bar{K} < 1000$",
+       "folded": true
+      },
+      {
+       "t": "prose",
+       "md": "**2.** $\\tilde{\\gamma} = \\gamma/(1-\\alpha) = 0.02/(2/3) = 0.03$, so $\\delta + \\eta + \\tilde{\\gamma} = 0.05 + 0.02 + 0.03 = 0.10$."
+      },
+      {
+       "t": "math",
+       "tex": "\\bar{k} = \\left(\\frac{0.9}{0.10}\\right)^{3/2} = 27, \\qquad \\tilde{y} = 27^{1/3} = 3, \\qquad \\tilde{c} = (1 - 0.9)(3) = 0.3"
+      },
+      {
+       "t": "callout",
+       "kind": "rubric",
+       "title": "Key steps",
+       "md": "- Convert: $\\tilde{\\gamma} = 0.03$; break-even rate 0.10\n- $\\bar{k} = 9^{3/2} = 27$\n- $\\tilde{y} = 3$, $\\tilde{c} = 0.3$",
+       "folded": true
+      },
+      {
+       "t": "prose",
+       "md": "**3.** Break-even investment rises to $(0.05 + 0.06 + 0.03)\\tilde{k}$, so the steady state falls from 27 to $(0.9/0.14)^{3/2} = 16.3$."
+      }
+     ],
+     "words": 78,
+     "symbols": [
+      "$\\alpha$",
+      "$\\gamma$",
+      "$Y$"
+     ]
+    },
+    {
+     "id": "a-solow-1-3-s-0-9-0-05-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **$\\tilde{k}$**: flat at 27, then falls gradually to 16.3 (more workers share the capital).\n- **$\\ln k$** (per worker) $= \\ln\\tilde{k} + \\ln\\tilde{A}$: slope 3% before; slower than 3% (briefly flat or falling) while $\\tilde{k}$ falls; back to 3% on a lower parallel line. A level effect, not a growth effect.\n- **$\\ln K$** $= \\ln k + \\ln L$: slope $3\\% + 2\\% = 5\\%$ before; rises toward $3\\% + 6\\% = 9\\%$, below 9% during the transition."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Solow practice - population growth rises from 2 to 6 percent.png",
+       "alt": "Solow practice - population growth rises from 2 to 6 percent"
+      },
+      {
+       "t": "callout",
+       "kind": "rubric",
+       "title": "Key steps",
+       "md": "- $\\tilde{k}$ falls gradually to a lower steady state\n- $\\ln k$: slope 3% → temporarily lower → 3% (level effect only)\n- $\\ln K$: slope 5% → approaching 9%\n- Graphs labelled with the slopes",
+       "folded": true
+      }
+     ],
+     "words": 85,
+     "symbols": [
+      "$L(r, Y)$",
+      "$k$, $h$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "b-two-period-capital-choice",
+   "heading": "B. Two-period capital choice",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "b-two-period-capital-choice-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**4.** Period-1 output $10\\sqrt{100} = 100$. Saving 64% gives $k_2 = 64$ and $c_1 = 36$; $c_2 = 10\\sqrt{64} = 80$. At the optimum the MRS between today and tomorrow equals the return on saving: $\\frac{u'(c_1)}{u'(c_2)} = \\frac{c_2}{c_1} = MPK = f'(k_2)$. Here $MRS = 80/36 = 2.22$ while $MPK = 5/\\sqrt{64} = 0.625$. The consumer values a unit today at 2.22 units tomorrow, but saving it yields only 0.625 tomorrow: they are **saving too much** and would gain by **saving less** (consuming more today), which raises the MPK and lowers the MRS until they are equal."
+      },
+      {
+       "t": "callout",
+       "kind": "rubric",
+       "title": "Key steps",
+       "md": "- $c_1 = 36$, $k_2 = 64$, $c_2 = 80$\n- MRS $= c_2/c_1 \\approx 2.22$; MPK $= 5/\\sqrt{64} = 0.625$\n- MRS > MPK: the return on saving is too low for what tomorrow's goods are worth\n- Save less",
+       "folded": true
+      },
+      {
+       "t": "prose",
+       "md": "**5.** Choose $c_1$, $c_2$, $k_2$:"
+      },
+      {
+       "t": "math",
+       "tex": "\\mathcal{L} = \\ln c_1 + \\ln c_2 + \\lambda_1\\left(10\\sqrt{100} - c_1 - k_2\\right) + \\lambda_2\\left(10k_2^{1/2} - c_2\\right)"
+      },
+      {
+       "t": "prose",
+       "md": "FOCs: $\\frac{1}{c_1} - \\lambda_1 = 0$; $\\frac{1}{c_2} - \\lambda_2 = 0$; $-\\lambda_1 + 5\\lambda_2k_2^{-1/2} = 0$; and the two constraints $c_1 + k_2 = 100$, $c_2 = 10k_2^{1/2}$."
+      }
+     ],
+     "words": 100,
+     "symbols": [
+      "$u_t$",
+      "$k$, $h$"
+     ]
+    },
+    {
+     "id": "b-two-period-capital-choice-2",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "rubric",
+       "title": "Key steps",
+       "md": "- Period-1 constraint: $c_1 + k_2 = 10\\sqrt{100} = 100$\n- Period-2 constraint: $c_2 = 10k_2^{1/2}$ (full depreciation)\n- Lagrangian with two multipliers\n- Five FOCs (three choice variables, two multipliers)",
+       "folded": true
+      },
+      {
+       "t": "prose",
+       "md": "**6.** From the FOCs, $\\frac{1}{c_1} = \\frac{1}{c_2}\\cdot\\frac{5}{\\sqrt{k_2}}$. Substituting $c_2 = 10\\sqrt{k_2}$: $\\frac{1}{c_1} = \\frac{1}{2k_2}$, so $c_1 = 2k_2$. With $c_1 + k_2 = 100$: **$k_2 = 33.3$**, **$c_1 = 66.7$**, **$c_2 = 10\\sqrt{33.3} = 57.7$**. The consumer saves one third of output ($\\alpha\\beta/(1 + \\alpha\\beta)$ with $\\alpha = 1/2$, $\\beta = 1$). Check: $MRS = 57.7/66.7 = 0.866 = 5/\\sqrt{33.3}$."
+      },
+      {
+       "t": "callout",
+       "kind": "rubric",
+       "title": "Key steps",
+       "md": "- Combine FOCs: $c_2/c_1 = f'(k_2) = 5/\\sqrt{k_2}$\n- Substitute $c_2 = 10\\sqrt{k_2}$: $c_1 = 2k_2$\n- Budget: $k_2 = 33.3$, $c_1 = 66.7$, $c_2 = 57.7$",
+       "folded": true
+      }
+     ],
+     "words": 48,
+     "symbols": [
+      "$\\alpha$",
+      "$\\beta_\\pi$",
+      "$k$, $h$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "c-the-covid-recovery-in-three-models",
+   "heading": "C. The Covid recovery in three models",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "c-the-covid-recovery-in-three-models-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**7.** **IS-LM**: the spending stimulus (higher $G$ and transfers that raise consumption) shifts **IS right**; the Fed's monetary expansion shifts **LM right**. Both raise output, explaining the **GDP surge**. The interest rate rises with the IS shift and falls with the LM shift; the observed rate cut means the LM shift dominated (or the Fed targeted a low rate, accommodating the fiscal expansion, so there was little crowding out). **Not explained**: IS-LM has no labor market, so it says nothing about unemployment, job openings or wages, and, with fixed prices, nothing about inflation."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Midterm practice - stimulus in IS-LM and in the classical labor market.png",
+       "alt": "Midterm practice - stimulus in IS-LM and in the classical labor market"
+      }
+     ],
+     "words": 92,
+     "symbols": [
+      "$T$, $G$"
+     ]
+    },
+    {
+     "id": "c-the-covid-recovery-in-three-models-2",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "rubric",
+       "title": "Key steps",
+       "md": "- Stimulus shifts IS right; monetary expansion shifts LM right\n- Output rises; the rate falls if the LM shift dominates (consistent with the Fed's cuts)\n- Graph with both shifts\n- Cannot explain unemployment, vacancies, wages (no labor market) or inflation",
+       "folded": true
+      }
+     ],
+     "words": 44,
+     "symbols": []
+    },
+    {
+     "id": "c-the-covid-recovery-in-three-models-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**8.** **Classical labor market**: the pandemic raises the value of leisure relative to work (health risk, childcare, and generous benefits that make not working less costly), so **labor supply shifts left**. As the economy reopens and demand recovers, firms' marginal product of labor and demand rise: **labor demand shifts right**. Both raise the **real wage** ✓. Hours rise if demand shifts more, fall if supply does. **Not explained**: in the classical model everyone who wants to work at the market wage works, so there is no unemployment to fall and no job openings (vacancies) — those need a model with frictions. GDP is not modelled directly beyond hours worked."
+      }
+     ],
+     "words": 107,
+     "symbols": []
+    },
+    {
+     "id": "c-the-covid-recovery-in-three-models-4",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "rubric",
+       "title": "Key steps",
+       "md": "- Labor supply shifts left (leisure more valuable, more generous benefits)\n- Labor demand shifts right (recovery raises demand for workers)\n- Wages rise; hours ambiguous\n- Cannot explain unemployment or job openings: the classical market always clears",
+       "folded": true
+      }
+     ],
+     "words": 40,
+     "symbols": []
+    },
+    {
+     "id": "c-the-covid-recovery-in-three-models-5",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**9.** **Search and matching** ([L5](note:econ-402a-l5-a-search-and-matching-model-of-the-labor-market)'s three curves):"
+      },
+      {
+       "t": "prose",
+       "md": "- **Higher unemployment benefits $b$**: the wage-setting curve shifts right — a higher wage at every tightness — which raises $w$ but lowers tightness $\\theta$ and so raises unemployment.\n- **Recovery in demand and productivity $y$**: vacancy supply and wage setting both shift right — more vacancies are worth posting — so $\\theta$ and $w$ rise and, along the Beveridge curve, unemployment falls.\n- **Possibly lower matching efficiency $A$** (workers and jobs mismatched after the pandemic): the Beveridge curve shifts out, so more vacancies coexist with any unemployment rate."
+      }
+     ],
+     "words": 85,
+     "symbols": [
+      "$y_t$",
+      "$\\theta$",
+      "$a$, $b$"
+     ]
+    },
+    {
+     "id": "c-the-covid-recovery-in-three-models-6",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Consistent with the data if the demand/productivity effect dominates: **job openings up, wages up, unemployment down** ✓, with higher benefits and lower $A$ adding to wage growth and vacancies. The model explains the labor-market patterns but not the GDP surge as such, interest rates or inflation."
+      },
+      {
+       "t": "callout",
+       "kind": "rubric",
+       "title": "Key steps",
+       "md": "- Identify parameters: benefits $b$ (WS), output per job $y$ (VS and WS), matching efficiency $A$ (BC, VS)\n- Higher $b$: wages up, tightness down, unemployment up\n- Higher $y$: tightness and wages up, unemployment down, vacancies up\n- Matches the data if the $y$ effect dominates; cannot explain GDP, rates or inflation",
+       "folded": true
+      }
+     ],
+     "words": 94,
+     "symbols": [
+      "$y_t$",
+      "$a$, $b$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "d-is-mp-pc-when-inflation-is-not-observed-in-advance",
+   "heading": "D. IS-MP-PC when inflation is not observed in advance",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "d-is-mp-pc-when-inflation-is-not-observed-in-advance-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**10.** In this version the rate depends only on *expected* inflation, so solve in order: rate, then output, then inflation."
+      },
+      {
+       "t": "prose",
+       "md": "**Period 1** ($\\pi^e_1 = 2$): $i_1 = 2 + 2 + 1.5(2 - 2) = 4$; $y_1 - 100 = -2(4 - 2 - 2) = 0$, so $y_1 = 100$; $\\pi_1 = 2 + 2(0) + 6 = 8$."
+      },
+      {
+       "t": "prose",
+       "md": "**Period 2** ($\\pi^e_2 = \\pi_1 = 8$): $i_2 = 4 + 1.5(8 - 2) = 13$; $y_2 - 100 = -2(13 - 8 - 2) = -6$, so $y_2 = 94$; $\\pi_2 = 8 + 2(-6) + 0 = -4$."
+      },
+      {
+       "t": "prose",
+       "md": "The bank cannot react to the shock in period 1 (it hasn't seen it), so the whole shock passes into inflation. In period 2 it reacts to expected inflation of 8 by raising the real rate to 5, a deep recession, and inflation overshoots to $-4$."
+      },
+      {
+       "t": "callout",
+       "kind": "rubric",
+       "title": "Key steps",
+       "md": "- Period 1: $i_1 = 4$, $y_1 = 100$, $\\pi_1 = 8$\n- Period 2 expectations: $\\pi^e_2 = 8$\n- Period 2: $i_2 = 13$, $y_2 = 94$, $\\pi_2 = -4$",
+       "folded": true
+      }
+     ],
+     "words": 83,
+     "symbols": [
+      "$\\pi_t$",
+      "$y_t$",
+      "$i_t$"
+     ]
+    },
+    {
+     "id": "d-is-mp-pc-when-inflation-is-not-observed-in-advance-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**11.** No. Holding $i = 4$: period 1 is as before ($y_1 = 100$, $\\pi_1 = 8$). In period 2, $\\pi^e_2 = 8$, so the expected real rate is $4 - 8 = -4$, far below neutral: $y_2 - 100 = -2(4 - 8 - 2) = 12$, **$y_2 = 112$**, and **$\\pi_2 = 8 + 2(12) = 32$**, with **$i_2 = 4$**. With adaptive expectations the transitory shock raises expected inflation; leaving the nominal rate unchanged lowers the real rate, booms output and pushes inflation even higher — and it keeps rising. The shock does not fade on its own."
+      },
+      {
+       "t": "callout",
+       "kind": "rubric",
+       "title": "Key steps",
+       "md": "- Period 2: $i_2 = 4$, $\\pi^e_2 = 8$, so the real rate is −4\n- $y_2 = 112$, $\\pi_2 = 32$\n- The bank is wrong: adaptive expectations carry the shock forward and a falling real rate amplifies it",
+       "folded": true
+      }
+     ],
+     "words": 89,
+     "symbols": [
+      "$\\pi_t$",
+      "$y_t$",
+      "$i_t$"
+     ]
+    },
+    {
+     "id": "d-is-mp-pc-when-inflation-is-not-observed-in-advance-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**12.** Yes. With $\\pi^e_t = 2$ always, period 1 is unchanged ($i_1 = 4$, $y_1 = 100$, $\\pi_1 = 8$), but in period 2 expected inflation is back at 2: $i_2 = 4$, $y_2 - 100 = -2(4 - 2 - 2) = 0$, so **$y_2 = 100$** and **$\\pi_2 = 2 + 0 + 0 = 2$**. With **anchored expectations** the shock does not feed into next period's expected inflation, so the real rate stays neutral and inflation returns to target as soon as the shock ends. Looking through a transitory supply shock works only when expectations are anchored."
+      },
+      {
+       "t": "callout",
+       "kind": "rubric",
+       "title": "Key steps",
+       "md": "- Expectations stay at 2, so the rate (4) keeps the real rate neutral\n- Period 2: $i_2 = 4$, $y_2 = 100$, $\\pi_2 = 2$\n- The strategy works because expectations are anchored, unlike question 11",
+       "folded": true
+      }
+     ],
+     "words": 92,
+     "symbols": [
+      "$\\pi_t$",
+      "$\\pi^e_t$",
+      "$y_t$",
+      "$i_t$"
+     ]
+    }
+   ]
+  }
+ ]
+}

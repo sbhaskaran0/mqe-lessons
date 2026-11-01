@@ -96,9 +96,18 @@
       {
        "t": "prose",
        "md": "In a three-equation model where $\\pi_t = \\tfrac{2}{3}\\pi^e_t + \\tfrac{1}{3}\\cdot 2$ without shocks, a one-period supply shock that lifts inflation to 4 is followed, with $\\pi^e_t = \\pi_{t-1}$, by 3.33, 2.89, 2.59, … back toward 2. See [IS-MP-PC Model](note:is-mp-pc-model)."
+      },
+      {
+       "t": "prose",
+       "md": "If instead the central bank does not raise the real rate at all, a supply shock of 4 raises inflation by the full 4, expected inflation for the next period rises by 4, and inflation stays at the higher level after the shock is gone: adaptive expectations lock it in. The more the bank responds, the less expected inflation rises."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Adaptive expectations and a supply shock.png",
+       "alt": "Adaptive expectations and a supply shock"
       }
      ],
-     "words": 32,
+     "words": 92,
      "symbols": [
       "$\\pi^e_t$",
       "$\\pi_{t-1}$",

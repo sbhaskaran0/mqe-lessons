@@ -174,10 +174,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "- **Purpose.** Trace the notes' example through time. With $\\pi^e_t = \\pi_{t-1}$ the shock outlives itself: in period 3 people expect last period's 4 percent, so inflation stays above target and the central bank keeps its rate high. Each period inflation keeps a share $\\theta$ of last period's gap from target, $\\pi_t - \\pi^* = \\theta(\\pi_{t-1} - \\pi^*)$, so it returns gradually; raising $\\beta_\\pi$ lowers $\\theta$ and speeds the return, at the cost of a deeper fall in output when the shock hits.\n- **Model.** A view of [Three-Equation Macro Model](note:three-equation-macro-model) iterating `pi_ad` from last period's inflation ([Adaptive Expectations](note:adaptive-expectations)). Period 1 starts at target.\n- **Elements.** Panels `infl`, `outp`, `rates`; series `inflation`, `target`, `output`, `potential`, `policy`, `real`. Readout `th_out`."
+       "md": "- **Purpose.** Trace a supply shock through time. With $\\beta_\\pi = 1$ the bank does not raise the real rate, so a shock of 4 lifts inflation by 4 and, with adaptive expectations, it stays there. Trace the typed notes' example too. With $\\pi^e_t = \\pi_{t-1}$ the shock outlives itself: in period 3 people expect last period's 4 percent, so inflation stays above target and the central bank keeps its rate high. Each period inflation keeps a share $\\theta$ of last period's gap from target, $\\pi_t - \\pi^* = \\theta(\\pi_{t-1} - \\pi^*)$, so it returns gradually; raising $\\beta_\\pi$ lowers $\\theta$ and speeds the return, at the cost of a deeper fall in output when the shock hits."
       }
      ],
-     "words": 108,
+     "words": 101,
      "symbols": [
       "$\\pi_t$",
       "$\\pi^e_t$",
@@ -191,10 +191,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "- **Tests.** The notes' worked example (periods 1–2) extended with adaptive expectations, computed in Python."
+       "md": "- **Model.** A view of [Three-Equation Macro Model](note:three-equation-macro-model) iterating `pi_ad` from last period's inflation ([Adaptive Expectations](note:adaptive-expectations)). Period 1 starts at target.\n- **Elements.** Panels `infl`, `outp`, `rates`; series `inflation`, `target`, `output`, `potential`, `policy`, `real`. Readout `th_out`.\n- **Tests.** The notes' worked example (periods 1–2) extended with adaptive expectations, computed in Python."
       }
      ],
-     "words": 16,
+     "words": 54,
      "symbols": []
     }
    ]

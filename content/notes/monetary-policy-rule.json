@@ -161,10 +161,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "At target ($\\pi_t = \\pi^*$), $i_t = r^* + \\pi^*$, so the real rate $i_t - \\pi_t$ equals $r^*$. When inflation rises by one point, the nominal rate rises by $\\beta_\\pi$ points and the real rate by $\\beta_\\pi - 1$. With $\\beta_\\pi > 1$ (the **Taylor principle**, beyond the lecture's name for it) the real rate rises and demand cools; with $\\beta_\\pi < 1$ the real rate *falls* and inflation feeds on itself."
+       "md": "At target ($\\pi_t = \\pi^*$), $i_t = r^* + \\pi^*$, so the real rate $i_t - \\pi_t$ equals $r^*$. When inflation rises by one point, the nominal rate rises by $\\beta_\\pi$ points and the real rate by $\\beta_\\pi - 1$. With $\\beta_\\pi > 1$ (the **Taylor principle**: for a 1-point rise in inflation the bank raises its rate by more than 1 point) the real rate rises and demand cools; with $\\beta_\\pi < 1$ the real rate *falls* and inflation feeds on itself."
       }
      ],
-     "words": 51,
+     "words": 61,
      "symbols": [
       "$i_t$",
       "$r^*$",
@@ -187,9 +187,18 @@
       {
        "t": "prose",
        "md": "With $r^* = 2$, $\\pi^* = 2$, $\\beta_\\pi = 1.5$: at $\\pi_t = 2$, $i_t = 4$; at $\\pi_t = 4$, $i_t = 2 + 2 + 1.5 \\times 2 = 7$, so the real rate rises from 2 to 3."
+      },
+      {
+       "t": "prose",
+       "md": "With $\\beta_\\pi < 1$ the opposite happens. With $r^* = 1$, $\\pi^* = 2$ and $\\beta_\\pi = 0.5$: when inflation rises from 2 to 4 the nominal rate moves only from 3 to 4, so the real rate *falls* from 1 to 0, which stimulates demand and pushes inflation higher still."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Monetary policy rule - inflation targeting and the Taylor principle.png",
+       "alt": "Monetary policy rule - inflation targeting and the Taylor principle"
       }
      ],
-     "words": 12,
+     "words": 51,
      "symbols": [
       "$i_t$",
       "$r^*$",

@@ -1,0 +1,595 @@
+{
+ "slug": "econ-402a-fall-2025-midterm-questions",
+ "notation": [
+  {
+   "tex": "$\\pi_t$",
+   "meaning": "Inflation",
+   "kind": "Endogenous",
+   "typical": "2 at target",
+   "keys": [
+    "pi"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$\\pi^e_t$",
+   "meaning": "Expected inflation",
+   "kind": "State (given in the period)",
+   "typical": "2",
+   "keys": [
+    "~\\pi^e_t"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$\\pi^*$",
+   "meaning": "Inflation target",
+   "kind": "Policy parameter",
+   "typical": "2",
+   "keys": [
+    "pi*"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$y_t$",
+   "meaning": "Output",
+   "kind": "Endogenous",
+   "typical": "100",
+   "keys": [
+    "y"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$y^*$",
+   "meaning": "Potential output",
+   "kind": "Parameter",
+   "typical": "100",
+   "keys": [
+    "y*"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$i_t$",
+   "meaning": "Nominal policy rate",
+   "kind": "Endogenous",
+   "typical": "4 at target",
+   "keys": [
+    "i"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$r^*$",
+   "meaning": "Neutral real rate",
+   "kind": "Parameter",
+   "typical": "2",
+   "keys": [
+    "r*"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "Sensitivity of output to the real rate (IS slope)",
+   "kind": "Parameter",
+   "typical": "1",
+   "keys": [
+    "alpha"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$\\gamma$",
+   "meaning": "Slope of the Phillips curve",
+   "kind": "Parameter",
+   "typical": "1",
+   "keys": [
+    "gamma"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$\\beta_\\pi$",
+   "meaning": "Policy response to inflation",
+   "kind": "Parameter",
+   "typical": "1.5",
+   "keys": [
+    "beta"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$\\theta$",
+   "meaning": "Weight on expectations and shocks, $1/(1 + \\alpha\\gamma(\\beta_\\pi - 1))$",
+   "kind": "Parameter combination",
+   "typical": "2/3",
+   "keys": [
+    "theta"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$\\epsilon^\\pi_t$",
+   "meaning": "Aggregate supply shock",
+   "kind": "Exogenous",
+   "typical": "3 in the example",
+   "keys": [
+    "~\\epsilon^\\pi_t"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$\\epsilon^y_t$",
+   "meaning": "Aggregate demand shock",
+   "kind": "Exogenous",
+   "typical": "0",
+   "keys": [
+    "~\\epsilon^y_t"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$t$",
+   "meaning": "Period",
+   "kind": "Index",
+   "typical": "1, 2, 3, …",
+   "keys": [
+    "t"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$y_t - y^*$",
+   "meaning": "Output gap",
+   "kind": "Endogenous",
+   "typical": "0",
+   "keys": [
+    "~y_t-y^*"
+   ],
+   "from": "phillips-curve"
+  },
+  {
+   "tex": "$L(r, Y)$",
+   "meaning": "Real money demand, $kY - hr$ in the example",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "L"
+   ],
+   "from": "is-lm-model"
+  },
+  {
+   "tex": "$k$, $h$",
+   "meaning": "Income and interest sensitivity of money demand",
+   "kind": "Parameters",
+   "typical": "0.5, 50",
+   "keys": [
+    "k",
+    "h"
+   ],
+   "from": "is-lm-model"
+  },
+  {
+   "tex": "$K$",
+   "meaning": "Capital stock: machines, structures",
+   "kind": "Endogenous (stock, state variable)",
+   "typical": "—",
+   "keys": [
+    "K"
+   ],
+   "from": "solow-growth-model"
+  },
+  {
+   "tex": "$A$",
+   "meaning": "Total factor productivity (technology)",
+   "kind": "Exogenous; constant in the basic model",
+   "typical": "1 in the example",
+   "keys": [
+    "A"
+   ],
+   "from": "solow-growth-model"
+  },
+  {
+   "tex": "$y = Y/L$, $k = K/L$, $c = C/L$",
+   "meaning": "Output, capital and consumption per worker",
+   "kind": "Endogenous; $k$ is the state variable",
+   "typical": "—",
+   "keys": [
+    "y",
+    "k",
+    "c"
+   ],
+   "from": "solow-growth-model"
+  },
+  {
+   "tex": "$s$",
+   "meaning": "Saving rate — assumed, not chosen optimally",
+   "kind": "Parameter in (0, 1)",
+   "typical": "0.5 in the example (≈ 0.2 in data)",
+   "keys": [
+    "s"
+   ],
+   "from": "solow-growth-model"
+  },
+  {
+   "tex": "$\\delta$",
+   "meaning": "Depreciation rate: share of capital worn out each period",
+   "kind": "Parameter",
+   "typical": "0.1 in the example (≈ 0.05 in data)",
+   "keys": [
+    "delta"
+   ],
+   "from": "solow-growth-model"
+  },
+  {
+   "tex": "$U(c)$, $U'(c)$",
+   "meaning": "Period utility and marginal utility",
+   "kind": "Function",
+   "typical": "$\\ln c$",
+   "keys": [
+    "U"
+   ],
+   "from": "ramsey-cass-koopmans-model"
+  },
+  {
+   "tex": "$F(K, L)$, $K$, $L$",
+   "meaning": "Aggregate production function, capital and labor",
+   "kind": "Function / inputs",
+   "typical": "$L = 1$",
+   "keys": [
+    "F",
+    "K",
+    "L"
+   ],
+   "from": "ramsey-cass-koopmans-model"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Last year's midterm (Chris Surro, Fall 2025), one numbered item per exam part. **Sit it as a mock**: the real exam has the same shape — 4 open-response questions with 3 parts each, 25 points a part, about **10 minutes per part**, calculator allowed, no other materials. Show all work. Then reveal the worked answers in [Econ 402A Fall 2025 Midterm Answers](note:econ-402a-fall-2025-midterm-answers) and grade yourself against the key steps; the \"Not yet\" filter brings back the parts to redo."
+      }
+     ],
+     "words": 78,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "a-solow-1-3-s-0-9-0-05",
+   "heading": "A. Solow (α = 1/3, s = 0.9, δ = 0.05)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "a-solow-1-3-s-0-9-0-05-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. A Solow model with $F(K, L) = AK^{1/3}L^{2/3}$, saving rate 90%, depreciation 5%, no population or technology growth, $L = A = 1$. There are initially 1,000 units of capital. How much does the economy invest this period? How much capital depreciates? How much capital will it have next period? Based only on these answers, is the steady-state capital above or below 1,000? Explain. → [Solow Growth Model](note:solow-growth-model)\n2. Same model ($F = AK^{1/3}L^{2/3}$, $s = 0.9$, $\\delta = 0.05$), but now population grows 2% a year and technology $A$ grows 2% a year. Find steady-state capital, output and consumption per effective worker. → [Solow Model with Technological Progress](note:solow-model-with-technological-progress)"
+      }
+     ],
+     "words": 91,
+     "symbols": [
+      "$L(r, Y)$",
+      "$K$",
+      "$A$",
+      "$s$",
+      "$\\delta$",
+      "$F(K, L)$, $K$, $L$"
+     ]
+    },
+    {
+     "id": "a-solow-1-3-s-0-9-0-05-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "3. Same model, with population growth rising from 2% to 6% (technology still grows 2%). On three graphs, show how capital per effective worker, (log) capital per worker and (log) aggregate capital change over time. Label the slopes and briefly describe what is happening. → [Balanced Growth Path](note:balanced-growth-path)"
+      }
+     ],
+     "words": 47,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "b-two-period-capital-choice",
+   "heading": "B. Two-period capital choice",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "b-two-period-capital-choice-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "4. Consumers have $U(c_1, c_2) = \\ln c_1 + \\ln c_2$ and produce with $y = 10k^{1/2}$. In period 1 they split output between consumption and capital for period 2; capital fully depreciates each period. They start period 1 with 100 units of capital. A consumer saves 64% of period-1 output. Calculate consumption in each period. Using the MRS and the marginal product of capital, explain whether the consumer could raise utility by saving more or less. → [Ramsey-Cass-Koopmans Model](note:ramsey-cass-koopmans-model)\n5. Same consumer ($U = \\ln c_1 + \\ln c_2$, $y = 10k^{1/2}$, full depreciation, $k_1 = 100$). Write down a Lagrangian for the utility maximization problem and its first-order conditions (don't solve yet). → [Constrained Optimization and Lagrange Multipliers](note:constrained-optimization-and-lagrange-multipliers)\n6. Same consumer. Solve for the optimal saving (capital $k_2$) and consumption in each period."
+      }
+     ],
+     "words": 108,
+     "symbols": [
+      "$y_t$",
+      "$k$, $h$",
+      "$y = Y/L$, $k = K/L$, $c = C/L$",
+      "$U(c)$, $U'(c)$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "c-the-covid-recovery-in-three-models",
+   "heading": "C. The Covid recovery in three models",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "c-the-covid-recovery-in-three-models-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "7. After Covid, the US government passed a large stimulus that sharply raised spending, much of it as more generous unemployment benefits; the Fed raised the money supply and cut interest rates. The economy recovered quickly: GDP surged, unemployment fell, job openings and wages rose. Using the basic Keynesian (IS-LM) model: which parts of the story can it explain? Draw at least one graph and explain which curves shift and why. Which data can't this model explain on its own? → [IS-LM Model](note:is-lm-model)"
+      }
+     ],
+     "words": 82,
+     "symbols": []
+    },
+    {
+     "id": "c-the-covid-recovery-in-three-models-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "8. Same Covid story (stimulus with generous unemployment benefits, monetary easing; GDP up, unemployment down, job openings and wages up). Now use the classical labor market model: what changes would you expect on the labor supply and labor demand sides (hint: what does a pandemic do to the trade-off between leisure and labor)? Which data can and cannot this model explain? → [Classical Labor Market Model](note:classical-labor-market-model)\n9. Same Covid story. Now use the search and matching model: which parameters probably changed (think of the Beveridge curve, vacancy supply and wage setting)? How would these changes move the model's variables? Are they consistent with the data, and which parts can and cannot be explained? → [Diamond-Mortensen-Pissarides Model](note:diamond-mortensen-pissarides-model)"
+      }
+     ],
+     "words": 114,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "d-is-mp-pc-when-inflation-is-not-observed-in-advance",
+   "heading": "D. IS-MP-PC when inflation is not observed in advance",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "d-is-mp-pc-when-inflation-is-not-observed-in-advance-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "10. A variant of the class model in which the Fed and everyone else must use *expected* inflation: $\\pi_t = \\pi^e_t + \\gamma(y_t - y^*) + \\epsilon^\\pi_t$, $y_t - y^* = -\\alpha(i_t - \\pi^e_t - r^*) + \\epsilon^y_t$, $i_t = \\pi^* + r^* + \\beta_\\pi(\\pi^e_t - \\pi^*)$, with $\\pi^* = 2$, $r^* = 2$, $y^* = 100$, $\\alpha = 2$, $\\gamma = 2$, $\\beta_\\pi = 1.5$ and adaptive expectations $\\pi^e_t = \\pi_{t-1}$. Inflation has been at target and output at potential for some time. In period 1 a supply shock sets $\\epsilon^\\pi_1 = 6$; it dissipates after one period ($\\epsilon^\\pi_2 = 0$). Calculate the nominal interest rate, output and inflation in periods 1 and 2. (Hint: don't use the class's $\\theta$; start with the interest rate.) → [IS-MP-PC Model](note:is-mp-pc-model)"
+      }
+     ],
+     "words": 71,
+     "symbols": [
+      "$\\pi_t$",
+      "$\\pi^e_t$",
+      "$\\pi^*$",
+      "$y_t$",
+      "$y^*$",
+      "$i_t$",
+      "$r^*$",
+      "$\\alpha$",
+      "$\\gamma$",
+      "$\\beta_\\pi$",
+      "$\\theta$",
+      "$\\epsilon^\\pi_t$",
+      "$\\epsilon^y_t$",
+      "$y_t - y^*$"
+     ]
+    },
+    {
+     "id": "d-is-mp-pc-when-inflation-is-not-observed-in-advance-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "11. Same variant model and shock. The central bank, seeing the shock as transitory, instead holds the nominal rate constant despite rising inflation, believing inflation will fall back to target on its own once the shock disappears. Is it right? Calculate the nominal rate, output and inflation in period 2 in this scenario to support your answer. → [Adaptive Expectations](note:adaptive-expectations)\n12. Same variant model and shock, with the bank holding its rate constant as in question 11, but now people always believe the Fed will hit its target: $\\pi^e_t = \\pi^*$ for all $t$. Does the bank's strategy work now? Explain why or why not, and calculate the interest rate, output and inflation in period 2."
+      }
+     ],
+     "words": 111,
+     "symbols": [
+      "$\\pi_t$",
+      "$\\pi^e_t$",
+      "$\\pi^*$",
+      "$t$"
+     ]
+    }
+   ]
+  }
+ ],
+ "practice": {
+  "answers": "econ-402a-fall-2025-midterm-answers",
+  "items": [
+   {
+    "id": "q1",
+    "number": "1",
+    "group": "A. Solow (α = 1/3, s = 0.9, δ = 0.05)",
+    "prompt": "A Solow model with $F(K, L) = AK^{1/3}L^{2/3}$, saving rate 90%, depreciation 5%, no population or technology growth, $L = A = 1$. There are initially 1,000 units of capital. How much does the economy invest this period? How much capital depreciates? How much capital will it have next period? Based only on these answers, is the steady-state capital above or below 1,000? Explain. → [Solow Growth Model](note:solow-growth-model)",
+    "answer": "$Y = 1000^{1/3} = 10$. Investment $sY = 0.9 \\times 10 = 9$; depreciation $\\delta K = 0.05 \\times 1000 = 50$. Next period $K = 1000 + 9 - 50 = 959$. Capital falls because investment is less than depreciation, which happens only **above** the steady state; so steady-state capital is **below 1,000**. (It is $(0.9/0.05)^{3/2} = 76.4$.)",
+    "rubric": [
+     "Output 10, investment 9, depreciation 50",
+     "Next-period capital 959",
+     "Investment < depreciation means capital is above its steady state, so $\\bar{K} < 1000$"
+    ],
+    "links": [
+     "solow-growth-model"
+    ]
+   },
+   {
+    "id": "q2",
+    "number": "2",
+    "group": "A. Solow (α = 1/3, s = 0.9, δ = 0.05)",
+    "prompt": "Same model ($F = AK^{1/3}L^{2/3}$, $s = 0.9$, $\\delta = 0.05$), but now population grows 2% a year and technology $A$ grows 2% a year. Find steady-state capital, output and consumption per effective worker. → [Solow Model with Technological Progress](note:solow-model-with-technological-progress)",
+    "answer": "$\\tilde{\\gamma} = \\gamma/(1-\\alpha) = 0.02/(2/3) = 0.03$, so $\\delta + \\eta + \\tilde{\\gamma} = 0.05 + 0.02 + 0.03 = 0.10$.\n\n$$\\bar{k} = \\left(\\frac{0.9}{0.10}\\right)^{3/2} = 27, \\qquad \\tilde{y} = 27^{1/3} = 3, \\qquad \\tilde{c} = (1 - 0.9)(3) = 0.3$$",
+    "rubric": [
+     "Convert: $\\tilde{\\gamma} = 0.03$; break-even rate 0.10",
+     "$\\bar{k} = 9^{3/2} = 27$",
+     "$\\tilde{y} = 3$, $\\tilde{c} = 0.3$"
+    ],
+    "links": [
+     "solow-model-with-technological-progress"
+    ]
+   },
+   {
+    "id": "q3",
+    "number": "3",
+    "group": "A. Solow (α = 1/3, s = 0.9, δ = 0.05)",
+    "prompt": "Same model, with population growth rising from 2% to 6% (technology still grows 2%). On three graphs, show how capital per effective worker, (log) capital per worker and (log) aggregate capital change over time. Label the slopes and briefly describe what is happening. → [Balanced Growth Path](note:balanced-growth-path)",
+    "answer": "Break-even investment rises to $(0.05 + 0.06 + 0.03)\\tilde{k}$, so the steady state falls from 27 to $(0.9/0.14)^{3/2} = 16.3$.\n- **$\\tilde{k}$**: flat at 27, then falls gradually to 16.3 (more workers share the capital).\n- **$\\ln k$** (per worker) $= \\ln\\tilde{k} + \\ln\\tilde{A}$: slope 3% before; slower than 3% (briefly flat or falling) while $\\tilde{k}$ falls; back to 3% on a lower parallel line. A level effect, not a growth effect.\n- **$\\ln K$** $= \\ln k + \\ln L$: slope $3\\% + 2\\% = 5\\%$ before; rises toward $3\\% + 6\\% = 9\\%$, below 9% during the transition.\n\n![Solow practice - population growth rises from 2 to 6 percent](<assets/Attachments/Solow practice - population growth rises from 2 to 6 percent.png>)",
+    "rubric": [
+     "$\\tilde{k}$ falls gradually to a lower steady state",
+     "$\\ln k$: slope 3% → temporarily lower → 3% (level effect only)",
+     "$\\ln K$: slope 5% → approaching 9%",
+     "Graphs labelled with the slopes"
+    ],
+    "links": [
+     "balanced-growth-path"
+    ]
+   },
+   {
+    "id": "q4",
+    "number": "4",
+    "group": "B. Two-period capital choice",
+    "prompt": "Consumers have $U(c_1, c_2) = \\ln c_1 + \\ln c_2$ and produce with $y = 10k^{1/2}$. In period 1 they split output between consumption and capital for period 2; capital fully depreciates each period. They start period 1 with 100 units of capital. A consumer saves 64% of period-1 output. Calculate consumption in each period. Using the MRS and the marginal product of capital, explain whether the consumer could raise utility by saving more or less. → [Ramsey-Cass-Koopmans Model](note:ramsey-cass-koopmans-model)",
+    "answer": "Period-1 output $10\\sqrt{100} = 100$. Saving 64% gives $k_2 = 64$ and $c_1 = 36$; $c_2 = 10\\sqrt{64} = 80$. At the optimum the MRS between today and tomorrow equals the return on saving: $\\frac{u'(c_1)}{u'(c_2)} = \\frac{c_2}{c_1} = MPK = f'(k_2)$. Here $MRS = 80/36 = 2.22$ while $MPK = 5/\\sqrt{64} = 0.625$. The consumer values a unit today at 2.22 units tomorrow, but saving it yields only 0.625 tomorrow: they are **saving too much** and would gain by **saving less** (consuming more today), which raises the MPK and lowers the MRS until they are equal.",
+    "rubric": [
+     "$c_1 = 36$, $k_2 = 64$, $c_2 = 80$",
+     "MRS $= c_2/c_1 \\approx 2.22$; MPK $= 5/\\sqrt{64} = 0.625$",
+     "MRS > MPK: the return on saving is too low for what tomorrow's goods are worth",
+     "Save less"
+    ],
+    "links": [
+     "ramsey-cass-koopmans-model"
+    ]
+   },
+   {
+    "id": "q5",
+    "number": "5",
+    "group": "B. Two-period capital choice",
+    "prompt": "Same consumer ($U = \\ln c_1 + \\ln c_2$, $y = 10k^{1/2}$, full depreciation, $k_1 = 100$). Write down a Lagrangian for the utility maximization problem and its first-order conditions (don't solve yet). → [Constrained Optimization and Lagrange Multipliers](note:constrained-optimization-and-lagrange-multipliers)",
+    "answer": "Choose $c_1$, $c_2$, $k_2$:\n\n$$\\mathcal{L} = \\ln c_1 + \\ln c_2 + \\lambda_1\\left(10\\sqrt{100} - c_1 - k_2\\right) + \\lambda_2\\left(10k_2^{1/2} - c_2\\right)$$\n\nFOCs: $\\frac{1}{c_1} - \\lambda_1 = 0$; $\\frac{1}{c_2} - \\lambda_2 = 0$; $-\\lambda_1 + 5\\lambda_2k_2^{-1/2} = 0$; and the two constraints $c_1 + k_2 = 100$, $c_2 = 10k_2^{1/2}$.",
+    "rubric": [
+     "Period-1 constraint: $c_1 + k_2 = 10\\sqrt{100} = 100$",
+     "Period-2 constraint: $c_2 = 10k_2^{1/2}$ (full depreciation)",
+     "Lagrangian with two multipliers",
+     "Five FOCs (three choice variables, two multipliers)"
+    ],
+    "links": [
+     "constrained-optimization-and-lagrange-multipliers"
+    ]
+   },
+   {
+    "id": "q6",
+    "number": "6",
+    "group": "B. Two-period capital choice",
+    "prompt": "Same consumer. Solve for the optimal saving (capital $k_2$) and consumption in each period.",
+    "answer": "From the FOCs, $\\frac{1}{c_1} = \\frac{1}{c_2}\\cdot\\frac{5}{\\sqrt{k_2}}$. Substituting $c_2 = 10\\sqrt{k_2}$: $\\frac{1}{c_1} = \\frac{1}{2k_2}$, so $c_1 = 2k_2$. With $c_1 + k_2 = 100$: **$k_2 = 33.3$**, **$c_1 = 66.7$**, **$c_2 = 10\\sqrt{33.3} = 57.7$**. The consumer saves one third of output ($\\alpha\\beta/(1 + \\alpha\\beta)$ with $\\alpha = 1/2$, $\\beta = 1$). Check: $MRS = 57.7/66.7 = 0.866 = 5/\\sqrt{33.3}$.",
+    "rubric": [
+     "Combine FOCs: $c_2/c_1 = f'(k_2) = 5/\\sqrt{k_2}$",
+     "Substitute $c_2 = 10\\sqrt{k_2}$: $c_1 = 2k_2$",
+     "Budget: $k_2 = 33.3$, $c_1 = 66.7$, $c_2 = 57.7$"
+    ],
+    "links": []
+   },
+   {
+    "id": "q7",
+    "number": "7",
+    "group": "C. The Covid recovery in three models",
+    "prompt": "After Covid, the US government passed a large stimulus that sharply raised spending, much of it as more generous unemployment benefits; the Fed raised the money supply and cut interest rates. The economy recovered quickly: GDP surged, unemployment fell, job openings and wages rose. Using the basic Keynesian (IS-LM) model: which parts of the story can it explain? Draw at least one graph and explain which curves shift and why. Which data can't this model explain on its own? → [IS-LM Model](note:is-lm-model)",
+    "answer": "**IS-LM**: the spending stimulus (higher $G$ and transfers that raise consumption) shifts **IS right**; the Fed's monetary expansion shifts **LM right**. Both raise output, explaining the **GDP surge**. The interest rate rises with the IS shift and falls with the LM shift; the observed rate cut means the LM shift dominated (or the Fed targeted a low rate, accommodating the fiscal expansion, so there was little crowding out). **Not explained**: IS-LM has no labor market, so it says nothing about unemployment, job openings or wages, and, with fixed prices, nothing about inflation.\n\n![Midterm practice - stimulus in IS-LM and in the classical labor market](<assets/Attachments/Midterm practice - stimulus in IS-LM and in the classical labor market.png>)",
+    "rubric": [
+     "Stimulus shifts IS right; monetary expansion shifts LM right",
+     "Output rises; the rate falls if the LM shift dominates (consistent with the Fed's cuts)",
+     "Graph with both shifts",
+     "Cannot explain unemployment, vacancies, wages (no labor market) or inflation"
+    ],
+    "links": [
+     "is-lm-model"
+    ]
+   },
+   {
+    "id": "q8",
+    "number": "8",
+    "group": "C. The Covid recovery in three models",
+    "prompt": "Same Covid story (stimulus with generous unemployment benefits, monetary easing; GDP up, unemployment down, job openings and wages up). Now use the classical labor market model: what changes would you expect on the labor supply and labor demand sides (hint: what does a pandemic do to the trade-off between leisure and labor)? Which data can and cannot this model explain? → [Classical Labor Market Model](note:classical-labor-market-model)",
+    "answer": "**Classical labor market**: the pandemic raises the value of leisure relative to work (health risk, childcare, and generous benefits that make not working less costly), so **labor supply shifts left**. As the economy reopens and demand recovers, firms' marginal product of labor and demand rise: **labor demand shifts right**. Both raise the **real wage** ✓. Hours rise if demand shifts more, fall if supply does. **Not explained**: in the classical model everyone who wants to work at the market wage works, so there is no unemployment to fall and no job openings (vacancies) — those need a model with frictions. GDP is not modelled directly beyond hours worked.",
+    "rubric": [
+     "Labor supply shifts left (leisure more valuable, more generous benefits)",
+     "Labor demand shifts right (recovery raises demand for workers)",
+     "Wages rise; hours ambiguous",
+     "Cannot explain unemployment or job openings: the classical market always clears"
+    ],
+    "links": [
+     "classical-labor-market-model"
+    ]
+   },
+   {
+    "id": "q9",
+    "number": "9",
+    "group": "C. The Covid recovery in three models",
+    "prompt": "Same Covid story. Now use the search and matching model: which parameters probably changed (think of the Beveridge curve, vacancy supply and wage setting)? How would these changes move the model's variables? Are they consistent with the data, and which parts can and cannot be explained? → [Diamond-Mortensen-Pissarides Model](note:diamond-mortensen-pissarides-model)",
+    "answer": "**Search and matching** ([L5](note:econ-402a-l5-a-search-and-matching-model-of-the-labor-market)'s three curves):\n- **Higher unemployment benefits $b$**: the wage-setting curve shifts right — a higher wage at every tightness — which raises $w$ but lowers tightness $\\theta$ and so raises unemployment.\n- **Recovery in demand and productivity $y$**: vacancy supply and wage setting both shift right — more vacancies are worth posting — so $\\theta$ and $w$ rise and, along the Beveridge curve, unemployment falls.\n- **Possibly lower matching efficiency $A$** (workers and jobs mismatched after the pandemic): the Beveridge curve shifts out, so more vacancies coexist with any unemployment rate.\n\nConsistent with the data if the demand/productivity effect dominates: **job openings up, wages up, unemployment down** ✓, with higher benefits and lower $A$ adding to wage growth and vacancies. The model explains the labor-market patterns but not the GDP surge as such, interest rates or inflation.",
+    "rubric": [
+     "Identify parameters: benefits $b$ (WS), output per job $y$ (VS and WS), matching efficiency $A$ (BC, VS)",
+     "Higher $b$: wages up, tightness down, unemployment up",
+     "Higher $y$: tightness and wages up, unemployment down, vacancies up",
+     "Matches the data if the $y$ effect dominates; cannot explain GDP, rates or inflation"
+    ],
+    "links": [
+     "diamond-mortensen-pissarides-model",
+     "econ-402a-l5-a-search-and-matching-model-of-the-labor-market"
+    ]
+   },
+   {
+    "id": "q10",
+    "number": "10",
+    "group": "D. IS-MP-PC when inflation is not observed in advance",
+    "prompt": "A variant of the class model in which the Fed and everyone else must use *expected* inflation: $\\pi_t = \\pi^e_t + \\gamma(y_t - y^*) + \\epsilon^\\pi_t$, $y_t - y^* = -\\alpha(i_t - \\pi^e_t - r^*) + \\epsilon^y_t$, $i_t = \\pi^* + r^* + \\beta_\\pi(\\pi^e_t - \\pi^*)$, with $\\pi^* = 2$, $r^* = 2$, $y^* = 100$, $\\alpha = 2$, $\\gamma = 2$, $\\beta_\\pi = 1.5$ and adaptive expectations $\\pi^e_t = \\pi_{t-1}$. Inflation has been at target and output at potential for some time. In period 1 a supply shock sets $\\epsilon^\\pi_1 = 6$; it dissipates after one period ($\\epsilon^\\pi_2 = 0$). Calculate the nominal interest rate, output and inflation in periods 1 and 2. (Hint: don't use the class's $\\theta$; start with the interest rate.) → [IS-MP-PC Model](note:is-mp-pc-model)",
+    "answer": "In this version the rate depends only on *expected* inflation, so solve in order: rate, then output, then inflation.\n\n**Period 1** ($\\pi^e_1 = 2$): $i_1 = 2 + 2 + 1.5(2 - 2) = 4$; $y_1 - 100 = -2(4 - 2 - 2) = 0$, so $y_1 = 100$; $\\pi_1 = 2 + 2(0) + 6 = 8$.\n\n**Period 2** ($\\pi^e_2 = \\pi_1 = 8$): $i_2 = 4 + 1.5(8 - 2) = 13$; $y_2 - 100 = -2(13 - 8 - 2) = -6$, so $y_2 = 94$; $\\pi_2 = 8 + 2(-6) + 0 = -4$.\n\nThe bank cannot react to the shock in period 1 (it hasn't seen it), so the whole shock passes into inflation. In period 2 it reacts to expected inflation of 8 by raising the real rate to 5, a deep recession, and inflation overshoots to $-4$.",
+    "rubric": [
+     "Period 1: $i_1 = 4$, $y_1 = 100$, $\\pi_1 = 8$",
+     "Period 2 expectations: $\\pi^e_2 = 8$",
+     "Period 2: $i_2 = 13$, $y_2 = 94$, $\\pi_2 = -4$"
+    ],
+    "links": [
+     "is-mp-pc-model"
+    ]
+   },
+   {
+    "id": "q11",
+    "number": "11",
+    "group": "D. IS-MP-PC when inflation is not observed in advance",
+    "prompt": "Same variant model and shock. The central bank, seeing the shock as transitory, instead holds the nominal rate constant despite rising inflation, believing inflation will fall back to target on its own once the shock disappears. Is it right? Calculate the nominal rate, output and inflation in period 2 in this scenario to support your answer. → [Adaptive Expectations](note:adaptive-expectations)",
+    "answer": "No. Holding $i = 4$: period 1 is as before ($y_1 = 100$, $\\pi_1 = 8$). In period 2, $\\pi^e_2 = 8$, so the expected real rate is $4 - 8 = -4$, far below neutral: $y_2 - 100 = -2(4 - 8 - 2) = 12$, **$y_2 = 112$**, and **$\\pi_2 = 8 + 2(12) = 32$**, with **$i_2 = 4$**. With adaptive expectations the transitory shock raises expected inflation; leaving the nominal rate unchanged lowers the real rate, booms output and pushes inflation even higher — and it keeps rising. The shock does not fade on its own.",
+    "rubric": [
+     "Period 2: $i_2 = 4$, $\\pi^e_2 = 8$, so the real rate is −4",
+     "$y_2 = 112$, $\\pi_2 = 32$",
+     "The bank is wrong: adaptive expectations carry the shock forward and a falling real rate amplifies it"
+    ],
+    "links": [
+     "adaptive-expectations"
+    ]
+   },
+   {
+    "id": "q12",
+    "number": "12",
+    "group": "D. IS-MP-PC when inflation is not observed in advance",
+    "prompt": "Same variant model and shock, with the bank holding its rate constant as in question 11, but now people always believe the Fed will hit its target: $\\pi^e_t = \\pi^*$ for all $t$. Does the bank's strategy work now? Explain why or why not, and calculate the interest rate, output and inflation in period 2.",
+    "answer": "Yes. With $\\pi^e_t = 2$ always, period 1 is unchanged ($i_1 = 4$, $y_1 = 100$, $\\pi_1 = 8$), but in period 2 expected inflation is back at 2: $i_2 = 4$, $y_2 - 100 = -2(4 - 2 - 2) = 0$, so **$y_2 = 100$** and **$\\pi_2 = 2 + 0 + 0 = 2$**. With **anchored expectations** the shock does not feed into next period's expected inflation, so the real rate stays neutral and inflation returns to target as soon as the shock ends. Looking through a transitory supply shock works only when expectations are anchored.",
+    "rubric": [
+     "Expectations stay at 2, so the rate (4) keeps the real rate neutral",
+     "Period 2: $i_2 = 4$, $y_2 = 100$, $\\pi_2 = 2$",
+     "The strategy works because expectations are anchored, unlike question 11"
+    ],
+    "links": []
+   }
+  ]
+ }
+}

@@ -155,11 +155,11 @@
        "t": "callout",
        "kind": "why",
        "title": "Why it matters",
-       "md": "It is a compact version of the New Keynesian model central banks use, and it makes the inflation-output tradeoff of monetary policy explicit.",
+       "md": "It is a compact version of the New Keynesian models central banks use, which add sticky prices to a neoclassical model, and it makes the inflation-output tradeoff of monetary policy explicit.",
        "folded": false
       }
      ],
-     "words": 129,
+     "words": 137,
      "symbols": []
     }
    ]
@@ -226,10 +226,10 @@
       },
       {
        "t": "prose",
-       "md": "With $\\beta_\\pi > 1$ it slopes down in $(y, \\pi)$: higher inflation raises the real rate, which lowers output. With $\\beta_\\pi < 1$ the real rate falls when inflation rises, and the curve slopes up. Demand shocks shift it; the policy rule does not."
+       "md": "With $\\beta_\\pi > 1$ it slopes down in $(y, \\pi)$: higher inflation raises the real rate, which lowers output. With $\\beta_\\pi = 1$ the real rate never moves and the curve is vertical at $y^*$. With $\\beta_\\pi < 1$ the real rate falls when inflation rises, and the curve slopes up. Demand shocks shift it; the policy rule does not."
       }
      ],
-     "words": 45,
+     "words": 57,
      "symbols": [
       "$\\pi_t$",
       "$\\pi^*$",
@@ -239,6 +239,33 @@
       "$\\alpha$",
       "$\\beta_\\pi$",
       "$\\epsilon^y_t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "the-diagram",
+   "heading": "The diagram",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-diagram-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With the output gap $y_t - y^*$ across and inflation up, the Phillips curve slopes up and the IS-MP curve slopes down; they cross at this period's inflation and output. A supply shock shifts the Phillips curve up. If output stayed at potential, inflation would rise by the whole shock; because the central bank raises the real rate, the economy instead moves up and to the left along IS-MP: inflation rises by less and output falls. When the shock fades the Phillips curve shifts back down, but with adaptive expectations not all the way, since expected inflation is now higher, and the economy returns gradually."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/IS-MP and Phillips curve diagram (handwritten).png",
+       "alt": "IS-MP and Phillips curve diagram (handwritten)"
+      }
+     ],
+     "words": 102,
+     "symbols": [
+      "$y_t$",
+      "$y^*$",
+      "$y_t - y^*$"
      ]
     }
    ]
@@ -333,15 +360,16 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "- **Forgetting the real rate.** The IS curve uses $i_t - \\pi_t$; raising $i$ by less than $\\pi$ loosens policy.\n- **Reading θ backwards.** A *larger* $\\beta_\\pi$ means a *smaller* θ: inflation responds less, output more.\n- **Expectations timing.** Adaptive means $\\pi^e_t = \\pi_{t-1}$: last period's inflation, not next period's."
+       "md": "- **Forgetting the real rate.** The IS curve uses $i_t - \\pi_t$; raising $i$ by less than $\\pi$ loosens policy.\n- **Reading θ backwards.** A *larger* $\\beta_\\pi$ means a *smaller* θ: inflation responds less, output more.\n- **Expectations timing.** Adaptive means $\\pi^e_t = \\pi_{t-1}$: last period's inflation, not next period's.\n- **No response is not neutral.** With $\\beta_\\pi = 1$ ($\\theta = 1$) a supply shock passes fully into inflation and, with adaptive expectations, stays there; with $\\beta_\\pi < 1$ inflation spirals."
       }
      ],
-     "words": 39,
+     "words": 62,
      "symbols": [
       "$\\pi_t$",
       "$\\pi^e_t$",
       "$i_t$",
-      "$\\beta_\\pi$"
+      "$\\beta_\\pi$",
+      "$\\theta$"
      ]
     }
    ]

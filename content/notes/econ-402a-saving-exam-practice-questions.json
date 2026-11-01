@@ -1,0 +1,321 @@
+{
+ "slug": "econ-402a-saving-exam-practice-questions",
+ "notation": [
+  {
+   "tex": "$y_1$, $y_2$",
+   "meaning": "Income in periods 1 and 2",
+   "kind": "Exogenous",
+   "typical": "180, 216",
+   "keys": [
+    "y"
+   ],
+   "from": "two-period-consumption-saving-model"
+  },
+  {
+   "tex": "$c_1$, $c_2$",
+   "meaning": "Consumption in periods 1 and 2",
+   "kind": "Choice",
+   "typical": "200, 192",
+   "keys": [
+    "c"
+   ],
+   "from": "two-period-consumption-saving-model"
+  },
+  {
+   "tex": "$r$",
+   "meaning": "Interest rate",
+   "kind": "Exogenous to the consumer; endogenous in equilibrium",
+   "typical": "0.2",
+   "keys": [
+    "r"
+   ],
+   "from": "two-period-consumption-saving-model"
+  },
+  {
+   "tex": "$U(c_1, c_2)$",
+   "meaning": "Lifetime utility",
+   "kind": "Function",
+   "typical": "$\\ln c_1 + \\beta\\ln c_2$",
+   "keys": [
+    "U"
+   ],
+   "from": "two-period-consumption-saving-model"
+  },
+  {
+   "tex": "$\\beta$",
+   "meaning": "Discount factor",
+   "kind": "Parameter in (0, 1]",
+   "typical": "0.8",
+   "keys": [
+    "beta"
+   ],
+   "from": "two-period-consumption-saving-model"
+  },
+  {
+   "tex": "$A$",
+   "meaning": "Total factor productivity (technology)",
+   "kind": "Exogenous; constant in the basic model",
+   "typical": "1 in the example",
+   "keys": [
+    "A"
+   ],
+   "from": "solow-growth-model"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The professor's saving practice exam, one numbered item per exam part (20–25 points each). Each item restates the setup. Work it on paper, then reveal the worked answer in [Econ 402A Saving Exam Practice Answers](note:econ-402a-saving-exam-practice-answers) and grade yourself against its key steps. Revise from [Econ 402A L2 Two-Period Saving Model](note:econ-402a-l2-two-period-saving-model)."
+      },
+      {
+       "t": "prose",
+       "md": "Every consumer here has $U(c_1, c_2) = \\ln c_1 + \\beta\\ln c_2$ and an endowment $y_1$, $y_2$, and can borrow or save at rate $r$."
+      }
+     ],
+     "words": 65,
+     "symbols": [
+      "$y_1$, $y_2$",
+      "$c_1$, $c_2$",
+      "$r$",
+      "$U(c_1, c_2)$",
+      "$\\beta$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "a-two-consumers-incomes-1-000-1-100-and-1-000-1-300",
+   "heading": "A. Two consumers, incomes 1,000/1,100 and 1,000/1,300",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "a-two-consumers-incomes-1-000-1-100-and-1-000-1-300-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Consumers A and B have $y_1^A = 1000$, $y_2^A = 1100$, $y_1^B = 1000$, $y_2^B = 1300$, and $\\beta = 1$. Write down a Lagrangian for a consumer's problem (with generic $y_1$, $y_2$) and derive each consumer's consumption as a function of the interest rate. → [Two-Period Consumption-Saving Model](note:two-period-consumption-saving-model)\n2. Same consumers. At $r = 0.1$, how much would each borrow or save? Using only this, explain whether the equilibrium interest rate is above or below 10%, and who will borrow and who will save in equilibrium. → [Market Clearing](note:market-clearing)\n3. Same consumers. Find the equilibrium interest rate and each consumer's consumption in each period."
+      }
+     ],
+     "words": 84,
+     "symbols": [
+      "$y_1$, $y_2$",
+      "$r$",
+      "$\\beta$",
+      "$A$"
+     ]
+    },
+    {
+     "id": "a-two-consumers-incomes-1-000-1-100-and-1-000-1-300-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "4. A third consumer enters this economy, with equal endowments in both periods and discount factor $\\beta = 0.8$. How does this change the equilibrium interest rate and the consumption of the first two consumers, compared with question 3? (Directions are enough.) → [Discount Factor](note:discount-factor)"
+      }
+     ],
+     "words": 41,
+     "symbols": [
+      "$\\beta$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "b-two-consumers-incomes-1-100-1-200-and-900-1-800",
+   "heading": "B. Two consumers, incomes 1,100/1,200 and 900/1,800",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "b-two-consumers-incomes-1-100-1-200-and-900-1-800-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "5. A has $y_1 = 1100$, $y_2 = 1200$; B has $y_1 = 900$, $y_2 = 1800$; $\\beta = 1$. At $r = 0.25$, calculate each consumer's consumption in each period and how much each borrows or saves. Based only on this, explain whether the equilibrium interest rate is above or below 25%.\n6. Same consumers. Calculate the equilibrium interest rate, consumption in each period and saving for each consumer. Who borrows and who saves? Explain the intuition.\n7. Same endowments, but A's discount factor falls to $\\beta = 0.8$ (B still has $\\beta = 1$). Calculate the new equilibrium interest rate and consumption for each consumer, and explain why the interest rate moved in that direction. (Plug in numbers early.)"
+      }
+     ],
+     "words": 97,
+     "symbols": [
+      "$y_1$, $y_2$",
+      "$r$",
+      "$\\beta$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "c-two-consumers-incomes-34-000-66-000-and-46-000-54-000",
+   "heading": "C. Two consumers, incomes 34,000/66,000 and 46,000/54,000",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "c-two-consumers-incomes-34-000-66-000-and-46-000-54-000-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "8. A has $y_1 = 34{,}000$, $y_2 = 66{,}000$; B has $y_1 = 46{,}000$, $y_2 = 54{,}000$; $\\beta = 1$. If the interest rate were 0%, how much would each consume in each period? Would there be an excess supply of saving or an excess demand for borrowing?\n9. Same consumers. Calculate the equilibrium interest rate and each consumer's consumption and saving. Who borrows and who saves? Explain the intuition.\n10. Same consumers. A stimulus check raises each person's period-1 income by 2,000. Without calculating the new equilibrium, would you expect the interest rate to rise or fall? What happens to total saving in the economy? Explain."
+      }
+     ],
+     "words": 93,
+     "symbols": [
+      "$y_1$, $y_2$",
+      "$\\beta$"
+     ]
+    }
+   ]
+  }
+ ],
+ "practice": {
+  "answers": "econ-402a-saving-exam-practice-answers",
+  "items": [
+   {
+    "id": "q1",
+    "number": "1",
+    "group": "A. Two consumers, incomes 1,000/1,100 and 1,000/1,300",
+    "prompt": "Consumers A and B have $y_1^A = 1000$, $y_2^A = 1100$, $y_1^B = 1000$, $y_2^B = 1300$, and $\\beta = 1$. Write down a Lagrangian for a consumer's problem (with generic $y_1$, $y_2$) and derive each consumer's consumption as a function of the interest rate. → [Two-Period Consumption-Saving Model](note:two-period-consumption-saving-model)",
+    "answer": "Lifetime budget $c_1 + \\frac{c_2}{1+r} = y_1 + \\frac{y_2}{1+r}$.\n\n$$\\mathcal{L} = \\ln c_1 + \\beta\\ln c_2 + \\lambda\\left(y_1 + \\frac{y_2}{1+r} - c_1 - \\frac{c_2}{1+r}\\right)$$\n\nFOCs: $\\frac{1}{c_1} = \\lambda$, $\\frac{\\beta}{c_2} = \\frac{\\lambda}{1+r}$, plus the budget. Dividing, $c_2 = \\beta(1+r)c_1$ (MRS $= 1 + r$). Into the budget: $c_1(1+\\beta) = y_1 + \\frac{y_2}{1+r}$. With $\\beta = 1$:\n\n$$c_1^A = \\frac{1}{2}\\left(1000 + \\frac{1100}{1+r}\\right),\\quad c_1^B = \\frac{1}{2}\\left(1000 + \\frac{1300}{1+r}\\right),\\quad c_2 = (1+r)c_1$$",
+    "rubric": [
+     "Lifetime budget constraint with $c_2$ and $y_2$ discounted by $1 + r$",
+     "Lagrangian and the three FOCs",
+     "Combine: $c_2 = \\beta(1+r)c_1$ (MRS = 1 + r)",
+     "Substitute into the budget: $c_1 = \\frac{1}{1+\\beta}\\left(y_1 + \\frac{y_2}{1+r}\\right)$, then plug in each endowment"
+    ],
+    "links": [
+     "two-period-consumption-saving-model"
+    ]
+   },
+   {
+    "id": "q2",
+    "number": "2",
+    "group": "A. Two consumers, incomes 1,000/1,100 and 1,000/1,300",
+    "prompt": "Same consumers. At $r = 0.1$, how much would each borrow or save? Using only this, explain whether the equilibrium interest rate is above or below 10%, and who will borrow and who will save in equilibrium. → [Market Clearing](note:market-clearing)",
+    "answer": "At $r = 0.1$: A has $W = 1000 + 1100/1.1 = 2000$, so $c_1 = 1000$, $c_2 = 1100$: A neither borrows nor saves. B has $W = 1000 + 1300/1.1 = 2181.8$, $c_1 = 1090.9$, $c_2 = 1200$: B **borrows 90.9**. Nobody wants to lend, so there is excess demand for borrowing and the interest rate must **rise above 10%**. A higher rate makes A want to save and B want to borrow less, so in equilibrium **A saves and B borrows** (B's income rises more, so B wants to bring future income forward).",
+    "rubric": [
+     "A: $c_1 = 1000$, saves 0",
+     "B: $c_1 = 1090.9$, borrows 90.9",
+     "Borrowing demand exceeds saving supply, so $r > 10\\%$",
+     "A is the saver and B the borrower in equilibrium"
+    ],
+    "links": [
+     "market-clearing"
+    ]
+   },
+   {
+    "id": "q3",
+    "number": "3",
+    "group": "A. Two consumers, incomes 1,000/1,100 and 1,000/1,300",
+    "prompt": "Same consumers. Find the equilibrium interest rate and each consumer's consumption in each period.",
+    "answer": "Total $c_1$ must equal total $y_1 = 2000$:\n\n$$\\frac{1}{2}\\left(2000 + \\frac{2400}{1+r}\\right) = 2000 \\;\\Rightarrow\\; \\frac{2400}{1+r} = 2000 \\;\\Rightarrow\\; r = 0.2$$\n\nA: $W = 1916.7$, $c_1 = 958.3$, $c_2 = 1.2 \\times 958.3 = 1150$ (saves 41.7). B: $W = 2083.3$, $c_1 = 1041.7$, $c_2 = 1250$ (borrows 41.7).",
+    "rubric": [
+     "Market clearing: $c_1^A + c_1^B = 2000$ (net saving zero)",
+     "Solve $2400/(1+r) = 2000$: $r = 20\\%$",
+     "A: 958.3 and 1150; B: 1041.7 and 1250",
+     "Check: A's saving equals B's borrowing (41.7)"
+    ],
+    "links": []
+   },
+   {
+    "id": "q4",
+    "number": "4",
+    "group": "A. Two consumers, incomes 1,000/1,100 and 1,000/1,300",
+    "prompt": "A third consumer enters this economy, with equal endowments in both periods and discount factor $\\beta = 0.8$. How does this change the equilibrium interest rate and the consumption of the first two consumers, compared with question 3? (Directions are enough.) → [Discount Factor](note:discount-factor)",
+    "answer": "The new consumer is impatient ($\\beta = 0.8$) with flat income, so at $r = 0.2$ they want to consume more now than they earn: $c_1 = W/1.8 > y_1$. That adds demand for borrowing, so the equilibrium **interest rate rises**. At the higher rate, both original consumers' wealth $W$ falls (their period-2 income is worth less today), so **both consume less in period 1** (A saves more, B borrows less) and **more in period 2**, since $c_2 = (1+r)c_1$ rises. For example, if the newcomer earns 1,000 in each period, $r$ rises to 21.5%, A's $c_1$ falls from 958.3 to 952.5 and B's from 1041.7 to 1034.8.",
+    "rubric": [
+     "The impatient newcomer wants to borrow at the old rate",
+     "Higher demand for borrowing raises $r$",
+     "A and B consume less in period 1 (more saving / less borrowing)",
+     "and more in period 2"
+    ],
+    "links": [
+     "discount-factor"
+    ]
+   },
+   {
+    "id": "q5",
+    "number": "5",
+    "group": "B. Two consumers, incomes 1,100/1,200 and 900/1,800",
+    "prompt": "A has $y_1 = 1100$, $y_2 = 1200$; B has $y_1 = 900$, $y_2 = 1800$; $\\beta = 1$. At $r = 0.25$, calculate each consumer's consumption in each period and how much each borrows or saves. Based only on this, explain whether the equilibrium interest rate is above or below 25%.",
+    "answer": "At $r = 0.25$: A: $W = 1100 + 1200/1.25 = 2060$, $c_1 = 1030$, $c_2 = 1287.5$, **saves 70**. B: $W = 900 + 1800/1.25 = 2340$, $c_1 = 1170$, $c_2 = 1462.5$, **borrows 270**. Desired borrowing (270) exceeds desired saving (70), so the interest rate must **rise above 25%** to make A save more and B borrow less.",
+    "rubric": [
+     "A: $c_1 = 1030$, $c_2 = 1287.5$, saves 70",
+     "B: $c_1 = 1170$, $c_2 = 1462.5$, borrows 270",
+     "Excess demand for borrowing, so the equilibrium $r$ is above 25%"
+    ],
+    "links": []
+   },
+   {
+    "id": "q6",
+    "number": "6",
+    "group": "B. Two consumers, incomes 1,100/1,200 and 900/1,800",
+    "prompt": "Same consumers. Calculate the equilibrium interest rate, consumption in each period and saving for each consumer. Who borrows and who saves? Explain the intuition.",
+    "answer": "Total $c_1 = 2000$: $\\frac{1}{2}\\left(2000 + \\frac{3000}{1+r}\\right) = 2000$, so $1 + r = 1.5$, $r = 50\\%$. A: $W = 1100 + 800 = 1900$, $c_1 = 950$, $c_2 = 1425$, saves 150. B: $W = 900 + 1200 = 2100$, $c_1 = 1050$, $c_2 = 1575$, borrows 150. **B borrows** because B's income rises steeply (900 → 1800): to smooth consumption B brings future income forward. A's income is nearly flat, so at a high interest rate A is happy to lend.",
+    "rubric": [
+     "Market clearing gives $3000/(1+r) = 2000$: $r = 50\\%$",
+     "A: 950 and 1425, saves 150; B: 1050 and 1575, borrows 150",
+     "Intuition: consumption smoothing — the consumer with steeper income growth borrows"
+    ],
+    "links": []
+   },
+   {
+    "id": "q7",
+    "number": "7",
+    "group": "B. Two consumers, incomes 1,100/1,200 and 900/1,800",
+    "prompt": "Same endowments, but A's discount factor falls to $\\beta = 0.8$ (B still has $\\beta = 1$). Calculate the new equilibrium interest rate and consumption for each consumer, and explain why the interest rate moved in that direction. (Plug in numbers early.)",
+    "answer": "Now $c_1^A = W_A/1.8$ and $c_1^B = W_B/2$. With $x = 1/(1+r)$, market clearing is\n\n$$\\frac{1100 + 1200x}{1.8} + \\frac{900 + 1800x}{2} = 2000 \\;\\Rightarrow\\; 1061.1 + 1566.7x = 2000 \\;\\Rightarrow\\; x = 0.5993$$\n\nso $1 + r = 1.669$, **$r = 66.9\\%$** (up from 50%). A: $W = 1819.1$, $c_1 = 1010.6$, $c_2 = 0.8 \\times 1.669 \\times 1010.6 = 1349.1$, saves 89.4. B: $W = 1978.7$, $c_1 = 989.4$, $c_2 = 1650.9$, borrows 89.4. A, the saver, became more impatient and wants to consume more now, so the supply of saving falls; the interest rate must rise until A is willing to lend enough to match B's borrowing.",
+    "rubric": [
+     "A's consumption is now $W_A/1.8$; B's still $W_B/2$",
+     "Market clearing gives $r \\approx 66.9\\%$",
+     "A: ≈ 1010.6 and 1349.1; B: ≈ 989.4 and 1650.9",
+     "Intuition: less patient saver → less saving supplied → higher interest rate"
+    ],
+    "links": []
+   },
+   {
+    "id": "q8",
+    "number": "8",
+    "group": "C. Two consumers, incomes 34,000/66,000 and 46,000/54,000",
+    "prompt": "A has $y_1 = 34{,}000$, $y_2 = 66{,}000$; B has $y_1 = 46{,}000$, $y_2 = 54{,}000$; $\\beta = 1$. If the interest rate were 0%, how much would each consume in each period? Would there be an excess supply of saving or an excess demand for borrowing?",
+    "answer": "At $r = 0$ each consumer splits lifetime income equally: A's total is 100,000 and B's is 100,000, so both consume **50,000 in each period**. A borrows 16,000 and B borrows 4,000: *both* want to borrow and nobody wants to save — an **excess demand for borrowing** of 20,000 (equivalently, desired saving of −20,000).",
+    "rubric": [
+     "At $r = 0$, $c_1 = c_2 = (y_1 + y_2)/2 = 50{,}000$ for each",
+     "A borrows 16,000, B borrows 4,000",
+     "Excess demand for borrowing, so the interest rate must be positive"
+    ],
+    "links": []
+   },
+   {
+    "id": "q9",
+    "number": "9",
+    "group": "C. Two consumers, incomes 34,000/66,000 and 46,000/54,000",
+    "prompt": "Same consumers. Calculate the equilibrium interest rate and each consumer's consumption and saving. Who borrows and who saves? Explain the intuition.",
+    "answer": "Total $c_1 = 80{,}000$: $\\frac{1}{2}\\left(80{,}000 + \\frac{120{,}000}{1+r}\\right) = 80{,}000$, so $1 + r = 1.5$, **$r = 50\\%$**. A: $W = 34{,}000 + 44{,}000 = 78{,}000$, $c_1 = 39{,}000$, $c_2 = 58{,}500$, **borrows 5,000**. B: $W = 46{,}000 + 36{,}000 = 82{,}000$, $c_1 = 41{,}000$, $c_2 = 61{,}500$, **saves 5,000**. Both have rising incomes, so the rate must be high enough that B, whose income rises less, is willing to lend; A, with the steeper income growth, borrows.",
+    "rubric": [
+     "Market clearing: $120{,}000/(1+r) = 80{,}000$, so $r = 50\\%$",
+     "A: 39,000 and 58,500, borrows 5,000",
+     "B: 41,000 and 61,500, saves 5,000",
+     "Intuition: the steeper earner borrows; the rate rises until the other is willing to lend"
+    ],
+    "links": []
+   },
+   {
+    "id": "q10",
+    "number": "10",
+    "group": "C. Two consumers, incomes 34,000/66,000 and 46,000/54,000",
+    "prompt": "Same consumers. A stimulus check raises each person's period-1 income by 2,000. Without calculating the new equilibrium, would you expect the interest rate to rise or fall? What happens to total saving in the economy? Explain.",
+    "answer": "The checks raise period-1 income relative to period-2 income. Consumers want to spread the windfall over both periods, so at the old rate they consume only part of it now and save the rest: the supply of saving rises (desired borrowing falls), and the **interest rate falls**. Total (net) saving in this economy **stays at zero**: with no capital and no government borrowing, one person's saving is another's borrowing, so the interest rate adjusts until total period-1 consumption equals total period-1 income, now 84,000. (The new equilibrium is $r = 42.9\\%$, with both consumers consuming more in both periods; strictly, if the checks were financed by government borrowing, the government would absorb some of the extra saving.)",
+    "rubric": [
+     "The extra period-1 income is partly saved, so the supply of saving rises at the old rate",
+     "The interest rate falls",
+     "Aggregate net saving is still zero: the rate adjusts so total $c_1$ equals total $y_1$"
+    ],
+    "links": []
+   }
+  ]
+ }
+}

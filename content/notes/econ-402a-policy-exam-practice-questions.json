@@ -1,0 +1,394 @@
+{
+ "slug": "econ-402a-policy-exam-practice-questions",
+ "notation": [
+  {
+   "tex": "$\\pi_t$",
+   "meaning": "Inflation",
+   "kind": "Endogenous",
+   "typical": "2 at target",
+   "keys": [
+    "pi"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$\\pi^e_t$",
+   "meaning": "Expected inflation",
+   "kind": "State (given in the period)",
+   "typical": "2",
+   "keys": [
+    "~\\pi^e_t"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$\\pi^*$",
+   "meaning": "Inflation target",
+   "kind": "Policy parameter",
+   "typical": "2",
+   "keys": [
+    "pi*"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$y_t$",
+   "meaning": "Output",
+   "kind": "Endogenous",
+   "typical": "100",
+   "keys": [
+    "y"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$y^*$",
+   "meaning": "Potential output",
+   "kind": "Parameter",
+   "typical": "100",
+   "keys": [
+    "y*"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$i_t$",
+   "meaning": "Nominal policy rate",
+   "kind": "Endogenous",
+   "typical": "4 at target",
+   "keys": [
+    "i"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$r^*$",
+   "meaning": "Neutral real rate",
+   "kind": "Parameter",
+   "typical": "2",
+   "keys": [
+    "r*"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "Sensitivity of output to the real rate (IS slope)",
+   "kind": "Parameter",
+   "typical": "1",
+   "keys": [
+    "alpha"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$\\gamma$",
+   "meaning": "Slope of the Phillips curve",
+   "kind": "Parameter",
+   "typical": "1",
+   "keys": [
+    "gamma"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$\\beta_\\pi$",
+   "meaning": "Policy response to inflation",
+   "kind": "Parameter",
+   "typical": "1.5",
+   "keys": [
+    "beta"
+   ],
+   "from": "is-mp-pc-model"
+  },
+  {
+   "tex": "$Y$",
+   "meaning": "Output",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "Y"
+   ],
+   "from": "is-curve"
+  },
+  {
+   "tex": "$r$",
+   "meaning": "Real interest rate (cost of borrowing)",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "r"
+   ],
+   "from": "is-curve"
+  },
+  {
+   "tex": "$T$, $G$",
+   "meaning": "Taxes and government spending",
+   "kind": "Policy",
+   "typical": "100, 100",
+   "keys": [
+    "T",
+    "G"
+   ],
+   "from": "is-curve"
+  },
+  {
+   "tex": "$I_0$",
+   "meaning": "Autonomous investment in the linear example $I^P = I_0 - dr$",
+   "kind": "Parameter",
+   "typical": "200",
+   "keys": [
+    "I"
+   ],
+   "from": "is-curve"
+  },
+  {
+   "tex": "$d$",
+   "meaning": "Sensitivity of investment to the interest rate (per percentage point)",
+   "kind": "Parameter",
+   "typical": "20",
+   "keys": [
+    "d"
+   ],
+   "from": "is-curve"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The professor's policy practice exam, one numbered item per exam part (15–25 points each). Each item restates the setup. Work it on paper, including the graphs, then reveal the worked answer in [Econ 402A Policy Exam Practice Answers](note:econ-402a-policy-exam-practice-answers) and grade yourself against its key steps. Revise from [Econ 402A L6 Keynesian Economics](note:econ-402a-l6-keynesian-economics) and [Econ 402A L7 The IS-MP-PC Model](note:econ-402a-l7-the-is-mp-pc-model)."
+      }
+     ],
+     "words": 60,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "a-a-numerical-is-lm-model",
+   "heading": "A. A numerical IS-LM model",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "a-a-numerical-is-lm-model-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. An IS-LM model has $C = 1250 + 0.75(Y - T)$, $I = 5000 - 100r$, $G = 2000$, $T = 1000$, money demand $M^d/P = 2Y - 200r$ and money supply $M^s/P = 40{,}000$. Derive the IS and LM curves and solve for the equilibrium interest rate and output. → [IS-LM Model](note:is-lm-model)\n2. Same model. Government spending rises by 1,000. Find the new equilibrium and show the change on a graph. How would your answer change if the central bank targeted a fixed interest rate equal to the equilibrium rate from question 1? Find the new equilibrium and show it on a graph."
+      }
+     ],
+     "words": 79,
+     "symbols": [
+      "$Y$",
+      "$r$",
+      "$T$, $G$",
+      "$I_0$",
+      "$d$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "b-is-mp-pc-with-a-strong-rule-2-0-5-2",
+   "heading": "B. IS-MP-PC with a strong rule (α = 2, γ = 0.5, β_π = 2)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "b-is-mp-pc-with-a-strong-rule-2-0-5-2-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "3. An IS-MP-PC model: $\\pi_t = \\pi_{t-1} + 0.5(y_t - 100)$, $y_t = 100 - 2(i_t - \\pi_t - 2)$, $i_t = 4 + 2(\\pi_t - 2)$ — the class model with $\\pi^* = 2$, $y^* = 100$, $r^* = 2$, $\\alpha = 2$, $\\gamma = 0.5$, $\\beta_\\pi = 2$ and $\\pi^e_t = \\pi_{t-1}$. Inflation in period 1 was above target, $\\pi_1 = 4$. Calculate inflation, output and the interest rate in periods 1 and 2. → [IS-MP-PC Model](note:is-mp-pc-model)\n4. Same model and numbers (inflation starts at 4 in period 1). Explain in words what happens in the economy to produce these outcomes: how the central bank responds to high inflation, and how that policy affects inflation and output in each period.\n5. Same model, but the central bank changes its rule to $i_t = 4 + 0.5(\\pi_t - 2)$. How does this change the intuition of question 4? If the bank's goal is to bring inflation back to target eventually, is this an effective change? Explain (exact numbers optional). → [Monetary Policy Rule](note:monetary-policy-rule)"
+      }
+     ],
+     "words": 117,
+     "symbols": [
+      "$\\pi_t$",
+      "$\\pi^e_t$",
+      "$\\pi^*$",
+      "$y_t$",
+      "$y^*$",
+      "$i_t$",
+      "$r^*$",
+      "$\\alpha$",
+      "$\\gamma$",
+      "$\\beta_\\pi$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "c-is-mp-pc-with-shocks-1-5-2-1-5",
+   "heading": "C. IS-MP-PC with shocks (α = 1.5, γ = 2, β_π = 1.5)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "c-is-mp-pc-with-shocks-1-5-2-1-5-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "6. An IS-MP-PC model: $\\pi_t = \\pi_{t-1} + 2(y_t - 100) + \\varepsilon^\\pi_t$, $y_t = 100 - 1.5(i_t - \\pi_t - 2) + \\varepsilon^y_t$, $i_t = 4 + 1.5(\\pi_t - 2)$ — the class model with $\\pi^* = 2$, $y^* = 100$, $r^* = 2$, $\\alpha = 1.5$, $\\gamma = 2$, $\\beta_\\pi = 1.5$ and $\\pi^e_t = \\pi_{t-1}$. In words, explain what relationship each equation shows and the intuition behind it (a sentence or two each). → [Phillips Curve](note:phillips-curve)\n7. Compare how the central bank influences the interest rate in this IS-MP-PC model and in the IS-LM model. If the bank wanted to lower the real interest rate, how would it do so in each model? Use graphs."
+      }
+     ],
+     "words": 68,
+     "symbols": [
+      "$\\pi_t$",
+      "$\\pi^e_t$",
+      "$\\pi^*$",
+      "$y_t$",
+      "$y^*$",
+      "$i_t$",
+      "$r^*$",
+      "$\\alpha$",
+      "$\\gamma$",
+      "$\\beta_\\pi$"
+     ]
+    },
+    {
+     "id": "c-is-mp-pc-with-shocks-1-5-2-1-5-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "8. Same model as question 6. In period 1 the economy is in its long-run equilibrium with no shocks. In period 2 large supply and demand shocks hit: $\\varepsilon^\\pi_t = 5$ and $\\varepsilon^y_t = -5$. In period 3 the supply shock partly dissipates to $\\varepsilon^\\pi_t = 2$, while a large stimulus gives a demand shock $\\varepsilon^y_t = 5$. Calculate inflation and output in periods 2 and 3."
+      }
+     ],
+     "words": 55,
+     "symbols": [
+      "$\\pi_t$",
+      "$y_t$"
+     ]
+    }
+   ]
+  }
+ ],
+ "practice": {
+  "answers": "econ-402a-policy-exam-practice-answers",
+  "items": [
+   {
+    "id": "q1",
+    "number": "1",
+    "group": "A. A numerical IS-LM model",
+    "prompt": "An IS-LM model has $C = 1250 + 0.75(Y - T)$, $I = 5000 - 100r$, $G = 2000$, $T = 1000$, money demand $M^d/P = 2Y - 200r$ and money supply $M^s/P = 40{,}000$. Derive the IS and LM curves and solve for the equilibrium interest rate and output. → [IS-LM Model](note:is-lm-model)",
+    "answer": "**IS** (goods market, $Y = C + I + G$): $Y = 1250 + 0.75(Y - 1000) + 5000 - 100r + 2000$, so $0.25Y = 7500 - 100r$ and\n\n$$Y = 30{,}000 - 400r$$\n\n**LM** (money market, $M^d/P = M^s/P$): $2Y - 200r = 40{,}000$, so\n\n$$r = \\frac{Y}{100} - 200$$\n\nSubstituting: $Y = 30{,}000 - 4Y + 80{,}000$, so **$Y = 22{,}000$** and **$r = 20$**.",
+    "rubric": [
+     "IS from $Y = C + I + G$: $Y = 30{,}000 - 400r$",
+     "LM from money demand = supply: $r = Y/100 - 200$",
+     "Solve together: $Y = 22{,}000$, $r = 20$"
+    ],
+    "links": [
+     "is-lm-model"
+    ]
+   },
+   {
+    "id": "q2",
+    "number": "2",
+    "group": "A. A numerical IS-LM model",
+    "prompt": "Same model. Government spending rises by 1,000. Find the new equilibrium and show the change on a graph. How would your answer change if the central bank targeted a fixed interest rate equal to the equilibrium rate from question 1? Find the new equilibrium and show it on a graph.",
+    "answer": "With $G = 3000$ the IS curve shifts right by $1000/0.25 = 4{,}000$: $Y = 34{,}000 - 400r$. With the money supply fixed: $Y = 34{,}000 - 4Y + 80{,}000$, so **$Y = 22{,}800$, $r = 28$**. Output rises by only 800, not 4,000: higher income raises money demand, the rate rises, and investment falls by $100 \\times 8 = 800$, which (times the multiplier 4) crowds out 3,200.\n\nIf the bank instead **holds $r = 20$**, it must raise the money supply as IS shifts: output is $Y = 34{,}000 - 400(20) = $ **26,000** at $r = 20$ — the full multiplier, no crowding out. The money supply must rise to $M^s/P = 2(26{,}000) - 200(20) = 48{,}000$ (up 8,000), shifting LM right.\n\n![Policy practice - IS-LM with a rise in G, money fixed vs rate targeted](<assets/Attachments/Policy practice - IS-LM with a rise in G, money fixed vs rate targeted.png>)",
+    "rubric": [
+     "New IS: $Y = 34{,}000 - 400r$ (shift of 4,000 at any rate)",
+     "Money fixed: $Y = 22{,}800$, $r = 28$ (crowding out)",
+     "Rate held at 20: $Y = 26{,}000$, full multiplier",
+     "Money supply rises to 48,000 (LM shifts right); graphs for both cases"
+    ],
+    "links": []
+   },
+   {
+    "id": "q3",
+    "number": "3",
+    "group": "B. IS-MP-PC with a strong rule (α = 2, γ = 0.5, β_π = 2)",
+    "prompt": "An IS-MP-PC model: $\\pi_t = \\pi_{t-1} + 0.5(y_t - 100)$, $y_t = 100 - 2(i_t - \\pi_t - 2)$, $i_t = 4 + 2(\\pi_t - 2)$ — the class model with $\\pi^* = 2$, $y^* = 100$, $r^* = 2$, $\\alpha = 2$, $\\gamma = 0.5$, $\\beta_\\pi = 2$ and $\\pi^e_t = \\pi_{t-1}$. Inflation in period 1 was above target, $\\pi_1 = 4$. Calculate inflation, output and the interest rate in periods 1 and 2. → [IS-MP-PC Model](note:is-mp-pc-model)",
+    "answer": "**Period 1** ($\\pi_1 = 4$): $i_1 = 4 + 2(4 - 2) = 8$; the real rate is $8 - 4 = 4$, two points above neutral, so $y_1 = 100 - 2(8 - 4 - 2) = 96$.\n\n**Period 2** ($\\pi^e_2 = \\pi_1 = 4$): the IS-MP curve is $y_t = 100 - 2(\\pi_t - 2)$. Into the Phillips curve: $\\pi_2 = 4 + 0.5(-2)(\\pi_2 - 2) = 6 - \\pi_2$, so **$\\pi_2 = 3$**, **$y_2 = 98$**, **$i_2 = 4 + 2(1) = 6$**. (Check with $\\theta = 1/(1 + \\alpha\\gamma(\\beta_\\pi - 1)) = 1/2$: $\\pi_2 = \\frac{1}{2}(4) + \\frac{1}{2}(2) = 3$.)\n\n| Period | $\\pi_t$ | $i_t$ | $r_t$ | $y_t$ |\n| --- | --- | --- | --- | --- |\n| 1 | 4 | 8 | 4 | 96 |\n| 2 | 3 | 6 | 3 | 98 |",
+    "rubric": [
+     "Period 1: rule gives $i_1 = 8$, IS gives $y_1 = 96$",
+     "Period 2: expectations $\\pi^e_2 = 4$; combine IS-MP and PC",
+     "$\\pi_2 = 3$, $y_2 = 98$, $i_2 = 6$"
+    ],
+    "links": [
+     "is-mp-pc-model"
+    ]
+   },
+   {
+    "id": "q4",
+    "number": "4",
+    "group": "B. IS-MP-PC with a strong rule (α = 2, γ = 0.5, β_π = 2)",
+    "prompt": "Same model and numbers (inflation starts at 4 in period 1). Explain in words what happens in the economy to produce these outcomes: how the central bank responds to high inflation, and how that policy affects inflation and output in each period.",
+    "answer": "Inflation of 4 is above target, so the bank raises the nominal rate by **more** than inflation is above target (2 × 2 = 4 points, to 8): the real rate rises from its neutral 2 to 4. A high real rate cuts investment and spending, so output falls below potential (96). Below-potential output then pulls inflation down through the Phillips curve: in period 2 people expect 4, but the negative output gap brings inflation to 3. As inflation falls the bank eases (6), the real rate falls toward neutral (3) and output recovers (98). The process repeats, with inflation and the output gap shrinking each period (by half here, $\\theta = 1/2$).",
+    "rubric": [
+     "The bank raises the nominal rate more than one-for-one, so the real rate rises",
+     "Higher real rate → lower demand → output below potential",
+     "Negative output gap → inflation falls below expected inflation",
+     "Over time inflation returns to target and the bank eases"
+    ],
+    "links": []
+   },
+   {
+    "id": "q5",
+    "number": "5",
+    "group": "B. IS-MP-PC with a strong rule (α = 2, γ = 0.5, β_π = 2)",
+    "prompt": "Same model, but the central bank changes its rule to $i_t = 4 + 0.5(\\pi_t - 2)$. How does this change the intuition of question 4? If the bank's goal is to bring inflation back to target eventually, is this an effective change? Explain (exact numbers optional). → [Monetary Policy Rule](note:monetary-policy-rule)",
+    "answer": "With $\\beta_\\pi = 0.5 < 1$ the bank raises the nominal rate by **less** than inflation rises, so the real rate **falls**: in period 1, $i_1 = 5$, the real rate is $5 - 4 = 1$, below neutral, and output is **above** potential, $y_1 = 102$. A positive output gap pushes inflation **up**: $\\pi_2 = 6$ ($y_2 = 104$, $i_2 = 6$), then $\\pi_3 = 10$, and so on. With adaptive expectations each period's higher inflation raises next period's expected inflation, so inflation spirals away from target. This violates the **Taylor principle** ($\\beta_\\pi > 1$): it is not an effective way to restore the target. (In the formula, $\\theta = 1/(1 + 1 \\times (0.5 - 1)) = 2 > 1$, so deviations from target double each period.)\n\n![Policy practice - inflation paths with a strong and a weak policy response](<assets/Attachments/Policy practice - inflation paths with a strong and a weak policy response.png>)",
+    "rubric": [
+     "With $\\beta_\\pi < 1$ the real rate falls when inflation rises",
+     "Output rises above potential instead of falling",
+     "Inflation rises further, and expectations feed it: 4 → 6 → 10",
+     "Not effective: the rule must satisfy the Taylor principle"
+    ],
+    "links": [
+     "monetary-policy-rule"
+    ]
+   },
+   {
+    "id": "q6",
+    "number": "6",
+    "group": "C. IS-MP-PC with shocks (α = 1.5, γ = 2, β_π = 1.5)",
+    "prompt": "An IS-MP-PC model: $\\pi_t = \\pi_{t-1} + 2(y_t - 100) + \\varepsilon^\\pi_t$, $y_t = 100 - 1.5(i_t - \\pi_t - 2) + \\varepsilon^y_t$, $i_t = 4 + 1.5(\\pi_t - 2)$ — the class model with $\\pi^* = 2$, $y^* = 100$, $r^* = 2$, $\\alpha = 1.5$, $\\gamma = 2$, $\\beta_\\pi = 1.5$ and $\\pi^e_t = \\pi_{t-1}$. In words, explain what relationship each equation shows and the intuition behind it (a sentence or two each). → [Phillips Curve](note:phillips-curve)",
+    "answer": "- **Phillips curve**, $\\pi_t = \\pi_{t-1} + 2(y_t - 100) + \\varepsilon^\\pi_t$: inflation equals what people expect (last period's inflation, adaptive expectations), plus more when output is above potential (firms raise prices when demand is strong and costs rise), plus supply shocks.\n- **IS curve**, $y_t = 100 - 1.5(i_t - \\pi_t - 2) + \\varepsilon^y_t$: output falls when the real interest rate $i_t - \\pi_t$ is above the neutral rate of 2, because borrowing is costlier and investment and spending fall; demand shocks shift it.\n- **MP rule**, $i_t = 4 + 1.5(\\pi_t - 2)$: the central bank sets the nominal rate at $r^* + \\pi^* = 4$ when inflation is at target and raises it 1.5 points for each point of inflation above target, so the real rate rises (Taylor principle).",
+    "rubric": [
+     "PC: inflation = expected inflation + output-gap effect + supply shock",
+     "IS: higher real rate relative to neutral lowers output; demand shocks shift it",
+     "MP: the bank targets 2% inflation and raises the nominal rate more than one-for-one"
+    ],
+    "links": [
+     "phillips-curve"
+    ]
+   },
+   {
+    "id": "q7",
+    "number": "7",
+    "group": "C. IS-MP-PC with shocks (α = 1.5, γ = 2, β_π = 1.5)",
+    "prompt": "Compare how the central bank influences the interest rate in this IS-MP-PC model and in the IS-LM model. If the bank wanted to lower the real interest rate, how would it do so in each model? Use graphs.",
+    "answer": "**IS-LM**: the bank controls the **money supply**, not the rate. To lower the interest rate it buys bonds with new money (an open-market purchase): $M^s$ rises, LM shifts right, and the rate that clears the money market falls (output rises). With prices fixed the nominal and real rates move together. **IS-MP-PC**: the bank **sets the nominal rate directly** through its rule. To lower the real rate it cuts the nominal rate (lowers the rule's intercept or reacts less to inflation for a time); the real rate is $r_t = i_t - \\pi_t$, so it falls as long as $i_t$ falls more than inflation. In a graph of $r$ against output, the bank's choice is a horizontal line that it moves down along the IS curve.\n\n![Policy practice - lowering the real rate in IS-LM vs IS-MP-PC](<assets/Attachments/Policy practice - lowering the real rate in IS-LM vs IS-MP-PC.png>)",
+    "rubric": [
+     "IS-LM: the instrument is the money supply; buying bonds shifts LM right and lowers $r$",
+     "IS-MP-PC: the instrument is the nominal rate, set directly by the rule",
+     "The real rate is $i_t - \\pi_t$: cutting $i_t$ lowers it given inflation",
+     "Graphs for both cases"
+    ],
+    "links": []
+   },
+   {
+    "id": "q8",
+    "number": "8",
+    "group": "C. IS-MP-PC with shocks (α = 1.5, γ = 2, β_π = 1.5)",
+    "prompt": "Same model as question 6. In period 1 the economy is in its long-run equilibrium with no shocks. In period 2 large supply and demand shocks hit: $\\varepsilon^\\pi_t = 5$ and $\\varepsilon^y_t = -5$. In period 3 the supply shock partly dissipates to $\\varepsilon^\\pi_t = 2$, while a large stimulus gives a demand shock $\\varepsilon^y_t = 5$. Calculate inflation and output in periods 2 and 3.",
+    "answer": "The IS-MP curve is $y_t = 100 - 1.5(0.5)(\\pi_t - 2) + \\varepsilon^y_t = 100 - 0.75(\\pi_t - 2) + \\varepsilon^y_t$; $\\theta = 1/(1 + 1.5 \\times 2 \\times 0.5) = 0.4$.\n\n**Period 2** ($\\pi^e = 2$, $\\varepsilon^\\pi = 5$, $\\varepsilon^y = -5$): $\\pi_2 = 2 + 2\\left(-0.75(\\pi_2 - 2) - 5\\right) + 5 = 2 - 1.5\\pi_2$, so $2.5\\pi_2 = 0$: **$\\pi_2 = 0$**, **$y_2 = 100 + 1.5 - 5 = 96.5$** ($i_2 = 1$). The demand collapse more than offsets the supply shock's push on prices.\n\n**Period 3** ($\\pi^e = 0$, $\\varepsilon^\\pi = 2$, $\\varepsilon^y = 5$): $\\pi_3 = 0 + 2\\left(-0.75(\\pi_3 - 2) + 5\\right) + 2 = 15 - 1.5\\pi_3$, so **$\\pi_3 = 6$**, **$y_3 = 100 - 3 + 5 = 102$** ($i_3 = 10$). Stimulus plus a lingering supply shock push inflation well above target even from a low starting point.",
+    "rubric": [
+     "Combine IS and MP: $y_t = 100 - 0.75(\\pi_t - 2) + \\varepsilon^y_t$",
+     "Period 2: $\\pi_2 = 0$, $y_2 = 96.5$",
+     "Period 3 uses $\\pi^e_3 = \\pi_2 = 0$: $\\pi_3 = 6$, $y_3 = 102$",
+     "Interpret: demand shock dominates in period 2; stimulus and supply shock raise inflation in period 3"
+    ],
+    "links": []
+   }
+  ]
+ }
+}

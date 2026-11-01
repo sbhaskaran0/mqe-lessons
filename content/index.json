@@ -1,8 +1,8 @@
 {
  "schema": "mqe-lessons/1",
- "generated_at": "2026-10-31T17:40:51Z",
+ "generated_at": "2026-11-01T00:13:35Z",
  "vault": {
-  "notes": 287,
+  "notes": 297,
   "errors": 0,
   "warnings": 13
  },
@@ -21,7 +21,12 @@
     "econ-402a-l7-the-is-mp-pc-model"
    ],
    "practice": [
-    "econ-402a-l1-solow-revision-lesson"
+    "econ-402a-l1-solow-revision-lesson",
+    "econ-402a-solow-exam-practice-questions",
+    "econ-402a-saving-exam-practice-questions",
+    "econ-402a-labor-market-exam-practice-questions",
+    "econ-402a-fall-2025-midterm-questions",
+    "econ-402a-policy-exam-practice-questions"
    ],
    "guides": []
   },
@@ -953,12 +958,14 @@
      }
     ]
    },
-   "figures": [],
+   "figures": [
+    "assets/Attachments/Adaptive expectations and a supply shock.png"
+   ],
    "interactives": [],
    "checks": 0,
-   "words": 255,
-   "created": "2026-10-28T20:07:03Z",
-   "updated": "2026-10-28T20:07:03Z"
+   "words": 315,
+   "created": "2026-10-31T17:53:56Z",
+   "updated": "2026-10-31T17:53:56Z"
   },
   "analysis-of-variance": {
    "slug": "analysis-of-variance",
@@ -5670,9 +5677,67 @@
    "figures": [],
    "interactives": [],
    "checks": 0,
-   "words": 821,
+   "words": 838,
    "created": "2026-10-05T19:41:53Z",
-   "updated": "2026-10-28T20:07:13Z"
+   "updated": "2026-10-31T17:54:04Z"
+  },
+  "econ-402a-fall-2025-midterm-answers": {
+   "slug": "econ-402a-fall-2025-midterm-answers",
+   "name": "Econ 402A Fall 2025 Midterm Answers",
+   "title": "Econ 402A Fall 2025 Midterm Answers",
+   "type": "practice",
+   "path": "Courses/Econ 402A/Practice/Econ 402A Fall 2025 Midterm Answers.md",
+   "summary": "Worked answers and key steps for the Fall 2025 midterm; Solow, capital-choice and IS-MP-PC numbers checked in Python, the Covid parts answered model by model.",
+   "tags": [],
+   "aliases": [],
+   "requires": [],
+   "lessons": [],
+   "courses": [
+    "Econ 402A"
+   ],
+   "course": "Econ 402A",
+   "lecture": 7,
+   "edges": {
+    "out": [],
+    "in": []
+   },
+   "figures": [
+    "assets/Attachments/Solow practice - population growth rises from 2 to 6 percent.png",
+    "assets/Attachments/Midterm practice - stimulus in IS-LM and in the classical labor market.png"
+   ],
+   "interactives": [],
+   "checks": 0,
+   "words": 1073,
+   "created": "2026-11-01T00:06:10Z",
+   "updated": "2026-11-01T00:06:10Z"
+  },
+  "econ-402a-fall-2025-midterm-questions": {
+   "slug": "econ-402a-fall-2025-midterm-questions",
+   "name": "Econ 402A Fall 2025 Midterm Questions",
+   "title": "Econ 402A Fall 2025 Midterm Questions",
+   "type": "practice",
+   "path": "Courses/Econ 402A/Practice/Econ 402A Fall 2025 Midterm Questions.md",
+   "summary": "Last year's Econ 402A midterm as a mock exam: 4 questions of 3 parts each (Solow, two-period capital choice, the Covid recovery in three models, an IS-MP-PC variant with expectations), with worked answers and rubrics.",
+   "tags": [],
+   "aliases": [],
+   "requires": [],
+   "lessons": [],
+   "courses": [
+    "Econ 402A"
+   ],
+   "course": "Econ 402A",
+   "lecture": 7,
+   "edges": {
+    "out": [],
+    "in": []
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 702,
+   "pairedAnswers": "econ-402a-fall-2025-midterm-answers",
+   "created": "2026-11-01T00:06:10Z",
+   "updated": "2026-11-01T00:06:10Z"
   },
   "econ-402a-l1-solow-growth-model": {
    "slug": "econ-402a-l1-solow-growth-model",
@@ -6668,7 +6733,7 @@
    ],
    "course": "Econ 402A",
    "lecture": 7,
-   "source": "06 - IS-LM-PC.pdf (typed notes; handwritten notes to come)",
+   "source": "IS-MP-PC-2.pdf (handwritten notes); 06 - IS-LM-PC.pdf (typed notes)",
    "edges": {
     "out": [
      {
@@ -6723,27 +6788,36 @@
      }
     ]
    },
-   "figures": [],
+   "figures": [
+    "assets/Attachments/New Keynesian models - three equations IS-MP-PC.png",
+    "assets/Attachments/Phillips curve - original and expectations-augmented (handwritten).png",
+    "assets/Attachments/IS curve in the output gap - real and nominal rates.png",
+    "assets/Attachments/Monetary policy rule - inflation targeting and the Taylor principle.png",
+    "assets/Attachments/IS-MP-PC - combining the IS curve and the policy rule.png",
+    "assets/Attachments/IS-MP and Phillips curve diagram (handwritten).png",
+    "assets/Attachments/Adaptive expectations and a supply shock.png",
+    "assets/Attachments/Solving the IS-MP-PC model for inflation.png"
+   ],
    "interactives": [
     "is-mp-and-phillips-curve-diagram",
     "inflation-shock-paths"
    ],
-   "checks": 7,
-   "words": 1826,
+   "checks": 8,
+   "words": 2362,
    "objectives": [
     {
      "n": 1,
-     "md": "Write the traditional and the expectations-augmented Phillips curve, explain why the second replaced the first, and use the output version with supply shocks.",
+     "md": "Write the original and the expectations-augmented Phillips curve, in unemployment and in the output gap, and explain why expectations shift the curve.",
      "tested": 1
     },
     {
      "n": 2,
-     "md": "Write the IS curve in output-gap form, distinguish real from nominal rates, and explain the neutral rate and demand shocks.",
+     "md": "Write the IS curve in output-gap form, distinguish real from nominal rates ($r_t = i_t - \\pi_t$), and explain the neutral rate and demand shocks.",
      "tested": 1
     },
     {
      "n": 3,
-     "md": "Write the inflation-targeting rule and the Taylor rule, explain why the real rate is neutral at target, and compute the rate the rule sets.",
+     "md": "Write the inflation-targeting rule (and the Taylor rule), explain why the real rate is neutral at target, state the Taylor principle, and compute the rate the rule sets.",
      "tested": 1
     },
     {
@@ -6753,22 +6827,262 @@
     },
     {
      "n": 5,
-     "md": "Solve the model for inflation and output, define $\\theta$, and explain the trade-off a tougher central bank faces.",
-     "tested": 2
+     "md": "Draw the IS-MP and Phillips curves against the output gap and show what a supply shock does with and without a policy response.",
+     "tested": 1
     },
     {
      "n": 6,
-     "md": "Explain adaptive and rational expectations, and trace the notes' example: $\\pi_2 = 4$, $i_2 = 7$, $y_2 = 99$, then the gradual return.",
-     "tested": 3
+     "md": "Explain adaptive expectations, why a supply shock raises expected inflation by the full shock when the bank does not respond and by less when it does, and how rational expectations differ.",
+     "tested": 2
     },
     {
      "n": 7,
+     "md": "Solve the model for inflation, define $\\theta$, explain the trade-off a tougher central bank faces, and trace the typed notes' example: $\\pi_2 = 4$, $i_2 = 7$, $y_2 = 99$, then the gradual return.",
+     "tested": 4
+    },
+    {
+     "n": 8,
      "md": "Explain why the zero lower bound limits monetary policy in this model.",
      "tested": 1
     }
    ],
-   "created": "2026-10-28T20:07:00Z",
-   "updated": "2026-10-28T20:15:44Z"
+   "created": "2026-10-31T17:53:54Z",
+   "updated": "2026-10-31T17:53:54Z"
+  },
+  "econ-402a-labor-market-exam-practice-answers": {
+   "slug": "econ-402a-labor-market-exam-practice-answers",
+   "name": "Econ 402A Labor Market Exam Practice Answers",
+   "title": "Econ 402A Labor Market Exam Practice Answers",
+   "type": "practice",
+   "path": "Courses/Econ 402A/Practice/Econ 402A Labor Market Exam Practice Answers.md",
+   "summary": "Worked answers and key steps for the labor-market practice exam; equilibria, minimum-wage gaps and the two-sector split checked in Python.",
+   "tags": [],
+   "aliases": [],
+   "requires": [],
+   "lessons": [],
+   "courses": [
+    "Econ 402A"
+   ],
+   "course": "Econ 402A",
+   "lecture": 4,
+   "edges": {
+    "out": [],
+    "in": []
+   },
+   "figures": [
+    "assets/Attachments/Labor practice - minimum wage of 15 and unemployment.png",
+    "assets/Attachments/Labor practice - more workers shift labor supply right.png",
+    "assets/Attachments/Labor practice - fast-food minimum wage and the retail sector.png"
+   ],
+   "interactives": [],
+   "checks": 0,
+   "words": 506,
+   "created": "2026-11-01T00:06:10Z",
+   "updated": "2026-11-01T00:06:10Z"
+  },
+  "econ-402a-labor-market-exam-practice-questions": {
+   "slug": "econ-402a-labor-market-exam-practice-questions",
+   "name": "Econ 402A Labor Market Exam Practice Questions",
+   "title": "Econ 402A Labor Market Exam Practice Questions",
+   "type": "practice",
+   "path": "Courses/Econ 402A/Practice/Econ 402A Labor Market Exam Practice Questions.md",
+   "summary": "The professor's labor practice exam: 7 open-response parts on the labor-leisure choice, labor demand, the classical equilibrium, a minimum wage, immigration and a sector-specific minimum wage, with worked answers and rubrics.",
+   "tags": [],
+   "aliases": [],
+   "requires": [],
+   "lessons": [],
+   "courses": [
+    "Econ 402A"
+   ],
+   "course": "Econ 402A",
+   "lecture": 4,
+   "edges": {
+    "out": [],
+    "in": []
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 331,
+   "pairedAnswers": "econ-402a-labor-market-exam-practice-answers",
+   "created": "2026-11-01T00:06:11Z",
+   "updated": "2026-11-01T00:06:11Z"
+  },
+  "econ-402a-policy-exam-practice-answers": {
+   "slug": "econ-402a-policy-exam-practice-answers",
+   "name": "Econ 402A Policy Exam Practice Answers",
+   "title": "Econ 402A Policy Exam Practice Answers",
+   "type": "practice",
+   "path": "Courses/Econ 402A/Practice/Econ 402A Policy Exam Practice Answers.md",
+   "summary": "Worked answers and key steps for the policy practice exam; IS-LM equilibria and every IS-MP-PC period checked in Python against all three equations.",
+   "tags": [],
+   "aliases": [],
+   "requires": [],
+   "lessons": [],
+   "courses": [
+    "Econ 402A"
+   ],
+   "course": "Econ 402A",
+   "lecture": 7,
+   "edges": {
+    "out": [],
+    "in": []
+   },
+   "figures": [
+    "assets/Attachments/Policy practice - IS-LM with a rise in G, money fixed vs rate targeted.png",
+    "assets/Attachments/Policy practice - inflation paths with a strong and a weak policy response.png",
+    "assets/Attachments/Policy practice - lowering the real rate in IS-LM vs IS-MP-PC.png"
+   ],
+   "interactives": [],
+   "checks": 0,
+   "words": 906,
+   "created": "2026-11-01T00:06:11Z",
+   "updated": "2026-11-01T00:06:11Z"
+  },
+  "econ-402a-policy-exam-practice-questions": {
+   "slug": "econ-402a-policy-exam-practice-questions",
+   "name": "Econ 402A Policy Exam Practice Questions",
+   "title": "Econ 402A Policy Exam Practice Questions",
+   "type": "practice",
+   "path": "Courses/Econ 402A/Practice/Econ 402A Policy Exam Practice Questions.md",
+   "summary": "The professor's policy practice exam: 8 open-response parts on a numerical IS-LM model with fiscal policy and rate targeting, and two IS-MP-PC models with inflation dynamics, weak policy rules and Covid-style shocks.",
+   "tags": [],
+   "aliases": [],
+   "requires": [],
+   "lessons": [],
+   "courses": [
+    "Econ 402A"
+   ],
+   "course": "Econ 402A",
+   "lecture": 7,
+   "edges": {
+    "out": [],
+    "in": []
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 379,
+   "pairedAnswers": "econ-402a-policy-exam-practice-answers",
+   "created": "2026-11-01T00:06:11Z",
+   "updated": "2026-11-01T00:06:11Z"
+  },
+  "econ-402a-saving-exam-practice-answers": {
+   "slug": "econ-402a-saving-exam-practice-answers",
+   "name": "Econ 402A Saving Exam Practice Answers",
+   "title": "Econ 402A Saving Exam Practice Answers",
+   "type": "practice",
+   "path": "Courses/Econ 402A/Practice/Econ 402A Saving Exam Practice Answers.md",
+   "summary": "Worked answers and key steps for the saving practice exam; every interest rate and consumption level checked in Python by solving the market-clearing condition.",
+   "tags": [],
+   "aliases": [],
+   "requires": [],
+   "lessons": [],
+   "courses": [
+    "Econ 402A"
+   ],
+   "course": "Econ 402A",
+   "lecture": 2,
+   "edges": {
+    "out": [],
+    "in": []
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 899,
+   "created": "2026-11-01T00:06:12Z",
+   "updated": "2026-11-01T00:06:12Z"
+  },
+  "econ-402a-saving-exam-practice-questions": {
+   "slug": "econ-402a-saving-exam-practice-questions",
+   "name": "Econ 402A Saving Exam Practice Questions",
+   "title": "Econ 402A Saving Exam Practice Questions",
+   "type": "practice",
+   "path": "Courses/Econ 402A/Practice/Econ 402A Saving Exam Practice Questions.md",
+   "summary": "The professor's saving practice exam: 10 open-response parts on two-period consumers with log utility, borrowing at a given rate, the market-clearing rate, impatience and a stimulus check, with worked answers.",
+   "tags": [],
+   "aliases": [],
+   "requires": [],
+   "lessons": [],
+   "courses": [
+    "Econ 402A"
+   ],
+   "course": "Econ 402A",
+   "lecture": 2,
+   "edges": {
+    "out": [],
+    "in": []
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 380,
+   "pairedAnswers": "econ-402a-saving-exam-practice-answers",
+   "created": "2026-11-01T00:06:12Z",
+   "updated": "2026-11-01T00:06:29Z"
+  },
+  "econ-402a-solow-exam-practice-answers": {
+   "slug": "econ-402a-solow-exam-practice-answers",
+   "name": "Econ 402A Solow Exam Practice Answers",
+   "title": "Econ 402A Solow Exam Practice Answers",
+   "type": "practice",
+   "path": "Courses/Econ 402A/Practice/Econ 402A Solow Exam Practice Answers.md",
+   "summary": "Worked answers and key steps for the Solow practice exam; every number checked in Python, every graph drawn from the model.",
+   "tags": [],
+   "aliases": [],
+   "requires": [],
+   "lessons": [],
+   "courses": [
+    "Econ 402A"
+   ],
+   "course": "Econ 402A",
+   "lecture": 1,
+   "edges": {
+    "out": [],
+    "in": []
+   },
+   "figures": [
+    "assets/Attachments/Solow practice - capital per effective worker falling from 100 to 16.png",
+    "assets/Attachments/Solow practice - consumption after a rise in saving from 0.4 to 0.5.png",
+    "assets/Attachments/Solow practice - Solow diagram and capital path from 1 to 16.png",
+    "assets/Attachments/Solow practice - capital and consumption after saving falls from 0.8 to 0.7.png",
+    "assets/Attachments/Solow practice - population growth rises from 5 to 10 percent.png",
+    "assets/Attachments/Solow practice - saving falls from the golden rule 0.6 to 0.5.png"
+   ],
+   "interactives": [],
+   "checks": 0,
+   "words": 902,
+   "created": "2026-11-01T00:06:12Z",
+   "updated": "2026-11-01T00:06:12Z"
+  },
+  "econ-402a-solow-exam-practice-questions": {
+   "slug": "econ-402a-solow-exam-practice-questions",
+   "name": "Econ 402A Solow Exam Practice Questions",
+   "title": "Econ 402A Solow Exam Practice Questions",
+   "type": "practice",
+   "path": "Courses/Econ 402A/Practice/Econ 402A Solow Exam Practice Questions.md",
+   "summary": "The professor's Solow practice exam: 10 open-response parts on transition paths, saving-rate changes, the golden rule and growth in labor and technology, each with a worked answer and a self-grading rubric.",
+   "tags": [],
+   "aliases": [],
+   "requires": [],
+   "lessons": [],
+   "courses": [
+    "Econ 402A"
+   ],
+   "course": "Econ 402A",
+   "lecture": 1,
+   "edges": {
+    "out": [],
+    "in": []
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 551,
+   "pairedAnswers": "econ-402a-solow-exam-practice-answers",
+   "created": "2026-11-01T00:06:12Z",
+   "updated": "2026-11-01T00:06:12Z"
   },
   "econ-424": {
    "slug": "econ-424",
@@ -12821,9 +13135,9 @@
    "figures": [],
    "interactives": [],
    "checks": 0,
-   "words": 124,
-   "created": "2026-10-28T20:07:03Z",
-   "updated": "2026-10-28T20:07:03Z"
+   "words": 155,
+   "created": "2026-10-31T17:53:55Z",
+   "updated": "2026-10-31T17:53:55Z"
   },
   "inner-products-and-orthogonality": {
    "slug": "inner-products-and-orthogonality",
@@ -13878,8 +14192,8 @@
    "interactives": [],
    "checks": 0,
    "words": 139,
-   "created": "2026-10-28T20:07:03Z",
-   "updated": "2026-10-28T20:11:14Z"
+   "created": "2026-10-31T17:53:54Z",
+   "updated": "2026-10-31T17:53:54Z"
   },
   "is-mp-pc-model": {
    "slug": "is-mp-pc-model",
@@ -13988,12 +14302,14 @@
      }
     ]
    },
-   "figures": [],
+   "figures": [
+    "assets/Attachments/IS-MP and Phillips curve diagram (handwritten).png"
+   ],
    "interactives": [],
    "checks": 0,
-   "words": 386,
-   "created": "2026-10-28T20:07:03Z",
-   "updated": "2026-10-28T20:07:03Z"
+   "words": 531,
+   "created": "2026-10-31T17:53:55Z",
+   "updated": "2026-10-31T17:53:55Z"
   },
   "katz-and-murphy-1992-changes-in-relative-wages": {
    "slug": "katz-and-murphy-1992-changes-in-relative-wages",
@@ -18161,12 +18477,14 @@
      }
     ]
    },
-   "figures": [],
+   "figures": [
+    "assets/Attachments/Monetary policy rule - inflation targeting and the Taylor principle.png"
+   ],
    "interactives": [],
    "checks": 0,
-   "words": 285,
-   "created": "2026-10-28T20:07:03Z",
-   "updated": "2026-10-28T20:07:03Z"
+   "words": 334,
+   "created": "2026-10-31T17:53:55Z",
+   "updated": "2026-10-31T17:53:55Z"
   },
   "monras-2020-immigration-and-wage-dynamics": {
    "slug": "monras-2020-immigration-and-wage-dynamics",
@@ -19672,12 +19990,14 @@
      }
     ]
    },
-   "figures": [],
+   "figures": [
+    "assets/Attachments/Phillips curve - original and expectations-augmented (handwritten).png"
+   ],
    "interactives": [],
    "checks": 0,
-   "words": 297,
-   "created": "2026-10-28T20:07:03Z",
-   "updated": "2026-10-28T20:08:12Z"
+   "words": 323,
+   "created": "2026-10-31T17:53:55Z",
+   "updated": "2026-10-31T17:53:55Z"
   },
   "pierce-and-schott-2016-the-surprisingly-swift-decline-of-us-manufacturing-employment": {
    "slug": "pierce-and-schott-2016-the-surprisingly-swift-decline-of-us-manufacturing-employment",
@@ -24344,9 +24664,9 @@
    "figures": [],
    "interactives": [],
    "checks": 0,
-   "words": 146,
-   "created": "2026-10-28T20:07:03Z",
-   "updated": "2026-10-28T20:11:14Z"
+   "words": 160,
+   "created": "2026-10-31T17:53:54Z",
+   "updated": "2026-10-31T17:53:54Z"
   },
   "top-coding": {
    "slug": "top-coding",
@@ -28007,7 +28327,7 @@
      "bpi": {
       "tex": "\\beta_\\pi",
       "label": "Policy response to inflation",
-      "min": 1.25,
+      "min": 1,
       "max": 5,
       "step": 0.25,
       "default": 1.5
@@ -28196,6 +28516,51 @@
        "target@3": 2,
        "potential@3": 100,
        "th_out": 0.666667
+      },
+      "tol": 1e-05
+     },
+     {
+      "params": {
+       "pistar": 2,
+       "ystar": 100,
+       "rstar": 2,
+       "alpha": 1,
+       "gamma": 1,
+       "bpi": 1,
+       "epsy": 0,
+       "shock": 4,
+       "ts": 2
+      },
+      "expect": {
+       "inflation@1": 2,
+       "inflation@2": 6,
+       "inflation@3": 6,
+       "inflation@10": 6,
+       "output@2": 100,
+       "output@3": 100,
+       "policy@3": 8,
+       "real@3": 2
+      },
+      "tol": 1e-05
+     },
+     {
+      "params": {
+       "pistar": 2,
+       "ystar": 100,
+       "rstar": 2,
+       "alpha": 1,
+       "gamma": 1,
+       "bpi": 1.5,
+       "epsy": 0,
+       "shock": 4,
+       "ts": 2
+      },
+      "expect": {
+       "inflation@2": 4.666667,
+       "inflation@3": 3.777778,
+       "inflation@4": 3.185185,
+       "output@2": 98.666667,
+       "policy@2": 8
       },
       "tol": 1e-05
      },
@@ -28853,7 +29218,7 @@
      "bpi": {
       "tex": "\\beta_\\pi",
       "label": "Policy response to inflation",
-      "min": 1.25,
+      "min": 1,
       "max": 5,
       "step": 0.25,
       "default": 1.5
@@ -28930,7 +29295,7 @@
        },
        {
         "id": "ismp0",
-        "expr": "pistar - (y - ystar)/(alpha*(bpi - 1))",
+        "expr": "pistar - (y - ystar)/(alpha*max(bpi - 1, 0.001))",
         "tex": "y_t = y^* - \\alpha(\\beta_\\pi - 1)(\\pi_t - \\pi^*)",
         "label": "IS-MP curve with no demand shock",
         "style": "dashed"
@@ -28943,7 +29308,7 @@
        },
        {
         "id": "ismp",
-        "expr": "pistar - (y - ystar - epsy)/(alpha*(bpi - 1))",
+        "expr": "pistar - (y - ystar - epsy)/(alpha*max(bpi - 1, 0.001))",
         "tex": "y_t = y^* - \\alpha(\\beta_\\pi - 1)(\\pi_t - \\pi^*) + \\epsilon^y_t",
         "label": "IS-MP curve"
        }
@@ -29050,6 +29415,47 @@
        "r_out": 4,
        "ismp@98": 3,
        "pc@98": 3
+      },
+      "tol": 1e-05
+     },
+     {
+      "params": {
+       "pistar": 2,
+       "ystar": 100,
+       "rstar": 2,
+       "alpha": 1,
+       "gamma": 1,
+       "bpi": 1.5,
+       "pe": 2,
+       "epsp": 4,
+       "epsy": 0
+      },
+      "expect": {
+       "pi_out": 4.666667,
+       "y_out": 98.666667,
+       "i_out": 8,
+       "pc@100": 6,
+       "pc0@100": 2
+      },
+      "tol": 1e-05
+     },
+     {
+      "params": {
+       "pistar": 2,
+       "ystar": 100,
+       "rstar": 2,
+       "alpha": 1,
+       "gamma": 1,
+       "bpi": 1,
+       "pe": 2,
+       "epsp": 4,
+       "epsy": 0
+      },
+      "expect": {
+       "pi_out": 6,
+       "y_out": 100,
+       "i_out": 8,
+       "r_out": 2
       },
       "tol": 1e-05
      },
@@ -39858,7 +40264,7 @@
      "bpi": {
       "tex": "\\beta_\\pi",
       "label": "Policy response to inflation",
-      "min": 1.25,
+      "min": 1,
       "max": 5,
       "step": 0.25,
       "default": 1.5
@@ -40084,6 +40490,47 @@
       },
       "expect": {
        "pist": 2.923077
+      },
+      "tol": 1e-05
+     },
+     {
+      "params": {
+       "pistar": 2,
+       "ystar": 100,
+       "rstar": 2,
+       "alpha": 1,
+       "gamma": 1,
+       "bpi": 1,
+       "pe": 2,
+       "epsp": 4,
+       "epsy": 0
+      },
+      "expect": {
+       "th": 1,
+       "pist": 6,
+       "yst": 100,
+       "ist": 8,
+       "rst": 2
+      },
+      "tol": 1e-05
+     },
+     {
+      "params": {
+       "pistar": 2,
+       "ystar": 100,
+       "rstar": 2,
+       "alpha": 1,
+       "gamma": 1,
+       "bpi": 1.5,
+       "pe": 2,
+       "epsp": 4,
+       "epsy": 0
+      },
+      "expect": {
+       "pist": 4.666667,
+       "yst": 98.666667,
+       "ist": 8,
+       "rst": 3.333333
       },
       "tol": 1e-05
      },
