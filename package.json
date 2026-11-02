@@ -18,6 +18,7 @@
     "test:py": "node scripts/pytest.mjs",
     "typecheck": "tsc --noEmit",
     "build": "node scripts/build.mjs",
+    "deploy": "node scripts/deploy.mjs",
     "preview": "vite preview",
     "e2e": "playwright test",
     "screens": "playwright test --project=screens",

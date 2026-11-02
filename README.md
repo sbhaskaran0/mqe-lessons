@@ -38,12 +38,12 @@ The site is static (hash routes, relative URLs) and is hosted on Netlify; `netli
 the current vault:
 
 ```
-npm run export && npm run validate
-npx vite build
-npx netlify-cli deploy --prod
+npm run deploy                      # or: npm run deploy -- "commit message"
 ```
 
-Commit and push `content/` afterwards, so the repo matches the site.
+It checks the vault, exports, validates, runs vitest, commits and pushes `content/` (only `content/`; other changes
+are listed, not committed), builds and deploys to production. It stops at the first failing step. It skips e2e, so
+run `npm run build` first after code changes.
 
 ## Tests
 
