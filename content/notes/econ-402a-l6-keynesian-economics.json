@@ -1451,7 +1451,7 @@
          "crowd_out",
          "Ip_out"
         ],
-        "ask": "In the illustrative economy, output is 1,200 and the interest rate 4. Government spending rises by 100, which shifts IS right by $100/(1 - 0.8) = 500$. By how much does equilibrium output rise?",
+        "ask": "In the illustrative economy the IS curve is $Y = 1600 - 100r$ and the LM curve is $r = 0.01Y - 8$, so output is 1,200 and the interest rate 4. Government spending rises by 100, which shifts IS right by $100/(1 - 0.8) = 500$ to $Y = 2100 - 100r$. By how much does equilibrium output rise?",
         "readout": "dY_out",
         "tol": 1
        },
@@ -1488,7 +1488,7 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "Output rises by 250, to 1,450, and the rate rises to 6.5. At that rate planned investment is $200 - 20 \\times 6.5 = 70$ instead of 120: the fall of 50 in investment, multiplied by 5, is the 250 that is crowded out."
+       "md": "Output rises by 250, to 1,450, and the rate rises to 6.5: substituting LM into the new IS, $Y = 2100 - 100(0.01Y - 8)$, gives $2Y = 2900$. In general $\\Delta Y = \\Delta G/\\left((1-b) + dk/h\\right)$, where $d$ is the interest sensitivity of investment and $k$, $h$ are the income and interest sensitivities of money demand; here $100/(0.2 + 0.2) = 250$. At that rate planned investment is $200 - 20 \\times 6.5 = 70$ instead of 120: the fall of 50 in investment, multiplied by 5, is the 250 that is crowded out."
       },
       {
        "t": "figure",
@@ -1497,11 +1497,18 @@
        "caption": "Typed notes: the same shift, with $IS_1(G_1)$ and $IS_2(G_2)$."
       }
      ],
-     "words": 46,
+     "words": 73,
      "symbols": [
+      "$Y$",
+      "$b$",
       "$G$",
       "$I$",
-      "$S$"
+      "$S$",
+      "$\\Delta G$",
+      "$\\Delta Y$",
+      "$d$",
+      "$k$",
+      "$h$"
      ]
     }
    ]

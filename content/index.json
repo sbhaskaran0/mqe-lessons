@@ -1,6 +1,6 @@
 {
  "schema": "mqe-lessons/1",
- "generated_at": "2026-11-01T00:13:35Z",
+ "generated_at": "2026-11-02T17:23:14Z",
  "vault": {
   "notes": 297,
   "errors": 0,
@@ -6671,7 +6671,7 @@
    ],
    "checks": 8,
    "derives": 1,
-   "words": 2176,
+   "words": 2203,
    "objectives": [
     {
      "n": 1,
@@ -6715,7 +6715,7 @@
     }
    ],
    "created": "2026-10-28T20:07:00Z",
-   "updated": "2026-10-28T20:17:26Z"
+   "updated": "2026-11-02T17:12:03Z"
   },
   "econ-402a-l7-the-is-mp-pc-model": {
    "slug": "econ-402a-l7-the-is-mp-pc-model",
@@ -7017,10 +7017,10 @@
    "figures": [],
    "interactives": [],
    "checks": 0,
-   "words": 380,
+   "words": 501,
    "pairedAnswers": "econ-402a-saving-exam-practice-answers",
    "created": "2026-11-01T00:06:12Z",
-   "updated": "2026-11-01T00:06:29Z"
+   "updated": "2026-11-01T04:10:46Z"
   },
   "econ-402a-solow-exam-practice-answers": {
    "slug": "econ-402a-solow-exam-practice-answers",
