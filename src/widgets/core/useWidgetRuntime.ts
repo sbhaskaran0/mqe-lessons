@@ -62,6 +62,8 @@ export type PredictRuntime = NonNullable<InteractiveBlock["predict"]> & {
    *  readout the value is the number the learner typed. `explanation` is their optional reason. */
   commit: (value?: number, explanation?: string) => void;
   result: PredictResult | null;
+  /** Ask again from the view's presets, as Reset does. */
+  again: () => void;
 };
 
 export type Runtime = {
@@ -216,11 +218,17 @@ export function useWidgetRuntime(
     patchView({ touched: false });
   }, [patchView]);
 
-  // Back at the presets the goal waits for a fresh move, as when the view arrived: Reset is not a move.
+  // Back at the presets the goal waits for a fresh move, as when the view arrived: Reset is not a move. A committed
+  // prediction is asked again, like a question's "Try again"; the player keeps only the first guess, so a retry is practice.
   const reset = useCallback(() => {
     animateTo({ ...defaults(spec), ...(view?.state ?? {}) });
     untouch();
-  }, [animateTo, spec, view, untouch]);
+    if (view?.predict && pvRef.current.phase !== "ask") {
+      const ask = { phase: "ask" as const, choice: null, marker: null, result: null };
+      pvRef.current = { ...pvRef.current, ...ask };
+      patchView(ask);
+    }
+  }, [animateTo, spec, view, untouch, patchView]);
 
   const predictSpec = view?.predict;
   const asking = !!predictSpec && pv.phase === "ask";
@@ -285,6 +293,7 @@ export function useWidgetRuntime(
         placeMarker: (p) => pvRef.current.phase === "ask" && patchView({ marker: p }),
         commit,
         result: pv.result,
+        again: reset,
       }
     : null;
 

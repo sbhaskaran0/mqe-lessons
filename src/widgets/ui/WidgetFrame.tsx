@@ -27,7 +27,7 @@ export function WidgetFrame({ entry, rt, compact, stage, predict, readouts, para
   const root = useRef<HTMLElement>(null);
   const stageEl = useRef<HTMLDivElement>(null);
   const budget = useStageBudget(root, stageEl, rt?.viewKey ?? "", !compact);
-  const resettable = rt && Object.keys(rt.spec.params ?? {}).length > 0 ? rt : null;
+  const resettable = rt && (Object.keys(rt.spec.params ?? {}).length > 0 || rt.predict) ? rt : null;
   return (
     <section
       ref={root}
@@ -45,7 +45,7 @@ export function WidgetFrame({ entry, rt, compact, stage, predict, readouts, para
             {compare}
             {tools}
             {resettable ? (
-              <button type="button" className="w-btn w-btn-quiet w-btn-sm" aria-label="Reset" onClick={resettable.reset} title="Back to this step's starting values">
+              <button type="button" className="w-btn w-btn-quiet w-btn-sm" aria-label="Reset" onClick={resettable.reset} title={resettable.predict ? "Back to this step's starting values, and ask the prediction again" : "Back to this step's starting values"}>
                 <ResetIcon /> <span className="w-btn-label">Reset</span>
               </button>
             ) : null}

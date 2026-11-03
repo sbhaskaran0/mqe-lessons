@@ -314,6 +314,36 @@ describe("predictions", () => {
     expect(w.c.querySelector(".w-predict-result")?.textContent).toContain("Rises gradually");
   });
 
+  it("a wrong choice offers Try again, which asks afresh with the answer hidden", async () => {
+    const w = await mount(widget("toy-convergence"), view(2));
+    fireEvent.click(w.button(/Jumps up at once/)!);
+    fireEvent.click(w.button(/Commit prediction/)!);
+    fireEvent.click(w.button(/Try again/)!);
+    expect(w.el("capital")).toBeNull();
+    expect(w.c.querySelector(".w-predict-result")).toBeNull();
+    expect(w.button(/Commit prediction/)!.disabled).toBe(true);
+    expect(w.button(/Jumps up at once/)!.getAttribute("aria-checked")).toBe("false");
+  });
+
+  it("a right choice has no Try again, but Reset asks it again", async () => {
+    const w = await mount(widget("toy-convergence"), view(2));
+    fireEvent.click(w.button(/Rises gradually/)!);
+    fireEvent.click(w.button(/Commit prediction/)!);
+    expect(w.button(/Try again/)).toBeUndefined();
+    fireEvent.click(w.button(/Reset/)!);
+    expect(w.el("capital")).toBeNull();
+    expect(w.c.querySelector(".w-predict-ask")?.textContent).toContain("Sketch the path of capital");
+    expect(w.button(/Commit prediction/)!.disabled).toBe(true);
+  });
+
+  it("Reset asks again a prediction that progress already holds", async () => {
+    const w = await mount(widget("toy-convergence"), view(2), { initial: { predicted: { option: 1, correct: true } } });
+    expect(w.c.querySelector(".w-predict-result")?.textContent).toMatch(/^Right/);
+    fireEvent.click(w.button(/Reset/)!);
+    expect(w.c.querySelector(".w-predict-result")).toBeNull();
+    expect(w.button(/Commit prediction/)).toBeDefined();
+  });
+
   it("without options, the learner drags a marker on the plot and commits its value", async () => {
     const onPredict = vi.fn();
     const v: InteractiveBlock = { t: "interactive", widget: "toy-steady-state-explorer", predict: { hide: ["steady", "kbar_out"], ask: "Where is $\\bar{k}$?" } };

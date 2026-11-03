@@ -2,7 +2,7 @@
 import { type ReactNode, useEffect, useId, useRef, useState } from "react";
 import { format } from "../format";
 import type { GoalState, PredictRuntime } from "../core/useWidgetRuntime";
-import { BulbIcon, CheckIcon } from "./icons";
+import { BulbIcon, CheckIcon, ResetIcon } from "./icons";
 import { MdText } from "./MdText";
 
 export function GoalFeedback({ goal }: { goal: GoalState | null }) {
@@ -50,7 +50,9 @@ export function PredictPanel({ predict, howTo, value, describe }: PredictProps) 
   // The commit button is replaced by the result, so keyboard focus would fall to the page; it moves to the result
   // instead, without scrolling: the plot, where the reveal plays, stays in view.
   const result = useRef<HTMLDivElement>(null);
+  const panel = useRef<HTMLDivElement>(null);
   const committed = useRef(false);
+  const retried = useRef(false);
   const asking = predict?.phase === "ask";
   // The learner's typed number (compute-before-reveal) and their optional reason: local until they commit.
   const [typed, setTyped] = useState("");
@@ -62,7 +64,15 @@ export function PredictPanel({ predict, howTo, value, describe }: PredictProps) 
     setReason("");
   }, [ask]);
   useEffect(() => {
-    if (asking || !committed.current) return;
+    if (asking) {
+      // Asked again (Reset, Try again): the last attempt's number and reason go, and focus returns to the question.
+      setTyped("");
+      setReason("");
+      if (retried.current) panel.current?.querySelector<HTMLElement>("button:not(:disabled), input")?.focus({ preventScroll: true });
+      retried.current = false;
+      return;
+    }
+    if (!committed.current) return;
     committed.current = false;
     result.current?.focus({ preventScroll: true });
   }, [asking]);
@@ -76,7 +86,7 @@ export function PredictPanel({ predict, howTo, value, describe }: PredictProps) 
     predict.commit(computing ? number : value, reason);
   };
   return (
-    <div className="w-predict" role="group" aria-label="Prediction" data-phase={predict.phase}>
+    <div className="w-predict" role="group" aria-label="Prediction" data-phase={predict.phase} ref={panel}>
       <p className="w-predict-ask">
         <MdText md={predict.ask} />
       </p>
@@ -132,6 +142,12 @@ export function PredictPanel({ predict, howTo, value, describe }: PredictProps) 
         <div className="w-predict-result" aria-live="polite" tabIndex={-1} ref={result}>
           <p>{verdictText(predict, describe)}</p>
           {explainers(predict)}
+          {/* As a question offers it: only after a wrong answer. Reset asks any prediction again. */}
+          {predict.result?.correct === false ? (
+            <button type="button" className="w-btn w-btn-sm" onClick={() => ((retried.current = true), predict.again())}>
+              <ResetIcon /> Try again
+            </button>
+          ) : null}
         </div>
       )}
     </div>
