@@ -695,6 +695,7 @@
       {
        "t": "derive",
        "title": "Combine the first-order conditions into the Euler equation",
+       "goal": "Eliminate the multipliers from the planner's first-order conditions. Write $u_0$ for $U'(c_t)$, $u_1$ for $U'(c_{t+1})$, $\\lambda_0$, $\\lambda_1$ for $\\lambda_t$, $\\lambda_{t+1}$ and $m$ for $f'(k_{t+1})$, and finish with $\\frac{u_0}{\\beta u_1}$ on the left and the gross return on capital on the right. This Euler equation is the condition the whole optimal path satisfies.",
        "objectives": [
         3
        ],
@@ -1042,6 +1043,7 @@
       {
        "t": "derive",
        "title": "Solve for steady-state capital with Cobb-Douglas production",
+       "goal": "Solve the steady-state Euler equation $1/\\beta = 1 - \\delta + A\\alpha k^{\\alpha-1}$ for steady-state capital $k$ (the $\\bar{k}$ of the text) in terms of $A$, $\\alpha$, $\\beta$ and $\\delta$. It gives the Ramsey economy's long-run capital stock, to compare with the golden rule.",
        "objectives": [
         5
        ],

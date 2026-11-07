@@ -489,7 +489,7 @@
       {
        "t": "check",
        "kind": "mcq",
-       "prompt": "The US Gini is reported as 0.64 in one source and 45.0 in another. What explains the difference?",
+       "prompt": "The US Gini is reported as 0.64 in one source (the long-run series since 1917, built from IRS tax returns) and 45.0 in another (the 150-country comparison). What explains the difference?",
        "options": [
         {
          "md": "They agree: 45.0 is 0.64 written on a 0–100 scale",
@@ -517,7 +517,7 @@
        ]
       }
      ],
-     "words": 96,
+     "words": 109,
      "symbols": []
     }
    ]

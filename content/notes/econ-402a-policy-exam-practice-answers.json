@@ -443,7 +443,7 @@
       },
       {
        "t": "prose",
-       "md": "**Period 2** ($\\pi^e = 2$, $\\varepsilon^\\pi = 5$, $\\varepsilon^y = -5$): $\\pi_2 = 2 + 2\\left(-0.75(\\pi_2 - 2) - 5\\right) + 5 = 2 - 1.5\\pi_2$, so $2.5\\pi_2 = 0$: **$\\pi_2 = 0$**, **$y_2 = 100 + 1.5 - 5 = 96.5$** ($i_2 = 1$). The demand collapse more than offsets the supply shock's push on prices."
+       "md": "**Period 2** ($\\pi^e = 2$, $\\varepsilon^\\pi = 5$, $\\varepsilon^y = -5$): $\\pi_2 = 2 + 2\\left(-0.75(\\pi_2 - 2) - 5\\right) + 5 = -1.5\\pi_2$, so $2.5\\pi_2 = 0$: **$\\pi_2 = 0$**, **$y_2 = 100 + 1.5 - 5 = 96.5$** ($i_2 = 1$). The demand collapse more than offsets the supply shock's push on prices."
       },
       {
        "t": "prose",

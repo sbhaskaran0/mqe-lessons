@@ -620,6 +620,7 @@
       {
        "t": "derive",
        "title": "From the first-order conditions to $b_1$ and $b_2$",
+       "goal": "Solve the two first-order conditions of least squares for the intercept $b_1$ and then the slope $b_2$, ending with $b_2$ written with deviations from the means, $x_i - \\bar{x}$ and $y_i - \\bar{y}$. These are the OLS formulas every simple regression computes. Sums are typed with the $\\sum$ button: `sum((x_i - xbar)^2)`.",
        "objectives": [
         1
        ],
@@ -709,6 +710,7 @@
       {
        "t": "derive",
        "title": "Second-order condition: the solution minimizes SSR",
+       "goal": "Show that the first-order conditions give a minimum of SSR, not a maximum: rewrite the Hessian determinant $D$ (under Where) as $4N$ times the sum of squared deviations $\\sum(x_i - \\bar{x})^2$, which is positive whenever $x$ varies. Sums are typed with the $\\sum$ button.",
        "objectives": [
         1
        ],
@@ -956,6 +958,7 @@
       {
        "t": "derive",
        "title": "Show that $b_2 = \\beta_2 + \\sum w_i e_i$, then that $E[b_2 \\mid x] = \\beta_2$",
+       "goal": "Start from $b_2 = \\sum w_iy_i$ with $w_i = (x_i - \\bar{x})/\\sum(x_i - \\bar{x})^2$ and substitute the model $y_i = \\beta_1 + \\beta_2x_i + e_i$. Finish with $b_2$ equal to the true slope $\\beta_2$ plus a weighted sum of the errors, written out with $\\sum$ (there is no $w_i$ button); the expectation step then shows $b_2$ is unbiased.",
        "objectives": [
         3
        ],
@@ -1116,6 +1119,7 @@
       {
        "t": "derive",
        "title": "Show that $\\mathrm{Var}(b_2 \\mid x) = \\sigma^2/\\sum (x_i - \\bar{x})^2$",
+       "goal": "Start from $b_2 = \\beta_2 + \\sum w_ie_i$ with $w_i = (x_i - \\bar{x})/\\sum(x_i - \\bar{x})^2$, and use homoskedasticity ($\\mathrm{Var}(e_i \\mid x) = \\sigma^2$) and uncorrelated errors. Writing $V$ for $\\mathrm{Var}(b_2 \\mid x)$, finish with $V$ in terms of $\\sigma$ and the spread of $x$, typed with the $\\sum$ button. It shows why more spread-out data give a more precise slope.",
        "objectives": [
         4
        ],
@@ -1709,6 +1713,19 @@
       "$t$",
       "$H_0$, $H_1$"
      ]
+    },
+    {
+     "id": "5-estimating-the-food-regression-9",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With 38 degrees of freedom the one-sided critical value, 1.686, is noticeably above the normal's; with large degrees of freedom the $t$ critical value is close to the normal's ($t_{0.95,\\,200} = 1.653$ against 1.645), so an exam may simply give 1.645 for a one-sided 5% test."
+      }
+     ],
+     "words": 45,
+     "symbols": [
+      "$t$"
+     ]
     }
    ]
   },
@@ -1862,7 +1879,7 @@
         "gamma": 0,
         "R": 2000
        },
-       "prompt": "Draw 2,000 samples of 40 households: where does $b_2$ centre, and how widely does it spread?",
+       "prompt": "Draw 2,000 samples of 40 households: where does $b_2$ centre? Then switch heteroskedasticity off and raise $N$ until the spread of $b_2$ falls to 0.84, half its value at 40 households",
        "goal": {
         "when": "het == 0 and gamma == 0 and abs(sd - 89.5) < 0.01 and R == 2000 and b2_sd <= 0.84",
         "success": "The spread of $b_2$ is now about half its value at $N = 40$ (1.67). Its standard deviation is $\\sigma/\\sqrt{\\sum(x_i - \\bar{x})^2}$, and $\\sum(x_i - \\bar{x})^2$ grows in proportion to $N$, so about four times the households ($N \\approx 160$) halves it. With constant variance again, the average textbook standard error follows it down.",
@@ -1894,7 +1911,7 @@
        ]
       }
      ],
-     "words": 43,
+     "words": 57,
      "symbols": [
       "$x_i$",
       "$\\beta_1$",

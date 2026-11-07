@@ -750,7 +750,7 @@
        "t": "check",
        "kind": "numeric",
        "prompt": "The Cullen-Frey graph's horizontal axis is the squared skewness. The `groundbeef` serving sizes have skewness 0.735 and kurtosis 3.55. At what horizontal position does the observation sit? Give three decimal places.",
-       "answer": 0.541,
+       "answer": 0.54,
        "tol": 0.002,
        "wrong": [
         {
@@ -764,12 +764,12 @@
          "md": "that is the kurtosis, which goes on the vertical axis"
         },
         {
-         "answer": 1.471,
+         "answer": 1.47,
          "tol": 0.002,
          "md": "that doubles the skewness instead of squaring it"
         }
        ],
-       "why": "$0.735^2 = 0.541$, so the point is $(0.541, 3.55)$. At $S^2 = 0.541$ the gamma line is at $K = 3 + 1.5 \\times 0.541 = 3.81$, so the sample lies just below the gamma line, inside the beta region: gamma, Weibull and lognormal are the natural candidates to fit.",
+       "why": "$0.735^2 = 0.540$, so the point is $(0.540, 3.55)$. At $S^2 = 0.540$ the gamma line is at $K = 3 + 1.5 \\times 0.540 = 3.81$, so the sample lies just below the gamma line, inside the beta region: gamma, Weibull and lognormal are the natural candidates to fit.",
        "objectives": [
         6
        ]
@@ -787,7 +787,7 @@
       {
        "t": "check",
        "kind": "mcq",
-       "prompt": "The lecture fits three two-parameter families to the serving sizes. Their AICs are 2,514.4 (Weibull), 2,526.6 (lognormal) and 2,511.3 (gamma). Which fits best, and why can AIC be compared directly here?",
+       "prompt": "The lecture fits three two-parameter families to the serving sizes. Their AICs are 2,514.4 (Weibull), 2,526.6 (lognormal) and 2,511.3 (gamma), where $AIC = 2k - 2\\ln L$ for a model with $k$ estimated parameters and maximized log-likelihood $\\ln L$. Which fits best, and why can AIC be compared directly here?",
        "options": [
         {
          "md": "Lognormal: it has the largest AIC",
@@ -810,7 +810,7 @@
        ]
       }
      ],
-     "words": 72,
+     "words": 82,
      "symbols": [
       "$k$",
       "$\\ln L$",

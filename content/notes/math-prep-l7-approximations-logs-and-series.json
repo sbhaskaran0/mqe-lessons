@@ -449,6 +449,7 @@
       {
        "t": "derive",
        "title": "3. Show $\\lim_{\\lambda\\to0}(x^\\lambda - 1)/\\lambda = \\ln x$.",
+       "goal": "Find the limit of $(x^{\\lambda} - 1)/\\lambda$ as $\\lambda \\to 0$, written $Q$, using L'Hôpital's rule: differentiate top and bottom with respect to $\\lambda$. It is why the Box-Cox transformation becomes $\\ln x$ at $\\lambda = 0$.",
        "objectives": [
         4
        ],

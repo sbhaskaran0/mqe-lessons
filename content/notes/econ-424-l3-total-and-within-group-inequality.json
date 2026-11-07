@@ -177,6 +177,7 @@
       {
        "t": "derive",
        "title": "Show that $d\\kappa/d\\zeta > 0$",
+       "goal": "The measured college premium is $\\kappa = \\frac{s_H\\zeta + 1 - s_H}{s_L\\zeta + 1 - s_L}$. Differentiate it with respect to the ability premium $\\zeta$, writing $D$ for $d\\kappa/d\\zeta$, simplify, and sign the result. It shows that a higher return to ability also raises the premium measured between education groups.",
        "objectives": [
         1
        ],

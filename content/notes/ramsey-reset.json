@@ -76,6 +76,16 @@
    "from": "f-test-of-joint-hypotheses"
   },
   {
+   "tex": "$N$",
+   "meaning": "Observations",
+   "kind": "Count",
+   "typical": "1,000",
+   "keys": [
+    "N"
+   ],
+   "from": "f-test-of-joint-hypotheses"
+  },
+  {
    "tex": "$t$",
    "meaning": "$t$ statistic for a single restriction",
    "kind": "Statistic",
@@ -200,6 +210,76 @@
       "$F$",
       "$t$",
       "$p$, $n$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "reading-the-statsmodels-output",
+   "heading": "Reading the statsmodels output",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "reading-the-statsmodels-output-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "`linear_reset(model, power=2, test_type='fitted', use_f=True)` runs the augmented regression and prints one line, `<F test: F=…, p=…, df_denom=…, df_num=…>`."
+      },
+      {
+       "t": "prose",
+       "md": "- `test_type='fitted'` adds the powers of $\\widehat{y}$ from 2 up to `power`, so `df_num` is the number of powers added: 1 for `power=2` ($\\widehat{y}^2$ alone), 2 for `power=3`.\n- `test_type='exog'` adds the power of each non-constant regressor, so with `power=2` `df_num` is the number of regressors.\n- `df_denom` is $N$ minus the number of columns (the rank) of the augmented regression: the original coefficients plus the added terms.\n- If the model already contains a regressor's square, the `exog` version squares that regressor again and duplicates the column, so the augmented design is rank-deficient (statsmodels warns)."
+      }
+     ],
+     "words": 130,
+     "symbols": [
+      "$y$, $\\widehat{y}$",
+      "$N$"
+     ]
+    },
+    {
+     "id": "reading-the-statsmodels-output-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**A simulated example.** With $N = 200$, $y$ depends on $x_2$, $x_3$ and their product, but the model leaves the product out:"
+      },
+      {
+       "t": "prose",
+       "md": "```python\nm = smf.ols('y ~ x2 + x3', data=d).fit()\nprint(linear_reset(m, power=2, test_type='fitted', use_f=True))\n<F test: F=9.510687978840474, p=0.0023375625626912864, df_denom=196, df_num=1>\nprint(linear_reset(m, power=2, test_type='exog', use_f=True))\n<F test: F=1.0043638373587596, p=0.368164278760601, df_denom=195, df_num=2>\n```"
+      },
+      {
+       "t": "prose",
+       "md": "- `fitted`: one added term, $\\widehat{y}^2$, and $200 - 4 = 196$ (constant, $x_2$, $x_3$, $\\widehat{y}^2$). $p = 0.002$: reject.\n- `exog`: two added terms, $x_2^2$ and $x_3^2$, and $200 - 5 = 195$. $p = 0.37$: no rejection.\n- The two variants test different alternatives. $\\widehat{y}^2$ contains the product $x_2x_3$, which the regressors' own squares do not, so only `fitted` catches the missing interaction."
+      }
+     ],
+     "words": 119,
+     "symbols": [
+      "$y$, $\\widehat{y}$",
+      "$x_2$, $x_3$",
+      "$N$",
+      "$p$, $n$"
+     ]
+    },
+    {
+     "id": "reading-the-statsmodels-output-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**What to recommend after a rejection.** The functional form is misspecified. In a model that is linear in its regressors, quadratic or interaction terms are the first thing to try. If the model already has squares or interactions, adding more powers is rarely the fix. Instead:"
+      },
+      {
+       "t": "prose",
+       "md": "- consider transforming $y$ (a log when effects are proportional to the level);\n- look for omitted variables;\n- read [component-plus-residual plots](note:component-plus-residual-plot) to see which regressor bends."
+      },
+      {
+       "t": "prose",
+       "md": "Then re-run RESET on the new model."
+      }
+     ],
+     "words": 79,
+     "symbols": [
+      "$y$, $\\widehat{y}$"
      ]
     }
    ]

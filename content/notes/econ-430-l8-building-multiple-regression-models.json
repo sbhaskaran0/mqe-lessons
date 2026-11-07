@@ -398,13 +398,19 @@
      "blocks": [
       {
        "t": "prose",
+       "md": "Before estimating, check the degrees of freedom $N - K$: here $36 - 5 = 31$, enough for five coefficients but few enough that the two-sided 5% critical value $t_{0.975,31} = 2.04$ sits above the normal's 1.96, while 400 observations and 4 coefficients would leave 396 and no small-sample worry."
+      },
+      {
+       "t": "prose",
        "md": "The estimates are $b_2 = 1.373$ ($t = 18.2$), $b_3 = -0.059$ ($t = -1.82$, $p = 0.079$), $b_4 = -0.127$ ($p = 0.33$) and $b_5 = -0.119$ ($p = 0.15$), with $R^2 = 0.958$. The sign of $\\beta_4$ was ambiguous in advance: dearer new cars mean fewer cars and less driving ($\\beta_4 < 0$), or older, thirstier cars kept longer ($\\beta_4 > 0$). The estimate is negative but far from significant."
       }
      ],
-     "words": 35,
+     "words": 75,
      "symbols": [
       "$\\beta_1$",
       "$b_k$",
+      "$K$",
+      "$N$",
       "$R^2$",
       "$t$"
      ]
@@ -491,6 +497,51 @@
       "$c_2$, $c_3$",
       "$H_0$",
       "$t$"
+     ]
+    },
+    {
+     "id": "1-the-multiple-regression-model-5",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "For 400 households, a regression of the annual electricity bill ($BILL$, dollars) on house size, household members and $SMART$ (1 if the home has a smart thermostat) gives a $SMART$ coefficient of $-6.1$ with standard error 2.4 ($p = 0.011$) and $R^2 = 0.31$. The mean bill is \\$1,430 a year. How should the $SMART$ coefficient be judged?",
+       "options": [
+        {
+         "md": "Economically important: it is significant at the 5% level",
+         "correct": false,
+         "feedback": "A small p-value says the coefficient is estimated precisely enough to rule out zero, not that it is large. With 396 degrees of freedom even a small effect can be significant."
+        },
+        {
+         "md": "Economically unimportant because $R^2$ is only 0.31",
+         "correct": false,
+         "feedback": "$R^2$ measures how much of the variation in bills the whole model explains, not how big one coefficient's effect is. Judge size from the coefficient against the typical bill."
+        },
+        {
+         "md": "Not statistically significant, because \\$6.10 is small",
+         "correct": false,
+         "feedback": "Significance comes from the coefficient relative to its standard error: $t = -6.1/2.4 = -2.54$, beyond $\\pm 1.97$, so it is significant at 5% whatever its size."
+        },
+        {
+         "md": "Statistically significant but economically negligible: a smart thermostat goes with a bill about \\$6 a year lower, 0.4% of the mean bill",
+         "correct": true
+        }
+       ],
+       "why": "With $N - K = 400 - 4 = 396$ degrees of freedom, $t = -6.1/2.4 = -2.54$ and $p = 0.011$: the effect is not zero. Its size is the coefficient times a realistic change in $SMART$, from 0 to 1: \\$6.10 a year against a mean bill of \\$1,430, or $6.1/1430 = 0.4\\%$. Statistically significant, economically negligible: no household would buy a thermostat for \\$6 a year.",
+       "objectives": [
+        9
+       ]
+      }
+     ],
+     "words": 96,
+     "symbols": [
+      "$K$",
+      "$N$",
+      "$A$",
+      "$R^2$",
+      "$A$, $B$; $a$, $b$",
+      "$t$",
+      "$T$"
      ]
     }
    ]
@@ -891,7 +942,7 @@
       {
        "t": "check",
        "kind": "mcq",
-       "prompt": "Andy currently spends \\$2,000 a month on advertising. In the quadratic model, $ME = 12.1512 - 5.536\\,ADVERT$. Should he spend more?",
+       "prompt": "Andy currently spends \\$2,000 a month on advertising, and he will advertise up to the point where another \\$1 of advertising adds \\$1 of sales. In the quadratic model, $ME = 12.1512 - 5.536\\,ADVERT$. Should he spend more?",
        "options": [
         {
          "md": "No: advertising is past its peak, so extra spending lowers sales",
@@ -919,7 +970,7 @@
        ]
       }
      ],
-     "words": 79,
+     "words": 96,
      "symbols": [
       "$b_k$",
       "$A$",
@@ -949,7 +1000,7 @@
          "md": "that subtracts the covariance term instead of adding it; its sign comes from $\\mathrm{Cov}(b_3, b_4) < 0$"
         },
         {
-         "answer": 2.56,
+         "answer": 1.88,
          "tol": 0.02,
          "md": "that uses weights $1$ and $\\overline{ADVERT}$; the weight on $b_4$ is $2\\overline{ADVERT}$, so it enters squared as $4\\overline{ADVERT}^{\\,2}$"
         }
@@ -1015,6 +1066,7 @@
       {
        "t": "derive",
        "title": "Find the advertising level where the last \\$1,000 of advertising pays for itself",
+       "goal": "With the marginal effect of advertising $M = \\beta_3 + 2\\beta_4A$, find the advertising level $A$ at which one more \\$1,000 of advertising adds exactly \\$1,000 of sales ($M = 1$). Finish with $A$ in terms of $\\beta_3$ and $\\beta_4$; the delta method then gives its standard error.",
        "objectives": [
         3
        ],
@@ -1793,10 +1845,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "6. Read fitted cell means and an interaction from a two-way ANOVA or an ANCOVA.\n7. Interpret slope indicators, interactions between quantitative variables and interactions between factors.\n8. Test joint hypotheses with an $F$ test, including the Chow test for whether two groups share a regression."
+       "md": "6. Read fitted cell means and an interaction from a two-way ANOVA or an ANCOVA.\n7. Interpret slope indicators, interactions between quantitative variables and interactions between factors.\n8. Test joint hypotheses with an $F$ test, including the Chow test for whether two groups share a regression.\n9. Judge whether a coefficient is economically as well as statistically significant, and check the degrees of freedom N − K before estimating."
       }
      ],
-     "words": 45,
+     "words": 67,
      "symbols": [
       "$F$"
      ]

@@ -1,0 +1,1718 @@
+{
+ "slug": "econ-430-midterm-review-guide",
+ "notation": [],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**The midterm rewards turning printed output into a precise answer: the right formula for the model's form, every number in its variable's units, and a decision stated with its reason.**"
+      }
+     ],
+     "words": 30,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "how-to-use-this",
+   "heading": "How to use this",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "how-to-use-this-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Sit [Econ 430 Fall 2025 Midterm Questions](note:econ-430-fall-2025-midterm-questions) as a timed mock, then grade it against the rubrics.\n2. For each part you marked \"Not yet\", find its group in the blueprint below and work that section here.\n3. Drill the same group in [Econ 430 Midterm Review Questions](note:econ-430-midterm-review-questions).\n4. Come back to `Review` over the following days: the checks you miss here are scheduled there."
+      }
+     ],
+     "words": 66,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "exam-blueprint",
+   "heading": "Exam blueprint",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "exam-blueprint-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Ten short-answer questions (75%) and five multiple choice (25%). Mock numbers are the parts of the mock; review-set numbers are the items of the review set."
+      },
+      {
+       "t": "table",
+       "md": "| | What they ask | Weight | Taught in | Mock | Review set |\n| --- | --- | --- | --- | --- | --- |\n| A | Interpret a coefficient in a log or multiple regression | 11.25% | [L5 §4](note:econ-430-l5-estimating-nonlinear-relationships#4-reading-log-models), [L8 §1](note:econ-430-l8-building-multiple-regression-models#1-the-multiple-regression-model) | 1, 2, 15 | 1–4 |\n| B | Slopes, elasticities and turning points, with units | 8.75% | [L5 §4](note:econ-430-l5-estimating-nonlinear-relationships#4-reading-log-models), [L8 §4](note:econ-430-l8-building-multiple-regression-models#4-diminishing-returns-and-marginal-effects) | 14, 15, 24 | 5–8 |\n| C | Tests and intervals from regression output | 7.5% | [L3 §5](note:econ-430-l3-the-method-of-least-squares#5-estimating-the-food-regression), [L8 §3](note:econ-430-l8-building-multiple-regression-models#3-linear-combinations-of-coefficients) | 7, 23 | 9–10 |\n| D | Judge significance and sample size | 5% | [L6 §3](note:econ-430-l6-indicator-variables-and-the-ols-workflow#3-the-seven-step-workflow), [L3 §5](note:econ-430-l3-the-method-of-least-squares#5-estimating-the-food-regression) | 6, 8 | 11–14 |\n| E | Functional form: why log $y$, RESET and Box-Cox output | 7.5% | [L5 §3](note:econ-430-l5-estimating-nonlinear-relationships#3-why-take-logs), [L5 §5](note:econ-430-l5-estimating-nonlinear-relationships#5-box-cox-power-transformations), [L10 §6](note:econ-430-l10-modeling-issues-in-multiple-regression#6-model-misspecification-ramsey-reset) | 3, 4, 5 | 15–20 |\n| F | Residual normality: Q-Q shapes and Jarque-Bera | 11.25% | [L1 §4](note:econ-430-l1-univariate-characterizations#4-quantile-plots), [L3 §4](note:econ-430-l3-the-method-of-least-squares#4-normality-and-error-correlation), [L5 §9](note:econ-430-l5-estimating-nonlinear-relationships#9-choosing-a-functional-form) | 13, 19, 20, 21 | 21–26 |\n| G | Heteroskedasticity tests: Breusch-Pagan vs White | 7.5% | [L11 §3](note:econ-430-l11-heteroskedasticity#3-the-breusch-pagan-test), [L11 §4](note:econ-430-l11-heteroskedasticity#4-the-white-test) | 18 | 27–28 |\n| H | Model selection: $R^2$, AIC, BIC, Mallows' Cp, irrelevant variables | 18.75% | [L5 §9](note:econ-430-l5-estimating-nonlinear-relationships#9-choosing-a-functional-form), [L10 §4](note:econ-430-l10-modeling-issues-in-multiple-regression#4-irrelevant-variables), [L10 §7](note:econ-430-l10-modeling-issues-in-multiple-regression#7-model-selection-aic-and-bic), [L10 §8](note:econ-430-l10-modeling-issues-in-multiple-regression#8-mallows-cp) | 12, 22, 25, 26 | 29–30 |\n| I | Explain in your own words: $R^2$, forecast variance, interactions | 7.5% | [L3 §8](note:econ-430-l3-the-method-of-least-squares#8-confidence-and-prediction-intervals), [L3 §2](note:econ-430-l3-the-method-of-least-squares#2-least-squares), [L8 §10](note:econ-430-l8-building-multiple-regression-models#10-interaction-terms) | 9, 10, 11 | 31–36 |\n| J | Matrix algebra: the residual maker | 7.5% | [L7 §4](note:econ-430-l7-the-classical-linear-regression-model#4-projection-and-the-residual-maker) | 16 | 37–38 |\n| K | Bootstrap in regression | 7.5% | [L4 §3](note:econ-430-l4-cross-validation-and-the-bootstrap#3-bootstrapping-a-regression), [L9 §2](note:econ-430-l9-bootstrapping-regression-models#2-reading-the-bootstrap-distributions) | 17 | 39–40 |"
+      }
+     ],
+     "words": 244,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "a-interpreting-coefficients",
+   "heading": "A. Interpreting coefficients",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "a-interpreting-coefficients-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**What they ask:** a one-sentence reading of a coefficient in a log model with several regressors (Mock 1, 2, and the reading half of 15)."
+      },
+      {
+       "t": "prose",
+       "md": "**Recipe**"
+      },
+      {
+       "t": "prose",
+       "md": "1. Find which side is logged. $\\ln y$ on $x$: one more unit of $x$, about $100b$% more $y$. $\\ln y$ on $\\ln x$: 1% more $x$, about $b$% more $y$. $y$ on $\\ln x$: 1% more $x$, about $b/100$ more units of $y$.\n2. Name the units of $x$ and $y$ (a GPA point, library volumes, dollars).\n3. Add \"holding the other regressors fixed\" and \"is associated with\", not \"causes\".\n4. If the one-unit change is large, as a whole GPA point is, give the exact effect $100(e^{b} - 1)$% next to the approximation."
+      },
+      {
+       "t": "prose",
+       "md": "**Template:** \"Holding the other regressors fixed, one more <unit of $x$> is associated with about <$100b$>% higher <$y$> (exactly <$100(e^b - 1)$>%).\""
+      }
+     ],
+     "words": 113,
+     "symbols": []
+    },
+    {
+     "id": "a-interpreting-coefficients-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "In the salary model the GPA coefficient, 0.248, is a change in $\\ln(SALARY)$. Find how large a percentage rise in salary that log change stands for."
+      },
+      {
+       "t": "interactive",
+       "widget": "taylor-approximation-of-log-change",
+       "state": {
+        "g": 0.28
+       },
+       "lock": [
+        "g"
+       ],
+       "show": [
+        "taylor",
+        "ln_curve",
+        "first_line",
+        "p_ln",
+        "p_first",
+        "lnc_out"
+       ],
+       "highlight": "first_line",
+       "prompt": "Turn a 28% rise in salary into a log change",
+       "predict": {
+        "hide": [
+         "ln_curve",
+         "p_ln",
+         "lnc_out"
+        ],
+        "ask": "The chart's $x$ is a percentage change written as a decimal, so a salary 28% higher is $x = 0.28$. What log change $\\ln(1+x)$ is that? Compare your number with the GPA coefficient, 0.248.",
+        "readout": "lnc_out",
+        "tol": 0.003
+       }
+      }
+     ],
+     "words": 36,
+     "symbols": []
+    },
+    {
+     "id": "a-interpreting-coefficients-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "$\\widehat{\\ln(RENT)} = 4.10 + 0.31\\ln(SIZE) + 0.052\\,FLOOR - 0.0021\\,AGE$, with rent in dollars a month and size in square metres. Which reading of 0.31 is correct?",
+       "options": [
+        {
+         "md": "One more square metre goes with about 0.31% higher rent, holding floor and age fixed",
+         "correct": false,
+         "feedback": "That is the log-level reading. Size enters as $\\ln(SIZE)$, so the coefficient is per 1% change in size, not per square metre."
+        },
+        {
+         "md": "A 1% larger flat goes with about 0.31% higher rent, holding floor and age fixed",
+         "correct": true
+        },
+        {
+         "md": "A 1% larger flat goes with about 31% higher rent, holding floor and age fixed",
+         "correct": false,
+         "feedback": "Multiplying by 100 is the rule for a level regressor with a logged $y$. With both sides logged the coefficient is already percent per percent."
+        },
+        {
+         "md": "A 1% larger flat goes with about \\$0.0031 more rent a month, holding floor and age fixed",
+         "correct": false,
+         "feedback": "$b/100$ units of $y$ is the linear-log reading, where $y$ is in levels. Here rent is logged too."
+        }
+       ],
+       "why": "Both rent and size are logged, so 0.31 is the elasticity: 1% more size, about 0.31% more rent, others fixed. A 10% larger flat: about 3.1% (exactly $1.1^{0.31} - 1 = 3.0\\%$)."
+      }
+     ],
+     "words": 83,
+     "symbols": []
+    },
+    {
+     "id": "a-interpreting-coefficients-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "$\\widehat{\\ln(PRICE)} = 10.9 + b\\,BATHS + 0.41\\ln(SQFT) - 0.006\\,AGE$, with $b = 0.18$. Holding size and age fixed, by exactly what percentage is the predicted price higher with one more bathroom? Give two decimals.",
+       "answer": 19.72,
+       "tol": 0.0986,
+       "vary": [
+        {
+         "sym": "b",
+         "lo": 0.12,
+         "hi": 0.4,
+         "step": 0.01
+        }
+       ],
+       "compute": "100(\\exp(b) - 1)",
+       "bindings": [
+        {
+         "sym": "b",
+         "value": 0.18,
+         "span": "$b = 0.18$"
+        }
+       ],
+       "wrongCompute": [
+        {
+         "tex": "100b",
+         "md": "that is the approximation $100b$; a whole extra bathroom is a large change, so the exact effect is $100(e^{b} - 1)$"
+        },
+        {
+         "tex": "\\exp(b)",
+         "md": "that is the ratio of the two predicted prices, $e^{b}$; the percentage rise is $100(e^{b} - 1)$"
+        }
+       ],
+       "why": "One more bathroom adds $b$ to $\\ln(PRICE)$, so the predicted price is multiplied by $e^{b}$ and rises by $100(e^{b} - 1)$%. With the written numbers, $100(e^{0.18} - 1) = 19.72\\%$, above the approximation $100 \\times 0.18 = 18\\%$; the gap grows with $b$."
+      }
+     ],
+     "words": 22,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "b-slopes-elasticities-and-turning-points",
+   "heading": "B. Slopes, elasticities and turning points",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "b-slopes-elasticities-and-turning-points-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**What they ask:** a number from the printed coefficients, stated in the data's units: a log-log slope at the means (Mock 14), an elasticity (Mock 15), a turning point (Mock 24)."
+      },
+      {
+       "t": "prose",
+       "md": "**Recipe**"
+      },
+      {
+       "t": "prose",
+       "md": "1. Pick the formula for the form: log-log slope $b\\,\\bar{y}/\\bar{x}$; linear elasticity $b\\,\\bar{x}/\\bar{y}$; log-log elasticity $b$ itself; quadratic turning point $x_0 = -b/(2c)$.\n2. Put each mean in its own variable's model units before dividing (R&D \\$2.15 million is 2,150 thousands; revenue \\$8.34 billion is 8,340 millions).\n3. Compute, then translate back to real units: 0.080 thousand dollars is \\$80; a turning point of 29,372 thousands is \\$29.4 million."
+      },
+      {
+       "t": "prose",
+       "md": "**Template:** \"At the means, one more <unit of $x$> goes with about <slope> <units of $y$> more <$y$>.\""
+      }
+     ],
+     "words": 118,
+     "symbols": []
+    },
+    {
+     "id": "b-slopes-elasticities-and-turning-points-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A turning point is where the marginal effect is zero. Andy's quadratic sales curve is in thousands of dollars on both axes."
+      },
+      {
+       "t": "interactive",
+       "widget": "quadratic-marginal-effect-explorer",
+       "state": {
+        "xc": 1,
+        "z": 5.7
+       },
+       "lock": [
+        "z"
+       ],
+       "show": [
+        "sales_curve",
+        "tangent",
+        "here"
+       ],
+       "highlight": "tangent",
+       "prompt": "Drag advertising to where the tangent is level, then read the peak in dollars",
+       "goal": {
+        "when": "abs(me) < 0.06",
+        "success": "The tangent is level at $x = 2.19$ to $2.20$: the peak is $x_0 = 12.1512/5.536 = 2.195$ in the chart's units, thousands of dollars, so about \\$2,195 of advertising a month. Reporting 2.195 as dollars is the slip Mock 24 tests.",
+        "hint": "The tangent's slope is the marginal effect $12.1512 - 5.536x$. Drag right: it flattens as advertising rises. Stop where it is level."
+       }
+      }
+     ],
+     "words": 36,
+     "symbols": []
+    },
+    {
+     "id": "b-slopes-elasticities-and-turning-points-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "A log-log model of city restaurants is $\\widehat{\\ln(REV)} = 2.71 + b\\ln(TOUR)$, with $REV$ a restaurant's annual revenue in thousands of dollars, $TOUR$ the city's annual tourist spending in millions of dollars, and $b = 0.42$. Average revenue is $m = 1.6$ million dollars and average tourist spending is $v = 450$ million dollars. Evaluate the slope $d\\,REV/d\\,TOUR$ at the means, in the model's units (thousands of dollars of revenue per million dollars of tourist spending). Give two decimals.",
+       "answer": 1.49,
+       "tol": 0.0149,
+       "vary": [
+        {
+         "sym": "b",
+         "lo": 0.2,
+         "hi": 0.8,
+         "step": 0.01
+        },
+        {
+         "sym": "m",
+         "lo": 1.2,
+         "hi": 2.4,
+         "step": 0.1
+        },
+        {
+         "sym": "v",
+         "lo": 300.0,
+         "hi": 600.0,
+         "step": 10.0
+        }
+       ],
+       "compute": "\\frac{1000 \\cdot b \\cdot m}{v}",
+       "bindings": [
+        {
+         "sym": "b",
+         "value": 0.42,
+         "span": "$b = 0.42$"
+        },
+        {
+         "sym": "m",
+         "value": 1.6,
+         "span": "$m = 1.6$"
+        },
+        {
+         "sym": "v",
+         "value": 450.0,
+         "span": "$v = 450$"
+        }
+       ],
+       "wrongCompute": [
+        {
+         "tex": "\\frac{b m}{v}",
+         "md": "that leaves mean revenue in millions; in the model's units it is $1000m$ thousand dollars"
+        },
+        {
+         "tex": "\\frac{b v}{1000 m}",
+         "md": "the ratio is upside down: the log-log slope is $b\\,\\bar{y}/\\bar{x}$"
+        },
+        {
+         "tex": "b",
+         "md": "that is the elasticity, which is constant in a log-log model; the slope multiplies it by $\\bar{y}/\\bar{x}$"
+        }
+       ],
+       "why": "In a log-log model $dy/dx = b\\,\\bar{y}/\\bar{x}$ at the means, with each mean in its own variable's units: $\\overline{REV} = 1000m$ thousand dollars, $\\overline{TOUR} = v$ million. With the written numbers, $0.42 \\times 1{,}600/450 = 1.49$: each extra \\$1 million of tourist spending goes with about \\$1,490 more revenue a year at the average restaurant."
+      }
+     ],
+     "words": 62,
+     "symbols": []
+    },
+    {
+     "id": "b-slopes-elasticities-and-turning-points-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "A chain regresses marketing spend $mkt$ on store revenue $rev$, $rev^2$ and store age, all money in \\$1000s. The printed coefficients are 0.0612 on $rev$ and $-1.150 \\times 10^{-6}$ on $rev^2$. Find the revenue beyond which marketing spend declines.",
+       "options": [
+        {
+         "md": "\\$26,609",
+         "correct": false,
+         "feedback": "26,609 is $x_0$ in the model's units. Revenue is in thousands of dollars, so that is 26,609 thousand dollars."
+        },
+        {
+         "md": "\\$53.2 million",
+         "correct": false,
+         "feedback": "That divides 0.0612 by $1.150 \\times 10^{-6}$ without the 2: the derivative of $c\\,rev^2$ is $2c\\,rev$."
+        },
+        {
+         "md": "\\$26.6 million",
+         "correct": true
+        },
+        {
+         "md": "\\$26.61",
+         "correct": false,
+         "feedback": "That converts the wrong way, dividing 26,609 by 1,000 and reading the result as dollars."
+        }
+       ],
+       "why": "The marginal effect $0.0612 + 2(-1.150 \\times 10^{-6})rev$ is zero at $rev = 0.0612/(2.30 \\times 10^{-6}) = 26{,}609$ thousand dollars, about \\$26.6 million. Beyond it, marketing spend falls as revenue rises."
+      }
+     ],
+     "words": 42,
+     "symbols": []
+    },
+    {
+     "id": "b-slopes-elasticities-and-turning-points-5",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "In $\\widehat{WAGE} = 6.2 + b\\,EXPER + c\\,EXPER^2$, with $b = 0.92$ and $c = -0.0185$, at how many years of experience does the predicted wage peak? Give one decimal.",
+       "answer": 24.86,
+       "tol": 0.2486,
+       "vary": [
+        {
+         "sym": "b",
+         "lo": 0.6,
+         "hi": 1.2,
+         "step": 0.01
+        },
+        {
+         "sym": "c",
+         "lo": -0.03,
+         "hi": -0.012,
+         "step": 0.0005
+        }
+       ],
+       "compute": "-\\frac{b}{2c}",
+       "bindings": [
+        {
+         "sym": "b",
+         "value": 0.92,
+         "span": "$b = 0.92$"
+        },
+        {
+         "sym": "c",
+         "value": -0.0185,
+         "span": "$c = -0.0185$"
+        }
+       ],
+       "wrongCompute": [
+        {
+         "tex": "-\\frac{b}{c}",
+         "md": "that drops the 2: the derivative of $c\\,EXPER^2$ is $2c\\,EXPER$"
+        },
+        {
+         "tex": "\\frac{b}{2c}",
+         "md": "the sign is lost; with $b > 0$ and $c < 0$ the peak is at a positive number of years"
+        }
+       ],
+       "why": "The marginal effect $b + 2c\\,EXPER$ is zero at $EXPER = -b/(2c)$. With the written numbers, $0.92/0.037 = 24.9$ years; beyond that the predicted wage falls."
+      }
+     ],
+     "words": 17,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "c-tests-and-intervals-from-regression-output",
+   "heading": "C. Tests and intervals from regression output",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "c-tests-and-intervals-from-regression-output-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**What they ask:** a one-sided $t$ test on a printed coefficient (Mock 7), and the reading of a `t_test` on a linear combination (Mock 23)."
+      },
+      {
+       "t": "prose",
+       "md": "**Recipe**"
+      },
+      {
+       "t": "prose",
+       "md": "1. Write $H_0$ and $H_1$ in $\\beta$'s, with the direction the question gives ($H_1: \\beta_2 > 0$).\n2. $t = (b - c)/se(b)$: $815.31/107.71 = 7.57$.\n3. Right-tail $H_1$: reject when $t > t_{0.95,\\,N-K}$; at large df the exam's 1.645 is fine ($t_{0.95,196} = 1.653$). Left-tail: reject when $t < -1.645$.\n4. Conclude in words, in the data's units.\n5. For `t_test(c)`: $c'\\beta$ is the expected *change* in $y$ from the move $c$ describes, in $y$'s units; the interval bounds that change."
+      },
+      {
+       "t": "prose",
+       "md": "**Template:** \"$t = 7.57 > 1.645$, so we reject $H_0$ at 5%: miles driven rise with income.\""
+      },
+      {
+       "t": "prose",
+       "md": "A linear combination is a step across the fitted plane: in Mock 23, \\$1 off the price and \\$1,000 more advertising at once."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Burger sales on price and advertising - fitted regression plane.png",
+       "alt": "Burger sales on price and advertising - fitted regression plane"
+      }
+     ],
+     "words": 119,
+     "symbols": []
+    },
+    {
+     "id": "c-tests-and-intervals-from-regression-output-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "A regression of annual charitable giving (dollars) on $\\ln(INCOME)$, $AGE$ and $KIDS$ for 420 households gives a coefficient on $\\ln(INCOME)$ of $b = 212.4$ with standard error $s = 81.7$. For $H_0: \\beta_2 \\le 0$ against $H_1: \\beta_2 > 0$, what is the $t$ statistic? Give two decimals.",
+       "answer": 2.6,
+       "tol": 0.026000000000000002,
+       "vary": [
+        {
+         "sym": "b",
+         "lo": 120.0,
+         "hi": 300.0,
+         "step": 0.1
+        },
+        {
+         "sym": "s",
+         "lo": 60.0,
+         "hi": 110.0,
+         "step": 0.1
+        }
+       ],
+       "compute": "\\frac{b}{s}",
+       "bindings": [
+        {
+         "sym": "b",
+         "value": 212.4,
+         "span": "$b = 212.4$"
+        },
+        {
+         "sym": "s",
+         "value": 81.7,
+         "span": "$s = 81.7$"
+        }
+       ],
+       "wrongCompute": [
+        {
+         "tex": "\\frac{s}{b}",
+         "md": "that is upside down: the statistic is the estimate over its standard error"
+        },
+        {
+         "tex": "\\frac{b}{s^2}",
+         "md": "that divides by the variance; the $t$ statistic divides by the standard error"
+        }
+       ],
+       "why": "$t = b/s$. With the written numbers, $212.4/81.7 = 2.60$, above the one-sided 5% critical value $t_{0.95,416} = 1.649 \\approx 1.645$: reject $H_0$; giving rises with income. Only the right tail rejects here."
+      }
+     ],
+     "words": 29,
+     "symbols": []
+    },
+    {
+     "id": "c-tests-and-intervals-from-regression-output-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "House prices (\\$1000s) are regressed on size (hundreds of square feet) and age (years): `price ~ sqft + age`. Then `t_test(np.array([0., 2, -10]))` prints coef 14.9023, std err 1.081, t 13.788, P>|t| 0.000, 95% interval [12.779, 17.026]. Which reading is correct?",
+       "options": [
+        {
+         "md": "We are 95% confident that adding 200 square feet and making a house 10 years newer raises its expected price by between \\$12,779 and \\$17,026",
+         "correct": true
+        },
+        {
+         "md": "We are 95% confident that a house with 200 more square feet that is 10 years newer sells for between \\$12,779 and \\$17,026",
+         "correct": false,
+         "feedback": "The combination is a *change* in the expected price, not the price of a house: a level would need the intercept and the house's own size and age."
+        },
+        {
+         "md": "Adding 200 square feet and making a house 10 years newer raises its expected price by \\$14.90",
+         "correct": false,
+         "feedback": "Price is in thousands of dollars, so 14.90 is \\$14,902."
+        },
+        {
+         "md": "We fail to reject $H_0: 2\\beta_2 - 10\\beta_3 = 0$ at 5%",
+         "correct": false,
+         "feedback": "$t = 13.79$ and $p = 0.000$, and the interval excludes 0: that null is rejected."
+        }
+       ],
+       "why": "$c = (0, 2, -10)$ prices the move \"+2 on sqft (200 square feet), $-10$ on age\": $2b_2 - 10b_3 = 2(4.290) - 10(-0.632) = 14.90$ thousand dollars, with interval \\$12,779 to \\$17,026."
+      }
+     ],
+     "words": 126,
+     "symbols": []
+    },
+    {
+     "id": "c-tests-and-intervals-from-regression-output-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "With $N = 300$ and three coefficients, you test $H_0: \\beta_2 \\le 0$ against $H_1: \\beta_2 > 0$. The output shows $t = -2.10$ and a two-sided p-value of 0.037. What do you conclude at 5%?",
+       "options": [
+        {
+         "md": "Reject $H_0$, because $|t| = 2.10$ exceeds 1.645",
+         "correct": false,
+         "feedback": "The one-sided test rejects only in the tail $H_1$ points to. $H_1$ says positive, so only $t > 1.650$ rejects."
+        },
+        {
+         "md": "Reject $H_0$, because $p = 0.037 < 0.05$",
+         "correct": false,
+         "feedback": "0.037 is the two-sided p-value. For $H_1: \\beta_2 > 0$ the p-value is $P(t_{297} > -2.10) = 0.98$."
+        },
+        {
+         "md": "Do not reject $H_0$: a negative $t$ cannot fall in the right-tail rejection region",
+         "correct": true
+        },
+        {
+         "md": "Do not reject $H_0$, which shows $\\beta_2 = 0$",
+         "correct": false,
+         "feedback": "Failing to reject is a lack of evidence, not proof. Here the estimate even points the other way."
+        }
+       ],
+       "why": "The rejection region is $t > t_{0.95,297} = 1.650$. A $t$ of $-2.10$ is evidence *against* $H_1: \\beta_2 > 0$, so $H_0$ stands (one-sided $p = 0.98$)."
+      }
+     ],
+     "words": 47,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "d-significance-and-sample-size",
+   "heading": "D. Significance and sample size",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "d-significance-and-sample-size-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**What they ask:** whether $N$ and $K$ cause a problem before estimating (Mock 6), and economic versus statistical significance of one coefficient (Mock 8)."
+      },
+      {
+       "t": "prose",
+       "md": "**Recipe**"
+      },
+      {
+       "t": "prose",
+       "md": "1. Degrees of freedom $N - K$ ($200 - 4 = 196$): plenty means precise estimates and critical values near 1.645 and 1.96; few means wide intervals and larger critical values. Few df bring imprecision, not bias.\n2. Statistical: $t = b/se$ against the critical value ($-79.41/27.4 = -2.90$).\n3. Economic: the coefficient times a realistic change, in $y$'s units, against a typical $y$ (79 fewer miles a year per child, against the thousands of miles a household drives).\n4. Say the two can disagree, and use neither $R^2$ nor the p-value to judge size."
+      }
+     ],
+     "words": 104,
+     "symbols": []
+    },
+    {
+     "id": "d-significance-and-sample-size-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Template:** \"<$x$> is statistically significant ($t = \\ldots$), but economically small: one more <unit> goes with <$b$ units> of <$y$>, about <share>% of a typical <$y$>.\""
+      }
+     ],
+     "words": 19,
+     "symbols": []
+    },
+    {
+     "id": "d-significance-and-sample-size-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "In a regression of household electricity use (kWh a month, sample mean 880) on income, house size and $KIDS$, with $N = 5{,}000$ and $R^2 = 0.12$, the coefficient on $KIDS$ is 6.2 with standard error 1.9. Which judgement is right?",
+       "options": [
+        {
+         "md": "Unimportant, because $R^2 = 0.12$ is low",
+         "correct": false,
+         "feedback": "$R^2$ measures how much of the variation the whole model explains, not how large one coefficient's effect is."
+        },
+        {
+         "md": "Economically large, because it is highly significant ($p = 0.001$)",
+         "correct": false,
+         "feedback": "Significance says the effect is not zero; with 5,000 households even a tiny effect is estimated precisely. Size is judged in kWh."
+        },
+        {
+         "md": "Not significant, because 6.2 kWh is small next to 880",
+         "correct": false,
+         "feedback": "Significance is $t = b/se = 3.26$, not the size of $b$ against $\\bar{y}$."
+        },
+        {
+         "md": "Statistically significant ($t = 3.26$) but economically small: one more child goes with about 6 kWh a month, under 1% of typical use",
+         "correct": true
+        }
+       ],
+       "why": "$t = 6.2/1.9 = 3.26 > 1.96$, so it is significant at 5%. But $6.2/880 = 0.7\\%$ of a typical household's use: a real but small effect."
+      }
+     ],
+     "words": 77,
+     "symbols": []
+    },
+    {
+     "id": "d-significance-and-sample-size-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Before estimating, you note that a regression will have $N = 18$ observations and $K = 9$ coefficients. What is the main concern?",
+       "options": [
+        {
+         "md": "OLS will be biased because there are so few observations",
+         "correct": false,
+         "feedback": "Unbiasedness needs SR1, SR2 and SR5, not a large sample. Few observations cost precision."
+        },
+        {
+         "md": "Only $N - K = 9$ degrees of freedom: imprecise estimates, wide intervals, and a 5% two-sided critical value of 2.26 instead of about 1.96",
+         "correct": true
+        },
+        {
+         "md": "None: $N > K$, so the model can be estimated",
+         "correct": false,
+         "feedback": "It can be estimated, but with 9 degrees of freedom $\\widehat{\\sigma}^2$ and every standard error are poorly pinned down."
+        },
+        {
+         "md": "$R^2$ will be too low to be useful",
+         "correct": false,
+         "feedback": "With many coefficients for few observations, $R^2$ tends to be high, not low: the fit chases the noise."
+        }
+       ],
+       "why": "$N - K = 18 - 9 = 9$, and $t_{0.975,9} = 2.262$ ($t_{0.95,9} = 1.833$ one-sided). Compare Mock 6: $200 - 4 = 196$ df, no concern."
+      }
+     ],
+     "words": 63,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "e-functional-form-logs-reset-and-box-cox",
+   "heading": "E. Functional form: logs, RESET and Box-Cox",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "e-functional-form-logs-reset-and-box-cox-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**What they ask:** reasons to log $y$ (Mock 3), a RESET printout with a recommendation (Mock 4), and a choice of power from Box-Cox output (Mock 5)."
+      },
+      {
+       "t": "prose",
+       "md": "**Recipe**"
+      },
+      {
+       "t": "prose",
+       "md": "1. Log $y$ to compress a right-skewed $y$ spanning orders of magnitude, to stabilise a variance that grows with the level, or to read coefficients as percentages. Never \"to raise $R^2$\".\n2. RESET: $H_0$ is a correct functional form. Read $F$, df and $p$; reject when $p < 0.05$.\n3. After a rejection, recommend: transform $y$ (log or Box-Cox), look for omitted variables, read component-plus-residual plots, then rerun RESET. More powers are no cure when squares are already in.\n4. Box-Cox: $\\lambda = 1$ rejected means transform. Choose the rounded power the LR tests and interval support, and call a borderline p-value borderline. In Mock 5, 0 is outside the interval though $p = 0.058$, so that interval is not the profile one: take $\\lambda = 0.3$, with the log a defensible second."
+      }
+     ],
+     "words": 141,
+     "symbols": []
+    },
+    {
+     "id": "e-functional-form-logs-reset-and-box-cox-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The lesson's Box-Cox interval is the set of powers the likelihood-ratio test does not reject."
+      },
+      {
+       "t": "interactive",
+       "widget": "box-cox-ladder-explorer",
+       "state": {
+        "lam": 1
+       },
+       "show": [
+        "curve"
+       ],
+       "highlight": "cutoff",
+       "prompt": "Find the largest power on the slider that the 5% likelihood-ratio test does not reject",
+       "goal": {
+        "when": "abs(lam - 0.15) < 0.001",
+        "success": "At $\\lambda = 0.15$ the point is still above the cut-off ($T = 2.25 < 3.84$); at $\\lambda = 0.20$ it has dropped below ($T = 4.93$). So the 95% interval's upper end lies between them, at 0.182: this interval and the 5% LR test always agree. A printed interval that disagrees with the test, as in Mock 5, was built another way.",
+        "hint": "A power is not rejected while its point on the log-likelihood curve stays above the cut-off line. Slide down from 1 and stop at the first point above the line."
+       }
+      }
+     ],
+     "words": 30,
+     "symbols": []
+    },
+    {
+     "id": "e-functional-form-logs-reset-and-box-cox-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "`linear_reset(rent_mod, power=3, test_type='fitted', use_f=True)` on `rent ~ size + age + I(size**2)` prints `<F test: F=11.84, p=8.95e-06, df_denom=634, df_num=2>`. What is the best interpretation and recommendation?",
+       "options": [
+        {
+         "md": "The error variance is not constant, so use robust standard errors",
+         "correct": false,
+         "feedback": "RESET's null is a correct functional form; constant variance is what Breusch-Pagan and White test."
+        },
+        {
+         "md": "$F$ is small next to 634, so the form is fine",
+         "correct": false,
+         "feedback": "$F$ is compared with its critical value, $F_{0.95;\\,2,\\,634} = 3.01$, or read through $p$; 634 is a degrees of freedom."
+        },
+        {
+         "md": "Add $size^3$, because the test used `power=3`",
+         "correct": false,
+         "feedback": "RESET adds powers of the *fitted values*, $\\widehat{y}^2$ and $\\widehat{y}^3$; it flags missing nonlinearity without naming the term."
+        },
+        {
+         "md": "Reject a correct functional form ($p < 0.001$). With $size^2$ already in, try $\\ln(rent)$, look for omitted variables and read the component-plus-residual plots, then rerun RESET",
+         "correct": true
+        }
+       ],
+       "why": "$\\widehat{y}^2$ and $\\widehat{y}^3$ add explanatory power ($F = 11.84$, $p = 9 \\times 10^{-6}$), so some nonlinearity or a missing variable remains. The fix is a different specification, checked by rerunning the test."
+      }
+     ],
+     "words": 90,
+     "symbols": []
+    },
+    {
+     "id": "e-functional-form-logs-reset-and-box-cox-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Box-Cox output for a dependent variable: $\\widehat{\\lambda} = 0.62$, 95% interval $[0.41, 0.83]$; LR tests give $p = 0.26$ for $\\lambda = 0.5$, $p = 0.0004$ for $\\lambda = 1$ and $p < 0.0001$ for $\\lambda = 0$. Which transformation should be applied?",
+       "options": [
+        {
+         "md": "None: 0.62 is closer to 1 than to 0",
+         "correct": false,
+         "feedback": "\"None\" is $\\lambda = 1$, and its test rejects ($p = 0.0004$); 1 is also outside the interval."
+        },
+        {
+         "md": "The square root ($\\lambda = 0.5$): it is inside the interval and its test does not reject",
+         "correct": true
+        },
+        {
+         "md": "The log, because it is the easiest to interpret",
+         "correct": false,
+         "feedback": "Interpretability matters only among powers the data accept; $\\lambda = 0$ is rejected ($p < 0.0001$) and far outside the interval."
+        },
+        {
+         "md": "$y^{0.62}$, because it maximizes the likelihood",
+         "correct": false,
+         "feedback": "The estimate is noisy; the convention is a rounded, natural power that the data do not reject."
+        }
+       ],
+       "why": "Of the rounded powers, only 0.5 is inside $[0.41, 0.83]$ and not rejected ($p = 0.26$); 1 and 0 are both rejected."
+      }
+     ],
+     "words": 58,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "f-residual-normality-q-q-plots-and-jarque-bera",
+   "heading": "F. Residual normality: Q-Q plots and Jarque-Bera",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "f-residual-normality-q-q-plots-and-jarque-bera-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**What they ask:** name a Q-Q pattern, its consequence and a remedy (Mock 19–21), and rank models by Jarque-Bera (Mock 13)."
+      },
+      {
+       "t": "prose",
+       "md": "**Recipe**"
+      },
+      {
+       "t": "prose",
+       "md": "1. Name the shape. Ends bending away in opposite directions (left below, right above): heavy tails. The reverse: light tails. Both ends the same way: skew (both above: right skew).\n2. Jarque-Bera: $H_0$ normal errors, $\\chi^2_2$ (5% critical value 5.99). A high p is no evidence against normality, not proof; with few observations the test has little power.\n3. Consequence: SR6 fails, so exact $t$ and $F$ p-values and intervals are unreliable in small samples; OLS stays unbiased and BLUE; extreme residuals pull the fit.\n4. Remedy: check influential points (Cook's distance), and use bootstrap or robust standard errors for inference; transform $y$ only if the tails come from skew. Robust regression is beyond the lectures."
+      }
+     ],
+     "words": 135,
+     "symbols": []
+    },
+    {
+     "id": "f-residual-normality-q-q-plots-and-jarque-bera-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Template:** \"The residuals have heavier tails than the normal: more extreme values at both ends than normality predicts.\""
+      },
+      {
+       "t": "interactive",
+       "widget": "q-q-plot-shape-explorer",
+       "state": {
+        "family": 2,
+        "s": 0.5,
+        "df": 4
+       },
+       "lock": [
+        "s",
+        "df"
+       ],
+       "show": [
+        "ref",
+        "qq",
+        "q01",
+        "q50",
+        "q99"
+       ],
+       "prompt": "Find the family whose Q-Q plot hugs the line in the middle, curls up at the right end and down at the left end",
+       "goal": {
+        "when": "family == 3",
+        "success": "The Student $t$ with 4 degrees of freedom: the middle sits on the line, the 0.99 point is at 2.65 against the line's 2.33 and the 0.01 point at $-2.65$ against $-2.33$. Ends bending away in opposite directions is heavy tails, the pattern in Mock 19. The lognormal you started from bends both ends above the line ($-1.36$ against $-2.33$ on the left, 3.42 against 2.33 on the right): right skew.",
+        "hint": "Here both ends bend the same way. You want them to bend away from the line in opposite directions: which family has more extreme values than the normal on both sides?"
+       }
+      }
+     ],
+     "words": 42,
+     "symbols": []
+    },
+    {
+     "id": "f-residual-normality-q-q-plots-and-jarque-bera-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "A regression on 35 observations has residuals whose Q-Q plot shows heavy tails, with no sign of skew. What does this do to the analysis?",
+       "options": [
+        {
+         "md": "OLS becomes biased",
+         "correct": false,
+         "feedback": "Unbiasedness needs SR1, SR2 and SR5; normality plays no part."
+        },
+        {
+         "md": "OLS is no longer BLUE",
+         "correct": false,
+         "feedback": "The Gauss-Markov theorem needs SR1 to SR5 only, so OLS is still best among linear unbiased estimators."
+        },
+        {
+         "md": "The exact $t$ and $F$ p-values and intervals are unreliable with 35 observations, and the extreme residuals pull the fitted line",
+         "correct": true
+        },
+        {
+         "md": "$R^2$ is no longer a valid measure of fit",
+         "correct": false,
+         "feedback": "$R^2 = 1 - SSE/SST$ is a description of the fit and needs no distributional assumption."
+        }
+       ],
+       "why": "Heavy tails break SR6 (normal errors), which only exact small-sample inference uses. In large samples the $t$ and $F$ tests are approximately right anyway; in a small one they are not to be trusted, and the few extreme points carry outsized weight in the fit."
+      }
+     ],
+     "words": 60,
+     "symbols": []
+    },
+    {
+     "id": "f-residual-normality-q-q-plots-and-jarque-bera-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Three forms of the same model, 60 observations each, give Jarque-Bera statistics of 7.10 ($p = 0.029$) for A, 1.78 ($p = 0.411$) for B and 0.52 ($p = 0.771$) for C. Which statement is right?",
+       "options": [
+        {
+         "md": "A rejects normality at 5%; B and C do not, and C's residuals are the most consistent with normality, though that does not prove they are normal",
+         "correct": true
+        },
+        {
+         "md": "C's residuals are normal, since $p = 0.771$",
+         "correct": false,
+         "feedback": "A high p-value means no evidence against normality. With 60 observations Jarque-Bera has little power, so it cannot prove normality."
+        },
+        {
+         "md": "A is the most consistent with normality, because its statistic is largest",
+         "correct": false,
+         "feedback": "Jarque-Bera grows with skewness and excess kurtosis, so a larger statistic means *further* from normal."
+        },
+        {
+         "md": "None rejects at 5%, since every statistic is below 9.21",
+         "correct": false,
+         "feedback": "9.21 is the 1% critical value of $\\chi^2_2$. At 5% it is 5.99, and A's 7.10 exceeds it."
+        }
+       ],
+       "why": "$JB \\sim \\chi^2_2$ under $H_0$, with 5% critical value 5.99: only A's 7.10 exceeds it ($p = 0.029$). Among the others, the smaller statistic and higher p of C make it the most consistent, as the quadratic was in Mock 13."
+      }
+     ],
+     "words": 85,
+     "symbols": []
+    },
+    {
+     "id": "f-residual-normality-q-q-plots-and-jarque-bera-5",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Residuals are symmetric but heavy-tailed, and the sample is small. Which response fits best?",
+       "options": [
+        {
+         "md": "Take the log of $y$",
+         "correct": false,
+         "feedback": "The log pulls in a long *right* tail, so it cures skew. These residuals are symmetric, so logging is not aimed at their problem."
+        },
+        {
+         "md": "Check for influential points with Cook's distance, and base inference on bootstrap or robust standard errors",
+         "correct": true
+        },
+        {
+         "md": "Drop every observation with a standardized residual above 2 in absolute value",
+         "correct": false,
+         "feedback": "Deleting points by a rule throws away data and biases the fit toward the line. Investigate the influential ones instead."
+        },
+        {
+         "md": "Add a squared regressor",
+         "correct": false,
+         "feedback": "A squared term fixes curvature in the mean; it does not change how heavy the error tails are."
+        }
+       ],
+       "why": "The fit itself is still unbiased, so the job is to keep the few extreme points from dominating it and to get inference that does not lean on normality: the bootstrap and robust standard errors do that."
+      }
+     ],
+     "words": 50,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "g-heteroskedasticity-tests-breusch-pagan-vs-white",
+   "heading": "G. Heteroskedasticity tests: Breusch-Pagan vs White",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "g-heteroskedasticity-tests-breusch-pagan-vs-white-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**What they ask:** the difference between the two tests, their nulls, and when to prefer each (Mock 18)."
+      },
+      {
+       "t": "prose",
+       "md": "**Recipe**"
+      },
+      {
+       "t": "prose",
+       "md": "1. Shared ground: both test $H_0$: constant variance ($\\alpha_2 = \\cdots = \\alpha_S = 0$) with $N R^2$ from regressing $\\widehat{e}^{\\,2}$ on a set of $z$'s.\n2. Breusch-Pagan: the $z$'s you choose, the variables you think drive the variance; $\\chi^2_{S-1}$; the more power the better the guess.\n3. White: the regressors, their squares and cross-products; no form assumed, but many degrees of freedom, so less power in small samples; it also reacts to a wrong functional form.\n4. Prefer Breusch-Pagan when theory names the source of the variance; White when it does not and $N$ is large."
+      },
+      {
+       "t": "prose",
+       "md": "**Template:** \"Both test $H_0$: homoskedasticity. BP uses the $z$'s I choose …; White uses …, so I would prefer … because …\""
+      }
+     ],
+     "words": 120,
+     "symbols": []
+    },
+    {
+     "id": "g-heteroskedasticity-tests-breusch-pagan-vs-white-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "In the food regression the residual spread grows with the fitted values, which points to income as Breusch-Pagan's $z$."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Food expenditure regression - spread-level plot.png",
+       "alt": "Food expenditure regression - spread-level plot"
+      }
+     ],
+     "words": 18,
+     "symbols": []
+    },
+    {
+     "id": "g-heteroskedasticity-tests-breusch-pagan-vs-white-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "A firm-level regression has six regressors and $N = 60$, and theory says the error variance grows with firm size. Which test of heteroskedasticity should you prefer?",
+       "options": [
+        {
+         "md": "White, because it needs no guess about the form",
+         "correct": false,
+         "feedback": "With six regressors White uses $6 + 6 + 15 = 27$ $z$'s on 60 observations, which leaves it little power."
+        },
+        {
+         "md": "Either: they share the null and the statistic, so they give the same answer",
+         "correct": false,
+         "feedback": "They share the null, but their $z$'s differ, and so do their statistics, degrees of freedom and power."
+        },
+        {
+         "md": "Breusch-Pagan with firm size as the $z$, because theory names the source and a 1-df test has more power",
+         "correct": true
+        },
+        {
+         "md": "Jarque-Bera first, because Breusch-Pagan needs normal errors",
+         "correct": false,
+         "feedback": "The $N R^2$ version taught here does not rely on normal errors."
+        }
+       ],
+       "why": "Breusch-Pagan aims at the suspected form with one $z$: $\\chi^2_1$, 5% critical value 3.84. White's 27 degrees of freedom (critical value 40.11) spread its power over forms nobody suspects."
+      }
+     ],
+     "words": 72,
+     "symbols": []
+    },
+    {
+     "id": "g-heteroskedasticity-tests-breusch-pagan-vs-white-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "A regression has $k = 4$ continuous regressors besides the intercept. The White test regresses $\\widehat{e}^{\\,2}$ on the regressors, their squares and all their cross-products. How many degrees of freedom does its $\\chi^2$ statistic have?",
+       "answer": 14.0,
+       "tol": 0.1,
+       "vary": [
+        {
+         "sym": "k",
+         "values": [
+          3.0,
+          4.0,
+          5.0,
+          6.0
+         ]
+        }
+       ],
+       "compute": "2k + \\frac{k^2 - k}{2}",
+       "bindings": [
+        {
+         "sym": "k",
+         "value": 4.0,
+         "span": "$k = 4$"
+        }
+       ],
+       "wrongCompute": [
+        {
+         "tex": "2k",
+         "md": "that leaves out the cross-products"
+        },
+        {
+         "tex": "2k + \\frac{k^2 - k}{2} + 1",
+         "md": "that counts the intercept; the degrees of freedom are $S - 1$, the number of $z$'s"
+        }
+       ],
+       "why": "$k$ regressors, $k$ squares and $k(k-1)/2$ cross-products. With the written numbers, $4 + 4 + 6 = 14$, against 1 for a Breusch-Pagan test on one chosen $z$. The count grows like $k^2$, which is why White loses power with many regressors."
+      }
+     ],
+     "words": 30,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "h-model-selection",
+   "heading": "H. Model selection",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "h-model-selection-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**What they ask:** choose among models with $R^2$, AIC and BIC (Mock 12), explain variances that rise after adding a variable (Mock 22), and pick a model from a Mallows' Cp plot or table (Mock 25, 26)."
+      },
+      {
+       "t": "prose",
+       "md": "**Recipe**"
+      }
+     ],
+     "words": 37,
+     "symbols": []
+    },
+    {
+     "id": "h-model-selection-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. $R^2$ compares models only with the same $y$, and adding a regressor never lowers it.\n2. Same $y$, $N$ and $K$: AIC and BIC rank exactly as $SSE$ does, so the best-$R^2$ model must have the lowest AIC and BIC.\n3. Different $K$: smaller wins; BIC's penalty per coefficient, $\\ln N$, exceeds AIC's 2.\n4. Cp: among same-size models take the smallest; across sizes prefer a small Cp at or below $p$ = predictors + 1. The full model's Cp equals its $p$ by construction.\n5. Estimates steady but variances up after adding a variable: it is irrelevant and correlated with the included ones. Still unbiased, less precise."
+      },
+      {
+       "t": "prose",
+       "md": "**Template:** \"Model <M> has the smallest Cp among <size>-predictor models, and its Cp (…) is at or below $p$ = …\""
+      },
+      {
+       "t": "prose",
+       "md": "In the lecture's search the best model sits lowest, below its $p = 4$:"
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Mallows Cp by subset - family income.png",
+       "alt": "Mallows Cp by subset - family income"
+      }
+     ],
+     "words": 125,
+     "symbols": []
+    },
+    {
+     "id": "h-model-selection-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "A wage regression on $EDUC$ and $EXPER$ has significant coefficients and clean diagnostics. Adding parents' schooling, $PAREDUC$, leaves $b_{EDUC}$ almost unchanged (0.081 to 0.079) and $\\widehat{\\sigma}$ unchanged (0.412), but raises $se(b_{EDUC})$ from 0.0062 to 0.0121; the correlation of $PAREDUC$ with $EDUC$ is 0.86. What best explains this?",
+       "options": [
+        {
+         "md": "$PAREDUC$ is a relevant variable that had been omitted",
+         "correct": false,
+         "feedback": "Adding a relevant omitted variable would move $b_{EDUC}$ (the bias goes away) and lower $\\widehat{\\sigma}$; neither happened."
+        },
+        {
+         "md": "$PAREDUC$ is nearly uncorrelated with $EDUC$",
+         "correct": false,
+         "feedback": "An uncorrelated addition leaves $se(b_{EDUC})$ almost alone; the correlation here is 0.86."
+        },
+        {
+         "md": "The first model was misspecified",
+         "correct": false,
+         "feedback": "Its diagnostics were clean, and the estimates did not move once $PAREDUC$ was added."
+        },
+        {
+         "md": "$PAREDUC$ is irrelevant but strongly correlated with $EDUC$: the estimates stay unbiased while the variance of $b_{EDUC}$ rises",
+         "correct": true
+        }
+       ],
+       "why": "The variance ratio is $(0.0121/0.0062)^2 = 3.8$, about $1/(1 - 0.86^2) = 3.84$: the inflation from $PAREDUC$'s correlation with $EDUC$. An irrelevant variable costs precision, never unbiasedness."
+      }
+     ],
+     "words": 77,
+     "symbols": []
+    },
+    {
+     "id": "h-model-selection-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "A Cp search for test scores over class size (C), spending (S) and family income (I) gives: C 38.2, S 17.5, I 11.9; C–S 15.1, C–I 2.6, S–I 6.8; C–S–I 4.0. Which model is preferred?",
+       "options": [
+        {
+         "md": "C–I",
+         "correct": true
+        },
+        {
+         "md": "C–S–I",
+         "correct": false,
+         "feedback": "The full model's Cp always equals its $p = 4$, because $\\widehat{\\sigma}^2$ comes from it; that is not evidence for it."
+        },
+        {
+         "md": "S–I",
+         "correct": false,
+         "feedback": "Among two-predictor models the smallest Cp wins, and 6.8 is above C–I's 2.6 and above $p = 3$."
+        },
+        {
+         "md": "I",
+         "correct": false,
+         "feedback": "Fewest predictors is not the rule: 11.9 is far above $p = 2$, a sign that something important is left out."
+        }
+       ],
+       "why": "C–I has the smallest Cp of its size, 2.6, at or below $p = 2 + 1 = 3$, and the smallest of all seven. That is Mock 25's rule; Mock 26 is its first half (smallest Cp among same-size models)."
+      }
+     ],
+     "words": 55,
+     "symbols": []
+    },
+    {
+     "id": "h-model-selection-5",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Three models of the same $y$, each with an intercept and one regressor and $N = 40$, have $R^2$ of 0.61 (linear in $t$), 0.48 (linear in $\\ln t$) and 0.55 (in $t^2$). For the linear model to be supported by AIC and BIC, what must hold, and will it?",
+       "options": [
+        {
+         "md": "Its AIC must be lowest, but BIC may still favour another model, since BIC penalises harder",
+         "correct": false,
+         "feedback": "All three have $K = 2$, so the penalties are identical; only $SSE$ differs."
+        },
+        {
+         "md": "Its AIC and BIC must both be the lowest of the three, and they will be: with the same $y$, $N$ and $K$ both rank the models exactly as $R^2$ does",
+         "correct": true
+        },
+        {
+         "md": "Its AIC and BIC must both be the highest",
+         "correct": false,
+         "feedback": "For both criteria smaller is better."
+        },
+        {
+         "md": "Nothing can be said, because the regressors differ",
+         "correct": false,
+         "feedback": "Comparisons fail when $y$ differs ($y$ against $\\ln y$); here $y$ is the same, so $R^2$, AIC and BIC all compare validly."
+        }
+       ],
+       "why": "$AIC = \\ln(SSE/N) + 2K/N$ and $BIC = \\ln(SSE/N) + K\\ln N/N$. With $N$ and $K$ shared, both rise with $SSE = (1 - R^2)SST$, and $SST$ is shared because $y$ is: highest $R^2$ means lowest AIC and BIC."
+      }
+     ],
+     "words": 104,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "i-explaining-in-your-own-words",
+   "heading": "I. Explaining in your own words",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "i-explaining-in-your-own-words-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**What they ask:** short explanations of $\\mathrm{Var}(f)$ (Mock 9), $R^2$ (Mock 10) and interaction terms (Mock 11)."
+      },
+      {
+       "t": "prose",
+       "md": "**Recipe**"
+      },
+      {
+       "t": "prose",
+       "md": "1. $R^2$: the share of the variation of $y$ around its mean that the fitted line explains, $1 - SSE/SST$, between 0 and 1. It says nothing about causality or whether the model is right.\n2. $\\mathrm{Var}(f) = \\sigma^2[1 + 1/N + (x_0 - \\bar{x})^2/\\sum(x_i - \\bar{x})^2]$: more data, more spread in $x$ and a better model (smaller $\\sigma^2$) shrink it; it is smallest at $x_0 = \\bar{x}$; the leading $\\sigma^2$ never goes.\n3. Interactions: the effect of one regressor depends on the level of another, $\\partial y/\\partial x = \\beta_x + \\beta_{xz}z$.\n4. Two or three plain sentences each, with one example."
+      },
+      {
+       "t": "prose",
+       "md": "**Template:** \"$R^2 = 0.84$ means the model accounts for 84% of the variation of <$y$> around its mean.\""
+      },
+      {
+       "t": "prose",
+       "md": "Score one candidate line by the variation it explains."
+      },
+      {
+       "t": "interactive",
+       "widget": "ols-line-fitter",
+       "state": {
+        "b1": 283,
+        "b2": 0
+       },
+       "show": [
+        "points",
+        "line",
+        "residuals",
+        "r2"
+       ],
+       "highlight": "line",
+       "prompt": "Score a flat line at the mean of $y$, then drag toward the least-squares line and watch $R^2$",
+       "predict": {
+        "hide": [
+         "r2"
+        ],
+        "ask": "The line is flat at $\\bar{y} = 283$: $b_1 = 283$, $b_2 = 0$. What is its $R^2$?",
+        "options": [
+         "About 0.5, because about half the points lie above the line",
+         "0: it explains none of the variation around $\\bar{y}$",
+         "About 0.497, the same as the OLS line, since both pass through the means",
+         "It cannot be computed, because the slope is 0"
+        ],
+        "answer": 1,
+        "why": "SST is the sum of squared gaps of $y$ from $\\bar{y}$, and a flat line at $\\bar{y}$ leaves exactly those gaps as residuals: $SSR = SST = 627{,}538$, so $R^2 = 0$. Drag toward the OLS line ($b_1 = 82.89$, $b_2 = 10.21$): SSR falls to 315,724 and $R^2$ rises to 0.497, the share of the variation around $\\bar{y}$ that the line explains.",
+        "feedback": [
+         "Which side of the line the points fall on says nothing about $R^2$. It compares the squared residuals with the squared gaps from $\\bar{y}$, and for this line those are the same gaps.",
+         null,
+         "Passing through $(\\bar{x}, \\bar{y})$ makes the residuals sum to zero, but the flat line misses the upward trend: its SSR is 627,538 against 315,724 for OLS.",
+         "$R^2 = 1 - SSR/SST$ needs only the residuals of the line, which exist for any slope."
+        ]
+       }
+      }
+     ],
+     "words": 129,
+     "symbols": []
+    },
+    {
+     "id": "i-explaining-in-your-own-words-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "A food regression uses 50 households with mean income $\\bar{x} = 18$ (\\$100s a week) and incomes from 6 to 34. Where is the 95% prediction interval for one new household narrowest?",
+       "options": [
+        {
+         "md": "At $x_0 = 0$, where the intercept is estimated",
+         "correct": false,
+         "feedback": "At $x_0 = 0$ the term $(x_0 - \\bar{x})^2 = 324$ is large; the intercept is a prediction far outside the data."
+        },
+        {
+         "md": "At $x_0 = 34$, the largest income, where the data end",
+         "correct": false,
+         "feedback": "$(34 - 18)^2 = 256$ makes the interval wider there, not narrower."
+        },
+        {
+         "md": "At $x_0 = 18$; more households or more spread in incomes narrows it further, but never below the width set by $\\sigma^2$",
+         "correct": true
+        },
+        {
+         "md": "The width is the same at every $x_0$",
+         "correct": false,
+         "feedback": "That is true only of the leading $\\sigma^2$ term; the third term grows with the distance from $\\bar{x}$."
+        }
+       ],
+       "why": "$\\mathrm{Var}(f) = \\sigma^2[1 + 1/N + (x_0 - \\bar{x})^2/\\sum(x_i - \\bar{x})^2]$ is smallest when the last term is 0, at $x_0 = \\bar{x} = 18$. A larger $N$ and a larger $\\sum(x_i - \\bar{x})^2$ shrink the other two terms; only a better model lowers $\\sigma^2$."
+      }
+     ],
+     "words": 68,
+     "symbols": []
+    },
+    {
+     "id": "i-explaining-in-your-own-words-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "In $\\widehat{WAGE} = 3.1 + b\\,EDUC + 0.21\\,EXPER + c\\,(EDUC \\times EXPER)$, wage in dollars an hour, $b = 0.84$ and $c = 0.035$. What is the marginal effect of one more year of education for a worker with $z = 10$ years of experience? Answer in dollars an hour, two decimals.",
+       "answer": 1.19,
+       "tol": 0.011899999999999999,
+       "vary": [
+        {
+         "sym": "b",
+         "lo": 0.5,
+         "hi": 1.2,
+         "step": 0.01
+        },
+        {
+         "sym": "c",
+         "lo": 0.01,
+         "hi": 0.06,
+         "step": 0.001
+        },
+        {
+         "sym": "z",
+         "lo": 5.0,
+         "hi": 25.0,
+         "step": 1.0
+        }
+       ],
+       "compute": "b + c \\cdot z",
+       "bindings": [
+        {
+         "sym": "b",
+         "value": 0.84,
+         "span": "$b = 0.84$"
+        },
+        {
+         "sym": "c",
+         "value": 0.035,
+         "span": "$c = 0.035$"
+        },
+        {
+         "sym": "z",
+         "value": 10.0,
+         "span": "$z = 10$"
+        }
+       ],
+       "wrongCompute": [
+        {
+         "tex": "b",
+         "md": "that is the effect at zero experience; with the interaction the effect of education depends on experience"
+        },
+        {
+         "tex": "c \\cdot z",
+         "md": "that is only the interaction's part; add the education coefficient"
+        },
+        {
+         "tex": "b + 2c \\cdot z",
+         "md": "the 2 belongs to a squared term; $\\partial(c\\,EDUC \\times EXPER)/\\partial EDUC = c\\,EXPER$"
+        }
+       ],
+       "why": "$\\partial WAGE/\\partial EDUC = b + c\\,EXPER$. With the written numbers, $0.84 + 0.035 \\times 10 = 1.19$: at 10 years of experience a year of schooling goes with about \\$1.19 more an hour, and more at higher experience."
+      }
+     ],
+     "words": 32,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "j-the-residual-maker",
+   "heading": "J. The residual maker",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "j-the-residual-maker-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**What they ask:** derive $\\mathbf{M}\\mathbf{X}$ step by step and simplify it (Mock 16)."
+      },
+      {
+       "t": "prose",
+       "md": "**Recipe**"
+      },
+      {
+       "t": "prose",
+       "md": "1. Distribute: $\\mathbf{M}\\mathbf{X} = [\\mathbf{I} - \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}']\\mathbf{X} = \\mathbf{X} - \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{X}$.\n2. Regroup by associativity: $\\mathbf{X}[(\\mathbf{X}'\\mathbf{X})^{-1}(\\mathbf{X}'\\mathbf{X})] = \\mathbf{X}\\mathbf{I}_k = \\mathbf{X}$. Say why the inverse exists: $\\mathbf{X}$ has full column rank.\n3. Conclude $\\mathbf{M}\\mathbf{X} = \\mathbf{X} - \\mathbf{X} = \\mathbf{0}$, an $n \\times k$ zero matrix.\n4. One line of meaning: regressing any column of $\\mathbf{X}$ on $\\mathbf{X}$ leaves a zero residual, so $\\mathbf{e} = \\mathbf{M}\\mathbf{y} = \\mathbf{M}\\boldsymbol{\\varepsilon}$."
+      },
+      {
+       "t": "prose",
+       "md": "The same algebra in two dimensions: project a vector that already lies on the line through $\\mathbf{a}$."
+      },
+      {
+       "t": "interactive",
+       "widget": "projection-onto-a-vector",
+       "state": {
+        "a1": 2,
+        "a2": 1,
+        "b1": 4,
+        "b2": 2,
+        "t": 0
+       },
+       "lock": [
+        "a1",
+        "a2",
+        "b1",
+        "b2"
+       ],
+       "show": [
+        "a_line",
+        "a_vec",
+        "b_vec",
+        "p_vec",
+        "e_vec",
+        "p_pt"
+       ],
+       "highlight": "e_vec",
+       "prompt": "Here $\\mathbf{b}$ lies on the line through $\\mathbf{a}$, as each column of $\\mathbf{X}$ lies in its column space. Find the closest point on the line",
+       "goal": {
+        "when": "dist < 0.01",
+        "success": "At $t = \\mathbf{a}'\\mathbf{b}/\\mathbf{a}'\\mathbf{a} = 10/5 = 2$ the point is $\\mathbf{p} = 2\\mathbf{a} = \\mathbf{b}$ and the residual is $\\mathbf{e} = \\mathbf{0}$: projecting a vector already on the line returns it, so the residual maker sends it to zero. Every column of $\\mathbf{X}$ is in the column space of $\\mathbf{X}$, which is why $\\mathbf{M}\\mathbf{X} = \\mathbf{0}$.",
+        "hint": "$\\mathbf{b} = (4, 2)$ is a multiple of $\\mathbf{a} = (2, 1)$. Which multiple?"
+       }
+      }
+     ],
+     "words": 86,
+     "symbols": []
+    },
+    {
+     "id": "j-the-residual-maker-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Which simplification of $\\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{X}$, with $\\mathbf{X}$ an $n \\times k$ matrix of full column rank, is valid?",
+       "options": [
+        {
+         "md": "$\\mathbf{X}[(\\mathbf{X}'\\mathbf{X})^{-1}(\\mathbf{X}'\\mathbf{X})] = \\mathbf{X}\\mathbf{I}_k = \\mathbf{X}$",
+         "correct": true
+        },
+        {
+         "md": "$\\mathbf{X}\\mathbf{X}^{-1}(\\mathbf{X}')^{-1}\\mathbf{X}'\\mathbf{X} = \\mathbf{X}$",
+         "correct": false,
+         "feedback": "$\\mathbf{X}$ is $n \\times k$, not square, so $\\mathbf{X}^{-1}$ does not exist; only the $k \\times k$ product $\\mathbf{X}'\\mathbf{X}$ can be inverted."
+        },
+        {
+         "md": "$\\mathbf{I}_n$, because $\\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$ is an identity",
+         "correct": false,
+         "feedback": "$\\mathbf{P} = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$ projects onto the column space of $\\mathbf{X}$; it equals $\\mathbf{I}_n$ only when $k = n$. And the product is $n \\times k$, not $n \\times n$."
+        },
+        {
+         "md": "$\\mathbf{X}'\\mathbf{X}$, after cancelling $\\mathbf{X}$ with its inverse",
+         "correct": false,
+         "feedback": "The result must be $n \\times k$, like $\\mathbf{X}$; $\\mathbf{X}'\\mathbf{X}$ is $k \\times k$."
+        }
+       ],
+       "why": "Matrix products are associative, so group $(\\mathbf{X}'\\mathbf{X})^{-1}(\\mathbf{X}'\\mathbf{X}) = \\mathbf{I}_k$, which needs $\\mathbf{X}'\\mathbf{X}$ invertible: full column rank. Then $\\mathbf{M}\\mathbf{X} = \\mathbf{X} - \\mathbf{X} = \\mathbf{0}$."
+      }
+     ],
+     "words": 21,
+     "symbols": []
+    },
+    {
+     "id": "j-the-residual-maker-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "What does $\\mathbf{M}\\mathbf{X} = \\mathbf{0}$ say?",
+       "options": [
+        {
+         "md": "The OLS residuals are all zero",
+         "correct": false,
+         "feedback": "The residuals are $\\mathbf{e} = \\mathbf{M}\\mathbf{y}$, which is zero only if $\\mathbf{y}$ lies in the column space of $\\mathbf{X}$."
+        },
+        {
+         "md": "$\\mathbf{M}$ is the zero matrix",
+         "correct": false,
+         "feedback": "$\\mathbf{M}$ annihilates only vectors in the column space of $\\mathbf{X}$; $\\mathbf{M}\\mathbf{y} = \\mathbf{e} \\neq \\mathbf{0}$ in any real regression."
+        },
+        {
+         "md": "Regressing any column of $\\mathbf{X}$ on $\\mathbf{X}$ leaves a zero residual, so $\\mathbf{e} = \\mathbf{M}\\mathbf{y} = \\mathbf{M}(\\mathbf{X}\\boldsymbol{\\beta} + \\boldsymbol{\\varepsilon}) = \\mathbf{M}\\boldsymbol{\\varepsilon}$",
+         "correct": true
+        },
+        {
+         "md": "$\\mathbf{M}$ is invertible",
+         "correct": false,
+         "feedback": "A matrix that sends the nonzero columns of $\\mathbf{X}$ to $\\mathbf{0}$ cannot be invertible."
+        }
+       ],
+       "why": "Each column of $\\mathbf{X}$ is fitted perfectly by $\\mathbf{X}$ itself, so its residual is zero. Applied to $\\mathbf{y} = \\mathbf{X}\\boldsymbol{\\beta} + \\boldsymbol{\\varepsilon}$, the $\\mathbf{X}\\boldsymbol{\\beta}$ part vanishes and only $\\mathbf{M}\\boldsymbol{\\varepsilon}$ is left."
+      }
+     ],
+     "words": 25,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "k-the-bootstrap-in-regression",
+   "heading": "K. The bootstrap in regression",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "k-the-bootstrap-in-regression-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**What they ask:** describe the bootstrap in regression and what it adds to the usual OLS inference (Mock 17)."
+      },
+      {
+       "t": "prose",
+       "md": "**Recipe**"
+      },
+      {
+       "t": "prose",
+       "md": "1. Draw $N$ rows with replacement (pairs: each $y$ with its own $x$'s), refit, store the estimates; repeat $B$ times (say 1,000).\n2. The standard deviation of the $B$ estimates is the bootstrap standard error; their 2.5th and 97.5th percentiles are a 95% interval.\n3. What it adds: no normality needed; a standard error for any statistic ($R^2$, a turning point); robustness to heteroskedasticity (pairs); a check on the textbook standard errors.\n4. What it cannot do: fix bias or a wrong model, or measure accuracy on new data (that is cross-validation)."
+      }
+     ],
+     "words": 110,
+     "symbols": []
+    },
+    {
+     "id": "k-the-bootstrap-in-regression-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Template:** \"Resample the rows with replacement, refit $B$ times, and use the spread of the $B$ estimates as the standard error; unlike the textbook formula, this needs no normality or constant variance.\""
+      },
+      {
+       "t": "prose",
+       "md": "Here many samples from one population play the part of the bootstrap's resamples."
+      },
+      {
+       "t": "interactive",
+       "widget": "ols-sampling-distribution",
+       "state": {
+        "N": 100,
+        "sd": 89.5,
+        "het": 1,
+        "gamma": 0,
+        "R": 2000
+       },
+       "lock": [
+        "N",
+        "sd",
+        "het",
+        "gamma",
+        "R"
+       ],
+       "prompt": "Heteroskedastic errors and 100 households: which standard error tells the truth about $b_2$?",
+       "predict": {
+        "hide": [
+         "b2_hist",
+         "b2_sd_out",
+         "se_mean_out",
+         "hc_mean_out"
+        ],
+        "ask": "Each of 2,000 samples has 100 households, and the error spread grows with income. The histogram of $b_2$ across samples is what a pairs bootstrap imitates from one sample, by resampling households. How does the average textbook standard error compare with the actual spread of $b_2$?",
+        "options": [
+         "It matches the spread, now that there are 100 households",
+         "It understates the spread; a pairs bootstrap standard error would track the spread instead",
+         "It overstates the spread, so the usual tests are too cautious"
+        ],
+        "answer": 1,
+        "why": "At $N = 100$ the slopes spread with a standard deviation of about 1.23, while the textbook standard error averages about 1.14 and the robust (HC1) one about 1.20 (Monte Carlo; a draw may differ in the second decimal). A pairs bootstrap resamples whole households, each with its own income and error, so the spread of its re-estimated slopes targets the 1.23, as HC1 does.",
+        "feedback": [
+         "More households shrink both numbers, but the textbook formula still assumes one error variance for everyone. At $N = 100$ it averages about 1.14 against an actual spread of about 1.23.",
+         null,
+         "The noisiest households here are the high-income ones far from mean income, which pin down the slope; the textbook formula averages their variance with the quiet ones and comes out too small."
+        ]
+       }
+      }
+     ],
+     "words": 55,
+     "symbols": []
+    },
+    {
+     "id": "k-the-bootstrap-in-regression-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Which of these can a pairs bootstrap **not** do?",
+       "options": [
+        {
+         "md": "Give a standard error for the turning point $-b_2/(2b_3)$ of a quadratic",
+         "correct": false,
+         "feedback": "It can: refit, recompute the turning point each time, and take the spread. That is one of its main uses."
+        },
+        {
+         "md": "Remove the bias from an omitted variable",
+         "correct": true
+        },
+        {
+         "md": "Give a confidence interval without assuming normal errors",
+         "correct": false,
+         "feedback": "It can: the percentile interval comes from the resampled estimates themselves."
+        },
+        {
+         "md": "Give a standard error that stays valid under heteroskedasticity",
+         "correct": false,
+         "feedback": "It can: resampling whole rows keeps each observation's own error variance."
+        }
+       ],
+       "why": "Every resample is drawn from the same data and fitted with the same model, so a biased model gives equally biased estimates in every resample. The bootstrap measures sampling variability; it cannot repair the specification."
+      }
+     ],
+     "words": 44,
+     "symbols": []
+    },
+    {
+     "id": "k-the-bootstrap-in-regression-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "A colleague runs a pairs bootstrap with $B = 2{,}000$, finds narrow intervals for every coefficient, and says this shows the model will predict new data well. What is wrong with the claim?",
+       "options": [
+        {
+         "md": "Nothing: resampling simulates new data, so it measures out-of-sample accuracy",
+         "correct": false,
+         "feedback": "Each resample reuses the original rows and the model is scored on the same rows it was fitted to; nothing is held out."
+        },
+        {
+         "md": "2,000 resamples are too few to say anything",
+         "correct": false,
+         "feedback": "2,000 is plenty for standard errors and percentile intervals."
+        },
+        {
+         "md": "The bootstrap is valid only with normal errors",
+         "correct": false,
+         "feedback": "Not needing normality is one of its advantages."
+        },
+        {
+         "md": "The bootstrap measures how much the estimates vary from sample to sample; accuracy on new data is what cross-validation measures",
+         "correct": true
+        }
+       ],
+       "why": "Narrow intervals mean precise estimates, not good predictions: an overfitted model can have both. Cross-validation fits on part of the data and scores the rest."
+      }
+     ],
+     "words": 77,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "traps-that-cost-marks",
+   "heading": "Traps that cost marks",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "traps-that-cost-marks-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Looks like | Is actually | The tell |\n| --- | --- | --- |\n| Log-level: one unit, $100b$% | Log-log: 1%, $b$% | Is $x$ logged? $\\log(LIBVOL)$ is; $GPA$ is not |\n| Approximate %: $100b$ | Exact: $100(e^{b} - 1)$ | A one-unit change that is large (a GPA point: 24.8% vs 28.1%) |\n| Log-log slope $b\\,\\bar{y}/\\bar{x}$ | Linear elasticity $b\\,\\bar{x}/\\bar{y}$ | Which variables are logged; the log-log elasticity is just $b$ |\n| A turning point in model units (29,372) | The same in dollars (\\$29.4 million) | \"measured in \\$1000s\" in the stem |\n| Two-sided test: $\\lvert t\\rvert > 1.96$ | One-sided: $t > 1.645$ in $H_1$'s direction | \"against the alternative that there is a positive relationship\" |\n| A level: \"sales will be \\$9.77\" | A change: \"expected sales rise by \\$9,770\" | `t_test` on a vector of changes; $y$ in \\$1000s |\n| Statistically significant | Economically large | Size is $b$ times a realistic change, in $y$'s units, not the p-value or $R^2$ |\n| RESET: $H_0$ correct functional form | Breusch-Pagan, White: $H_0$ constant variance | Powers of $\\widehat{y}$ (or the regressors) vs $\\widehat{e}^{\\,2}$ as the dependent variable |\n| Box-Cox interval excludes 0, so the log is rejected | The LR test may still not reject it | Only the profile-likelihood interval always agrees with the LR test (Mock 5: $p = 0.058$) |\n| Heavy tails: ends bend in opposite directions | Skew: both ends bend the same way | Left end below and right end above is heavy tails; both above is right skew |\n| Jarque-Bera does not reject: normal | No evidence against normality | Low power with few observations; a higher p is \"more consistent\", not proof |\n| Breusch-Pagan | White | Chosen $z$'s and few df vs all squares and cross-products and many df |\n| AIC and BIC could disagree | With the same $y$, $N$ and $K$ they rank as $R^2$ does | Count the coefficients: equal $K$, equal penalties |\n| Cp closest to $p$ | Smallest Cp among same-size models, at or below $p$ | $p$ counts the intercept; the full model always has $C_p = p$ |\n| A relevant omitted variable | An irrelevant, correlated one | Estimates and $\\widehat{\\sigma}$ steady while the standard errors rise |\n| Confidence interval for $E(y \\mid x_0)$ | Prediction interval for one new $y$ | The extra $\\sigma^2$ (\"1 +\") that no sample size removes |\n| Bootstrap: accuracy on new data | Bootstrap: sampling variability | Out-of-sample error is cross-validation |"
+      }
+     ],
+     "words": 320,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

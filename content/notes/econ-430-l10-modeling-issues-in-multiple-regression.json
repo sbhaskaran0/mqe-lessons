@@ -721,7 +721,7 @@
          "md": "that is the difference of the standard errors, not a ratio"
         }
        ],
-       "why": "$(1{,}247.06/796.70)^2 = 1.565^2 = 2.45$. Since $\\widehat{\\sigma}$ hardly changes (40,160 to 40,206), almost all of this is the variance inflation factor $1/(1 - R^2)$ of $HE$ on the other regressors: an $R^2$ of about 0.59, so $XTRA\\_X5$ is strongly correlated with the husband's education.",
+       "why": "$(1{,}247.06/796.70)^2 = 1.565^2 = 2.45$. Since $\\widehat{\\sigma}$ hardly changes (40,160 to 40,206), almost all of the rise comes from $XTRA\\_X5$'s correlation with $HE$: an irrelevant variable inflates a coefficient's variance only through its correlation with that regressor, so $XTRA\\_X5$ must be strongly correlated with the husband's education. Section 5 measures this with the variance inflation factor.",
        "objectives": [
         4
        ]
@@ -761,10 +761,10 @@
         {
          "md": "Adding any variable always inflates every variance by about the same amount",
          "correct": false,
-         "feedback": "The inflation for $b_k$ is $1/(1 - R_k^2)$, which depends on how well the new variable and the rest predict $x_k$; in the family-income example $XTRA\\_X5$ inflated $HE$'s variance 2.45 times but barely touched $KL6$'s."
+         "feedback": "An irrelevant variable inflates a coefficient's variance only through its correlation with that regressor, so the inflation differs from one coefficient to another; in the family-income example $XTRA\\_X5$ inflated $HE$'s variance 2.45 times but barely touched $KL6$'s."
         }
        ],
-       "why": "The first model already satisfied the assumptions, so $x_4$ was not needed: including an irrelevant variable keeps the estimators unbiased. But $\\mathrm{Var}(b_k)$ is multiplied by $1/(1 - R_k^2)$, and if $x_4$ is correlated with the other regressors each $R_k^2$ rises, so every variance grows.",
+       "why": "The first model already satisfied the assumptions, so $x_4$ was not needed: including an irrelevant variable keeps the estimators unbiased. But an irrelevant variable inflates a coefficient's variance through its correlation with that regressor, so if $x_4$ is correlated with $x_2$ and $x_3$, every variance grows (section 5 makes this precise with the variance inflation factor).",
        "objectives": [
         4
        ]
@@ -774,7 +774,6 @@
      "symbols": [
       "$y_i$",
       "$x_{ij}$",
-      "$b_j$",
       "$e_i$",
       "$K$",
       "$\\beta_k$",
@@ -927,10 +926,10 @@
       },
       {
        "t": "prose",
-       "md": "On simulated data (30 points) RESET flags a straight line fitted to a quadratic ($F = 369{,}456$, $p \\approx 0$) and passes a straight line fitted to a line ($F = 2.28$, $p = 0.14$). For the family-income model, with the squares of $HE$, $WE$ and $KL6$ added, $F = 2.60$ on (3, 421) degrees of freedom, $p = 0.051$."
+       "md": "On simulated data (30 points) RESET flags a straight line fitted to a quadratic ($F = 369{,}456$, $p \\approx 0$) and passes a straight line fitted to a line ($F = 2.28$, $p = 0.14$). For the family-income model, with the squares of $HE$, $WE$ and $KL6$ added (the `exog` variant, which powers each regressor rather than $\\widehat{y}$), $F = 2.60$ on (3, 421) degrees of freedom, $p = 0.051$."
       }
      ],
-     "words": 78,
+     "words": 87,
      "symbols": [
       "$y_i$",
       "$x_{ij}$",
@@ -985,6 +984,49 @@
       "$F$",
       "$N$",
       "$\\ln L$",
+      "$C_p$"
+     ]
+    },
+    {
+     "id": "6-model-misspecification-ramsey-reset-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "For 300 house sales, `house_mod = smf.ols('price ~ sqft + I(sqft**2) + age', data=homes).fit()` has price in \\$1000s, size in hundreds of square feet and age in years, and `linear_reset(house_mod, power=2, test_type='fitted', use_f=True)` prints `<F test: F=161.37551912063088, p=8.679048466278894e-30, df_denom=295, df_num=1>`. What is the best interpretation and recommendation?",
+       "options": [
+        {
+         "md": "Do not reject: the model already includes $SQFT^2$, so its curvature is accounted for",
+         "correct": false,
+         "feedback": "The p-value, $8.7 \\times 10^{-30}$, is far below 0.05: the test rejects decisively. Including one square does not guarantee the functional form is right."
+        },
+        {
+         "md": "Reject: the functional form is misspecified even with $SQFT^2$; try $\\ln(PRICE)$ (prices tend to move in proportion), check for omitted variables and the component-plus-residual plots, then re-run RESET",
+         "correct": true
+        },
+        {
+         "md": "Reject: add $AGE^2$ and further powers of the regressors until RESET passes",
+         "correct": false,
+         "feedback": "The model already has a square and still fails badly. A rejection says the form is wrong, not that squares are missing; piling on powers chases the symptom, while a log of price or a missing variable is the likelier cause."
+        },
+        {
+         "md": "Reject: the coefficients are biased, so the model should be dropped",
+         "correct": false,
+         "feedback": "A rejection says the conditional mean is misspecified, so the coefficients may well mislead. The response is to respecify the model and test again, not to abandon the analysis."
+        }
+       ],
+       "why": "With `fitted` and `power=2` only $\\widehat{y}^2$ is added, so `df_num` = 1, and `df_denom` = $300 - 5 = 295$ (constant, $SQFT$, $SQFT^2$, $AGE$, $\\widehat{y}^2$). $F = 161.4$ against a 5% critical value of 3.87 rejects $H_0$ that $\\widehat{y}^2$ adds nothing. The lecture's first response to a rejection is quadratic or interaction terms, but this model has one already. When house prices respond to size and age in proportion, the fix is $\\ln(PRICE)$, not more powers. Whatever you change, re-run RESET on the new model ([Ramsey RESET](note:ramsey-reset)).",
+       "objectives": [
+        6
+       ]
+      }
+     ],
+     "words": 127,
+     "symbols": [
+      "$T(x, \\lambda)$",
+      "$R_k^2$",
+      "$y$, $\\widehat{y}$",
+      "$F$",
       "$C_p$"
      ]
     }
@@ -1094,28 +1136,80 @@
        "t": "figure",
        "src": "assets/Attachments/Mallows Cp by subset - family income.png",
        "alt": "Mallows Cp by subset - family income"
-      },
+      }
+     ],
+     "words": 40,
+     "symbols": [
+      "$\\widehat{\\sigma}^2$",
+      "$GVIF$, $p$",
+      "$SSE$",
+      "$N$",
+      "$C_p$"
+     ]
+    },
+    {
+     "id": "8-mallows-cp-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Read the plot above. Its horizontal axis is the subset size, the number of predictors in each model. Which model does Mallows' $C_p$ prefer?",
+       "options": [
+        {
+         "md": "$WE$ alone: the smallest model, with a single predictor",
+         "correct": false,
+         "feedback": "Fewest predictors is not the criterion. $WE$ alone sits at about 22, far above its $p = 1 + 1 = 2$: it leaves out important variables."
+        },
+        {
+         "md": "The full model with all five candidates, because its $C_p$ equals its $p$",
+         "correct": false,
+         "feedback": "The full model sits at 6 with $p = 5 + 1 = 6$, but that holds by construction, since $\\widehat{\\sigma}^2$ comes from the full model. Smaller models beat it."
+        },
+        {
+         "md": "$HE$, $WE$, $KL6$: the lowest point on the plot, about 2.3, below its $p = 3 + 1 = 4$",
+         "correct": true
+        },
+        {
+         "md": "$HE$, $WE$: the best two-predictor model, with fewer variables",
+         "correct": false,
+         "feedback": "It is the best of size 2, but at about 8.5 it is far above its $p = 2 + 1 = 3$, a sign that a relevant variable ($KL6$) is missing."
+        }
+       ],
+       "why": "On the plot the subset size counts predictors, so each model's $p$ is the subset size plus 1 for the intercept. Prefer the smallest $C_p$ among models with $C_p$ near or below $p$. $HE$, $WE$, $KL6$ is the lowest point, about 2.3 against $p = 4$. The size-4 models (about 4.2 against $p = 5$) are also near their $p$, but they have higher $C_p$ and an extra variable.",
+       "objectives": [
+        7
+       ]
+      }
+     ],
+     "words": 60,
+     "symbols": [
+      "$K$",
+      "$\\widehat{\\sigma}^2$",
+      "$GVIF$, $p$",
+      "$\\ln L$",
+      "$C_p$"
+     ]
+    },
+    {
+     "id": "8-mallows-cp-3",
+     "blocks": [
       {
        "t": "table",
        "md": "| Subset | Size | $C_p$ |\n| --- | --- | --- |\n| $HE$, $WE$, $KL6$ | 3 | **2.32** |\n| $HE$, $WE$, $KL6$, $XTRA\\_X6$ | 4 | 4.16 |\n| $HE$, $WE$, $KL6$, $XTRA\\_X5$ | 4 | 4.29 |\n| all five | 5 | 6.00 |\n| $HE$, $WE$ | 2 | 8.47 |\n| $WE$, $KL6$ | 2 | 16.50 |\n| $WE$ | 1 | 21.87 |"
       }
      ],
-     "words": 68,
+     "words": 28,
      "symbols": [
       "$K$",
       "$T(x, \\lambda)$",
       "$R_k^2$",
-      "$\\widehat{\\sigma}^2$",
-      "$GVIF$, $p$",
-      "$SSE$",
-      "$N$",
       "$\\ln L$",
       "$C_p$",
       "$Y$, $X$, $p$, $q$, $a$, $b$"
      ]
     },
     {
-     "id": "8-mallows-cp-2",
+     "id": "8-mallows-cp-4",
      "blocks": [
       {
        "t": "check",
@@ -1158,7 +1252,7 @@
      ]
     },
     {
-     "id": "8-mallows-cp-3",
+     "id": "8-mallows-cp-5",
      "blocks": [
       {
        "t": "check",

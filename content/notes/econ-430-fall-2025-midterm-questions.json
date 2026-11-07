@@ -1,0 +1,1149 @@
+{
+ "slug": "econ-430-fall-2025-midterm-questions",
+ "notation": [
+  {
+   "tex": "$k$",
+   "meaning": "Neighbours averaged in kNN",
+   "kind": "Choice",
+   "typical": "3",
+   "keys": [
+    "k"
+   ],
+   "from": "missing-data-and-imputation"
+  },
+  {
+   "tex": "$t_i$",
+   "meaning": "Studentised residual: how badly observation $i$ is fitted",
+   "kind": "Statistic",
+   "typical": "Flag if $\\lvert t_i\\rvert > 2$",
+   "keys": [
+    "t"
+   ],
+   "from": "regression-diagnostics"
+  },
+  {
+   "tex": "$p$, $n$",
+   "meaning": "Number of parameters and of observations",
+   "kind": "Counts",
+   "typical": "—",
+   "keys": [
+    "p",
+    "n"
+   ],
+   "from": "regression-diagnostics"
+  },
+  {
+   "tex": "$D_i$",
+   "meaning": "Cook's distance: how much all fitted values move when observation $i$ is dropped",
+   "kind": "Statistic",
+   "typical": "Large relative to $4/n$",
+   "keys": [
+    "D"
+   ],
+   "from": "regression-diagnostics"
+  },
+  {
+   "tex": "$R^2$",
+   "meaning": "Coefficient of determination of that auxiliary regression",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "R"
+   ],
+   "from": "regression-diagnostics"
+  },
+  {
+   "tex": "$JB$",
+   "meaning": "Jarque-Bera statistic",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "~JB"
+   ],
+   "from": "regression-diagnostics"
+  },
+  {
+   "tex": "$b_j$",
+   "meaning": "OLS estimate for regressor $j$",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "b"
+   ],
+   "from": "multicollinearity"
+  },
+  {
+   "tex": "$s_j^2$",
+   "meaning": "Sample variance of $x_j$",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "s"
+   ],
+   "from": "multicollinearity"
+  },
+  {
+   "tex": "$x_2$, $x_3$",
+   "meaning": "Regressors",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "x"
+   ],
+   "from": "multicollinearity"
+  },
+  {
+   "tex": "$\\alpha_1$, $\\alpha_2$",
+   "meaning": "Coefficients of the linear relation between regressors",
+   "kind": "Constants",
+   "typical": "—",
+   "keys": [
+    "alpha"
+   ],
+   "from": "multicollinearity"
+  },
+  {
+   "tex": "$\\mathbf{X}$",
+   "meaning": "Regressor matrix",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "bold(X)"
+   ],
+   "from": "multicollinearity"
+  },
+  {
+   "tex": "$r$",
+   "meaning": "Pairwise correlation",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "r"
+   ],
+   "from": "multicollinearity"
+  },
+  {
+   "tex": "$e_i$, $\\widehat{e}_i$",
+   "meaning": "Error and OLS residual",
+   "kind": "Unobserved / computed",
+   "typical": "—",
+   "keys": [
+    "e",
+    "hat(e)"
+   ],
+   "from": "heteroskedasticity-tests"
+  },
+  {
+   "tex": "$S$",
+   "meaning": "Coefficients in the variance function, intercept included",
+   "kind": "Count",
+   "typical": "2 for BP on income",
+   "keys": [
+    "S"
+   ],
+   "from": "heteroskedasticity-tests"
+  },
+  {
+   "tex": "$N$",
+   "meaning": "Observations",
+   "kind": "Count",
+   "typical": "40",
+   "keys": [
+    "N"
+   ],
+   "from": "heteroskedasticity-tests"
+  },
+  {
+   "tex": "$N_1$, $N_0$, $K$",
+   "meaning": "Group sizes and coefficients per regression",
+   "kind": "Counts",
+   "typical": "—",
+   "keys": [
+    "N",
+    "K"
+   ],
+   "from": "heteroskedasticity-tests"
+  },
+  {
+   "tex": "$x_2$, $x_3$, $\\beta_k$",
+   "meaning": "Regressors and coefficients of the model",
+   "kind": "Data / parameters",
+   "typical": "—",
+   "keys": [
+    "x",
+    "beta"
+   ],
+   "from": "heteroskedasticity-tests"
+  },
+  {
+   "tex": "$y$, $\\widehat{y}$",
+   "meaning": "Outcome and its fitted value",
+   "kind": "Data / computed",
+   "typical": "—",
+   "keys": [
+    "y",
+    "hat(y)"
+   ],
+   "from": "ramsey-reset"
+  },
+  {
+   "tex": "$J$",
+   "meaning": "Number of added terms",
+   "kind": "Count",
+   "typical": "1 or 2",
+   "keys": [
+    "J"
+   ],
+   "from": "ramsey-reset"
+  },
+  {
+   "tex": "$f = y_0 - \\hat{y}_0$",
+   "meaning": "Forecast error",
+   "kind": "Random variable",
+   "typical": "Mean zero",
+   "keys": [
+    "f"
+   ],
+   "from": "confidence-vs-prediction-intervals"
+  },
+  {
+   "tex": "$\\lambda$",
+   "meaning": "Power parameter: 1 = no change, 0.5 = square root, 0 = log, −1 = reciprocal",
+   "kind": "Parameter, estimated",
+   "typical": "Round to a natural value",
+   "keys": [
+    "lambda"
+   ],
+   "from": "box-cox-and-power-transformations"
+  },
+  {
+   "tex": "$T_{BC}(x,\\lambda)$",
+   "meaning": "Box-Cox transform",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "T"
+   ],
+   "from": "box-cox-and-power-transformations"
+  },
+  {
+   "tex": "$L_0$, $\\hat{L}$",
+   "meaning": "Log-likelihoods at those values",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "L",
+    "hat(L)"
+   ],
+   "from": "box-cox-and-power-transformations"
+  },
+  {
+   "tex": "$Y$, $X$, $p$, $q$, $a$, $b$",
+   "meaning": "Variables and powers in the bulging-rule regression",
+   "kind": "Data / parameters",
+   "typical": "—",
+   "keys": [
+    "Y",
+    "X",
+    "p",
+    "q",
+    "a",
+    "b"
+   ],
+   "from": "box-cox-and-power-transformations"
+  },
+  {
+   "tex": "$PRICE$, $SQFT$",
+   "meaning": "House price and square footage in the quadratic example",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "~PRICE",
+    "~SQFT"
+   ],
+   "from": "functional-forms-and-elasticities"
+  },
+  {
+   "tex": "$H_0$, $H_1$",
+   "meaning": "Null and alternative hypotheses",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "H"
+   ],
+   "from": "hypothesis-tests-on-regression-coefficients"
+  },
+  {
+   "tex": "$C_p$",
+   "meaning": "Mallows' statistic",
+   "kind": "Statistic",
+   "typical": "2.32",
+   "keys": [
+    "C"
+   ],
+   "from": "model-selection-criteria"
+  },
+  {
+   "tex": "$\\mathbf{M} = \\mathbf{I} - \\mathbf{P}$",
+   "meaning": "Residual maker: turns $\\mathbf{y}$ into residuals",
+   "kind": "Matrix ($n\\times n$)",
+   "typical": "Trace $n - K$",
+   "keys": [
+    "bold(M)"
+   ],
+   "from": "projection-matrix-and-residual-maker"
+  },
+  {
+   "tex": "$B$",
+   "meaning": "Number of bootstrap repetitions",
+   "kind": "Choice",
+   "typical": "1,000 or more",
+   "keys": [
+    "B"
+   ],
+   "from": "bootstrapping-ols"
+  },
+  {
+   "tex": "$A$",
+   "meaning": "Advertising level where the marginal effect equals the marginal cost",
+   "kind": "Constant",
+   "typical": "2.014",
+   "keys": [
+    "A"
+   ],
+   "from": "marginal-effects"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Last year's midterm (Dr. Randall R. Rojas, Fall 2025), one numbered item per exam part. The paper has **10 short-answer questions worth 75%** (items 1–21) and **5 multiple-choice questions worth 25%** (items 22–26). **Sit it as a mock**, closed book with a calculator. The paper prints no time limit; budget about 85 minutes: roughly 7 minutes per short-answer question, split over its parts (questions 7, 8 and 9 are one long part each), and 3 minutes per multiple choice. Write full sentences with units, as you would on the exam. Then reveal the worked answers in [Econ 430 Fall 2025 Midterm Answers](note:econ-430-fall-2025-midterm-answers) and grade yourself against the key steps; the \"Not yet\" filter brings back the parts to redo. Weak parts map to sections of [Econ 430 Midterm Review Guide](note:econ-430-midterm-review-guide), and [Econ 430 Midterm Review Questions](note:econ-430-midterm-review-questions) has fresh items of the same kind to drill."
+      }
+     ],
+     "words": 147,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "q1-law-school-salaries-log-models",
+   "heading": "Q1: law-school salaries (log models)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "q1-law-school-salaries-log-models-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. The median starting salary of new law-school graduates is modelled across $N = 136$ schools. $SALARY$ is the median salary (dollars), $LSAT$ the class's median LSAT score, $GPA$ its median college GPA, $LIBVOL$ the number of volumes in the law library, $COST$ the annual cost of attending (dollars) and $RANK$ the school's ranking ($RANK = 1$ is best). The estimated model is $\\widehat{\\log(SALARY)} = 8.34 + 0.0047\\,LSAT + 0.248\\,GPA + 0.095\\log(LIBVOL) + 0.038\\log(COST) - 0.0033\\,RANK$, with $R^2 = 0.842$, and every coefficient is significant at $\\alpha = 0.05$. (a) Interpret the coefficient on $GPA$. → [Functional Forms and Elasticities](note:functional-forms-and-elasticities)\n2. Same model: $\\widehat{\\log(SALARY)} = 8.34 + 0.0047\\,LSAT + 0.248\\,GPA + 0.095\\log(LIBVOL) + 0.038\\log(COST) - 0.0033\\,RANK$ ($N = 136$, $R^2 = 0.842$, all coefficients significant at 5%), where $SALARY$ is the median starting salary in dollars and $LIBVOL$ the number of volumes in the law library. (b) Interpret the coefficient on $\\log(LIBVOL)$. → [Functional Forms and Elasticities](note:functional-forms-and-elasticities)"
+      }
+     ],
+     "words": 101,
+     "symbols": [
+      "$R^2$",
+      "$\\alpha_1$, $\\alpha_2$",
+      "$S$",
+      "$N$",
+      "$N_1$, $N_0$, $K$",
+      "$T_{BC}(x,\\lambda)$",
+      "$L_0$, $\\hat{L}$",
+      "$Y$, $X$, $p$, $q$, $a$, $b$",
+      "$C_p$",
+      "$B$",
+      "$A$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "q2-functional-form-logs-reset-box-cox",
+   "heading": "Q2: functional form (logs, RESET, Box-Cox)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "q2-functional-form-logs-reset-box-cox-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "3. (a) For a simple linear regression model, give two reasons why we might take the log of $y$ instead of just regressing $y$ on $x$. → [Box-Cox and Power Transformations](note:box-cox-and-power-transformations)\n4. (b) A wage regression with squares and an interaction is estimated, then tested as below. Interpret the test result and give your recommendation(s).\n    ```text\n    wage_mod = smf.ols('wage ~ educ + exper + I(educ**2) + I(exper**2) + exper:educ', data=wage_data).fit()\n    reset_result = linear_reset(wage_mod, power=2, test_type='exog', use_f=True)\n    print(reset_result)\n    <F test: F=13.963098152236137, p=8.11847486628449e-13, df_denom=517, df_num=5>\n    ```\n    → [[Ramsey RESET]]"
+      }
+     ],
+     "words": 105,
+     "symbols": [
+      "$x_2$, $x_3$",
+      "$y$, $\\widehat{y}$"
+     ]
+    },
+    {
+     "id": "q2-functional-form-logs-reset-box-cox-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "5. (c) A Box-Cox transformation of the dependent variable gives: estimated $\\lambda = 0.275$, rounded $0.3$, 95% CI $[0.12, 0.48]$; LR test for $\\lambda = 0$ (log): p-value $= 0.058$; LR test for $\\lambda = 1$ (no transformation): p-value $= 0.0012$. Based on these results, what transformation of the dependent variable should be applied? Justify your answer. → [Box-Cox and Power Transformations](note:box-cox-and-power-transformations)"
+      }
+     ],
+     "words": 45,
+     "symbols": [
+      "$\\lambda$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "q3-vacation-miles-t-test-and-significance",
+   "heading": "Q3: vacation miles (t test and significance)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "q3-vacation-miles-t-test-and-significance-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "6. A sample of 200 Chicago households is used to study how far households travel on vacation. The model is $MILES = \\beta_1 + \\beta_2\\ln(INCOME) + \\beta_3 AGE + \\beta_4 KIDS + e$, where $MILES$ is miles driven per year, $INCOME$ is in \\$1000 units, $AGE$ is the average age of the adult members and $KIDS$ the number of children. The estimates are $\\widehat{MILES} = -2832.75 + 815.31\\ln(INCOME) + 15.55\\,AGE - 79.41\\,KIDS$, $R^2 = 0.33$, with standard errors (432.52), (107.71), (3.81) and (27.4) in that order. (a) Given the number of observations and the number of parameters being estimated, do you anticipate any obvious problem(s) before estimating the model? → [Hypothesis Tests on Regression Coefficients](note:hypothesis-tests-on-regression-coefficients)"
+      }
+     ],
+     "words": 90,
+     "symbols": [
+      "$D_i$",
+      "$R^2$",
+      "$e_i$, $\\widehat{e}_i$",
+      "$S$",
+      "$N$",
+      "$N_1$, $N_0$, $K$",
+      "$x_2$, $x_3$, $\\beta_k$",
+      "$L_0$, $\\hat{L}$",
+      "$C_p$",
+      "$A$"
+     ]
+    },
+    {
+     "id": "q3-vacation-miles-t-test-and-significance-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "7. Same data ($N = 200$ households) and model: $\\widehat{MILES} = -2832.75 + 815.31\\ln(INCOME) + 15.55\\,AGE - 79.41\\,KIDS$, standard errors (432.52), (107.71), (3.81), (27.4), $INCOME$ in \\$1000s. (b) Using a 5% significance level, test the hypothesis that there is no relationship between miles driven per year and income against the alternative that the relationship is positive. Assume $t_{crit} = 1.645$. → [Hypothesis Tests on Regression Coefficients](note:hypothesis-tests-on-regression-coefficients)\n8. Same model: $\\widehat{MILES} = -2832.75 + 815.31\\ln(INCOME) + 15.55\\,AGE - 79.41\\,KIDS$ ($N = 200$), with standard error 27.4 on the $KIDS$ coefficient; $MILES$ is miles driven per year and $KIDS$ the number of children. (c) Briefly comment on the economic vs. statistical significance of the estimated coefficient on $KIDS$. → [Hypothesis Tests on Regression Coefficients](note:hypothesis-tests-on-regression-coefficients)"
+      }
+     ],
+     "words": 93,
+     "symbols": [
+      "$t_i$",
+      "$D_i$",
+      "$S$",
+      "$N$",
+      "$N_1$, $N_0$, $K$",
+      "$L_0$, $\\hat{L}$",
+      "$C_p$",
+      "$A$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "q4-forecasts-r2-and-interactions",
+   "heading": "Q4: forecasts, R² and interactions",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "q4-forecasts-r2-and-interactions-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "9. (a) Discuss two ways to reduce the variance of the forecast error, $\\mathrm{var}(f)$. In the simple linear regression $\\hat{y} = b_1 + b_2x$, at what value of $x$ is $\\mathrm{var}(f)$ smallest? → [Confidence vs Prediction Intervals](note:confidence-vs-prediction-intervals)\n10. (b) In your own words, explain what $R^2$ is. → [Coefficient of Determination](note:coefficient-of-determination)\n11. (c) In simple terms, discuss the role that interaction variables play in multiple regression. → [Interaction Terms](note:interaction-terms)"
+      }
+     ],
+     "words": 57,
+     "symbols": [
+      "$R^2$",
+      "$b_j$",
+      "$x_2$, $x_3$",
+      "$y$, $\\widehat{y}$",
+      "$f = y_0 - \\hat{y}_0$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "q5-wheat-yield-choosing-a-form",
+   "heading": "Q5: wheat yield (choosing a form)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "q5-wheat-yield-choosing-a-form-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "12. Three equations model annual wheat yield in Canada, 1950–1997 (48 annual observations); *** marks an estimate significant at 5%.\n    | Model | Estimated equation | (se) | $R^2$ |\n    | --- | --- | --- | --- |\n    | Linear | $\\hat{y}_t = 0.6954 + 0.0150\\,t$ | (0.0719)***, (0.0026)*** | 0.4245 |\n    | Linear-log | $\\hat{y}_t = 0.5623 + 0.1696\\ln(t)$ | (0.1425)***, (0.0469)*** | 0.2254 |\n    | Quadratic | $\\hat{y}_t = 0.7994 + 0.000338\\,t^2$ | (0.0485)***, (0.000048)*** | 0.5252 |\n\n    (a) Based on the $R^2$ values, which equation is preferable? For your choice to be supported by AIC and BIC, what would need to happen with the respective AIC and BIC values? → [Model Selection Criteria](note:model-selection-criteria)"
+      }
+     ],
+     "words": 83,
+     "symbols": [
+      "$t_i$",
+      "$R^2$",
+      "$y$, $\\widehat{y}$"
+     ]
+    },
+    {
+     "id": "q5-wheat-yield-choosing-a-form-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "13. Same three wheat-yield equations (48 annual observations, the same $y_t$ in each): linear in $t$ ($R^2 = 0.4245$), linear-log in $\\ln(t)$ ($R^2 = 0.2254$) and quadratic in $t^2$ ($R^2 = 0.5252$). (b) The residual normality tests are: Linear $JB = 0.878$, p-value $= 0.645$; Linear-log $JB = 2.778$, p-value $= 0.249$; Quadratic $JB = 0.416$, p-value $= 0.812$. Based on these values, which model seems most consistent with the normality assumption for the residuals? Explain your answer. → [Error Normality and Jarque-Bera](note:error-normality-and-jarque-bera)"
+      }
+     ],
+     "words": 54,
+     "symbols": [
+      "$t_i$",
+      "$R^2$",
+      "$JB$",
+      "$y$, $\\widehat{y}$",
+      "$J$",
+      "$B$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "q6-r-d-and-revenue-log-log-at-the-means",
+   "heading": "Q6: R&D and revenue (log-log at the means)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "q6-r-d-and-revenue-log-log-at-the-means-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "14. A log-log regression relates annual R&D spending (in thousands of dollars) to firm revenue (in millions of dollars): $\\widehat{\\ln(R\\&D)} = 3.456 + 0.312\\ln(REVENUE)$, with $N = 185$ and $R^2 = 0.287$. In this sample, average annual R&D spending is \\$2.15 million and average annual revenue is \\$8.34 billion. (a) Evaluate the slope at the point $(\\overline{REVENUE}, \\overline{R\\&D})$. → [Functional Forms and Elasticities](note:functional-forms-and-elasticities)\n15. Same model: $\\widehat{\\ln(R\\&D)} = 3.456 + 0.312\\ln(REVENUE)$ ($N = 185$, $R^2 = 0.287$), R&D in thousands of dollars and revenue in millions; average R&D is \\$2.15 million and average revenue \\$8.34 billion. (b) Compute the elasticity and interpret it. → [Functional Forms and Elasticities](note:functional-forms-and-elasticities)"
+      }
+     ],
+     "words": 90,
+     "symbols": [
+      "$D_i$",
+      "$R^2$",
+      "$N$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "q7-the-residual-maker",
+   "heading": "Q7: the residual maker",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "q7-the-residual-maker-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "16. Let $\\mathbf{X}$ be an $n \\times k$ matrix with full column rank, and let $\\mathbf{M} = \\mathbf{I} - \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$ be the residual maker matrix of OLS. Write an expression for the product $\\mathbf{M}\\mathbf{X}$ and simplify it as much as possible, showing each algebraic step. → [Projection Matrix and Residual Maker](note:projection-matrix-and-residual-maker)"
+      }
+     ],
+     "words": 40,
+     "symbols": [
+      "$k$",
+      "$p$, $n$",
+      "$\\mathbf{X}$",
+      "$\\mathbf{M} = \\mathbf{I} - \\mathbf{P}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "q8-bootstrapping-a-regression",
+   "heading": "Q8: bootstrapping a regression",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "q8-bootstrapping-a-regression-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "17. Describe the use of bootstrapping in regression. How does it enhance estimation or inference compared with the usual OLS methods? → [Bootstrapping OLS](note:bootstrapping-ols)"
+      }
+     ],
+     "words": 23,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "q9-breusch-pagan-vs-white",
+   "heading": "Q9: Breusch-Pagan vs White",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "q9-breusch-pagan-vs-white-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "18. Explain the differences between the Breusch-Pagan test and the White test for heteroskedasticity in a regression model. Give the null hypothesis of each test, and say when one test might be preferred over the other. → [Heteroskedasticity Tests](note:heteroskedasticity-tests)"
+      }
+     ],
+     "words": 38,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "q10-reading-a-q-q-plot",
+   "heading": "Q10: reading a Q-Q plot",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "q10-reading-a-q-q-plot-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "19. A researcher fits a linear regression and checks the residuals with a Q-Q plot against the normal. The points follow the 45° reference line closely in the middle, but curve upward at the right end and downward at the left end. (a) What does this pattern suggest about the distribution of the residuals? → [Q-Q Plot](note:q-q-plot)\n20. Same residual Q-Q plot: on the 45° line in the middle, curving upward at the right end and downward at the left end. (b) How might this affect the assumptions of the linear regression model? → [Error Normality and Jarque-Bera](note:error-normality-and-jarque-bera)"
+      }
+     ],
+     "words": 96,
+     "symbols": []
+    },
+    {
+     "id": "q10-reading-a-q-q-plot-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "21. Same residual Q-Q plot: on the 45° line in the middle, curving upward at the right end and downward at the left end. (c) Suggest one data transformation or modelling adjustment that could help. → [Error Normality and Jarque-Bera](note:error-normality-and-jarque-bera)"
+      }
+     ],
+     "words": 39,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "multiple-choice",
+   "heading": "Multiple choice",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "multiple-choice-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "22. You estimate $y = \\beta_1 + \\beta_2x_2 + \\beta_3x_3 + e$ and find every estimate significant at $\\alpha = 5\\%$, with all other diagnostics consistent with MR1–MR5. You forgot $x_4$, so you then estimate $y = \\beta_1 + \\beta_2x_2 + \\beta_3x_3 + \\beta_4x_4 + e$, and the variances of all the estimates rise considerably. Which statement best describes a plausible reason? → [Omitted Variable Bias](note:omitted-variable-bias)\n    (a) The variable $x_4$ is likely to be an irrelevant variable.\n    (b) The variable $x_4$ is likely to be a relevant omitted variable.\n    (c) The original model (the one without $x_4$) was most likely misspecified.\n    (d) The correlations between $x_4$ and the other independent variables are expected to be very low."
+      }
+     ],
+     "words": 89,
+     "symbols": [
+      "$x_2$, $x_3$",
+      "$\\alpha_1$, $\\alpha_2$",
+      "$e_i$, $\\widehat{e}_i$",
+      "$x_2$, $x_3$, $\\beta_k$",
+      "$y$, $\\widehat{y}$"
+     ]
+    },
+    {
+     "id": "multiple-choice-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "23. In Big Andy's Burger Barn, $SALES = \\beta_1 + \\beta_2 PRICE + \\beta_3 ADVERT + e$, with $PRICE$ in dollars and both $ADVERT$ and $SALES$ in \\$1000s. What is a correct interpretation of the output below?\n    ```text\n    andy = pd.read_csv('data/andy.csv')\n    andy_mod = smf.ols('sales ~ price + advert', data=andy).fit()\n    andy_mod_t1 = andy_mod.t_test(np.array([0., -1, 1]))\n    print(andy_mod_t1.summary())\n                                 Test for Constraints\n    ==============================================================================\n                     coef    std err          t      P>|t|      [0.025      0.975]\n    ------------------------------------------------------------------------------\n    c0             9.7704      1.307      7.477      0.000       7.166      12.375\n    ==============================================================================\n    ```\n    (a) 95% confidence for the expected change in sales from holding price and advertising constant.\n    (b) If we drop the price by \\$1 and increase advertising by \\$1000 we expect sales revenue to be \\$9.77.\n    (c) We fail to reject the null hypothesis $H_0: -\\beta_2 + \\beta_3 = 0$ at the $\\alpha = 5\\%$ level of significance.\n    (d) 95% confidence for the expected change in sales from dropping the price by \\$1 and increasing advertising by \\$1000.\n    → [[Delta Method]]"
+      }
+     ],
+     "words": 156,
+     "symbols": [
+      "$D_i$",
+      "$R^2$",
+      "$\\alpha_1$, $\\alpha_2$",
+      "$e_i$, $\\widehat{e}_i$",
+      "$S$",
+      "$x_2$, $x_3$, $\\beta_k$",
+      "$T_{BC}(x,\\lambda)$",
+      "$L_0$, $\\hat{L}$",
+      "$PRICE$, $SQFT$",
+      "$H_0$, $H_1$",
+      "$C_p$",
+      "$A$"
+     ]
+    },
+    {
+     "id": "multiple-choice-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "24. R&D expenditure ($rd$) is related to sales ($sales$) and profits ($profits$), all in \\$1000s, with sales squared ($salessq$) included. Find the amount of sales after which R&D expenditure declines.\n    ```text\n    OLS Regression Results   Dep. Variable: rd   No. Observations: 32   Df Residuals: 28   Df Model: 3\n    R-squared: 0.944   Adj. R-squared: 0.938   F-statistic: 158.7   Prob (F-statistic): 1.13e-17\n    Log-Likelihood: -183.70   AIC: 375.4   BIC: 381.3\n                  coef     std err        t      P>|t|     [0.025     0.975]\n    const     -35.4851     19.576    -1.813    0.081    -75.584      4.614\n    sales       0.0395      0.012     3.423    0.002      0.016      0.063\n    salessq  -6.724e-07   1.68e-07   -4.003    0.000   -1.02e-06  -3.28e-07\n    profits     0.2331      0.092     2.520    0.018      0.044      0.423\n    Omnibus: 11.916  Prob(Omnibus): 0.003  Skew: 0.764  Kurtosis: 6.378  Durbin-Watson: 1.848\n    Jarque-Bera (JB): 18.329  Prob(JB): 0.000105  Cond. No. 3.96e+08\n    ```\n    (a) \\$29,393\n    (b) \\$29.393 million\n    (c) \\$293,930\n    (d) \\$29.393\n    → [[Marginal Effects]]"
+      }
+     ],
+     "words": 173,
+     "symbols": [
+      "$t_i$",
+      "$p$, $n$",
+      "$s_j^2$",
+      "$r$",
+      "$e_i$, $\\widehat{e}_i$",
+      "$f = y_0 - \\hat{y}_0$",
+      "$Y$, $X$, $p$, $q$, $a$, $b$"
+     ]
+    },
+    {
+     "id": "multiple-choice-4",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "25. Based on the Mallows' Cp plot described below, which model is preferred? The plot has \"Subset Size\" (number of predictors) on the x-axis, from 1 to 3, and the Cp statistic on the y-axis. The approximate positions are:\n    | Subset size | Model | Cp (approx.) |\n    | --- | --- | --- |\n    | 1 | $x_1$ | 46 |\n    | 1 | $x_3$ | 18 |\n    | 1 | $x_2$ | 13 |\n    | 2 | $x_1$–$x_3$ | 19 |\n    | 2 | $x_1$–$x_2$ | 6 |\n    | 2 | $x_2$–$x_3$ | 2.5 |\n    | 3 | $x_1$–$x_2$–$x_3$ | 3.5 |\n\n    (a) $x_1$–$x_3$\n    (b) $x_1$–$x_2$–$x_3$\n    (c) $x_1$\n    (d) $x_2$–$x_3$\n    → [Model Selection Criteria](note:model-selection-criteria)"
+      }
+     ],
+     "words": 70,
+     "symbols": [
+      "$x_2$, $x_3$"
+     ]
+    },
+    {
+     "id": "multiple-choice-5",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "26. Mallows' Cp results for predicting house prices with 2 predictors: Model 1, S–A (size, age): 20; Model 2, S–L (size, location): 7; Model 3, S–C (size, condition): 33; Model 4, A–L (age, location): 14; Model 5, A–C (age, condition): 40; Model 6, L–C (location, condition): 17. Which 2-predictor model is the best one? → [Model Selection Criteria](note:model-selection-criteria)\n    (a) S–A\n    (b) A–L\n    (c) S–L\n    (d) L–C"
+      }
+     ],
+     "words": 75,
+     "symbols": []
+    }
+   ]
+  }
+ ],
+ "practice": {
+  "answers": "econ-430-fall-2025-midterm-answers",
+  "items": [
+   {
+    "id": "q1",
+    "number": "1",
+    "group": "Q1: law-school salaries (log models)",
+    "prompt": "The median starting salary of new law-school graduates is modelled across $N = 136$ schools. $SALARY$ is the median salary (dollars), $LSAT$ the class's median LSAT score, $GPA$ its median college GPA, $LIBVOL$ the number of volumes in the law library, $COST$ the annual cost of attending (dollars) and $RANK$ the school's ranking ($RANK = 1$ is best). The estimated model is $\\widehat{\\log(SALARY)} = 8.34 + 0.0047\\,LSAT + 0.248\\,GPA + 0.095\\log(LIBVOL) + 0.038\\log(COST) - 0.0033\\,RANK$, with $R^2 = 0.842$, and every coefficient is significant at $\\alpha = 0.05$. (a) Interpret the coefficient on $GPA$. → [Functional Forms and Elasticities](note:functional-forms-and-elasticities)",
+    "answer": "Holding LSAT, library size, cost and rank fixed, a school whose graduating class has a one-point higher median GPA is associated with about **24.8%** higher median starting salary. One GPA point is a large change, so also give the exact effect: **28.1%**, from $100(e^{0.248} - 1)$.\n\n*How to get there*\n1. The log is on the left and $GPA$ is in levels, so the model is log-linear: the coefficient is a semi-elasticity. Multiply by 100 to get the % change in $SALARY$ per one-unit change in $GPA$: $100 \\times 0.248 = 24.8\\%$.\n2. The \"multiply by 100\" reading is an approximation for small changes. A whole GPA point is most of the range of class medians, so give the exact effect too: $100(e^{0.248} - 1) = 28.1\\%$.\n3. It is a multiple regression, so say \"holding the other regressors fixed\". The data are 136 schools, so say \"associated with\", not \"causes\".\n\n*Watch out:* reading 0.248 as \"a 1% rise in GPA\" (that would need $\\log(GPA)$), as 0.248%, or as \\$0.248. And dropping the units: the outcome is the *median* salary, in percent, per GPA *point*.\n\n*See it:* [Econ 430 L5 Estimating Nonlinear Relationships](note:econ-430-l5-estimating-nonlinear-relationships#4-reading-log-models): the log-linear row of the table, and the sentence above it with the exact effect $100(e^{\\beta_2} - 1)$.",
+    "rubric": [
+     "Identifies the log-linear (semi-elasticity) form",
+     "One more GPA point → about 24.8% higher median salary",
+     "Exact effect for a large change: $100(e^{0.248} - 1) = 28.1\\%$",
+     "\"Holding LSAT, library volumes, cost and rank fixed\""
+    ],
+    "links": [
+     "functional-forms-and-elasticities",
+     "econ-430-l5-estimating-nonlinear-relationships"
+    ]
+   },
+   {
+    "id": "q2",
+    "number": "2",
+    "group": "Q1: law-school salaries (log models)",
+    "prompt": "Same model: $\\widehat{\\log(SALARY)} = 8.34 + 0.0047\\,LSAT + 0.248\\,GPA + 0.095\\log(LIBVOL) + 0.038\\log(COST) - 0.0033\\,RANK$ ($N = 136$, $R^2 = 0.842$, all coefficients significant at 5%), where $SALARY$ is the median starting salary in dollars and $LIBVOL$ the number of volumes in the law library. (b) Interpret the coefficient on $\\log(LIBVOL)$. → [Functional Forms and Elasticities](note:functional-forms-and-elasticities)",
+    "answer": "Holding the other regressors fixed, a library with 1% more volumes is associated with about **0.095%** higher median starting salary (10% more volumes, about 0.95%). The coefficient is an elasticity, and a small one.\n\n*How to get there*\n1. Both $SALARY$ and $LIBVOL$ are in logs, so the coefficient is an elasticity: % change in $y$ per 1% change in $x$.\n2. 1% more volumes → 0.095% higher salary. Scaled to 10%: about 0.95% (exact $1.1^{0.095} - 1 = 0.91\\%$).\n3. Add \"holding LSAT, GPA, cost and rank fixed\".\n\n*Watch out:* reading it as a semi-elasticity (\"one more volume raises salary 9.5%\") or in dollars. A one-unit change in $\\log(LIBVOL)$ is not \"one more book\".\n\n*See it:* [Econ 430 L5 Estimating Nonlinear Relationships](note:econ-430-l5-estimating-nonlinear-relationships#4-reading-log-models): the log-log row, whose elasticity column is just $\\beta_2$.",
+    "rubric": [
+     "Identifies the log-log form: the coefficient is an elasticity",
+     "1% more library volumes → about 0.095% higher median salary",
+     "\"Holding the other regressors fixed\""
+    ],
+    "links": [
+     "functional-forms-and-elasticities",
+     "econ-430-l5-estimating-nonlinear-relationships"
+    ]
+   },
+   {
+    "id": "q3",
+    "number": "3",
+    "group": "Q2: functional form (logs, RESET, Box-Cox)",
+    "prompt": "(a) For a simple linear regression model, give two reasons why we might take the log of $y$ instead of just regressing $y$ on $x$. → [Box-Cox and Power Transformations](note:box-cox-and-power-transformations)",
+    "answer": "(i) When $y$ is strongly right-skewed or spans orders of magnitude (wages, incomes, firm sizes), the log compresses it, so a few huge values don't dominate the fit and the residuals are closer to normal. (ii) When the spread of the errors grows with the level of $y$, the log often makes the variance roughly constant. A third reason: the slope then reads as a percentage change, and a relationship that curves in levels (growth at a constant rate) can become a straight line in logs.\n\n*How to get there*\n1. Think of what the raw $y$ looks like: a long right tail and a fan-shaped residual plot are the two classic signs.\n2. For each reason, say what goes wrong in levels and what the log changes.\n3. Add that the log needs $y > 0$.\n\n*Watch out:* \"to raise $R^2$\" earns nothing. $R^2$ for $y$ and for $\\ln y$ measure different variations and cannot be compared. Logging also cannot fix an omitted variable or a $y$ that takes zero or negative values.\n\n*See it:* [Econ 430 L5 Estimating Nonlinear Relationships](note:econ-430-l5-estimating-nonlinear-relationships#3-why-take-logs): infant mortality is sharply curved against GDP per capita in levels and close to a straight line in logs.",
+    "rubric": [
+     "Reason 1: skewed $y$ spanning magnitudes; the log compresses it and makes residuals more symmetric",
+     "Reason 2: error spread growing with the level; the log stabilises the variance",
+     "(Or) percentage interpretation / linearising a proportional relationship",
+     "No credit for \"a higher $R^2$\""
+    ],
+    "links": [
+     "box-cox-and-power-transformations",
+     "econ-430-l5-estimating-nonlinear-relationships"
+    ]
+   },
+   {
+    "id": "q4",
+    "number": "4",
+    "group": "Q2: functional form (logs, RESET, Box-Cox)",
+    "prompt": "(b) A wage regression with squares and an interaction is estimated, then tested as below. Interpret the test result and give your recommendation(s).\n ```text\n wage_mod = smf.ols('wage ~ educ + exper + I(educ**2) + I(exper**2) + exper:educ', data=wage_data).fit()\n reset_result = linear_reset(wage_mod, power=2, test_type='exog', use_f=True)\n print(reset_result)\n <F test: F=13.963098152236137, p=8.11847486628449e-13, df_denom=517, df_num=5>\n ```\n → [[Ramsey RESET]]",
+    "answer": "RESET's null is that the functional form is correct (the squared regressors add nothing). $F = 13.96$ with $p \\approx 8 \\times 10^{-13}$ is far beyond any usual level (5% critical value $F_{5,517} = 2.23$), so we **reject**: the model is misspecified even though it already has squares and an interaction. Recommendation: more powers are not the fix; try $\\log(wage)$, look for omitted variables, check component-plus-residual plots, then re-run RESET.\n\n*How to get there*\n1. State $H_0$: no neglected nonlinearity. The `exog` version squares each of the 5 non-constant regressors and F-tests them jointly, so df_num = 5; df_denom = 517 is $N$ minus the columns of the augmented model.\n2. Decide: $p \\approx 8 \\times 10^{-13} < 0.05$, reject.\n3. RESET says the form is wrong, not what is wrong. The model already has $educ^2$, $exper^2$ and $exper \\times educ$, so adding higher powers is unlikely to help.\n4. Recommend: model $\\log(wage)$ (wage is right-skewed; in L6 a Box-Cox check on `wage1` wages also pointed to the log), add likely omitted variables (tenure, gender), read component-plus-residual plots to see which regressor bends, and re-run RESET on the new model.\n\n*Watch out:* reading the tiny p-value as \"the model fits well\", or flipping $H_0$. Beyond what the exam needs: squaring $educ$ and $exper$ just reproduces the $educ^2$ and $exper^2$ columns already in the model, so only 3 of the 5 squared columns are new. statsmodels still reports df_num = 5; a simulation with $N = 526$ reproduces df_denom = 517, that is, 9 independent columns.\n\n*See it:* [Econ 430 L10 Modeling Issues in Multiple Regression](note:econ-430-l10-modeling-issues-in-multiple-regression#6-model-misspecification-ramsey-reset): compare the straight line fitted to a quadratic ($F = 369{,}456$) with the family-income model's borderline $F = 2.60$ ($p = 0.051$).",
+    "rubric": [
+     "$H_0$: correct functional form (no omitted nonlinear terms)",
+     "Reads $F = 13.96$, $p \\approx 8 \\times 10^{-13}$ (5 and 517 df): reject at 5%",
+     "Conclusion: the model is misspecified",
+     "A sensible recommendation (log wage, omitted variables, CR plots) and re-test"
+    ],
+    "links": [
+     "ramsey-reset",
+     "econ-430-l10-modeling-issues-in-multiple-regression"
+    ]
+   },
+   {
+    "id": "q5",
+    "number": "5",
+    "group": "Q2: functional form (logs, RESET, Box-Cox)",
+    "prompt": "(c) A Box-Cox transformation of the dependent variable gives: estimated $\\lambda = 0.275$, rounded $0.3$, 95% CI $[0.12, 0.48]$; LR test for $\\lambda = 0$ (log): p-value $= 0.058$; LR test for $\\lambda = 1$ (no transformation): p-value $= 0.0012$. Based on these results, what transformation of the dependent variable should be applied? Justify your answer. → [Box-Cox and Power Transformations](note:box-cox-and-power-transformations)",
+    "answer": "Transform $y$: the LR test rejects \"no transformation\" ($\\lambda = 1$, $p = 0.0012$). The best-supported choice is the rounded power **$\\lambda = 0.3$**, $y^{0.3}$, between the log and the square root: it is the estimate and sits inside the 95% CI $[0.12, 0.48]$, which excludes both 0 and 1. The log is borderline: its LR test does not reject at 5% ($p = 0.058$), so it is a defensible second choice for an easy percentage reading, but only barely, and 0 is outside the interval.\n\n*How to get there*\n1. $\\lambda = 1$: $p = 0.0012 < 0.05$, so reject leaving $y$ untransformed (LR statistic about 10.5 against $\\chi^2_1$'s 3.84).\n2. Read the CI: $[0.12, 0.48]$ contains the rounded estimate 0.3 and excludes 0 and 1.\n3. Read the log test: $p = 0.058 > 0.05$, not rejected (LR about 3.59 < 3.84), but close.\n4. Note the disagreement: 0 is outside the CI, yet the LR test does not reject it. The lecture's rule \"inside the interval ⇔ not rejected\" holds for the profile-likelihood interval; this CI must be a Wald-type interval ($\\hat{\\lambda} \\pm 1.96\\,se$), so the two can disagree near the edge.\n5. Decide: use $\\lambda = 0.3$; mention the log as a borderline alternative.\n\n*Watch out:* \"no transformation\" loses the marks outright. Choosing the log without saying it is borderline (outside the CI, $p$ only just above 0.05) also loses marks.\n\n*See it:* [Econ 430 L5 Estimating Nonlinear Relationships](note:econ-430-l5-estimating-nonlinear-relationships#5-box-cox-power-transformations): in the Box-Cox Ladder Explorer, find the rounded power the data do not reject. For infant mortality the CI $[-0.088, 0.182]$ contains 0, so the log is a clean choice. Here it is not.",
+    "rubric": [
+     "$\\lambda = 1$ rejected ($p = 0.0012$): transform $y$",
+     "CI $[0.12, 0.48]$ excludes 0 and 1 and contains 0.3: use $y^{0.3}$",
+     "Log test $p = 0.058$: not rejected but borderline; log only as a second choice",
+     "Clear final recommendation with its justification"
+    ],
+    "links": [
+     "box-cox-and-power-transformations",
+     "econ-430-l5-estimating-nonlinear-relationships"
+    ]
+   },
+   {
+    "id": "q6",
+    "number": "6",
+    "group": "Q3: vacation miles (t test and significance)",
+    "prompt": "A sample of 200 Chicago households is used to study how far households travel on vacation. The model is $MILES = \\beta_1 + \\beta_2\\ln(INCOME) + \\beta_3 AGE + \\beta_4 KIDS + e$, where $MILES$ is miles driven per year, $INCOME$ is in \\$1000 units, $AGE$ is the average age of the adult members and $KIDS$ the number of children. The estimates are $\\widehat{MILES} = -2832.75 + 815.31\\ln(INCOME) + 15.55\\,AGE - 79.41\\,KIDS$, $R^2 = 0.33$, with standard errors (432.52), (107.71), (3.81) and (27.4) in that order. (a) Given the number of observations and the number of parameters being estimated, do you anticipate any obvious problem(s) before estimating the model? → [Hypothesis Tests on Regression Coefficients](note:hypothesis-tests-on-regression-coefficients)",
+    "answer": "No obvious problem from the sample size. With $N = 200$ and $K = 4$ coefficients (intercept and three slopes) there are $N - K = 196$ degrees of freedom, plenty to estimate four parameters and $\\sigma^2$ precisely. The one thing to check first is that every household has $INCOME > 0$, since $\\ln(INCOME)$ is undefined otherwise.\n\n*How to get there*\n1. Count the parameters, including the intercept: $K = 4$.\n2. Degrees of freedom: $200 - 4 = 196$.\n3. Too few degrees of freedom (N close to K) gives imprecise estimates of $\\sigma^2$ and wide intervals, and a perfect fit at $N = K$. With 196 there is no such problem, and $t$ critical values are close to the normal's.\n\n*Watch out:* leaving out the intercept ($K = 3$, 197 df). And don't invent a problem: $R^2 = 0.33$ is not a sample-size issue.\n\n*See it:* [Econ 430 L3 The Method of Least Squares](note:econ-430-l3-the-method-of-least-squares#7-the-distribution-of-the-estimators): in the OLS Sampling Distribution widget, raise the number of households from 40 and watch the histogram of $b_2$ narrow.",
+    "rubric": [
+     "$K = 4$ including the intercept; $N - K = 196$",
+     "Concludes there is no small-sample (degrees-of-freedom) problem",
+     "(Optional) notes $INCOME$ must be positive for the log"
+    ],
+    "links": [
+     "hypothesis-tests-on-regression-coefficients",
+     "econ-430-l3-the-method-of-least-squares"
+    ]
+   },
+   {
+    "id": "q7",
+    "number": "7",
+    "group": "Q3: vacation miles (t test and significance)",
+    "prompt": "Same data ($N = 200$ households) and model: $\\widehat{MILES} = -2832.75 + 815.31\\ln(INCOME) + 15.55\\,AGE - 79.41\\,KIDS$, standard errors (432.52), (107.71), (3.81), (27.4), $INCOME$ in \\$1000s. (b) Using a 5% significance level, test the hypothesis that there is no relationship between miles driven per year and income against the alternative that the relationship is positive. Assume $t_{crit} = 1.645$. → [Hypothesis Tests on Regression Coefficients](note:hypothesis-tests-on-regression-coefficients)",
+    "answer": "$H_0: \\beta_2 = 0$ against $H_1: \\beta_2 > 0$. $t = 815.31/107.71 = 7.57 > 1.645$, so we **reject $H_0$** at 5%: miles driven rise with income (about 8.2 more miles a year per 1% more income, holding age and kids fixed).\n\n*How to get there*\n1. Write the hypotheses in $\\beta$'s, with the alternative pointing the way the question says (positive: right tail).\n2. $t = b_2/se(b_2) = 815.31/107.71 = 7.57$.\n3. Compare with the one-sided critical value: $7.57 > 1.645$. The exact $t_{0.95,\\,196} = 1.653$ ≈ 1.645 (the course's lessons always use the $t$ value; at 196 df the two agree).\n4. Conclude in words.\n\n*Watch out:* using the intercept's standard error (432.52), or a two-sided test ($H_1: \\beta_2 \\neq 0$, 1.96). The decision is the same here, but the rule is wrong and costs the mark.\n\n*See it:* [Econ 430 L3 The Method of Least Squares](note:econ-430-l3-the-method-of-least-squares#5-estimating-the-food-regression): the one-sided check compares $t$ with $t_{0.95,\\,38} = 1.686$, not the two-sided 2.024.",
+    "rubric": [
+     "$H_0: \\beta_2 = 0$ (or $\\le 0$), $H_1: \\beta_2 > 0$",
+     "$t = 815.31/107.71 = 7.57$",
+     "Compares with the one-sided 1.645 and rejects",
+     "Conclusion in words: a positive relationship between income and miles"
+    ],
+    "links": [
+     "hypothesis-tests-on-regression-coefficients",
+     "econ-430-l3-the-method-of-least-squares"
+    ]
+   },
+   {
+    "id": "q8",
+    "number": "8",
+    "group": "Q3: vacation miles (t test and significance)",
+    "prompt": "Same model: $\\widehat{MILES} = -2832.75 + 815.31\\ln(INCOME) + 15.55\\,AGE - 79.41\\,KIDS$ ($N = 200$), with standard error 27.4 on the $KIDS$ coefficient; $MILES$ is miles driven per year and $KIDS$ the number of children. (c) Briefly comment on the economic vs. statistical significance of the estimated coefficient on $KIDS$. → [Hypothesis Tests on Regression Coefficients](note:hypothesis-tests-on-regression-coefficients)",
+    "answer": "Statistically, the $KIDS$ coefficient is significant: $t = -79.41/27.4 = -2.90$, $|t| > 1.97$ ($p \\approx 0.004$). Economically, each extra child goes with about **79 fewer miles a year**, holding income and age fixed. That is modest: about 7% of the roughly 1,170 miles the model predicts for an illustrative household (income \\$70,000, adults aged 45, two children), and the 95% interval $[-133, -25]$ allows an effect as small as 25 miles.\n\n*How to get there*\n1. Statistical significance: $t = b_4/se(b_4) = -2.90$, beyond $\\pm 1.97$ (196 df), so the effect is not zero.\n2. Economic significance: read the size in the units of $y$: 79 miles per year per child.\n3. Compare it with something meaningful: a typical prediction (about 1,170 miles), or income: a 10% rise in income adds $815.31 \\ln(1.1) = 78$ miles. So one child is roughly offset by 10% more income.\n4. Say they are different questions: significance asks \"is it zero?\", economic significance asks \"does its size matter?\".\n\n*Watch out:* equating \"significant\" with \"important\", or judging size by $R^2 = 0.33$. $R^2$ says how much of the variation the whole model explains, not how big one coefficient is.\n\n*See it:* [Econ 430 L6 Indicator Variables and the OLS Workflow](note:econ-430-l6-indicator-variables-and-the-ols-workflow#3-the-seven-step-workflow): experience's slope has $t = 2.60$ and $p = 0.010$ but is worth 3 cents an hour: significant and small.",
+    "rubric": [
+     "$t = -2.90$: statistically significant at 5%",
+     "Size in units: about 79 fewer miles a year per child, holding income and age fixed",
+     "Judged against a typical value or another effect (modest)",
+     "States that the two kinds of significance can disagree; size is judged in units, not by $R^2$"
+    ],
+    "links": [
+     "hypothesis-tests-on-regression-coefficients",
+     "econ-430-l6-indicator-variables-and-the-ols-workflow"
+    ]
+   },
+   {
+    "id": "q9",
+    "number": "9",
+    "group": "Q4: forecasts, R² and interactions",
+    "prompt": "(a) Discuss two ways to reduce the variance of the forecast error, $\\mathrm{var}(f)$. In the simple linear regression $\\hat{y} = b_1 + b_2x$, at what value of $x$ is $\\mathrm{var}(f)$ smallest? → [Confidence vs Prediction Intervals](note:confidence-vs-prediction-intervals)",
+    "answer": "$\\mathrm{var}(f) = \\sigma^2\\left(1 + \\frac{1}{N} + \\frac{(x_0 - \\bar{x})^2}{\\sum(x_i - \\bar{x})^2}\\right)$. It falls with (1) a **larger sample** (smaller $1/N$, larger $\\sum(x_i - \\bar{x})^2$) and (2) **more spread in $x$** (larger $\\sum(x_i - \\bar{x})^2$); a better model with a smaller $\\sigma^2$ also helps. It is smallest at **$x_0 = \\bar{x}$**, where it equals $\\sigma^2(1 + 1/N)$.\n\n*How to get there*\n1. Write the formula and name the three terms in the brackets.\n2. Each way must shrink a term: $N$ shrinks $1/N$; $N$ and spread in $x$ both grow $\\sum(x_i - \\bar{x})^2$; a model with less unexplained noise lowers $\\sigma^2$.\n3. The last term is zero when $x_0 = \\bar{x}$, so that is where $\\mathrm{var}(f)$ is smallest.\n\n*Watch out:* the \"1\" term (the new observation's own error) does not shrink with more data, so a prediction interval never collapses to zero width. Answering \"at $x = 0$\" confuses the mean of $x$ with the origin.\n\n*See it:* [Econ 430 L3 The Method of Least Squares](note:econ-430-l3-the-method-of-least-squares#8-confidence-and-prediction-intervals): both bands are narrowest at mean income and widen toward the edges.",
+    "rubric": [
+     "States the $\\mathrm{var}(f)$ formula or names its terms",
+     "Two valid ways (larger $N$, more spread in $x$, smaller $\\sigma^2$), each with the term it shrinks",
+     "Smallest at $x_0 = \\bar{x}$"
+    ],
+    "links": [
+     "confidence-vs-prediction-intervals",
+     "econ-430-l3-the-method-of-least-squares"
+    ]
+   },
+   {
+    "id": "q10",
+    "number": "10",
+    "group": "Q4: forecasts, R² and interactions",
+    "prompt": "(b) In your own words, explain what $R^2$ is. → [Coefficient of Determination](note:coefficient-of-determination)",
+    "answer": "$R^2$ is the share of the sample variation of $y$ around its mean that the fitted regression accounts for: $R^2 = ESS/TSS = 1 - SSR/TSS$, between 0 and 1. It measures fit only: it does not say the model is correct, that the effects are causal or that the coefficients are significant, and it can be compared only across models with the same $y$.\n\n*How to get there*\n1. Start from the total variation of $y$ around $\\bar{y}$ (TSS).\n2. Split it into the part the fitted line follows (ESS) and the leftover residuals (SSR).\n3. $R^2$ is the fraction explained. In a simple regression it equals the squared correlation of $x$ and $y$.\n4. Add one limit: it never falls when a regressor is added, and it can't compare $y$ with $\\ln y$.\n\n*Watch out:* \"the percentage of $y$ that is correct\" or \"the probability the model is right\". $R^2 = 0.84$ in Q1 does not make the GPA effect causal.\n\n*See it:* [Econ 430 L3 The Method of Least Squares](note:econ-430-l3-the-method-of-least-squares#2-least-squares): walk the OLS Line Fitter to the bottom of the SSR bowl. The SSR left there, as a share of the spread around $\\bar{y}$, is $1 - R^2$.",
+    "rubric": [
+     "Share of the variation in $y$ (around its mean) explained by the model",
+     "$ESS/TSS = 1 - SSR/TSS$, between 0 and 1",
+     "One limit: not causality or correctness; only same-$y$ comparisons; rises with added regressors"
+    ],
+    "links": [
+     "coefficient-of-determination",
+     "econ-430-l3-the-method-of-least-squares"
+    ]
+   },
+   {
+    "id": "q11",
+    "number": "11",
+    "group": "Q4: forecasts, R² and interactions",
+    "prompt": "(c) In simple terms, discuss the role that interaction variables play in multiple regression. → [Interaction Terms](note:interaction-terms)",
+    "answer": "An interaction (a product of two regressors) lets the effect of one regressor depend on the level of another. In $y = \\beta_1 + \\beta_2x + \\beta_3z + \\beta_4(x \\times z) + e$, the effect of $x$ is $\\beta_2 + \\beta_4z$, so it changes with $z$; without the term the model forces one slope for everyone.\n\n*How to get there*\n1. Say what it does in words: \"the effect of $x$ depends on $z$\".\n2. Show it: take the derivative, $\\partial E(y)/\\partial x = \\beta_2 + \\beta_4z$.\n3. Give an example: in L8 an extra 100 square feet is worth \\$7,664 elsewhere and \\$8,944 in University Town, and the effect of age on pizza spending is $-2.977 - 0.1232\\,INCOME$: each extra year of age goes with about \\$6 less pizza spending at \\$25,000 of income, and \\$14 less at \\$90,000.\n4. Note that with an interaction, $\\beta_2$ alone is the effect of $x$ only when $z = 0$.\n\n*Watch out:* reading $\\beta_2$ as \"the\" effect of $x$, or judging $x$'s importance by $\\beta_2$'s $t$ alone once the interaction is in the model.\n\n*See it:* [Econ 430 L8 Building Multiple Regression Models](note:econ-430-l8-building-multiple-regression-models#10-interaction-terms): the University Town houses get a steeper line than the others.",
+    "rubric": [
+     "The effect of one regressor depends on the level of another",
+     "Marginal effect $\\beta_2 + \\beta_4z$ (or an indicator that shifts a slope)",
+     "An example, or the point that $\\beta_2$ alone is the effect at $z = 0$"
+    ],
+    "links": [
+     "interaction-terms",
+     "econ-430-l8-building-multiple-regression-models"
+    ]
+   },
+   {
+    "id": "q12",
+    "number": "12",
+    "group": "Q5: wheat yield (choosing a form)",
+    "prompt": "Three equations model annual wheat yield in Canada, 1950–1997 (48 annual observations); *** marks an estimate significant at 5%.\n| Model | Estimated equation | (se) | $R^2$ |\n| --- | --- | --- | --- |\n| Linear | $\\hat{y}_t = 0.6954 + 0.0150\\,t$ | (0.0719)***, (0.0026)*** | 0.4245 |\n| Linear-log | $\\hat{y}_t = 0.5623 + 0.1696\\ln(t)$ | (0.1425)***, (0.0469)*** | 0.2254 |\n| Quadratic | $\\hat{y}_t = 0.7994 + 0.000338\\,t^2$ | (0.0485)***, (0.000048)*** | 0.5252 |\n\n(a) Based on the $R^2$ values, which equation is preferable? For your choice to be supported by AIC and BIC, what would need to happen with the respective AIC and BIC values? → [Model Selection Criteria](note:model-selection-criteria)",
+    "answer": "The **quadratic** is preferable: it has the highest $R^2$ (0.5252), and the comparison is valid because all three equations explain the same $y_t$. For AIC and BIC to support it, the quadratic must have the **lowest AIC and the lowest BIC** of the three. Here that is guaranteed: with the same $y$, $N = 48$ and $K = 2$, the penalties are equal, so AIC and BIC rank the models exactly as $R^2$ does.\n\n*How to get there*\n1. Check that $R^2$ is comparable: same dependent variable, so yes. Highest is the quadratic.\n2. Recall the rule: smaller AIC and BIC are better.\n3. $AIC = \\ln(SSE/N) + 2K/N$ and $BIC = \\ln(SSE/N) + K\\ln(N)/N$. With equal $N$ and $K$, only $SSE$ differs, and $SSE = (1 - R^2)\\,TSS$ with the same $TSS$.\n4. So the quadratic's AIC is below the linear's by $\\ln(0.5755/0.4748) = 0.19$, and the same holds for BIC.\n\n*Watch out:* \"AIC and BIC must be the highest\" (smaller is better). And BIC cannot pick a different model here: its extra penalty matters only when the models have different $K$.\n\n*See it:* [Econ 430 L10 Modeling Issues in Multiple Regression](note:econ-430-l10-modeling-issues-in-multiple-regression#7-model-selection-aic-and-bic): in the formulas, the $2K/N$ and $K\\ln(N)/N$ terms are identical when $K$ is.",
+    "rubric": [
+     "Quadratic, highest $R^2$",
+     "$R^2$ comparison valid: same $y$ in all three",
+     "Its AIC and BIC must be the lowest of the three",
+     "Same $y$, $N$ and $K$: AIC and BIC rank as $R^2$ does"
+    ],
+    "links": [
+     "model-selection-criteria",
+     "econ-430-l10-modeling-issues-in-multiple-regression"
+    ]
+   },
+   {
+    "id": "q13",
+    "number": "13",
+    "group": "Q5: wheat yield (choosing a form)",
+    "prompt": "Same three wheat-yield equations (48 annual observations, the same $y_t$ in each): linear in $t$ ($R^2 = 0.4245$), linear-log in $\\ln(t)$ ($R^2 = 0.2254$) and quadratic in $t^2$ ($R^2 = 0.5252$). (b) The residual normality tests are: Linear $JB = 0.878$, p-value $= 0.645$; Linear-log $JB = 2.778$, p-value $= 0.249$; Quadratic $JB = 0.416$, p-value $= 0.812$. Based on these values, which model seems most consistent with the normality assumption for the residuals? Explain your answer. → [Error Normality and Jarque-Bera](note:error-normality-and-jarque-bera)",
+    "answer": "None of the three rejects normality at 5% (every $p > 0.05$). The **quadratic** is the most consistent with normal residuals: it has the smallest $JB = 0.416$ and the largest p-value, 0.812. Failing to reject is not proof of normality, and with 48 observations the test has little power.\n\n*How to get there*\n1. JB's null is normal errors (skewness 0, kurtosis 3); under $H_0$, $JB \\sim \\chi^2_2$, with 5% critical value 5.99.\n2. All three statistics (0.878, 2.778, 0.416) are below 5.99, so none rejects.\n3. Smaller JB, larger p: less evidence against normality. The quadratic ranks first, then the linear, then the linear-log.\n\n*Watch out:* picking the largest JB or smallest p (the linear-log) as \"most normal\", or saying the quadratic's residuals \"are normal\".\n\n*See it:* [Econ 430 L5 Estimating Nonlinear Relationships](note:econ-430-l5-estimating-nonlinear-relationships#9-choosing-a-functional-form): the table's Jarque-Bera column, where only the food log-log model ($p = 0.017$) rejects.",
+    "rubric": [
+     "$H_0$: normal residuals; JB is $\\chi^2_2$",
+     "No model rejects at 5%",
+     "Quadratic: lowest JB, highest p, most consistent",
+     "Not rejecting ≠ proving normality (low power at 48 observations)"
+    ],
+    "links": [
+     "error-normality-and-jarque-bera",
+     "econ-430-l5-estimating-nonlinear-relationships"
+    ]
+   },
+   {
+    "id": "q14",
+    "number": "14",
+    "group": "Q6: R&D and revenue (log-log at the means)",
+    "prompt": "A log-log regression relates annual R&D spending (in thousands of dollars) to firm revenue (in millions of dollars): $\\widehat{\\ln(R\\&D)} = 3.456 + 0.312\\ln(REVENUE)$, with $N = 185$ and $R^2 = 0.287$. In this sample, average annual R&D spending is \\$2.15 million and average annual revenue is \\$8.34 billion. (a) Evaluate the slope at the point $(\\overline{REVENUE}, \\overline{R\\&D})$. → [Functional Forms and Elasticities](note:functional-forms-and-elasticities)",
+    "answer": "The slope at the means is about **0.080**: one more million dollars of revenue goes with about **\\$80** more R&D a year (R&D is in thousands, so 0.080 thousand dollars).\n\n*How to get there*\n1. In a log-log model the coefficient is the elasticity, so the slope is $dy/dx = \\beta_2\\,\\bar{y}/\\bar{x}$.\n2. Put both means in the model's units first: $\\overline{R\\&D} = \\$2.15$ million $= 2{,}150$ (thousands); $\\overline{REVENUE} = \\$8.34$ billion $= 8{,}340$ (millions).\n3. $0.312 \\times 2150/8340 = 0.0804$ thousand dollars of R&D per \\$1 million of revenue, about \\$80.\n\n*Watch out:* convert **each** mean to its own variable's unit. Mixing them (2,150 thousand over 8.34 billion) gives $0.312 \\times 2150/8.34 = 80.4$, read as \\$80,400: a thousand times too big. Using 2.15 over 8,340 gives 0.0000804, a thousand times too small.\n\n*See it:* [Econ 430 L5 Estimating Nonlinear Relationships](note:econ-430-l5-estimating-nonlinear-relationships#4-reading-log-models): the table's log-log row, slope $\\beta_2y/x$.",
+    "rubric": [
+     "Slope formula for log-log: $\\beta_2\\,\\bar{y}/\\bar{x}$",
+     "Means converted to the model's units (2,150 and 8,340)",
+     "0.0804, read as about \\$80 of R&D per \\$1 million of revenue"
+    ],
+    "links": [
+     "functional-forms-and-elasticities",
+     "econ-430-l5-estimating-nonlinear-relationships"
+    ]
+   },
+   {
+    "id": "q15",
+    "number": "15",
+    "group": "Q6: R&D and revenue (log-log at the means)",
+    "prompt": "Same model: $\\widehat{\\ln(R\\&D)} = 3.456 + 0.312\\ln(REVENUE)$ ($N = 185$, $R^2 = 0.287$), R&D in thousands of dollars and revenue in millions; average R&D is \\$2.15 million and average revenue \\$8.34 billion. (b) Compute the elasticity and interpret it. → [Functional Forms and Elasticities](note:functional-forms-and-elasticities)",
+    "answer": "The elasticity is **0.312**, the same at the means as anywhere: a 1% increase in revenue is associated with about a 0.31% increase in R&D spending. It is inelastic (below 1): R&D grows less than proportionally with revenue, so larger firms spend a smaller share of revenue on R&D.\n\n*How to get there*\n1. In a log-log model the elasticity is the slope coefficient, constant along the curve.\n2. Check with the slope from item 14: $0.0804 \\times 8340/2150 = 0.312$.\n3. Interpret it in % terms; for a 10% rise in revenue, about 3.1% more R&D (exact $1.1^{0.312} - 1 = 3.0\\%$).\n\n*Watch out:* applying the linear-model formula $\\beta_2\\,\\bar{x}/\\bar{y}$ to the log coefficient: $0.312 \\times 8340/2150 = 1.21$, which wrongly calls R&D elastic. And \"a \\$1 million rise in revenue raises R&D by 0.312\" mixes up slope and elasticity.\n\n*See it:* [Econ 430 L5 Estimating Nonlinear Relationships](note:econ-430-l5-estimating-nonlinear-relationships#4-reading-log-models): the elasticity column, where the log-log row is just $\\beta_2$.",
+    "rubric": [
+     "Elasticity = 0.312, constant in a log-log model",
+     "1% more revenue → about 0.31% more R&D",
+     "Inelastic: R&D rises less than proportionally (association, not causation)"
+    ],
+    "links": [
+     "functional-forms-and-elasticities",
+     "econ-430-l5-estimating-nonlinear-relationships"
+    ]
+   },
+   {
+    "id": "q16",
+    "number": "16",
+    "group": "Q7: the residual maker",
+    "prompt": "Let $\\mathbf{X}$ be an $n \\times k$ matrix with full column rank, and let $\\mathbf{M} = \\mathbf{I} - \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$ be the residual maker matrix of OLS. Write an expression for the product $\\mathbf{M}\\mathbf{X}$ and simplify it as much as possible, showing each algebraic step. → [Projection Matrix and Residual Maker](note:projection-matrix-and-residual-maker)",
+    "answer": "$\\mathbf{M}\\mathbf{X} = \\mathbf{0}$, the $n \\times k$ zero matrix:\n\n$$\\mathbf{M}\\mathbf{X} = [\\mathbf{I} - \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}']\\mathbf{X} = \\mathbf{X} - \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}(\\mathbf{X}'\\mathbf{X}) = \\mathbf{X} - \\mathbf{X}\\mathbf{I}_k = \\mathbf{0}$$\n\n*How to get there*\n1. Distribute: $\\mathbf{M}\\mathbf{X} = \\mathbf{I}\\mathbf{X} - \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{X}$.\n2. $\\mathbf{X}$ has full column rank, so the $k \\times k$ matrix $\\mathbf{X}'\\mathbf{X}$ is invertible and $(\\mathbf{X}'\\mathbf{X})^{-1}$ exists.\n3. Matrix products are associative, so group the last three factors: $(\\mathbf{X}'\\mathbf{X})^{-1}(\\mathbf{X}'\\mathbf{X}) = \\mathbf{I}_k$, and $\\mathbf{X}\\mathbf{I}_k = \\mathbf{X}$.\n4. $\\mathbf{X} - \\mathbf{X} = \\mathbf{0}$ ($n \\times k$). Meaning: $\\mathbf{M}$ annihilates $\\mathbf{X}$. Regressing any column of $\\mathbf{X}$ on $\\mathbf{X}$ leaves zero residuals, which is why $\\mathbf{e} = \\mathbf{M}\\mathbf{y} = \\mathbf{M}\\boldsymbol{\\varepsilon}$.\n\n*Watch out:* \"cancelling\" $\\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$ to $\\mathbf{I}$, or writing $(\\mathbf{X}'\\mathbf{X})^{-1} = \\mathbf{X}^{-1}(\\mathbf{X}')^{-1}$: $\\mathbf{X}$ is not square and has no inverse. The answer is a zero *matrix*, not the number 0.\n\n*See it:* [Econ 430 L7 The Classical Linear Regression Model](note:econ-430-l7-the-classical-linear-regression-model#4-projection-and-the-residual-maker): the line \"Because $\\mathbf{M}\\mathbf{X} = \\mathbf{0}$, $\\mathbf{M}\\mathbf{y} = \\mathbf{M}\\boldsymbol{\\varepsilon}$\" is where this result is used.",
+    "rubric": [
+     "Expands $[\\mathbf{I} - \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}']\\mathbf{X}$",
+     "Full column rank ⇒ $(\\mathbf{X}'\\mathbf{X})^{-1}$ exists",
+     "$(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{X} = \\mathbf{I}_k$ by associativity",
+     "$\\mathbf{M}\\mathbf{X} = \\mathbf{0}$ ($n \\times k$), with a one-line meaning"
+    ],
+    "links": [
+     "projection-matrix-and-residual-maker",
+     "econ-430-l7-the-classical-linear-regression-model"
+    ]
+   },
+   {
+    "id": "q17",
+    "number": "17",
+    "group": "Q8: bootstrapping a regression",
+    "prompt": "Describe the use of bootstrapping in regression. How does it enhance estimation or inference compared with the usual OLS methods? → [Bootstrapping OLS](note:bootstrapping-ols)",
+    "answer": "The bootstrap treats the sample as a stand-in for the population: draw $N$ rows **with replacement** (whole rows, $y$ and $x$ together), refit OLS, and repeat $B$ times (say 1,000). The standard deviation of the $B$ estimates is the bootstrap standard error, and their 2.5th and 97.5th percentiles give a 95% interval. Compared with the usual OLS formulas, it needs no normal errors, it gives standard errors for any statistic (an $R^2$, $\\widehat{\\sigma}$, a turning point), and resampling rows keeps it valid under heteroskedasticity; it does not change the point estimates or fix a biased model.\n\n*How to get there*\n1. Describe the loop: resample rows with replacement, refit, store the estimates.\n2. Turn the $B$ estimates into inference: SD = standard error; percentiles = interval.\n3. List what it adds: no reliance on SR6 normality or the textbook variance formula; statistics with no formula; robustness to heteroskedasticity (pairs); a check on the textbook standard errors (if they agree, trust them).\n4. List one limit: same $b$ as OLS, so it cannot remove bias from omitted variables or a wrong form; it needs independent rows and a reasonable $N$; it does not measure out-of-sample error (that is cross-validation).\n\n*Watch out:* \"the bootstrap gives better or unbiased coefficients\". It improves the *inference* around the same OLS estimates. Resampling *without* replacement just reproduces the sample.\n\n*See it:* [Econ 430 L4 Cross-Validation and the Bootstrap](note:econ-430-l4-cross-validation-and-the-bootstrap#3-bootstrapping-a-regression): the 500 bootstrap lines fan out away from mean income; their spread is the uncertainty in the fit. For the food regression's $\\widehat{\\sigma}$ the lecture gets SE 9.72 and interval [66.77, 105.26].",
+    "rubric": [
+     "Resample rows with replacement and refit $B$ times",
+     "SE = SD of the bootstrap estimates; percentile interval",
+     "What it adds: no normality needed, any statistic, robust to heteroskedasticity, checks textbook SEs",
+     "A limit: same point estimates, no fix for bias or misspecification, not a measure of prediction error"
+    ],
+    "links": [
+     "bootstrapping-ols",
+     "econ-430-l4-cross-validation-and-the-bootstrap"
+    ]
+   },
+   {
+    "id": "q18",
+    "number": "18",
+    "group": "Q9: Breusch-Pagan vs White",
+    "prompt": "Explain the differences between the Breusch-Pagan test and the White test for heteroskedasticity in a regression model. Give the null hypothesis of each test, and say when one test might be preferred over the other. → [Heteroskedasticity Tests](note:heteroskedasticity-tests)",
+    "answer": "Both tests have the null of **homoskedasticity** (the same error variance for every observation) against a variance that changes with some variables. **Breusch-Pagan** regresses the squared residuals on variables $z$ *you choose* and uses $N \\times R^2 \\sim \\chi^2_{S-1}$. **White** uses the model's own regressors, their squares and cross-products, so it needs no guess about the form. Prefer BP when theory or a plot points to the variable that drives the variance (it has more power then); prefer White when the form is unknown and $N$ is large relative to its many terms.\n\n*How to get there*\n1. State the shared $H_0$: $\\mathrm{var}(e_i) = \\sigma^2$ for all $i$ (in BP's auxiliary regression, $\\alpha_2 = \\cdots = \\alpha_S = 0$).\n2. BP: $\\widehat{e}_i^{\\,2} = \\alpha_1 + \\alpha_2z_{i2} + \\cdots + \\alpha_Sz_{iS} + v_i$, statistic $NR^2 \\sim \\chi^2_{S-1}$. Its weakness is choosing the $z$'s: it can miss variance driven by something left out.\n3. White: the $z$'s are the regressors, their squares and cross-products. It catches nonlinear forms, but the degrees of freedom pile up (5 with just two regressors), which costs power in small samples. A rejection can also reflect a misspecified mean (missing squares), not only heteroskedasticity.\n4. Compare: specific suspicion → BP; no idea of the form and a big sample → White (or White without cross-products to save degrees of freedom).\n\n*Watch out:* stating the null as heteroskedasticity, or saying either test needs normal errors. Either way, a rejection calls for robust (HC) standard errors or WLS, not new coefficients.\n\n*See it:* [Econ 430 L11 Heteroskedasticity](note:econ-430-l11-heteroskedasticity#4-the-white-test): for the food regression, $z$ = income and income², $\\chi^2 = 7.56$ against $\\chi^2_{0.95,2} = 5.99$: rejected.",
+    "rubric": [
+     "Both: $H_0$ homoskedastic errors",
+     "BP: squared residuals on chosen $z$'s, $NR^2 \\sim \\chi^2_{S-1}$",
+     "White: regressors, squares and cross-products; no form assumed",
+     "When to prefer each: power with a known driver vs generality; White's many degrees of freedom; it also picks up misspecification"
+    ],
+    "links": [
+     "heteroskedasticity-tests",
+     "econ-430-l11-heteroskedasticity"
+    ]
+   },
+   {
+    "id": "q19",
+    "number": "19",
+    "group": "Q10: reading a Q-Q plot",
+    "prompt": "A researcher fits a linear regression and checks the residuals with a Q-Q plot against the normal. The points follow the 45° reference line closely in the middle, but curve upward at the right end and downward at the left end. (a) What does this pattern suggest about the distribution of the residuals? → [Q-Q Plot](note:q-q-plot)",
+    "answer": "The residuals have **heavy tails**: their distribution is roughly symmetric, but it has more extreme values in both directions than a normal (kurtosis above 3). An S-shape whose ends bend in opposite directions means heavy (or light) tails, not skew.\n\n*How to get there*\n1. Read each end against the line. Right end above it: the largest residuals are bigger than a normal predicts.\n2. Left end below it: the smallest residuals are more negative than a normal predicts.\n3. Both ends are further out than normal, in opposite directions, and the middle is on the line: symmetric heavy tails. Skew would bend *both* ends the same way.\n\n*Watch out:* calling this S-shape skew. And the reverse pattern (left end above, right end below) is *light* tails, as for a uniform.\n\n*See it:* [Econ 430 L1 Univariate Characterizations](note:econ-430-l1-univariate-characterizations#4-quantile-plots): in the Q-Q Plot Shape Explorer, pick the Student $t$ and lower its degrees of freedom. The left end drops below the line and the right end rises above it.",
+    "rubric": [
+     "Heavy tails (more extreme residuals than a normal)",
+     "Reasoned from both ends: left below, right above",
+     "Symmetric, so not skew"
+    ],
+    "links": [
+     "q-q-plot",
+     "econ-430-l1-univariate-characterizations"
+    ]
+   },
+   {
+    "id": "q20",
+    "number": "20",
+    "group": "Q10: reading a Q-Q plot",
+    "prompt": "Same residual Q-Q plot: on the 45° line in the middle, curving upward at the right end and downward at the left end. (b) How might this affect the assumptions of the linear regression model? → [Error Normality and Jarque-Bera](note:error-normality-and-jarque-bera)",
+    "answer": "It breaks the normality assumption (SR6). OLS is still unbiased and BLUE, since those need only SR1–SR5. But the exact $t$ and $F$ distributions, and so p-values and confidence and prediction intervals, are unreliable in small samples (in large samples the central limit theorem rescues the coefficient tests). The extreme residuals also pull the least-squares fit, so a few observations can drive the estimates.\n\n*How to get there*\n1. Name the assumption: errors normally distributed given $x$.\n2. Say what survives: unbiasedness and Gauss-Markov (BLUE) do not use normality.\n3. Say what breaks: exact small-sample inference. Prediction intervals for a single new $y$ rely on the error's own distribution, so their stated coverage can be wrong whatever the sample size.\n4. Say what heavy tails do to the fit: squared residuals give extreme points a large say.\n\n*Watch out:* \"OLS becomes biased\", or confusing this with heteroskedasticity, which is about the variance changing, not the shape of the tails.\n\n*See it:* [Econ 430 L3 The Method of Least Squares](note:econ-430-l3-the-method-of-least-squares#4-normality-and-error-correlation): normal errors are \"helpful but not required\". Notice what they buy (exact small-sample distributions) and what the central limit theorem replaces.",
+    "rubric": [
+     "Normality (SR6) is violated",
+     "OLS still unbiased and BLUE",
+     "$t$/$F$ tests and intervals unreliable in small samples; fine asymptotically for the coefficients",
+     "Outliers have a large influence on the fit"
+    ],
+    "links": [
+     "error-normality-and-jarque-bera",
+     "econ-430-l3-the-method-of-least-squares"
+    ]
+   },
+   {
+    "id": "q21",
+    "number": "21",
+    "group": "Q10: reading a Q-Q plot",
+    "prompt": "Same residual Q-Q plot: on the 45° line in the middle, curving upward at the right end and downward at the left end. (c) Suggest one data transformation or modelling adjustment that could help. → [Error Normality and Jarque-Bera](note:error-normality-and-jarque-bera)",
+    "answer": "First check for outliers and influential points (studentized residuals, leverage, Cook's distance), and correct or examine any that drive the fit. Then base inference on **bootstrap** (pairs) standard errors and percentile intervals, which do not need normal errors. If the tails come from a skewed $y$ that spans magnitudes, a log or Box-Cox transformation of $y$ can also help.\n\n*How to get there*\n1. Match the remedy to the diagnosis: symmetric heavy tails mean extreme residuals, so look at the points behind them first.\n2. Keep OLS but swap the inference: the bootstrap gives SEs and intervals without SR6.\n3. A transformation of $y$ helps when skew is the source; a log needs $y > 0$.\n4. Beyond the lectures: robust regression (least absolute deviations or Huber M-estimation) down-weights extreme residuals instead of squaring them.\n\n*Watch out:* deleting outliers just because they are large, or logging $y$ by reflex: a log fixes right skew, not symmetric heavy tails, and fails when $y \\le 0$.\n\n*See it:* [Econ 430 L6 Indicator Variables and the OLS Workflow](note:econ-430-l6-indicator-variables-and-the-ols-workflow#5-diagnostic-plots): in the Leverage and Influence Explorer, drag the extra point off the line, far to the right, and watch one observation tilt the fit.",
+    "rubric": [
+     "One concrete remedy (influence checks, bootstrap inference, transform $y$ if skewed, robust regression)",
+     "Why it addresses heavy tails or outliers",
+     "A limit or condition (log needs $y > 0$; don't drop points without cause)"
+    ],
+    "links": [
+     "error-normality-and-jarque-bera",
+     "econ-430-l6-indicator-variables-and-the-ols-workflow"
+    ]
+   },
+   {
+    "id": "q22",
+    "number": "22",
+    "group": "Multiple choice",
+    "prompt": "You estimate $y = \\beta_1 + \\beta_2x_2 + \\beta_3x_3 + e$ and find every estimate significant at $\\alpha = 5\\%$, with all other diagnostics consistent with MR1–MR5. You forgot $x_4$, so you then estimate $y = \\beta_1 + \\beta_2x_2 + \\beta_3x_3 + \\beta_4x_4 + e$, and the variances of all the estimates rise considerably. Which statement best describes a plausible reason? → [Omitted Variable Bias](note:omitted-variable-bias)\n(a) The variable $x_4$ is likely to be an irrelevant variable.\n(b) The variable $x_4$ is likely to be a relevant omitted variable.\n(c) The original model (the one without $x_4$) was most likely misspecified.\n(d) The correlations between $x_4$ and the other independent variables are expected to be very low.",
+    "answer": "**(a).** An irrelevant $x_4$ ($\\beta_4 = 0$) leaves OLS unbiased, but if it is correlated with $x_2$ and $x_3$ it inflates their variances.\n\n*How to get there*\n1. The first model already met MR1–MR5 with significant estimates, so nothing was missing: $x_4$ is most likely irrelevant.\n2. An irrelevant variable raises a coefficient's variance through its correlation with that regressor (the variance inflation factor).\n3. Distractors:\n   - (b) Adding a relevant omitted variable would correct the others' bias and usually lower the error variance, not inflate every variance.\n   - (c) The diagnostics were consistent with MR1–MR5, so there is no sign that the first model was misspecified.\n   - (d) With very low correlations the variances would hardly change: the inflation needs correlation.\n\n*Watch out:* \"the variances went up, so something was wrong with the first model\". Unbiased but less precise is exactly what an irrelevant regressor does.\n\n*See it:* [Econ 430 L10 Modeling Issues in Multiple Regression](note:econ-430-l10-modeling-issues-in-multiple-regression#4-irrelevant-variables): adding $XTRA\\_X5$ raises the standard error of $HE$ from 797 to 1,247 and barely moves the others.",
+    "rubric": [
+     "(a): $x_4$ irrelevant",
+     "Unbiased, but variances rise through correlation with $x_2$, $x_3$",
+     "Why (b), (c) and (d) fail"
+    ],
+    "links": [
+     "omitted-variable-bias",
+     "econ-430-l10-modeling-issues-in-multiple-regression"
+    ]
+   },
+   {
+    "id": "q23",
+    "number": "23",
+    "group": "Multiple choice",
+    "prompt": "In Big Andy's Burger Barn, $SALES = \\beta_1 + \\beta_2 PRICE + \\beta_3 ADVERT + e$, with $PRICE$ in dollars and both $ADVERT$ and $SALES$ in \\$1000s. What is a correct interpretation of the output below?\n```text\nandy = pd.read_csv('data/andy.csv')\nandy_mod = smf.ols('sales ~ price + advert', data=andy).fit()\nandy_mod_t1 = andy_mod.t_test(np.array([0., -1, 1]))\nprint(andy_mod_t1.summary())\n                             Test for Constraints\n==============================================================================\n                 coef    std err          t      P>|t|      [0.025      0.975]\n------------------------------------------------------------------------------\nc0             9.7704      1.307      7.477      0.000       7.166      12.375\n==============================================================================\n```\n(a) 95% confidence for the expected change in sales from holding price and advertising constant.\n(b) If we drop the price by \\$1 and increase advertising by \\$1000 we expect sales revenue to be \\$9.77.\n(c) We fail to reject the null hypothesis $H_0: -\\beta_2 + \\beta_3 = 0$ at the $\\alpha = 5\\%$ level of significance.\n(d) 95% confidence for the expected change in sales from dropping the price by \\$1 and increasing advertising by \\$1000.\n→ [[Delta Method]]",
+    "answer": "**(d).** `c0` estimates $-\\beta_2 + \\beta_3$: the expected change in sales from cutting the price by \\$1 and raising advertising by \\$1,000, about \\$9,770 (9.7704 thousand), with 95% interval [7.166, 12.375] thousand dollars.\n\n*How to get there*\n1. The vector `[0, -1, 1]` multiplies (intercept, $\\beta_2$, $\\beta_3$): it is $-\\beta_2 + \\beta_3$.\n2. Units: $-1$ on $PRICE$ is a \\$1 price cut; $+1$ on $ADVERT$ is \\$1,000 more advertising; $SALES$ is in \\$1000s, so 9.77 means \\$9,770.\n3. The last two columns are the 95% interval for that change ($9.7704 \\pm 1.993 \\times 1.307$ with 72 df).\n4. Distractors:\n   - (a) Holding price and advertising constant changes nothing; the output is about a specific change in both.\n   - (b) Wrong units (\\$9.77 instead of \\$9,770), and it describes the level of sales, not a change.\n   - (c) $t = 9.7704/1.307 = 7.48$ and $p = 0.000$: we reject $H_0: -\\beta_2 + \\beta_3 = 0$.\n\n*Watch out:* the units. Every Andy answer turns on $PRICE$ in dollars but $SALES$ and $ADVERT$ in thousands.\n\n*See it:* [Econ 430 L8 Building Multiple Regression Models](note:econ-430-l8-building-multiple-regression-models#3-linear-combinations-of-coefficients): `t_test([0, -0.4, 0.8])` prices the marketing plan at 4.653 (se 0.710), the same reading with different weights.",
+    "rubric": [
+     "(d)",
+     "`[0, -1, 1]` is $-\\beta_2 + \\beta_3$: a \\$1 price cut with \\$1,000 more advertising",
+     "Estimate in units (\\$9,770) and its 95% interval",
+     "Why (a), (b) and (c) fail"
+    ],
+    "links": [
+     "delta-method",
+     "econ-430-l8-building-multiple-regression-models"
+    ]
+   },
+   {
+    "id": "q24",
+    "number": "24",
+    "group": "Multiple choice",
+    "prompt": "R&D expenditure ($rd$) is related to sales ($sales$) and profits ($profits$), all in \\$1000s, with sales squared ($salessq$) included. Find the amount of sales after which R&D expenditure declines.\n```text\nOLS Regression Results   Dep. Variable: rd   No. Observations: 32   Df Residuals: 28   Df Model: 3\nR-squared: 0.944   Adj. R-squared: 0.938   F-statistic: 158.7   Prob (F-statistic): 1.13e-17\nLog-Likelihood: -183.70   AIC: 375.4   BIC: 381.3\n              coef     std err        t      P>|t|     [0.025     0.975]\nconst     -35.4851     19.576    -1.813    0.081    -75.584      4.614\nsales       0.0395      0.012     3.423    0.002      0.016      0.063\nsalessq  -6.724e-07   1.68e-07   -4.003    0.000   -1.02e-06  -3.28e-07\nprofits     0.2331      0.092     2.520    0.018      0.044      0.423\nOmnibus: 11.916  Prob(Omnibus): 0.003  Skew: 0.764  Kurtosis: 6.378  Durbin-Watson: 1.848\nJarque-Bera (JB): 18.329  Prob(JB): 0.000105  Cond. No. 3.96e+08\n```\n(a) \\$29,393\n(b) \\$29.393 million\n(c) \\$293,930\n(d) \\$29.393\n→ [[Marginal Effects]]",
+    "answer": "**(b).** R&D peaks where its slope in sales is zero: $sales^* = -b_{sales}/(2\\,b_{salessq}) = 0.0395/(2 \\times 6.724 \\times 10^{-7}) = 29{,}372$ thousand dollars, about **\\$29.4 million**. The exam's 29,393 comes from the unrounded estimates; both round to \\$29.4 million, so the grader expects (b).\n\n*How to get there*\n1. The marginal effect of sales is $b_{sales} + 2\\,b_{salessq}\\,sales$; set it to zero.\n2. $0.0395/(2 \\times 6.724 \\times 10^{-7}) = 29{,}372$ with the printed (rounded) coefficients.\n3. Sales are in \\$1000s: 29,372 thousand dollars is \\$29.4 million.\n4. Distractors:\n   - (a) \\$29,393 forgets that sales are in thousands.\n   - (c) \\$293,930 shifts the decimal one place: ten times the right number in thousands, still far from \\$29.4 million.\n   - (d) \\$29.393 divides by 1,000 instead of multiplying.\n\n*Watch out:* leaving out the 2 gives $0.0395/(6.724 \\times 10^{-7}) = 58{,}745$, twice the turning point.\n\n*See it:* [Econ 430 L8 Building Multiple Regression Models](note:econ-430-l8-building-multiple-regression-models#4-diminishing-returns-and-marginal-effects): in the Quadratic Marginal Effect Explorer, slide advertising to where the tangent is flat: $b_3 + 2b_4ADVERT = 0$ there.",
+    "rubric": [
+     "Turning point $-b_{sales}/(2\\,b_{salessq})$",
+     "29,372 (printed coefficients) or 29,393 (exam), in \\$1000s",
+     "Converted: about \\$29.4 million, (b)"
+    ],
+    "links": [
+     "marginal-effects",
+     "econ-430-l8-building-multiple-regression-models"
+    ]
+   },
+   {
+    "id": "q25",
+    "number": "25",
+    "group": "Multiple choice",
+    "prompt": "Based on the Mallows' Cp plot described below, which model is preferred? The plot has \"Subset Size\" (number of predictors) on the x-axis, from 1 to 3, and the Cp statistic on the y-axis. The approximate positions are:\n| Subset size | Model | Cp (approx.) |\n| --- | --- | --- |\n| 1 | $x_1$ | 46 |\n| 1 | $x_3$ | 18 |\n| 1 | $x_2$ | 13 |\n| 2 | $x_1$–$x_3$ | 19 |\n| 2 | $x_1$–$x_2$ | 6 |\n| 2 | $x_2$–$x_3$ | 2.5 |\n| 3 | $x_1$–$x_2$–$x_3$ | 3.5 |\n\n(a) $x_1$–$x_3$\n(b) $x_1$–$x_2$–$x_3$\n(c) $x_1$\n(d) $x_2$–$x_3$\n→ [Model Selection Criteria](note:model-selection-criteria)",
+    "answer": "**(d) $x_2$–$x_3$.** It has the lowest Cp in the plot (about 2.5), and that is at or below $p = 3$ (2 predictors + intercept), the sign of a model with little bias.\n\n*How to get there*\n1. The plot's \"subset size\" is the number of predictors, so $p$ = subset size + 1.\n2. Rule: choose the smallest Cp, preferring one close to or below $p$.\n3. $x_2$–$x_3$: Cp ≈ 2.5 ≤ 3, the lowest of all seven.\n4. Distractors:\n   - (a) $x_1$–$x_3$: Cp ≈ 19, far above $p = 3$, so badly biased.\n   - (b) $x_1$–$x_2$–$x_3$: with the lecture's formula the full model's Cp always equals its $p = 4$ (the plot reads about 3.5), so passing the rule says nothing. Its Cp is above 2.5 and it adds $x_1$ for no gain.\n   - (c) $x_1$: Cp ≈ 46, far above $p = 2$.\n\n*Watch out:* taking $p$ = subset size (then 2.5 > 2 looks too high), or picking the biggest model.\n\n*See it:* [Econ 430 L10 Modeling Issues in Multiple Regression](note:econ-430-l10-modeling-issues-in-multiple-regression#8-mallows-cp): in the family-income plot the winner, $HE$, $WE$, $KL6$, has Cp = 2.32 with $p = 4$.",
+    "rubric": [
+     "(d) $x_2$–$x_3$",
+     "Lowest Cp (≈ 2.5)",
+     "Compared with $p$ = predictors + 1 = 3"
+    ],
+    "links": [
+     "model-selection-criteria",
+     "econ-430-l10-modeling-issues-in-multiple-regression"
+    ]
+   },
+   {
+    "id": "q26",
+    "number": "26",
+    "group": "Multiple choice",
+    "prompt": "Mallows' Cp results for predicting house prices with 2 predictors: Model 1, S–A (size, age): 20; Model 2, S–L (size, location): 7; Model 3, S–C (size, condition): 33; Model 4, A–L (age, location): 14; Model 5, A–C (age, condition): 40; Model 6, L–C (location, condition): 17. Which 2-predictor model is the best one? → [Model Selection Criteria](note:model-selection-criteria)\n(a) S–A\n(b) A–L\n(c) S–L\n(d) L–C",
+    "answer": "**(c) S–L.** All six models have 2 predictors ($p = 3$), so compare Cp directly: S–L has the smallest, 7.\n\n*How to get there*\n1. Same size, so the penalty is the same: the smallest Cp wins.\n2. S–L = 7 beats A–L = 14, L–C = 17, S–A = 20, S–C = 33 and A–C = 40.\n3. Distractors: (a) S–A is 20, (b) A–L is 14 and (d) L–C is 17, all higher than 7.\n4. Even S–L has Cp = 7 > $p = 3$, a sign that some bias remains. A 3-predictor model might do better, but among these six S–L is best.\n\n*Watch out:* picking the largest Cp, or rejecting all six because none has Cp ≤ 3. The question asks for the best of these.\n\n*See it:* [Econ 430 L10 Modeling Issues in Multiple Regression](note:econ-430-l10-modeling-issues-in-multiple-regression#8-mallows-cp): in the table, the two-predictor subsets ($HE$, $WE$ at 8.47; $WE$, $KL6$ at 16.50) are compared the same way.",
+    "rubric": [
+     "(c) S–L",
+     "Same number of predictors: the smallest Cp (7) wins",
+     "(Bonus) Cp = 7 > $p = 3$: some bias remains"
+    ],
+    "links": [
+     "model-selection-criteria",
+     "econ-430-l10-modeling-issues-in-multiple-regression"
+    ]
+   }
+  ]
+ }
+}

@@ -298,10 +298,28 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "So the log is the natural choice. Read the interval and the tests together: a rounded value inside the 95% interval is exactly a value the 5% LR test does not reject."
+       "md": "So the log is the natural choice. Read the interval and the tests together. The interval here is the profile-likelihood one: every $\\lambda$ whose LR statistic $T$ stays below 3.84. For that interval, a rounded value inside the 95% interval is exactly a value the 5% LR test does not reject. Some software prints a Wald-type interval instead, $\\lambda_0 \\pm 1.96\\,se(\\lambda_0)$, which can disagree with the LR test for values near its edges."
       }
      ],
-     "words": 32,
+     "words": 69,
+     "symbols": [
+      "$\\lambda$",
+      "$T_{BC}(x,\\lambda)$",
+      "$T_{YJ}(x,\\lambda)$",
+      "$\\lambda_0$, $\\hat{\\lambda}$",
+      "$T$",
+      "$\\beta_1$, $\\beta_2$, $e_i$"
+     ]
+    },
+    {
+     "id": "testing-a-rounded-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**The borderline case.** A rounded power that the interval excludes but the LR test only barely fails to reject (a p-value just above 0.05) is a defensible second choice. Prefer the best-supported rounded power, the one deepest inside the interval with the largest p-value, and say that the alternative is borderline."
+      }
+     ],
+     "words": 52,
      "symbols": []
     }
    ]

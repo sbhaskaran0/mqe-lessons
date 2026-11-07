@@ -284,10 +284,10 @@
         {
          "answer": 4.98,
          "tol": 0.01,
-         "md": "that divides by the intercept alone, 55,777; use the predicted price at 3,000 square feet, 194,569"
+         "md": "that divides by the intercept alone, 55,777; use the predicted price at 3,000 square feet, 194,566"
         }
        ],
-       "why": "The slope is $2 \\times 0.015421 \\times 3{,}000 = 92.53$ dollars per square foot and the predicted price is $55{,}777 + 0.015421 \\times 9{,}000{,}000 = 194{,}569$. The elasticity is $92.53 \\times 3{,}000/194{,}569 = 1.43$: a 1% larger house sells for about 1.43% more. It sits between the lecture's 1.05 at 2,000 and 1.63 at 4,000 square feet.",
+       "why": "The slope is $2 \\times 0.015421 \\times 3{,}000 = 92.53$ dollars per square foot and the predicted price is $55{,}777 + 0.015421 \\times 9{,}000{,}000 = 194{,}566$. The elasticity is $92.53 \\times 3{,}000/194{,}566 = 1.43$: a 1% larger house sells for about 1.43% more. It sits between the lecture's 1.05 at 2,000 and 1.63 at 4,000 square feet.",
        "objectives": [
         2
        ]
@@ -627,6 +627,51 @@
       "$N$, $K$",
       "$t$, $F$"
      ]
+    },
+    {
+     "id": "4-reading-log-models-5",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "Across 240 metro areas, $\\widehat{\\ln(GIVING)} = 1.71 + 1.12\\ln(INCOME)$, where $GIVING$ is households' charitable giving in thousands of dollars and $INCOME$ is personal income in millions of dollars. Mean giving is \\$62.4 million and mean income \\$3.85 billion. Evaluate the slope $d\\,GIVING/d\\,INCOME$ at the means, in the model's units (thousands of dollars of giving per million dollars of income). Give two decimal places.",
+       "answer": 18.15,
+       "tol": 0.02,
+       "wrong": [
+        {
+         "answer": 18152.73,
+         "tol": 1.0,
+         "md": "that converts mean giving to thousands (62,400) but leaves mean income in billions (3.85): the ratio is 1,000 times too large"
+        },
+        {
+         "answer": 0.0182,
+         "tol": 0.0002,
+         "md": "that converts mean income to millions (3,850) but leaves mean giving in millions (62.4): the ratio is 1,000 times too small"
+        },
+        {
+         "answer": 1.12,
+         "tol": 0.0,
+         "md": "that is the elasticity, the same at every point; the slope is the elasticity times $\\bar{y}/\\bar{x}$"
+        },
+        {
+         "answer": 0.0691,
+         "tol": 0.0005,
+         "md": "the ratio is upside down: the slope is $b_2\\,\\bar{y}/\\bar{x}$, not $b_2\\,\\bar{x}/\\bar{y}$"
+        }
+       ],
+       "why": "Put both means in the model's units first: $\\bar{y} = 62{,}400$ (thousands) and $\\bar{x} = 3{,}850$ (millions). Then $dy/dx = b_2\\,\\bar{y}/\\bar{x} = 1.12 \\times 62{,}400/3{,}850 = 18.15$ thousand dollars per million: about \\$18,150 more giving per \\$1 million more income, or 1.8 cents per dollar. Converting both means scales both by 1,000 and leaves the ratio unchanged; converting only one of them is off by a factor of 1,000.",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 57,
+     "symbols": [
+      "$y$, $x$",
+      "$Y$, $X$, $p$, $q$, $a$, $b$",
+      "$\\bar{y}$",
+      "$N$, $K$"
+     ]
     }
    ]
   },
@@ -737,7 +782,7 @@
          "correct": true
         }
        ],
-       "why": "A rounded power is acceptable if the data cannot reject it. $\\lambda = 0$ is inside $[-0.088, 0.182]$ and its LR test gives $T = 0.46$, $p = 0.50$, while $\\lambda = 0.5$ ($T = 41.96$) and $\\lambda = 1$ ($T = 172.81$) are rejected at any usual level. The interval and the test are two views of the same evidence: a value inside the 95% interval is one the 5% test does not reject.",
+       "why": "A rounded power is acceptable if the data cannot reject it. $\\lambda = 0$ is inside $[-0.088, 0.182]$ and its LR test gives $T = 0.46$, $p = 0.50$, while $\\lambda = 0.5$ ($T = 41.96$) and $\\lambda = 1$ ($T = 172.81$) are rejected at any usual level. The interval and the test are two views of the same evidence: this is the profile-likelihood interval (every $\\lambda$ with $T < 3.84$), so a value inside it is exactly one the 5% LR test does not reject. Software that prints a Wald-type interval, $\\lambda_0 \\pm 1.96\\,se$, can disagree with the LR test near the interval's edges.",
        "objectives": [
         4
        ]
@@ -745,6 +790,7 @@
      ],
      "words": 84,
      "symbols": [
+      "$e$",
       "$\\lambda$",
       "$T_{BC}(x,\\lambda)$",
       "$Y$, $X$, $p$, $q$, $a$, $b$"
@@ -752,6 +798,47 @@
     },
     {
      "id": "5-box-cox-power-transformations-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "For the annual sales of 60 bookstores, Box-Cox gives $\\lambda_0 = 0.406$ with 95% profile-likelihood interval $[0.049, 0.771]$, and likelihood-ratio tests give $T = 4.99$ ($p = 0.026$) for $\\lambda = 0$, $T = 0.26$ ($p = 0.61$) for $\\lambda = 0.5$ and $T = 9.97$ ($p = 0.0016$) for $\\lambda = 1$. Which transformation should be applied?",
+       "options": [
+        {
+         "md": "The log ($\\lambda = 0$): sales are right-skewed, and the log is the standard fix",
+         "correct": false,
+         "feedback": "Here the data speak against it: 0 is outside the interval and its test rejects at 5% ($p = 0.026$). The log is only a borderline alternative, not rejected at 1%."
+        },
+        {
+         "md": "The square root ($\\lambda = 0.5$): it lies well inside the interval and its test is far from rejecting ($p = 0.61$); the log is a borderline second choice",
+         "correct": true
+        },
+        {
+         "md": "The power 0.406 itself, because it maximizes the likelihood",
+         "correct": false,
+         "feedback": "The maximum is estimated with noise, and the interval is wide; the convention is to round to a natural power the data do not reject, here 0.5."
+        },
+        {
+         "md": "None: the interval is so wide that no power is clearly supported",
+         "correct": false,
+         "feedback": "\"No transformation\" is $\\lambda = 1$, which lies outside the interval and is rejected ($T = 9.97$, $p = 0.0016$)."
+        }
+       ],
+       "why": "The interval $[0.049, 0.771]$ contains 0.5 but neither 0 nor 1. The LR tests agree, as they must for a profile-likelihood interval: $T = 0.26 < 3.84$ for the square root, while $T = 4.99 > 3.84$ for the log and $T = 9.97$ for no transformation. The square root is the best-supported rounded power. The log is rejected at 5% but not at 1% ($4.99 < 6.63$), so mention it as the borderline alternative.",
+       "objectives": [
+        4
+       ]
+      }
+     ],
+     "words": 83,
+     "symbols": [
+      "$\\lambda$",
+      "$T_{BC}(x,\\lambda)$",
+      "$Y$, $X$, $p$, $q$, $a$, $b$"
+     ]
+    },
+    {
+     "id": "5-box-cox-power-transformations-5",
      "blocks": [
       {
        "t": "prose",

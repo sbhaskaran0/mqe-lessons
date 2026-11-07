@@ -241,6 +241,17 @@
    "from": "law-of-iterated-expectations"
   },
   {
+   "tex": "$\\mathbf{x}$, $\\mathbf{a}$",
+   "meaning": "Column vectors",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(x)",
+    "bold(a)"
+   ],
+   "from": "matrix-calculus"
+  },
+  {
    "tex": "$\\mathbf{y}$, $\\hat{\\mathbf{y}}$",
    "meaning": "Outcome and fitted values",
    "kind": "Data / computed",
@@ -279,6 +290,18 @@
    "keys": [
     "n",
     "K"
+   ],
+   "from": "projection-matrix-and-residual-maker"
+  },
+  {
+   "tex": "$\\mathbf{a}$, $\\mathbf{b}$, $\\mathbf{p}$",
+   "meaning": "Vectors in the one-vector projection example",
+   "kind": "Vectors",
+   "typical": "—",
+   "keys": [
+    "bold(a)",
+    "bold(b)",
+    "bold(p)"
    ],
    "from": "projection-matrix-and-residual-maker"
   }
@@ -614,7 +637,7 @@
          "md": "that is $1/\\det(\\mathbf{X}'\\mathbf{X}) = 1/56$; the $2\\times2$ inverse swaps the diagonal, so the slope's entry is $N/\\det = 4/56$"
         }
        ],
-       "why": "$\\mathbf{X}'\\mathbf{X} = \\begin{pmatrix} N & \\sum x_i \\\\ \\sum x_i & \\sum x_i^2 \\end{pmatrix} = \\begin{pmatrix} 4 & 12 \\\\ 12 & 50 \\end{pmatrix}$, with determinant $200 - 144 = 56$. Math Prep L1's $2\\times2$ inverse puts $N = 4$ in the bottom-right, so the entry is $4/56 = 0.0714$. That matches this lecture's $\\mathrm{Var}(b_2 \\mid x) = \\sigma^2/\\sum(x_i - \\bar{x})^2$: here $\\sum(x_i - \\bar{x})^2 = 4 + 1 + 0 + 9 = 14$, and $1/14 = 0.0714$, because the determinant is $N\\sum(x_i - \\bar{x})^2$.",
+       "why": "$\\mathbf{X}'\\mathbf{X} = \\begin{pmatrix} N & \\sum x_i \\\\ \\sum x_i & \\sum x_i^2 \\end{pmatrix} = \\begin{pmatrix} 4 & 12 \\\\ 12 & 50 \\end{pmatrix}$, with determinant $200 - 144 = 56$. Math Prep L1's $2\\times2$ inverse puts $N = 4$ in the bottom-right, so the entry is $4/56 = 0.0714$. That matches L3's $\\mathrm{Var}(b_2 \\mid x) = \\sigma^2/\\sum(x_i - \\bar{x})^2$: here $\\sum(x_i - \\bar{x})^2 = 4 + 1 + 0 + 9 = 14$, and $1/14 = 0.0714$, because the determinant is $N\\sum(x_i - \\bar{x})^2$.",
        "objectives": [
         4
        ]
@@ -699,18 +722,57 @@
       {
        "t": "prose",
        "md": "The data split into the fitted values and the residuals, $\\mathbf{y} = \\mathbf{X}\\mathbf{b} + \\mathbf{e}$: a projection plus a residual, just as the population splits into the conditional mean plus a disturbance ([Projection Matrix and Residual Maker](note:projection-matrix-and-residual-maker)). The residual maker $\\mathbf{M} = \\mathbf{I} - \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$ turns $\\mathbf{y}$ into the residuals, $\\mathbf{e} = \\mathbf{M}\\mathbf{y}$, and the projection matrix $\\mathbf{P} = \\mathbf{I} - \\mathbf{M}$ turns it into the fitted values, $\\hat{\\mathbf{y}} = \\mathbf{P}\\mathbf{y}$, the projection of $\\mathbf{y}$ onto the column space of $\\mathbf{X}$. Both are symmetric and idempotent, $\\mathbf{P}\\mathbf{M} = \\mathbf{0}$, and $\\mathbf{M}$ is singular."
+      },
+      {
+       "t": "interactive",
+       "widget": "projection-onto-a-vector",
+       "state": {
+        "a1": 1,
+        "a2": 2,
+        "b1": 4,
+        "b2": 3,
+        "t": 0
+       },
+       "lock": [
+        "a1",
+        "a2",
+        "b1",
+        "b2"
+       ],
+       "show": [
+        "a_line",
+        "a_vec",
+        "b_vec",
+        "p_vec",
+        "e_vec",
+        "p_pt"
+       ],
+       "highlight": "e_vec",
+       "prompt": "With one regressor and $n = 2$, the arrow $\\mathbf{a}$ is the single column $\\mathbf{x}$ of $\\mathbf{X}$ and $\\mathbf{b}$ is $\\mathbf{y}$. Slide the coefficient $t$ until the residual $\\mathbf{y} - t\\mathbf{x}$ is perpendicular to the column",
+       "goal": {
+        "when": "abs(dot) < 0.2",
+        "success": "At $t = (\\mathbf{x}'\\mathbf{x})^{-1}\\mathbf{x}'\\mathbf{y} = 10/5 = 2$ the fitted vector is $\\mathbf{P}\\mathbf{y} = 2\\mathbf{x} = (2, 4)$ and the residual is $\\mathbf{M}\\mathbf{y} = (2, -1)$, with $\\mathbf{x}'\\mathbf{e} = 2 - 2 = 0$: perpendicular to the column, and the shortest possible residual, of length $\\sqrt{5} = 2.24$. That is $\\mathbf{X}'\\mathbf{e} = \\mathbf{0}$, the orthogonality that $\\mathbf{M}\\mathbf{X} = \\mathbf{0}$ guarantees.",
+        "hint": "With one column, the OLS coefficient $(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{y}$ is the number $\\mathbf{x}'\\mathbf{y}/\\mathbf{x}'\\mathbf{x}$. Here $\\mathbf{x} = (1, 2)$ and $\\mathbf{y} = (4, 3)$."
+       },
+       "objectives": [
+        5
+       ]
       }
      ],
-     "words": 65,
+     "words": 89,
      "symbols": [
+      "$\\mathbf{x}^0$, $g_k$",
       "$\\mathbf{y}$",
       "$\\mathbf{X}$",
       "$\\mathbf{b}$",
       "$\\mathbf{e}$",
       "$\\mathbf{I}$",
+      "$\\mathbf{x}$, $\\mathbf{a}$",
       "$\\mathbf{y}$, $\\hat{\\mathbf{y}}$",
       "$\\mathbf{P} = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$",
-      "$\\mathbf{M} = \\mathbf{I} - \\mathbf{P}$"
+      "$\\mathbf{M} = \\mathbf{I} - \\mathbf{P}$",
+      "$n$, $K$",
+      "$\\mathbf{a}$, $\\mathbf{b}$, $\\mathbf{p}$"
      ]
     },
     {
@@ -719,6 +781,7 @@
       {
        "t": "derive",
        "title": "Show that the residual maker annihilates $\\mathbf{X}$",
+       "goal": "Multiply the residual maker $\\mathbf{M} = \\mathbf{I}_n - \\mathbf{P}$ (under Where) by $\\mathbf{X}$ and simplify until nothing is left: $\\mathbf{M}\\mathbf{X} = \\mathbf{0}$. It is why OLS residuals are orthogonal to every regressor.",
        "objectives": [
         5
        ],
@@ -737,6 +800,11 @@
         {
          "tex": "$\\mathbf{M} = \\mathbf{I} - \\mathbf{P}$",
          "typical": "Trace $n - K$",
+         "from": "projection-matrix-and-residual-maker"
+        },
+        {
+         "tex": "$n$, $K$",
+         "typical": "—",
          "from": "projection-matrix-and-residual-maker"
         }
        ],
@@ -759,7 +827,49 @@
          "tex": "\\mathbf{M}\\mathbf{X} = \\mathbf{X} - \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{X}"
         },
         {
-         "md": "$(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{X} = \\mathbf{I}_K$, so $\\mathbf{M}\\mathbf{X} = \\mathbf{0}$",
+         "md": "The $K \\times K$ matrix $\\mathbf{X}'\\mathbf{X}$ has an inverse, and an inverse times its matrix is the identity: $(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{X} = \\mathbf{I}_K$",
+         "tex": "(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{X} = \\mathbf{I}_K",
+         "justify": {
+          "prompt": "Why does $(\\mathbf{X}'\\mathbf{X})^{-1}$ exist?",
+          "options": [
+           {
+            "md": "$\\mathbf{X}'\\mathbf{X}$ is symmetric, and every symmetric matrix is invertible",
+            "correct": false
+           },
+           {
+            "md": "$\\mathbf{X}$ has full column rank $K$: if $\\mathbf{X}'\\mathbf{X}\\mathbf{a} = \\mathbf{0}$, then $\\mathbf{a}'\\mathbf{X}'\\mathbf{X}\\mathbf{a} = \\lVert\\mathbf{X}\\mathbf{a}\\rVert^2 = 0$, so $\\mathbf{X}\\mathbf{a} = \\mathbf{0}$ and $\\mathbf{a} = \\mathbf{0}$; the $K \\times K$ matrix $\\mathbf{X}'\\mathbf{X}$ has rank $K$",
+            "correct": true
+           },
+           {
+            "md": "$n > K$ is enough: more observations than coefficients",
+            "correct": false
+           }
+          ]
+         }
+        },
+        {
+         "md": "Group the last three factors, then use step 2: $\\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{X} = \\mathbf{X}\\mathbf{I}_K$",
+         "tex": "\\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{X} = \\mathbf{X}\\mathbf{I}_K",
+         "justify": {
+          "prompt": "Which property lets you treat $(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{X}$ as one block inside $\\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{X}$?",
+          "options": [
+           {
+            "md": "Commutativity: the factors can be reordered so that $(\\mathbf{X}'\\mathbf{X})^{-1}$ meets $\\mathbf{X}'\\mathbf{X}$",
+            "correct": false
+           },
+           {
+            "md": "$\\mathbf{X}\\mathbf{X}' = \\mathbf{I}_n$, so the outer factors cancel",
+            "correct": false
+           },
+           {
+            "md": "Associativity of matrix multiplication: $\\mathbf{X}\\left[(\\mathbf{X}'\\mathbf{X})^{-1}(\\mathbf{X}'\\mathbf{X})\\right] = \\left[\\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\right](\\mathbf{X}'\\mathbf{X})$, so the product can be grouped either way without reordering",
+            "correct": true
+           }
+          ]
+         }
+        },
+        {
+         "md": "Since $\\mathbf{X}\\mathbf{I}_K = \\mathbf{X}$, step 1 becomes $\\mathbf{X} - \\mathbf{X}$: $\\mathbf{M}\\mathbf{X} = \\mathbf{0}$",
          "tex": "\\mathbf{M}\\mathbf{X} = \\mathbf{0}"
         }
        ],
@@ -782,11 +892,12 @@
        ]
       }
      ],
-     "words": 9,
+     "words": 35,
      "symbols": [
       "$K$",
       "$\\mathbf{X}$",
       "$\\mathbf{I}$",
+      "$\\mathbf{x}$, $\\mathbf{a}$",
       "$\\mathbf{P} = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$",
       "$\\mathbf{M} = \\mathbf{I} - \\mathbf{P}$",
       "$n$, $K$"
@@ -858,6 +969,7 @@
       {
        "t": "derive",
        "title": "Show that $\\mathrm{trace}(\\mathbf{M}) = n - K$",
+       "goal": "Compute the trace of the residual maker $\\mathbf{M} = \\mathbf{I}_n - \\mathbf{P}$ (under Where), using $\\mathrm{trace}(\\mathbf{AB}) = \\mathrm{trace}(\\mathbf{BA})$ on $\\mathbf{P}$. The answer, a count of observations minus coefficients, is the degrees of freedom that make $s^2$ unbiased.",
        "objectives": [
         5
        ],

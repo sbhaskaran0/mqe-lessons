@@ -446,7 +446,7 @@
       {
        "t": "check",
        "kind": "numeric",
-       "prompt": "2. What is the rank of $[\\mathbf{1},\\ NI,\\ S,\\ NI + S]$?",
+       "prompt": "2. $NI$ (non-labor income) and $S$ (labor income) are regressors with $\\mathbf{1}$, $NI$ and $S$ linearly independent. What is the rank of $[\\mathbf{1},\\ NI,\\ S,\\ NI + S]$?",
        "answer": 3.0,
        "tol": 0.1,
        "wrong": [
@@ -462,7 +462,7 @@
        ]
       }
      ],
-     "words": 6,
+     "words": 17,
      "symbols": [
       "$N$, $K$",
       "$NI$, $S$, $T$"

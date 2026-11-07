@@ -614,6 +614,51 @@
      "id": "5-diagnostic-plots-3",
      "blocks": [
       {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "A regression on $N = 25$ firms has residuals whose normal probability plot follows the line in the middle but bends below it at the left end and above it at the right end. Their skewness is 0.1 and kurtosis 5.8 (Jarque-Bera $p = 0.017$). What follows, and what is a sensible response?",
+       "options": [
+        {
+         "md": "The OLS estimates are biased, so the extreme observations should be dropped",
+         "correct": false,
+         "feedback": "Unbiasedness rests on SR1, SR2 and SR5, none of which involves normality. Dropping points only because they are extreme throws away information; check first whether they are errors or a different kind of firm."
+        },
+        {
+         "md": "OLS is no longer BLUE, so a different linear estimator should replace it",
+         "correct": false,
+         "feedback": "The Gauss-Markov theorem uses SR1 to SR5 only. Normality is not among them, so OLS is still the best linear unbiased estimator."
+        },
+        {
+         "md": "Take the log of $y$: that makes the residuals normal",
+         "correct": false,
+         "feedback": "A log pulls in a long right tail, which is skew. These tails are heavy on both sides and nearly symmetric (skewness 0.1), so a log would not remove them and could create a left skew."
+        },
+        {
+         "md": "OLS is still unbiased and BLUE, but with only 25 observations the exact $t$ and $F$ p-values and intervals are unreliable: check the extreme points for influence, and base inference on the bootstrap",
+         "correct": true
+        }
+       ],
+       "why": "The S-shape (left end below, right end above) and a kurtosis of 5.8 against a normal's 3 mean heavy tails, and $JB = \\frac{25}{6}\\left(0.1^2 + 2.8^2/4\\right) = 8.21$ rejects normality at 5%. SR6 fails, so the exact small-sample distributions of the $t$ and $F$ statistics no longer hold; with a large $N$ the CLT would rescue them, but 25 is small. Unbiasedness and BLUE do not use SR6. Because OLS squares the residuals, the few extreme ones pull hard on the fit, so look at their leverage and Cook's distance first. Then use bootstrap intervals, which do not assume normality ([Error Normality and Jarque-Bera](note:error-normality-and-jarque-bera)).",
+       "objectives": [
+        7
+       ]
+      }
+     ],
+     "words": 114,
+     "symbols": [
+      "$N$, $K$",
+      "$\\boldsymbol{\\varepsilon}$, $y$",
+      "$t_i$",
+      "$p$, $n$",
+      "$JB$",
+      "$F^{-1}(\\cdot)$",
+      "$B$"
+     ]
+    },
+    {
+     "id": "5-diagnostic-plots-4",
+     "blocks": [
+      {
        "t": "prose",
        "md": "Leverage measures how unusual an observation's $x$ is: the $i$-th diagonal $h_i$ of the projection matrix, flagged when $h_i > 2p/n$. Outliers are observations with studentized residuals beyond $\\pm 2$. The lecture's residual-leverage plot colours high-leverage points blue, outliers red and points that are both purple; its influence plots scale each point by Cook's distance or DFFITS."
       },
@@ -631,7 +676,7 @@
      ]
     },
     {
-     "id": "5-diagnostic-plots-4",
+     "id": "5-diagnostic-plots-5",
      "blocks": [
       {
        "t": "check",
@@ -670,7 +715,7 @@
      ]
     },
     {
-     "id": "5-diagnostic-plots-5",
+     "id": "5-diagnostic-plots-6",
      "blocks": [
       {
        "t": "interactive",
@@ -735,7 +780,7 @@
      ]
     },
     {
-     "id": "5-diagnostic-plots-6",
+     "id": "5-diagnostic-plots-7",
      "blocks": [
       {
        "t": "prose",
@@ -775,7 +820,7 @@
      ]
     },
     {
-     "id": "5-diagnostic-plots-7",
+     "id": "5-diagnostic-plots-8",
      "blocks": [
       {
        "t": "prose",
@@ -889,6 +934,17 @@
       "$b_1$, $b_2$",
       "$k$"
      ]
+    },
+    {
+     "id": "what-to-be-able-to-do-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "7. Say what heavy-tailed residuals do to OLS and its inference, and what to do about them."
+      }
+     ],
+     "words": 17,
+     "symbols": []
     }
    ]
   },

@@ -572,6 +572,7 @@
       {
        "t": "derive",
        "title": "Solve $PE = Y$ for equilibrium output",
+       "goal": "Solve the equilibrium condition, planned expenditure equals output, for output $Y$ in terms of autonomous spending ($a$, $T$, $I_P$, $G$) and the marginal propensity to consume $b$. It is the Keynesian cross's equilibrium, from which the multiplier is read.",
        "objectives": [
         3
        ],

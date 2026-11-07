@@ -225,6 +225,38 @@
    "from": "solow-growth-model"
   },
   {
+   "tex": "$\\eta$, $\\gamma$",
+   "meaning": "Growth rates of labor and of TFP in the extended model",
+   "kind": "Parameter",
+   "typical": "≈ 0.01, ≈ 0.02",
+   "keys": [
+    "eta",
+    "gamma"
+   ],
+   "from": "solow-growth-model"
+  },
+  {
+   "tex": "$\\tilde{\\gamma}$, $\\tilde{k}$",
+   "meaning": "Growth rate of labor-augmenting technology; capital per effective worker (extended model)",
+   "kind": "Parameter / endogenous",
+   "typical": "≈ 0.03",
+   "keys": [
+    "tilde(gamma)",
+    "tilde(k)"
+   ],
+   "from": "solow-growth-model"
+  },
+  {
+   "tex": "$\\tilde{A} = A^{1/(1-\\alpha)}$",
+   "meaning": "Labor-augmenting technology",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "tilde(A)"
+   ],
+   "from": "solow-model-with-technological-progress"
+  },
+  {
    "tex": "$U(c)$, $U'(c)$",
    "meaning": "Period utility and marginal utility",
    "kind": "Function",
@@ -276,16 +308,21 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "1. A Solow model with $F(K, L) = AK^{1/3}L^{2/3}$, saving rate 90%, depreciation 5%, no population or technology growth, $L = A = 1$. There are initially 1,000 units of capital. How much does the economy invest this period? How much capital depreciates? How much capital will it have next period? Based only on these answers, is the steady-state capital above or below 1,000? Explain. → [Solow Growth Model](note:solow-growth-model)\n2. Same model ($F = AK^{1/3}L^{2/3}$, $s = 0.9$, $\\delta = 0.05$), but now population grows 2% a year and technology $A$ grows 2% a year. Find steady-state capital, output and consumption per effective worker. → [Solow Model with Technological Progress](note:solow-model-with-technological-progress)"
+       "md": "1. A Solow model with $F(K, L) = AK^{1/3}L^{2/3}$, saving rate 90%, depreciation 5%, no population or technology growth, $L = A = 1$. There are initially 1,000 units of capital. How much does the economy invest this period? How much capital depreciates? How much capital will it have next period? Based only on these answers, is the steady-state capital above or below 1,000? Explain. → [Solow Growth Model](note:solow-growth-model)\n2. Same model ($F = AK^{1/3}L^{2/3}$, $s = 0.9$, $\\delta = 0.05$), but now population grows 2% a year and technology $A$ grows 2% a year. Use the course's conventions: effective workers are $\\tilde{A}L$ with $\\tilde{A} = A^{1/(1-\\alpha)}$ growing at $\\tilde{\\gamma} = \\gamma/(1-\\alpha)$, and break-even investment is $(\\delta + \\eta + \\tilde{\\gamma})\\tilde{k}$. Find steady-state capital, output and consumption per effective worker. → [Solow Model with Technological Progress](note:solow-model-with-technological-progress)"
       }
      ],
-     "words": 91,
+     "words": 105,
      "symbols": [
+      "$\\alpha$",
+      "$\\gamma$",
       "$L(r, Y)$",
       "$K$",
       "$A$",
       "$s$",
       "$\\delta$",
+      "$\\eta$, $\\gamma$",
+      "$\\tilde{\\gamma}$, $\\tilde{k}$",
+      "$\\tilde{A} = A^{1/(1-\\alpha)}$",
       "$F(K, L)$, $K$, $L$"
      ]
     },
@@ -426,7 +463,7 @@
     "id": "q2",
     "number": "2",
     "group": "A. Solow (α = 1/3, s = 0.9, δ = 0.05)",
-    "prompt": "Same model ($F = AK^{1/3}L^{2/3}$, $s = 0.9$, $\\delta = 0.05$), but now population grows 2% a year and technology $A$ grows 2% a year. Find steady-state capital, output and consumption per effective worker. → [Solow Model with Technological Progress](note:solow-model-with-technological-progress)",
+    "prompt": "Same model ($F = AK^{1/3}L^{2/3}$, $s = 0.9$, $\\delta = 0.05$), but now population grows 2% a year and technology $A$ grows 2% a year. Use the course's conventions: effective workers are $\\tilde{A}L$ with $\\tilde{A} = A^{1/(1-\\alpha)}$ growing at $\\tilde{\\gamma} = \\gamma/(1-\\alpha)$, and break-even investment is $(\\delta + \\eta + \\tilde{\\gamma})\\tilde{k}$. Find steady-state capital, output and consumption per effective worker. → [Solow Model with Technological Progress](note:solow-model-with-technological-progress)",
     "answer": "$\\tilde{\\gamma} = \\gamma/(1-\\alpha) = 0.02/(2/3) = 0.03$, so $\\delta + \\eta + \\tilde{\\gamma} = 0.05 + 0.02 + 0.03 = 0.10$.\n\n$$\\bar{k} = \\left(\\frac{0.9}{0.10}\\right)^{3/2} = 27, \\qquad \\tilde{y} = 27^{1/3} = 3, \\qquad \\tilde{c} = (1 - 0.9)(3) = 0.3$$",
     "rubric": [
      "Convert: $\\tilde{\\gamma} = 0.03$; break-even rate 0.10",
@@ -535,11 +572,11 @@
     "number": "9",
     "group": "C. The Covid recovery in three models",
     "prompt": "Same Covid story. Now use the search and matching model: which parameters probably changed (think of the Beveridge curve, vacancy supply and wage setting)? How would these changes move the model's variables? Are they consistent with the data, and which parts can and cannot be explained? → [Diamond-Mortensen-Pissarides Model](note:diamond-mortensen-pissarides-model)",
-    "answer": "**Search and matching** ([L5](note:econ-402a-l5-a-search-and-matching-model-of-the-labor-market)'s three curves):\n- **Higher unemployment benefits $b$**: the wage-setting curve shifts right — a higher wage at every tightness — which raises $w$ but lowers tightness $\\theta$ and so raises unemployment.\n- **Recovery in demand and productivity $y$**: vacancy supply and wage setting both shift right — more vacancies are worth posting — so $\\theta$ and $w$ rise and, along the Beveridge curve, unemployment falls.\n- **Possibly lower matching efficiency $A$** (workers and jobs mismatched after the pandemic): the Beveridge curve shifts out, so more vacancies coexist with any unemployment rate.\n\nConsistent with the data if the demand/productivity effect dominates: **job openings up, wages up, unemployment down** ✓, with higher benefits and lower $A$ adding to wage growth and vacancies. The model explains the labor-market patterns but not the GDP surge as such, interest rates or inflation.",
+    "answer": "**Search and matching** ([L5](note:econ-402a-l5-a-search-and-matching-model-of-the-labor-market)'s three curves):\n- **Higher unemployment benefits $b$**: the wage-setting curve shifts right — a higher wage at every tightness — which raises $w$ but lowers tightness $\\theta$ and so raises unemployment.\n- **Recovery in demand and productivity $y$**: vacancy supply and wage setting both shift right, so $w$ rises for sure; if VS shifts more than WS (as with L5's practice numbers: more vacancies are worth posting), $\\theta$ rises too and, along the Beveridge curve, unemployment falls.\n- **Possibly lower matching efficiency $A$** (workers and jobs mismatched after the pandemic): the Beveridge curve shifts out, so more vacancies coexist with any unemployment rate; VS also shifts left, which on its own lowers $\\theta$ and $w$.\n\nConsistent with the data if the demand/productivity effect dominates: **job openings up, wages up, unemployment down** ✓, with higher benefits adding to wage growth and lower $A$ letting vacancies stay high alongside unemployment. The model explains the labor-market patterns but not the GDP surge as such, interest rates or inflation.",
     "rubric": [
      "Identify parameters: benefits $b$ (WS), output per job $y$ (VS and WS), matching efficiency $A$ (BC, VS)",
      "Higher $b$: wages up, tightness down, unemployment up",
-     "Higher $y$: tightness and wages up, unemployment down, vacancies up",
+     "Higher $y$: wages up; if VS shifts more than WS, tightness and vacancies up and unemployment down",
      "Matches the data if the $y$ effect dominates; cannot explain GDP, rates or inflation"
     ],
     "links": [

@@ -1,8 +1,8 @@
 {
  "schema": "mqe-lessons/1",
- "generated_at": "2026-11-03T02:15:55Z",
+ "generated_at": "2026-11-07T03:09:02Z",
  "vault": {
-  "notes": 297,
+  "notes": 302,
   "errors": 0,
   "warnings": 13
  },
@@ -68,9 +68,12 @@
     "econ-430-l12-missing-data-and-the-regression-workflow"
    ],
    "practice": [
-    "econ-430-simple-linear-regression-practice-questions"
+    "econ-430-simple-linear-regression-practice-questions",
+    "econ-430-fall-2025-midterm-questions",
+    "econ-430-midterm-review-questions"
    ],
    "guides": [
+    "econ-430-midterm-review-guide",
     "math-prerequisites-for-econ-430"
    ]
   },
@@ -1938,9 +1941,9 @@
    ],
    "interactives": [],
    "checks": 0,
-   "words": 819,
-   "created": "2026-10-19T18:36:08Z",
-   "updated": "2026-10-19T18:42:14Z"
+   "words": 908,
+   "created": "2026-11-06T21:06:12Z",
+   "updated": "2026-11-06T21:06:12Z"
   },
   "box-cox-ladder-explorer": {
    "slug": "box-cox-ladder-explorer",
@@ -1976,6 +1979,10 @@
      {
       "kind": "shows",
       "note": "econ-430-l5-estimating-nonlinear-relationships"
+     },
+     {
+      "kind": "shows",
+      "note": "econ-430-midterm-review-guide"
      }
     ]
    },
@@ -5707,9 +5714,9 @@
    ],
    "interactives": [],
    "checks": 0,
-   "words": 1073,
-   "created": "2026-11-01T00:06:10Z",
-   "updated": "2026-11-01T00:06:10Z"
+   "words": 1108,
+   "created": "2026-11-03T03:51:38Z",
+   "updated": "2026-11-03T03:51:38Z"
   },
   "econ-402a-fall-2025-midterm-questions": {
    "slug": "econ-402a-fall-2025-midterm-questions",
@@ -5734,10 +5741,10 @@
    "figures": [],
    "interactives": [],
    "checks": 0,
-   "words": 702,
+   "words": 716,
    "pairedAnswers": "econ-402a-fall-2025-midterm-answers",
-   "created": "2026-11-01T00:06:10Z",
-   "updated": "2026-11-01T00:06:10Z"
+   "created": "2026-11-03T03:51:38Z",
+   "updated": "2026-11-03T03:51:38Z"
   },
   "econ-402a-l1-solow-growth-model": {
    "slug": "econ-402a-l1-solow-growth-model",
@@ -5873,7 +5880,7 @@
    ],
    "checks": 13,
    "derives": 6,
-   "words": 2217,
+   "words": 2249,
    "objectives": [
     {
      "n": 1,
@@ -5926,8 +5933,8 @@
      "tested": 7
     }
    ],
-   "created": "2026-10-16T18:52:07Z",
-   "updated": "2026-10-16T18:52:07Z"
+   "created": "2026-11-03T03:51:38Z",
+   "updated": "2026-11-06T19:04:25Z"
   },
   "econ-402a-l1-solow-revision-answers": {
    "slug": "econ-402a-l1-solow-revision-answers",
@@ -6139,7 +6146,7 @@
     }
    ],
    "created": "2026-10-16T20:07:54Z",
-   "updated": "2026-10-21T19:38:59Z"
+   "updated": "2026-11-06T19:04:25Z"
   },
   "econ-402a-l3-the-ramsey-cass-koopmans-model": {
    "slug": "econ-402a-l3-the-ramsey-cass-koopmans-model",
@@ -6282,7 +6289,7 @@
     }
    ],
    "created": "2026-10-22T01:55:48Z",
-   "updated": "2026-10-22T01:55:48Z"
+   "updated": "2026-11-06T19:04:25Z"
   },
   "econ-402a-l4-classical-labor-market": {
    "slug": "econ-402a-l4-classical-labor-market",
@@ -6427,7 +6434,7 @@
     }
    ],
    "created": "2026-10-21T19:53:42Z",
-   "updated": "2026-10-21T19:59:56Z"
+   "updated": "2026-11-06T19:04:25Z"
   },
   "econ-402a-l5-a-search-and-matching-model-of-the-labor-market": {
    "slug": "econ-402a-l5-a-search-and-matching-model-of-the-labor-market",
@@ -6556,7 +6563,7 @@
     }
    ],
    "created": "2026-10-22T01:57:58Z",
-   "updated": "2026-10-28T20:07:13Z"
+   "updated": "2026-11-06T19:04:25Z"
   },
   "econ-402a-l6-keynesian-economics": {
    "slug": "econ-402a-l6-keynesian-economics",
@@ -6715,7 +6722,7 @@
     }
    ],
    "created": "2026-10-28T20:07:00Z",
-   "updated": "2026-11-02T17:12:03Z"
+   "updated": "2026-11-06T19:04:25Z"
   },
   "econ-402a-l7-the-is-mp-pc-model": {
    "slug": "econ-402a-l7-the-is-mp-pc-model",
@@ -6846,8 +6853,8 @@
      "tested": 1
     }
    ],
-   "created": "2026-10-31T17:53:54Z",
-   "updated": "2026-10-31T17:53:54Z"
+   "created": "2026-11-03T03:51:38Z",
+   "updated": "2026-11-03T03:51:38Z"
   },
   "econ-402a-labor-market-exam-practice-answers": {
    "slug": "econ-402a-labor-market-exam-practice-answers",
@@ -6936,8 +6943,8 @@
    "interactives": [],
    "checks": 0,
    "words": 906,
-   "created": "2026-11-01T00:06:11Z",
-   "updated": "2026-11-01T00:06:11Z"
+   "created": "2026-11-03T03:51:38Z",
+   "updated": "2026-11-03T03:51:38Z"
   },
   "econ-402a-policy-exam-practice-questions": {
    "slug": "econ-402a-policy-exam-practice-questions",
@@ -6990,9 +6997,9 @@
    "figures": [],
    "interactives": [],
    "checks": 0,
-   "words": 899,
-   "created": "2026-11-01T00:06:12Z",
-   "updated": "2026-11-01T00:06:12Z"
+   "words": 933,
+   "created": "2026-11-03T03:51:39Z",
+   "updated": "2026-11-03T03:51:39Z"
   },
   "econ-402a-saving-exam-practice-questions": {
    "slug": "econ-402a-saving-exam-practice-questions",
@@ -7250,7 +7257,7 @@
     "lognormal-inequality-explorer"
    ],
    "checks": 5,
-   "words": 786,
+   "words": 799,
    "objectives": [
     {
      "n": 1,
@@ -7278,8 +7285,8 @@
      "tested": 1
     }
    ],
-   "created": "2026-10-16T19:14:09Z",
-   "updated": "2026-10-16T19:14:09Z"
+   "created": "2026-11-03T03:51:38Z",
+   "updated": "2026-11-03T03:51:38Z"
   },
   "econ-424-l2-between-group-inequality": {
    "slug": "econ-424-l2-between-group-inequality",
@@ -7461,7 +7468,7 @@
     }
    ],
    "created": "2026-10-16T19:18:19Z",
-   "updated": "2026-10-16T19:34:30Z"
+   "updated": "2026-11-06T19:04:25Z"
   },
   "econ-424-l3-total-and-within-group-inequality": {
    "slug": "econ-424-l3-total-and-within-group-inequality",
@@ -7630,7 +7637,7 @@
     }
    ],
    "created": "2026-10-16T19:22:37Z",
-   "updated": "2026-10-16T19:22:37Z"
+   "updated": "2026-11-06T19:04:25Z"
   },
   "econ-424-l4-international-trade-theory": {
    "slug": "econ-424-l4-international-trade-theory",
@@ -8225,8 +8232,8 @@
      "tested": 1
     }
    ],
-   "created": "2026-10-27T16:09:39Z",
-   "updated": "2026-10-27T16:15:54Z"
+   "created": "2026-11-03T03:51:38Z",
+   "updated": "2026-11-06T19:04:25Z"
   },
   "econ-430": {
    "slug": "econ-430",
@@ -8303,6 +8310,61 @@
    "created": "2026-10-17T19:26:03Z",
    "updated": "2026-10-19T18:42:14Z"
   },
+  "econ-430-fall-2025-midterm-answers": {
+   "slug": "econ-430-fall-2025-midterm-answers",
+   "name": "Econ 430 Fall 2025 Midterm Answers",
+   "title": "Econ 430 Fall 2025 Midterm Answers",
+   "type": "practice",
+   "path": "Courses/Econ 430/Practice/Econ 430 Fall 2025 Midterm Answers.md",
+   "summary": "Model answers and key steps for the Fall 2025 Econ 430 midterm; every number (t statistics, critical values, Box-Cox and RESET readings, the slope at the means, the turning point, Cp against p) checked in Python.",
+   "tags": [],
+   "aliases": [],
+   "requires": [],
+   "lessons": [],
+   "courses": [
+    "Econ 430"
+   ],
+   "course": "Econ 430",
+   "lecture": 12,
+   "edges": {
+    "out": [],
+    "in": []
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 5393,
+   "created": "2026-11-06T20:20:16Z",
+   "updated": "2026-11-06T20:20:16Z"
+  },
+  "econ-430-fall-2025-midterm-questions": {
+   "slug": "econ-430-fall-2025-midterm-questions",
+   "name": "Econ 430 Fall 2025 Midterm Questions",
+   "title": "Econ 430 Fall 2025 Midterm Questions",
+   "type": "practice",
+   "path": "Courses/Econ 430/Practice/Econ 430 Fall 2025 Midterm Questions.md",
+   "summary": "Last year's Econ 430 midterm as a mock exam: 21 short-answer parts and 5 multiple choice on log models, specification tests, inference, model selection and residual diagnostics, with worked answers and rubrics.",
+   "tags": [],
+   "aliases": [],
+   "requires": [],
+   "lessons": [],
+   "courses": [
+    "Econ 430"
+   ],
+   "course": "Econ 430",
+   "lecture": 12,
+   "edges": {
+    "out": [],
+    "in": []
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 1664,
+   "pairedAnswers": "econ-430-fall-2025-midterm-answers",
+   "created": "2026-11-06T20:26:39Z",
+   "updated": "2026-11-06T20:26:39Z"
+  },
   "econ-430-l1-univariate-characterizations": {
    "slug": "econ-430-l1-univariate-characterizations",
    "name": "Econ 430 L1 Univariate Characterizations",
@@ -8378,7 +8440,7 @@
     "q-q-plot-shape-explorer"
    ],
    "checks": 8,
-   "words": 1259,
+   "words": 1269,
    "objectives": [
     {
      "n": 1,
@@ -8411,8 +8473,8 @@
      "tested": 2
     }
    ],
-   "created": "2026-10-18T20:03:07Z",
-   "updated": "2026-10-18T20:03:07Z"
+   "created": "2026-11-03T03:51:38Z",
+   "updated": "2026-11-03T03:51:49Z"
   },
   "econ-430-l10-modeling-issues-in-multiple-regression": {
    "slug": "econ-430-l10-modeling-issues-in-multiple-regression",
@@ -8498,8 +8560,8 @@
    "interactives": [
     "ols-sampling-distribution"
    ],
-   "checks": 12,
-   "words": 1984,
+   "checks": 14,
+   "words": 2180,
    "objectives": [
     {
      "n": 1,
@@ -8529,12 +8591,12 @@
     {
      "n": 6,
      "md": "Interpret a RESET result and recommend what to do next.",
-     "tested": 1
+     "tested": 2
     },
     {
      "n": 7,
      "md": "Choose among models with AIC, BIC and Mallows' Cp, and compute Cp from regression output.",
-     "tested": 3
+     "tested": 4
     },
     {
      "n": 8,
@@ -8542,8 +8604,8 @@
      "tested": 1
     }
    ],
-   "created": "2026-10-19T18:36:04Z",
-   "updated": "2026-10-19T18:36:04Z"
+   "created": "2026-11-06T21:09:43Z",
+   "updated": "2026-11-06T21:09:43Z"
   },
   "econ-430-l11-heteroskedasticity": {
    "slug": "econ-430-l11-heteroskedasticity",
@@ -8645,8 +8707,8 @@
      "tested": 3
     }
    ],
-   "created": "2026-10-19T18:36:05Z",
-   "updated": "2026-10-19T18:36:05Z"
+   "created": "2026-11-03T03:51:38Z",
+   "updated": "2026-11-06T19:04:25Z"
   },
   "econ-430-l12-missing-data-and-the-regression-workflow": {
    "slug": "econ-430-l12-missing-data-and-the-regression-workflow",
@@ -8944,7 +9006,7 @@
    ],
    "checks": 16,
    "derives": 4,
-   "words": 1875,
+   "words": 1934,
    "objectives": [
     {
      "n": 1,
@@ -8992,8 +9054,8 @@
      "tested": 2
     }
    ],
-   "created": "2026-10-17T19:26:01Z",
-   "updated": "2026-10-17T19:32:41Z"
+   "created": "2026-11-07T03:06:40Z",
+   "updated": "2026-11-07T03:06:40Z"
   },
   "econ-430-l4-cross-validation-and-the-bootstrap": {
    "slug": "econ-430-l4-cross-validation-and-the-bootstrap",
@@ -9063,7 +9125,7 @@
     "ols-sampling-distribution"
    ],
    "checks": 6,
-   "words": 1128,
+   "words": 1140,
    "objectives": [
     {
      "n": 1,
@@ -9091,8 +9153,8 @@
      "tested": 2
     }
    ],
-   "created": "2026-10-18T19:51:12Z",
-   "updated": "2026-10-18T19:51:12Z"
+   "created": "2026-11-03T03:51:38Z",
+   "updated": "2026-11-03T03:51:38Z"
   },
   "econ-430-l5-estimating-nonlinear-relationships": {
    "slug": "econ-430-l5-estimating-nonlinear-relationships",
@@ -9161,8 +9223,8 @@
    "interactives": [
     "box-cox-ladder-explorer"
    ],
-   "checks": 14,
-   "words": 1528,
+   "checks": 16,
+   "words": 1668,
    "objectives": [
     {
      "n": 1,
@@ -9172,7 +9234,7 @@
     {
      "n": 2,
      "md": "Compute the slope and the elasticity at a given point (a quadratic, a log-log model at the means, a linear model at the means).",
-     "tested": 3
+     "tested": 4
     },
     {
      "n": 3,
@@ -9182,7 +9244,7 @@
     {
      "n": 4,
      "md": "Choose a Box-Cox power from its estimate, confidence interval and likelihood-ratio tests.",
-     "tested": 2
+     "tested": 3
     },
     {
      "n": 5,
@@ -9195,8 +9257,8 @@
      "tested": 3
     }
    ],
-   "created": "2026-10-18T20:06:22Z",
-   "updated": "2026-10-18T20:06:22Z"
+   "created": "2026-11-06T21:06:13Z",
+   "updated": "2026-11-06T21:06:13Z"
   },
   "econ-430-l6-indicator-variables-and-the-ols-workflow": {
    "slug": "econ-430-l6-indicator-variables-and-the-ols-workflow",
@@ -9217,6 +9279,10 @@
    "source": "Regression_Lecture1_Adv.ipynb (section 6 and the seven-step OLS example)",
    "edges": {
     "out": [
+     {
+      "kind": "applies",
+      "note": "error-normality-and-jarque-bera"
+     },
      {
       "kind": "applies",
       "note": "homoskedasticity"
@@ -9288,8 +9354,8 @@
    "interactives": [
     "leverage-and-influence-explorer"
    ],
-   "checks": 7,
-   "words": 1333,
+   "checks": 8,
+   "words": 1464,
    "objectives": [
     {
      "n": 1,
@@ -9320,10 +9386,15 @@
      "n": 6,
      "md": "Use bootstrap and cross-validation output to judge a model's robustness and predictive accuracy.",
      "tested": 1
+    },
+    {
+     "n": 7,
+     "md": "Say what heavy-tailed residuals do to OLS and its inference, and what to do about them.",
+     "tested": 1
     }
    ],
-   "created": "2026-10-18T20:07:08Z",
-   "updated": "2026-10-18T20:07:08Z"
+   "created": "2026-11-06T21:03:22Z",
+   "updated": "2026-11-06T21:03:22Z"
   },
   "econ-430-l7-the-classical-linear-regression-model": {
    "slug": "econ-430-l7-the-classical-linear-regression-model",
@@ -9387,6 +9458,10 @@
      {
       "kind": "part_of",
       "note": "econ-430"
+     },
+     {
+      "kind": "shows",
+      "note": "projection-onto-a-vector"
      }
     ],
     "in": [
@@ -9397,10 +9472,12 @@
     ]
    },
    "figures": [],
-   "interactives": [],
+   "interactives": [
+    "projection-onto-a-vector"
+   ],
    "checks": 7,
    "derives": 2,
-   "words": 890,
+   "words": 940,
    "objectives": [
     {
      "n": 1,
@@ -9425,7 +9502,7 @@
     {
      "n": 5,
      "md": "Show that $\\mathbf{M}\\mathbf{X} = \\mathbf{0}$, that $\\mathbf{M}$ is symmetric and idempotent, that $\\mathbf{e} = \\mathbf{M}\\mathbf{y} = \\mathbf{M}\\boldsymbol{\\varepsilon}$, and that $\\mathrm{trace}(\\mathbf{M}) = N - K$.",
-     "tested": 4
+     "tested": 5
     },
     {
      "n": 6,
@@ -9433,8 +9510,8 @@
      "tested": 1
     }
    ],
-   "created": "2026-10-17T19:26:03Z",
-   "updated": "2026-10-19T18:42:14Z"
+   "created": "2026-11-06T21:12:16Z",
+   "updated": "2026-11-06T21:12:16Z"
   },
   "econ-430-l8-building-multiple-regression-models": {
    "slug": "econ-430-l8-building-multiple-regression-models",
@@ -9530,9 +9607,9 @@
    "interactives": [
     "quadratic-marginal-effect-explorer"
    ],
-   "checks": 13,
+   "checks": 14,
    "derives": 1,
-   "words": 2390,
+   "words": 2565,
    "objectives": [
     {
      "n": 1,
@@ -9573,10 +9650,15 @@
      "n": 8,
      "md": "Test joint hypotheses with an $F$ test, including the Chow test for whether two groups share a regression.",
      "tested": 2
+    },
+    {
+     "n": 9,
+     "md": "Judge whether a coefficient is economically as well as statistically significant, and check the degrees of freedom N − K before estimating.",
+     "tested": 1
     }
    ],
-   "created": "2026-10-19T18:36:05Z",
-   "updated": "2026-10-21T20:15:20Z"
+   "created": "2026-11-06T21:04:57Z",
+   "updated": "2026-11-06T21:04:57Z"
   },
   "econ-430-l9-bootstrapping-regression-models": {
    "slug": "econ-430-l9-bootstrapping-regression-models",
@@ -9646,6 +9728,128 @@
    "created": "2026-10-19T18:36:06Z",
    "updated": "2026-10-19T18:36:06Z"
   },
+  "econ-430-midterm-review-answers": {
+   "slug": "econ-430-midterm-review-answers",
+   "name": "Econ 430 Midterm Review Answers",
+   "title": "Econ 430 Midterm Review Answers",
+   "type": "practice",
+   "path": "Courses/Econ 430/Practice/Econ 430 Midterm Review Answers.md",
+   "summary": "Worked answers and rubrics for the 40 Econ 430 midterm review items. Every number was computed in Python; printed outputs come from simulated data fitted with statsmodels, so their statistics agree.",
+   "tags": [],
+   "aliases": [],
+   "requires": [],
+   "lessons": [],
+   "courses": [
+    "Econ 430"
+   ],
+   "course": "Econ 430",
+   "lecture": 12,
+   "edges": {
+    "out": [],
+    "in": []
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 7650,
+   "created": "2026-11-06T20:27:34Z",
+   "updated": "2026-11-06T20:27:34Z"
+  },
+  "econ-430-midterm-review-guide": {
+   "slug": "econ-430-midterm-review-guide",
+   "name": "Econ 430 Midterm Review Guide",
+   "title": "Econ 430 Midterm Review Guide",
+   "type": "guide",
+   "path": "Courses/Econ 430/Econ 430 Midterm Review Guide.md",
+   "summary": "Econ 430 midterm review: the Fall 2025 blueprint (archetypes A to K), one exam recipe per archetype, auto-graded checks with new numbers, and lesson widgets preset to the exam's scenarios.",
+   "tags": [],
+   "aliases": [],
+   "requires": [],
+   "lessons": [],
+   "courses": [
+    "Econ 430"
+   ],
+   "course": "Econ 430",
+   "edges": {
+    "out": [
+     {
+      "kind": "shows",
+      "note": "box-cox-ladder-explorer"
+     },
+     {
+      "kind": "shows",
+      "note": "ols-line-fitter"
+     },
+     {
+      "kind": "shows",
+      "note": "ols-sampling-distribution"
+     },
+     {
+      "kind": "shows",
+      "note": "projection-onto-a-vector"
+     },
+     {
+      "kind": "shows",
+      "note": "q-q-plot-shape-explorer"
+     },
+     {
+      "kind": "shows",
+      "note": "quadratic-marginal-effect-explorer"
+     },
+     {
+      "kind": "shows",
+      "note": "taylor-approximation-of-log-change"
+     }
+    ],
+    "in": []
+   },
+   "figures": [
+    "assets/Attachments/Burger sales on price and advertising - fitted regression plane.png",
+    "assets/Attachments/Food expenditure regression - spread-level plot.png",
+    "assets/Attachments/Mallows Cp by subset - family income.png"
+   ],
+   "interactives": [
+    "taylor-approximation-of-log-change",
+    "quadratic-marginal-effect-explorer",
+    "box-cox-ladder-explorer",
+    "q-q-plot-shape-explorer",
+    "ols-line-fitter",
+    "projection-onto-a-vector",
+    "ols-sampling-distribution"
+   ],
+   "checks": 26,
+   "words": 3749,
+   "created": "2026-11-06T20:25:46Z",
+   "updated": "2026-11-06T20:25:46Z"
+  },
+  "econ-430-midterm-review-questions": {
+   "slug": "econ-430-midterm-review-questions",
+   "name": "Econ 430 Midterm Review Questions",
+   "title": "Econ 430 Midterm Review Questions",
+   "type": "practice",
+   "path": "Courses/Econ 430/Practice/Econ 430 Midterm Review Questions.md",
+   "summary": "Forty midterm review items in the format of last year's Econ 430 midterm, two per exam part: an isomorph with new numbers and a twist, grouped by question type A to K, with worked answers and rubrics.",
+   "tags": [],
+   "aliases": [],
+   "requires": [],
+   "lessons": [],
+   "courses": [
+    "Econ 430"
+   ],
+   "course": "Econ 430",
+   "lecture": 12,
+   "edges": {
+    "out": [],
+    "in": []
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 2834,
+   "pairedAnswers": "econ-430-midterm-review-answers",
+   "created": "2026-11-06T20:24:04Z",
+   "updated": "2026-11-06T20:27:50Z"
+  },
   "econ-430-simple-linear-regression-practice-answers": {
    "slug": "econ-430-simple-linear-regression-practice-answers",
    "name": "Econ 430 Simple Linear Regression Practice Answers",
@@ -9661,7 +9865,7 @@
     "Econ 430"
    ],
    "course": "Econ 430",
-   "lecture": 3,
+   "lecture": 7,
    "edges": {
     "out": [],
     "in": []
@@ -9670,8 +9874,8 @@
    "interactives": [],
    "checks": 0,
    "words": 2024,
-   "created": "2026-10-17T19:25:24Z",
-   "updated": "2026-10-17T19:29:38Z"
+   "created": "2026-11-03T03:51:39Z",
+   "updated": "2026-11-03T03:51:39Z"
   },
   "econ-430-simple-linear-regression-practice-questions": {
    "slug": "econ-430-simple-linear-regression-practice-questions",
@@ -9688,7 +9892,7 @@
     "Econ 430"
    ],
    "course": "Econ 430",
-   "lecture": 3,
+   "lecture": 7,
    "edges": {
     "out": [],
     "in": []
@@ -9696,10 +9900,10 @@
    "figures": [],
    "interactives": [],
    "checks": 0,
-   "words": 571,
+   "words": 572,
    "pairedAnswers": "econ-430-simple-linear-regression-practice-answers",
-   "created": "2026-10-17T19:25:27Z",
-   "updated": "2026-10-17T19:29:38Z"
+   "created": "2026-11-03T03:51:39Z",
+   "updated": "2026-11-03T03:51:39Z"
   },
   "eda-for-regression": {
    "slug": "eda-for-regression",
@@ -10490,7 +10694,15 @@
      },
      {
       "kind": "related",
+      "note": "heteroskedasticity-consistent-standard-errors"
+     },
+     {
+      "kind": "related",
       "note": "q-q-plot"
+     },
+     {
+      "kind": "related",
+      "note": "regression-diagnostics"
      },
      {
       "kind": "related",
@@ -10506,6 +10718,10 @@
      }
     ],
     "in": [
+     {
+      "kind": "applies",
+      "note": "econ-430-l6-indicator-variables-and-the-ols-workflow"
+     },
      {
       "kind": "covers",
       "note": "econ-430-l3-the-method-of-least-squares"
@@ -10550,9 +10766,9 @@
    ],
    "interactives": [],
    "checks": 0,
-   "words": 351,
-   "created": "2026-10-17T19:26:06Z",
-   "updated": "2026-10-17T19:29:37Z"
+   "words": 605,
+   "created": "2026-11-06T20:58:01Z",
+   "updated": "2026-11-06T20:58:01Z"
   },
   "f-test-of-joint-hypotheses": {
    "slug": "f-test-of-joint-hypotheses",
@@ -12078,6 +12294,10 @@
      },
      {
       "kind": "related",
+      "note": "error-normality-and-jarque-bera"
+     },
+     {
+      "kind": "related",
       "note": "generalized-least-squares"
      },
      {
@@ -12636,9 +12856,9 @@
    "figures": [],
    "interactives": [],
    "checks": 0,
-   "words": 457,
-   "created": "2026-10-19T18:36:08Z",
-   "updated": "2026-10-19T18:42:38Z"
+   "words": 541,
+   "created": "2026-11-06T20:58:27Z",
+   "updated": "2026-11-06T20:58:27Z"
   },
   "immigrant-share-elasticity-explorer": {
    "slug": "immigrant-share-elasticity-explorer",
@@ -17405,7 +17625,7 @@
     "projection-onto-a-vector"
    ],
    "checks": 7,
-   "words": 442,
+   "words": 453,
    "objectives": [
     {
      "n": 1,
@@ -17428,8 +17648,8 @@
      "tested": 3
     }
    ],
-   "created": "2026-10-18T19:51:06Z",
-   "updated": "2026-10-18T19:51:06Z"
+   "created": "2026-11-03T03:51:38Z",
+   "updated": "2026-11-03T03:51:38Z"
   },
   "math-prep-l3-eigenvalues-and-quadratic-forms": {
    "slug": "math-prep-l3-eigenvalues-and-quadratic-forms",
@@ -17746,7 +17966,7 @@
     "envelope-theorem-and-job-switching"
    ],
    "checks": 5,
-   "words": 338,
+   "words": 352,
    "objectives": [
     {
      "n": 1,
@@ -17774,8 +17994,8 @@
      "tested": 1
     }
    ],
-   "created": "2026-10-16T19:51:10Z",
-   "updated": "2026-10-16T19:51:10Z"
+   "created": "2026-11-03T03:51:38Z",
+   "updated": "2026-11-03T03:51:38Z"
   },
   "math-prep-l7-approximations-logs-and-series": {
    "slug": "math-prep-l7-approximations-logs-and-series",
@@ -17871,7 +18091,7 @@
     }
    ],
    "created": "2026-10-18T19:51:11Z",
-   "updated": "2026-10-18T19:51:11Z"
+   "updated": "2026-11-06T19:04:25Z"
   },
   "math-prep-l8-integration-for-probability": {
    "slug": "math-prep-l8-integration-for-probability",
@@ -17923,7 +18143,7 @@
    "figures": [],
    "interactives": [],
    "checks": 6,
-   "words": 288,
+   "words": 305,
    "objectives": [
     {
      "n": 1,
@@ -17946,8 +18166,8 @@
      "tested": 1
     }
    ],
-   "created": "2026-10-16T20:00:57Z",
-   "updated": "2026-10-16T20:00:57Z"
+   "created": "2026-11-03T03:51:38Z",
+   "updated": "2026-11-03T03:51:38Z"
   },
   "math-prerequisites-for-econ-430": {
    "slug": "math-prerequisites-for-econ-430",
@@ -18374,9 +18594,9 @@
    ],
    "interactives": [],
    "checks": 0,
-   "words": 444,
-   "created": "2026-10-19T18:36:08Z",
-   "updated": "2026-10-19T18:42:38Z"
+   "words": 498,
+   "created": "2026-11-06T21:13:27Z",
+   "updated": "2026-11-06T21:13:27Z"
   },
   "monetary-policy-rule": {
    "slug": "monetary-policy-rule",
@@ -19297,6 +19517,10 @@
      },
      {
       "kind": "shows",
+      "note": "econ-430-midterm-review-guide"
+     },
+     {
+      "kind": "shows",
       "note": "ols-estimator"
      },
      {
@@ -19369,6 +19593,10 @@
      {
       "kind": "shows",
       "note": "econ-430-l4-cross-validation-and-the-bootstrap"
+     },
+     {
+      "kind": "shows",
+      "note": "econ-430-midterm-review-guide"
      }
     ]
    },
@@ -20355,9 +20583,11 @@
    "aliases": [],
    "requires": [],
    "lessons": [
+    "econ-430-l7-the-classical-linear-regression-model",
     "math-prep-l2-vector-spaces-rank-and-projection"
    ],
    "courses": [
+    "Econ 430",
     "Math Prep"
    ],
    "edges": {
@@ -20374,6 +20604,14 @@
     "in": [
      {
       "kind": "shows",
+      "note": "econ-430-l7-the-classical-linear-regression-model"
+     },
+     {
+      "kind": "shows",
+      "note": "econ-430-midterm-review-guide"
+     },
+     {
+      "kind": "shows",
       "note": "math-prep-l2-vector-spaces-rank-and-projection"
      }
     ]
@@ -20382,8 +20620,8 @@
    "interactives": [],
    "checks": 0,
    "words": 148,
-   "created": "2026-10-18T19:33:52Z",
-   "updated": "2026-10-18T19:33:52Z"
+   "created": "2026-11-06T21:12:21Z",
+   "updated": "2026-11-06T21:12:21Z"
   },
   "properties-of-inequality-measures": {
    "slug": "properties-of-inequality-measures",
@@ -20624,6 +20862,10 @@
      {
       "kind": "shows",
       "note": "econ-430-l1-univariate-characterizations"
+     },
+     {
+      "kind": "shows",
+      "note": "econ-430-midterm-review-guide"
      }
     ]
    },
@@ -20871,6 +21113,10 @@
      {
       "kind": "shows",
       "note": "econ-430-l8-building-multiple-regression-models"
+     },
+     {
+      "kind": "shows",
+      "note": "econ-430-midterm-review-guide"
      }
     ]
    },
@@ -21087,9 +21333,9 @@
    "figures": [],
    "interactives": [],
    "checks": 0,
-   "words": 394,
-   "created": "2026-10-19T18:36:08Z",
-   "updated": "2026-10-19T18:42:55Z"
+   "words": 722,
+   "created": "2026-11-06T21:09:09Z",
+   "updated": "2026-11-06T21:09:09Z"
   },
   "ramsey-steady-state-explorer": {
    "slug": "ramsey-steady-state-explorer",
@@ -21402,6 +21648,10 @@
      {
       "kind": "related",
       "note": "eda-for-regression"
+     },
+     {
+      "kind": "related",
+      "note": "error-normality-and-jarque-bera"
      },
      {
       "kind": "related",
@@ -24483,6 +24733,10 @@
      }
     ],
     "in": [
+     {
+      "kind": "shows",
+      "note": "econ-430-midterm-review-guide"
+     },
      {
       "kind": "shows",
       "note": "math-prep-l7-approximations-logs-and-series"

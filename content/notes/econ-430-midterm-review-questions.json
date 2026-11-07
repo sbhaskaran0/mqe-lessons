@@ -1,0 +1,1671 @@
+{
+ "slug": "econ-430-midterm-review-questions",
+ "notation": [
+  {
+   "tex": "$k$",
+   "meaning": "Neighbours averaged in kNN",
+   "kind": "Choice",
+   "typical": "3",
+   "keys": [
+    "k"
+   ],
+   "from": "missing-data-and-imputation"
+  },
+  {
+   "tex": "$t_i$",
+   "meaning": "Studentised residual: how badly observation $i$ is fitted",
+   "kind": "Statistic",
+   "typical": "Flag if $\\lvert t_i\\rvert > 2$",
+   "keys": [
+    "t"
+   ],
+   "from": "regression-diagnostics"
+  },
+  {
+   "tex": "$p$, $n$",
+   "meaning": "Number of parameters and of observations",
+   "kind": "Counts",
+   "typical": "—",
+   "keys": [
+    "p",
+    "n"
+   ],
+   "from": "regression-diagnostics"
+  },
+  {
+   "tex": "$D_i$",
+   "meaning": "Cook's distance: how much all fitted values move when observation $i$ is dropped",
+   "kind": "Statistic",
+   "typical": "Large relative to $4/n$",
+   "keys": [
+    "D"
+   ],
+   "from": "regression-diagnostics"
+  },
+  {
+   "tex": "$R^2$",
+   "meaning": "Coefficient of determination of that auxiliary regression",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "R"
+   ],
+   "from": "regression-diagnostics"
+  },
+  {
+   "tex": "$JB$",
+   "meaning": "Jarque-Bera statistic",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "~JB"
+   ],
+   "from": "regression-diagnostics"
+  },
+  {
+   "tex": "$b_j$",
+   "meaning": "OLS estimate for regressor $j$",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "b"
+   ],
+   "from": "multicollinearity"
+  },
+  {
+   "tex": "$\\widehat{\\sigma}^2$",
+   "meaning": "Estimated error variance",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "hat(sigma)"
+   ],
+   "from": "multicollinearity"
+  },
+  {
+   "tex": "$s_j^2$",
+   "meaning": "Sample variance of $x_j$",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "s"
+   ],
+   "from": "multicollinearity"
+  },
+  {
+   "tex": "$x_2$, $x_3$",
+   "meaning": "Regressors",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "x"
+   ],
+   "from": "multicollinearity"
+  },
+  {
+   "tex": "$u$",
+   "meaning": "Random departure from an exact linear relation",
+   "kind": "Unobserved",
+   "typical": "—",
+   "keys": [
+    "u"
+   ],
+   "from": "multicollinearity"
+  },
+  {
+   "tex": "$\\mathbf{X}$",
+   "meaning": "Regressor matrix",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "bold(X)"
+   ],
+   "from": "multicollinearity"
+  },
+  {
+   "tex": "$r$",
+   "meaning": "Pairwise correlation",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "r"
+   ],
+   "from": "multicollinearity"
+  },
+  {
+   "tex": "$e_i$, $\\widehat{e}_i$",
+   "meaning": "Error and OLS residual",
+   "kind": "Unobserved / computed",
+   "typical": "—",
+   "keys": [
+    "e",
+    "hat(e)"
+   ],
+   "from": "heteroskedasticity-tests"
+  },
+  {
+   "tex": "$S$",
+   "meaning": "Coefficients in the variance function, intercept included",
+   "kind": "Count",
+   "typical": "2 for BP on income",
+   "keys": [
+    "S"
+   ],
+   "from": "heteroskedasticity-tests"
+  },
+  {
+   "tex": "$N$",
+   "meaning": "Observations",
+   "kind": "Count",
+   "typical": "40",
+   "keys": [
+    "N"
+   ],
+   "from": "heteroskedasticity-tests"
+  },
+  {
+   "tex": "$N_1$, $N_0$, $K$",
+   "meaning": "Group sizes and coefficients per regression",
+   "kind": "Counts",
+   "typical": "—",
+   "keys": [
+    "N",
+    "K"
+   ],
+   "from": "heteroskedasticity-tests"
+  },
+  {
+   "tex": "$F$",
+   "meaning": "Goldfeld-Quandt statistic",
+   "kind": "Statistic",
+   "typical": "3.61",
+   "keys": [
+    "F"
+   ],
+   "from": "heteroskedasticity-tests"
+  },
+  {
+   "tex": "$x_2$, $x_3$, $\\beta_k$",
+   "meaning": "Regressors and coefficients of the model",
+   "kind": "Data / parameters",
+   "typical": "—",
+   "keys": [
+    "x",
+    "beta"
+   ],
+   "from": "heteroskedasticity-tests"
+  },
+  {
+   "tex": "$y$, $\\widehat{y}$",
+   "meaning": "Outcome and its fitted value",
+   "kind": "Data / computed",
+   "typical": "—",
+   "keys": [
+    "y",
+    "hat(y)"
+   ],
+   "from": "ramsey-reset"
+  },
+  {
+   "tex": "$J$",
+   "meaning": "Number of added terms",
+   "kind": "Count",
+   "typical": "1 or 2",
+   "keys": [
+    "J"
+   ],
+   "from": "ramsey-reset"
+  },
+  {
+   "tex": "$x_i$, $\\bar{x}$",
+   "meaning": "Regressor and its mean",
+   "kind": "Data / statistic",
+   "typical": "—",
+   "keys": [
+    "x",
+    "bar(x)"
+   ],
+   "from": "heteroskedasticity-consistent-standard-errors"
+  },
+  {
+   "tex": "$f = y_0 - \\hat{y}_0$",
+   "meaning": "Forecast error",
+   "kind": "Random variable",
+   "typical": "Mean zero",
+   "keys": [
+    "f"
+   ],
+   "from": "confidence-vs-prediction-intervals"
+  },
+  {
+   "tex": "$se(f)$",
+   "meaning": "Standard error of the forecast",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "~se(f)"
+   ],
+   "from": "confidence-vs-prediction-intervals"
+  },
+  {
+   "tex": "$D_i$ (e.g. $UTOWN$, $FEMALE$)",
+   "meaning": "Indicator: 1 if observation $i$ is in the group, 0 otherwise",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "D",
+    "~UTOWN",
+    "~FEMALE"
+   ],
+   "from": "indicator-variables"
+  },
+  {
+   "tex": "$\\lambda$",
+   "meaning": "Power parameter: 1 = no change, 0.5 = square root, 0 = log, −1 = reciprocal",
+   "kind": "Parameter, estimated",
+   "typical": "Round to a natural value",
+   "keys": [
+    "lambda"
+   ],
+   "from": "box-cox-and-power-transformations"
+  },
+  {
+   "tex": "$T_{BC}(x,\\lambda)$",
+   "meaning": "Box-Cox transform",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "T"
+   ],
+   "from": "box-cox-and-power-transformations"
+  },
+  {
+   "tex": "$L_0$, $\\hat{L}$",
+   "meaning": "Log-likelihoods at those values",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "L",
+    "hat(L)"
+   ],
+   "from": "box-cox-and-power-transformations"
+  },
+  {
+   "tex": "$Y$, $X$, $p$, $q$, $a$, $b$",
+   "meaning": "Variables and powers in the bulging-rule regression",
+   "kind": "Data / parameters",
+   "typical": "—",
+   "keys": [
+    "Y",
+    "X",
+    "p",
+    "q",
+    "a",
+    "b"
+   ],
+   "from": "box-cox-and-power-transformations"
+  },
+  {
+   "tex": "$PRICE$, $SQFT$",
+   "meaning": "House price and square footage in the quadratic example",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "~PRICE",
+    "~SQFT"
+   ],
+   "from": "functional-forms-and-elasticities"
+  },
+  {
+   "tex": "$A$",
+   "meaning": "Advertising level where the marginal effect equals the marginal cost",
+   "kind": "Constant",
+   "typical": "2.014",
+   "keys": [
+    "A"
+   ],
+   "from": "marginal-effects"
+  },
+  {
+   "tex": "$c$",
+   "meaning": "Value claimed by the null",
+   "kind": "Constant",
+   "typical": "0 by default",
+   "keys": [
+    "c"
+   ],
+   "from": "hypothesis-tests-on-regression-coefficients"
+  },
+  {
+   "tex": "$H_0$, $H_1$",
+   "meaning": "Null and alternative hypotheses",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "H"
+   ],
+   "from": "hypothesis-tests-on-regression-coefficients"
+  },
+  {
+   "tex": "$C_p$",
+   "meaning": "Mallows' statistic",
+   "kind": "Statistic",
+   "typical": "2.32",
+   "keys": [
+    "C"
+   ],
+   "from": "model-selection-criteria"
+  },
+  {
+   "tex": "$\\mathbf{y}$, $\\hat{\\mathbf{y}}$",
+   "meaning": "Outcome and fitted values",
+   "kind": "Data / computed",
+   "typical": "—",
+   "keys": [
+    "bold(y)",
+    "hat(bold(y))"
+   ],
+   "from": "projection-matrix-and-residual-maker"
+  },
+  {
+   "tex": "$\\mathbf{P} = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$",
+   "meaning": "Projection (hat) matrix: turns $\\mathbf{y}$ into fitted values",
+   "kind": "Matrix ($n\\times n$)",
+   "typical": "Trace $K$",
+   "keys": [
+    "bold(P)"
+   ],
+   "from": "projection-matrix-and-residual-maker"
+  },
+  {
+   "tex": "$\\mathbf{M} = \\mathbf{I} - \\mathbf{P}$",
+   "meaning": "Residual maker: turns $\\mathbf{y}$ into residuals",
+   "kind": "Matrix ($n\\times n$)",
+   "typical": "Trace $n - K$",
+   "keys": [
+    "bold(M)"
+   ],
+   "from": "projection-matrix-and-residual-maker"
+  },
+  {
+   "tex": "$\\mathbf{e}$",
+   "meaning": "Residuals",
+   "kind": "Computed",
+   "typical": "—",
+   "keys": [
+    "bold(e)"
+   ],
+   "from": "projection-matrix-and-residual-maker"
+  },
+  {
+   "tex": "$B$",
+   "meaning": "Number of bootstrap repetitions",
+   "kind": "Choice",
+   "typical": "1,000 or more",
+   "keys": [
+    "B"
+   ],
+   "from": "bootstrapping-ols"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Questions in the format of [Econ 430 Fall 2025 Midterm Questions](note:econ-430-fall-2025-midterm-questions), two per exam part: an **isomorph** (same task, new setting and numbers) and a **twist** (one feature changed). Work each on paper, closed book, then grade yourself against [Econ 430 Midterm Review Answers](note:econ-430-midterm-review-answers). The recipe for each group is in [Econ 430 Midterm Review Guide](note:econ-430-midterm-review-guide). Assume a 5% significance level unless an item says otherwise."
+      }
+     ],
+     "words": 66,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "a-interpreting-coefficients",
+   "heading": "A. Interpreting coefficients",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "a-interpreting-coefficients-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. *(isomorph of Mock 1)* Annual revenue of 164 independent restaurants is modelled as $\\widehat{\\log(REVENUE)} = 12.05 + 0.0021\\,SEATS + 0.318\\,RATING + 0.142\\log(STAFF) - 0.0085\\,AGE$, with $N = 164$ and $R^2 = 0.71$. $REVENUE$ is in dollars, $SEATS$ is the number of seats, $RATING$ is the average customer rating (1 to 5 stars), $STAFF$ is the number of employees and $AGE$ is the restaurant's age in years. Assume all coefficients are significant at 5%. Interpret the coefficient on $RATING$. → [Functional Forms and Elasticities](note:functional-forms-and-elasticities)\n\n2. *(twist: the regressor is a 0/1 indicator with a negative coefficient)* For 950 workers, $\\widehat{\\log(WAGE)} = 1.12 + 0.084\\,EDUC + 0.021\\,EXPER - 0.182\\,FEMALE + 0.104\\,UNION$, where $WAGE$ is in dollars an hour, $EDUC$ and $EXPER$ are in years, and $FEMALE$ and $UNION$ are 0/1 indicators. Assume all coefficients are significant at 5%. Interpret the coefficient on $FEMALE$. → [Indicator Variables](note:indicator-variables)"
+      }
+     ],
+     "words": 105,
+     "symbols": [
+      "$D_i$",
+      "$R^2$",
+      "$S$",
+      "$N$",
+      "$F$",
+      "$D_i$ (e.g. $UTOWN$, $FEMALE$)",
+      "$T_{BC}(x,\\lambda)$",
+      "$L_0$, $\\hat{L}$",
+      "$Y$, $X$, $p$, $q$, $a$, $b$",
+      "$A$",
+      "$C_p$"
+     ]
+    },
+    {
+     "id": "a-interpreting-coefficients-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "3. *(isomorph of Mock 2)* Same restaurant model as item 1: $\\widehat{\\log(REVENUE)} = 12.05 + 0.0021\\,SEATS + 0.318\\,RATING + 0.142\\log(STAFF) - 0.0085\\,AGE$ ($N = 164$, $R^2 = 0.71$, revenue in dollars, $STAFF$ the number of employees). Interpret the coefficient on $\\log(STAFF)$. → [Functional Forms and Elasticities](note:functional-forms-and-elasticities)\n\n4. *(twist: only the regressor is logged, so the effect on $y$ is in units, not percent)* For 610 US counties, $\\widehat{LIFEEXP} = 47.9 + 2.86\\ln(INCOME) - 0.071\\,SMOKE + 0.034\\,DOCTORS$, where $LIFEEXP$ is life expectancy at birth in years, $INCOME$ is median household income in dollars, $SMOKE$ is the percentage of adults who smoke and $DOCTORS$ is doctors per 10,000 residents. Assume all coefficients are significant at 5%. Interpret the coefficient on $\\ln(INCOME)$. → [Functional Forms and Elasticities](note:functional-forms-and-elasticities)"
+      }
+     ],
+     "words": 89,
+     "symbols": [
+      "$D_i$",
+      "$R^2$",
+      "$S$",
+      "$N$",
+      "$N_1$, $N_0$, $K$",
+      "$F$",
+      "$y$, $\\widehat{y}$",
+      "$T_{BC}(x,\\lambda)$",
+      "$L_0$, $\\hat{L}$",
+      "$Y$, $X$, $p$, $q$, $a$, $b$",
+      "$A$",
+      "$C_p$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "b-slopes-elasticities-and-turning-points",
+   "heading": "B. Slopes, elasticities and turning points",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "b-slopes-elasticities-and-turning-points-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "5. *(isomorph of Mock 14)* A log-log regression relates annual staff-training spending ($TRAIN$, in thousands of dollars) to annual payroll ($PAYROLL$, in millions of dollars) for 212 firms: $\\widehat{\\ln(TRAIN)} = 1.874 + 0.437\\ln(PAYROLL)$, with $R^2 = 0.341$. In this sample, average training spending is \\$1.28 million and average payroll is \\$2.6 billion. Evaluate the slope at the point $(\\overline{PAYROLL}, \\overline{TRAIN})$. → [Functional Forms and Elasticities](note:functional-forms-and-elasticities)\n\n6. *(twist: the units are paired the other way round, $y$ in millions and $x$ in thousands)* A log-log regression relates annual sales ($SALES$, in millions of dollars) to annual advertising ($ADVERT$, in thousands of dollars) for 150 consumer-goods firms: $\\widehat{\\ln(SALES)} = 2.105 + 0.184\\ln(ADVERT)$. Average sales are \\$96 million and average advertising is \\$1.2 million. Evaluate the slope at the point $(\\overline{ADVERT}, \\overline{SALES})$ and say what it means in dollars. → [Functional Forms and Elasticities](note:functional-forms-and-elasticities)"
+      }
+     ],
+     "words": 119,
+     "symbols": [
+      "$D_i$",
+      "$R^2$",
+      "$x_2$, $x_3$",
+      "$S$",
+      "$N$",
+      "$y$, $\\widehat{y}$",
+      "$T_{BC}(x,\\lambda)$",
+      "$L_0$, $\\hat{L}$",
+      "$Y$, $X$, $p$, $q$, $a$, $b$",
+      "$A$"
+     ]
+    },
+    {
+     "id": "b-slopes-elasticities-and-turning-points-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "7. *(twist: the model is linear, so the elasticity is not the coefficient)* For 300 households, monthly electricity use ($KWH$, kilowatt-hours) is regressed on annual household income ($INCOME$, thousands of dollars): $\\widehat{KWH} = 412.6 + 3.85\\,INCOME$. Mean income is 68.4 and mean electricity use is 675.9 kWh. Compute the elasticity of electricity use with respect to income at the means and interpret it. → [Functional Forms and Elasticities](note:functional-forms-and-elasticities)\n\n8. *(isomorph of Mock 24)* A hospital's annual IT spending ($it$) is related to its revenue ($revenue$) and its number of beds ($beds$); $it$ and $revenue$ are both in \\$1000s. The model also includes $revenue^2$ ($revsq$). Using the output below, find the level of revenue after which IT spending declines. Give the answer in dollars. → [Marginal Effects](note:marginal-effects)"
+      }
+     ],
+     "words": 112,
+     "symbols": [
+      "$t_i$",
+      "$p$, $n$",
+      "$b_j$",
+      "$s_j^2$",
+      "$u$",
+      "$r$",
+      "$e_i$, $\\widehat{e}_i$",
+      "$N$",
+      "$N_1$, $N_0$, $K$",
+      "$Y$, $X$, $p$, $q$, $a$, $b$",
+      "$H_0$, $H_1$",
+      "$C_p$"
+     ]
+    },
+    {
+     "id": "b-slopes-elasticities-and-turning-points-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "   ```text\n   OLS Regression Results: Dep. Variable: it; R-squared 0.794; Adj. R-squared 0.775; F-statistic 41.24; Prob (F) 4.20e-11;\n   Log-Likelihood -212.63; No. Observations 36; AIC 433.3; Df Residuals 32; BIC 439.6; Df Model 3\n                    coef    std err          t      P>|t|      [0.025      0.975]\n   Intercept    103.3575     74.202      1.393      0.173     -47.786     254.501\n   revenue        0.0413      0.004     10.375      0.000       0.033       0.049\n   revsq      -4.805e-07   4.81e-08     -9.993      0.000   -5.78e-07   -3.83e-07\n   beds           0.3433      0.578      0.594      0.556      -0.833       1.520\n   Omnibus 0.646; Prob(Omnibus) 0.724; Skew 0.259; Kurtosis 2.915; Durbin-Watson 2.056; Jarque-Bera (JB) 0.415; Prob(JB) 0.813; Cond. No. 9.30e+09\n   ```"
+      }
+     ],
+     "words": 130,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "c-tests-from-regression-output",
+   "heading": "C. Tests from regression output",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "c-tests-from-regression-output-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "9. *(isomorph of Mock 7)* For 220 home sales in one city, $PRICE = \\beta_1 + \\beta_2\\ln(SQFT) + \\beta_3 AGE + \\beta_4 GARAGE + e$, where $PRICE$ is the sale price in dollars, $SQFT$ the living area in square feet, $AGE$ the age of the house in years and $GARAGE$ the number of garage spaces. The estimates are $\\widehat{PRICE} = -512{,}600 + 108{,}400\\ln(SQFT) - 215.3\\,AGE + 9{,}870\\,GARAGE$, with standard errors (96,800), (13,250), (72.4) and (4,120) in the same order, and $R^2 = 0.47$. Using a 5% significance level, test the hypothesis that there is no relationship between price and living area against the alternative that the relationship is positive. Assume $t_{crit} = 1.645$. → [Hypothesis Tests on Regression Coefficients](note:hypothesis-tests-on-regression-coefficients)"
+      }
+     ],
+     "words": 90,
+     "symbols": [
+      "$t_i$",
+      "$R^2$",
+      "$e_i$, $\\widehat{e}_i$",
+      "$S$",
+      "$F$",
+      "$x_2$, $x_3$, $\\beta_k$",
+      "$T_{BC}(x,\\lambda)$",
+      "$PRICE$, $SQFT$",
+      "$A$",
+      "$C_p$"
+     ]
+    },
+    {
+     "id": "c-tests-from-regression-output-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "10. *(twist: the sample is small, so 1.645 is the wrong critical value)* For 21 stores of a regional chain, weekly sales ($SALES$, \\$1000s) are regressed on weekly advertising ($ADVERT$, \\$1000s) and the average price index ($PRICE$): $\\widehat{SALES} = 41.2 + 1.87\\,ADVERT - 3.05\\,PRICE$, with $se(b_2) = 1.10$. At the 5% level, test $H_0: \\beta_2 \\le 0$ against $H_1: \\beta_2 > 0$. You may use $t_{0.95,\\,18} = 1.734$ and $t_{0.975,\\,18} = 2.101$. → [Hypothesis Tests on Regression Coefficients](note:hypothesis-tests-on-regression-coefficients)"
+      }
+     ],
+     "words": 51,
+     "symbols": [
+      "$t_i$",
+      "$D_i$",
+      "$R^2$",
+      "$b_j$",
+      "$s_j^2$",
+      "$e_i$, $\\widehat{e}_i$",
+      "$S$",
+      "$x_2$, $x_3$, $\\beta_k$",
+      "$T_{BC}(x,\\lambda)$",
+      "$L_0$, $\\hat{L}$",
+      "$PRICE$, $SQFT$",
+      "$A$",
+      "$H_0$, $H_1$",
+      "$C_p$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "d-significance-and-sample-size",
+   "heading": "D. Significance and sample size",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "d-significance-and-sample-size-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "11. *(isomorph of Mock 6)* The home-sales model of item 9, $PRICE = \\beta_1 + \\beta_2\\ln(SQFT) + \\beta_3 AGE + \\beta_4 GARAGE + e$, is to be estimated on 220 sales. Given the number of observations and the number of parameters being estimated, do you anticipate any obvious problem(s) before estimating the model? → [Hypothesis Tests on Regression Coefficients](note:hypothesis-tests-on-regression-coefficients)\n\n12. *(twist: few observations for many parameters)* A transit agency wants to model average weekday ridership on its 18 bus routes with an intercept and 8 regressors (route length, number of stops, frequency, fare, two neighbourhood income measures, population density and a downtown indicator). Given the number of observations and the number of parameters, do you anticipate any obvious problem(s) before estimating the model? → [Multicollinearity](note:multicollinearity)"
+      }
+     ],
+     "words": 112,
+     "symbols": [
+      "$R^2$",
+      "$e_i$, $\\widehat{e}_i$",
+      "$S$",
+      "$F$",
+      "$x_2$, $x_3$, $\\beta_k$",
+      "$T_{BC}(x,\\lambda)$",
+      "$PRICE$, $SQFT$",
+      "$A$",
+      "$C_p$"
+     ]
+    },
+    {
+     "id": "d-significance-and-sample-size-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "13. *(isomorph of Mock 8)* In the home-sales regression of item 9, $\\widehat{PRICE} = -512{,}600 + 108{,}400\\ln(SQFT) - 215.3\\,AGE + 9{,}870\\,GARAGE$, the standard error on $AGE$ is 72.4, $N = 220$ and the average sale price is \\$301,500. Briefly comment on the economic vs. statistical significance of the estimated coefficient on $AGE$. → [Hypothesis Tests on Regression Coefficients](note:hypothesis-tests-on-regression-coefficients)\n\n14. *(twist: the effect is economically large but not statistically significant)* A city evaluates a job-training program for 85 adults: $\\widehat{EARN} = 9{,}840 + 2{,}350\\,TRAIN + 610\\,EDUC + 152\\,AGE$, where $EARN$ is annual earnings in dollars, $TRAIN$ is 1 for participants, and the standard error on $TRAIN$ is 1,620. Average earnings in the sample are \\$21,400. Briefly comment on the economic vs. statistical significance of the estimated coefficient on $TRAIN$. → [Hypothesis Tests on Regression Coefficients](note:hypothesis-tests-on-regression-coefficients)"
+      }
+     ],
+     "words": 109,
+     "symbols": [
+      "$D_i$",
+      "$R^2$",
+      "$S$",
+      "$N$",
+      "$F$",
+      "$T_{BC}(x,\\lambda)$",
+      "$PRICE$, $SQFT$",
+      "$A$",
+      "$C_p$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "e-functional-form-logs-reset-and-box-cox",
+   "heading": "E. Functional form: logs, RESET and Box-Cox",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "e-functional-form-logs-reset-and-box-cox-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "15. *(isomorph of Mock 3)* A health economist regresses the annual operating cost of 300 hospitals on their number of beds. For this simple linear regression, provide two reasons why she might consider taking the log of cost instead of regressing cost on beds. → [Box-Cox and Power Transformations](note:box-cox-and-power-transformations)\n\n16. *(twist: when logging $y$ is not appropriate)* A colleague models the annual profit of 400 small firms and wants to use $\\ln(PROFIT)$ instead of $PROFIT$ \"because logs always improve the fit and will remove the bias from leaving out the owner's management skill\". About 18% of the firms made zero profit or a loss. Give two reasons why logging $y$ is not the answer here. → [Box-Cox and Power Transformations](note:box-cox-and-power-transformations)"
+      }
+     ],
+     "words": 114,
+     "symbols": [
+      "$R^2$",
+      "$F$",
+      "$y$, $\\widehat{y}$",
+      "$T_{BC}(x,\\lambda)$"
+     ]
+    },
+    {
+     "id": "e-functional-form-logs-reset-and-box-cox-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "17. *(isomorph of Mock 4)* Monthly rents (dollars) of 412 apartments are modelled on floor area (hundreds of square feet), age (years), distance to downtown (miles), floor number and an area-by-distance interaction. Based on the model being estimated and the test being performed below, discuss your interpretation of the test result and your recommendation(s). → [Ramsey RESET](note:ramsey-reset)\n\n    ```python\n    rent_mod = smf.ols('rent ~ area + age + dist + floor + area:dist', data=rent_data).fit()\n    reset_result = linear_reset(rent_mod, power=2, test_type='exog', use_f=True)\n    print(reset_result)\n    <F test: F=13.047260379544998, p=8.852180970480372e-12, df_denom=401, df_num=5>\n    ```"
+      }
+     ],
+     "words": 104,
+     "symbols": []
+    },
+    {
+     "id": "e-functional-form-logs-reset-and-box-cox-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "18. *(twist: the test does not reject)* The annual operating cost of 150 hospitals (\\$ millions) is modelled on beds, the occupancy rate and a teaching-hospital indicator. Based on the model being estimated and the test being performed below, discuss your interpretation of the test result and your recommendation(s). → [Ramsey RESET](note:ramsey-reset)\n\n    ```python\n    cost_mod = smf.ols('cost ~ beds + occ + teach', data=hosp).fit()\n    reset_result = linear_reset(cost_mod, power=3, test_type='fitted', use_f=True)\n    print(reset_result)\n    <F test: F=1.8539156921558222, p=0.16034146572884617, df_denom=144, df_num=2>\n    ```"
+      }
+     ],
+     "words": 94,
+     "symbols": []
+    },
+    {
+     "id": "e-functional-form-logs-reset-and-box-cox-4",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "19. *(isomorph of Mock 5)* Annual out-of-pocket medical spending of 150 households is regressed on household income and the age of the household head. Consider the following Box-Cox output for the dependent variable: Estimated $\\lambda = 0.186$; Rounded = 0.2; 95% CI (profile likelihood): $[-0.009,\\ 0.387]$; LR test for $\\lambda = 0$ (log): p-value = 0.062; LR test for $\\lambda = 1$ (no transform): p-value < 0.0001. Based on these results, what transformation of the dependent variable should be applied? Justify your answer. → [Box-Cox and Power Transformations](note:box-cox-and-power-transformations)"
+      }
+     ],
+     "words": 76,
+     "symbols": [
+      "$\\lambda$"
+     ]
+    },
+    {
+     "id": "e-functional-form-logs-reset-and-box-cox-5",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "20. *(twist: the interval contains 0 comfortably and the log is clearly not rejected)* Weekly sales of 96 stores are regressed on floor space and staff. The Box-Cox output for the dependent variable is: Estimated $\\lambda = -0.082$; Rounded = $-0.1$; 95% CI (profile likelihood): $[-0.379,\\ 0.215]$; LR test for $\\lambda = 0$ (log): p-value = 0.589; LR test for $\\lambda = 1$ (no transform): p-value < 0.0001. What transformation of the dependent variable should be applied? Justify your answer. → [Box-Cox and Power Transformations](note:box-cox-and-power-transformations)"
+      }
+     ],
+     "words": 71,
+     "symbols": [
+      "$\\lambda$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "f-residual-normality-q-q-plots-and-jarque-bera",
+   "heading": "F. Residual normality: Q-Q plots and Jarque-Bera",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "f-residual-normality-q-q-plots-and-jarque-bera-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "21. *(isomorph of Mock 19)* A researcher regresses the length of hospital stay (days) of 120 patients on age and a severity score, and checks the residuals with a normal Q-Q plot. The points follow the 45° line closely in the middle, but at the right end they rise above the line and at the left end they fall below it. What does this pattern suggest about the distribution of the residuals? → [Q-Q Plot](note:q-q-plot)"
+      }
+     ],
+     "words": 74,
+     "symbols": []
+    },
+    {
+     "id": "f-residual-normality-q-q-plots-and-jarque-bera-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "22. *(twist: both ends bend the same way)* Scores on a test with a maximum of 100 are regressed on weekly study hours for 200 students; many students score close to 100. In the normal Q-Q plot of the residuals the middle follows the 45° line, but the points at **both** ends lie below the line, so the plot bends down like an arch. What does this pattern suggest about the distribution of the residuals? → [Q-Q Plot](note:q-q-plot)"
+      }
+     ],
+     "words": 77,
+     "symbols": []
+    },
+    {
+     "id": "f-residual-normality-q-q-plots-and-jarque-bera-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "23. *(isomorph of Mock 20)* Same hospital-stay regression as item 21 (120 patients; the residual Q-Q plot follows the line in the middle, rises above it at the right end and falls below it at the left end). How might this affect the assumptions of the linear regression model? → [Error Normality and Jarque-Bera](note:error-normality-and-jarque-bera)\n\n24. *(isomorph of Mock 21)* Same hospital-stay regression as items 21 and 23. Suggest one possible data transformation or modelling adjustment that could help. → [Regression Diagnostics](note:regression-diagnostics)"
+      }
+     ],
+     "words": 79,
+     "symbols": []
+    },
+    {
+     "id": "f-residual-normality-q-q-plots-and-jarque-bera-4",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "25. *(isomorph of Mock 13)* Average milk yield per cow (thousand pounds) in one state is modelled for 1975–2019 (45 annual observations) with three trend equations, each with an intercept and one regressor: linear in $t$, linear-log in $\\ln(t)$ and quadratic in $t^2$. The table shows the Jarque-Bera tests on their residuals. Based on these values, which model seems most consistent with the normality assumption for the residuals? Explain your answer. Linear: $JB = 1.305$, p-value = 0.521 · Linear-log: $JB = 2.885$, p-value = 0.236 · Quadratic: $JB = 0.702$, p-value = 0.704. → [Error Normality and Jarque-Bera](note:error-normality-and-jarque-bera)"
+      }
+     ],
+     "words": 85,
+     "symbols": [
+      "$t_i$",
+      "$JB$",
+      "$J$",
+      "$B$"
+     ]
+    },
+    {
+     "id": "f-residual-normality-q-q-plots-and-jarque-bera-5",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "26. *(twist: one model rejects normality)* Output per worker-hour at a new plant is modelled over its first 40 quarters with the same three trend equations (linear in $t$, linear-log in $\\ln(t)$, quadratic in $t^2$). The Jarque-Bera tests on the residuals are: Linear: $JB = 2.301$, p-value = 0.316 · Linear-log: $JB = 0.413$, p-value = 0.813 · Quadratic: $JB = 7.615$, p-value = 0.022. Which model seems most consistent with the normality assumption for the residuals, and what do you conclude about each? → [Error Normality and Jarque-Bera](note:error-normality-and-jarque-bera)"
+      }
+     ],
+     "words": 74,
+     "symbols": [
+      "$t_i$",
+      "$JB$",
+      "$J$",
+      "$B$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "g-breusch-pagan-vs-white",
+   "heading": "G. Breusch-Pagan vs White",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "g-breusch-pagan-vs-white-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "27. *(isomorph of Mock 18)* An analyst models the monthly water use of 500 households on household size, lot size and income, and wants to test for heteroskedasticity. Explain the differences between the Breusch-Pagan test and the White test, discuss the null hypothesis of each, and indicate under what circumstances one test might be preferred over the other. → [Heteroskedasticity Tests](note:heteroskedasticity-tests)"
+      }
+     ],
+     "words": 60,
+     "symbols": []
+    },
+    {
+     "id": "g-breusch-pagan-vs-white-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "28. *(twist: the two tests disagree on the same model)* A utility regresses the monthly electricity bill (dollars) of 240 household-months on the average outdoor temperature (°F) and floor area (hundreds of square feet), then runs both tests. Interpret the two results, explain why they can disagree here, and say what you would do next. → [Heteroskedasticity Tests](note:heteroskedasticity-tests)\n\n    ```python\n    bill_mod = smf.ols('bill ~ temp + area', data=bills).fit()\n    bp = het_breuschpagan(bill_mod.resid, bill_mod.model.exog)\n    wh = het_white(bill_mod.resid, bill_mod.model.exog)\n    print(bp)   # (LM statistic, LM p-value, F statistic, F p-value)\n    (2.1417505405878234, 0.34270842360361065, 1.0670112961668186, 0.34568197051145483)\n    print(wh)\n    (24.309666296953687, 0.0001892926523071664, 5.274656324023132, 0.00013043215138338615)\n    ```"
+      }
+     ],
+     "words": 116,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "h-model-selection",
+   "heading": "H. Model selection",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "h-model-selection-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "29. *(isomorph of Mock 12)* Average milk yield per cow (thousand pounds) in one state, 1975–2019 (45 annual observations, $t = 1, \\dots, 45$), is modelled with three equations. Every parameter is significant at 5% (***). Linear: $\\hat{y}_t = 9.9639 + 0.2422\\,t$, se (0.1894)*** (0.0072)***, $R^2 = 0.9637$ · Linear-log: $\\hat{y}_t = 6.3563 + 3.1986\\ln(t)$, se (0.8269)*** (0.2757)***, $R^2 = 0.7578$ · Quadratic: $\\hat{y}_t = 12.0117 + 0.005049\\,t^2$, se (0.1767)*** (0.000190)***, $R^2 = 0.9427$. Based on the $R^2$ values, which equation do you think is preferable? For your choice to be supported by AIC and BIC, what would need to happen with the respective AIC and BIC values? → [Model Selection Criteria](note:model-selection-criteria)"
+      }
+     ],
+     "words": 85,
+     "symbols": [
+      "$t_i$",
+      "$R^2$",
+      "$y$, $\\widehat{y}$"
+     ]
+    },
+    {
+     "id": "h-model-selection-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "30. *(twist: the three equations do not share the same dependent variable)* Prices of 120 used cars of one model ($PRICE$, dollars) are related to mileage ($MILES$, thousands), with every parameter significant at 5% (***). Linear: $\\widehat{PRICE} = 32{,}570 - 142.13\\,MILES$, se (950.9)*** (9.913)***, $R^2 = 0.6353$ · Log-linear: $\\widehat{\\ln(PRICE)} = 10.4426 - 0.00690\\,MILES$, se (0.0423)*** (0.00044)***, $R^2 = 0.6749$ · Log-log: $\\widehat{\\ln(PRICE)} = 11.5152 - 0.3921\\ln(MILES)$, se (0.1244)*** (0.0290)***, $R^2 = 0.6084$. Based on the $R^2$ values, which equation do you think is preferable? For your choice to be supported by AIC and BIC, what would need to happen with the respective AIC and BIC values? → [Coefficient of Determination](note:coefficient-of-determination)"
+      }
+     ],
+     "words": 86,
+     "symbols": [
+      "$R^2$",
+      "$S$",
+      "$L_0$, $\\hat{L}$",
+      "$PRICE$, $SQFT$",
+      "$C_p$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "i-explain-in-your-own-words",
+   "heading": "I. Explain in your own words",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "i-explain-in-your-own-words-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "31. *(isomorph of Mock 9)* A water utility uses the simple regression $\\widehat{WATER} = b_1 + b_2\\,SIZE$ (monthly water use on household size) to forecast the use of one new household. Discuss two ways in which the variance of the forecast error, $\\mathrm{var}(f)$, can be reduced. At what value of $SIZE$ is $\\mathrm{var}(f)$ the smallest? → [Confidence vs Prediction Intervals](note:confidence-vs-prediction-intervals)\n\n32. *(twist: compute the forecast standard error instead of describing it)* A simple regression of monthly rent (dollars) on floor area (square feet) for 60 apartments has $\\widehat{\\sigma} = 212$, mean floor area $\\bar{x} = 950$ and $\\sum(x_i - \\bar{x})^2 = 4{,}860{,}000$. Compute the standard error of the forecast, $se(f)$, for an apartment of 950 square feet and for one of 1,650 square feet, and explain why they differ. → [Confidence vs Prediction Intervals](note:confidence-vs-prediction-intervals)"
+      }
+     ],
+     "words": 113,
+     "symbols": [
+      "$R^2$",
+      "$b_j$",
+      "$\\widehat{\\sigma}^2$",
+      "$s_j^2$",
+      "$x_2$, $x_3$",
+      "$e_i$, $\\widehat{e}_i$",
+      "$S$",
+      "$x_i$, $\\bar{x}$",
+      "$f = y_0 - \\hat{y}_0$",
+      "$se(f)$",
+      "$T_{BC}(x,\\lambda)$",
+      "$A$"
+     ]
+    },
+    {
+     "id": "i-explain-in-your-own-words-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "33. *(isomorph of Mock 10)* A regression of school districts' average test scores on spending per pupil reports $R^2 = 0.36$. In your own words, explain what $R^2$ is and what 0.36 says here. → [Coefficient of Determination](note:coefficient-of-determination)\n\n34. *(twist: a high $R^2$ alongside a bad residual plot)* A regression of daily electricity demand on the day's average temperature has $R^2 = 0.93$, but the plot of residuals against fitted values is clearly U-shaped: positive at both ends, negative in the middle. In your own words, what does $R^2$ not tell you here, and what should be done? → [Coefficient of Determination](note:coefficient-of-determination)"
+      }
+     ],
+     "words": 92,
+     "symbols": [
+      "$R^2$"
+     ]
+    },
+    {
+     "id": "i-explain-in-your-own-words-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "35. *(isomorph of Mock 11)* A labour economist adds $EDUC \\times EXPER$ to a wage regression that already contains $EDUC$ and $EXPER$. In simple terms, discuss the role that interaction variables play in multiple regression, using this example. → [Interaction Terms](note:interaction-terms)"
+      }
+     ],
+     "words": 35,
+     "symbols": [
+      "$D_i$",
+      "$R^2$",
+      "$Y$, $X$, $p$, $q$, $a$, $b$",
+      "$C_p$"
+     ]
+    },
+    {
+     "id": "i-explain-in-your-own-words-4",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "36. *(twist: compute the marginal effect from output with an interaction)* House prices ($price$, \\$1000s) of 300 homes are regressed on floor area ($area$, hundreds of square feet), age ($age$, years) and their product. Using the output below ($R^2 = 0.864$), compute the marginal effect of 100 more square feet on price for a 5-year-old house and for a 40-year-old house, in dollars, and say what the interaction coefficient means. → [Interaction Terms](note:interaction-terms)\n\n    ```text\n                     coef    std err          t      P>|t|      [0.025      0.975]\n    Intercept     71.1533     12.279      5.795      0.000      46.987      95.319\n    area          11.4578      0.485     23.635      0.000      10.504      12.412\n    age            0.0399      0.332      0.120      0.904      -0.613       0.693\n    area:age      -0.0690      0.014     -5.069      0.000      -0.096      -0.042\n    ```"
+      }
+     ],
+     "words": 130,
+     "symbols": [
+      "$p$, $n$",
+      "$R^2$",
+      "$r$",
+      "$e_i$, $\\widehat{e}_i$",
+      "$Y$, $X$, $p$, $q$, $a$, $b$",
+      "$c$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "j-the-residual-maker",
+   "heading": "J. The residual maker",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "j-the-residual-maker-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "37. *(isomorph of Mock 16)* Let $\\mathbf{X}$ be an $n \\times k$ matrix with full column rank, and let $\\mathbf{P} = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$ be the projection (hat) matrix used in OLS. Write an expression for the matrix product $\\mathbf{P}\\mathbf{X}$. Simplify your result as much as possible. Show each algebraic step clearly. → [Projection Matrix and Residual Maker](note:projection-matrix-and-residual-maker)\n\n38. *(twist: use the result rather than derive it)* Let $\\mathbf{M} = \\mathbf{I} - \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$, with $\\mathbf{X}$ an $n \\times k$ matrix of full column rank, and take as given that $\\mathbf{M}\\mathbf{X} = \\mathbf{0}$. The OLS residuals are $\\mathbf{e} = \\mathbf{M}\\mathbf{y}$. Show that $\\mathbf{X}'\\mathbf{e} = \\mathbf{0}$. Show each algebraic step clearly. → [Projection Matrix and Residual Maker](note:projection-matrix-and-residual-maker)"
+      }
+     ],
+     "words": 85,
+     "symbols": [
+      "$k$",
+      "$p$, $n$",
+      "$\\mathbf{X}$",
+      "$\\mathbf{y}$, $\\hat{\\mathbf{y}}$",
+      "$\\mathbf{P} = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$",
+      "$\\mathbf{M} = \\mathbf{I} - \\mathbf{P}$",
+      "$\\mathbf{e}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "k-the-bootstrap",
+   "heading": "K. The bootstrap",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "k-the-bootstrap-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "39. *(isomorph of Mock 17)* A city analyst regresses the monthly maintenance cost of 45 bridges on their age and traffic volume; the residuals look skewed and their spread grows with traffic. Describe how she would use bootstrapping in this regression. How does it enhance the estimation process or inference compared with the usual OLS output? → [Bootstrapping OLS](note:bootstrapping-ols)"
+      }
+     ],
+     "words": 58,
+     "symbols": []
+    },
+    {
+     "id": "k-the-bootstrap-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "40. *(twist: read a bootstrap summary instead of describing the method)* The annual maintenance cost ($COST$, \\$1000s) of 180 apartment buildings is regressed on the number of units ($UNITS$) and building age ($AGE$, years). Report the bootstrap standard error and the 95% percentile interval for the $UNITS$ coefficient, compare them with the textbook OLS results, and say what the comparison suggests. → [Bootstrapping OLS](note:bootstrapping-ols)\n\n    ```text\n    OLS:  Intercept 12.1933 (se 5.2791)   UNITS 1.4901 (se 0.0598)   AGE 0.6369 (se 0.0985)   df = 177\n          95% CI for UNITS (t-based): [1.372, 1.608]\n\n    Pairs bootstrap, B = 1,000 resamples of the 180 buildings\n                    Mean   Std. dev.     2.5%     97.5%\n    Intercept    12.1441     4.0855    3.6531   19.8320\n    UNITS         1.4887     0.0731    1.3456    1.6348\n    AGE           0.6392     0.0844    0.4771    0.8051\n    sigma-hat    25.5639     2.3686   20.9206   30.1606\n    ```"
+      }
+     ],
+     "words": 143,
+     "symbols": [
+      "$S$",
+      "$N$",
+      "$T_{BC}(x,\\lambda)$",
+      "$A$",
+      "$C_p$"
+     ]
+    }
+   ]
+  }
+ ],
+ "practice": {
+  "answers": "econ-430-midterm-review-answers",
+  "items": [
+   {
+    "id": "q1",
+    "number": "1",
+    "group": "A. Interpreting coefficients",
+    "prompt": "*(isomorph of Mock 1)* Annual revenue of 164 independent restaurants is modelled as $\\widehat{\\log(REVENUE)} = 12.05 + 0.0021\\,SEATS + 0.318\\,RATING + 0.142\\log(STAFF) - 0.0085\\,AGE$, with $N = 164$ and $R^2 = 0.71$. $REVENUE$ is in dollars, $SEATS$ is the number of seats, $RATING$ is the average customer rating (1 to 5 stars), $STAFF$ is the number of employees and $AGE$ is the restaurant's age in years. Assume all coefficients are significant at 5%. Interpret the coefficient on $RATING$. → [Functional Forms and Elasticities](note:functional-forms-and-elasticities)",
+    "answer": "Holding seats, staff and age fixed, a restaurant rated one star higher has about **31.8%** higher annual revenue by the usual approximation, and exactly **37.4%** higher, $100(e^{0.318} - 1)$. One star is a large change, so the exact figure is the one to trust. It is an association across restaurants, not a causal effect of the rating.\n\n*How to get there*\n1. Log on the left, $RATING$ in levels on the right: it is a semi-elasticity, so one more unit of $x$ goes with about $100b$ percent more $y$: $100 \\times 0.318 = 31.8\\%$.\n2. A one-unit change in $RATING$ (a whole star) is big, so use the exact effect $100(e^{b} - 1) = 100(e^{0.318} - 1) = 37.4\\%$.\n3. Say what is held fixed (the other four regressors) and the units (revenue in percent, rating in stars).\n\n*Watch out:* reporting only 31.8% loses the mark for the exact effect; the gap grows with the coefficient. Writing \"\\$0.318 more revenue\" or \"0.318% more\" treats a log-level coefficient as level-level or log-log.\n\n*See it:* [Econ 430 L5 Estimating Nonlinear Relationships](note:econ-430-l5-estimating-nonlinear-relationships#4-reading-log-models): the log-linear row of the table and the sentence on the exact effect $100(e^{\\beta_2} - 1)$ above it.",
+    "rubric": [
+     "Identifies a log-level coefficient: percentage change in revenue per star",
+     "About 31.8% (approximation)",
+     "Exact effect $100(e^{0.318} - 1) = 37.4\\%$, preferred because one star is a large change",
+     "Holding seats, staff and age fixed; an association, not a causal effect"
+    ],
+    "links": [
+     "functional-forms-and-elasticities",
+     "econ-430-l5-estimating-nonlinear-relationships"
+    ]
+   },
+   {
+    "id": "q2",
+    "number": "2",
+    "group": "A. Interpreting coefficients",
+    "prompt": "*(twist: the regressor is a 0/1 indicator with a negative coefficient)* For 950 workers, $\\widehat{\\log(WAGE)} = 1.12 + 0.084\\,EDUC + 0.021\\,EXPER - 0.182\\,FEMALE + 0.104\\,UNION$, where $WAGE$ is in dollars an hour, $EDUC$ and $EXPER$ are in years, and $FEMALE$ and $UNION$ are 0/1 indicators. Assume all coefficients are significant at 5%. Interpret the coefficient on $FEMALE$. → [Indicator Variables](note:indicator-variables)",
+    "answer": "Holding education, experience and union status fixed, women earn about **18.2%** less an hour than men by the approximation, and exactly **16.6%** less, $100(e^{-0.182} - 1) = -16.6\\%$.\n\n*How to get there*\n1. Log wage on the left, an indicator on the right: the coefficient is the gap in $\\log(WAGE)$ between the two groups, so about $100 \\times (-0.182) = -18.2\\%$.\n2. An indicator can only jump from 0 to 1, a one-unit change that is never small, so use the exact form: $100(e^{-0.182} - 1) = -16.6\\%$.\n3. Name the reference group (men) and what is held fixed.\n\n*Watch out:* with a negative coefficient the exact gap is **smaller** in size than the approximation (16.6% against 18.2%), not larger. Writing \"\\$0.18 an hour less\" ignores the log on the left.\n\n*See it:* [Econ 430 L6 Indicator Variables and the OLS Workflow](note:econ-430-l6-indicator-variables-and-the-ols-workflow#1-a-single-indicator): an indicator shifts the intercept for one group; with $\\log(WAGE)$ on the left that shift is a proportional gap.",
+    "rubric": [
+     "Reads the coefficient as the women–men gap in log wages, men the reference group",
+     "Approximation $-18.2\\%$",
+     "Exact $100(e^{-0.182} - 1) = -16.6\\%$",
+     "Holding education, experience and union status fixed"
+    ],
+    "links": [
+     "indicator-variables",
+     "econ-430-l6-indicator-variables-and-the-ols-workflow"
+    ]
+   },
+   {
+    "id": "q3",
+    "number": "3",
+    "group": "A. Interpreting coefficients",
+    "prompt": "*(isomorph of Mock 2)* Same restaurant model as item 1: $\\widehat{\\log(REVENUE)} = 12.05 + 0.0021\\,SEATS + 0.318\\,RATING + 0.142\\log(STAFF) - 0.0085\\,AGE$ ($N = 164$, $R^2 = 0.71$, revenue in dollars, $STAFF$ the number of employees). Interpret the coefficient on $\\log(STAFF)$. → [Functional Forms and Elasticities](note:functional-forms-and-elasticities)",
+    "answer": "The coefficient **0.142** is an elasticity: holding seats, rating and age fixed, a restaurant with 1% more staff has about 0.142% higher annual revenue (10% more staff, about 1.4% more revenue). Revenue is inelastic with respect to staff.\n\n*How to get there*\n1. Log on both sides: the coefficient is the elasticity, $\\partial\\ln y/\\partial\\ln x$.\n2. Read it for a 1% change: 0.142% more revenue; scale to 10% for a more natural comparison: about 1.42% (exactly $1.1^{0.142} - 1 = 1.36\\%$).\n3. State what is held fixed.\n\n*Watch out:* \"one more employee raises revenue by 14.2%\" reads it as log-level; \"by 0.142 dollars\" as level-level. In a log-log model both changes are in percent.\n\n*See it:* [Econ 430 L8 Building Multiple Regression Models](note:econ-430-l8-building-multiple-regression-models#1-the-multiple-regression-model): the gasoline regression's income elasticity, read with the three prices held fixed.",
+    "rubric": [
+     "Identifies a log-log coefficient as an elasticity",
+     "1% more staff: about 0.142% more revenue (or 10%: about 1.4%)",
+     "Holding seats, rating and age fixed"
+    ],
+    "links": [
+     "functional-forms-and-elasticities",
+     "econ-430-l8-building-multiple-regression-models"
+    ]
+   },
+   {
+    "id": "q4",
+    "number": "4",
+    "group": "A. Interpreting coefficients",
+    "prompt": "*(twist: only the regressor is logged, so the effect on $y$ is in units, not percent)* For 610 US counties, $\\widehat{LIFEEXP} = 47.9 + 2.86\\ln(INCOME) - 0.071\\,SMOKE + 0.034\\,DOCTORS$, where $LIFEEXP$ is life expectancy at birth in years, $INCOME$ is median household income in dollars, $SMOKE$ is the percentage of adults who smoke and $DOCTORS$ is doctors per 10,000 residents. Assume all coefficients are significant at 5%. Interpret the coefficient on $\\ln(INCOME)$. → [Functional Forms and Elasticities](note:functional-forms-and-elasticities)",
+    "answer": "Holding smoking and doctors fixed, a county with 1% higher median income has a life expectancy about **0.029 years** (about 10 days) longer; a 10% higher income goes with about 0.27 to 0.29 years (roughly three and a half months) more.\n\n*How to get there*\n1. Level on the left, log on the right: a linear-log model, so 1% more $x$ goes with about $b/100$ more units of $y$.\n2. $2.86/100 = 0.0286$ years, and $0.0286 \\times 365 = 10.4$ days.\n3. For 10%: $2.86/10 = 0.286$ years (exactly $2.86\\ln 1.1 = 0.273$).\n\n*Watch out:* \"2.86% longer life\" puts a percentage on $y$, which is in years; \"2.86 more years per dollar\" forgets the log on $x$. One unit of $\\ln(INCOME)$ is a 172% rise in income, not 1%.\n\n*See it:* [Econ 430 L5 Estimating Nonlinear Relationships](note:econ-430-l5-estimating-nonlinear-relationships#2-a-linear-log-model-of-food-spending): the food check reads $132.17\\ln(INCOME)$ as \\$1.32 more a week per 1% more income, the same $b/100$ move.",
+    "rubric": [
+     "Identifies a linear-log model: a 1% change in income, an effect in years",
+     "$2.86/100 = 0.0286$ years (about 10 days) per 1% more income",
+     "Holding smoking and doctors fixed"
+    ],
+    "links": [
+     "functional-forms-and-elasticities",
+     "econ-430-l5-estimating-nonlinear-relationships"
+    ]
+   },
+   {
+    "id": "q5",
+    "number": "5",
+    "group": "B. Slopes, elasticities and turning points",
+    "prompt": "*(isomorph of Mock 14)* A log-log regression relates annual staff-training spending ($TRAIN$, in thousands of dollars) to annual payroll ($PAYROLL$, in millions of dollars) for 212 firms: $\\widehat{\\ln(TRAIN)} = 1.874 + 0.437\\ln(PAYROLL)$, with $R^2 = 0.341$. In this sample, average training spending is \\$1.28 million and average payroll is \\$2.6 billion. Evaluate the slope at the point $(\\overline{PAYROLL}, \\overline{TRAIN})$. → [Functional Forms and Elasticities](note:functional-forms-and-elasticities)",
+    "answer": "The slope at the means is about **0.215**: one more million dollars of payroll goes with about \\$215 more training spending a year (training is in thousands, so 0.215 thousand dollars).\n\n*How to get there*\n1. In a log-log model the coefficient is the elasticity, so the slope is $b_2\\,\\bar{y}/\\bar{x}$.\n2. Put each mean in its own variable's unit: $\\overline{TRAIN} = \\$1.28$ million $= 1{,}280$ (thousands); $\\overline{PAYROLL} = \\$2.6$ billion $= 2{,}600$ (millions).\n3. $0.437 \\times 1{,}280/2{,}600 = 0.2151$ thousand dollars per \\$1 million, about \\$215.\n\n*Watch out:* convert **each** mean. Converting only one ($0.437 \\times 1{,}280/2.6 = 215.1$) is a thousand times too big; and reading 0.215 as dollars loses the \\$215. Flipping the ratio, $b_2\\bar{x}/\\bar{y} = 0.888$, gives an elasticity-like number with no meaning here.\n\n*See it:* [Econ 430 L5 Estimating Nonlinear Relationships](note:econ-430-l5-estimating-nonlinear-relationships#4-reading-log-models): the log-log row, slope $\\beta_2 y/x$, and the food check that evaluates it at the means.",
+    "rubric": [
+     "Slope formula for log-log: $b_2\\,\\bar{y}/\\bar{x}$",
+     "Means converted to the model's units (1,280 thousand and 2,600 million)",
+     "0.215, read as about \\$215 of training per \\$1 million of payroll"
+    ],
+    "links": [
+     "functional-forms-and-elasticities",
+     "econ-430-l5-estimating-nonlinear-relationships"
+    ]
+   },
+   {
+    "id": "q6",
+    "number": "6",
+    "group": "B. Slopes, elasticities and turning points",
+    "prompt": "*(twist: the units are paired the other way round, $y$ in millions and $x$ in thousands)* A log-log regression relates annual sales ($SALES$, in millions of dollars) to annual advertising ($ADVERT$, in thousands of dollars) for 150 consumer-goods firms: $\\widehat{\\ln(SALES)} = 2.105 + 0.184\\ln(ADVERT)$. Average sales are \\$96 million and average advertising is \\$1.2 million. Evaluate the slope at the point $(\\overline{ADVERT}, \\overline{SALES})$ and say what it means in dollars. → [Functional Forms and Elasticities](note:functional-forms-and-elasticities)",
+    "answer": "The slope at the means is **0.01472** million dollars of sales per thousand dollars of advertising: each extra dollar of advertising goes with about **\\$14.72** more sales.\n\n*How to get there*\n1. Log-log, so the slope is $b_2\\,\\bar{y}/\\bar{x}$, in units of $y$ per unit of $x$.\n2. Means in model units: $\\overline{SALES} = 96$ (millions, already right); $\\overline{ADVERT} = \\$1.2$ million $= 1{,}200$ (thousands).\n3. $0.184 \\times 96/1{,}200 = 0.01472$ million per thousand, that is \\$14,720 per \\$1,000, or \\$14.72 per dollar.\n\n*Watch out:* this time $y$ is in the **bigger** unit. Leaving advertising in millions gives $0.184 \\times 96/1.2 = 14.72$ \"millions per thousand\", which would claim \\$14,720 of sales per advertising dollar, a thousand times too much.\n\n*See it:* [Econ 430 L5 Estimating Nonlinear Relationships](note:econ-430-l5-estimating-nonlinear-relationships#4-reading-log-models): the log-log row; the slope $\\beta_2 y/x$ carries the units of $y$ over the units of $x$.",
+    "rubric": [
+     "Slope formula $b_2\\,\\bar{y}/\\bar{x}$",
+     "Advertising mean converted to thousands (1,200); sales left in millions (96)",
+     "0.01472 million per thousand, stated as about \\$14.72 of sales per \\$1 of advertising"
+    ],
+    "links": [
+     "functional-forms-and-elasticities",
+     "econ-430-l5-estimating-nonlinear-relationships"
+    ]
+   },
+   {
+    "id": "q7",
+    "number": "7",
+    "group": "B. Slopes, elasticities and turning points",
+    "prompt": "*(twist: the model is linear, so the elasticity is not the coefficient)* For 300 households, monthly electricity use ($KWH$, kilowatt-hours) is regressed on annual household income ($INCOME$, thousands of dollars): $\\widehat{KWH} = 412.6 + 3.85\\,INCOME$. Mean income is 68.4 and mean electricity use is 675.9 kWh. Compute the elasticity of electricity use with respect to income at the means and interpret it. → [Functional Forms and Elasticities](note:functional-forms-and-elasticities)",
+    "answer": "At the means the income elasticity of electricity use is about **0.39**: a household with 1% more income uses about 0.39% more electricity. It is below 1, so electricity use rises less than proportionately with income (inelastic, a necessity).\n\n*How to get there*\n1. In a linear model the slope is constant but the elasticity is not; use $\\varepsilon = b_2\\,\\bar{x}/\\bar{y}$.\n2. $3.85 \\times 68.4/675.9 = 0.390$.\n3. Interpret as percent for percent, and say it holds at the means.\n\n*Watch out:* 3.85 is the slope (3.85 kWh a month per \\$1,000 of income), not the elasticity. The upside-down ratio, $3.85 \\times 675.9/68.4 = 38.0$, and income in dollars, $3.85 \\times 68{,}400/675.9 = 390$, are the two common slips.\n\n*See it:* [Econ 430 L5 Estimating Nonlinear Relationships](note:econ-430-l5-estimating-nonlinear-relationships#1-four-common-forms-and-the-elasticity): every row of the forms table follows from $\\varepsilon = \\text{slope} \\times x/y$.",
+    "rubric": [
+     "Elasticity formula for a linear model at the means, $b_2\\,\\bar{x}/\\bar{y}$",
+     "$3.85 \\times 68.4/675.9 = 0.39$",
+     "Interpretation: 1% more income, about 0.39% more electricity; inelastic"
+    ],
+    "links": [
+     "functional-forms-and-elasticities",
+     "econ-430-l5-estimating-nonlinear-relationships"
+    ]
+   },
+   {
+    "id": "q8",
+    "number": "8",
+    "group": "B. Slopes, elasticities and turning points",
+    "prompt": "*(isomorph of Mock 24)* A hospital's annual IT spending ($it$) is related to its revenue ($revenue$) and its number of beds ($beds$); $it$ and $revenue$ are both in \\$1000s. The model also includes $revenue^2$ ($revsq$). Using the output below, find the level of revenue after which IT spending declines. Give the answer in dollars. → [Marginal Effects](note:marginal-effects)\n\n```text\nOLS Regression Results: Dep. Variable: it; R-squared 0.794; Adj. R-squared 0.775; F-statistic 41.24; Prob (F) 4.20e-11;\nLog-Likelihood -212.63; No. Observations 36; AIC 433.3; Df Residuals 32; BIC 439.6; Df Model 3\n                 coef    std err          t      P>|t|      [0.025      0.975]\nIntercept    103.3575     74.202      1.393      0.173     -47.786     254.501\nrevenue        0.0413      0.004     10.375      0.000       0.033       0.049\nrevsq      -4.805e-07   4.81e-08     -9.993      0.000   -5.78e-07   -3.83e-07\nbeds           0.3433      0.578      0.594      0.556      -0.833       1.520\nOmnibus 0.646; Prob(Omnibus) 0.724; Skew 0.259; Kurtosis 2.915; Durbin-Watson 2.056; Jarque-Bera (JB) 0.415; Prob(JB) 0.813; Cond. No. 9.30e+09\n```",
+    "answer": "IT spending peaks at revenue of about **42,976** (thousands), that is about **\\$43.0 million** a year; beyond that it declines. (With the unrounded estimates the turning point is 42,981, also \\$43.0 million.)\n\n*How to get there*\n1. With $revenue$ and $revenue^2$, the marginal effect is $b_2 + 2b_3\\,revenue$; it is zero at $revenue^* = -b_2/(2b_3)$.\n2. $-0.0413/(2 \\times -4.805 \\times 10^{-7}) = 0.0413/(9.61 \\times 10^{-7}) = 42{,}976$.\n3. Revenue is in \\$1000s, so $42{,}976 \\times \\$1{,}000 \\approx \\$43.0$ million. $b_3 < 0$, so this is a maximum.\n\n*Watch out:* the units. 42,976 is in thousands; \"\\$42,976\" is a thousand times too small. Forgetting the 2 gives 85,952 (\\$86 million), and the beds coefficient plays no part.\n\n*See it:* [Econ 430 L8 Building Multiple Regression Models](note:econ-430-l8-building-multiple-regression-models#4-diminishing-returns-and-marginal-effects): slide advertising in the Quadratic Marginal Effect Explorer until the tangent is flat, then convert the level from \\$1000s.",
+    "rubric": [
+     "Turning point formula $-b_2/(2b_3)$ from the marginal effect",
+     "About 42,976 (or 42,981 unrounded)",
+     "Converted to dollars: about \\$43.0 million, a maximum because $b_3 < 0$"
+    ],
+    "links": [
+     "marginal-effects",
+     "econ-430-l8-building-multiple-regression-models"
+    ]
+   },
+   {
+    "id": "q9",
+    "number": "9",
+    "group": "C. Tests from regression output",
+    "prompt": "*(isomorph of Mock 7)* For 220 home sales in one city, $PRICE = \\beta_1 + \\beta_2\\ln(SQFT) + \\beta_3 AGE + \\beta_4 GARAGE + e$, where $PRICE$ is the sale price in dollars, $SQFT$ the living area in square feet, $AGE$ the age of the house in years and $GARAGE$ the number of garage spaces. The estimates are $\\widehat{PRICE} = -512{,}600 + 108{,}400\\ln(SQFT) - 215.3\\,AGE + 9{,}870\\,GARAGE$, with standard errors (96,800), (13,250), (72.4) and (4,120) in the same order, and $R^2 = 0.47$. Using a 5% significance level, test the hypothesis that there is no relationship between price and living area against the alternative that the relationship is positive. Assume $t_{crit} = 1.645$. → [Hypothesis Tests on Regression Coefficients](note:hypothesis-tests-on-regression-coefficients)",
+    "answer": "$H_0: \\beta_2 \\le 0$ against $H_1: \\beta_2 > 0$. $t = 108{,}400/13{,}250 = 8.18 > 1.645$, so reject $H_0$ at 5%: holding age and garage spaces fixed, sale price rises with living area.\n\n*How to get there*\n1. Write the hypotheses in $\\beta$'s, with the alternative in the direction asked: $H_1: \\beta_2 > 0$.\n2. $t = b_2/se(b_2) = 108{,}400/13{,}250 = 8.18$.\n3. One-sided at 5%: reject if $t > t_{0.95,\\,216}$; with $N - K = 216$ degrees of freedom that is 1.652, which the exam rounds to 1.645.\n4. Conclude in words.\n\n*Watch out:* using the two-sided 1.96 here is wrong in principle (it happens not to change the decision). Dividing by the intercept's standard error, 96,800, gives 1.12 and the wrong conclusion.\n\n*See it:* [Econ 430 L8 Building Multiple Regression Models](note:econ-430-l8-building-multiple-regression-models#1-the-multiple-regression-model): the one-sided gasoline price check, which puts all 5% in one tail.",
+    "rubric": [
+     "$H_0: \\beta_2 \\le 0$ (or $= 0$), $H_1: \\beta_2 > 0$",
+     "$t = 108{,}400/13{,}250 = 8.18$",
+     "Compare with 1.645 (one-sided; about $t_{0.95,216} = 1.652$): reject",
+     "Conclusion in words: price rises with living area, others fixed"
+    ],
+    "links": [
+     "hypothesis-tests-on-regression-coefficients",
+     "econ-430-l8-building-multiple-regression-models"
+    ]
+   },
+   {
+    "id": "q10",
+    "number": "10",
+    "group": "C. Tests from regression output",
+    "prompt": "*(twist: the sample is small, so 1.645 is the wrong critical value)* For 21 stores of a regional chain, weekly sales ($SALES$, \\$1000s) are regressed on weekly advertising ($ADVERT$, \\$1000s) and the average price index ($PRICE$): $\\widehat{SALES} = 41.2 + 1.87\\,ADVERT - 3.05\\,PRICE$, with $se(b_2) = 1.10$. At the 5% level, test $H_0: \\beta_2 \\le 0$ against $H_1: \\beta_2 > 0$. You may use $t_{0.95,\\,18} = 1.734$ and $t_{0.975,\\,18} = 2.101$. → [Hypothesis Tests on Regression Coefficients](note:hypothesis-tests-on-regression-coefficients)",
+    "answer": "$H_0: \\beta_2 \\le 0$, $H_1: \\beta_2 > 0$. $t = 1.87/1.10 = 1.70$, below $t_{0.95,\\,18} = 1.734$, so **do not reject** at 5%: these 21 stores do not give significant evidence that advertising raises sales (one-sided p ≈ 0.053).\n\n*How to get there*\n1. $t = b_2/se(b_2) = 1.87/1.10 = 1.70$.\n2. Degrees of freedom $N - K = 21 - 3 = 18$, so the one-sided 5% critical value is $t_{0.95,\\,18} = 1.734$.\n3. $1.70 < 1.734$: do not reject. Say so in words, and that \"not significant\" is not \"no effect\".\n\n*Watch out:* with 18 degrees of freedom the normal's 1.645 is too small: it would reject ($1.70 > 1.645$, p = 0.045 under the normal). The two-sided 2.101 is the wrong tail rule.\n\n*See it:* [Econ 430 L3 The Method of Least Squares](note:econ-430-l3-the-method-of-least-squares#5-estimating-the-food-regression): the one-sided check with $t_{0.95,\\,38} = 1.686$; the critical value comes from the $t$ with $N - K$ degrees of freedom.",
+    "rubric": [
+     "$t = 1.87/1.10 = 1.70$",
+     "df $= 21 - 3 = 18$; one-sided critical value 1.734 (not 1.645, not 2.101)",
+     "Do not reject $H_0$ at 5%; conclusion in words"
+    ],
+    "links": [
+     "hypothesis-tests-on-regression-coefficients",
+     "econ-430-l3-the-method-of-least-squares"
+    ]
+   },
+   {
+    "id": "q11",
+    "number": "11",
+    "group": "D. Significance and sample size",
+    "prompt": "*(isomorph of Mock 6)* The home-sales model of item 9, $PRICE = \\beta_1 + \\beta_2\\ln(SQFT) + \\beta_3 AGE + \\beta_4 GARAGE + e$, is to be estimated on 220 sales. Given the number of observations and the number of parameters being estimated, do you anticipate any obvious problem(s) before estimating the model? → [Hypothesis Tests on Regression Coefficients](note:hypothesis-tests-on-regression-coefficients)",
+    "answer": "No obvious problem: with $N = 220$ and $K = 4$ there are $N - K = 216$ degrees of freedom, plenty for precise estimates and for $t$ critical values close to the normal ones. Minor points: $\\ln(SQFT)$ needs $SQFT > 0$, which always holds, and size and garage spaces are correlated, but not so strongly that multicollinearity should be a worry.\n\n*How to get there*\n1. Count the parameters: intercept plus three slopes, $K = 4$.\n2. $N - K = 220 - 4 = 216$ degrees of freedom: a large sample relative to the model.\n3. Check the regressors: the log is defined, and no regressor is an exact combination of the others.\n\n*Watch out:* counting $K$ as 3 (forgetting the intercept) is a small slip; inventing a problem, such as \"too few observations\", loses the judgement mark.\n\n*See it:* [Econ 430 L6 Indicator Variables and the OLS Workflow](note:econ-430-l6-indicator-variables-and-the-ols-workflow#3-the-seven-step-workflow): step 1, inspect the data (types, ranges, missing values) before fitting.",
+    "rubric": [
+     "$K = 4$ and $N - K = 216$ degrees of freedom",
+     "Concludes no small-sample problem",
+     "Notes $\\ln(SQFT)$ needs positive values (it is) or no strong multicollinearity expected"
+    ],
+    "links": [
+     "hypothesis-tests-on-regression-coefficients",
+     "econ-430-l6-indicator-variables-and-the-ols-workflow"
+    ]
+   },
+   {
+    "id": "q12",
+    "number": "12",
+    "group": "D. Significance and sample size",
+    "prompt": "*(twist: few observations for many parameters)* A transit agency wants to model average weekday ridership on its 18 bus routes with an intercept and 8 regressors (route length, number of stops, frequency, fare, two neighbourhood income measures, population density and a downtown indicator). Given the number of observations and the number of parameters, do you anticipate any obvious problem(s) before estimating the model? → [Multicollinearity](note:multicollinearity)",
+    "answer": "Yes. With $N = 18$ and $K = 9$ there are only $N - K = 9$ degrees of freedom: the estimates will be imprecise (large standard errors, $t_{0.975,\\,9} = 2.262$ rather than about 2), $R^2$ will be high almost mechanically, and the model risks fitting noise. Eight regressors on 18 routes also invite multicollinearity (the two income measures and density move together). Use fewer regressors chosen on theory, or more data (more routes, or several years per route).\n\n*How to get there*\n1. $K = 1 + 8 = 9$; $N - K = 18 - 9 = 9$.\n2. Few degrees of freedom: $\\widehat{\\sigma}^2$ is estimated from 9 residuals, critical values are large, and confidence intervals are wide.\n3. Many parameters per observation: overfitting and a misleadingly high $R^2$; correlated regressors make it worse.\n4. Recommend a smaller model or more observations.\n\n*Watch out:* saying \"OLS cannot be estimated\" is wrong: it can as long as $N \\ge K$ and no regressor is an exact combination of others. The problem is precision and overfitting, not existence.\n\n*See it:* [Econ 430 L4 Cross-Validation and the Bootstrap](note:econ-430-l4-cross-validation-and-the-bootstrap#2-choosing-model-complexity): step the degree up in the Polynomial Degree and Cross-Validation widget; in-sample error keeps falling while cross-validated error rises.",
+    "rubric": [
+     "$N - K = 9$ degrees of freedom computed",
+     "Consequence: imprecise estimates, large critical values, wide intervals",
+     "Overfitting / misleadingly high $R^2$, or multicollinearity among the regressors",
+     "Remedy: fewer regressors or more data"
+    ],
+    "links": [
+     "multicollinearity",
+     "econ-430-l4-cross-validation-and-the-bootstrap"
+    ]
+   },
+   {
+    "id": "q13",
+    "number": "13",
+    "group": "D. Significance and sample size",
+    "prompt": "*(isomorph of Mock 8)* In the home-sales regression of item 9, $\\widehat{PRICE} = -512{,}600 + 108{,}400\\ln(SQFT) - 215.3\\,AGE + 9{,}870\\,GARAGE$, the standard error on $AGE$ is 72.4, $N = 220$ and the average sale price is \\$301,500. Briefly comment on the economic vs. statistical significance of the estimated coefficient on $AGE$. → [Hypothesis Tests on Regression Coefficients](note:hypothesis-tests-on-regression-coefficients)",
+    "answer": "Statistically, $AGE$ is significant: $t = -215.3/72.4 = -2.97$ ($p \\approx 0.003$). Economically, it is small: holding size and garage fixed, a house 10 years older sells for about \\$2,150 less, under 1% of the average price of \\$301,500.\n\n*How to get there*\n1. Statistical significance: $t = b/se = -2.97$, beyond $\\pm 1.97$, so reject $\\beta_3 = 0$ at 5%.\n2. Economic significance: multiply the coefficient by a realistic change, $10 \\times 215.3 = \\$2{,}153$.\n3. Compare with the typical $y$: $2{,}153/301{,}500 = 0.7\\%$ of the average price; small next to a garage space (\\$9,870).\n\n*Watch out:* judging size from $R^2$ or from the $t$ statistic. A large $t$ says the effect is precisely estimated, not that it is big; the size is the coefficient in the units of $y$.\n\n*See it:* [Econ 430 L6 Indicator Variables and the OLS Workflow](note:econ-430-l6-indicator-variables-and-the-ols-workflow#3-the-seven-step-workflow): the check on the wage-experience slope, significant ($t = 2.60$) yet only 3 cents an hour per year.",
+    "rubric": [
+     "$t = -2.97$: statistically significant at 5%",
+     "Effect in units: about \\$2,150 per 10 years of age, holding others fixed",
+     "Compared with the average price (under 1%): economically small",
+     "States that the two kinds of significance can differ"
+    ],
+    "links": [
+     "hypothesis-tests-on-regression-coefficients",
+     "econ-430-l6-indicator-variables-and-the-ols-workflow"
+    ]
+   },
+   {
+    "id": "q14",
+    "number": "14",
+    "group": "D. Significance and sample size",
+    "prompt": "*(twist: the effect is economically large but not statistically significant)* A city evaluates a job-training program for 85 adults: $\\widehat{EARN} = 9{,}840 + 2{,}350\\,TRAIN + 610\\,EDUC + 152\\,AGE$, where $EARN$ is annual earnings in dollars, $TRAIN$ is 1 for participants, and the standard error on $TRAIN$ is 1,620. Average earnings in the sample are \\$21,400. Briefly comment on the economic vs. statistical significance of the estimated coefficient on $TRAIN$. → [Hypothesis Tests on Regression Coefficients](note:hypothesis-tests-on-regression-coefficients)",
+    "answer": "Economically the effect is large: participants earn about \\$2,350 a year more, holding education and age fixed, about 11% of average earnings. Statistically it is not significant: $t = 2{,}350/1{,}620 = 1.45 < 1.99$ ($p \\approx 0.15$). The estimate is imprecise: the 95% interval, from about $-$\\$870 to \\$5,570, includes both zero and very large effects. Don't conclude \"no effect\"; a larger sample is needed.\n\n*How to get there*\n1. Statistical: $t = 1.45$ with $85 - 4 = 81$ degrees of freedom; $t_{0.975,\\,81} = 1.99$, so do not reject $\\beta = 0$.\n2. Economic: \\$2,350 against average earnings of \\$21,400 is $2{,}350/21{,}400 = 11\\%$, a big gain.\n3. Reconcile: the standard error is large relative to the effect, so the data cannot tell a large effect from none.\n\n*Watch out:* \"not significant, so the program does not work\" confuses failing to reject with proving zero. The interval $2{,}350 \\pm 1.99 \\times 1{,}620$ shows how wide the uncertainty is.\n\n*See it:* [Econ 430 L3 The Method of Least Squares](note:econ-430-l3-the-method-of-least-squares#7-the-distribution-of-the-estimators): in the OLS Sampling Distribution widget, lower $N$ and watch $b_2$ still centre on the truth but spread so widely that many samples give $t < 2$.",
+    "rubric": [
+     "$t = 1.45$: not significant at 5%",
+     "Effect in units: \\$2,350 a year, about 11% of average earnings: economically large",
+     "Explains imprecision (wide interval includes 0 and large effects)",
+     "Does not conclude \"no effect\"; more data needed"
+    ],
+    "links": [
+     "hypothesis-tests-on-regression-coefficients",
+     "econ-430-l3-the-method-of-least-squares"
+    ]
+   },
+   {
+    "id": "q15",
+    "number": "15",
+    "group": "E. Functional form: logs, RESET and Box-Cox",
+    "prompt": "*(isomorph of Mock 3)* A health economist regresses the annual operating cost of 300 hospitals on their number of beds. For this simple linear regression, provide two reasons why she might consider taking the log of cost instead of regressing cost on beds. → [Box-Cox and Power Transformations](note:box-cox-and-power-transformations)",
+    "answer": "Two reasons to model $\\ln(COST)$: (1) hospital costs are strongly right-skewed and span orders of magnitude, from small rural hospitals to large city ones, and the log pulls in the long upper tail; (2) the spread of cost grows with hospital size, and the log usually stabilises the error variance. A third: effects are naturally proportional, so the slope reads as a percentage change (an elasticity if beds are logged too).\n\n*How to get there*\n1. Think about what $y$ looks like: a positive, skewed money variable.\n2. Name the problem each reason fixes: skew, variance rising with the level, a multiplicative relationship.\n3. Tie each reason to this setting.\n\n*Watch out:* \"logs raise $R^2$\" earns nothing: $R^2$ for $\\ln y$ and for $y$ are shares of different totals. \"Logs remove bias\" is also wrong.\n\n*See it:* [Econ 430 L5 Estimating Nonlinear Relationships](note:econ-430-l5-estimating-nonlinear-relationships#3-why-take-logs): infant mortality against GDP per capita, curved and fanning out in levels, close to a straight line in logs.",
+    "rubric": [
+     "Reason 1: right skew / values spanning orders of magnitude",
+     "Reason 2: error variance growing with the level of cost",
+     "(Or) proportional effects, slope read as a percentage change",
+     "Each reason tied to the hospital setting"
+    ],
+    "links": [
+     "box-cox-and-power-transformations",
+     "econ-430-l5-estimating-nonlinear-relationships"
+    ]
+   },
+   {
+    "id": "q16",
+    "number": "16",
+    "group": "E. Functional form: logs, RESET and Box-Cox",
+    "prompt": "*(twist: when logging $y$ is not appropriate)* A colleague models the annual profit of 400 small firms and wants to use $\\ln(PROFIT)$ instead of $PROFIT$ \"because logs always improve the fit and will remove the bias from leaving out the owner's management skill\". About 18% of the firms made zero profit or a loss. Give two reasons why logging $y$ is not the answer here. → [Box-Cox and Power Transformations](note:box-cox-and-power-transformations)",
+    "answer": "(1) The log is not defined for zero or negative values, and 18% of the firms have them: dropping those firms keeps only profitable ones (a selected, unrepresentative sample), and adding an arbitrary constant changes the results. If a power transformation is wanted, the Yeo-Johnson family handles negative values. (2) Logging changes the functional form, not the exogeneity of the regressors: if management skill is omitted and correlated with the regressors, the log model is biased too. Besides, logs do not \"always improve the fit\", and the $R^2$ of a $\\ln y$ model can't be compared with that of a $y$ model.\n\n*How to get there*\n1. Check whether the log exists for every $y$: it does not at $PROFIT \\le 0$.\n2. Ask what a transformation can fix (skew, spread, curvature) and what it cannot (omitted variables, bias).\n3. Answer the colleague's two claims one by one.\n\n*Watch out:* answering \"log profits because they are skewed\" misses that the log cannot be taken. Saying the log \"reduces\" omitted variable bias is the slip the question baits.\n\n*See it:* [Econ 430 L5 Estimating Nonlinear Relationships](note:econ-430-l5-estimating-nonlinear-relationships#3-why-take-logs): the check's two wrong options, \"always raises $R^2$\" and \"makes OLS unbiased\", with their feedback.",
+    "rubric": [
+     "Log undefined at zero/negative profits; dropping them selects the sample (Yeo-Johnson as the alternative)",
+     "A transformation does not fix omitted variable bias",
+     "Rejects the \"always improves the fit\" claim ($R^2$ not comparable across $y$ and $\\ln y$)"
+    ],
+    "links": [
+     "box-cox-and-power-transformations",
+     "econ-430-l5-estimating-nonlinear-relationships"
+    ]
+   },
+   {
+    "id": "q17",
+    "number": "17",
+    "group": "E. Functional form: logs, RESET and Box-Cox",
+    "prompt": "*(isomorph of Mock 4)* Monthly rents (dollars) of 412 apartments are modelled on floor area (hundreds of square feet), age (years), distance to downtown (miles), floor number and an area-by-distance interaction. Based on the model being estimated and the test being performed below, discuss your interpretation of the test result and your recommendation(s). → [Ramsey RESET](note:ramsey-reset)\n\n```python\nrent_mod = smf.ols('rent ~ area + age + dist + floor + area:dist', data=rent_data).fit()\nreset_result = linear_reset(rent_mod, power=2, test_type='exog', use_f=True)\nprint(reset_result)\n<F test: F=13.047260379544998, p=8.852180970480372e-12, df_denom=401, df_num=5>\n```",
+    "answer": "RESET tests $H_0$: the functional form is correct (the squared regressors add nothing). $F = 13.05$ on (5, 401) degrees of freedom with $p \\approx 9 \\times 10^{-12}$: reject strongly; the model misses nonlinearity. Recommendation: the model already has an interaction, so piling on more powers is not the fix. Rent is right-skewed and its spread grows with size, so try $\\log(rent)$; look for omitted variables (amenities, neighbourhood); use component-plus-residual plots to see which regressor needs transforming; then rerun RESET. (On the data behind this printout, the same model for $\\log(rent)$ gives $F = 0.63$, $p = 0.67$.)\n\n*How to get there*\n1. State the null: correct functional form, no neglected nonlinearity.\n2. Read the printout: `test_type='exog'` with `power=2` squares the 5 non-constant regressors, so `df_num = 5`; `df_denom = 412 - 6 - 5 = 401`.\n3. $p \\approx 9 \\times 10^{-12} < 0.05$ (the 5% critical value $F_{5,401}$ is 2.24): reject.\n4. Recommend concrete next steps and a re-test.\n\n*Watch out:* \"add all the squared terms\" is not a recommendation a grader rewards; RESET says something is wrong, not what. And a rejection is not about heteroskedasticity or normality.\n\n*See it:* [Econ 430 L10 Modeling Issues in Multiple Regression](note:econ-430-l10-modeling-issues-in-multiple-regression#6-model-misspecification-ramsey-reset): the simulated line fitted to a quadratic, which RESET flags, against the line fitted to a line, which it passes.",
+    "rubric": [
+     "$H_0$: correct functional form (added powers have zero coefficients)",
+     "Reads F = 13.05, df (5, 401), $p \\approx 0$: reject",
+     "Conclusion: misspecified functional form",
+     "Recommendation: log rent / omitted variables / component-plus-residual plots, then rerun RESET"
+    ],
+    "links": [
+     "ramsey-reset",
+     "econ-430-l10-modeling-issues-in-multiple-regression"
+    ]
+   },
+   {
+    "id": "q18",
+    "number": "18",
+    "group": "E. Functional form: logs, RESET and Box-Cox",
+    "prompt": "*(twist: the test does not reject)* The annual operating cost of 150 hospitals (\\$ millions) is modelled on beds, the occupancy rate and a teaching-hospital indicator. Based on the model being estimated and the test being performed below, discuss your interpretation of the test result and your recommendation(s). → [Ramsey RESET](note:ramsey-reset)\n\n```python\ncost_mod = smf.ols('cost ~ beds + occ + teach', data=hosp).fit()\nreset_result = linear_reset(cost_mod, power=3, test_type='fitted', use_f=True)\nprint(reset_result)\n<F test: F=1.8539156921558222, p=0.16034146572884617, df_denom=144, df_num=2>\n```",
+    "answer": "$H_0$: correct functional form ($\\widehat{y}^2$ and $\\widehat{y}^3$ add nothing). $F = 1.85$ on (2, 144) degrees of freedom, $p = 0.16 > 0.05$: **do not reject**. There is no evidence of neglected nonlinearity, so keep the linear model, but this is not proof that it is right: still check the residual and component-plus-residual plots, and test for heteroskedasticity separately.\n\n*How to get there*\n1. `test_type='fitted'` with `power=3` adds $\\widehat{y}^2$ and $\\widehat{y}^3$: `df_num = 2`.\n2. `df_denom = 150 - 4 - 2 = 144` (four original coefficients, two added).\n3. $p = 0.16$, or $F = 1.85 < F_{2,144} = 3.06$: do not reject at 5% (nor at 10%).\n4. Recommendation: keep the form; failing to reject is not proving it correct.\n\n*Watch out:* \"the model is correctly specified\" overstates it. RESET has limited power and cannot see omitted variables that enter linearly, or heteroskedasticity.\n\n*See it:* [Econ 430 L10 Modeling Issues in Multiple Regression](note:econ-430-l10-modeling-issues-in-multiple-regression#6-model-misspecification-ramsey-reset): the family-income check, where a borderline non-rejection is still a reason to look at the plots.",
+    "rubric": [
+     "$H_0$: correct functional form",
+     "Reads F = 1.85, df (2, 144), $p = 0.16$: do not reject",
+     "Keep the linear form, but not proof of correct specification",
+     "Next step: residual/CR plots or other diagnostics"
+    ],
+    "links": [
+     "ramsey-reset",
+     "econ-430-l10-modeling-issues-in-multiple-regression"
+    ]
+   },
+   {
+    "id": "q19",
+    "number": "19",
+    "group": "E. Functional form: logs, RESET and Box-Cox",
+    "prompt": "*(isomorph of Mock 5)* Annual out-of-pocket medical spending of 150 households is regressed on household income and the age of the household head. Consider the following Box-Cox output for the dependent variable: Estimated $\\lambda = 0.186$; Rounded = 0.2; 95% CI (profile likelihood): $[-0.009,\\ 0.387]$; LR test for $\\lambda = 0$ (log): p-value = 0.062; LR test for $\\lambda = 1$ (no transform): p-value < 0.0001. Based on these results, what transformation of the dependent variable should be applied? Justify your answer. → [Box-Cox and Power Transformations](note:box-cox-and-power-transformations)",
+    "answer": "Transform $y$: no transformation ($\\lambda = 1$) is rejected outright ($p < 0.0001$). The data favour a power near 0.2, between the log and the square root. The log is not rejected at 5%, but only just ($p = 0.062$, and 0 sits at the very edge of the interval $[-0.009, 0.387]$), while the square root (0.5) lies outside the interval. Apply the log for its percentage interpretation, saying the case is borderline; the rounded power $\\lambda = 0.2$ is the best-supported alternative. Never leave $y$ untransformed.\n\n*How to get there*\n1. Test \"no transformation\": $\\lambda = 1$, $p < 0.0001$, and 1 is far outside the interval: transform.\n2. Read the interval: a profile-likelihood interval contains exactly the powers the 5% LR test does not reject. 0 is just inside (matching $p = 0.062$); 0.5 is outside.\n3. Choose a natural power that is not rejected (the log), or the rounded estimate (0.2), and say it is borderline.\n\n*Watch out:* choosing \"no transformation because the estimate is small\" confuses $\\lambda = 0$ (log) with $\\lambda = 1$ (none). The square root is tempting as a compromise but is rejected here.\n\n*See it:* [Econ 430 L5 Estimating Nonlinear Relationships](note:econ-430-l5-estimating-nonlinear-relationships#5-box-cox-power-transformations): in the Box-Cox Ladder Explorer, a power is not rejected only while the profile curve is above the cut-off line; a value at the edge is barely inside.",
+    "rubric": [
+     "$\\lambda = 1$ rejected: transform $y$",
+     "Reads CI and LR test together: log barely not rejected ($p = 0.062$, 0 at the edge), 0.5 outside",
+     "A justified choice: log (interpretable, borderline) or $\\lambda = 0.2$ (best-supported)",
+     "Says the evidence is borderline"
+    ],
+    "links": [
+     "box-cox-and-power-transformations",
+     "econ-430-l5-estimating-nonlinear-relationships"
+    ]
+   },
+   {
+    "id": "q20",
+    "number": "20",
+    "group": "E. Functional form: logs, RESET and Box-Cox",
+    "prompt": "*(twist: the interval contains 0 comfortably and the log is clearly not rejected)* Weekly sales of 96 stores are regressed on floor space and staff. The Box-Cox output for the dependent variable is: Estimated $\\lambda = -0.082$; Rounded = $-0.1$; 95% CI (profile likelihood): $[-0.379,\\ 0.215]$; LR test for $\\lambda = 0$ (log): p-value = 0.589; LR test for $\\lambda = 1$ (no transform): p-value < 0.0001. What transformation of the dependent variable should be applied? Justify your answer. → [Box-Cox and Power Transformations](note:box-cox-and-power-transformations)",
+    "answer": "Use the **log** ($\\lambda = 0$). It lies well inside the 95% interval $[-0.379, 0.215]$ and its LR test does not reject ($p = 0.589$), while no transformation ($\\lambda = 1$) is rejected ($p < 0.0001$) and the square root (0.5) lies outside the interval.\n\n*How to get there*\n1. $\\lambda = 1$: $p < 0.0001$, so transform.\n2. The convention is a natural power the data do not reject; 0 is inside the interval and $p = 0.589$.\n3. The log also gives percentage interpretations, so it beats the rounded $-0.1$.\n\n*Watch out:* \"Rounded = $-0.1$\" is not an instruction: $-0.1$ is not a natural power and is no better supported than 0. A negative estimate does not point to the reciprocal ($-1$ is far outside the interval).\n\n*See it:* [Econ 430 L5 Estimating Nonlinear Relationships](note:econ-430-l5-estimating-nonlinear-relationships#5-box-cox-power-transformations): the infant-mortality ladder, where the estimate is near 0 and the log is the natural power under the curve.",
+    "rubric": [
+     "No transformation rejected ($p < 0.0001$)",
+     "Log inside the interval and not rejected ($p = 0.589$)",
+     "Chooses the log, a natural, interpretable power, over $-0.1$"
+    ],
+    "links": [
+     "box-cox-and-power-transformations",
+     "econ-430-l5-estimating-nonlinear-relationships"
+    ]
+   },
+   {
+    "id": "q21",
+    "number": "21",
+    "group": "F. Residual normality: Q-Q plots and Jarque-Bera",
+    "prompt": "*(isomorph of Mock 19)* A researcher regresses the length of hospital stay (days) of 120 patients on age and a severity score, and checks the residuals with a normal Q-Q plot. The points follow the 45° line closely in the middle, but at the right end they rise above the line and at the left end they fall below it. What does this pattern suggest about the distribution of the residuals? → [Q-Q Plot](note:q-q-plot)",
+    "answer": "**Heavy tails.** The residuals are roughly symmetric but have more extreme values than a normal distribution in both directions: the largest residuals are larger, and the smallest more negative, than the normal predicts.\n\n*How to get there*\n1. Above the line means larger than the normal predicts at that rank; below means smaller.\n2. The right end is above (big positives too big) and the left end below (big negatives too negative).\n3. The two ends bend in **opposite** directions, an S shape: heavy tails (excess kurtosis), not skew.\n\n*Watch out:* calling this skew. Skew bends **both** ends the same way; ends in opposite directions are a tails pattern, heavy when they move away from the line as here.\n\n*See it:* [Econ 430 L1 Univariate Characterizations](note:econ-430-l1-univariate-characterizations#4-quantile-plots): in the Q-Q Plot Shape Explorer, pick the Student $t$ with 3 degrees of freedom and watch the left end fall below and the right end rise above the line.",
+    "rubric": [
+     "Names the S shape (ends in opposite directions)",
+     "Heavy tails: more extreme residuals than a normal, both sides",
+     "Roughly symmetric (not skewed)"
+    ],
+    "links": [
+     "q-q-plot",
+     "econ-430-l1-univariate-characterizations"
+    ]
+   },
+   {
+    "id": "q22",
+    "number": "22",
+    "group": "F. Residual normality: Q-Q plots and Jarque-Bera",
+    "prompt": "*(twist: both ends bend the same way)* Scores on a test with a maximum of 100 are regressed on weekly study hours for 200 students; many students score close to 100. In the normal Q-Q plot of the residuals the middle follows the 45° line, but the points at **both** ends lie below the line, so the plot bends down like an arch. What does this pattern suggest about the distribution of the residuals? → [Q-Q Plot](note:q-q-plot)",
+    "answer": "**Left (negative) skew.** Both ends lie below the line: the smallest residuals are more negative than a normal predicts (a long left tail) and the largest are smaller than it predicts (a short right tail), as expected when scores bunch near the maximum of 100.\n\n*How to get there*\n1. Below the line means smaller than the normal predicts at that rank.\n2. Left end below: a stretched left tail. Right end below: a compressed right tail.\n3. Both ends bending the **same** way is skew; both below (concave, arch-shaped) is left skew.\n\n*Watch out:* reading \"the ends leave the line\" as heavy tails. Heavy tails need the ends on opposite sides; and both ends **above** the line would be right skew, the mirror image.\n\n*See it:* [Econ 430 L1 Univariate Characterizations](note:econ-430-l1-univariate-characterizations#4-quantile-plots): pick the lognormal in the Q-Q Plot Shape Explorer: both ends bend above the line (right skew); a left skew is its mirror image.",
+    "rubric": [
+     "Both ends on the same side: skew, not a tails pattern",
+     "Both below: left (negative) skew, long left tail",
+     "Links it to the ceiling at 100"
+    ],
+    "links": [
+     "q-q-plot",
+     "econ-430-l1-univariate-characterizations"
+    ]
+   },
+   {
+    "id": "q23",
+    "number": "23",
+    "group": "F. Residual normality: Q-Q plots and Jarque-Bera",
+    "prompt": "*(isomorph of Mock 20)* Same hospital-stay regression as item 21 (120 patients; the residual Q-Q plot follows the line in the middle, rises above it at the right end and falls below it at the left end). How might this affect the assumptions of the linear regression model? → [Error Normality and Jarque-Bera](note:error-normality-and-jarque-bera)",
+    "answer": "Heavy tails break the normality assumption (SR6, MR6 in multiple regression). OLS is still unbiased and BLUE, since that needs only the other assumptions, but the exact $t$ and $F$ distributions behind the p-values, confidence intervals and prediction intervals no longer hold, so inference is only approximate (fine in large samples, less so with 120 patients and very heavy tails). Extreme residuals also have an outsized pull on the fitted line.\n\n*How to get there*\n1. Name the assumption the pattern concerns: normal errors.\n2. Say what does not need it: unbiasedness and Gauss-Markov (BLUE).\n3. Say what does: exact small-sample $t$/$F$ inference and normal-based prediction intervals.\n4. Add the practical risk: extreme points can dominate the fit.\n\n*Watch out:* \"OLS is now biased\" or \"no longer BLUE\" is wrong; normality was never needed for those. \"Heteroskedasticity\" is a different assumption.\n\n*See it:* [Econ 430 L3 The Method of Least Squares](note:econ-430-l3-the-method-of-least-squares#4-normality-and-error-correlation): the text on what normality (SR6) is for: exact finite-sample inference, not unbiasedness.",
+    "rubric": [
+     "Normality assumption (SR6/MR6) violated",
+     "OLS still unbiased and BLUE",
+     "Exact $t$/$F$ p-values and intervals unreliable in small samples",
+     "Extreme residuals can pull the fit (influence)"
+    ],
+    "links": [
+     "error-normality-and-jarque-bera",
+     "econ-430-l3-the-method-of-least-squares"
+    ]
+   },
+   {
+    "id": "q24",
+    "number": "24",
+    "group": "F. Residual normality: Q-Q plots and Jarque-Bera",
+    "prompt": "*(isomorph of Mock 21)* Same hospital-stay regression as items 21 and 23. Suggest one possible data transformation or modelling adjustment that could help. → [Regression Diagnostics](note:regression-diagnostics)",
+    "answer": "First check for outliers and influential patients (leverage, studentised residuals, Cook's distance) and correct data errors; then report bootstrap standard errors and percentile intervals (or White standard errors), which do not assume normal errors. If the length of stay itself is right-skewed, a log or Box-Cox transformation of $y$ can also help. (Robust regression, such as least absolute deviations, also down-weights extreme points but is beyond the lectures.)\n\n*How to get there*\n1. Find where the heavy tails come from: a few extreme patients, or the whole distribution.\n2. Pick a remedy that matches: fix or examine influential points; use inference that does not need normality.\n3. Justify it in one sentence.\n\n*Watch out:* a remedy without a reason, or \"add more regressors\" with no link to the tails, earns little. A log helps skew more than symmetric heavy tails, so say when it applies.\n\n*See it:* [Econ 430 L6 Indicator Variables and the OLS Workflow](note:econ-430-l6-indicator-variables-and-the-ols-workflow#5-diagnostic-plots): in the Leverage and Influence Explorer, drag the extra point off the line and far to the right and watch one observation tilt the fit.",
+    "rubric": [
+     "One sensible remedy (influence check, bootstrap/robust inference, transform $y$)",
+     "Reason linking it to heavy tails",
+     "Notes OLS estimates can stay, only inference or influential points need handling"
+    ],
+    "links": [
+     "regression-diagnostics",
+     "econ-430-l6-indicator-variables-and-the-ols-workflow"
+    ]
+   },
+   {
+    "id": "q25",
+    "number": "25",
+    "group": "F. Residual normality: Q-Q plots and Jarque-Bera",
+    "prompt": "*(isomorph of Mock 13)* Average milk yield per cow (thousand pounds) in one state is modelled for 1975–2019 (45 annual observations) with three trend equations, each with an intercept and one regressor: linear in $t$, linear-log in $\\ln(t)$ and quadratic in $t^2$. The table shows the Jarque-Bera tests on their residuals. Based on these values, which model seems most consistent with the normality assumption for the residuals? Explain your answer. Linear: $JB = 1.305$, p-value = 0.521 · Linear-log: $JB = 2.885$, p-value = 0.236 · Quadratic: $JB = 0.702$, p-value = 0.704. → [Error Normality and Jarque-Bera](note:error-normality-and-jarque-bera)",
+    "answer": "None of the three models rejects normality at 5% (all p-values are above 0.05; every JB is below the critical value 5.99). The **quadratic** is the most consistent with normal residuals: the smallest JB (0.702) and the largest p-value (0.704). Not rejecting is not proof of normality, and with 45 observations the test has little power.\n\n*How to get there*\n1. Jarque-Bera: $H_0$ normal residuals; $JB = \\frac{N}{6}\\left(S^2 + \\frac{(K - 3)^2}{4}\\right) \\sim \\chi^2_2$, 5% critical value 5.99.\n2. Compare the p-values: 0.521, 0.236, 0.704: none below 0.05.\n3. Rank by p-value (or by JB): quadratic first.\n\n*Watch out:* \"the linear-log model is best because its JB is largest\" turns the test around: a large JB is evidence **against** normality. And normality is one criterion among several; it does not choose the model on its own.\n\n*See it:* [Econ 430 L5 Estimating Nonlinear Relationships](note:econ-430-l5-estimating-nonlinear-relationships#9-choosing-a-functional-form): the table's Jarque-Bera column, where the food log-log model is the one that rejects.",
+    "rubric": [
+     "$H_0$: normal residuals; JB against $\\chi^2_2$ (5.99)",
+     "None rejects at 5%",
+     "Quadratic most consistent (JB 0.702, p 0.704)",
+     "Non-rejection is not proof; low power with 45 observations"
+    ],
+    "links": [
+     "error-normality-and-jarque-bera",
+     "econ-430-l5-estimating-nonlinear-relationships"
+    ]
+   },
+   {
+    "id": "q26",
+    "number": "26",
+    "group": "F. Residual normality: Q-Q plots and Jarque-Bera",
+    "prompt": "*(twist: one model rejects normality)* Output per worker-hour at a new plant is modelled over its first 40 quarters with the same three trend equations (linear in $t$, linear-log in $\\ln(t)$, quadratic in $t^2$). The Jarque-Bera tests on the residuals are: Linear: $JB = 2.301$, p-value = 0.316 · Linear-log: $JB = 0.413$, p-value = 0.813 · Quadratic: $JB = 7.615$, p-value = 0.022. Which model seems most consistent with the normality assumption for the residuals, and what do you conclude about each? → [Error Normality and Jarque-Bera](note:error-normality-and-jarque-bera)",
+    "answer": "The **quadratic** model rejects normality ($JB = 7.615 > 5.99$, $p = 0.022 < 0.05$), so its residuals are not consistent with a normal distribution. The linear ($p = 0.316$) and linear-log ($p = 0.813$) models are not rejected, and the **linear-log** is the most consistent. Non-normal residuals in one form can be a sign that the form misses the curve (here output rises fast and then levels off, which $t^2$ cannot follow).\n\n*How to get there*\n1. $H_0$: normal residuals; reject when $p < 0.05$ (or $JB > 5.99$).\n2. Quadratic: reject. Linear and linear-log: do not reject.\n3. Most consistent: the largest p-value, linear-log.\n\n*Watch out:* concluding the linear-log residuals \"are normal\". A high p-value means no evidence against normality, not proof of it.\n\n*See it:* [Econ 430 L5 Estimating Nonlinear Relationships](note:econ-430-l5-estimating-nonlinear-relationships#9-choosing-a-functional-form): the JB check on the food log-log residuals, $JB = 8.17$, $p = 0.017$, the one model that rejects.",
+    "rubric": [
+     "Quadratic rejects ($p = 0.022$, JB above 5.99)",
+     "Linear and linear-log not rejected; linear-log most consistent",
+     "Non-rejection is not proof; rejection may signal a wrong functional form"
+    ],
+    "links": [
+     "error-normality-and-jarque-bera",
+     "econ-430-l5-estimating-nonlinear-relationships"
+    ]
+   },
+   {
+    "id": "q27",
+    "number": "27",
+    "group": "G. Breusch-Pagan vs White",
+    "prompt": "*(isomorph of Mock 18)* An analyst models the monthly water use of 500 households on household size, lot size and income, and wants to test for heteroskedasticity. Explain the differences between the Breusch-Pagan test and the White test, discuss the null hypothesis of each, and indicate under what circumstances one test might be preferred over the other. → [Heteroskedasticity Tests](note:heteroskedasticity-tests)",
+    "answer": "Both tests have the same null, $H_0$: homoskedasticity (the error variance is constant, $\\alpha_2 = \\cdots = \\alpha_S = 0$ in the variance function), and both regress the squared OLS residuals on some variables and use $\\chi^2 = N R^2$. Breusch-Pagan uses $z$'s you choose (say household size and lot size), with $S - 1$ degrees of freedom; it needs a view on what drives the variance and is more powerful when that view is right. White uses all the regressors, their squares and cross-products, so it assumes no form, but it uses many degrees of freedom (9 with three regressors) and loses power, and a rejection can also signal a misspecified mean. Prefer BP when theory says what drives the variance (water use varying more for big lots); prefer White when you have no idea and the sample is large.\n\n*How to get there*\n1. Common ground: the null and the $N R^2$ statistic from the auxiliary regression of $\\widehat{e}^{\\,2}$.\n2. The difference: which variables enter the auxiliary regression, and so the degrees of freedom.\n3. Trade-off: BP targeted and powerful if right; White general, more degrees of freedom, lower power, also sensitive to misspecification.\n4. When to use each, tied to the setting.\n\n*Watch out:* \"White tests normality\" or \"BP needs normal errors\": both test constant variance, and the $N R^2$ version does not rely on normal errors.\n\n*See it:* [Econ 430 L11 Heteroskedasticity](note:econ-430-l11-heteroskedasticity#4-the-white-test): the check counting the White test's degrees of freedom, 5 for just two regressors.",
+    "rubric": [
+     "Same null: homoskedasticity; both use $N R^2$ from a regression of $\\widehat{e}^{\\,2}$",
+     "BP: chosen $z$'s, $S - 1$ df, needs a guess at the form, more power when right",
+     "White: regressors, squares and cross-products, no form assumed, many df, lower power, also picks up misspecification",
+     "When to prefer each"
+    ],
+    "links": [
+     "heteroskedasticity-tests",
+     "econ-430-l11-heteroskedasticity"
+    ]
+   },
+   {
+    "id": "q28",
+    "number": "28",
+    "group": "G. Breusch-Pagan vs White",
+    "prompt": "*(twist: the two tests disagree on the same model)* A utility regresses the monthly electricity bill (dollars) of 240 household-months on the average outdoor temperature (°F) and floor area (hundreds of square feet), then runs both tests. Interpret the two results, explain why they can disagree here, and say what you would do next. → [Heteroskedasticity Tests](note:heteroskedasticity-tests)\n\n```python\nbill_mod = smf.ols('bill ~ temp + area', data=bills).fit()\nbp = het_breuschpagan(bill_mod.resid, bill_mod.model.exog)\nwh = het_white(bill_mod.resid, bill_mod.model.exog)\nprint(bp)   # (LM statistic, LM p-value, F statistic, F p-value)\n(2.1417505405878234, 0.34270842360361065, 1.0670112961668186, 0.34568197051145483)\nprint(wh)\n(24.309666296953687, 0.0001892926523071664, 5.274656324023132, 0.00013043215138338615)\n```",
+    "answer": "Breusch-Pagan does not reject ($LM = 2.14$, 2 df, $p = 0.34$) but White rejects strongly ($LM = 24.31$, 5 df, $p = 0.0002$). Heteroskedasticity is present: the error variance depends on temperature in a nonlinear way, larger in both cold and hot months (heating and cooling), which BP's linear $z$'s (temperature and area) cannot see but White's $temp^2$ term catches. Next: use White (HC1) standard errors for inference (the standard error on temperature rises from 0.085 to 0.105), and since White can also flag a wrong mean, check the functional form in temperature (residual plot or RESET).\n\n*How to get there*\n1. BP with $z$ = the two regressors: $S - 1 = 2$ df, critical value 5.99; $2.14 < 5.99$, do not reject.\n2. White with $temp$, $area$, their squares and product: 5 df, critical value 11.07; $24.31 > 11.07$, reject.\n3. Explain the disagreement: a variance high at both ends of temperature is U-shaped; a linear $z$ averages it out, a square picks it up.\n4. Act: robust standard errors; check the mean's form.\n\n*Watch out:* \"BP does not reject, so the errors are homoskedastic\" trusts the test that looked in the wrong place. Choosing BP \"because it has more power\" only holds when its $z$'s match the true form.\n\n*See it:* [Econ 430 L11 Heteroskedasticity](note:econ-430-l11-heteroskedasticity#6-heteroskedasticity-consistent-standard-errors): in the OLS Sampling Distribution widget, switch heteroskedasticity on and compare the textbook standard error with the actual spread of $b_2$.",
+    "rubric": [
+     "BP: 2.14 on 2 df, $p = 0.34$, not rejected; White: 24.31 on 5 df, $p = 0.0002$, rejected",
+     "Disagreement explained: nonlinear (U-shaped) variance that only the squares capture",
+     "Conclusion: heteroskedasticity present",
+     "Next step: White (HC) standard errors, and check the functional form"
+    ],
+    "links": [
+     "heteroskedasticity-tests",
+     "econ-430-l11-heteroskedasticity"
+    ]
+   },
+   {
+    "id": "q29",
+    "number": "29",
+    "group": "H. Model selection",
+    "prompt": "*(isomorph of Mock 12)* Average milk yield per cow (thousand pounds) in one state, 1975–2019 (45 annual observations, $t = 1, \\dots, 45$), is modelled with three equations. Every parameter is significant at 5% (***). Linear: $\\hat{y}_t = 9.9639 + 0.2422\\,t$, se (0.1894)*** (0.0072)***, $R^2 = 0.9637$ · Linear-log: $\\hat{y}_t = 6.3563 + 3.1986\\ln(t)$, se (0.8269)*** (0.2757)***, $R^2 = 0.7578$ · Quadratic: $\\hat{y}_t = 12.0117 + 0.005049\\,t^2$, se (0.1767)*** (0.000190)***, $R^2 = 0.9427$. Based on the $R^2$ values, which equation do you think is preferable? For your choice to be supported by AIC and BIC, what would need to happen with the respective AIC and BIC values? → [Model Selection Criteria](note:model-selection-criteria)",
+    "answer": "The **linear** trend is preferable on $R^2$ (0.9637, against 0.9427 for the quadratic and 0.7578 for the linear-log). The comparison is valid because all three have the same dependent variable and the same number of coefficients ($K = 2$). For AIC and BIC to support it, the linear model's AIC and BIC must both be the lowest of the three, and with the same $y$, $N$ and $K$ they must be: both criteria then differ only through $SSE$. (On these data AIC is 87.3, 107.8 and 172.7 for the linear, quadratic and linear-log models.)\n\n*How to get there*\n1. Check that $R^2$ can be compared: same $y$ (milk yield in levels), same $N$.\n2. Pick the largest $R^2$: linear.\n3. AIC $= \\ln(SSE/N) + 2K/N$ and BIC $= \\ln(SSE/N) + K\\ln N/N$: with equal $K$ the penalties are equal, so the lowest $SSE$ (highest $R^2$) has the lowest AIC and BIC; smaller is better.\n\n*Watch out:* saying AIC or BIC should be **highest** (smaller is better), or that BIC might favour another model here: its heavier penalty matters only when $K$ differs.\n\n*See it:* [Econ 430 L10 Modeling Issues in Multiple Regression](note:econ-430-l10-modeling-issues-in-multiple-regression#7-model-selection-aic-and-bic): the family-income table, where the criteria move only through fit and the number of coefficients.",
+    "rubric": [
+     "Linear model has the highest $R^2$ (0.9637)",
+     "Comparison valid: same $y$ and same $K$",
+     "AIC and BIC must be lowest for the linear model",
+     "With equal $K$ they rank exactly as $R^2$ (SSE) does"
+    ],
+    "links": [
+     "model-selection-criteria",
+     "econ-430-l10-modeling-issues-in-multiple-regression"
+    ]
+   },
+   {
+    "id": "q30",
+    "number": "30",
+    "group": "H. Model selection",
+    "prompt": "*(twist: the three equations do not share the same dependent variable)* Prices of 120 used cars of one model ($PRICE$, dollars) are related to mileage ($MILES$, thousands), with every parameter significant at 5% (***). Linear: $\\widehat{PRICE} = 32{,}570 - 142.13\\,MILES$, se (950.9)*** (9.913)***, $R^2 = 0.6353$ · Log-linear: $\\widehat{\\ln(PRICE)} = 10.4426 - 0.00690\\,MILES$, se (0.0423)*** (0.00044)***, $R^2 = 0.6749$ · Log-log: $\\widehat{\\ln(PRICE)} = 11.5152 - 0.3921\\ln(MILES)$, se (0.1244)*** (0.0290)***, $R^2 = 0.6084$. Based on the $R^2$ values, which equation do you think is preferable? For your choice to be supported by AIC and BIC, what would need to happen with the respective AIC and BIC values? → [Coefficient of Determination](note:coefficient-of-determination)",
+    "answer": "$R^2$ can't pick a winner across all three, because the dependent variables differ: the linear model explains variation in $PRICE$, the other two in $\\ln(PRICE)$. Only the two log models can be compared: the **log-linear** (0.6749) beats the log-log (0.6084), and for AIC and BIC to back that, the log-linear's AIC and BIC must be lower than the log-log's (they are: $-25.9$ and $-20.3$ against $-3.6$ and $2.0$). The printed AIC and BIC can't settle linear vs log-linear either (2,379 against $-26$ reflects the scale of $y$, not fit). Compare those two by predictive error in dollars (for example cross-validated RMSE after converting the log model's predictions back to dollars), residual diagnostics and theory.\n\n*How to get there*\n1. Check the dependent variables before comparing $R^2$: $PRICE$ vs $\\ln(PRICE)$.\n2. Compare within the same $y$: log-linear vs log-log, same $K$, so the higher $R^2$ wins and must have the lower AIC and BIC.\n3. For different $y$, use a common scale: prediction error in dollars.\n\n*Watch out:* \"log-linear wins because 0.6749 is the largest of the three\" is the trap: 0.6353 and 0.6749 are shares of different totals. So is reading AIC $= -26$ against 2,379 as a huge win for the log model.\n\n*See it:* [Econ 430 L5 Estimating Nonlinear Relationships](note:econ-430-l5-estimating-nonlinear-relationships#9-choosing-a-functional-form): the check \"which comparison of $R^2$ values is valid?\", where only the two food models with $FOOD$ on the left can be ranked.",
+    "rubric": [
+     "$R^2$ not comparable between $PRICE$ and $\\ln(PRICE)$ models",
+     "Within the log models (same $y$, same $K$): log-linear preferred; its AIC and BIC must be lower",
+     "Printed AIC/BIC not comparable across $y$ and $\\ln y$ either",
+     "Suggests a common-scale comparison (CV RMSE in dollars) or diagnostics"
+    ],
+    "links": [
+     "coefficient-of-determination",
+     "econ-430-l5-estimating-nonlinear-relationships"
+    ]
+   },
+   {
+    "id": "q31",
+    "number": "31",
+    "group": "I. Explain in your own words",
+    "prompt": "*(isomorph of Mock 9)* A water utility uses the simple regression $\\widehat{WATER} = b_1 + b_2\\,SIZE$ (monthly water use on household size) to forecast the use of one new household. Discuss two ways in which the variance of the forecast error, $\\mathrm{var}(f)$, can be reduced. At what value of $SIZE$ is $\\mathrm{var}(f)$ the smallest? → [Confidence vs Prediction Intervals](note:confidence-vs-prediction-intervals)",
+    "answer": "$\\mathrm{var}(f) = \\sigma^2\\left(1 + \\frac{1}{N} + \\frac{(x_0 - \\bar{x})^2}{\\sum(x_i - \\bar{x})^2}\\right)$. Two ways to reduce it: (1) use more households (larger $N$ shrinks $1/N$ and raises $\\sum(x_i - \\bar{x})^2$), or households with a wider spread of sizes (raises $\\sum(x_i - \\bar{x})^2$); (2) use a better model with a smaller error variance $\\sigma^2$, for example by adding relevant regressors. Predicting near the average household size also helps. It is smallest at $SIZE = \\overline{SIZE}$, the sample mean, where the last term vanishes.\n\n*How to get there*\n1. Write $\\mathrm{var}(f)$ and name each term: the new household's own error (the 1), the line's height ($1/N$), the slope ($(x_0 - \\bar{x})^2$ term).\n2. Say what shrinks each: more data and more spread in $x$ for the last two; only a smaller $\\sigma^2$ for the first.\n3. The squared distance is zero at $x_0 = \\bar{x}$, so that is the minimum.\n\n*Watch out:* claiming more data can make $\\mathrm{var}(f)$ go to zero: the 1 stays, so a prediction interval never collapses, unlike a confidence interval.\n\n*See it:* [Econ 430 L3 The Method of Least Squares](note:econ-430-l3-the-method-of-least-squares#8-confidence-and-prediction-intervals): the food bands are narrowest at mean income, and the prediction band stays wide however tight the confidence band gets.",
+    "rubric": [
+     "Writes or describes $\\mathrm{var}(f)$ with its three terms",
+     "Way 1: larger $N$ and/or more spread in $x$",
+     "Way 2: smaller $\\sigma^2$ (a better model), or predict near $\\bar{x}$",
+     "Smallest at $x_0 = \\bar{x}$"
+    ],
+    "links": [
+     "confidence-vs-prediction-intervals",
+     "econ-430-l3-the-method-of-least-squares"
+    ]
+   },
+   {
+    "id": "q32",
+    "number": "32",
+    "group": "I. Explain in your own words",
+    "prompt": "*(twist: compute the forecast standard error instead of describing it)* A simple regression of monthly rent (dollars) on floor area (square feet) for 60 apartments has $\\widehat{\\sigma} = 212$, mean floor area $\\bar{x} = 950$ and $\\sum(x_i - \\bar{x})^2 = 4{,}860{,}000$. Compute the standard error of the forecast, $se(f)$, for an apartment of 950 square feet and for one of 1,650 square feet, and explain why they differ. → [Confidence vs Prediction Intervals](note:confidence-vs-prediction-intervals)",
+    "answer": "$se(f) = 213.76$ dollars at 950 square feet and $224.11$ at 1,650 square feet. The forecast at the mean area is more precise because the slope's uncertainty costs nothing there; 700 square feet away, the error in $b_2$ is multiplied by the distance.\n\n*How to get there*\n1. $\\widehat{\\mathrm{var}}(f) = \\widehat{\\sigma}^2\\left(1 + \\frac{1}{N} + \\frac{(x_0 - \\bar{x})^2}{\\sum(x_i - \\bar{x})^2}\\right)$, with $\\widehat{\\sigma}^2 = 212^2 = 44{,}944$.\n2. At $x_0 = 950 = \\bar{x}$: $44{,}944 \\times (1 + 1/60) = 45{,}693$, so $se(f) = 213.76$.\n3. At $x_0 = 1{,}650$: $(700)^2/4{,}860{,}000 = 0.1008$, so $44{,}944 \\times 1.1175 = 50{,}224$ and $se(f) = 224.11$.\n\n*Watch out:* forgetting to square $\\widehat{\\sigma}$ (using 212 as the variance) or leaving out the 1 (that gives the confidence-interval standard error, 27.37 and 72.67).\n\n*See it:* [Econ 430 L3 The Method of Least Squares](note:econ-430-l3-the-method-of-least-squares#8-confidence-and-prediction-intervals): the $se(f)$ check at the mean income, and how the bands flare away from $\\bar{x}$.",
+    "rubric": [
+     "Correct formula for $\\widehat{\\mathrm{var}}(f)$ with $\\widehat{\\sigma}^2 = 44{,}944$",
+     "213.76 at 950 square feet",
+     "224.11 at 1,650 square feet",
+     "Explains the difference by the distance from $\\bar{x}$"
+    ],
+    "links": [
+     "confidence-vs-prediction-intervals",
+     "econ-430-l3-the-method-of-least-squares"
+    ]
+   },
+   {
+    "id": "q33",
+    "number": "33",
+    "group": "I. Explain in your own words",
+    "prompt": "*(isomorph of Mock 10)* A regression of school districts' average test scores on spending per pupil reports $R^2 = 0.36$. In your own words, explain what $R^2$ is and what 0.36 says here. → [Coefficient of Determination](note:coefficient-of-determination)",
+    "answer": "$R^2$ is the share of the variation in $y$ around its mean that the fitted line accounts for: $R^2 = ESS/TSS = 1 - SSR/TSS$, between 0 and 1 in a model with an intercept. Here spending per pupil accounts for 36% of the variation in districts' average scores; 64% is left in the residuals. It measures fit in this sample, not causation, not whether the slope is significant, and not whether the model is correctly specified.\n\n*How to get there*\n1. Define it as a share of variation around $\\bar{y}$, with the formula.\n2. Apply it to 0.36 in words.\n3. Add what it does not tell you.\n\n*Watch out:* \"spending causes 36% of test scores\" or \"36% of predictions are correct\" are the common wrong readings.\n\n*See it:* [Econ 430 L3 The Method of Least Squares](note:econ-430-l3-the-method-of-least-squares#2-least-squares): in the OLS Line Fitter, walk to the bottom of the SSR bowl; $R^2$ compares that minimum SSR with the SSR of a flat line at $\\bar{y}$.",
+    "rubric": [
+     "Share of the sample variation in $y$ (around its mean) explained by the regression",
+     "$1 - SSR/TSS$ (or $ESS/TSS$), between 0 and 1",
+     "Applied: 36% explained, 64% in the residuals",
+     "Not causation / not significance / not correct specification"
+    ],
+    "links": [
+     "coefficient-of-determination",
+     "econ-430-l3-the-method-of-least-squares"
+    ]
+   },
+   {
+    "id": "q34",
+    "number": "34",
+    "group": "I. Explain in your own words",
+    "prompt": "*(twist: a high $R^2$ alongside a bad residual plot)* A regression of daily electricity demand on the day's average temperature has $R^2 = 0.93$, but the plot of residuals against fitted values is clearly U-shaped: positive at both ends, negative in the middle. In your own words, what does $R^2$ not tell you here, and what should be done? → [Coefficient of Determination](note:coefficient-of-determination)",
+    "answer": "$R^2 = 0.93$ says the line accounts for 93% of the variation in demand; it does not say the functional form is right. The U-shaped residuals show the line systematically under-predicts at both low and high temperatures and over-predicts in between, because demand rises on cold days (heating) and on hot days (cooling). Fix the form, for example add $TEMP^2$ (or separate heating and cooling terms), check it with RESET and a fresh residual plot, and don't trust forecasts from the straight line at extreme temperatures.\n\n*How to get there*\n1. Say what $R^2$ measures: a share of variation, nothing about patterns in the residuals.\n2. Read the residual plot: a pattern means $E[e \\mid x] \\ne 0$ at given temperatures, so the mean is misspecified.\n3. Recommend a change of form and a test.\n\n*Watch out:* \"the model is good because $R^2$ is high\". A high $R^2$ and a wrong functional form often go together when $y$ varies a lot.\n\n*See it:* [Econ 430 L2 Bivariate Characterizations](note:econ-430-l2-bivariate-characterizations#1-scatterplots-with-a-line-and-a-smoother): where the lowess curve leaves the OLS line, the straight line misses curvature, whatever its $R^2$.",
+    "rubric": [
+     "$R^2$ is a share of explained variation, not a check of functional form",
+     "U-shaped residuals: systematic errors, misspecified (nonlinear) mean",
+     "Remedy: quadratic or other nonlinear term, then RESET / residual plot"
+    ],
+    "links": [
+     "coefficient-of-determination",
+     "econ-430-l2-bivariate-characterizations"
+    ]
+   },
+   {
+    "id": "q35",
+    "number": "35",
+    "group": "I. Explain in your own words",
+    "prompt": "*(isomorph of Mock 11)* A labour economist adds $EDUC \\times EXPER$ to a wage regression that already contains $EDUC$ and $EXPER$. In simple terms, discuss the role that interaction variables play in multiple regression, using this example. → [Interaction Terms](note:interaction-terms)",
+    "answer": "An interaction lets the effect of one regressor depend on the level of another. With $EDUC \\times EXPER$ the effect of a year of education is $\\beta_{EDUC} + \\beta_{EDUC \\times EXPER} \\cdot EXPER$: it can be larger (or smaller) for experienced workers. Without the term, the model forces the return to education to be the same for every worker. Its coefficient measures how much one regressor's effect changes per unit of the other, and the main-effect coefficient alone is the effect at $EXPER = 0$.\n\n*How to get there*\n1. Say what the product term does: makes a marginal effect depend on another variable.\n2. Write the marginal effect by differentiating: $\\partial E[WAGE]/\\partial EDUC = \\beta_2 + \\beta_4 EXPER$.\n3. Interpret both coefficients in the example.\n\n*Watch out:* \"the interaction measures the combined effect\" or \"it controls for the correlation between education and experience\". Including both regressors already controls for that; the interaction is about effects that depend on each other.\n\n*See it:* [Econ 430 L8 Building Multiple Regression Models](note:econ-430-l8-building-multiple-regression-models#10-interaction-terms): the University Town figure, where the price per square foot is steeper in one location.",
+    "rubric": [
+     "The effect of one regressor depends on the level of the other",
+     "Marginal effect $\\beta_{EDUC} + \\beta_{EDUC \\times EXPER} \\cdot EXPER$",
+     "Interprets the interaction coefficient as the change in that effect; main effect is at $EXPER = 0$"
+    ],
+    "links": [
+     "interaction-terms",
+     "econ-430-l8-building-multiple-regression-models"
+    ]
+   },
+   {
+    "id": "q36",
+    "number": "36",
+    "group": "I. Explain in your own words",
+    "prompt": "*(twist: compute the marginal effect from output with an interaction)* House prices ($price$, \\$1000s) of 300 homes are regressed on floor area ($area$, hundreds of square feet), age ($age$, years) and their product. Using the output below ($R^2 = 0.864$), compute the marginal effect of 100 more square feet on price for a 5-year-old house and for a 40-year-old house, in dollars, and say what the interaction coefficient means. → [Interaction Terms](note:interaction-terms)\n\n```text\n                 coef    std err          t      P>|t|      [0.025      0.975]\nIntercept     71.1533     12.279      5.795      0.000      46.987      95.319\narea          11.4578      0.485     23.635      0.000      10.504      12.412\nage            0.0399      0.332      0.120      0.904      -0.613       0.693\narea:age      -0.0690      0.014     -5.069      0.000      -0.096      -0.042\n```",
+    "answer": "For a 5-year-old house, 100 more square feet adds about **\\$11,113** to price; for a 40-year-old house, about **\\$8,698**. The interaction coefficient, $-0.0690$, says each extra year of age lowers the value of 100 square feet by about \\$69: space is worth less in older houses.\n\n*How to get there*\n1. Differentiate: $\\partial\\,price/\\partial\\,area = b_{area} + b_{area:age} \\times age$.\n2. Age 5: $11.4578 - 0.0690 \\times 5 = 11.113$ (\\$1000s).\n3. Age 40: $11.4578 - 0.0690 \\times 40 = 8.698$ (\\$1000s).\n4. Convert: price is in \\$1000s, area in hundreds of square feet.\n\n*Watch out:* quoting 11.4578 as \"the\" effect of area (it is the effect at age 0, a new house), or reporting \\$11.11 rather than \\$11,113.\n\n*See it:* [Econ 430 L8 Building Multiple Regression Models](note:econ-430-l8-building-multiple-regression-models#10-interaction-terms): the pizza example's marginal effect of age, $-2.977 - 0.1232\\,INCOME$, evaluated at two incomes.",
+    "rubric": [
+     "Marginal effect $b_{area} + b_{area:age} \\cdot age$",
+     "11.113 at age 5 and 8.698 at age 40",
+     "Converted to dollars per 100 square feet",
+     "Interaction read as the change in the area effect per year of age"
+    ],
+    "links": [
+     "interaction-terms",
+     "econ-430-l8-building-multiple-regression-models"
+    ]
+   },
+   {
+    "id": "q37",
+    "number": "37",
+    "group": "J. The residual maker",
+    "prompt": "*(isomorph of Mock 16)* Let $\\mathbf{X}$ be an $n \\times k$ matrix with full column rank, and let $\\mathbf{P} = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$ be the projection (hat) matrix used in OLS. Write an expression for the matrix product $\\mathbf{P}\\mathbf{X}$. Simplify your result as much as possible. Show each algebraic step clearly. → [Projection Matrix and Residual Maker](note:projection-matrix-and-residual-maker)",
+    "answer": "$\\mathbf{P}\\mathbf{X} = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{X} = \\mathbf{X}\\left[(\\mathbf{X}'\\mathbf{X})^{-1}(\\mathbf{X}'\\mathbf{X})\\right] = \\mathbf{X}\\mathbf{I}_k = \\mathbf{X}$. Projecting the columns of $\\mathbf{X}$ onto the space they span leaves them unchanged.\n\n*How to get there*\n1. Full column rank makes the $k \\times k$ matrix $\\mathbf{X}'\\mathbf{X}$ invertible, so $\\mathbf{P}$ exists.\n2. Multiply out: $\\mathbf{P}\\mathbf{X} = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{X}$.\n3. Group by associativity: $(\\mathbf{X}'\\mathbf{X})^{-1}(\\mathbf{X}'\\mathbf{X}) = \\mathbf{I}_k$.\n4. $\\mathbf{X}\\mathbf{I}_k = \\mathbf{X}$, an $n \\times k$ matrix.\n\n*Watch out:* cancelling $\\mathbf{X}'$ against $\\mathbf{X}$ directly, or writing $\\mathbf{I}_n$ instead of $\\mathbf{I}_k$; the inverse cancels only the product $\\mathbf{X}'\\mathbf{X}$ as a block.\n\n*See it:* [Econ 430 L7 The Classical Linear Regression Model](note:econ-430-l7-the-classical-linear-regression-model#4-projection-and-the-residual-maker): the derivation that $\\mathbf{M}\\mathbf{X} = \\mathbf{0}$; its accepted intermediate step is exactly $\\mathbf{P}\\mathbf{X} = \\mathbf{X}$.",
+    "rubric": [
+     "$(\\mathbf{X}'\\mathbf{X})^{-1}$ exists because $\\mathbf{X}$ has full column rank",
+     "$\\mathbf{P}\\mathbf{X} = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{X}$",
+     "Associativity: $(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{X} = \\mathbf{I}_k$",
+     "$\\mathbf{P}\\mathbf{X} = \\mathbf{X}$, with its meaning"
+    ],
+    "links": [
+     "projection-matrix-and-residual-maker",
+     "econ-430-l7-the-classical-linear-regression-model"
+    ]
+   },
+   {
+    "id": "q38",
+    "number": "38",
+    "group": "J. The residual maker",
+    "prompt": "*(twist: use the result rather than derive it)* Let $\\mathbf{M} = \\mathbf{I} - \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$, with $\\mathbf{X}$ an $n \\times k$ matrix of full column rank, and take as given that $\\mathbf{M}\\mathbf{X} = \\mathbf{0}$. The OLS residuals are $\\mathbf{e} = \\mathbf{M}\\mathbf{y}$. Show that $\\mathbf{X}'\\mathbf{e} = \\mathbf{0}$. Show each algebraic step clearly. → [Projection Matrix and Residual Maker](note:projection-matrix-and-residual-maker)",
+    "answer": "$\\mathbf{X}'\\mathbf{e} = \\mathbf{X}'\\mathbf{M}\\mathbf{y} = (\\mathbf{M}\\mathbf{X})'\\mathbf{y} = \\mathbf{0}'\\mathbf{y} = \\mathbf{0}$ (a $k \\times 1$ zero vector), using $\\mathbf{M}' = \\mathbf{M}$. The residuals are orthogonal to every column of $\\mathbf{X}$: these are the normal equations.\n\n*How to get there*\n1. Symmetry: $\\mathbf{M}' = \\mathbf{I} - \\mathbf{X}[(\\mathbf{X}'\\mathbf{X})^{-1}]'\\mathbf{X}' = \\mathbf{M}$, because $\\mathbf{X}'\\mathbf{X}$ and so its inverse are symmetric.\n2. Substitute $\\mathbf{e} = \\mathbf{M}\\mathbf{y}$: $\\mathbf{X}'\\mathbf{e} = \\mathbf{X}'\\mathbf{M}\\mathbf{y}$.\n3. $\\mathbf{X}'\\mathbf{M} = \\mathbf{X}'\\mathbf{M}' = (\\mathbf{M}\\mathbf{X})' = \\mathbf{0}$ ($k \\times n$).\n4. So $\\mathbf{X}'\\mathbf{e} = \\mathbf{0}\\,\\mathbf{y} = \\mathbf{0}$.\n\n*Watch out:* using $\\mathbf{X}'\\mathbf{M} = (\\mathbf{M}\\mathbf{X})'$ without saying that it needs $\\mathbf{M}$ symmetric; $(\\mathbf{M}\\mathbf{X})' = \\mathbf{X}'\\mathbf{M}'$ in general.\n\n*See it:* [Econ 430 L7 The Classical Linear Regression Model](note:econ-430-l7-the-classical-linear-regression-model#4-projection-and-the-residual-maker): the derivation that $\\mathbf{M}$ annihilates $\\mathbf{X}$, \"why OLS residuals are orthogonal to every regressor\".",
+    "rubric": [
+     "Shows (or states with reason) $\\mathbf{M}' = \\mathbf{M}$",
+     "$\\mathbf{X}'\\mathbf{e} = \\mathbf{X}'\\mathbf{M}\\mathbf{y} = (\\mathbf{M}\\mathbf{X})'\\mathbf{y}$",
+     "$= \\mathbf{0}$, so residuals are orthogonal to the regressors"
+    ],
+    "links": [
+     "projection-matrix-and-residual-maker",
+     "econ-430-l7-the-classical-linear-regression-model"
+    ]
+   },
+   {
+    "id": "q39",
+    "number": "39",
+    "group": "K. The bootstrap",
+    "prompt": "*(isomorph of Mock 17)* A city analyst regresses the monthly maintenance cost of 45 bridges on their age and traffic volume; the residuals look skewed and their spread grows with traffic. Describe how she would use bootstrapping in this regression. How does it enhance the estimation process or inference compared with the usual OLS output? → [Bootstrapping OLS](note:bootstrapping-ols)",
+    "answer": "Pairs bootstrap: draw 45 bridges from the data with replacement, keeping each bridge's cost, age and traffic together; refit the regression; repeat $B$ times (say 1,000). The standard deviation of the $B$ slope estimates is the bootstrap standard error, and their 2.5th and 97.5th percentiles give a 95% percentile interval. Compared with the usual OLS output it needs no normal errors (the residuals are skewed and $N = 45$ is small), it stays valid when the spread grows with traffic (resampling rows keeps each bridge's own error size), it works for any statistic, such as $R^2$ or a ratio of coefficients, and it shows whether a sampling distribution is skewed. It cannot remove bias from a misspecified model, and it says nothing about overfitting, which is what cross-validation measures.\n\n*How to get there*\n1. Describe the resampling loop: rows with replacement, same $N$, refit, repeat.\n2. Turn the $B$ estimates into a standard error and an interval.\n3. List what it adds over the textbook formulas, tied to the setting's skew and heteroskedasticity.\n4. Add one limit.\n\n*Watch out:* \"the bootstrap gives more data\" or \"more resamples shrink the standard error\": the resamples come from the same 45 bridges, so $B$ only reduces simulation noise.\n\n*See it:* [Econ 430 L4 Cross-Validation and the Bootstrap](note:econ-430-l4-cross-validation-and-the-bootstrap#3-bootstrapping-a-regression): the 500 bootstrap regression lines for the food data, fanning out away from mean income.",
+    "rubric": [
+     "Resample rows with replacement (pairs), refit, repeat $B$ times",
+     "SD of the estimates = bootstrap SE; percentiles = interval",
+     "Adds: no normality needed, robust to heteroskedasticity, any statistic",
+     "Limit: does not fix bias or measure overfitting (that is cross-validation)"
+    ],
+    "links": [
+     "bootstrapping-ols",
+     "econ-430-l4-cross-validation-and-the-bootstrap"
+    ]
+   },
+   {
+    "id": "q40",
+    "number": "40",
+    "group": "K. The bootstrap",
+    "prompt": "*(twist: read a bootstrap summary instead of describing the method)* The annual maintenance cost ($COST$, \\$1000s) of 180 apartment buildings is regressed on the number of units ($UNITS$) and building age ($AGE$, years). Report the bootstrap standard error and the 95% percentile interval for the $UNITS$ coefficient, compare them with the textbook OLS results, and say what the comparison suggests. → [Bootstrapping OLS](note:bootstrapping-ols)\n\n```text\nOLS:  Intercept 12.1933 (se 5.2791)   UNITS 1.4901 (se 0.0598)   AGE 0.6369 (se 0.0985)   df = 177\n      95% CI for UNITS (t-based): [1.372, 1.608]\n\nPairs bootstrap, B = 1,000 resamples of the 180 buildings\n                Mean   Std. dev.     2.5%     97.5%\nIntercept    12.1441     4.0855    3.6531   19.8320\nUNITS         1.4887     0.0731    1.3456    1.6348\nAGE           0.6392     0.0844    0.4771    0.8051\nsigma-hat    25.5639     2.3686   20.9206   30.1606\n```",
+    "answer": "The bootstrap standard error of the $UNITS$ coefficient is **0.0731**, and its 95% percentile interval is **[1.346, 1.635]**. The textbook standard error is smaller, 0.0598 (the bootstrap one is about 22% larger), and its interval [1.372, 1.608] narrower. Both centre near 1.49 (about \\$1,490 a year more maintenance per extra unit, holding age fixed) and both exclude 0, so the conclusion stands, but the textbook output overstates the precision. The likely reason is heteroskedasticity: costs vary more for big buildings, which the textbook formula ignores and the pairs bootstrap captures.\n\n*How to get there*\n1. Read the $UNITS$ row: Std. dev. 0.0731 is the bootstrap SE; 2.5% and 97.5% give the percentile interval.\n2. Compare with the OLS line: $0.0731/0.0598 = 1.22$; the textbook interval is $1.4901 \\pm 1.974 \\times 0.0598$.\n3. Explain: same centre (no bias issue), bigger spread (variance not constant), conclusion about significance unchanged.\n\n*Watch out:* dividing 0.0731 by $\\sqrt{1{,}000}$: the bootstrap standard deviation already is the standard error. And a bootstrap mean close to the OLS estimate is expected; it is the spread that differs.\n\n*See it:* [Econ 430 L9 Bootstrapping Regression Models](note:econ-430-l9-bootstrapping-regression-models#2-reading-the-bootstrap-distributions): the bank-transaction comparison, where bootstrap standard errors about 60% above the usual ones match the heteroskedasticity-robust ones.",
+    "rubric": [
+     "Bootstrap SE 0.0731 and percentile interval [1.346, 1.635]",
+     "Compared with textbook SE 0.0598 and interval [1.372, 1.608]: wider",
+     "Same centre, still excludes 0; coefficient read in units (about \\$1,490 per unit)",
+     "Explains the gap: heteroskedasticity the textbook SE ignores"
+    ],
+    "links": [
+     "bootstrapping-ols",
+     "econ-430-l9-bootstrapping-regression-models"
+    ]
+   }
+  ]
+ }
+}

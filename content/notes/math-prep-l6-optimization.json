@@ -382,7 +382,7 @@
       {
        "t": "check",
        "kind": "numeric",
-       "prompt": "3. In Q2, what is $dV/dp_x$?",
+       "prompt": "3. In Q2, read the constraint as a budget $p_x x + p_y y = m$ with $p_x = 2$, $p_y = 5$, $m = 100$, and let $V$ be the maximized value of $\\ln x + \\ln y$. What is $dV/dp_x$?",
        "answer": -0.5,
        "tol": 0.005,
        "wrong": [
@@ -408,7 +408,7 @@
        ]
       }
      ],
-     "words": 5,
+     "words": 19,
      "symbols": [
       "$x$, $y$",
       "$\\lambda$",

@@ -321,7 +321,7 @@
       {
        "t": "check",
        "kind": "mcq",
-       "prompt": "In the basic model, which of $A$, $K$, $L$, $s$, $\\delta$ and $Y$ are parameters?",
+       "prompt": "In the basic model, with saving rate $s$ and depreciation rate $\\delta$, which of $A$, $K$, $L$, $s$, $\\delta$ and $Y$ are parameters: fixed constants that shape the solution, as opposed to variables the model solves for (endogenous) or takes from outside and that can change over time (exogenous)?",
        "options": [
         {
          "md": "$A$ and $L$",
@@ -349,7 +349,7 @@
        ]
       }
      ],
-     "words": 19,
+     "words": 51,
      "symbols": [
       "$Y$",
       "$K$",
@@ -419,6 +419,7 @@
       {
        "t": "derive",
        "title": "Derive the per-worker law of motion",
+       "goal": "Rewrite the aggregate law of motion in per-worker terms, ending with next period's capital per worker $k_{t+1}$ as a function of this period's $k_t$ and the parameters only (no $K$, $Y$ or $L$ left). That single equation drives the Solow diagram and every result after it.",
        "objectives": [
         2
        ],
@@ -592,7 +593,7 @@
          "md": "that is the steady state $\\bar{k}$; capital moves only part of the way there each period"
         }
        ],
-       "why": "Investment is $sAk_t^{\\alpha} = 0.3 \\times \\sqrt{16} = 1.2$ and depreciation is $\\delta k_t = 0.1 \\times 16 = 1.6$, so $k_{t+1} = 16 + 1.2 - 1.6 = 15.6$. Depreciation exceeds investment, so this economy is above its steady state, $\\bar{k} = (0.3/0.1)^{1/(1-0.5)} = 9$, and capital falls toward it.",
+       "why": "Investment is $sAk_t^{\\alpha} = 0.3 \\times \\sqrt{16} = 1.2$ and depreciation is $\\delta k_t = 0.1 \\times 16 = 1.6$, so $k_{t+1} = 16 + 1.2 - 1.6 = 15.6$. Depreciation exceeds investment, so capital falls. (Section 6 shows where it is heading: the steady state $\\bar{k} = (0.3/0.1)^{1/(1-0.5)} = 9$.)",
        "objectives": [
         2
        ]
@@ -1286,6 +1287,7 @@
       {
        "t": "derive",
        "title": "Derive the golden rule and show $s = \\alpha$",
+       "goal": "Find the saving rate that maximizes steady-state consumption $\\bar{c} = f(\\bar{k}) - \\delta\\bar{k}$ with $f(k) = Ak^{\\alpha}$: first the capital stock that maximizes $\\bar{c}$, then the saving rate $s$ whose steady state $\\bar{k} = (sA/\\delta)^{1/(1-\\alpha)}$ delivers it. Finish with $s$ alone on the left. It tells a society which saving rate gives the most consumption in the long run.",
        "objectives": [
         6
        ],
@@ -1835,6 +1837,7 @@
       {
        "t": "derive",
        "title": "Derive output per effective worker, $\\tilde{y} = \\tilde{k}^{\\alpha}$",
+       "goal": "Express output per effective worker, $\\tilde{y} = Y/(\\tilde{A}L)$, using capital per effective worker $\\tilde{k} = K/(\\tilde{A}L)$ alone. With technology written as $\\tilde{A} = A^{1/(1-\\alpha)}$, the growing economy then has the same per-unit production function as the basic Solow model.",
        "objectives": [
         8
        ],
@@ -1936,6 +1939,7 @@
       {
        "t": "derive",
        "title": "Derive the growth rate of $\\tilde{A}$",
+       "goal": "Find the growth rate $\\tilde{\\gamma}$ of labor-augmenting technology $\\tilde{A}_t = A_t^{1/(1-\\alpha)}$ when TFP grows at rate $\\gamma$. Type the exact relation between the growth factors $1+\\tilde{\\gamma}$ and $1+\\gamma$; the approximation comes after. It is the rate at which output per worker grows on the balanced growth path.",
        "objectives": [
         8
        ],
@@ -2058,6 +2062,7 @@
       {
        "t": "derive",
        "title": "Derive the law of motion for $\\tilde{k}$",
+       "goal": "Turn the aggregate law of motion into one for capital per effective worker, ending with $\\tilde{k}_{t+1}(1+\\tilde{\\gamma}+\\eta)$ on the left and only $\\tilde{k}_t$ and the parameters on the right, after dropping the small product $\\tilde{\\gamma}\\eta$. With it the growing economy has a steady state again.",
        "objectives": [
         9
        ],
@@ -2274,6 +2279,7 @@
       {
        "t": "derive",
        "title": "Solve for the new steady state $\\bar{k}$",
+       "goal": "Set $\\tilde{k}_{t+1} = \\tilde{k}_t = \\bar{k}$ in the law of motion and solve for the steady state $\\bar{k}$ of capital per effective worker in terms of $s$, $\\delta$, $\\eta$, $\\tilde{\\gamma}$ and $\\alpha$. It shows how population growth and technological progress act like extra depreciation.",
        "objectives": [
         9
        ],

@@ -623,7 +623,7 @@
          "feedback": "The lecture applies the test to quantitative predictors by splitting the sample, here at median income."
         }
        ],
-       "why": "The two-sided 5% test puts 2.5% in the upper tail: $F_{0.975;\\,18,\\,18} = 2.60$. With the larger variance on top, $F = 3.61$ exceeds it ($p = 0.005$), confirming what BP and White found.",
+       "why": "The two-sided 5% test puts 2.5% in the upper tail: $F_{0.975;\\,18,\\,18} = 2.60$. With the larger variance on top, $F = 3.61$ exceeds it (two-sided $p = 0.009$), confirming what BP and White found.",
        "objectives": [
         4
        ]
@@ -810,6 +810,7 @@
       {
        "t": "derive",
        "title": "Show that the transformed errors $e_i^{*} = e_i/\\sqrt{x_i}$ have constant variance",
+       "goal": "With $\\mathrm{Var}(e_i) = \\sigma^2x_i$ (written $S$), find the variance of the transformed error $e_i^{*} = e_i/\\sqrt{x_i}$ (written $V$) and show it is the same for every $i$. That is why OLS on the transformed model is efficient again.",
        "objectives": [
         6
        ],
@@ -950,6 +951,7 @@
       {
        "t": "derive",
        "title": "Turn the power-law variance $\\sigma_i^2 = \\sigma^2 x_i^{\\gamma}$ into a model that OLS can estimate",
+       "goal": "Rewrite the variance model $\\sigma_i^2 = \\sigma^2x_i^{\\gamma}$ using the constants $\\alpha_1 = \\ln\\sigma^2$, $\\alpha_2 = \\gamma$ and the regressor $z_i = \\ln x_i$, ending with $\\sigma_i^2$ as an exponential of a linear function of $z_i$. In logs it is a regression, so $\\gamma$ can be estimated from the squared residuals.",
        "objectives": [
         6
        ],

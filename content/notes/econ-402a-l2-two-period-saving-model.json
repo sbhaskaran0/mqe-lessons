@@ -389,6 +389,7 @@
       {
        "t": "derive",
        "title": "Derive the optimality condition from the Lagrangian",
+       "goal": "The consumer maximizes $U(c_1, c_2)$ subject to the lifetime budget, with Lagrangian $\\mathcal{L} = U(c_1, c_2) + \\lambda\\left(y_1 + \\frac{y_2}{1+r} - c_1 - \\frac{c_2}{1+r}\\right)$. Write $U_1$ and $U_2$ for the marginal utilities and combine the first-order conditions for $c_1$ and $c_2$ into one equation without $\\lambda$: the ratio $U_1/U_2$ in terms of $r$. Every optimal saving plan satisfies it.",
        "objectives": [
         2
        ],
@@ -669,6 +670,7 @@
       {
        "t": "derive",
        "title": "Solve for optimal $c_1$ with log utility",
+       "goal": "With $U = \\ln c_1 + \\beta\\ln c_2$, combine the optimality condition (MRS $= 1 + r$) with the lifetime budget to find optimal first-period consumption $c_1$ in terms of $y_1$, $y_2$, $r$ and $\\beta$. Saving then follows as $y_1 - c_1$.",
        "objectives": [
         3
        ],

@@ -2,332 +2,6 @@
  "slug": "econ-430-simple-linear-regression-practice-questions",
  "notation": [
   {
-   "tex": "$y_i$",
-   "meaning": "Outcome for observation $i$ (e.g. food spending)",
-   "kind": "Random variable",
-   "typical": "—",
-   "keys": [
-    "y"
-   ],
-   "from": "simple-linear-regression-model"
-  },
-  {
-   "tex": "$x_i$",
-   "meaning": "Explanatory variable (e.g. income)",
-   "kind": "Observed",
-   "typical": "—",
-   "keys": [
-    "x"
-   ],
-   "from": "simple-linear-regression-model"
-  },
-  {
-   "tex": "$\\beta_1$",
-   "meaning": "Intercept: average $y$ when $x = 0$",
-   "kind": "Parameter",
-   "typical": "80 in the food example",
-   "keys": [
-    "beta"
-   ],
-   "from": "simple-linear-regression-model"
-  },
-  {
-   "tex": "$e_i$",
-   "meaning": "Error: everything else affecting $y_i$",
-   "kind": "Unobserved",
-   "typical": "Mean zero",
-   "keys": [
-    "e"
-   ],
-   "from": "simple-linear-regression-model"
-  },
-  {
-   "tex": "$E[y\\mid x]$, $\\mu_{y\\mid x}$",
-   "meaning": "Average of $y$ at a given $x$ (the regression function)",
-   "kind": "Population quantity",
-   "typical": "—",
-   "keys": [
-    "~E[y\\midx]",
-    "mu"
-   ],
-   "from": "simple-linear-regression-model"
-  },
-  {
-   "tex": "$\\sigma^2$",
-   "meaning": "Variance of $y$ around its conditional mean",
-   "kind": "Parameter",
-   "typical": "—",
-   "keys": [
-    "sigma"
-   ],
-   "from": "simple-linear-regression-model"
-  },
-  {
-   "tex": "$b_2$",
-   "meaning": "OLS slope estimate",
-   "kind": "Estimator",
-   "typical": "—",
-   "keys": [
-    "b"
-   ],
-   "from": "sr-assumptions"
-  },
-  {
-   "tex": "$\\boldsymbol{\\varepsilon}$",
-   "meaning": "Stacked errors",
-   "kind": "Unobserved",
-   "typical": "—",
-   "keys": [
-    "bold(varepsilon)"
-   ],
-   "from": "strict-exogeneity"
-  },
-  {
-   "tex": "$\\mathbf{X}$",
-   "meaning": "All regressors for all observations",
-   "kind": "Data",
-   "typical": "—",
-   "keys": [
-    "bold(X)"
-   ],
-   "from": "strict-exogeneity"
-  },
-  {
-   "tex": "$\\widehat{\\sigma}^2$",
-   "meaning": "Estimate of $\\sigma^2$ from the residuals",
-   "kind": "Estimator",
-   "typical": "—",
-   "keys": [
-    "hat(sigma)"
-   ],
-   "from": "homoskedasticity"
-  },
-  {
-   "tex": "$\\mathbf{I}$",
-   "meaning": "Identity matrix",
-   "kind": "—",
-   "typical": "—",
-   "keys": [
-    "bold(I)"
-   ],
-   "from": "homoskedasticity"
-  },
-  {
-   "tex": "$N$",
-   "meaning": "Sample size",
-   "kind": "Count",
-   "typical": "—",
-   "keys": [
-    "N"
-   ],
-   "from": "error-normality-and-jarque-bera"
-  },
-  {
-   "tex": "$S$",
-   "meaning": "Skewness of the residuals (lopsidedness)",
-   "kind": "Statistic",
-   "typical": "0 for a normal",
-   "keys": [
-    "S"
-   ],
-   "from": "error-normality-and-jarque-bera"
-  },
-  {
-   "tex": "$K$",
-   "meaning": "Kurtosis of the residuals (tail thickness)",
-   "kind": "Statistic",
-   "typical": "3 for a normal",
-   "keys": [
-    "K"
-   ],
-   "from": "error-normality-and-jarque-bera"
-  },
-  {
-   "tex": "$\\bar{x}$, $\\bar{y}$",
-   "meaning": "Sample means",
-   "kind": "Statistics",
-   "typical": "—",
-   "keys": [
-    "bar(x)",
-    "bar(y)"
-   ],
-   "from": "ols-estimator"
-  },
-  {
-   "tex": "$w_i$",
-   "meaning": "OLS weight on $y_i$ in $b_2$",
-   "kind": "Depends only on $x$",
-   "typical": "Sum to zero",
-   "keys": [
-    "w"
-   ],
-   "from": "ols-estimator"
-  },
-  {
-   "tex": "$SSR$",
-   "meaning": "Sum of squared residuals",
-   "kind": "Objective being minimised",
-   "typical": "—",
-   "keys": [
-    "~SSR"
-   ],
-   "from": "ols-estimator"
-  },
-  {
-   "tex": "$a_i$",
-   "meaning": "Weights of the competing estimator",
-   "kind": "Depend only on $x$",
-   "typical": "—",
-   "keys": [
-    "a"
-   ],
-   "from": "gauss-markov-theorem"
-  },
-  {
-   "tex": "$d_i = a_i - w_i$",
-   "meaning": "How far the competitor's weights differ from OLS",
-   "kind": "—",
-   "typical": "All zero for OLS",
-   "keys": [
-    "d"
-   ],
-   "from": "gauss-markov-theorem"
-  },
-  {
-   "tex": "$\\hat{e}_i$, $\\mathbf{e}$",
-   "meaning": "Residuals",
-   "kind": "Computed",
-   "typical": "—",
-   "keys": [
-    "hat(e)",
-    "bold(e)"
-   ],
-   "from": "sampling-distribution-of-ols"
-  },
-  {
-   "tex": "$t$",
-   "meaning": "Test statistic $(b_k - \\beta_k)/se(b_k)$",
-   "kind": "Statistic",
-   "typical": "≈ ±2 is the 5% threshold in large samples",
-   "keys": [
-    "t"
-   ],
-   "from": "sampling-distribution-of-ols"
-  },
-  {
-   "tex": "$\\mathbf{M}$, $\\mathbf{P}$, $\\mathbf{X}$",
-   "meaning": "Residual maker, projection matrix, regressor matrix",
-   "kind": "Matrices",
-   "typical": "—",
-   "keys": [
-    "bold(M)",
-    "bold(P)",
-    "bold(X)"
-   ],
-   "from": "sampling-distribution-of-ols"
-  },
-  {
-   "tex": "$c$",
-   "meaning": "Value claimed by the null",
-   "kind": "Constant",
-   "typical": "0 by default",
-   "keys": [
-    "c"
-   ],
-   "from": "hypothesis-tests-on-regression-coefficients"
-  },
-  {
-   "tex": "$\\alpha$",
-   "meaning": "Significance level (not an intercept here)",
-   "kind": "Choice",
-   "typical": "0.05",
-   "keys": [
-    "alpha"
-   ],
-   "from": "hypothesis-tests-on-regression-coefficients"
-  },
-  {
-   "tex": "$H_0$, $H_1$",
-   "meaning": "Null and alternative hypotheses",
-   "kind": "—",
-   "typical": "—",
-   "keys": [
-    "H"
-   ],
-   "from": "hypothesis-tests-on-regression-coefficients"
-  },
-  {
-   "tex": "$R^2$",
-   "meaning": "Coefficient of determination",
-   "kind": "Statistic",
-   "typical": "0.385 for the food regression",
-   "keys": [
-    "R"
-   ],
-   "from": "coefficient-of-determination"
-  },
-  {
-   "tex": "$r_{xy}$",
-   "meaning": "Sample correlation between $x$ and $y$",
-   "kind": "Statistic",
-   "typical": "—",
-   "keys": [
-    "r"
-   ],
-   "from": "coefficient-of-determination"
-  },
-  {
-   "tex": "$f = y_0 - \\hat{y}_0$",
-   "meaning": "Forecast error",
-   "kind": "Random variable",
-   "typical": "Mean zero",
-   "keys": [
-    "f"
-   ],
-   "from": "confidence-vs-prediction-intervals"
-  },
-  {
-   "tex": "$\\mathbf{y}$",
-   "meaning": "Column of $N$ outcomes",
-   "kind": "Data ($N\\times1$)",
-   "typical": "—",
-   "keys": [
-    "bold(y)"
-   ],
-   "from": "ols-in-matrix-form"
-  },
-  {
-   "tex": "$\\mathbf{b}$",
-   "meaning": "OLS estimates, $(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{y}$",
-   "kind": "Estimator ($K\\times1$)",
-   "typical": "—",
-   "keys": [
-    "bold(b)"
-   ],
-   "from": "ols-in-matrix-form"
-  },
-  {
-   "tex": "$n$, $K$",
-   "meaning": "Observations and regressors",
-   "kind": "Counts",
-   "typical": "—",
-   "keys": [
-    "n",
-    "K"
-   ],
-   "from": "projection-matrix-and-residual-maker"
-  },
-  {
-   "tex": "$h_i$",
-   "meaning": "Leverage: $i$-th diagonal element of $\\mathbf{P}$",
-   "kind": "Statistic",
-   "typical": "Average $K/n$",
-   "keys": [
-    "h"
-   ],
-   "from": "projection-matrix-and-residual-maker"
-  },
-  {
    "tex": "$h(x)$, $g(x)$, $E[y\\mid x]$",
    "meaning": "Conditional mean: true average $y$ at each $x$",
    "kind": "Population function",
@@ -336,6 +10,17 @@
     "h",
     "g",
     "~E[y\\midx]"
+   ],
+   "from": "conditional-mean-vs-linear-projection"
+  },
+  {
+   "tex": "$\\alpha$, $\\beta$",
+   "meaning": "Intercept and slope of the best linear predictor",
+   "kind": "Population parameters",
+   "typical": "$\\beta = \\mathrm{Cov}(x,y)/\\mathrm{Var}(x)$",
+   "keys": [
+    "alpha",
+    "beta"
    ],
    "from": "conditional-mean-vs-linear-projection"
   },
@@ -369,6 +54,263 @@
     "bold(gamma)"
    ],
    "from": "conditional-mean-vs-linear-projection"
+  },
+  {
+   "tex": "$K$",
+   "meaning": "Number of regressors",
+   "kind": "Count",
+   "typical": "—",
+   "keys": [
+    "K"
+   ],
+   "from": "conditional-mean-vs-linear-projection"
+  },
+  {
+   "tex": "$\\mathbf{y}$",
+   "meaning": "Column of $N$ outcomes",
+   "kind": "Data ($N\\times1$)",
+   "typical": "—",
+   "keys": [
+    "bold(y)"
+   ],
+   "from": "ols-in-matrix-form"
+  },
+  {
+   "tex": "$\\mathbf{X}$",
+   "meaning": "Table of regressors, one column per variable, including a column of ones",
+   "kind": "Data ($N\\times K$)",
+   "typical": "—",
+   "keys": [
+    "bold(X)"
+   ],
+   "from": "ols-in-matrix-form"
+  },
+  {
+   "tex": "$\\mathbf{b}$",
+   "meaning": "OLS estimates, $(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{y}$",
+   "kind": "Estimator ($K\\times1$)",
+   "typical": "—",
+   "keys": [
+    "bold(b)"
+   ],
+   "from": "ols-in-matrix-form"
+  },
+  {
+   "tex": "$\\boldsymbol{\\varepsilon}$",
+   "meaning": "True errors (disturbances)",
+   "kind": "Unobserved ($N\\times1$)",
+   "typical": "—",
+   "keys": [
+    "bold(varepsilon)"
+   ],
+   "from": "ols-in-matrix-form"
+  },
+  {
+   "tex": "$\\mathbf{e}$",
+   "meaning": "Residuals, $\\mathbf{y} - \\mathbf{X}\\mathbf{b}$",
+   "kind": "Computed ($N\\times1$)",
+   "typical": "Orthogonal to $\\mathbf{X}$",
+   "keys": [
+    "bold(e)"
+   ],
+   "from": "ols-in-matrix-form"
+  },
+  {
+   "tex": "$N$, $K$",
+   "meaning": "Number of observations and of regressors",
+   "kind": "Counts",
+   "typical": "$N \\geq K$",
+   "keys": [
+    "N",
+    "K"
+   ],
+   "from": "ols-in-matrix-form"
+  },
+  {
+   "tex": "$\\sigma^2$",
+   "meaning": "Error variance",
+   "kind": "Unknown parameter",
+   "typical": "—",
+   "keys": [
+    "sigma"
+   ],
+   "from": "ols-in-matrix-form"
+  },
+  {
+   "tex": "$f_k(\\cdot)$",
+   "meaning": "Any function of the data used as a regressor (log, square, dummy)",
+   "kind": "Transformation",
+   "typical": "—",
+   "keys": [
+    "f"
+   ],
+   "from": "ols-in-matrix-form"
+  },
+  {
+   "tex": "$NI$, $S$, $T$",
+   "meaning": "Non-labor income, labor income and total income ($T = NI + S$) in the example",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "~NI",
+    "S",
+    "T"
+   ],
+   "from": "full-rank-and-identification"
+  },
+  {
+   "tex": "$a$",
+   "meaning": "Any amount shifted between coefficients in the example",
+   "kind": "Number",
+   "typical": "—",
+   "keys": [
+    "a"
+   ],
+   "from": "full-rank-and-identification"
+  },
+  {
+   "tex": "$\\boldsymbol{\\varepsilon}$, $y$",
+   "meaning": "Error and outcome",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(varepsilon)",
+    "y"
+   ],
+   "from": "full-rank-and-identification"
+  },
+  {
+   "tex": "$e_i$",
+   "meaning": "Error for observation $i$",
+   "kind": "Unobserved",
+   "typical": "—",
+   "keys": [
+    "e"
+   ],
+   "from": "strict-exogeneity"
+  },
+  {
+   "tex": "$x_i$, $\\mathbf{x}_i$",
+   "meaning": "Regressor(s) for observation $i$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "x",
+    "bold(x)"
+   ],
+   "from": "strict-exogeneity"
+  },
+  {
+   "tex": "$\\widehat{\\sigma}^2$",
+   "meaning": "Estimate of $\\sigma^2$ from the residuals",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "hat(sigma)"
+   ],
+   "from": "homoskedasticity"
+  },
+  {
+   "tex": "$\\mathbf{I}$",
+   "meaning": "Identity matrix",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(I)"
+   ],
+   "from": "homoskedasticity"
+  },
+  {
+   "tex": "$\\bar{y}$, $\\bar{y}_g$",
+   "meaning": "Overall mean and mean in group $g$",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "bar(y)"
+   ],
+   "from": "law-of-iterated-expectations"
+  },
+  {
+   "tex": "$s_g$",
+   "meaning": "Population share of group $g$",
+   "kind": "Weight",
+   "typical": "Sums to 1",
+   "keys": [
+    "s"
+   ],
+   "from": "law-of-iterated-expectations"
+  },
+  {
+   "tex": "$\\mathbf{M} = \\mathbf{I} - \\mathbf{P}$",
+   "meaning": "Residual maker: turns $\\mathbf{y}$ into residuals",
+   "kind": "Matrix ($n\\times n$)",
+   "typical": "Trace $n - K$",
+   "keys": [
+    "bold(M)"
+   ],
+   "from": "projection-matrix-and-residual-maker"
+  },
+  {
+   "tex": "$n$, $K$",
+   "meaning": "Observations and regressors",
+   "kind": "Counts",
+   "typical": "—",
+   "keys": [
+    "n",
+    "K"
+   ],
+   "from": "projection-matrix-and-residual-maker"
+  },
+  {
+   "tex": "$b_1$, $b_2$",
+   "meaning": "OLS estimates of the intercept and slope",
+   "kind": "Estimators",
+   "typical": "—",
+   "keys": [
+    "b"
+   ],
+   "from": "ols-estimator"
+  },
+  {
+   "tex": "$\\bar{x}$, $\\bar{y}$",
+   "meaning": "Sample means",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "bar(x)",
+    "bar(y)"
+   ],
+   "from": "ols-estimator"
+  },
+  {
+   "tex": "$w_i$",
+   "meaning": "OLS weight on $y_i$ in $b_2$",
+   "kind": "Depends only on $x$",
+   "typical": "Sum to zero",
+   "keys": [
+    "w"
+   ],
+   "from": "ols-estimator"
+  },
+  {
+   "tex": "$SSR$",
+   "meaning": "Sum of squared residuals",
+   "kind": "Objective being minimised",
+   "typical": "—",
+   "keys": [
+    "~SSR"
+   ],
+   "from": "ols-estimator"
+  },
+  {
+   "tex": "$t_{1-\\alpha/2,\\,N-2}$",
+   "meaning": "Critical value of the $t$ distribution",
+   "kind": "Constant",
+   "typical": "≈ 2 for a 95% interval",
+   "keys": [
+    "t"
+   ],
+   "from": "confidence-vs-prediction-intervals"
   }
  ],
  "sections": [
@@ -400,33 +342,32 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "1. Starting from $SSR = \\sum(y_i - b_1 - b_2 x_i)^2$, derive both normal equations and solve for $b_1$ and $b_2$. State the two orthogonality conditions your FOCs imply. → [OLS Estimator](note:ols-estimator)\n2. Show that $b_2 = \\beta_2 + \\sum w_i e_i$ with $w_i = (x_i-\\bar{x})/\\sum(x_i-\\bar{x})^2$, and use it to prove $E[b_2\\mid x] = \\beta_2$ and $\\mathrm{Var}(b_2\\mid x) = \\sigma^2/\\sum(x_i-\\bar{x})^2$. State which assumption each step uses.\n3. Derive $\\mathbf{b} = (\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{y}$ from $\\mathbf{e}'\\mathbf{e}$. Verify dimensions at each step and state the condition under which the inverse exists. → [OLS in Matrix Form](note:ols-in-matrix-form)\n4. Prove that $\\mathbf{M} = \\mathbf{I} - \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$ is symmetric and idempotent, and that $\\mathbf{M}\\mathbf{X} = \\mathbf{0}$. Then show $\\mathbf{M}\\mathbf{y} = \\mathbf{M}\\boldsymbol{\\varepsilon}$. → [Projection Matrix and Residual Maker](note:projection-matrix-and-residual-maker)\n5. Show $\\mathrm{Var}(f) = \\sigma^2[1 + 1/N + (x_0-\\bar{x})^2/\\sum(x_i-\\bar{x})^2]$ for the forecast error. Identify which term comes from which source of uncertainty. → [Confidence vs Prediction Intervals](note:confidence-vs-prediction-intervals)\n6. Starting from $y = \\alpha + \\beta x + \\varepsilon$ with $\\mathrm{Cov}(x,\\varepsilon) = 0$, derive $\\beta = \\mathrm{Cov}(x,y)/\\mathrm{Var}(x)$ and $\\alpha = E[y] - \\beta E[x]$. → [Conditional Mean vs Linear Projection](note:conditional-mean-vs-linear-projection)\n7. Show that when $x$ is a binary indicator, $b_1 = \\bar{y}_0$ and $b_2 = \\bar{y}_1 - \\bar{y}_0$. → [Indicator Variables](note:indicator-variables)"
+       "md": "1. Starting from $SSR = \\sum(y_i - b_1 - b_2 x_i)^2$, derive both normal equations and solve for $b_1$ and $b_2$. State the two orthogonality conditions your FOCs imply. → [OLS Estimator](note:ols-estimator)\n2. Show that $b_2 = \\beta_2 + \\sum w_i e_i$ with $w_i = (x_i-\\bar{x})/\\sum(x_i-\\bar{x})^2$, and use it to prove $E[b_2\\mid x] = \\beta_2$ and $\\mathrm{Var}(b_2\\mid x) = \\sigma^2/\\sum(x_i-\\bar{x})^2$. State which assumption each step uses.\n3. Derive $\\mathbf{b} = (\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{y}$ from $\\mathbf{e}'\\mathbf{e}$. Verify dimensions at each step and state the condition under which the inverse exists. → [OLS in Matrix Form](note:ols-in-matrix-form)\n4. Prove that $\\mathbf{M} = \\mathbf{I} - \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$ is symmetric and idempotent, and that $\\mathbf{M}\\mathbf{X} = \\mathbf{0}$. Then show $\\mathbf{M}\\mathbf{y} = \\mathbf{M}\\boldsymbol{\\varepsilon}$. → [Projection Matrix and Residual Maker](note:projection-matrix-and-residual-maker)\n5. Show $\\mathrm{Var}(f) = \\sigma^2[1 + 1/N + (x_0-\\bar{x})^2/\\sum(x_i-\\bar{x})^2]$ for the forecast error. Identify which term comes from which source of uncertainty. → [Confidence vs Prediction Intervals](note:confidence-vs-prediction-intervals)\n6. Starting from $y = \\alpha + \\beta x + \\varepsilon$ with $E[\\varepsilon] = 0$ and $\\mathrm{Cov}(x,\\varepsilon) = 0$, derive $\\beta = \\mathrm{Cov}(x,y)/\\mathrm{Var}(x)$ and $\\alpha = E[y] - \\beta E[x]$. → [Conditional Mean vs Linear Projection](note:conditional-mean-vs-linear-projection)\n7. Show that when $x$ is a binary indicator, $b_1 = \\bar{y}_0$ and $b_2 = \\bar{y}_1 - \\bar{y}_0$. → [Indicator Variables](note:indicator-variables)"
       }
      ],
-     "words": 115,
+     "words": 116,
      "symbols": [
-      "$y_i$",
-      "$x_i$",
-      "$\\beta_1$",
-      "$e_i$",
-      "$\\sigma^2$",
-      "$b_2$",
-      "$\\boldsymbol{\\varepsilon}$",
+      "$\\alpha$, $\\beta$",
+      "$\\varepsilon$",
+      "$\\mathbf{y}$",
       "$\\mathbf{X}$",
+      "$\\mathbf{b}$",
+      "$\\boldsymbol{\\varepsilon}$",
+      "$\\mathbf{e}$",
+      "$N$, $K$",
+      "$\\sigma^2$",
+      "$f_k(\\cdot)$",
+      "$NI$, $S$, $T$",
+      "$\\boldsymbol{\\varepsilon}$, $y$",
+      "$e_i$",
+      "$x_i$, $\\mathbf{x}_i$",
       "$\\mathbf{I}$",
-      "$N$",
-      "$S$",
+      "$\\bar{y}$, $\\bar{y}_g$",
+      "$\\mathbf{M} = \\mathbf{I} - \\mathbf{P}$",
+      "$b_1$, $b_2$",
       "$\\bar{x}$, $\\bar{y}$",
       "$w_i$",
-      "$SSR$",
-      "$\\hat{e}_i$, $\\mathbf{e}$",
-      "$\\mathbf{M}$, $\\mathbf{P}$, $\\mathbf{X}$",
-      "$\\alpha$",
-      "$R^2$",
-      "$f = y_0 - \\hat{y}_0$",
-      "$\\mathbf{y}$",
-      "$\\mathbf{b}$",
-      "$\\varepsilon$"
+      "$SSR$"
      ]
     }
    ]
@@ -446,18 +387,15 @@
      ],
      "words": 114,
      "symbols": [
-      "$y_i$",
-      "$x_i$",
-      "$\\beta_1$",
-      "$E[y\\mid x]$, $\\mu_{y\\mid x}$",
-      "$b_2$",
+      "$h(x)$, $g(x)$, $E[y\\mid x]$",
+      "$\\alpha$, $\\beta$",
+      "$\\varepsilon$",
+      "$N$, $K$",
+      "$\\boldsymbol{\\varepsilon}$, $y$",
+      "$x_i$, $\\mathbf{x}_i$",
       "$\\widehat{\\sigma}^2$",
-      "$N$",
-      "$\\alpha$",
-      "$R^2$",
       "$n$, $K$",
-      "$h_i$",
-      "$\\varepsilon$"
+      "$b_1$, $b_2$"
      ]
     },
     {
@@ -490,18 +428,16 @@
      ],
      "words": 109,
      "symbols": [
-      "$x_i$",
+      "$h(x)$, $g(x)$, $E[y\\mid x]$",
+      "$\\alpha$, $\\beta$",
+      "$f_k(\\cdot)$",
+      "$a$",
       "$e_i$",
-      "$w_i$",
-      "$a_i$",
-      "$d_i = a_i - w_i$",
-      "$t$",
-      "$c$",
-      "$\\alpha$",
-      "$r_{xy}$",
-      "$f = y_0 - \\hat{y}_0$",
+      "$x_i$, $\\mathbf{x}_i$",
+      "$s_g$",
       "$n$, $K$",
-      "$h(x)$, $g(x)$, $E[y\\mid x]$"
+      "$w_i$",
+      "$t_{1-\\alpha/2,\\,N-2}$"
      ]
     },
     {
@@ -513,9 +449,7 @@
       }
      ],
      "words": 17,
-     "symbols": [
-      "$H_0$, $H_1$"
-     ]
+     "symbols": []
     }
    ]
   },
@@ -534,19 +468,19 @@
      ],
      "words": 80,
      "symbols": [
-      "$y_i$",
-      "$x_i$",
-      "$\\beta_1$",
-      "$e_i$",
-      "$\\sigma^2$",
-      "$b_2$",
-      "$\\widehat{\\sigma}^2$",
-      "$N$",
-      "$K$",
-      "$\\mathbf{M}$, $\\mathbf{P}$, $\\mathbf{X}$",
-      "$n$, $K$",
+      "$\\alpha$, $\\beta$",
       "$v$",
-      "$\\gamma_0$, $\\boldsymbol{\\gamma}$"
+      "$\\gamma_0$, $\\boldsymbol{\\gamma}$",
+      "$K$",
+      "$N$, $K$",
+      "$\\sigma^2$",
+      "$\\boldsymbol{\\varepsilon}$, $y$",
+      "$e_i$",
+      "$x_i$, $\\mathbf{x}_i$",
+      "$\\widehat{\\sigma}^2$",
+      "$\\mathbf{M} = \\mathbf{I} - \\mathbf{P}$",
+      "$n$, $K$",
+      "$b_1$, $b_2$"
      ]
     }
    ]
@@ -639,7 +573,7 @@
     "id": "q6",
     "number": "6",
     "group": "A. Derivations",
-    "prompt": "Starting from $y = \\alpha + \\beta x + \\varepsilon$ with $\\mathrm{Cov}(x,\\varepsilon) = 0$, derive $\\beta = \\mathrm{Cov}(x,y)/\\mathrm{Var}(x)$ and $\\alpha = E[y] - \\beta E[x]$. → [Conditional Mean vs Linear Projection](note:conditional-mean-vs-linear-projection)",
+    "prompt": "Starting from $y = \\alpha + \\beta x + \\varepsilon$ with $E[\\varepsilon] = 0$ and $\\mathrm{Cov}(x,\\varepsilon) = 0$, derive $\\beta = \\mathrm{Cov}(x,y)/\\mathrm{Var}(x)$ and $\\alpha = E[y] - \\beta E[x]$. → [Conditional Mean vs Linear Projection](note:conditional-mean-vs-linear-projection)",
     "answer": "Take $\\mathrm{Cov}(x,\\cdot)$ through: $\\mathrm{Cov}(x,y) = 0 + \\beta\\mathrm{Var}(x) + 0$. Take expectations: $E[y] = \\alpha + \\beta E[x]$.",
     "rubric": [
      "Take $\\mathrm{Cov}(x,\\cdot)$ through: $\\mathrm{Cov}(x,y) = 0 + \\beta\\mathrm{Var}(x) + 0$",

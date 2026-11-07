@@ -378,10 +378,10 @@
       },
       {
        "t": "prose",
-       "md": "- **Higher unemployment benefits $b$**: the wage-setting curve shifts right — a higher wage at every tightness — which raises $w$ but lowers tightness $\\theta$ and so raises unemployment.\n- **Recovery in demand and productivity $y$**: vacancy supply and wage setting both shift right — more vacancies are worth posting — so $\\theta$ and $w$ rise and, along the Beveridge curve, unemployment falls.\n- **Possibly lower matching efficiency $A$** (workers and jobs mismatched after the pandemic): the Beveridge curve shifts out, so more vacancies coexist with any unemployment rate."
+       "md": "- **Higher unemployment benefits $b$**: the wage-setting curve shifts right — a higher wage at every tightness — which raises $w$ but lowers tightness $\\theta$ and so raises unemployment.\n- **Recovery in demand and productivity $y$**: vacancy supply and wage setting both shift right, so $w$ rises for sure; if VS shifts more than WS (as with L5's practice numbers: more vacancies are worth posting), $\\theta$ rises too and, along the Beveridge curve, unemployment falls.\n- **Possibly lower matching efficiency $A$** (workers and jobs mismatched after the pandemic): the Beveridge curve shifts out, so more vacancies coexist with any unemployment rate; VS also shifts left, which on its own lowers $\\theta$ and $w$."
       }
      ],
-     "words": 85,
+     "words": 109,
      "symbols": [
       "$y_t$",
       "$\\theta$",
@@ -393,17 +393,17 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "Consistent with the data if the demand/productivity effect dominates: **job openings up, wages up, unemployment down** ✓, with higher benefits and lower $A$ adding to wage growth and vacancies. The model explains the labor-market patterns but not the GDP surge as such, interest rates or inflation."
+       "md": "Consistent with the data if the demand/productivity effect dominates: **job openings up, wages up, unemployment down** ✓, with higher benefits adding to wage growth and lower $A$ letting vacancies stay high alongside unemployment. The model explains the labor-market patterns but not the GDP surge as such, interest rates or inflation."
       },
       {
        "t": "callout",
        "kind": "rubric",
        "title": "Key steps",
-       "md": "- Identify parameters: benefits $b$ (WS), output per job $y$ (VS and WS), matching efficiency $A$ (BC, VS)\n- Higher $b$: wages up, tightness down, unemployment up\n- Higher $y$: tightness and wages up, unemployment down, vacancies up\n- Matches the data if the $y$ effect dominates; cannot explain GDP, rates or inflation",
+       "md": "- Identify parameters: benefits $b$ (WS), output per job $y$ (VS and WS), matching efficiency $A$ (BC, VS)\n- Higher $b$: wages up, tightness down, unemployment up\n- Higher $y$: wages up; if VS shifts more than WS, tightness and vacancies up and unemployment down\n- Matches the data if the $y$ effect dominates; cannot explain GDP, rates or inflation",
        "folded": true
       }
      ],
-     "words": 94,
+     "words": 105,
      "symbols": [
       "$y_t$",
       "$a$, $b$"

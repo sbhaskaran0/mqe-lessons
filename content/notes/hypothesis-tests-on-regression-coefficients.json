@@ -103,6 +103,17 @@
    ]
   },
   {
+   "tex": "$y_i$, $\\hat{y}_i$",
+   "meaning": "Actual and fitted outcome",
+   "kind": "Data / computed",
+   "typical": "—",
+   "keys": [
+    "y",
+    "hat(y)"
+   ],
+   "from": "coefficient-of-determination"
+  },
+  {
    "tex": "$R^2$",
    "meaning": "Coefficient of determination",
    "kind": "Statistic",
@@ -111,6 +122,16 @@
     "R"
    ],
    "from": "coefficient-of-determination"
+  },
+  {
+   "tex": "$x_0$",
+   "meaning": "Value of the regressor at which to predict",
+   "kind": "Chosen",
+   "typical": "—",
+   "keys": [
+    "x"
+   ],
+   "from": "confidence-vs-prediction-intervals"
   },
   {
    "tex": "$e_0$",
@@ -237,19 +258,33 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "- **Wrong row.** The intercept's p-value (0.062 in the food table) says nothing about the slope.\n- **Wrong critical value.** A one-sided 5% test uses the 0.95 quantile (1.686 with 38 df), not 2.024. Decide the alternative before looking at the estimate.\n- **\"Fail to reject\" is not \"accept\".** The test keeps $H_0$ as a possibility; it does not show $H_0$ is true.\n- **Statistical is not economic significance** (beyond the lecture). With 526 workers, the wage-on-experience slope of \\$0.031 an hour per year of experience has $t = 2.60$, yet it is tiny in dollars and the regression's $R^2$ is 0.013 ([Coefficient of Determination](note:coefficient-of-determination)). Report the size of an effect as well as its p-value."
+       "md": "- **Wrong row.** The intercept's p-value (0.062 in the food table) says nothing about the slope.\n- **Wrong critical value.** A one-sided 5% test uses the 0.95 quantile (1.686 with 38 df), not 2.024. Decide the alternative before looking at the estimate.\n- **\"Fail to reject\" is not \"accept\".** The test keeps $H_0$ as a possibility; it does not show $H_0$ is true."
       }
      ],
-     "words": 116,
+     "words": 65,
      "symbols": [
-      "$t$",
-      "$t_{q,\\,N-K}$",
-      "$H_0$, $H_1$",
-      "$R^2$"
+      "$H_0$, $H_1$"
      ]
     },
     {
      "id": "common-mistakes-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Statistical is not economic significance.** A small p-value says the coefficient is precisely estimated, not that it is large. Judge economic size from the coefficient times a realistic change in $x$, compared with the typical level or spread of $y$. With 526 workers, the wage-on-experience slope of \\$0.031 an hour per year of experience has $t = 2.60$. Yet ten more years of experience go with only $10 \\times 0.0307 \\approx \\$0.31$ more an hour, about 5% of the mean wage of \\$5.90 and less than a tenth of the wages' standard deviation of \\$3.69: statistically significant, economically small. Separately, the regression's $R^2$ of 0.013 says experience explains little of the variation in wages ([Coefficient of Determination](note:coefficient-of-determination)); that is a statement about fit, not about the size of the effect. Report the size of an effect as well as its p-value."
+      }
+     ],
+     "words": 135,
+     "symbols": [
+      "$t$",
+      "$t_{q,\\,N-K}$",
+      "$y_i$, $\\hat{y}_i$",
+      "$R^2$",
+      "$x_0$"
+     ]
+    },
+    {
+     "id": "common-mistakes-3",
      "blocks": [
       {
        "t": "prose",

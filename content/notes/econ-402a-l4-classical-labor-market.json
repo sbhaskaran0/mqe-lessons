@@ -410,6 +410,7 @@
       {
        "t": "derive",
        "title": "Derive $\\frac{U_l}{U_c} = \\frac{w}{p}$ from the first-order conditions",
+       "goal": "Eliminate the two multipliers $\\lambda$ and $\\mu$ from the worker's first-order conditions, ending with the ratio of the marginal utilities of leisure and consumption, $U_l/U_c$, on the left and prices on the right. It is the rule for the best split of time between leisure and work.",
        "objectives": [
         1
        ],

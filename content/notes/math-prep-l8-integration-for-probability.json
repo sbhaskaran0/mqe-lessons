@@ -139,6 +139,16 @@
    "from": "leibniz-integral-rule"
   },
   {
+   "tex": "$D$",
+   "meaning": "Uncertain demand",
+   "kind": "Random variable",
+   "typical": "Uniform(0, 100)",
+   "keys": [
+    "D"
+   ],
+   "from": "leibniz-integral-rule"
+  },
+  {
    "tex": "$a, b, c, d$",
    "meaning": "Integration limits",
    "kind": "Numbers",
@@ -447,7 +457,7 @@
       {
        "t": "check",
        "kind": "numeric",
-       "prompt": "4. Newsvendor: price 10, cost 4, demand Uniform(0, 100). Optimal order?",
+       "prompt": "4. Newsvendor: you order $q$ units at cost 4 each before demand $D \\sim$ Uniform(0, 100) is known, sell $\\min(q, D)$ at price 10, and unsold units are worthless. Which $q$ maximizes expected profit?",
        "answer": 60.0,
        "tol": 0.5,
        "wrong": [
@@ -478,11 +488,12 @@
        ]
       }
      ],
-     "words": 12,
+     "words": 29,
      "symbols": [
       "$F$, $f$",
       "$q$",
-      "$p$, $c$"
+      "$p$, $c$",
+      "$D$"
      ]
     },
     {

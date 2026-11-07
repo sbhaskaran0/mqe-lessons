@@ -396,6 +396,7 @@
       {
        "t": "derive",
        "title": "Show that $\\frac{\\partial \\log w}{\\partial m} = \\frac{\\theta}{(1+m)^2}$",
+       "goal": "The regression gives $\\theta = \\partial\\log w/\\partial p$, the effect of the immigrant share $p = m/(1+m)$. Convert it into the effect of immigrants relative to natives, $m$: write $q$ for $\\partial p/\\partial m$ and $e$ for $\\partial\\log w/\\partial m$, and finish with $e$ in terms of $\\theta$ and $m$. This turns the coefficient into the wage elasticity the paper reports.",
        "objectives": [
         2
        ],
@@ -569,7 +570,7 @@
       {
        "t": "check",
        "kind": "numeric",
-       "prompt": "With $\\theta = -0.637$ (the estimate counting women in the labor force) and $m = 0.168$, what is the elasticity $\\partial \\log w/\\partial m$?",
+       "prompt": "With $\\theta = -0.637$ (one of Borjas's estimates of the share coefficient) and $m = 0.168$, what is the elasticity $\\partial \\log w/\\partial m$?",
        "answer": -0.467,
        "tol": 0.0046700000000000005,
        "vary": [
@@ -1184,7 +1185,7 @@
          "correct": true
         }
        ],
-       "why": "California's tomato harvest went from almost no mechanization to almost full mechanization exactly as braceros left, while crops that were hard to mechanize shrank in exposed states. Employers substituted technology for labor instead of bidding up wages.",
+       "why": "As the lecture's summary puts it, removing Mexican farm workers did not raise wages because farms mechanized: employers substituted technology for labor, and moved away from bracero-intensive crops they could not mechanize, instead of bidding up wages. A rise in wages common to all states (the UFW raise, the minimum wage) is absorbed by the time effects, so it cannot explain the missing differential. The figures below show the mechanism: California's tomato harvest mechanized exactly as its braceros left, while hard-to-mechanize crops shrank in exposed states.",
        "objectives": [
         6
        ]

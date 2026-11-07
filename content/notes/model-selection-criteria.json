@@ -103,6 +103,16 @@
     "hat(y)"
    ],
    "from": "coefficient-of-determination"
+  },
+  {
+   "tex": "$TSS$",
+   "meaning": "Total sum of squares: variation of $y$ around $\\bar{y}$",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "~TSS"
+   ],
+   "from": "coefficient-of-determination"
   }
  ],
  "sections": [
@@ -238,11 +248,20 @@
       {
        "t": "prose",
        "md": "$R^2$ never falls when a regressor is added, so a higher $R^2$ alone cannot justify a bigger model. If equation B has a higher $R^2$ than A and you want AIC and BIC to back B, they must be **lower** for B; if B's gain is small, BIC in particular may still prefer A. Adjusted $R^2$ penalizes too, but more weakly than either criterion."
+      },
+      {
+       "t": "prose",
+       "md": "When the competing models share the same $y$ (and the same $N$ observations) and the same number of coefficients $K$, the penalties are identical, so AIC and BIC rank them exactly as $SSE$ does, and therefore as $R^2 = 1 - SSE/TSS$ does: the model with the highest $R^2$ also has the lowest AIC and BIC. The criteria can disagree with $R^2$ only when $K$ differs."
       }
      ],
-     "words": 60,
+     "words": 114,
      "symbols": [
-      "$R^2$, $\\bar{R}^2$"
+      "$SSE$",
+      "$N$",
+      "$K$",
+      "$R^2$, $\\bar{R}^2$",
+      "$y_i$, $\\hat{y}_i$",
+      "$TSS$"
      ]
     }
    ]

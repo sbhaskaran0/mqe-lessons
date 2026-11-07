@@ -2,302 +2,6 @@
  "slug": "econ-430-simple-linear-regression-practice-answers",
  "notation": [
   {
-   "tex": "$y_i$",
-   "meaning": "Outcome for observation $i$ (e.g. food spending)",
-   "kind": "Random variable",
-   "typical": "—",
-   "keys": [
-    "y"
-   ],
-   "from": "simple-linear-regression-model"
-  },
-  {
-   "tex": "$x_i$",
-   "meaning": "Explanatory variable (e.g. income)",
-   "kind": "Observed",
-   "typical": "—",
-   "keys": [
-    "x"
-   ],
-   "from": "simple-linear-regression-model"
-  },
-  {
-   "tex": "$\\beta_1$",
-   "meaning": "Intercept: average $y$ when $x = 0$",
-   "kind": "Parameter",
-   "typical": "80 in the food example",
-   "keys": [
-    "beta"
-   ],
-   "from": "simple-linear-regression-model"
-  },
-  {
-   "tex": "$e_i$",
-   "meaning": "Error: everything else affecting $y_i$",
-   "kind": "Unobserved",
-   "typical": "Mean zero",
-   "keys": [
-    "e"
-   ],
-   "from": "simple-linear-regression-model"
-  },
-  {
-   "tex": "$E[y\\mid x]$, $\\mu_{y\\mid x}$",
-   "meaning": "Average of $y$ at a given $x$ (the regression function)",
-   "kind": "Population quantity",
-   "typical": "—",
-   "keys": [
-    "~E[y\\midx]",
-    "mu"
-   ],
-   "from": "simple-linear-regression-model"
-  },
-  {
-   "tex": "$\\sigma^2$",
-   "meaning": "Variance of $y$ around its conditional mean",
-   "kind": "Parameter",
-   "typical": "—",
-   "keys": [
-    "sigma"
-   ],
-   "from": "simple-linear-regression-model"
-  },
-  {
-   "tex": "$b_2$",
-   "meaning": "OLS slope estimate",
-   "kind": "Estimator",
-   "typical": "—",
-   "keys": [
-    "b"
-   ],
-   "from": "sr-assumptions"
-  },
-  {
-   "tex": "$\\boldsymbol{\\varepsilon}$",
-   "meaning": "Stacked errors",
-   "kind": "Unobserved",
-   "typical": "—",
-   "keys": [
-    "bold(varepsilon)"
-   ],
-   "from": "strict-exogeneity"
-  },
-  {
-   "tex": "$\\mathbf{X}$",
-   "meaning": "All regressors for all observations",
-   "kind": "Data",
-   "typical": "—",
-   "keys": [
-    "bold(X)"
-   ],
-   "from": "strict-exogeneity"
-  },
-  {
-   "tex": "$\\widehat{\\sigma}^2$",
-   "meaning": "Estimate of $\\sigma^2$ from the residuals",
-   "kind": "Estimator",
-   "typical": "—",
-   "keys": [
-    "hat(sigma)"
-   ],
-   "from": "homoskedasticity"
-  },
-  {
-   "tex": "$\\mathbf{I}$",
-   "meaning": "Identity matrix",
-   "kind": "—",
-   "typical": "—",
-   "keys": [
-    "bold(I)"
-   ],
-   "from": "homoskedasticity"
-  },
-  {
-   "tex": "$N$",
-   "meaning": "Sample size",
-   "kind": "Count",
-   "typical": "—",
-   "keys": [
-    "N"
-   ],
-   "from": "error-normality-and-jarque-bera"
-  },
-  {
-   "tex": "$S$",
-   "meaning": "Skewness of the residuals (lopsidedness)",
-   "kind": "Statistic",
-   "typical": "0 for a normal",
-   "keys": [
-    "S"
-   ],
-   "from": "error-normality-and-jarque-bera"
-  },
-  {
-   "tex": "$K$",
-   "meaning": "Kurtosis of the residuals (tail thickness)",
-   "kind": "Statistic",
-   "typical": "3 for a normal",
-   "keys": [
-    "K"
-   ],
-   "from": "error-normality-and-jarque-bera"
-  },
-  {
-   "tex": "$\\hat{e}_i$",
-   "meaning": "Residual: $y_i - b_1 - b_2x_i$",
-   "kind": "Computed",
-   "typical": "Sum to zero",
-   "keys": [
-    "hat(e)"
-   ],
-   "from": "ols-estimator"
-  },
-  {
-   "tex": "$\\bar{x}$, $\\bar{y}$",
-   "meaning": "Sample means",
-   "kind": "Statistics",
-   "typical": "—",
-   "keys": [
-    "bar(x)",
-    "bar(y)"
-   ],
-   "from": "ols-estimator"
-  },
-  {
-   "tex": "$w_i$",
-   "meaning": "OLS weight on $y_i$ in $b_2$",
-   "kind": "Depends only on $x$",
-   "typical": "Sum to zero",
-   "keys": [
-    "w"
-   ],
-   "from": "ols-estimator"
-  },
-  {
-   "tex": "$SSR$",
-   "meaning": "Sum of squared residuals",
-   "kind": "Objective being minimised",
-   "typical": "—",
-   "keys": [
-    "~SSR"
-   ],
-   "from": "ols-estimator"
-  },
-  {
-   "tex": "$\\tilde{\\beta}_2 = \\sum a_iy_i$",
-   "meaning": "Any competing linear estimator",
-   "kind": "Estimator",
-   "typical": "—",
-   "keys": [
-    "tilde(beta)"
-   ],
-   "from": "gauss-markov-theorem"
-  },
-  {
-   "tex": "$a_i$",
-   "meaning": "Weights of the competing estimator",
-   "kind": "Depend only on $x$",
-   "typical": "—",
-   "keys": [
-    "a"
-   ],
-   "from": "gauss-markov-theorem"
-  },
-  {
-   "tex": "$d_i = a_i - w_i$",
-   "meaning": "How far the competitor's weights differ from OLS",
-   "kind": "—",
-   "typical": "All zero for OLS",
-   "keys": [
-    "d"
-   ],
-   "from": "gauss-markov-theorem"
-  },
-  {
-   "tex": "$\\hat{e}_i$, $\\mathbf{e}$",
-   "meaning": "Residuals",
-   "kind": "Computed",
-   "typical": "—",
-   "keys": [
-    "hat(e)",
-    "bold(e)"
-   ],
-   "from": "sampling-distribution-of-ols"
-  },
-  {
-   "tex": "$t$",
-   "meaning": "Test statistic $(b_k - \\beta_k)/se(b_k)$",
-   "kind": "Statistic",
-   "typical": "≈ ±2 is the 5% threshold in large samples",
-   "keys": [
-    "t"
-   ],
-   "from": "sampling-distribution-of-ols"
-  },
-  {
-   "tex": "$\\mathbf{M}$, $\\mathbf{P}$, $\\mathbf{X}$",
-   "meaning": "Residual maker, projection matrix, regressor matrix",
-   "kind": "Matrices",
-   "typical": "—",
-   "keys": [
-    "bold(M)",
-    "bold(P)",
-    "bold(X)"
-   ],
-   "from": "sampling-distribution-of-ols"
-  },
-  {
-   "tex": "$\\alpha$",
-   "meaning": "Significance level (not an intercept here)",
-   "kind": "Choice",
-   "typical": "0.05",
-   "keys": [
-    "alpha"
-   ],
-   "from": "hypothesis-tests-on-regression-coefficients"
-  },
-  {
-   "tex": "$H_0$, $H_1$",
-   "meaning": "Null and alternative hypotheses",
-   "kind": "—",
-   "typical": "—",
-   "keys": [
-    "H"
-   ],
-   "from": "hypothesis-tests-on-regression-coefficients"
-  },
-  {
-   "tex": "$R^2$",
-   "meaning": "Coefficient of determination",
-   "kind": "Statistic",
-   "typical": "0.385 for the food regression",
-   "keys": [
-    "R"
-   ],
-   "from": "coefficient-of-determination"
-  },
-  {
-   "tex": "$t$, $F$",
-   "meaning": "The slope's $t$ statistic and the regression $F$ statistic",
-   "kind": "Statistics",
-   "typical": "—",
-   "keys": [
-    "t",
-    "F"
-   ],
-   "from": "coefficient-of-determination"
-  },
-  {
-   "tex": "$f = y_0 - \\hat{y}_0$",
-   "meaning": "Forecast error",
-   "kind": "Random variable",
-   "typical": "Mean zero",
-   "keys": [
-    "f"
-   ],
-   "from": "confidence-vs-prediction-intervals"
-  },
-  {
    "tex": "$h(x)$, $g(x)$, $E[y\\mid x]$",
    "meaning": "Conditional mean: true average $y$ at each $x$",
    "kind": "Population function",
@@ -306,6 +10,17 @@
     "h",
     "g",
     "~E[y\\midx]"
+   ],
+   "from": "conditional-mean-vs-linear-projection"
+  },
+  {
+   "tex": "$\\alpha$, $\\beta$",
+   "meaning": "Intercept and slope of the best linear predictor",
+   "kind": "Population parameters",
+   "typical": "$\\beta = \\mathrm{Cov}(x,y)/\\mathrm{Var}(x)$",
+   "keys": [
+    "alpha",
+    "beta"
    ],
    "from": "conditional-mean-vs-linear-projection"
   },
@@ -330,6 +45,252 @@
    "from": "conditional-mean-vs-linear-projection"
   },
   {
+   "tex": "$K$",
+   "meaning": "Number of regressors",
+   "kind": "Count",
+   "typical": "—",
+   "keys": [
+    "K"
+   ],
+   "from": "conditional-mean-vs-linear-projection"
+  },
+  {
+   "tex": "$\\mathbf{y}$",
+   "meaning": "Column of $N$ outcomes",
+   "kind": "Data ($N\\times1$)",
+   "typical": "—",
+   "keys": [
+    "bold(y)"
+   ],
+   "from": "ols-in-matrix-form"
+  },
+  {
+   "tex": "$\\mathbf{X}$",
+   "meaning": "Table of regressors, one column per variable, including a column of ones",
+   "kind": "Data ($N\\times K$)",
+   "typical": "—",
+   "keys": [
+    "bold(X)"
+   ],
+   "from": "ols-in-matrix-form"
+  },
+  {
+   "tex": "$\\boldsymbol{\\beta}$",
+   "meaning": "True coefficients",
+   "kind": "Unknown parameters ($K\\times1$)",
+   "typical": "—",
+   "keys": [
+    "bold(beta)"
+   ],
+   "from": "ols-in-matrix-form"
+  },
+  {
+   "tex": "$\\mathbf{b}$",
+   "meaning": "OLS estimates, $(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{y}$",
+   "kind": "Estimator ($K\\times1$)",
+   "typical": "—",
+   "keys": [
+    "bold(b)"
+   ],
+   "from": "ols-in-matrix-form"
+  },
+  {
+   "tex": "$\\boldsymbol{\\varepsilon}$",
+   "meaning": "True errors (disturbances)",
+   "kind": "Unobserved ($N\\times1$)",
+   "typical": "—",
+   "keys": [
+    "bold(varepsilon)"
+   ],
+   "from": "ols-in-matrix-form"
+  },
+  {
+   "tex": "$\\mathbf{e}$",
+   "meaning": "Residuals, $\\mathbf{y} - \\mathbf{X}\\mathbf{b}$",
+   "kind": "Computed ($N\\times1$)",
+   "typical": "Orthogonal to $\\mathbf{X}$",
+   "keys": [
+    "bold(e)"
+   ],
+   "from": "ols-in-matrix-form"
+  },
+  {
+   "tex": "$N$, $K$",
+   "meaning": "Number of observations and of regressors",
+   "kind": "Counts",
+   "typical": "$N \\geq K$",
+   "keys": [
+    "N",
+    "K"
+   ],
+   "from": "ols-in-matrix-form"
+  },
+  {
+   "tex": "$\\sigma^2$",
+   "meaning": "Error variance",
+   "kind": "Unknown parameter",
+   "typical": "—",
+   "keys": [
+    "sigma"
+   ],
+   "from": "ols-in-matrix-form"
+  },
+  {
+   "tex": "$f_k(\\cdot)$",
+   "meaning": "Any function of the data used as a regressor (log, square, dummy)",
+   "kind": "Transformation",
+   "typical": "—",
+   "keys": [
+    "f"
+   ],
+   "from": "ols-in-matrix-form"
+  },
+  {
+   "tex": "$\\boldsymbol{\\delta} = \\boldsymbol{\\beta} - \\boldsymbol{\\gamma}$",
+   "meaning": "Their difference; full rank means $\\mathbf{X}\\boldsymbol{\\delta} = \\mathbf{0}$ only if $\\boldsymbol{\\delta} = \\mathbf{0}$",
+   "kind": "Vector",
+   "typical": "—",
+   "keys": [
+    "bold(delta)"
+   ],
+   "from": "full-rank-and-identification"
+  },
+  {
+   "tex": "$NI$, $S$, $T$",
+   "meaning": "Non-labor income, labor income and total income ($T = NI + S$) in the example",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "~NI",
+    "S",
+    "T"
+   ],
+   "from": "full-rank-and-identification"
+  },
+  {
+   "tex": "$a$",
+   "meaning": "Any amount shifted between coefficients in the example",
+   "kind": "Number",
+   "typical": "—",
+   "keys": [
+    "a"
+   ],
+   "from": "full-rank-and-identification"
+  },
+  {
+   "tex": "$\\boldsymbol{\\varepsilon}$, $y$",
+   "meaning": "Error and outcome",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(varepsilon)",
+    "y"
+   ],
+   "from": "full-rank-and-identification"
+  },
+  {
+   "tex": "$e_i$",
+   "meaning": "Error for observation $i$",
+   "kind": "Unobserved",
+   "typical": "—",
+   "keys": [
+    "e"
+   ],
+   "from": "strict-exogeneity"
+  },
+  {
+   "tex": "$x_i$, $\\mathbf{x}_i$",
+   "meaning": "Regressor(s) for observation $i$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "x",
+    "bold(x)"
+   ],
+   "from": "strict-exogeneity"
+  },
+  {
+   "tex": "$\\widehat{\\sigma}^2$",
+   "meaning": "Estimate of $\\sigma^2$ from the residuals",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "hat(sigma)"
+   ],
+   "from": "homoskedasticity"
+  },
+  {
+   "tex": "$\\mathbf{I}$",
+   "meaning": "Identity matrix",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(I)"
+   ],
+   "from": "homoskedasticity"
+  },
+  {
+   "tex": "$\\bar{y}$, $\\bar{y}_g$",
+   "meaning": "Overall mean and mean in group $g$",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "bar(y)"
+   ],
+   "from": "law-of-iterated-expectations"
+  },
+  {
+   "tex": "$s_g$",
+   "meaning": "Population share of group $g$",
+   "kind": "Weight",
+   "typical": "Sums to 1",
+   "keys": [
+    "s"
+   ],
+   "from": "law-of-iterated-expectations"
+  },
+  {
+   "tex": "$\\mathbf{P} = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$",
+   "meaning": "Projection (hat) matrix: turns $\\mathbf{y}$ into fitted values",
+   "kind": "Matrix ($n\\times n$)",
+   "typical": "Trace $K$",
+   "keys": [
+    "bold(P)"
+   ],
+   "from": "projection-matrix-and-residual-maker"
+  },
+  {
+   "tex": "$\\mathbf{M} = \\mathbf{I} - \\mathbf{P}$",
+   "meaning": "Residual maker: turns $\\mathbf{y}$ into residuals",
+   "kind": "Matrix ($n\\times n$)",
+   "typical": "Trace $n - K$",
+   "keys": [
+    "bold(M)"
+   ],
+   "from": "projection-matrix-and-residual-maker"
+  },
+  {
+   "tex": "$n$, $K$",
+   "meaning": "Observations and regressors",
+   "kind": "Counts",
+   "typical": "—",
+   "keys": [
+    "n",
+    "K"
+   ],
+   "from": "projection-matrix-and-residual-maker"
+  },
+  {
+   "tex": "$t_i$",
+   "meaning": "Studentised residual: how badly observation $i$ is fitted",
+   "kind": "Statistic",
+   "typical": "Flag if $\\lvert t_i\\rvert > 2$",
+   "keys": [
+    "t"
+   ],
+   "from": "regression-diagnostics"
+  },
+  {
    "tex": "$p$, $n$",
    "meaning": "Number of parameters and of observations",
    "kind": "Counts",
@@ -341,25 +302,24 @@
    "from": "regression-diagnostics"
   },
   {
-   "tex": "$\\boldsymbol{\\beta}$, $\\boldsymbol{\\gamma}$",
-   "meaning": "Two candidate coefficient vectors",
-   "kind": "Parameters",
+   "tex": "$R^2$",
+   "meaning": "Coefficient of determination of that auxiliary regression",
+   "kind": "Statistic",
    "typical": "—",
    "keys": [
-    "bold(beta)",
-    "bold(gamma)"
+    "R"
    ],
-   "from": "full-rank-and-identification"
+   "from": "regression-diagnostics"
   },
   {
-   "tex": "$\\boldsymbol{\\delta} = \\boldsymbol{\\beta} - \\boldsymbol{\\gamma}$",
-   "meaning": "Their difference; full rank means $\\mathbf{X}\\boldsymbol{\\delta} = \\mathbf{0}$ only if $\\boldsymbol{\\delta} = \\mathbf{0}$",
-   "kind": "Vector",
+   "tex": "$b_1$, $b_2$",
+   "meaning": "OLS estimates, equal to $\\bar{y}_0$ and $\\bar{y}_1 - \\bar{y}_0$",
+   "kind": "Estimators",
    "typical": "—",
    "keys": [
-    "bold(delta)"
+    "b"
    ],
-   "from": "full-rank-and-identification"
+   "from": "indicator-variables"
   },
   {
    "tex": "$k$",
@@ -398,27 +358,34 @@
    "from": "box-cox-and-power-transformations"
   },
   {
-   "tex": "$\\mathbf{y}$, $\\hat{\\mathbf{y}}$",
-   "meaning": "Outcome and fitted values",
-   "kind": "Data / computed",
+   "tex": "$\\tilde{\\beta}_2 = \\sum a_iy_i$",
+   "meaning": "Any competing linear estimator",
+   "kind": "Estimator",
    "typical": "—",
    "keys": [
-    "bold(y)",
-    "hat(bold(y))"
+    "tilde(beta)"
    ],
-   "from": "projection-matrix-and-residual-maker"
+   "from": "gauss-markov-theorem"
   },
   {
-   "tex": "$\\mathbf{a}$, $\\mathbf{b}$, $\\mathbf{p}$",
-   "meaning": "Vectors in the one-vector projection example",
-   "kind": "Vectors",
+   "tex": "$w_i$",
+   "meaning": "OLS weights",
+   "kind": "Depend only on $x$",
    "typical": "—",
    "keys": [
-    "bold(a)",
-    "bold(b)",
-    "bold(p)"
+    "w"
    ],
-   "from": "projection-matrix-and-residual-maker"
+   "from": "gauss-markov-theorem"
+  },
+  {
+   "tex": "$d_i = a_i - w_i$",
+   "meaning": "How far the competitor's weights differ from OLS",
+   "kind": "—",
+   "typical": "All zero for OLS",
+   "keys": [
+    "d"
+   ],
+   "from": "gauss-markov-theorem"
   }
  ],
  "sections": [
@@ -462,15 +429,13 @@
      ],
      "words": 72,
      "symbols": [
-      "$y_i$",
-      "$x_i$",
-      "$b_2$",
-      "$N$",
-      "$S$",
-      "$\\hat{e}_i$",
-      "$\\bar{x}$, $\\bar{y}$",
-      "$SSR$",
-      "$R^2$"
+      "$N$, $K$",
+      "$NI$, $S$, $T$",
+      "$\\boldsymbol{\\varepsilon}$, $y$",
+      "$x_i$, $\\mathbf{x}_i$",
+      "$\\bar{y}$, $\\bar{y}_g$",
+      "$R^2$",
+      "$b_1$, $b_2$"
      ]
     },
     {
@@ -490,13 +455,12 @@
      ],
      "words": 94,
      "symbols": [
-      "$y_i$",
-      "$x_i$",
-      "$\\beta_1$",
-      "$e_i$",
+      "$\\alpha$, $\\beta$",
       "$\\sigma^2$",
-      "$b_2$",
-      "$\\bar{x}$, $\\bar{y}$",
+      "$\\boldsymbol{\\varepsilon}$, $y$",
+      "$e_i$",
+      "$x_i$, $\\mathbf{x}_i$",
+      "$b_1$, $b_2$",
       "$w_i$"
      ]
     },
@@ -528,16 +492,17 @@
      ],
      "words": 96,
      "symbols": [
-      "$\\boldsymbol{\\varepsilon}$",
-      "$\\mathbf{X}$",
-      "$\\mathbf{I}$",
-      "$N$",
       "$K$",
-      "$\\hat{e}_i$, $\\mathbf{e}$",
-      "$\\mathbf{M}$, $\\mathbf{P}$, $\\mathbf{X}$",
-      "$\\boldsymbol{\\beta}$, $\\boldsymbol{\\gamma}$",
-      "$\\mathbf{y}$, $\\hat{\\mathbf{y}}$",
-      "$\\mathbf{a}$, $\\mathbf{b}$, $\\mathbf{p}$"
+      "$\\mathbf{y}$",
+      "$\\mathbf{X}$",
+      "$\\boldsymbol{\\beta}$",
+      "$\\mathbf{b}$",
+      "$\\boldsymbol{\\varepsilon}$",
+      "$\\mathbf{e}$",
+      "$N$, $K$",
+      "$\\mathbf{I}$",
+      "$\\mathbf{P} = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$",
+      "$\\mathbf{M} = \\mathbf{I} - \\mathbf{P}$"
      ]
     },
     {
@@ -572,17 +537,16 @@
      ],
      "words": 110,
      "symbols": [
-      "$y_i$",
-      "$x_i$",
-      "$\\beta_1$",
-      "$e_i$",
+      "$\\alpha$, $\\beta$",
+      "$N$, $K$",
       "$\\sigma^2$",
-      "$b_2$",
-      "$N$",
-      "$\\bar{x}$, $\\bar{y}$",
-      "$\\alpha$",
-      "$f = y_0 - \\hat{y}_0$",
-      "$p$, $n$"
+      "$f_k(\\cdot)$",
+      "$\\boldsymbol{\\varepsilon}$, $y$",
+      "$e_i$",
+      "$x_i$, $\\mathbf{x}_i$",
+      "$\\bar{y}$, $\\bar{y}_g$",
+      "$n$, $K$",
+      "$b_1$, $b_2$"
      ]
     },
     {
@@ -598,10 +562,10 @@
      ],
      "words": 17,
      "symbols": [
-      "$x_i$",
-      "$b_2$",
-      "$\\bar{x}$, $\\bar{y}$",
-      "$p$, $n$"
+      "$x_i$, $\\mathbf{x}_i$",
+      "$\\bar{y}$, $\\bar{y}_g$",
+      "$n$, $K$",
+      "$b_1$, $b_2$"
      ]
     }
    ]
@@ -632,13 +596,13 @@
      ],
      "words": 119,
      "symbols": [
-      "$\\sigma^2$",
-      "$\\boldsymbol{\\varepsilon}$",
-      "$N$",
       "$K$",
-      "$\\hat{e}_i$, $\\mathbf{e}$",
-      "$t$",
-      "$\\mathbf{M}$, $\\mathbf{P}$, $\\mathbf{X}$",
+      "$\\boldsymbol{\\varepsilon}$",
+      "$\\mathbf{e}$",
+      "$N$, $K$",
+      "$\\sigma^2$",
+      "$\\mathbf{M} = \\mathbf{I} - \\mathbf{P}$",
+      "$t_i$",
       "$p$, $n$"
      ]
     },
@@ -659,13 +623,13 @@
      ],
      "words": 83,
      "symbols": [
-      "$y_i$",
-      "$\\sigma^2$",
-      "$\\boldsymbol{\\varepsilon}$",
-      "$N$",
       "$K$",
-      "$\\hat{e}_i$, $\\mathbf{e}$",
-      "$\\mathbf{M}$, $\\mathbf{P}$, $\\mathbf{X}$",
+      "$\\boldsymbol{\\varepsilon}$",
+      "$\\mathbf{e}$",
+      "$N$, $K$",
+      "$\\sigma^2$",
+      "$\\boldsymbol{\\varepsilon}$, $y$",
+      "$\\mathbf{M} = \\mathbf{I} - \\mathbf{P}$",
       "$R^2$"
      ]
     },
@@ -693,13 +657,13 @@
      ],
      "words": 119,
      "symbols": [
-      "$y_i$",
-      "$x_i$",
-      "$\\beta_1$",
-      "$e_i$",
+      "$\\alpha$, $\\beta$",
+      "$N$, $K$",
       "$\\sigma^2$",
-      "$N$",
-      "$t$",
+      "$\\boldsymbol{\\varepsilon}$, $y$",
+      "$e_i$",
+      "$x_i$, $\\mathbf{x}_i$",
+      "$t_i$",
       "$R^2$"
      ]
     },
@@ -720,12 +684,11 @@
      ],
      "words": 99,
      "symbols": [
-      "$y_i$",
-      "$x_i$",
-      "$\\beta_1$",
-      "$E[y\\mid x]$, $\\mu_{y\\mid x}$",
-      "$\\alpha$",
-      "$\\varepsilon$"
+      "$h(x)$, $g(x)$, $E[y\\mid x]$",
+      "$\\alpha$, $\\beta$",
+      "$\\varepsilon$",
+      "$\\boldsymbol{\\varepsilon}$, $y$",
+      "$x_i$, $\\mathbf{x}_i$"
      ]
     },
     {
@@ -749,14 +712,12 @@
      ],
      "words": 114,
      "symbols": [
-      "$N$",
-      "$S$",
-      "$K$",
-      "$\\bar{x}$, $\\bar{y}$",
-      "$t$",
-      "$H_0$, $H_1$",
-      "$t$, $F$",
       "$h(x)$, $g(x)$, $E[y\\mid x]$",
+      "$K$",
+      "$N$, $K$",
+      "$NI$, $S$, $T$",
+      "$n$, $K$",
+      "$t_i$",
       "$p$, $n$"
      ]
     },
@@ -777,12 +738,10 @@
      ],
      "words": 82,
      "symbols": [
-      "$N$",
-      "$S$",
       "$K$",
-      "$t$",
-      "$H_0$, $H_1$",
-      "$t$, $F$",
+      "$N$, $K$",
+      "$NI$, $S$, $T$",
+      "$t_i$",
       "$p$, $n$"
      ]
     },
@@ -804,9 +763,9 @@
      "words": 115,
      "symbols": [
       "$\\mathbf{X}$",
+      "$\\mathbf{b}$",
       "$\\boldsymbol{\\delta} = \\boldsymbol{\\beta} - \\boldsymbol{\\gamma}$",
-      "$k$",
-      "$\\mathbf{a}$, $\\mathbf{b}$, $\\mathbf{p}$"
+      "$k$"
      ]
     },
     {
@@ -823,8 +782,8 @@
      "words": 55,
      "symbols": [
       "$\\mathbf{X}$",
-      "$\\boldsymbol{\\delta} = \\boldsymbol{\\beta} - \\boldsymbol{\\gamma}$",
-      "$\\mathbf{a}$, $\\mathbf{b}$, $\\mathbf{p}$"
+      "$\\mathbf{b}$",
+      "$\\boldsymbol{\\delta} = \\boldsymbol{\\beta} - \\boldsymbol{\\gamma}$"
      ]
     }
    ]
@@ -864,8 +823,8 @@
      ],
      "words": 72,
      "symbols": [
-      "$b_2$",
-      "$\\bar{x}$, $\\bar{y}$"
+      "$\\bar{y}$, $\\bar{y}_g$",
+      "$b_1$, $b_2$"
      ]
     },
     {
@@ -892,8 +851,8 @@
      ],
      "words": 119,
      "symbols": [
-      "$b_2$",
-      "$\\bar{x}$, $\\bar{y}$"
+      "$\\bar{y}$, $\\bar{y}_g$",
+      "$b_1$, $b_2$"
      ]
     },
     {
@@ -917,10 +876,10 @@
      ],
      "words": 119,
      "symbols": [
-      "$b_2$",
-      "$t$",
-      "$H_0$, $H_1$",
-      "$f = y_0 - \\hat{y}_0$",
+      "$f_k(\\cdot)$",
+      "$s_g$",
+      "$t_i$",
+      "$b_1$, $b_2$",
       "$Y$, $X$, $p$, $q$, $a$, $b$"
      ]
     },
@@ -941,10 +900,9 @@
      ],
      "words": 88,
      "symbols": [
-      "$b_2$",
-      "$t$",
-      "$H_0$, $H_1$",
+      "$t_i$",
       "$p$, $n$",
+      "$b_1$, $b_2$",
       "$\\lambda_0$, $\\hat{\\lambda}$"
      ]
     },
@@ -993,22 +951,22 @@
      ],
      "words": 104,
      "symbols": [
-      "$y_i$",
-      "$x_i$",
-      "$\\beta_1$",
-      "$\\sigma^2$",
-      "$b_2$",
-      "$\\boldsymbol{\\varepsilon}$",
-      "$\\mathbf{X}$",
-      "$\\widehat{\\sigma}^2$",
+      "$\\alpha$, $\\beta$",
       "$K$",
-      "$w_i$",
+      "$\\mathbf{X}$",
+      "$\\boldsymbol{\\varepsilon}$",
+      "$\\mathbf{e}$",
+      "$\\sigma^2$",
+      "$a$",
+      "$\\boldsymbol{\\varepsilon}$, $y$",
+      "$x_i$, $\\mathbf{x}_i$",
+      "$\\widehat{\\sigma}^2$",
+      "$\\mathbf{M} = \\mathbf{I} - \\mathbf{P}$",
+      "$n$, $K$",
+      "$b_1$, $b_2$",
       "$\\tilde{\\beta}_2 = \\sum a_iy_i$",
-      "$a_i$",
-      "$d_i = a_i - w_i$",
-      "$\\hat{e}_i$, $\\mathbf{e}$",
-      "$\\mathbf{M}$, $\\mathbf{P}$, $\\mathbf{X}$",
-      "$p$, $n$"
+      "$w_i$",
+      "$d_i = a_i - w_i$"
      ]
     },
     {
@@ -1035,18 +993,18 @@
      ],
      "words": 104,
      "symbols": [
-      "$y_i$",
-      "$x_i$",
-      "$\\beta_1$",
-      "$e_i$",
-      "$\\sigma^2$",
-      "$\\boldsymbol{\\varepsilon}$",
-      "$\\widehat{\\sigma}^2$",
-      "$K$",
-      "$\\hat{e}_i$, $\\mathbf{e}$",
-      "$\\mathbf{M}$, $\\mathbf{P}$, $\\mathbf{X}$",
+      "$\\alpha$, $\\beta$",
       "$v$",
-      "$p$, $n$"
+      "$K$",
+      "$\\boldsymbol{\\varepsilon}$",
+      "$\\mathbf{e}$",
+      "$\\sigma^2$",
+      "$\\boldsymbol{\\varepsilon}$, $y$",
+      "$e_i$",
+      "$x_i$, $\\mathbf{x}_i$",
+      "$\\widehat{\\sigma}^2$",
+      "$\\mathbf{M} = \\mathbf{I} - \\mathbf{P}$",
+      "$n$, $K$"
      ]
     },
     {
@@ -1059,10 +1017,10 @@
      ],
      "words": 72,
      "symbols": [
-      "$y_i$",
-      "$b_2$",
-      "$N$",
-      "$t$"
+      "$N$, $K$",
+      "$\\boldsymbol{\\varepsilon}$, $y$",
+      "$t_i$",
+      "$b_1$, $b_2$"
      ]
     },
     {
@@ -1078,10 +1036,10 @@
      ],
      "words": 71,
      "symbols": [
-      "$y_i$",
-      "$b_2$",
-      "$N$",
-      "$t$"
+      "$N$, $K$",
+      "$\\boldsymbol{\\varepsilon}$, $y$",
+      "$t_i$",
+      "$b_1$, $b_2$"
      ]
     }
    ]

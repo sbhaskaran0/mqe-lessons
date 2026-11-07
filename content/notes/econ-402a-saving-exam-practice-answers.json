@@ -353,10 +353,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "**10.** The checks raise period-1 income relative to period-2 income. Consumers want to spread the windfall over both periods, so at the old rate they consume only part of it now and save the rest: the supply of saving rises (desired borrowing falls), and the **interest rate falls**. Total (net) saving in this economy **stays at zero**: with no capital and no government borrowing, one person's saving is another's borrowing, so the interest rate adjusts until total period-1 consumption equals total period-1 income, now 84,000. (The new equilibrium is $r = 42.9\\%$, with both consumers consuming more in both periods; strictly, if the checks were financed by government borrowing, the government would absorb some of the extra saving.)"
+       "md": "**10.** The checks raise period-1 income relative to period-2 income. Consumers want to spread the windfall over both periods, so at the old rate they consume only part of it now and save the rest: the supply of saving rises (desired borrowing falls), and the **interest rate falls**. Total (net) saving in this economy **stays at zero**: with no capital and no government borrowing, one person's saving is another's borrowing, so the interest rate adjusts until total period-1 consumption equals total period-1 income, now 84,000. (The new equilibrium is $r = 42.9\\%$: both consumers consume more in period 1 (A 41,100, B 42,900) and A more in period 2 (58,714), but B, the saver, consumes slightly less in period 2 (61,286 vs 61,500) because the return on saving fell; strictly, if the checks were financed by government borrowing, the government would absorb some of the extra saving.)"
       }
      ],
-     "words": 116,
+     "words": 150,
      "symbols": [
       "$r$"
      ]

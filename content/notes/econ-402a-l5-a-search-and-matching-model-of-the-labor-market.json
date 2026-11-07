@@ -537,6 +537,7 @@
       {
        "t": "derive",
        "title": "Derive the steady-state unemployment rate",
+       "goal": "Solve the steady-state condition (inflows $\\lambda E$ equal outflows $fU$) for the unemployment rate $u = U/L$ in terms of the separation rate $\\lambda$ and the job-finding rate $f$ only. It is the core of the Beveridge curve.",
        "objectives": [
         3
        ],
@@ -840,6 +841,7 @@
       {
        "t": "derive",
        "title": "Solve the free-entry condition for tightness",
+       "goal": "Solve the free-entry condition for labor market tightness $\\theta$ in terms of $A$, $\\alpha$, $\\kappa$, $\\lambda$, $y$ and $w$. The result is the vacancy supply curve: how tight the market gets at each wage.",
        "objectives": [
         5
        ],
@@ -1043,6 +1045,7 @@
       {
        "t": "derive",
        "title": "Solve $S_F = (1-\\beta)S$ for the wage",
+       "goal": "Substitute the total surplus $S$ into the firm's share $y - w = (1-\\beta)S$ and solve for the wage $w$ in terms of $y$, $b$, $\\beta$, $\\theta$ and $\\kappa$. The result is the wage-setting curve.",
        "objectives": [
         6
        ],

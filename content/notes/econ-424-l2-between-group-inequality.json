@@ -492,6 +492,7 @@
       {
        "t": "derive",
        "title": "Derive the relative wage equation from the CES wages",
+       "goal": "Combine the two wage equations into one for the log college premium, $\\ln(w_{Ht}/w_{Lt})$, in terms of relative technology $A_{Ht}/A_{Lt}$ and relative supply $H_t/L_t$ only ($p$ and $Y_t$ must cancel). This is the equation the canonical model takes to the data.",
        "objectives": [
         3
        ],

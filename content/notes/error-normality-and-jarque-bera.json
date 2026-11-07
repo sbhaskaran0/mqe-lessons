@@ -98,14 +98,14 @@
    "from": "q-q-plot"
   },
   {
-   "tex": "$t$",
-   "meaning": "Test statistic $(b_k - \\beta_k)/se(b_k)$",
+   "tex": "$t_i$",
+   "meaning": "Studentised residual: how badly observation $i$ is fitted",
    "kind": "Statistic",
-   "typical": "≈ ±2 is the 5% threshold in large samples",
+   "typical": "Flag if $\\lvert t_i\\rvert > 2$",
    "keys": [
     "t"
    ],
-   "from": "sampling-distribution-of-ols"
+   "from": "regression-diagnostics"
   }
  ],
  "sections": [
@@ -174,7 +174,7 @@
       "$N$",
       "$y_i$, $x_i$",
       "$b_2$",
-      "$t$"
+      "$t_i$"
      ]
     }
    ]
@@ -219,7 +219,7 @@
       "$B$",
       "$p_i$",
       "$F^{-1}(\\cdot)$",
-      "$t$"
+      "$t_i$"
      ]
     },
     {
@@ -258,11 +258,55 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "A QQ plot of the residuals against the normal — see [EDA for Regression](note:eda-for-regression). Straight line means the reference fits; both ends bending away means heavy tails; an S-shape means skew."
+       "md": "A QQ plot of the residuals against the normal — see [EDA for Regression](note:eda-for-regression). Straight line means the reference fits; ends bending away from the line in opposite directions (an S: low end below, high end above) means heavy tails, and ends bending toward it (low end above, high end below) means light tails; both ends bending the same way means skew. [Q-Q Plot](note:q-q-plot) has the full table."
       }
      ],
-     "words": 30,
+     "words": 67,
      "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "heavy-tailed-residuals-what-they-do-and-what-to-do",
+   "heading": "Heavy-tailed residuals: what they do and what to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "heavy-tailed-residuals-what-they-do-and-what-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A residual distribution with heavy tails (kurtosis above 3, an S-shaped QQ plot) means SR6 fails. What follows:"
+      },
+      {
+       "t": "prose",
+       "md": "- **Inference.** The exact small-sample $t$ and $F$ distributions no longer hold, so the printed $p$-values and confidence intervals are unreliable when $N$ is small. They remain valid asymptotically: with a large $N$ the CLT rescues them.\n- **The estimates.** OLS is still unbiased (SR1, SR2 and SR5) and still BLUE (adding SR3 and SR4): neither result uses normality.\n- **Extreme residuals pull hard.** OLS squares the residuals, so a few very large ones have outsized pull on the fit. Check them with the leverage and influence measures in [Regression Diagnostics](note:regression-diagnostics)."
+      }
+     ],
+     "words": 105,
+     "symbols": [
+      "$N$",
+      "$p_i$",
+      "$F^{-1}(\\cdot)$",
+      "$t_i$"
+     ]
+    },
+    {
+     "id": "heavy-tailed-residuals-what-they-do-and-what-to-do-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "What to do:"
+      },
+      {
+       "t": "prose",
+       "md": "- Inspect the influential points first: a data error or a different kind of unit is fixed at the source, not by a test.\n- If the long tail comes from skew (one end only), transform $y$, for example with a log or a [Box-Cox](note:box-cox-and-power-transformations) power. A transformation does little for tails that are symmetric.\n- Base inference on methods that do not need SR6: [Bootstrapping OLS](note:bootstrapping-ols) for intervals and tests in small samples, and [Heteroskedasticity-Consistent Standard Errors](note:heteroskedasticity-consistent-standard-errors) when the large errors also come with unequal spread.\n- (beyond the lecture) Robust regression, such as least absolute deviations (LAD) or Huber's M-estimator, gives extreme residuals less weight than squaring does."
+      }
+     ],
+     "words": 112,
+     "symbols": [
+      "$y_i$, $x_i$"
+     ]
     }
    ]
   },
