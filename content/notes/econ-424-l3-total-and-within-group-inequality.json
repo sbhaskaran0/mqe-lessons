@@ -543,7 +543,7 @@
       {
        "t": "check",
        "kind": "mcq",
-       "prompt": "Which describes the within-education variance of log wages from the 1970s to the 2000s?",
+       "prompt": "US within-education variance of log wages (≈, 1973 → mid-1980s → 2009): dropouts 0.18 → 0.20 → 0.12; high-school graduates 0.17 → 0.20 → 0.165; some college 0.175 → 0.225 → 0.205; college graduates 0.21 (1979) → 0.25 → 0.30. Which describes it?",
        "options": [
         {
          "md": "It rose in all four groups throughout, most for college graduates",
@@ -571,7 +571,7 @@
        ]
       }
      ],
-     "words": 76,
+     "words": 106,
      "symbols": []
     }
    ]
@@ -598,7 +598,7 @@
       {
        "t": "check",
        "kind": "mcq",
-       "prompt": "What does \"the composition-adjusted variance in 2001 equals 1979\" tell you?",
+       "prompt": "The variance of US log wages rose from ≈0.185 in 1979 to ≈0.20 around 2000, but holding education shares fixed, the variance in 2001 equals 1979's. What does that tell you?",
        "options": [
         {
          "md": "Wage inequality did not change inside any education group between 1979 and 2001",
@@ -626,7 +626,7 @@
        ]
       }
      ],
-     "words": 79,
+     "words": 101,
      "symbols": []
     },
     {

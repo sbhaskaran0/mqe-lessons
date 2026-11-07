@@ -437,10 +437,28 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "1. *(isomorph of Mock 1)* Annual revenue of 164 independent restaurants is modelled as $\\widehat{\\log(REVENUE)} = 12.05 + 0.0021\\,SEATS + 0.318\\,RATING + 0.142\\log(STAFF) - 0.0085\\,AGE$, with $N = 164$ and $R^2 = 0.71$. $REVENUE$ is in dollars, $SEATS$ is the number of seats, $RATING$ is the average customer rating (1 to 5 stars), $STAFF$ is the number of employees and $AGE$ is the restaurant's age in years. Assume all coefficients are significant at 5%. Interpret the coefficient on $RATING$. → [Functional Forms and Elasticities](note:functional-forms-and-elasticities)\n\n2. *(twist: the regressor is a 0/1 indicator with a negative coefficient)* For 950 workers, $\\widehat{\\log(WAGE)} = 1.12 + 0.084\\,EDUC + 0.021\\,EXPER - 0.182\\,FEMALE + 0.104\\,UNION$, where $WAGE$ is in dollars an hour, $EDUC$ and $EXPER$ are in years, and $FEMALE$ and $UNION$ are 0/1 indicators. Assume all coefficients are significant at 5%. Interpret the coefficient on $FEMALE$. → [Indicator Variables](note:indicator-variables)"
+       "md": "1. *(isomorph of Mock 1)* Annual revenue of 164 independent restaurants is modelled as $\\widehat{\\log(REVENUE)} = 12.05 + 0.0021\\,SEATS + 0.318\\,RATING + 0.142\\log(STAFF) - 0.0085\\,AGE$, with $N = 164$ and $R^2 = 0.71$. $REVENUE$ is in dollars, $SEATS$ is the number of seats, $RATING$ is the average customer rating (1 to 5 stars), $STAFF$ is the number of employees and $AGE$ is the restaurant's age in years. Assume all coefficients are significant at 5%. Interpret the coefficient on $RATING$, giving both the approximate and the exact percentage effect. → [Functional Forms and Elasticities](note:functional-forms-and-elasticities)"
       }
      ],
-     "words": 105,
+     "words": 69,
+     "symbols": [
+      "$R^2$",
+      "$S$",
+      "$N$",
+      "$F$",
+      "$T_{BC}(x,\\lambda)$",
+      "$A$"
+     ]
+    },
+    {
+     "id": "a-interpreting-coefficients-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "2. *(twist: the regressor is a 0/1 indicator with a negative coefficient)* For 950 workers, $\\widehat{\\log(WAGE)} = 1.12 + 0.084\\,EDUC + 0.021\\,EXPER - 0.182\\,FEMALE + 0.104\\,UNION$, where $WAGE$ is in dollars an hour, $EDUC$ and $EXPER$ are in years, and $FEMALE$ and $UNION$ are 0/1 indicators. Assume all coefficients are significant at 5%. Interpret the coefficient on $FEMALE$, giving both the approximate and the exact percentage gap. → [Indicator Variables](note:indicator-variables)\n\n3. *(isomorph of Mock 2)* Same restaurant model as item 1: $\\widehat{\\log(REVENUE)} = 12.05 + 0.0021\\,SEATS + 0.318\\,RATING + 0.142\\log(STAFF) - 0.0085\\,AGE$ ($N = 164$, $R^2 = 0.71$, revenue in dollars, $STAFF$ the number of employees). Interpret the coefficient on $\\log(STAFF)$. → [Functional Forms and Elasticities](note:functional-forms-and-elasticities)"
+      }
+     ],
+     "words": 80,
      "symbols": [
       "$D_i$",
       "$R^2$",
@@ -456,14 +474,14 @@
      ]
     },
     {
-     "id": "a-interpreting-coefficients-2",
+     "id": "a-interpreting-coefficients-3",
      "blocks": [
       {
        "t": "prose",
-       "md": "3. *(isomorph of Mock 2)* Same restaurant model as item 1: $\\widehat{\\log(REVENUE)} = 12.05 + 0.0021\\,SEATS + 0.318\\,RATING + 0.142\\log(STAFF) - 0.0085\\,AGE$ ($N = 164$, $R^2 = 0.71$, revenue in dollars, $STAFF$ the number of employees). Interpret the coefficient on $\\log(STAFF)$. → [Functional Forms and Elasticities](note:functional-forms-and-elasticities)\n\n4. *(twist: only the regressor is logged, so the effect on $y$ is in units, not percent)* For 610 US counties, $\\widehat{LIFEEXP} = 47.9 + 2.86\\ln(INCOME) - 0.071\\,SMOKE + 0.034\\,DOCTORS$, where $LIFEEXP$ is life expectancy at birth in years, $INCOME$ is median household income in dollars, $SMOKE$ is the percentage of adults who smoke and $DOCTORS$ is doctors per 10,000 residents. Assume all coefficients are significant at 5%. Interpret the coefficient on $\\ln(INCOME)$. → [Functional Forms and Elasticities](note:functional-forms-and-elasticities)"
+       "md": "4. *(twist: only the regressor is logged, so the effect on $y$ is in units, not percent)* For 610 US counties, $\\widehat{LIFEEXP} = 47.9 + 2.86\\ln(INCOME) - 0.071\\,SMOKE + 0.034\\,DOCTORS$, where $LIFEEXP$ is life expectancy at birth in years, $INCOME$ is median household income in dollars, $SMOKE$ is the percentage of adults who smoke and $DOCTORS$ is doctors per 10,000 residents. Assume all coefficients are significant at 5%. Interpret the coefficient on $\\ln(INCOME)$. → [Functional Forms and Elasticities](note:functional-forms-and-elasticities)"
       }
      ],
-     "words": 89,
+     "words": 63,
      "symbols": [
       "$D_i$",
       "$R^2$",
@@ -475,7 +493,6 @@
       "$T_{BC}(x,\\lambda)$",
       "$L_0$, $\\hat{L}$",
       "$Y$, $X$, $p$, $q$, $a$, $b$",
-      "$A$",
       "$C_p$"
      ]
     }
@@ -491,17 +508,13 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "5. *(isomorph of Mock 14)* A log-log regression relates annual staff-training spending ($TRAIN$, in thousands of dollars) to annual payroll ($PAYROLL$, in millions of dollars) for 212 firms: $\\widehat{\\ln(TRAIN)} = 1.874 + 0.437\\ln(PAYROLL)$, with $R^2 = 0.341$. In this sample, average training spending is \\$1.28 million and average payroll is \\$2.6 billion. Evaluate the slope at the point $(\\overline{PAYROLL}, \\overline{TRAIN})$. → [Functional Forms and Elasticities](note:functional-forms-and-elasticities)\n\n6. *(twist: the units are paired the other way round, $y$ in millions and $x$ in thousands)* A log-log regression relates annual sales ($SALES$, in millions of dollars) to annual advertising ($ADVERT$, in thousands of dollars) for 150 consumer-goods firms: $\\widehat{\\ln(SALES)} = 2.105 + 0.184\\ln(ADVERT)$. Average sales are \\$96 million and average advertising is \\$1.2 million. Evaluate the slope at the point $(\\overline{ADVERT}, \\overline{SALES})$ and say what it means in dollars. → [Functional Forms and Elasticities](note:functional-forms-and-elasticities)"
+       "md": "5. *(isomorph of Mock 14)* A log-log regression relates annual staff-training spending ($TRAIN$, in thousands of dollars) to annual payroll ($PAYROLL$, in millions of dollars) for 212 firms: $\\widehat{\\ln(TRAIN)} = 1.874 + 0.437\\ln(PAYROLL)$, with $R^2 = 0.341$. In this sample, average training spending is \\$1.28 million and average payroll is \\$2.6 billion. Evaluate the slope at the point $(\\overline{PAYROLL}, \\overline{TRAIN})$, in the model's units (thousands of dollars of training per million dollars of payroll), and say what it means in dollars. → [Functional Forms and Elasticities](note:functional-forms-and-elasticities)"
       }
      ],
-     "words": 119,
+     "words": 75,
      "symbols": [
-      "$D_i$",
       "$R^2$",
-      "$x_2$, $x_3$",
-      "$S$",
       "$N$",
-      "$y$, $\\widehat{y}$",
       "$T_{BC}(x,\\lambda)$",
       "$L_0$, $\\hat{L}$",
       "$Y$, $X$, $p$, $q$, $a$, $b$",
@@ -510,6 +523,26 @@
     },
     {
      "id": "b-slopes-elasticities-and-turning-points-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "6. *(twist: the units are paired the other way round, $y$ in millions and $x$ in thousands)* A log-log regression relates annual sales ($SALES$, in millions of dollars) to annual advertising ($ADVERT$, in thousands of dollars) for 150 consumer-goods firms: $\\widehat{\\ln(SALES)} = 2.105 + 0.184\\ln(ADVERT)$. Average sales are \\$96 million and average advertising is \\$1.2 million. Evaluate the slope at the point $(\\overline{ADVERT}, \\overline{SALES})$ and say what it means in dollars. → [Functional Forms and Elasticities](note:functional-forms-and-elasticities)"
+      }
+     ],
+     "words": 65,
+     "symbols": [
+      "$D_i$",
+      "$R^2$",
+      "$x_2$, $x_3$",
+      "$S$",
+      "$y$, $\\widehat{y}$",
+      "$T_{BC}(x,\\lambda)$",
+      "$L_0$, $\\hat{L}$",
+      "$A$"
+     ]
+    },
+    {
+     "id": "b-slopes-elasticities-and-turning-points-3",
      "blocks": [
       {
        "t": "prose",
@@ -533,7 +566,7 @@
      ]
     },
     {
-     "id": "b-slopes-elasticities-and-turning-points-3",
+     "id": "b-slopes-elasticities-and-turning-points-4",
      "blocks": [
       {
        "t": "prose",
@@ -730,10 +763,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "21. *(isomorph of Mock 19)* A researcher regresses the length of hospital stay (days) of 120 patients on age and a severity score, and checks the residuals with a normal Q-Q plot. The points follow the 45° line closely in the middle, but at the right end they rise above the line and at the left end they fall below it. What does this pattern suggest about the distribution of the residuals? → [Q-Q Plot](note:q-q-plot)"
+       "md": "21. *(isomorph of Mock 19)* A researcher regresses the length of hospital stay (days) of 120 patients on age and a severity score, and checks the residuals with a normal Q-Q plot (residual quantiles on the vertical axis, normal quantiles on the horizontal). The points follow the 45° line closely in the middle, but at the right end they rise above the line and at the left end they fall below it. What does this pattern suggest about the distribution of the residuals? → [Q-Q Plot](note:q-q-plot)"
       }
      ],
-     "words": 74,
+     "words": 85,
      "symbols": []
     },
     {
@@ -741,10 +774,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "22. *(twist: both ends bend the same way)* Scores on a test with a maximum of 100 are regressed on weekly study hours for 200 students; many students score close to 100. In the normal Q-Q plot of the residuals the middle follows the 45° line, but the points at **both** ends lie below the line, so the plot bends down like an arch. What does this pattern suggest about the distribution of the residuals? → [Q-Q Plot](note:q-q-plot)"
+       "md": "22. *(twist: both ends bend the same way)* Scores on a test with a maximum of 100 are regressed on weekly study hours for 200 students; many students score close to 100. In the normal Q-Q plot of the residuals (residual quantiles on the vertical axis, normal quantiles on the horizontal) the middle follows the 45° line, but the points at **both** ends lie below the line, so the plot bends down like an arch. What does this pattern suggest about the distribution of the residuals? → [Q-Q Plot](note:q-q-plot)"
       }
      ],
-     "words": 77,
+     "words": 88,
      "symbols": []
     },
     {
@@ -1007,7 +1040,7 @@
     "id": "q1",
     "number": "1",
     "group": "A. Interpreting coefficients",
-    "prompt": "*(isomorph of Mock 1)* Annual revenue of 164 independent restaurants is modelled as $\\widehat{\\log(REVENUE)} = 12.05 + 0.0021\\,SEATS + 0.318\\,RATING + 0.142\\log(STAFF) - 0.0085\\,AGE$, with $N = 164$ and $R^2 = 0.71$. $REVENUE$ is in dollars, $SEATS$ is the number of seats, $RATING$ is the average customer rating (1 to 5 stars), $STAFF$ is the number of employees and $AGE$ is the restaurant's age in years. Assume all coefficients are significant at 5%. Interpret the coefficient on $RATING$. → [Functional Forms and Elasticities](note:functional-forms-and-elasticities)",
+    "prompt": "*(isomorph of Mock 1)* Annual revenue of 164 independent restaurants is modelled as $\\widehat{\\log(REVENUE)} = 12.05 + 0.0021\\,SEATS + 0.318\\,RATING + 0.142\\log(STAFF) - 0.0085\\,AGE$, with $N = 164$ and $R^2 = 0.71$. $REVENUE$ is in dollars, $SEATS$ is the number of seats, $RATING$ is the average customer rating (1 to 5 stars), $STAFF$ is the number of employees and $AGE$ is the restaurant's age in years. Assume all coefficients are significant at 5%. Interpret the coefficient on $RATING$, giving both the approximate and the exact percentage effect. → [Functional Forms and Elasticities](note:functional-forms-and-elasticities)",
     "answer": "Holding seats, staff and age fixed, a restaurant rated one star higher has about **31.8%** higher annual revenue by the usual approximation, and exactly **37.4%** higher, $100(e^{0.318} - 1)$. One star is a large change, so the exact figure is the one to trust. It is an association across restaurants, not a causal effect of the rating.\n\n*How to get there*\n1. Log on the left, $RATING$ in levels on the right: it is a semi-elasticity, so one more unit of $x$ goes with about $100b$ percent more $y$: $100 \\times 0.318 = 31.8\\%$.\n2. A one-unit change in $RATING$ (a whole star) is big, so use the exact effect $100(e^{b} - 1) = 100(e^{0.318} - 1) = 37.4\\%$.\n3. Say what is held fixed (the other four regressors) and the units (revenue in percent, rating in stars).\n\n*Watch out:* reporting only 31.8% loses the mark for the exact effect; the gap grows with the coefficient. Writing \"\\$0.318 more revenue\" or \"0.318% more\" treats a log-level coefficient as level-level or log-log.\n\n*See it:* [Econ 430 L5 Estimating Nonlinear Relationships](note:econ-430-l5-estimating-nonlinear-relationships#4-reading-log-models): the log-linear row of the table and the sentence on the exact effect $100(e^{\\beta_2} - 1)$ above it.",
     "rubric": [
      "Identifies a log-level coefficient: percentage change in revenue per star",
@@ -1024,7 +1057,7 @@
     "id": "q2",
     "number": "2",
     "group": "A. Interpreting coefficients",
-    "prompt": "*(twist: the regressor is a 0/1 indicator with a negative coefficient)* For 950 workers, $\\widehat{\\log(WAGE)} = 1.12 + 0.084\\,EDUC + 0.021\\,EXPER - 0.182\\,FEMALE + 0.104\\,UNION$, where $WAGE$ is in dollars an hour, $EDUC$ and $EXPER$ are in years, and $FEMALE$ and $UNION$ are 0/1 indicators. Assume all coefficients are significant at 5%. Interpret the coefficient on $FEMALE$. → [Indicator Variables](note:indicator-variables)",
+    "prompt": "*(twist: the regressor is a 0/1 indicator with a negative coefficient)* For 950 workers, $\\widehat{\\log(WAGE)} = 1.12 + 0.084\\,EDUC + 0.021\\,EXPER - 0.182\\,FEMALE + 0.104\\,UNION$, where $WAGE$ is in dollars an hour, $EDUC$ and $EXPER$ are in years, and $FEMALE$ and $UNION$ are 0/1 indicators. Assume all coefficients are significant at 5%. Interpret the coefficient on $FEMALE$, giving both the approximate and the exact percentage gap. → [Indicator Variables](note:indicator-variables)",
     "answer": "Holding education, experience and union status fixed, women earn about **18.2%** less an hour than men by the approximation, and exactly **16.6%** less, $100(e^{-0.182} - 1) = -16.6\\%$.\n\n*How to get there*\n1. Log wage on the left, an indicator on the right: the coefficient is the gap in $\\log(WAGE)$ between the two groups, so about $100 \\times (-0.182) = -18.2\\%$.\n2. An indicator can only jump from 0 to 1, a one-unit change that is never small, so use the exact form: $100(e^{-0.182} - 1) = -16.6\\%$.\n3. Name the reference group (men) and what is held fixed.\n\n*Watch out:* with a negative coefficient the exact gap is **smaller** in size than the approximation (16.6% against 18.2%), not larger. Writing \"\\$0.18 an hour less\" ignores the log on the left.\n\n*See it:* [Econ 430 L6 Indicator Variables and the OLS Workflow](note:econ-430-l6-indicator-variables-and-the-ols-workflow#1-a-single-indicator): an indicator shifts the intercept for one group; with $\\log(WAGE)$ on the left that shift is a proportional gap.",
     "rubric": [
      "Reads the coefficient as the women–men gap in log wages, men the reference group",
@@ -1073,7 +1106,7 @@
     "id": "q5",
     "number": "5",
     "group": "B. Slopes, elasticities and turning points",
-    "prompt": "*(isomorph of Mock 14)* A log-log regression relates annual staff-training spending ($TRAIN$, in thousands of dollars) to annual payroll ($PAYROLL$, in millions of dollars) for 212 firms: $\\widehat{\\ln(TRAIN)} = 1.874 + 0.437\\ln(PAYROLL)$, with $R^2 = 0.341$. In this sample, average training spending is \\$1.28 million and average payroll is \\$2.6 billion. Evaluate the slope at the point $(\\overline{PAYROLL}, \\overline{TRAIN})$. → [Functional Forms and Elasticities](note:functional-forms-and-elasticities)",
+    "prompt": "*(isomorph of Mock 14)* A log-log regression relates annual staff-training spending ($TRAIN$, in thousands of dollars) to annual payroll ($PAYROLL$, in millions of dollars) for 212 firms: $\\widehat{\\ln(TRAIN)} = 1.874 + 0.437\\ln(PAYROLL)$, with $R^2 = 0.341$. In this sample, average training spending is \\$1.28 million and average payroll is \\$2.6 billion. Evaluate the slope at the point $(\\overline{PAYROLL}, \\overline{TRAIN})$, in the model's units (thousands of dollars of training per million dollars of payroll), and say what it means in dollars. → [Functional Forms and Elasticities](note:functional-forms-and-elasticities)",
     "answer": "The slope at the means is about **0.215**: one more million dollars of payroll goes with about \\$215 more training spending a year (training is in thousands, so 0.215 thousand dollars).\n\n*How to get there*\n1. In a log-log model the coefficient is the elasticity, so the slope is $b_2\\,\\bar{y}/\\bar{x}$.\n2. Put each mean in its own variable's unit: $\\overline{TRAIN} = \\$1.28$ million $= 1{,}280$ (thousands); $\\overline{PAYROLL} = \\$2.6$ billion $= 2{,}600$ (millions).\n3. $0.437 \\times 1{,}280/2{,}600 = 0.2151$ thousand dollars per \\$1 million, about \\$215.\n\n*Watch out:* convert **each** mean. Converting only one ($0.437 \\times 1{,}280/2.6 = 215.1$) is a thousand times too big; and reading 0.215 as dollars loses the \\$215. Flipping the ratio, $b_2\\bar{x}/\\bar{y} = 0.888$, gives an elasticity-like number with no meaning here.\n\n*See it:* [Econ 430 L5 Estimating Nonlinear Relationships](note:econ-430-l5-estimating-nonlinear-relationships#4-reading-log-models): the log-log row, slope $\\beta_2 y/x$, and the food check that evaluates it at the means.",
     "rubric": [
      "Slope formula for log-log: $b_2\\,\\bar{y}/\\bar{x}$",
@@ -1337,7 +1370,7 @@
     "id": "q21",
     "number": "21",
     "group": "F. Residual normality: Q-Q plots and Jarque-Bera",
-    "prompt": "*(isomorph of Mock 19)* A researcher regresses the length of hospital stay (days) of 120 patients on age and a severity score, and checks the residuals with a normal Q-Q plot. The points follow the 45° line closely in the middle, but at the right end they rise above the line and at the left end they fall below it. What does this pattern suggest about the distribution of the residuals? → [Q-Q Plot](note:q-q-plot)",
+    "prompt": "*(isomorph of Mock 19)* A researcher regresses the length of hospital stay (days) of 120 patients on age and a severity score, and checks the residuals with a normal Q-Q plot (residual quantiles on the vertical axis, normal quantiles on the horizontal). The points follow the 45° line closely in the middle, but at the right end they rise above the line and at the left end they fall below it. What does this pattern suggest about the distribution of the residuals? → [Q-Q Plot](note:q-q-plot)",
     "answer": "**Heavy tails.** The residuals are roughly symmetric but have more extreme values than a normal distribution in both directions: the largest residuals are larger, and the smallest more negative, than the normal predicts.\n\n*How to get there*\n1. Above the line means larger than the normal predicts at that rank; below means smaller.\n2. The right end is above (big positives too big) and the left end below (big negatives too negative).\n3. The two ends bend in **opposite** directions, an S shape: heavy tails (excess kurtosis), not skew.\n\n*Watch out:* calling this skew. Skew bends **both** ends the same way; ends in opposite directions are a tails pattern, heavy when they move away from the line as here.\n\n*See it:* [Econ 430 L1 Univariate Characterizations](note:econ-430-l1-univariate-characterizations#4-quantile-plots): in the Q-Q Plot Shape Explorer, pick the Student $t$ with 3 degrees of freedom and watch the left end fall below and the right end rise above the line.",
     "rubric": [
      "Names the S shape (ends in opposite directions)",
@@ -1353,7 +1386,7 @@
     "id": "q22",
     "number": "22",
     "group": "F. Residual normality: Q-Q plots and Jarque-Bera",
-    "prompt": "*(twist: both ends bend the same way)* Scores on a test with a maximum of 100 are regressed on weekly study hours for 200 students; many students score close to 100. In the normal Q-Q plot of the residuals the middle follows the 45° line, but the points at **both** ends lie below the line, so the plot bends down like an arch. What does this pattern suggest about the distribution of the residuals? → [Q-Q Plot](note:q-q-plot)",
+    "prompt": "*(twist: both ends bend the same way)* Scores on a test with a maximum of 100 are regressed on weekly study hours for 200 students; many students score close to 100. In the normal Q-Q plot of the residuals (residual quantiles on the vertical axis, normal quantiles on the horizontal) the middle follows the 45° line, but the points at **both** ends lie below the line, so the plot bends down like an arch. What does this pattern suggest about the distribution of the residuals? → [Q-Q Plot](note:q-q-plot)",
     "answer": "**Left (negative) skew.** Both ends lie below the line: the smallest residuals are more negative than a normal predicts (a long left tail) and the largest are smaller than it predicts (a short right tail), as expected when scores bunch near the maximum of 100.\n\n*How to get there*\n1. Below the line means smaller than the normal predicts at that rank.\n2. Left end below: a stretched left tail. Right end below: a compressed right tail.\n3. Both ends bending the **same** way is skew; both below (concave, arch-shaped) is left skew.\n\n*Watch out:* reading \"the ends leave the line\" as heavy tails. Heavy tails need the ends on opposite sides; and both ends **above** the line would be right skew, the mirror image.\n\n*See it:* [Econ 430 L1 Univariate Characterizations](note:econ-430-l1-univariate-characterizations#4-quantile-plots): pick the lognormal in the Q-Q Plot Shape Explorer: both ends bend above the line (right skew); a left skew is its mirror image.",
     "rubric": [
      "Both ends on the same side: skew, not a tails pattern",

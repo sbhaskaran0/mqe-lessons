@@ -175,7 +175,7 @@
       {
        "t": "check",
        "kind": "mcq",
-       "prompt": "World demand rises for New Balance products and falls for Converse products. In the lecture's argument, what would stop New Balance workers from gaining relative to Converse workers?",
+       "prompt": "World demand rises for New Balance products and falls for Converse products. If trade works through demand for each firm's own workers (a firm's workers gain when its goods' price rises), what would stop New Balance workers from gaining relative to Converse workers?",
        "options": [
         {
          "md": "Both firms being in the same region",
@@ -203,7 +203,7 @@
        ]
       }
      ],
-     "words": 66,
+     "words": 81,
      "symbols": []
     }
    ]
@@ -521,14 +521,14 @@
       {
        "t": "check",
        "kind": "numeric",
-       "prompt": "Keep the airplane income shares at 0.6 for Los Angeles and 0.2 for Rome, and airplane prices at +0.10, but let textile prices fall by 0.15 instead of 0.05. By how many log points does the average wage in Los Angeles rise relative to Rome's?",
+       "prompt": "With immobile factors a region's wage moves by $d\\log w_r = \\lambda_{rA}\\,d\\log p_A + (1-\\lambda_{rA})\\,d\\log p_T$, where $\\lambda_{rA}$ is its income share in airplanes: 0.6 for Los Angeles and 0.2 for Rome. Airplane prices rise by 0.10 and textile prices fall by 0.15 log points. By how many log points does the average wage in Los Angeles rise relative to Rome's?",
        "answer": 0.1,
        "tol": 0.005,
        "wrong": [
         {
          "answer": 0.06,
          "tol": 0.0,
-         "md": "that is the gap with the old textile change, −0.05; with −0.15 the price gap is 0.25"
+         "md": "that is the gap for a textile fall of 0.05; with −0.15 the price gap is 0.25"
         },
         {
          "answer": 0.0,
@@ -552,9 +552,10 @@
        ]
       }
      ],
-     "words": 50,
+     "words": 56,
      "symbols": [
       "$p_j$",
+      "$w_j$",
       "$\\lambda_{fg}$"
      ]
     }
@@ -616,7 +617,7 @@
         "extra_out"
        ],
        "highlight": "gap",
-       "prompt": "An example (from [Envelope Theorem](note:envelope-theorem)): income from job $x$ is $f(x, p) = px - x^2/2$, so the best job is $x^* = p$. The worker's job is optimal at $p_0 = 2$, and the price rises to 2.1. Keeping the job raises income by $x_0 \\times 0.1 = 0.200$, exactly the immobile-factor answer. Then drag the price a long way from 2 and watch the gap.",
+       "prompt": "An example (from [Envelope Theorem](note:envelope-theorem)): income from job $x$ is $f(x, p) = px - x^2/2$, so the best job is $x^* = p$. The worker's job is optimal at $p_0 = 2$, and the price rises to 2.1. Keeping the job raises income by $x_0 \\times 0.1 = 0.200$, exactly the immobile-factor answer. Then drag the price $p_1$ away from 2 until switching jobs adds 0.5 on top of keeping the old one: the 'Extra gain from switching' readout reads 0.500.",
        "goal": {
         "when": "abs(extra - 0.5) < 0.01",
         "success": "With a price change of 1, switching adds 0.5, a quarter of the 2 that keeping the job gains or loses. The extra gain is $(p_1 - p_0)^2/2$: negligible for small price changes, which is why the immobile-factor results hold to first order, but not for large ones.",
@@ -649,7 +650,7 @@
        ]
       }
      ],
-     "words": 155,
+     "words": 171,
      "symbols": [
       "$p_j$",
       "$w_j$",

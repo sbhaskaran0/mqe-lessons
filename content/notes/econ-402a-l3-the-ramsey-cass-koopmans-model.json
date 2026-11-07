@@ -359,7 +359,7 @@
       {
        "t": "check",
        "kind": "mcq",
-       "prompt": "In the two-period capital problem, the consumer is at an optimum. Then a change in technology lowers the marginal product of capital at every $k$. What should the consumer do?",
+       "prompt": "A consumer splits output $f(k_1)$ between consumption and capital, $f(k_1) = c_1 + k_2$; capital fully depreciates, so $c_2 = f(k_2)$, and at the optimum the MRS equals $f'(k_2)$. A change in technology lowers the marginal product of capital at every $k$. Looking only at the lower return to investing (the substitution effect), what should the consumer do?",
        "options": [
         {
          "md": "Invest more, to make up for the lower return",
@@ -387,8 +387,9 @@
        ]
       }
      ],
-     "words": 68,
+     "words": 86,
      "symbols": [
+      "$c_t$",
       "$k_1$, $k_2$",
       "$f'(k)$"
      ]
@@ -525,7 +526,7 @@
       {
        "t": "check",
        "kind": "numeric",
-       "prompt": "Same technology, $f(k) = \\sqrt{k}$ and $k_1 = 9$, but now the planner discounts the future: $U = \\ln c_1 + 0.8\\ln c_2$. How much capital does it carry into period 2? Give three decimals.",
+       "prompt": "A planner with $k_1 = 9$ and $f(k) = \\sqrt{k}$ splits period-1 output as $f(k_1) = c_1 + k_2$; capital fully depreciates, so $c_2 = f(k_2)$. It maximizes $U = \\ln c_1 + 0.8\\ln c_2$. How much capital does it carry into period 2? Give three decimals.",
        "answer": 0.857,
        "tol": 0.003,
        "wrong": [
@@ -551,7 +552,7 @@
        ]
       }
      ],
-     "words": 22,
+     "words": 26,
      "symbols": [
       "$c_t$",
       "$k_1$, $k_2$",

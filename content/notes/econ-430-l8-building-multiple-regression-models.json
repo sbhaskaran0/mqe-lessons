@@ -421,7 +421,7 @@
       {
        "t": "check",
        "kind": "mcq",
-       "prompt": "In the gasoline regression, $b_2 = 1.373$ is the coefficient on $\\log(income)$. What does it say?",
+       "prompt": "A regression of $\\log$ gasoline use per person on $\\log$ income per person and the logs of three prices (gasoline, new cars, used cars) gives $b_2 = 1.373$ on $\\log(income)$. What does it say?",
        "options": [
         {
          "md": "A \\$1 rise in income per person raises gasoline use per person by 1.373 gallons",
@@ -449,7 +449,7 @@
        ]
       }
      ],
-     "words": 68,
+     "words": 84,
      "symbols": [
       "$y_i$",
       "$x_{ik}$",
@@ -651,7 +651,7 @@
       {
        "t": "check",
        "kind": "mcq",
-       "prompt": "`statsmodels` reports `t_test([0, -0.4, 0.8])` on Andy's regression as coef 4.6532, std err 0.710, 95% interval [3.239, 6.068]. Which reading is correct?",
+       "prompt": "Andy's regression is $\\widehat{SALES} = 118.91 - 7.908\\,PRICE + 1.863\\,ADVERT$, with $SALES$ in \\$1000s a month, $PRICE$ in dollars and $ADVERT$ in \\$1000s a month. `statsmodels` reports `t_test([0, -0.4, 0.8])` (weights on the intercept, $PRICE$ and $ADVERT$) as coef 4.6532, std err 0.710, 95% interval [3.239, 6.068]. Which reading is correct?",
        "options": [
         {
          "md": "Holding price and advertising constant, expected sales are between \\$3,239 and \\$6,068",
@@ -679,13 +679,18 @@
        ]
       }
      ],
-     "words": 94,
+     "words": 111,
      "symbols": [
       "$\\beta_1$",
       "$e_i$",
+      "$A$",
       "$\\lambda$, $\\widehat{\\lambda}$",
+      "$D_{ji}$",
+      "$R^2$",
       "$H_0$",
-      "$t$"
+      "$t$",
+      "$T$",
+      "$PRICE$, $SQFT$"
      ]
     },
     {
@@ -716,7 +721,7 @@
       {
        "t": "check",
        "kind": "numeric",
-       "prompt": "For Andy's plan, $\\widehat{\\lambda} = 4.6532$ with $se(\\widehat{\\lambda}) = 0.710$. What is the $t$ statistic for testing whether the plan raises expected sales by more than \\$5,800, $H_0: \\lambda \\le 5.8$ against $H_1: \\lambda > 5.8$? Give two decimals.",
+       "prompt": "For Andy's plan, the estimated change in expected monthly sales (in \\$1000s) is $\\widehat{\\lambda} = 4.6532$ with $se(\\widehat{\\lambda}) = 0.710$. What is the $t$ statistic for testing whether the plan raises expected sales by more than \\$5,800, $H_0: \\lambda \\le 5.8$ against $H_1: \\lambda > 5.8$? Give two decimals.",
        "answer": -1.62,
        "tol": 0.01,
        "wrong": [
@@ -742,7 +747,7 @@
        ]
       }
      ],
-     "words": 25,
+     "words": 35,
      "symbols": [
       "$e_i$",
       "$\\lambda$, $\\widehat{\\lambda}$",
@@ -877,7 +882,7 @@
       {
        "t": "check",
        "kind": "numeric",
-       "prompt": "In Andy's quadratic model, $b_3 = 12.1512$ and $b_4 = -2.7680$, with $ADVERT$ in \\$1000s. At what level of advertising do expected sales peak? Answer in dollars per month.",
+       "prompt": "In Andy's quadratic model, $SALES = \\beta_1 + \\beta_2 PRICE + \\beta_3 ADVERT + \\beta_4 ADVERT^2 + e$, the estimates are $b_3 = 12.1512$ and $b_4 = -2.7680$, with $ADVERT$ in \\$1000s. At what level of advertising do expected sales peak? Answer in dollars per month.",
        "answer": 2195.0,
        "tol": 5.0,
        "wrong": [
@@ -903,14 +908,16 @@
        ]
       }
      ],
-     "words": 22,
+     "words": 25,
      "symbols": [
       "$\\beta_1$",
       "$b_k$",
+      "$e_i$",
       "$A$",
       "$D_{ji}$",
       "$R^2$",
-      "$T$"
+      "$T$",
+      "$PRICE$, $SQFT$"
      ]
     },
     {
@@ -942,7 +949,7 @@
       {
        "t": "check",
        "kind": "mcq",
-       "prompt": "Andy currently spends \\$2,000 a month on advertising, and he will advertise up to the point where another \\$1 of advertising adds \\$1 of sales. In the quadratic model, $ME = 12.1512 - 5.536\\,ADVERT$. Should he spend more?",
+       "prompt": "Andy currently spends \\$2,000 a month on advertising, and he will advertise up to the point where another \\$1 of advertising adds \\$1 of sales. In the quadratic model, with sales and advertising both in \\$1000s a month, the marginal effect of advertising is $ME = 12.1512 - 5.536\\,ADVERT$. Should he spend more?",
        "options": [
         {
          "md": "No: advertising is past its peak, so extra spending lowers sales",
@@ -970,7 +977,7 @@
        ]
       }
      ],
-     "words": 96,
+     "words": 111,
      "symbols": [
       "$b_k$",
       "$A$",
@@ -1200,7 +1207,7 @@
       {
        "t": "check",
        "kind": "mcq",
-       "prompt": "In the reading regression, the Strat coefficient has $p = 0.095$, Tukey's adjusted p-value for Strat vs Basal is 0.215, and the overall $F$ test has $p = 0.015$. What can you conclude at 5%?",
+       "prompt": "Reading scores of 66 pupils under three teaching methods (Basal, the control, and DRTA and Strat, 22 each) give $\\widehat{SCORE} = 41.05 + 5.68\\,DRTA + 3.23\\,STRAT$. The overall $F$ test has $p = 0.015$; the Strat coefficient has $p = 0.095$; Tukey's adjusted p-values are 0.011 for DRTA vs Basal and 0.215 for Strat vs Basal. What can you conclude at 5%?",
        "options": [
         {
          "md": "Strat beats Basal: the overall test is significant",
@@ -1228,9 +1235,13 @@
        ]
       }
      ],
-     "words": 84,
+     "words": 105,
      "symbols": [
-      "$F$"
+      "$A$",
+      "$D_{ji}$",
+      "$R^2$",
+      "$F$",
+      "$T$"
      ]
     }
    ]
@@ -1329,7 +1340,7 @@
       {
        "t": "check",
        "kind": "numeric",
-       "prompt": "From the conformity regression, what is the fitted mean conformity of subjects with low authoritarianism and a low-status partner? Give two decimals.",
+       "prompt": "A two-way ANOVA of conformity on the subject's authoritarianism (low, medium, high) and the partner's status (low, high), with their interaction and high/high as the reference cell, gives $\\widehat{CONF} = 11.86 + 5.54\\,F_{low} + 2.42\\,F_{med} + 0.77\\,P_{low} - 9.27\\,(F_{low} \\times P_{low}) - 7.79\\,(F_{med} \\times P_{low})$. What is the fitted mean conformity of subjects with low authoritarianism and a low-status partner? Give two decimals.",
        "answer": 8.9,
        "tol": 0.01,
        "wrong": [
@@ -1355,8 +1366,9 @@
        ]
       }
      ],
-     "words": 22,
+     "words": 47,
      "symbols": [
+      "$N$",
       "$F$"
      ]
     },
@@ -1509,7 +1521,7 @@
       {
        "t": "check",
        "kind": "mcq",
-       "prompt": "In your own words, what role does the $AGE \\times INCOME$ term play in the pizza regression?",
+       "prompt": "A pizza regression (spending in dollars a year, income in \\$1000s) gives $\\widehat{PIZZA} = 161.47 - 2.977\\,AGE + 6.980\\,INCOME - 0.1232\\,(AGE \\times INCOME)$. In your own words, what role does the $AGE \\times INCOME$ term play?",
        "options": [
         {
          "md": "It measures the combined effect of age and income on pizza spending, which is $-0.1232$",
@@ -1537,7 +1549,7 @@
        ]
       }
      ],
-     "words": 79,
+     "words": 87,
      "symbols": [
       "$\\beta_1$",
       "$N$",
@@ -1584,7 +1596,7 @@
       {
        "t": "check",
        "kind": "numeric",
-       "prompt": "In the wage regression, holding education fixed, how much more or less per hour does a black woman earn than a white man? Give the answer in dollars, two decimals (negative if less).",
+       "prompt": "For 1,000 workers, $\\widehat{WAGE} = -5.281 + 2.070\\,EDUC - 4.169\\,BLACK - 4.785\\,FEMALE + 3.844\\,(BLACK \\times FEMALE)$, with wage in dollars an hour. Holding education fixed, how much more or less per hour does a black woman earn than a white man? Give the answer in dollars, two decimals (negative if less).",
        "answer": -5.11,
        "tol": 0.01,
        "wrong": [
@@ -1610,11 +1622,17 @@
        ]
       }
      ],
-     "words": 33,
+     "words": 39,
      "symbols": [
       "$\\beta_1$",
+      "$K$",
+      "$A$",
+      "$D_{ji}$",
       "$\\delta_j$",
-      "$\\gamma$"
+      "$F$",
+      "$A$, $B$; $a$, $b$",
+      "$\\gamma$",
+      "$D_i$ (e.g. $UTOWN$, $FEMALE$)"
      ]
     }
    ]

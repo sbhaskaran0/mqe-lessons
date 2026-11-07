@@ -382,10 +382,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "8. Heteroskedasticity is present. State precisely what happens to (a) unbiasedness of $b_2$, (b) the standard error formula, (c) the BLUE property, (d) consistency.\n9. Why is $\\widehat{\\sigma}^2$ divided by $N-2$ rather than $N$? Give the algebraic reason, not just \"degrees of freedom.\"\n10. A colleague reports the log-linear model has $R^2 = 0.61$ and the linear model $R^2 = 0.54$, and concludes the log-linear model is better. What is wrong with this?\n11. Explain why the prediction interval does not shrink to zero as $N\\to\\infty$, while the confidence interval does.\n12. A researcher writes $y = \\alpha + \\beta x + \\varepsilon$ and claims this requires $E[y\\mid x]$ to be linear in $x$. Is the claim correct?\n13. An observation has leverage $h_i = 0.4$ with $n = 50$ and $p = 2$, but a studentised residual of 0.3. Is it a problem?"
+       "md": "8. Heteroskedasticity is present. State precisely what happens to (a) unbiasedness of $b_2$, (b) the standard error formula, (c) the BLUE property, (d) consistency.\n9. Why is $\\widehat{\\sigma}^2$ divided by $N-2$ rather than $N$? Give the algebraic reason, not just \"degrees of freedom.\"\n10. A colleague reports the log-linear model has $R^2 = 0.61$ and the linear model $R^2 = 0.54$, and concludes the log-linear model is better. What is wrong with this?\n11. Explain why the prediction interval does not shrink to zero as $N\\to\\infty$, while the confidence interval does.\n12. A researcher writes $y = \\alpha + \\beta x + \\varepsilon$ with $\\mathrm{Cov}(x, \\varepsilon) = 0$ and claims this requires $E[y\\mid x]$ to be linear in $x$. Is the claim correct?\n13. An observation has leverage $h_i = 0.4$ with $n = 50$ and $p = 2$, but a studentised residual of 0.3. Using the $2p/n$ leverage cut-off, is it a problem?"
       }
      ],
-     "words": 114,
+     "words": 119,
      "symbols": [
       "$h(x)$, $g(x)$, $E[y\\mid x]$",
       "$\\alpha$, $\\beta$",
@@ -658,7 +658,7 @@
     "id": "q12",
     "number": "12",
     "group": "B. Short conceptual",
-    "prompt": "A researcher writes $y = \\alpha + \\beta x + \\varepsilon$ and claims this requires $E[y\\mid x]$ to be linear in $x$. Is the claim correct?",
+    "prompt": "A researcher writes $y = \\alpha + \\beta x + \\varepsilon$ with $\\mathrm{Cov}(x, \\varepsilon) = 0$ and claims this requires $E[y\\mid x]$ to be linear in $x$. Is the claim correct?",
     "answer": "**Incorrect.** Any bivariate distribution admits $y = \\alpha + \\beta x + \\varepsilon$ with $\\mathrm{Cov}(x,\\varepsilon) = 0$, where $\\alpha,\\beta$ are the linear projection coefficients — this holds whether or not $E[y\\mid x]$ is linear. What linearity of $E[y\\mid x]$ buys is that the projection *coincides* with the conditional mean. The stronger condition $E[\\varepsilon\\mid x] = 0$ is what the regression model assumes, and that **is** equivalent to $E[y\\mid x]$ being linear. → [Conditional Mean vs Linear Projection](note:conditional-mean-vs-linear-projection)",
     "rubric": [
      "State that the claim is **incorrect**",
@@ -674,7 +674,7 @@
     "id": "q13",
     "number": "13",
     "group": "B. Short conceptual",
-    "prompt": "An observation has leverage $h_i = 0.4$ with $n = 50$ and $p = 2$, but a studentised residual of 0.3. Is it a problem?",
+    "prompt": "An observation has leverage $h_i = 0.4$ with $n = 50$ and $p = 2$, but a studentised residual of 0.3. Using the $2p/n$ leverage cut-off, is it a problem?",
     "answer": "The cut-off is $2p/n = 4/50 = 0.08$, so $h_i = 0.4$ is **very** high leverage. But $|t_i| = 0.3$ is well inside 2, so the point is fitted well. It is **not influential**: far from $\\bar{x}$ but on the line. Worth reporting — it has the power to become influential — but it is not distorting the current estimates. → [Regression Diagnostics](note:regression-diagnostics)",
     "rubric": [
      "Cut-off $2p/n = 4/50 = 0.08$, so $h_i = 0.4$ is **very** high leverage",

@@ -149,7 +149,7 @@
       {
        "t": "check",
        "kind": "mcq",
-       "prompt": "A classmate differentiates $\\mathbf{e}'\\mathbf{e}$ with respect to $\\mathbf{b}$ and writes $-2\\mathbf{y}'\\mathbf{X} + 2\\mathbf{b}'\\mathbf{X}'\\mathbf{X}$. What does the dimension check say?",
+       "prompt": "With $\\mathbf{e} = \\mathbf{y} - \\mathbf{X}\\mathbf{b}$ ($\\mathbf{X}$ is $n\\times K$, $\\mathbf{b}$ is $K\\times1$), a classmate differentiates $\\mathbf{e}'\\mathbf{e}$ with respect to $\\mathbf{b}$ and writes $-2\\mathbf{y}'\\mathbf{X} + 2\\mathbf{b}'\\mathbf{X}'\\mathbf{X}$. Taking the gradient to be a $K\times1$ column, as this course does, what does the dimension check say?",
        "options": [
         {
          "md": "Each term is $1\\times K$, a row, so this is the transpose of the gradient",
@@ -177,7 +177,7 @@
        ]
       }
      ],
-     "words": 53,
+     "words": 67,
      "symbols": [
       "$K$",
       "$\\mathbf{b}$, $\\mathbf{e}$",
@@ -197,7 +197,7 @@
       {
        "t": "check",
        "kind": "mcq",
-       "prompt": "1. $\\partial(\\mathbf{a}'\\mathbf{x})/\\partial\\mathbf{x}$?",
+       "prompt": "1. For $K\\times1$ vectors $\\mathbf{a}$ and $\\mathbf{x}$, what is $\\partial(\\mathbf{a}'\\mathbf{x})/\\partial\\mathbf{x}$, writing the derivative of a scalar by a $K\\times1$ vector as a $K\\times1$ column?",
        "options": [
         {
          "md": "$\\mathbf{a}'$",
@@ -225,7 +225,7 @@
        ]
       }
      ],
-     "words": 1,
+     "words": 18,
      "symbols": [
       "$\\mathbf{x}$, $\\mathbf{a}$",
       "$K$"
@@ -275,7 +275,7 @@
       {
        "t": "check",
        "kind": "mcq",
-       "prompt": "3. Derive the normal equations from $\\mathbf{e}'\\mathbf{e}$. Which equation do you reach?",
+       "prompt": "3. Derive the normal equations from $\\mathbf{e}'\\mathbf{e}$, where $\\mathbf{e} = \\mathbf{y} - \\mathbf{X}\\mathbf{b}$. Which equation do you reach?",
        "options": [
         {
          "md": "$\\mathbf{X}'\\mathbf{X}\\mathbf{b} = 2\\mathbf{X}'\\mathbf{y}$",
@@ -303,7 +303,7 @@
        ]
       }
      ],
-     "words": 11,
+     "words": 12,
      "symbols": [
       "$K$",
       "$\\mathbf{b}$, $\\mathbf{e}$",

@@ -975,7 +975,7 @@
       {
        "t": "check",
        "kind": "numeric",
-       "prompt": "With $A = 0.5$, $\\alpha = 0.5$, $y = 1$, $w = 0.964$, $\\kappa = 0.5$ and $\\lambda = 0.03$, what tightness does the vacancy supply curve give? Give two decimals.",
+       "prompt": "Free entry of vacancies sets the posting cost equal to a vacancy's expected value, $\\kappa = A\\theta^{-\\alpha}(y - w)/\\lambda$ (the vacancy supply curve). With $A = 0.5$, $\\alpha = 0.5$, $y = 1$, $w = 0.964$, $\\kappa = 0.5$ and $\\lambda = 0.03$, what tightness $\\theta$ does it give? Give two decimals.",
        "answer": 1.44,
        "tol": 0.01,
        "wrong": [
@@ -1001,7 +1001,7 @@
        ]
       }
      ],
-     "words": 13,
+     "words": 28,
      "symbols": [
       "$\\theta$",
       "$w$",
@@ -1179,7 +1179,7 @@
       {
        "t": "check",
        "kind": "numeric",
-       "prompt": "With $\\beta = 0.6$, $y = 1$, $\\theta = 0.2$, $\\kappa = 0.5$ and $b = 0.4$, what wage does the WS curve give? Give two decimals.",
+       "prompt": "In wage bargaining the worker gets a share $\\beta$ of the match surplus $S = y - b - \\frac{\\beta}{1-\\beta}\\theta\\kappa$ and the firm keeps $y - w = (1-\\beta)S$ (the wage-setting curve, WS). With $\\beta = 0.6$, $y = 1$, $\\theta = 0.2$, $\\kappa = 0.5$ and $b = 0.4$, what wage does WS give? Give two decimals.",
        "answer": 0.82,
        "tol": 0.005,
        "wrong": [
@@ -1205,14 +1205,15 @@
        ]
       }
      ],
-     "words": 12,
+     "words": 30,
      "symbols": [
       "$\\theta$",
       "$w$",
       "$y$",
       "$\\kappa$",
       "$\\beta$",
-      "$b$"
+      "$b$",
+      "$S$, $S_W$, $S_F$"
      ]
     }
    ]
@@ -1526,6 +1527,8 @@
        "prompt": "Raise output per job: VS and WS both shift right",
        "predict": {
         "hide": [
+         "vs_curve",
+         "ws_curve",
          "eq",
          "eq_u",
          "th_line",
@@ -1533,7 +1536,7 @@
          "w_out",
          "u_out"
         ],
-        "ask": "Output per filled job rises from $y = 1$ to $1.1$, and VS and WS both shift right. From the diagram alone, before any numbers, what can you say?",
+        "ask": "Output per filled job rises from $y = 1$ to $1.1$, so VS and WS both shift right. Knowing only the directions of the two shifts, not their sizes, what can you say in general?",
         "options": [
          "The wage rises; tightness could go either way, depending on which curve shifts more",
          "The wage and tightness both rise",
@@ -1543,7 +1546,7 @@
         "why": "Both curves move right, so the crossing is at a higher wage; whether it is higher or lower depends on which curve moves more. With these numbers VS moves more: $\\theta$ rises from 1.076 to 1.265, $w$ from 0.969 to 1.066, and $\\bar{u}$ falls from 5.47% to 5.06%.",
         "feedback": [
          null,
-         "That is what these numbers give, but the diagram alone cannot tell: WS shifting right on its own lowers $\\theta$, while VS shifting right raises it.",
+         "That is what these numbers give, but the directions alone cannot tell: WS shifting right on its own lowers $\\theta$, while VS shifting right raises it.",
          "Both shifts move the curves toward higher wages: at any $\\theta$, firms can now pay more and still cover the vacancy cost, and bargaining sets a higher wage. The crossing has to be at a higher $w$."
         ]
        },
@@ -1593,7 +1596,7 @@
       {
        "t": "check",
        "kind": "mcq",
-       "prompt": "The cost of posting a vacancy $\\kappa$ rises. VS shifts left and WS shifts right. Which outcome is certain from the diagram alone?",
+       "prompt": "In the search-and-matching diagram with tightness $\\theta$ on the vertical axis and the wage $w$ across, vacancy supply (VS) slopes down and wage setting (WS) slopes up. The cost of posting a vacancy $\\kappa$ rises: VS shifts left and WS shifts right. Which outcome is certain from the diagram alone?",
        "options": [
         {
          "md": "Tightness falls; the wage could go either way",
@@ -1621,7 +1624,7 @@
        ]
       }
      ],
-     "words": 54,
+     "words": 79,
      "symbols": [
       "$\\bar{u}$",
       "$\\theta$",
@@ -1637,7 +1640,7 @@
       {
        "t": "check",
        "kind": "mcq",
-       "prompt": "Matching efficiency $A$ rises. Using the notes' table, what happens to unemployment?",
+       "prompt": "In the search-and-matching model, matching efficiency $A$ in $H = AU^{\\alpha}V^{1-\\alpha}$ rises. What happens to steady-state unemployment?",
        "options": [
         {
          "md": "It falls: VS shifts right, raising $\\theta$, and the Beveridge curve shifts left, lowering $\\bar{u}$ at every $\\theta$",
@@ -1665,13 +1668,15 @@
        ]
       }
      ],
-     "words": 51,
+     "words": 53,
      "symbols": [
       "$\\bar{u}$",
       "$\\theta$",
       "$f$, $q$",
       "$A$",
-      "$\\alpha$"
+      "$\\alpha$",
+      "$U$, $V$",
+      "$H$"
      ]
     }
    ]

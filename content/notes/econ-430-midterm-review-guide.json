@@ -725,10 +725,11 @@
         "lam": 1
        },
        "show": [
-        "curve"
+        "curve",
+        "T_now"
        ],
        "highlight": "cutoff",
-       "prompt": "Find the largest power on the slider that the 5% likelihood-ratio test does not reject",
+       "prompt": "Find the largest power on the slider that the 5% likelihood-ratio test does not reject ($T < 3.84$)",
        "goal": {
         "when": "abs(lam - 0.15) < 0.001",
         "success": "At $\\lambda = 0.15$ the point is still above the cut-off ($T = 2.25 < 3.84$); at $\\lambda = 0.20$ it has dropped below ($T = 4.93$). So the 95% interval's upper end lies between them, at 0.182: this interval and the 5% LR test always agree. A printed interval that disagrees with the test, as in Mock 5, was built another way.",
@@ -779,7 +780,7 @@
       {
        "t": "check",
        "kind": "mcq",
-       "prompt": "Box-Cox output for a dependent variable: $\\widehat{\\lambda} = 0.62$, 95% interval $[0.41, 0.83]$; LR tests give $p = 0.26$ for $\\lambda = 0.5$, $p = 0.0004$ for $\\lambda = 1$ and $p < 0.0001$ for $\\lambda = 0$. Which transformation should be applied?",
+       "prompt": "Box-Cox output for a dependent variable: $\\widehat{\\lambda} = 0.62$, 95% interval $[0.41, 0.83]$; LR tests give $p = 0.26$ for $\\lambda = 0.5$, $p = 0.0004$ for $\\lambda = 1$ and $p < 0.0001$ for $\\lambda = 0$. Following the usual rule of picking a rounded, natural power (a multiple of 0.5) that the data do not reject, which transformation should be applied?",
        "options": [
         {
          "md": "None: 0.62 is closer to 1 than to 0",
@@ -804,7 +805,7 @@
        "why": "Of the rounded powers, only 0.5 is inside $[0.41, 0.83]$ and not rejected ($p = 0.26$); 1 and 0 are both rejected."
       }
      ],
-     "words": 58,
+     "words": 79,
      "symbols": []
     }
    ]

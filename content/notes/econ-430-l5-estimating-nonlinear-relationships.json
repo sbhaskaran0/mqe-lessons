@@ -84,6 +84,17 @@
    "from": "box-cox-and-power-transformations"
   },
   {
+   "tex": "$\\lambda_0$, $\\hat{\\lambda}$",
+   "meaning": "Maximum-likelihood value and a candidate rounded value",
+   "kind": "Estimates",
+   "typical": "e.g. 0.0013 vs 0",
+   "keys": [
+    "lambda",
+    "hat(lambda)"
+   ],
+   "from": "box-cox-and-power-transformations"
+  },
+  {
    "tex": "$L_0$, $\\hat{L}$",
    "meaning": "Log-likelihoods at those values",
    "kind": "Statistics",
@@ -308,7 +319,7 @@
       {
        "t": "check",
        "kind": "numeric",
-       "prompt": "The estimated food-expenditure line has slope $b_2 = 10.21$, with income in \\$100 a week and food expenditure in \\$ a week. Mean income is 19.60 and mean food expenditure 283.57. What is the elasticity of food expenditure with respect to income at the means?",
+       "prompt": "The estimated food-expenditure line has slope $b_2 = 10.21$, with income in \\$100 a week and food expenditure in \\$ a week. Mean income is 19.60 and mean food expenditure 283.57. What is the elasticity of food expenditure with respect to income at the means? Give two decimal places.",
        "answer": 0.71,
        "tol": 0.01,
        "wrong": [
@@ -339,7 +350,7 @@
        ]
       }
      ],
-     "words": 43,
+     "words": 47,
      "symbols": [
       "$Y$, $X$, $p$, $q$, $a$, $b$",
       "$\\bar{y}$"
@@ -516,7 +527,7 @@
       {
        "t": "check",
        "kind": "numeric",
-       "prompt": "Estimated: $\\ln(\\text{wage}) = 1.62 + 0.094\\,\\text{educ}$. By exactly what percentage does the predicted wage rise with one more year of education?",
+       "prompt": "Estimated: $\\ln(\\text{wage}) = 1.62 + 0.094\\,\\text{educ}$. By exactly what percentage does the predicted wage rise with one more year of education? Give two decimal places.",
        "answer": 9.86,
        "tol": 0.01,
        "wrong": [
@@ -542,7 +553,7 @@
        ]
       }
      ],
-     "words": 16,
+     "words": 20,
      "symbols": [
       "$e$"
      ]
@@ -553,7 +564,7 @@
       {
        "t": "check",
        "kind": "numeric",
-       "prompt": "Estimated: $\\ln(\\text{price}) = 4.17 + 0.84\\ln(\\text{sqft})$. If square footage rises 10%, by exactly what percentage does the predicted price rise?",
+       "prompt": "Estimated: $\\ln(\\text{price}) = 4.17 + 0.84\\ln(\\text{sqft})$. If square footage rises 10%, by exactly what percentage does the predicted price rise? Give two decimal places.",
        "answer": 8.34,
        "tol": 0.01,
        "wrong": [
@@ -584,7 +595,7 @@
        ]
       }
      ],
-     "words": 15,
+     "words": 19,
      "symbols": []
     },
     {
@@ -593,7 +604,7 @@
       {
        "t": "check",
        "kind": "numeric",
-       "prompt": "The lecture's log-log food model is $\\widehat{\\ln(FOOD)} = 3.964 + 0.5559\\ln(INCOME)$, with food spending in dollars a week and income in hundreds of dollars a week. Mean food spending is 283.57 and mean income 19.60. Evaluate the slope $d\\,FOOD/d\\,INCOME$ at the means.",
+       "prompt": "The lecture's log-log food model is $\\widehat{\\ln(FOOD)} = 3.964 + 0.5559\\ln(INCOME)$, with food spending in dollars a week and income in hundreds of dollars a week. Mean food spending is 283.57 and mean income 19.60. Evaluate the slope $d\\,FOOD/d\\,INCOME$ at the sample means of both variables. Give two decimal places.",
        "answer": 8.04,
        "tol": 0.01,
        "wrong": [
@@ -619,7 +630,7 @@
        ]
       }
      ],
-     "words": 38,
+     "words": 46,
      "symbols": [
       "$y$, $x$",
       "$Y$, $X$, $p$, $q$, $a$, $b$",
@@ -685,7 +696,7 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "The Box-Cox family $x^{(\\lambda)} = (x^\\lambda - 1)/\\lambda$, with $\\ln x$ at $\\lambda = 0$, runs along a ladder of powers. The lecture standardizes GDP per capita after each rung: $\\lambda = 1$ and $0.5$ leave a long upper tail, $-0.5$ and $-1$ create a long lower one, and $\\lambda = 0$ is the most symmetric. The power is estimated by maximum likelihood and then rounded to a natural value, which a likelihood-ratio test checks: $T = 2(L_0 - \\hat{L})$ against a $\\chi^2_1$."
+       "md": "The Box-Cox family $x^{(\\lambda)} = (x^\\lambda - 1)/\\lambda$, with $\\ln x$ at $\\lambda = 0$, runs along a ladder of powers. The lecture standardizes GDP per capita after each rung: $\\lambda = 1$ and $0.5$ leave a long upper tail, $-0.5$ and $-1$ create a long lower one, and $\\lambda = 0$ is the most symmetric. The power is estimated by maximum likelihood and then rounded to a natural value, which a likelihood-ratio test checks: $T = 2(L_0 - \\hat{L})$ against a $\\chi^2_1$. The powers the test does not reject, those with $T < 3.84$, form a 95% region around the estimate."
       },
       {
        "t": "interactive",
@@ -708,17 +719,17 @@
         "hide": [
          "curve"
         ],
-        "ask": "Infant mortality is right-skewed and starts here untransformed ($\\lambda = 1$). Is $\\lambda = 0.5$, the square root, inside the 95% region, one the likelihood-ratio test does not reject?",
+        "ask": "Infant mortality is right-skewed and starts here untransformed ($\\lambda = 1$). With 207 countries, its maximum-likelihood power is $\\hat\\lambda = 0.05$ with a standard error of about 0.07. Is $\\lambda = 0.5$, the square root, inside the 95% region, one the likelihood-ratio test does not reject?",
         "options": [
          "Yes: the square root already halves the skewness",
          "Only just: it sits right at the edge of the region",
          "No: it is well outside the region"
         ],
         "answer": 2,
-        "why": "The profile log-likelihood peaks at $L = -608.32$ near $\\lambda = 0.047$ and the 95% region is everything above $-610.24$ (1.92 below the peak, half the 5% critical value 3.84). At $\\lambda = 0.5$, $L = -629.30$, so $T = 41.96 \\gg 3.84$ and the power is rejected.",
+        "why": "The profile log-likelihood peaks at $L = -608.32$ near $\\lambda = 0.047$ and the 95% region is everything above $-610.24$ (1.92 below the peak, half the 5% critical value 3.84). At $\\lambda = 0.5$, $L = -629.30$, so $T = 41.96 \\gg 3.84$ and the power is rejected. The standard error gives the same verdict: 0.5 is about 6.4 standard errors from $\\hat\\lambda$, and $6.4^2 \\approx 41$ is close to $T$.",
         "feedback": [
          "It does halve the skewness, from 1.29 to 0.65, but the test compares log-likelihoods: at $\\lambda = 0.5$, $L = -629.30$, which is 19.06 below the cut-off of $-610.24$.",
-         "It is nowhere near the edge. $T = 2(-608.32 + 629.30) = 41.96$ against the 5% critical value 3.84, so the curve is more than 19 log-likelihood units under the line.",
+         "It is nowhere near the edge: 0.5 is $(0.5 - 0.05)/0.07 \\approx 6.4$ standard errors from the estimate, and the region reaches only about 2. $T = 2(-608.32 + 629.30) = 41.96$ against the 5% critical value 3.84, so the curve is more than 19 log-likelihood units under the line.",
          null
         ]
        },
@@ -727,11 +738,12 @@
        ]
       }
      ],
-     "words": 75,
+     "words": 91,
      "symbols": [
       "$y$, $x$",
       "$\\lambda$",
       "$T_{BC}(x,\\lambda)$",
+      "$\\lambda_0$, $\\hat{\\lambda}$",
       "$L_0$, $\\hat{L}$",
       "$\\chi^2_1$"
      ]
@@ -940,7 +952,7 @@
       {
        "t": "check",
        "kind": "numeric",
-       "prompt": "The spread-level plot of interlocks + 1 by nation has a fitted slope of 0.847. What power transformation does it suggest? Give three decimal places.",
+       "prompt": "Tukey's spread-level plot regresses the log of each group's hinge spread on the log of its median. For interlocks + 1 by nation the fitted slope is 0.847. What power transformation does it suggest? Give three decimal places.",
        "answer": 0.153,
        "tol": 0.002,
        "wrong": [
@@ -966,7 +978,7 @@
        ]
       }
      ],
-     "words": 25,
+     "words": 38,
      "symbols": []
     }
    ]
@@ -1003,7 +1015,7 @@
       {
        "t": "check",
        "kind": "mcq",
-       "prompt": "A scatter rises slowly at first and then more and more steeply (convex and increasing), like the lecture's generated data. Which transformation of $x$ alone does the bulging rule suggest?",
+       "prompt": "A scatter rises slowly at first and then more and more steeply (convex and increasing). Which transformation of $x$ alone does the bulging rule suggest?",
        "options": [
         {
          "md": "$x^2$: move $x$ up the ladder, in the direction of the bulge",
@@ -1026,7 +1038,7 @@
        ]
       }
      ],
-     "words": 43,
+     "words": 38,
      "symbols": [
       "$y$, $x$",
       "$Y$, $X$, $p$, $q$, $a$, $b$"
@@ -1062,7 +1074,7 @@
       {
        "t": "check",
        "kind": "mcq",
-       "prompt": "In the table above, which comparison of $R^2$ values is valid?",
+       "prompt": "Food and wage regressions were fitted in several functional forms. Which comparison of their $R^2$ values is valid?",
        "options": [
         {
          "md": "Food log-log (0.445) against food linear (0.385): the log-log model fits better",
@@ -1090,7 +1102,7 @@
        ]
       }
      ],
-     "words": 74,
+     "words": 81,
      "symbols": [
       "$y$, $x$",
       "$T_{BC}(x,\\lambda)$",

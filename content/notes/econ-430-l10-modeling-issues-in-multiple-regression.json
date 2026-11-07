@@ -1153,7 +1153,7 @@
       {
        "t": "check",
        "kind": "mcq",
-       "prompt": "Read the plot above. Its horizontal axis is the subset size, the number of predictors in each model. Which model does Mallows' $C_p$ prefer?",
+       "prompt": "An exhaustive search over the 31 subsets of five family-income candidates gives Mallows' $C_p$ of 21.87 for $WE$ alone, 8.47 for $HE$, $WE$, 2.32 for $HE$, $WE$, $KL6$, about 4.2 for that model plus $XTRA\\_X5$ or $XTRA\\_X6$, and 6.00 for all five. Here $p$ = predictors + 1. Which model does $C_p$ prefer?",
        "options": [
         {
          "md": "$WE$ alone: the smallest model, with a single predictor",
@@ -1166,7 +1166,7 @@
          "feedback": "The full model sits at 6 with $p = 5 + 1 = 6$, but that holds by construction, since $\\widehat{\\sigma}^2$ comes from the full model. Smaller models beat it."
         },
         {
-         "md": "$HE$, $WE$, $KL6$: the lowest point on the plot, about 2.3, below its $p = 3 + 1 = 4$",
+         "md": "$HE$, $WE$, $KL6$: the lowest $C_p$, 2.32, below its $p = 3 + 1 = 4$",
          "correct": true
         },
         {
@@ -1181,13 +1181,16 @@
        ]
       }
      ],
-     "words": 60,
+     "words": 77,
      "symbols": [
       "$K$",
+      "$T(x, \\lambda)$",
+      "$R_k^2$",
       "$\\widehat{\\sigma}^2$",
       "$GVIF$, $p$",
       "$\\ln L$",
-      "$C_p$"
+      "$C_p$",
+      "$Y$, $X$, $p$, $q$, $a$, $b$"
      ]
     },
     {
@@ -1257,7 +1260,7 @@
       {
        "t": "check",
        "kind": "mcq",
-       "prompt": "From the Cp table, which **two-predictor** family-income model is best, and is it the best model overall?",
+       "prompt": "Mallows' $C_p$ for some family-income models ($p$ = predictors + 1): $HE$, $WE$ 8.47; $WE$, $KL6$ 16.50; $HE$, $WE$, $KL6$ 2.32; all five candidates 6.00. Which of the two **two-predictor** models listed is better, and is it the best model overall?",
        "options": [
         {
          "md": "$WE$, $KL6$: it includes the significant child variable",
@@ -1285,7 +1288,7 @@
        ]
       }
      ],
-     "words": 58,
+     "words": 75,
      "symbols": [
       "$K$",
       "$\\widehat{\\sigma}^2$",

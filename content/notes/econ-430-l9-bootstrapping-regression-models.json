@@ -166,7 +166,7 @@
       {
        "t": "check",
        "kind": "mcq",
-       "prompt": "In the bootstrap table, $T_1$'s 1,000 estimates have mean 5.494 and 95% percentile interval [4.12, 6.80]. What do they say about type-1 transactions?",
+       "prompt": "For 261 bank branches, $TIME = \\beta_1 + \\beta_2 T_1 + \\beta_3 T_2 + e$ models total transaction time (minutes) by the numbers of type-1 and type-2 transactions. A pairs bootstrap gives 1,000 estimates of $\\beta_2$ with mean 5.494 and 95% percentile interval [4.12, 6.80]. What do they say about type-1 transactions?",
        "options": [
         {
          "md": "Each extra type-1 transaction adds about 5.5 minutes to a branch's total time, holding type-2 transactions fixed, and the effect is clearly positive: the interval excludes 0",
@@ -194,9 +194,10 @@
        ]
       }
      ],
-     "words": 97,
+     "words": 114,
      "symbols": [
-      "$\\beta_2$, $\\beta_3$"
+      "$\\beta_2$, $\\beta_3$",
+      "$e_i$"
      ]
     },
     {
@@ -205,7 +206,7 @@
       {
        "t": "check",
        "kind": "numeric",
-       "prompt": "From the bootstrap table, $T_1$'s estimates have mean 5.494 and standard deviation 0.688. Using the normal approximation, what is the upper limit of a 95% interval for $\\beta_2$? Give two decimals.",
+       "prompt": "The 1,000 bootstrap estimates of $\\beta_2$, the coefficient on $T_1$, have mean 5.494 and standard deviation 0.688. Using the normal approximation centred on the bootstrap mean (mean $\\pm\\ 1.96 \\times$ bootstrap standard error), what is the upper limit of a 95% interval for $\\beta_2$? Give two decimals.",
        "answer": 6.84,
        "tol": 0.01,
        "wrong": [
@@ -231,7 +232,7 @@
        ]
       }
      ],
-     "words": 32,
+     "words": 44,
      "symbols": [
       "$\\beta_2$, $\\beta_3$"
      ]

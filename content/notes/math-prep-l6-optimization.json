@@ -341,7 +341,7 @@
       {
        "t": "check",
        "kind": "numeric",
-       "prompt": "2. Maximize $\\ln x + \\ln y$ subject to $2x + 5y = 100$. Give $\\lambda$.",
+       "prompt": "2. Maximize $\\ln x + \\ln y$ subject to $2x + 5y = 100$, with Lagrangian $\\mathcal{L} = \\ln x + \\ln y + \\lambda(100 - 2x - 5y)$. Give $\\lambda$.",
        "answer": 0.02,
        "tol": 0.001,
        "wrong": [
@@ -367,7 +367,7 @@
        ]
       }
      ],
-     "words": 5,
+     "words": 7,
      "symbols": [
       "$x$, $y$",
       "$\\lambda$",

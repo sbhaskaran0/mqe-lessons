@@ -175,11 +175,11 @@
         "p_second"
        ],
        "highlight": "first_line",
-       "prompt": "Move $x$ away from 0 and watch the Taylor approximations of $\\ln(1+x)$ drift, then find a rise $x > 0$ at which the line $x$ and $\\ln(1+x)$ differ by about 0.005",
+       "prompt": "Move $x$ away from 0 and watch the Taylor approximations of $\\ln(1+x)$ drift. Then, since no readout shows the gap, use the second-order term to set a rise $x > 0$ at which $x - \\ln(1+x)$ is about 0.005 (between 0.0045 and 0.0055)",
        "goal": {
         "when": "g > 0 and err1 > 0.0045 and err1 < 0.0055",
         "success": "The first-order error $x - \\ln(1+x)$ is about half a percentage point: at $x = 0.1$ it is $0.1 - 0.0953 = 0.0047$, close to $x^2/2 = 0.005$. At $x = 0.5$ it is 0.0945, twenty times larger.",
-        "hint": "The second-order term says the gap is about $x^2/2$. Which $x$ makes that 0.005? Set it, since no readout will show the gap."
+        "hint": "The second-order term says the gap is about $x^2/2$. Which $x$ makes that 0.005?"
        },
        "predict": {
         "hide": [
@@ -207,7 +207,7 @@
        ]
       }
      ],
-     "words": 85,
+     "words": 98,
      "symbols": [
       "$f$",
       "$a$, $\\mathbf{x}$",
@@ -322,7 +322,7 @@
       {
        "t": "check",
        "kind": "numeric",
-       "prompt": "An AR(1) process has persistence $\\rho = 0.9$ and shock variance $\\sigma^2 = 1$. What is the variance of $y_t$?",
+       "prompt": "A stationary AR(1) process has persistence $\\rho = 0.9$ and shock variance $\\sigma^2 = 1$. What is the variance of $y_t$?",
        "answer": 5.263,
        "tol": 0.052629999999999996,
        "vary": [
@@ -362,7 +362,7 @@
        ]
       }
      ],
-     "words": 14,
+     "words": 15,
      "symbols": [
       "$\\sigma$, $\\beta$",
       "$y$, $X$, $Y$",
@@ -414,7 +414,7 @@
       {
        "t": "check",
        "kind": "numeric",
-       "prompt": "2. A log wage gap is 0.40. How much more does the higher-paid group earn, in percent?",
+       "prompt": "2. A log wage gap is 0.40. Exactly how much more does the higher-paid group earn, in percent (not the log approximation)?",
        "answer": 49.2,
        "tol": 0.5,
        "wrong": [
@@ -440,7 +440,7 @@
        ]
       }
      ],
-     "words": 18,
+     "words": 23,
      "symbols": []
     },
     {

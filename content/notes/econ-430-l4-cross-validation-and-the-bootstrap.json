@@ -281,18 +281,18 @@
          "cv_now",
          "train_now"
         ],
-        "ask": "The line of degree 1 has 5-fold CV RMSE 3.64 mph and in-sample RMSE 3.09 mph. Add a squared term (degree 2). What happens to the CV RMSE?",
+        "ask": "The line (degree 1) has in-sample RMSE 3.09 mph and 5-fold CV RMSE 3.64 mph. Adding a squared term (degree 2) lowers the in-sample RMSE to 2.82 mph. What does that tell you about the CV RMSE at degree 2?",
         "options": [
-         "It falls, because the curve can bend to follow the cars more closely",
-         "It rises",
-         "It stays about the same, because one extra term is a small change"
+         "It must fall too: a curve that fits the 50 cars better predicts them better",
+         "It must rise: an extra term always overfits",
+         "Nothing yet: it can rise or fall, and only the held-out error can say which"
         ],
-        "answer": 1,
-        "why": "The CV RMSE rises from 3.64 to 4.46 mph while the in-sample RMSE falls from 3.09 to 2.82. Most of the rise is fold 5, the 10 fastest cars (3.83 → 8.41): the folds are unshuffled blocks of cars sorted by speed, so the curve fitted to the other 40 has to extrapolate to them, and its bend misses. In-sample error cannot show this.",
+        "answer": 2,
+        "why": "In-sample RMSE can only fall as terms are added, so its fall says nothing about out-of-sample error. Here the CV RMSE rises, from 3.64 to 4.46 mph. Most of the rise is fold 5, the highlighted 10 fastest cars (its RMSE goes from 3.83 to 8.41): the folds are unshuffled blocks of cars sorted by speed, so the curve fitted to the other 40 has to extrapolate to them, and its bend overshoots. Step the degree up and watch the fit without the held-out fold swing at the right edge.",
         "feedback": [
-         "In-sample error does fall, from 3.09 to 2.82, but CV scores the fit on cars it was not fitted to, and there the squared term does not help.",
-         null,
-         "It moves by 0.82 mph, from 3.64 to 4.46, a large change relative to the 0.27 mph fall in in-sample RMSE."
+         "In-sample error is scored on the cars the curve was fitted to, so an extra term can only lower it: OLS could always set its coefficient to 0. CV scores each fit on 10 cars it never saw, and nothing guarantees the extra term helps there.",
+         "Not always. An extra term helps out of sample when the true relation bends and the data pin the bend down; here CV falls again from degree 2 to degree 3, from 4.46 to 4.17. Overfitting is what CV detects, not something to assume.",
+         null
         ]
        },
        "objectives": [
@@ -430,7 +430,10 @@
        "prompt": "Work out the slope's spread across samples of 40 households, then reveal it",
        "predict": {
         "hide": [
-         "b2_sd_out"
+         "b2_sd_out",
+         "se_mean_out",
+         "hc_mean_out",
+         "b2_hist"
         ],
         "ask": "Across many samples of $N = 40$ households with $\\sigma = 89.5$ and incomes uniform between 4 and 34 (so $\\mathrm{Var}(x) = 75$), the standard deviation of $b_2$ is about $\\sigma/\\sqrt{(N-1)\\mathrm{Var}(x)}$. What is it? The bootstrap standard error estimates this number from one sample.",
         "readout": "b2_sd_out",
@@ -543,7 +546,7 @@
       {
        "t": "check",
        "kind": "mcq",
-       "prompt": "How does bootstrapping a regression enhance inference compared with the usual OLS output? Tick all that apply.",
+       "prompt": "How does bootstrapping a regression by resampling whole observations (the pairs bootstrap) enhance inference compared with the usual OLS output? Tick all that apply.",
        "options": [
         {
          "md": "It gives standard errors and intervals that do not rely on normal or homoskedastic errors",
@@ -574,7 +577,7 @@
        ]
       }
      ],
-     "words": 82,
+     "words": 89,
      "symbols": [
       "$\\widehat{\\sigma}$",
       "$t_i$",

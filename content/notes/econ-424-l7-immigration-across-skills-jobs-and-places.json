@@ -570,7 +570,7 @@
       {
        "t": "check",
        "kind": "numeric",
-       "prompt": "With $\\theta = -0.637$ (one of Borjas's estimates of the share coefficient) and $m = 0.168$, what is the elasticity $\\partial \\log w/\\partial m$?",
+       "prompt": "Borjas regresses natives' log wage on the immigrant share $p = m/(1+m)$, where $m$ is immigrants per native, with coefficient $\\theta$. With $\\theta = -0.637$ (one of his estimates) and $m = 0.168$, what is the elasticity $\\partial \\log w/\\partial m$?",
        "answer": -0.467,
        "tol": 0.0046700000000000005,
        "vary": [
@@ -623,7 +623,7 @@
        ]
       }
      ],
-     "words": 14,
+     "words": 26,
      "symbols": [
       "$w_{ijt}$",
       "$m$",
@@ -761,7 +761,7 @@
       {
        "t": "check",
        "kind": "mcq",
-       "prompt": "What do Monras's one-year (1994–95) results show across states?",
+       "prompt": "Monras instruments the 1994–95 inflow of Mexicans (after the peso crisis) into US states with each state's 1980 Mexican share. His IV coefficients on the change in the Mexican share: −0.744 for low-skill native wages, insignificant for high-skill native wages, and 0.87–0.94 for the high- to low-skill wage gap. What do these one-year results show?",
        "options": [
         {
          "md": "All native wages fell, high- and low-skilled alike",
@@ -789,7 +789,7 @@
        ]
       }
      ],
-     "words": 45,
+     "words": 95,
      "symbols": []
     },
     {
@@ -973,7 +973,7 @@
       {
        "t": "check",
        "kind": "numeric",
-       "prompt": "For low-education natives, the 2SLS estimates are $\\beta_r = 0.009$ (s.e. 0.088) and $\\beta_{Nr} = -0.303$ (s.e. 0.101). What is the response of native employment to $x_{ro}$ in a non-tradable occupation?",
+       "prompt": "Burstein, Hanson, Tian and Vogel estimate $n_{ro} = \\alpha_{rg} + \\beta_r x_{ro} + \\beta_{Nr}\\,\\mathbb{I}_o(N)\\,x_{ro} + \\nu_{ro}$: $n_{ro}$ is the log change in native employment in region $r$ and occupation $o$, $x_{ro}$ the occupation's immigrant inflow exposure, and $\\mathbb{I}_o(N) = 1$ for non-tradable occupations. For low-education natives, the 2SLS estimates are $\\beta_r = 0.009$ (s.e. 0.088) and $\\beta_{Nr} = -0.303$ (s.e. 0.101). What is the response of native employment to $x_{ro}$ in a non-tradable occupation?",
        "answer": -0.294,
        "tol": 0.002,
        "wrong": [
@@ -999,10 +999,16 @@
        ]
       }
      ],
-     "words": 28,
+     "words": 54,
      "symbols": [
       "$\\beta$",
-      "$x_i$, $x_j$, $x_t$"
+      "$\\alpha$",
+      "$M_{ijt}$, $N_{ijt}$",
+      "$x_i$, $x_j$, $x_t$",
+      "$r$, $o$",
+      "$n_{ro}$",
+      "$\\mathbb{I}_o(N)$",
+      "$\\nu_{ro}$"
      ]
     },
     {
@@ -1163,7 +1169,7 @@
       {
        "t": "check",
        "kind": "mcq",
-       "prompt": "Removing braceros did not raise farm wages more in the states that had used them most. What does the paper point to as the mechanism?",
+       "prompt": "Clemens, Lewis and Postel (2018) find that excluding Mexican bracero farm workers from the US in 1962–64 did not raise farm wages more in the states that had used them most. Meanwhile California's tomato harvest mechanized as its braceros left, while Ohio, with almost none, mechanized later. What mechanism does this point to?",
        "options": [
         {
          "md": "Native workers flooded into farm work in exposed states, holding wages down",
@@ -1191,7 +1197,7 @@
        ]
       }
      ],
-     "words": 66,
+     "words": 95,
      "symbols": []
     },
     {

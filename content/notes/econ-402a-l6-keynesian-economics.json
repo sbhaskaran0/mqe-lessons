@@ -712,7 +712,7 @@
       {
        "t": "check",
        "kind": "numeric",
-       "prompt": "With $a = 100$, $b = 0.8$, $T = 100$, $I^P = 100$ and $G = 100$, what is equilibrium output $Y^*$?",
+       "prompt": "In the Keynesian cross, consumption is $C = a + b(Y - T)$ and planned expenditure is $PE = C + I^P + G$. With $a = 100$, $b = 0.8$, $T = 100$, $I^P = 100$ and $G = 100$, what is equilibrium output $Y^*$?",
        "answer": 1100.0,
        "tol": 1.0,
        "vary": [
@@ -775,8 +775,10 @@
        ]
       }
      ],
-     "words": 6,
+     "words": 16,
      "symbols": [
+      "$Y$",
+      "$PE$",
       "$C$",
       "$a$",
       "$b$",
@@ -863,10 +865,11 @@
         "pe",
         "produce",
         "spend",
-        "gap"
+        "gap",
+        "Iu_out"
        ],
        "highlight": "gap",
-       "prompt": "Drag output along the axis until planned spending equals what firms produce",
+       "prompt": "Drag output along the axis until planned spending equals what firms produce (unplanned investment $I^U = 0$)",
        "goal": {
         "when": "abs(Iu) < 1",
         "success": "At $Y = 1{,}100$ planned expenditure is $100 + 0.8(1{,}100 - 100) + 100 + 100 = 1{,}100$: firms sell exactly what they make and $I^U = 0$. That is $Y^* = 220/(1 - 0.8)$.",
@@ -877,7 +880,7 @@
        ]
       }
      ],
-     "words": 12,
+     "words": 14,
      "symbols": [
       "$Y$",
       "$PE$",
@@ -1005,7 +1008,7 @@
       {
        "t": "check",
        "kind": "numeric",
-       "prompt": "The government cuts taxes by 1,000 (one billion dollars). With a marginal propensity to consume of $b = 0.8$, by how much does equilibrium output rise?",
+       "prompt": "In the Keynesian cross (consumption $C = a + b(Y - T)$, with planned investment, government spending and the interest rate fixed), the government cuts lump-sum taxes $T$ by 1,000 (one billion dollars). With a marginal propensity to consume of $b = 0.8$, by how much does equilibrium output rise?",
        "answer": 4000.0,
        "tol": 1.0,
        "vary": [
@@ -1044,9 +1047,13 @@
        ]
       }
      ],
-     "words": 24,
+     "words": 40,
      "symbols": [
-      "$b$"
+      "$Y$",
+      "$C$",
+      "$a$",
+      "$b$",
+      "$T$"
      ]
     }
    ]
@@ -1754,7 +1761,7 @@
         ],
         "ask": "The real money supply is already 1,000: the interest rate is 0 and output 1,600. The central bank adds another 200. What happens?",
         "options": [
-         "Output rises by about 100, as when money rose from 400 to 500",
+         "Output rises: more money lowers the rate and raises investment, as in section 12",
          "Nothing: the rate stays at 0 and output at 1,600",
          "The interest rate turns negative and output rises",
          "The interest rate rises and output falls"

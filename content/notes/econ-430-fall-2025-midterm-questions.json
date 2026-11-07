@@ -601,10 +601,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "19. A researcher fits a linear regression and checks the residuals with a Q-Q plot against the normal. The points follow the 45° reference line closely in the middle, but curve upward at the right end and downward at the left end. (a) What does this pattern suggest about the distribution of the residuals? → [Q-Q Plot](note:q-q-plot)\n20. Same residual Q-Q plot: on the 45° line in the middle, curving upward at the right end and downward at the left end. (b) How might this affect the assumptions of the linear regression model? → [Error Normality and Jarque-Bera](note:error-normality-and-jarque-bera)"
+       "md": "19. A researcher fits a linear regression and checks the residuals with a Q-Q plot against the normal [sample quantiles on the vertical axis, normal quantiles on the horizontal]. The points follow the 45° reference line closely in the middle, but curve upward at the right end and downward at the left end. (a) What does this pattern suggest about the distribution of the residuals? → [Q-Q Plot](note:q-q-plot)\n20. Same residual Q-Q plot: on the 45° line in the middle, curving upward at the right end and downward at the left end. (b) How might this affect the assumptions of the linear regression model? → [Error Normality and Jarque-Bera](note:error-normality-and-jarque-bera)"
       }
      ],
-     "words": 96,
+     "words": 107,
      "symbols": []
     },
     {
@@ -1018,7 +1018,7 @@
     "id": "q19",
     "number": "19",
     "group": "Q10: reading a Q-Q plot",
-    "prompt": "A researcher fits a linear regression and checks the residuals with a Q-Q plot against the normal. The points follow the 45° reference line closely in the middle, but curve upward at the right end and downward at the left end. (a) What does this pattern suggest about the distribution of the residuals? → [Q-Q Plot](note:q-q-plot)",
+    "prompt": "A researcher fits a linear regression and checks the residuals with a Q-Q plot against the normal [sample quantiles on the vertical axis, normal quantiles on the horizontal]. The points follow the 45° reference line closely in the middle, but curve upward at the right end and downward at the left end. (a) What does this pattern suggest about the distribution of the residuals? → [Q-Q Plot](note:q-q-plot)",
     "answer": "The residuals have **heavy tails**: their distribution is roughly symmetric, but it has more extreme values in both directions than a normal (kurtosis above 3). An S-shape whose ends bend in opposite directions means heavy (or light) tails, not skew.\n\n*How to get there*\n1. Read each end against the line. Right end above it: the largest residuals are bigger than a normal predicts.\n2. Left end below it: the smallest residuals are more negative than a normal predicts.\n3. Both ends are further out than normal, in opposite directions, and the middle is on the line: symmetric heavy tails. Skew would bend *both* ends the same way.\n\n*Watch out:* calling this S-shape skew. And the reverse pattern (left end above, right end below) is *light* tails, as for a uniform.\n\n*See it:* [Econ 430 L1 Univariate Characterizations](note:econ-430-l1-univariate-characterizations#4-quantile-plots): in the Q-Q Plot Shape Explorer, pick the Student $t$ and lower its degrees of freedom. The left end drops below the line and the right end rises above it.",
     "rubric": [
      "Heavy tails (more extreme residuals than a normal)",

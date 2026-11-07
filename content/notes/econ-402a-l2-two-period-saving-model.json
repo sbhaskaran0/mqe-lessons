@@ -809,10 +809,11 @@
         "ic_end",
         "endowment",
         "optimum",
-        "mrs_out"
+        "mrs_out",
+        "s_out"
        ],
        "highlight": "optimum",
-       "prompt": "Say whether this consumer saves or borrows, then find the interest rate at which they do neither",
+       "prompt": "Say whether this consumer saves or borrows, then lower $r$ until saving $s$ is zero (within ±1)",
        "goal": {
         "when": "abs(s) < 1",
         "success": "At $r \\approx 0.04$ saving is about zero: the optimum sits on the endowment, and the indifference curve through $(y_1, y_2)$ just touches the budget line. Exactly, $1 + r = y_2/(\\beta y_1) = 180/172.8 = 25/24$, so $r = 1/24 \\approx 0.042$. For the typed-notes incomes $y_1 = 180$, $y_2 = 216$ the same condition gives $1 + r = 216/144 = 1.5$, so $r = 0.5$.",
@@ -821,7 +822,8 @@
        "predict": {
         "hide": [
          "optimum",
-         "ic_opt"
+         "ic_opt",
+         "s_out"
         ],
         "ask": "The typed-notes incomes are swapped: $y_1 = 216$, $y_2 = 180$, with $r = 0.2$ and $\\beta = 0.8$. Before the optimum is shown: does the consumer save or borrow?",
         "options": [
@@ -843,7 +845,7 @@
        ]
       }
      ],
-     "words": 43,
+     "words": 41,
      "symbols": [
       "$y_1$, $y_2$",
       "$c_1$, $c_2$",
@@ -955,7 +957,7 @@
       {
        "t": "check",
        "kind": "mcq",
-       "prompt": "Starting from an equilibrium, period-1 income falls for both consumers while everything else stays the same. What happens to the interest rate?",
+       "prompt": "Two consumers live for two periods and borrow and lend only to each other (no capital), so in equilibrium their saving sums to zero. Starting from an equilibrium, period-1 income falls for both while everything else stays the same. What happens to the interest rate?",
        "options": [
         {
          "md": "It rises: at the old $r$ consumers want to save less or borrow more, so there is excess demand for borrowing",
@@ -983,7 +985,7 @@
        ]
       }
      ],
-     "words": 75,
+     "words": 98,
      "symbols": [
       "$y_1$, $y_2$",
       "$r$",
@@ -1025,7 +1027,7 @@
       {
        "t": "check",
        "kind": "numeric",
-       "prompt": "Keep the baseline incomes, A $(200, 100)$ and B $(100, 200)$, but give both consumers $\\beta = 0.9$. What is the equilibrium interest rate, in percent?",
+       "prompt": "Two consumers with $U = \\ln c_1 + \\beta\\ln c_2$ borrow and lend only to each other at rate $r$ (no capital). Their incomes $(y_1, y_2)$ are A $(200, 100)$ and B $(100, 200)$, and both have $\\beta = 0.9$. What is the equilibrium interest rate, in percent?",
        "answer": 11.1,
        "tol": 0.1,
        "wrong": [
@@ -1051,10 +1053,12 @@
        ]
       }
      ],
-     "words": 19,
+     "words": 31,
      "symbols": [
       "$y_1$, $y_2$",
+      "$c_1$, $c_2$",
       "$r$",
+      "$U(c_1, c_2)$",
       "$\\beta$",
       "$A$"
      ]
@@ -1112,7 +1116,7 @@
       {
        "t": "check",
        "kind": "mcq",
-       "prompt": "In the capital version, investing one more unit in period 1 raises $k_2$ by one. By how much does period-2 consumption rise?",
+       "prompt": "In a two-period model with capital instead of a bond, period-1 output is consumed or invested, $f(k_1) = c_1 + k_2$, and capital fully depreciates, so $c_2 = f(k_2)$. Investing one more unit in period 1 raises $k_2$ by one. By how much does period-2 consumption rise?",
        "options": [
         {
          "md": "$f'(k_2) - 1$",
@@ -1140,7 +1144,7 @@
        ]
       }
      ],
-     "words": 21,
+     "words": 38,
      "symbols": [
       "$c_1$, $c_2$",
       "$r$",
@@ -1172,7 +1176,7 @@
       {
        "t": "check",
        "kind": "mcq",
-       "prompt": "In §11 capital fully depreciates, which is $\\delta = 1$ in L1's notation. Suppose $k_2$ sat at L1's golden-rule capital stock. What interest rate $r$ in the bond model would its marginal product correspond to?",
+       "prompt": "In a two-period model with capital instead of a bond, $f(k_1) = c_1 + k_2$ and capital fully depreciates ($\\delta = 1$), so $c_2 = f(k_2)$. Suppose $k_2$ sat at the Solow golden-rule capital stock, with no population or technology growth. What interest rate $r$ in a bond model would its marginal product correspond to?",
        "options": [
         {
          "md": "$r = 1$, that is 100%, because the golden rule sets the MPK equal to $\\delta = 1$",
@@ -1200,9 +1204,10 @@
        ]
       }
      ],
-     "words": 73,
+     "words": 85,
      "symbols": [
       "$y_1$, $y_2$",
+      "$c_1$, $c_2$",
       "$s = y_1 - c_1$",
       "$r$",
       "$\\beta$",
@@ -1220,7 +1225,7 @@
       {
        "t": "check",
        "kind": "numeric",
-       "prompt": "In §11's capital version, take log utility, $U = \\ln c_1 + \\beta\\ln c_2$, so the MRS is $c_2/(\\beta c_1)$. Suppose the optimum has $c_1 = c_2$, with $\\beta = 0.9$. What is the marginal product $f'(k_2)$?",
+       "prompt": "In a two-period model with capital instead of a bond, $f(k_1) = c_1 + k_2$ and capital fully depreciates, so $c_2 = f(k_2)$. Take log utility, $U = \\ln c_1 + \\beta\\ln c_2$, so the MRS is $c_2/(\\beta c_1)$. Suppose the optimum has $c_1 = c_2$, with $\\beta = 0.9$. What is the marginal product $f'(k_2)$?",
        "answer": 1.111,
        "tol": 0.005,
        "wrong": [
@@ -1246,7 +1251,7 @@
        ]
       }
      ],
-     "words": 21,
+     "words": 32,
      "symbols": [
       "$c_1$, $c_2$",
       "$r$",
@@ -1263,7 +1268,7 @@
       {
        "t": "check",
        "kind": "mcq",
-       "prompt": "A log-utility consumer from §7 has $y_2 = 0$ and $\\beta = 0.9$. Suppose a Solow economy from L1, with $\\alpha = 1/3$, $\\delta = 0.05$ and $A = 1$, saved the same fraction of its output as this consumer saves of $y_1$. Compared with the golden rule, this economy:",
+       "prompt": "A consumer with $U = \\ln c_1 + \\beta\\ln c_2$, $\\beta = 0.9$ and incomes $y_1 > 0$, $y_2 = 0$ can borrow or lend at rate $r$. Suppose a basic Solow economy (no population or technology growth), with $\\alpha = 1/3$, $\\delta = 0.05$ and $A = 1$, saved the same fraction of its output as this consumer saves of $y_1$. Compared with the golden rule, this economy:",
        "options": [
         {
          "md": "Saves too little: its saving rate is below $\\alpha$, so saving more would raise steady-state consumption",
@@ -1288,12 +1293,13 @@
        "why": "From §7 of this lecture, $y_2 = 0$ gives $c_1 = y_1/(1+\\beta)$, a saving rate of $\\beta/(1+\\beta) = 0.474$. L1's golden rule is $s = \\alpha = 1/3$. With $s = 0.474$, L1's steady state has $f'(\\bar{k}) = \\alpha\\delta/s = 0.035$, below $\\delta = 0.05$: the last unit of capital adds less output than it costs to maintain. Steady-state consumption is 1.620, against 1.721 at the golden rule. This is a thought experiment: L1 takes $s$ as given, so the consumer's 0.474 is borrowed only as a number. Neither lecture says an optimizing economy would choose it."
       }
      ],
-     "words": 93,
+     "words": 101,
      "symbols": [
       "$y_1$, $y_2$",
       "$c_1$, $c_2$",
       "$s = y_1 - c_1$",
       "$r$",
+      "$U(c_1, c_2)$",
       "$\\beta$",
       "$f(k)$, $f'(k)$",
       "$\\alpha$",

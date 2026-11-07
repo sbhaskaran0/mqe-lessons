@@ -639,7 +639,7 @@
       {
        "t": "check",
        "kind": "numeric",
-       "prompt": "With $U(c, l) = c^2 - 18(24-l)^4$ and $p = 1$, how many hours a day does a consumer work when $w = 30$?",
+       "prompt": "A consumer with $U(c, l) = c^2 - 18(24-l)^4$, where $l$ is daily leisure, has no income besides wages, so $c = \\frac{w}{p}(24 - l)$. With $p = 1$, how many hours a day does the consumer work when $w = 30$?",
        "answer": 5.0,
        "tol": 0.05,
        "vary": [
@@ -683,7 +683,7 @@
        ]
       }
      ],
-     "words": 12,
+     "words": 24,
      "symbols": [
       "$U(c, l)$",
       "$c$",
@@ -718,10 +718,11 @@
         "budget",
         "ic_probe",
         "probe",
-        "hp_out"
+        "hp_out",
+        "mrsp_out"
        ],
        "highlight": "probe",
-       "prompt": "Drag the trial point along the budget line until its indifference curve just touches the line",
+       "prompt": "Drag the trial point along the budget line until its indifference curve just touches the line: there the MRS at the trial point equals the real wage, 20",
        "goal": {
         "when": "abs(lp - lstar) < 0.06",
         "success": "The curve touches the line at $l = 20.67$: the worker works $h = 3.33$ hours and buys $c = 66.7$ goods, and the MRS there equals the real wage, 20. That is $h = w/6$ with $w = 20$.",
@@ -736,7 +737,7 @@
        "md": "The market adds up identical workers. With 600 consumers, market labor supply is $L^S = 600 \\cdot \\frac{1}{6}\\frac{w}{p} = 100\\frac{w}{p}$ hours a day."
       }
      ],
-     "words": 74,
+     "words": 86,
      "symbols": [
       "$U(c, l)$",
       "$c$",
@@ -996,7 +997,7 @@
       {
        "t": "check",
        "kind": "numeric",
-       "prompt": "Keep the firm, $F(L) = 40{,}000\\ln L$, and the utility function, but suppose there are $N = 900$ identical consumers instead of 600. What is the equilibrium real wage?",
+       "prompt": "A firm with $F(L) = 40{,}000\\ln L$ hires from identical consumers, each with $U(c, l) = c^2 - 18(24-l)^4$ and $c = \\frac{w}{p}(24 - l)$ (no other income), with $p = 1$. If there are $N = 900$ consumers, what is the equilibrium real wage?",
        "answer": 16.33,
        "tol": 0.02,
        "vary": [
@@ -1012,6 +1013,11 @@
        ],
        "compute": "\\sqrt{\\frac{240000}{N}}",
        "bindings": [
+        {
+         "sym": "p",
+         "value": 1.0,
+         "span": "$p = 1$"
+        },
         {
          "sym": "N",
          "value": 900.0,
@@ -1034,8 +1040,11 @@
        ]
       }
      ],
-     "words": 22,
+     "words": 24,
      "symbols": [
+      "$U(c, l)$",
+      "$c$",
+      "$l$",
       "$w$",
       "$p$",
       "$w/p$",

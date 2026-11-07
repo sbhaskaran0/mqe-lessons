@@ -476,20 +476,18 @@
          "ise",
          "h_now"
         ],
-        "ask": "These are the lecture's 1,000 exponential draws, whose true density is $2e^{-2x}$. The lecture's default bandwidth is $h = 0.12$. The integrated squared error (ISE) measures the gap between the estimate and the true density over the whole grid, from $-0.2$ to $3.5$. Which bandwidth gives the smallest ISE?",
+        "ask": "These are the lecture's 1,000 exponential draws; the true density $2e^{-2x}$ (shown) jumps from 0 to 2 at $x = 0$. The default bandwidth is $h = 0.12$. Compare the estimate with the true density near 0. Is the bandwidth with the smallest integrated squared error (ISE, the squared gap summed over the grid from $-0.2$ to $3.5$) below, at, or above the default?",
         "options": [
-         "About 0.12: the default is chosen to track the data well",
-         "Far below the default, near 0.02",
-         "About 0.06, half the default",
-         "Well above the default, near 0.3, because more smoothing averages out the noise"
+         "Below the default",
+         "At the default",
+         "Above the default"
         ],
-        "answer": 1,
+        "answer": 0,
         "why": "The ISE is 0.0385 at $h = 0.02$, 0.0573 at 0.06 and 0.110 at 0.12 (trapezoid on the plotted grid). The exponential jumps from 0 to 2 at $x = 0$, and a smooth kernel cannot follow the jump: it spills mass below 0, where the true density is 0, and falls short just above 0. Both errors grow with $h$: the part below 0 alone is 0.0131 at $h = 0.02$ and 0.0485 at 0.12, and even counting only $x \\ge 0$ the best $h$ is 0.04, a third of the default. With 1,000 draws a narrow kernel costs little variance, so small $h$ wins until about 0.02. At $h = 0.01$ the ISE rises again to 0.055. Now slide $h$ and watch the marker on the ISE curve.",
         "feedback": [
-         "At $h = 0.12$ the ISE is 0.110, 2.9 times the smallest value on the grid (0.0385). The default is a rule of thumb for roughly normal data, not an optimum for this density.",
          null,
-         "At $h = 0.06$ the ISE is 0.0573, still 1.5 times the minimum, and it keeps falling as $h$ shrinks to 0.02.",
-         "At $h = 0.3$ the ISE is 0.234, more than twice its value at 0.12: the estimate's peak is flattened to 0.86 against the true 2."
+         "At $h = 0.12$ the ISE is 0.110, 2.9 times the smallest value on the grid (0.0385). Look near 0: the estimate peaks at about 1.28 where the true density reaches 2, and it spills mass below 0. The default is a rule of thumb for roughly normal data, not an optimum for this density.",
+         "More smoothing flattens the peak further. At $h = 0.3$ the ISE is 0.234, more than twice its value at 0.12, and the peak is 0.86 against the true 2."
         ]
        },
        "objectives": [
@@ -634,7 +632,7 @@
       {
        "t": "check",
        "kind": "mcq",
-       "prompt": "A Q-Q plot of a variable against the normal shows the points on the line in the middle, but at both ends the points sit above the line, so the plot curves upward like a bowl. What does that say about the distribution?",
+       "prompt": "A Q-Q plot of a variable against the normal (sample quantiles on the vertical axis, normal quantiles on the horizontal) shows the points on the line in the middle, but at both ends the points sit above the line, so the plot curves upward like a bowl. What does that say about the distribution?",
        "options": [
         {
          "md": "Heavy tails on both sides: more extreme values than a normal in both directions",
@@ -662,7 +660,7 @@
        ]
       }
      ],
-     "words": 86,
+     "words": 97,
      "symbols": []
     }
    ]

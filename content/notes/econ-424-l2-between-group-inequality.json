@@ -233,7 +233,7 @@
       {
        "t": "check",
        "kind": "numeric",
-       "prompt": "Non-college workers earn 20 an hour in both years. College workers hold a BA (paid 30) or an MA (paid 60), and no wage changes. The MA share of college workers rises from 0.2 in year 1 to 0.4 in year 2. Holding the cell weights at their year-1 shares, what is the composition-adjusted college/non-college wage ratio in year 2?",
+       "prompt": "Non-college workers earn 20 an hour in both years. College workers hold a BA (paid 30) or an MA (paid 60), and no wage changes. The MA share of college workers rises from 0.2 in year 1 to 0.4 in year 2. Holding the cell weights at their year-1 shares, what is the composition-adjusted college/non-college ratio of (arithmetic) mean wages in year 2?",
        "answer": 1.8,
        "tol": 0.01,
        "wrong": [
@@ -259,7 +259,7 @@
        ]
       }
      ],
-     "words": 63,
+     "words": 66,
      "symbols": []
     }
    ]
@@ -338,9 +338,10 @@
        "prompt": "Both series on one axis, as changes since 1963 in log points (≈, read off the lecture figures).",
        "predict": {
         "hide": [
-         "premium"
+         "premium",
+         "low"
         ],
-        "ask": "Relative supply grew fast until about 1982, then at roughly half the pace. What did the premium do?",
+        "ask": "Relative supply grew fast until about 1982, then at roughly half the pace. Suppose relative demand grew at a steady pace throughout, slower than supply's early pace but faster than its later one. What did the premium do?",
         "options": [
          "Rose steadily throughout, like supply",
          "Fell through the 1970s to a low around 1980, then rose steadily",
@@ -449,7 +450,7 @@
       {
        "t": "check",
        "kind": "mcq",
-       "prompt": "Suppose $\\sigma = 0.5$. Relative technology $\\ln(A_{Ht}/A_{Lt})$ rises by 0.1 while relative supply $H_t/L_t$ stays fixed. What happens to the log premium $\\ln(w_{Ht}/w_{Lt})$?",
+       "prompt": "In the canonical model, output is CES in college and non-college labor with elasticity of substitution $\\sigma$ and factor-augmenting technology (inputs $A_{Ht}H_t$ and $A_{Lt}L_t$). Suppose $\\sigma = 0.5$. Relative technology $\\ln(A_{Ht}/A_{Lt})$ rises by 0.1 while relative supply $H_t/L_t$ stays fixed. What happens to the log premium $\\ln(w_{Ht}/w_{Lt})$?",
        "options": [
         {
          "md": "It rises by 0.1, because the technology favours college workers",
@@ -477,7 +478,7 @@
        ]
       }
      ],
-     "words": 49,
+     "words": 70,
      "symbols": [
       "$w_{ey}$",
       "$\\mu_{gy}$, $\\sigma^2_{gy}$",
@@ -651,7 +652,7 @@
       {
        "t": "check",
        "kind": "mcq",
-       "prompt": "Which identifying assumption does the canonical regression, with the linear trend included, rely on to recover $\\beta = -1/\\sigma$?",
+       "prompt": "The canonical regression is $\\ln(w_{Ht}/w_{Lt}) = \\gamma_0 + \\gamma_1 t + \\beta\\ln(H_t/L_t) + \\epsilon_{1t}$: relative technology is a linear trend plus a deviation $\\epsilon_{1t}$. Which identifying assumption does it rely on to recover $\\beta = -1/\\sigma$?",
        "options": [
         {
          "md": "Deviations of $\\ln(H_t/L_t)$ from its trend are uncorrelated with $\\epsilon_{1t}$, the deviation of relative technology from its trend",
@@ -679,8 +680,9 @@
        ]
       }
      ],
-     "words": 49,
+     "words": 55,
      "symbols": [
+      "$w_{ey}$",
       "$\\mu_{gy}$, $\\sigma^2_{gy}$",
       "$L_H$, $L_L$",
       "$L$, $H$",
@@ -851,7 +853,7 @@
       {
        "t": "check",
        "kind": "numeric",
-       "prompt": "What percentage of the 1967–2017 rise in the college wage-bill share came from the within-industry component, industries becoming more college-intensive?",
+       "prompt": "The US college wage-bill share rose from about 20% in 1967 to 54.7% in 2017. A shift-share decomposition attributes about 1.1 pp to college-intensive industries growing (between) and 33.6 pp to industries becoming more college-intensive (within). What percentage of the rise came from the within-industry component?",
        "answer": 96.8,
        "tol": 0.5,
        "wrong": [
@@ -877,7 +879,7 @@
        ]
       }
      ],
-     "words": 21,
+     "words": 49,
      "symbols": []
     },
     {

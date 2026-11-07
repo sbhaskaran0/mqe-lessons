@@ -446,7 +446,7 @@
       {
        "t": "check",
        "kind": "mcq",
-       "prompt": "The neutral real rate is 2%, inflation is 3% and the central bank's nominal rate is 4%. With no demand shock, where is output?",
+       "prompt": "The IS curve is $y_t - y^* = -\\alpha(r_t - r^*) + \\epsilon^y_t$ with $\\alpha > 0$, where $r^*$ is the neutral real rate. The neutral real rate is 2%, inflation is 3% and the central bank's nominal rate is 4%. With no demand shock, where is output?",
        "options": [
         {
          "md": "Above potential: the real rate is 1%, below neutral",
@@ -474,7 +474,7 @@
        ]
       }
      ],
-     "words": 58,
+     "words": 69,
      "symbols": [
       "$\\pi_t$",
       "$y_t$",
@@ -482,6 +482,7 @@
       "$i_t$",
       "$r^*$",
       "$\\alpha$",
+      "$\\epsilon^y_t$",
       "$y_t - y^*$",
       "$r$"
      ]
@@ -576,7 +577,7 @@
       {
        "t": "check",
        "kind": "numeric",
-       "prompt": "With $r^* = 2$, $\\pi^* = 2$ and $\\beta_\\pi = 1.5$, inflation is 3%. What nominal rate does the rule set?",
+       "prompt": "The central bank's rule is $i_t = r^* + \\pi^* + \\beta_\\pi(\\pi_t - \\pi^*)$. With $r^* = 2$, $\\pi^* = 2$ and $\\beta_\\pi = 1.5$, inflation is 3%. What nominal rate does the rule set?",
        "answer": 5.5,
        "tol": 0.01,
        "wrong": [
@@ -602,7 +603,7 @@
        ]
       }
      ],
-     "words": 12,
+     "words": 17,
      "symbols": [
       "$\\pi_t$",
       "$\\pi^*$",
@@ -687,7 +688,7 @@
       {
        "t": "check",
        "kind": "mcq",
-       "prompt": "A central bank follows the rule with $r^* = 1$, $\\pi^* = 2$ and $\\beta_\\pi = 0.5$. Inflation rises from 2% to 6%. What happens to the real interest rate?",
+       "prompt": "A central bank follows the rule $i_t = r^* + \\pi^* + \\beta_\\pi(\\pi_t - \\pi^*)$ with $r^* = 1$, $\\pi^* = 2$ and $\\beta_\\pi = 0.5$. Inflation rises from 2% to 6%. What happens to the real interest rate?",
        "options": [
         {
          "md": "It falls, from 1% to −1%, so demand and output rise",
@@ -881,7 +882,7 @@
       {
        "t": "check",
        "kind": "numeric",
-       "prompt": "In the model with $\\alpha = \\gamma = 1$ and $\\beta_\\pi = 1.5$, inflation and expected inflation are at the 2% target when a one-period supply shock of 4 hits. By how many points does expected inflation for the next period rise? Give two decimals.",
+       "prompt": "In the model $y_t - y^* = -\\alpha(\\beta_\\pi - 1)(\\pi_t - \\pi^*)$ (IS-MP) and $\\pi_t = \\pi^e_t + \\gamma(y_t - y^*) + \\epsilon^\\pi_t$ (Phillips curve), with adaptive expectations $\\pi^e_{t+1} = \\pi_t$, $\\alpha = \\gamma = 1$ and $\\beta_\\pi = 1.5$, inflation and expected inflation are at the 2% target when a one-period supply shock $\\epsilon^\\pi_t = 4$ hits. By how many points does expected inflation for the next period rise? Give two decimals.",
        "answer": 2.67,
        "tol": 0.01,
        "wrong": [
@@ -907,15 +908,19 @@
        ]
       }
      ],
-     "words": 37,
+     "words": 41,
      "symbols": [
       "$\\pi_t$",
       "$\\pi^e_t$",
+      "$\\pi^*$",
+      "$y_t$",
+      "$y^*$",
       "$i_t$",
       "$\\alpha$",
       "$\\gamma$",
       "$\\beta_\\pi$",
-      "$\\epsilon^\\pi_t$"
+      "$\\epsilon^\\pi_t$",
+      "$y_t - y^*$"
      ]
     },
     {
@@ -950,13 +955,14 @@
         "th_out"
        ],
        "highlight": "inflation",
-       "prompt": "No response: follow inflation after the shock is gone",
+       "prompt": "No real-rate response ($\\beta_\\pi = 1$): follow inflation after the shock is gone",
        "predict": {
         "hide": [
          "inflation",
          "output",
          "policy",
-         "real"
+         "real",
+         "th_out"
         ],
         "ask": "With $\\beta_\\pi = 1$ the bank raises its rate only one-for-one with inflation, so the real rate never moves. A supply shock of 4 hits in period 2 and is gone from period 3. What happens to inflation from period 3 on?",
         "options": [
@@ -990,7 +996,7 @@
        "folded": false
       }
      ],
-     "words": 84,
+     "words": 85,
      "symbols": [
       "$\\pi_t$",
       "$\\pi^e_t$",
@@ -1073,7 +1079,7 @@
       {
        "t": "check",
        "kind": "numeric",
-       "prompt": "With $\\alpha = \\gamma = 1$ and $\\beta_{\\pi} = 1.5$, what is $\\theta$? Give three decimals.",
+       "prompt": "Substituting the IS-MP curve $y_t - y^* = -\\alpha(\\beta_\\pi - 1)(\\pi_t - \\pi^*)$ into the Phillips curve $\\pi_t = \\pi^e_t + \\gamma(y_t - y^*) + \\epsilon^\\pi_t$ gives $\\pi_t = \\theta\\pi^e_t + (1-\\theta)\\pi^* + \\theta\\epsilon^\\pi_t$. With $\\alpha = \\gamma = 1$ and $\\beta_{\\pi} = 1.5$, what is $\\theta$? Give three decimals.",
        "answer": 0.667,
        "tol": 0.005,
        "vary": [
@@ -1115,12 +1121,19 @@
        ]
       }
      ],
-     "words": 7,
+     "words": 16,
      "symbols": [
+      "$\\pi_t$",
+      "$\\pi^e_t$",
+      "$\\pi^*$",
+      "$y_t$",
+      "$y^*$",
       "$\\alpha$",
       "$\\gamma$",
       "$\\beta_\\pi$",
-      "$\\theta$"
+      "$\\theta$",
+      "$\\epsilon^\\pi_t$",
+      "$y_t - y^*$"
      ]
     }
    ]
@@ -1257,6 +1270,7 @@
        "predict": {
         "hide": [
          "ismp",
+         "ismp0",
          "eq",
          "pi_out",
          "y_out",
@@ -1312,7 +1326,7 @@
       {
        "t": "check",
        "kind": "numeric",
-       "prompt": "In the typed notes' example ($\\beta_\\pi = 1.5$, $\\theta = 2/3$), the shock lasts only for period 2, when inflation reached 4. Expectations are adaptive. What is inflation in period 3? Give two decimals.",
+       "prompt": "In the IS-MP-PC model with target $\\pi^* = 2$, $\\alpha = \\gamma = 1$ and $\\beta_\\pi = 1.5$, inflation is $\\pi_t = \\theta\\pi^e_t + (1-\\theta)\\pi^* + \\theta\\epsilon^\\pi_t$ with $\\theta = 2/3$. A supply shock hits only in period 2, when inflation reaches 4. Expectations are adaptive, $\\pi^e_t = \\pi_{t-1}$. What is inflation in period 3? Give two decimals.",
        "answer": 3.33,
        "tol": 0.01,
        "wrong": [
@@ -1338,12 +1352,17 @@
        ]
       }
      ],
-     "words": 28,
+     "words": 34,
      "symbols": [
       "$\\pi_t$",
+      "$\\pi^e_t$",
+      "$\\pi^*$",
       "$i_t$",
+      "$\\alpha$",
+      "$\\gamma$",
       "$\\beta_\\pi$",
-      "$\\theta$"
+      "$\\theta$",
+      "$\\epsilon^\\pi_t$"
      ]
     }
    ]

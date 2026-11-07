@@ -206,10 +206,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "3. An IS-MP-PC model: $\\pi_t = \\pi_{t-1} + 0.5(y_t - 100)$, $y_t = 100 - 2(i_t - \\pi_t - 2)$, $i_t = 4 + 2(\\pi_t - 2)$ — the class model with $\\pi^* = 2$, $y^* = 100$, $r^* = 2$, $\\alpha = 2$, $\\gamma = 0.5$, $\\beta_\\pi = 2$ and $\\pi^e_t = \\pi_{t-1}$. Inflation in period 1 was above target, $\\pi_1 = 4$. Calculate inflation, output and the interest rate in periods 1 and 2. → [IS-MP-PC Model](note:is-mp-pc-model)\n4. Same model and numbers (inflation starts at 4 in period 1). Explain in words what happens in the economy to produce these outcomes: how the central bank responds to high inflation, and how that policy affects inflation and output in each period.\n5. Same model, but the central bank changes its rule to $i_t = 4 + 0.5(\\pi_t - 2)$. How does this change the intuition of question 4? If the bank's goal is to bring inflation back to target eventually, is this an effective change? Explain (exact numbers optional). → [Monetary Policy Rule](note:monetary-policy-rule)"
+       "md": "3. An IS-MP-PC model: $\\pi_t = \\pi_{t-1} + 0.5(y_t - 100)$, $y_t = 100 - 2(i_t - \\pi_t - 2)$, $i_t = 4 + 2(\\pi_t - 2)$ — the class model with $\\pi^* = 2$, $y^* = 100$, $r^* = 2$, $\\alpha = 2$, $\\gamma = 0.5$, $\\beta_\\pi = 2$ and $\\pi^e_t = \\pi_{t-1}$. In period 1 equilibrium inflation is above target, $\\pi_1 = 4$ (this is period 1's outcome; the expected inflation entering period 2 is $\\pi^e_2 = \\pi_1 = 4$). Calculate inflation, output and the interest rate in periods 1 and 2. → [IS-MP-PC Model](note:is-mp-pc-model)\n4. Same model and numbers (inflation starts at 4 in period 1). Explain in words what happens in the economy to produce these outcomes: how the central bank responds to high inflation, and how that policy affects inflation and output in each period."
       }
      ],
-     "words": 117,
+     "words": 86,
      "symbols": [
       "$\\pi_t$",
       "$\\pi^e_t$",
@@ -221,6 +221,20 @@
       "$\\alpha$",
       "$\\gamma$",
       "$\\beta_\\pi$"
+     ]
+    },
+    {
+     "id": "b-is-mp-pc-with-a-strong-rule-2-0-5-2-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "5. Same model, but the central bank changes its rule to $i_t = 4 + 0.5(\\pi_t - 2)$. How does this change the intuition of question 4? If the bank's goal is to bring inflation back to target eventually, is this an effective change? Explain (exact numbers optional). → [Monetary Policy Rule](note:monetary-policy-rule)"
+      }
+     ],
+     "words": 44,
+     "symbols": [
+      "$\\pi_t$",
+      "$i_t$"
      ]
     }
    ]
@@ -305,7 +319,7 @@
     "id": "q3",
     "number": "3",
     "group": "B. IS-MP-PC with a strong rule (α = 2, γ = 0.5, β_π = 2)",
-    "prompt": "An IS-MP-PC model: $\\pi_t = \\pi_{t-1} + 0.5(y_t - 100)$, $y_t = 100 - 2(i_t - \\pi_t - 2)$, $i_t = 4 + 2(\\pi_t - 2)$ — the class model with $\\pi^* = 2$, $y^* = 100$, $r^* = 2$, $\\alpha = 2$, $\\gamma = 0.5$, $\\beta_\\pi = 2$ and $\\pi^e_t = \\pi_{t-1}$. Inflation in period 1 was above target, $\\pi_1 = 4$. Calculate inflation, output and the interest rate in periods 1 and 2. → [IS-MP-PC Model](note:is-mp-pc-model)",
+    "prompt": "An IS-MP-PC model: $\\pi_t = \\pi_{t-1} + 0.5(y_t - 100)$, $y_t = 100 - 2(i_t - \\pi_t - 2)$, $i_t = 4 + 2(\\pi_t - 2)$ — the class model with $\\pi^* = 2$, $y^* = 100$, $r^* = 2$, $\\alpha = 2$, $\\gamma = 0.5$, $\\beta_\\pi = 2$ and $\\pi^e_t = \\pi_{t-1}$. In period 1 equilibrium inflation is above target, $\\pi_1 = 4$ (this is period 1's outcome; the expected inflation entering period 2 is $\\pi^e_2 = \\pi_1 = 4$). Calculate inflation, output and the interest rate in periods 1 and 2. → [IS-MP-PC Model](note:is-mp-pc-model)",
     "answer": "**Period 1** ($\\pi_1 = 4$): $i_1 = 4 + 2(4 - 2) = 8$; the real rate is $8 - 4 = 4$, two points above neutral, so $y_1 = 100 - 2(8 - 4 - 2) = 96$.\n\n**Period 2** ($\\pi^e_2 = \\pi_1 = 4$): the IS-MP curve is $y_t = 100 - 2(\\pi_t - 2)$. Into the Phillips curve: $\\pi_2 = 4 + 0.5(-2)(\\pi_2 - 2) = 6 - \\pi_2$, so **$\\pi_2 = 3$**, **$y_2 = 98$**, **$i_2 = 4 + 2(1) = 6$**. (Check with $\\theta = 1/(1 + \\alpha\\gamma(\\beta_\\pi - 1)) = 1/2$: $\\pi_2 = \\frac{1}{2}(4) + \\frac{1}{2}(2) = 3$.)\n\n| Period | $\\pi_t$ | $i_t$ | $r_t$ | $y_t$ |\n| --- | --- | --- | --- | --- |\n| 1 | 4 | 8 | 4 | 96 |\n| 2 | 3 | 6 | 3 | 98 |",
     "rubric": [
      "Period 1: rule gives $i_1 = 8$, IS gives $y_1 = 96$",

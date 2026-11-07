@@ -129,6 +129,16 @@
     "p"
    ],
    "from": "homogeneous-functions-and-eulers-theorem"
+  },
+  {
+   "tex": "$\\sigma$",
+   "meaning": "Elasticity of substitution between $L$ and $H$",
+   "kind": "Parameter > 0",
+   "typical": "≈ 1.4–2.6 for college vs non-college",
+   "keys": [
+    "sigma"
+   ],
+   "from": "ces-production-function"
   }
  ],
  "sections": [
@@ -417,7 +427,7 @@
       {
        "t": "check",
        "kind": "mcq",
-       "prompt": "5. Why does the CES skill premium not depend on the *level* of $H$ and $L$, only their ratio?",
+       "prompt": "5. Output is CES, $Y = [(A_L L)^{\\frac{\\sigma-1}{\\sigma}} + (A_H H)^{\\frac{\\sigma-1}{\\sigma}}]^{\\frac{\\sigma}{\\sigma-1}}$, and wages are marginal products. Why does the skill premium $w_H/w_L$ not depend on the *level* of $H$ and $L$, only their ratio?",
        "options": [
         {
          "md": "Because competitive wages equal marginal products",
@@ -445,11 +455,13 @@
        ]
       }
      ],
-     "words": 60,
+     "words": 67,
      "symbols": [
       "$Y$, $K$, $L$",
+      "$Y$, $A$, $K$, $L$",
       "$H(\\mathbf{x})$",
-      "$w_i$, $p$"
+      "$w_i$, $p$",
+      "$\\sigma$"
      ]
     }
    ]

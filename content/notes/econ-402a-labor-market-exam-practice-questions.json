@@ -143,10 +143,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "7. Same economy. California imposes a 20 minimum wage that applies only to fast-food firms. What does the model predict? Calculate how many workers work at each firm and what wage each pays, and compare with question 6. (Hint: start with the hours the fast-food firm wants at 20 and the hours each worker wants to work at 20.)"
+       "md": "7. Same economy. California imposes a 20 minimum wage that applies only to fast-food firms. Each worker works at one firm only. What does the model predict? Calculate how many workers work at each firm and what wage each pays, and compare with question 6. (Hint: start with the hours the fast-food firm wants at 20 and the hours each worker wants to work at 20.)"
       }
      ],
-     "words": 59,
+     "words": 66,
      "symbols": []
     }
    ]
@@ -247,7 +247,7 @@
     "id": "q7",
     "number": "7",
     "group": "B. 140 consumers and two firms",
-    "prompt": "Same economy. California imposes a 20 minimum wage that applies only to fast-food firms. What does the model predict? Calculate how many workers work at each firm and what wage each pays, and compare with question 6. (Hint: start with the hours the fast-food firm wants at 20 and the hours each worker wants to work at 20.)",
+    "prompt": "Same economy. California imposes a 20 minimum wage that applies only to fast-food firms. Each worker works at one firm only. What does the model predict? Calculate how many workers work at each firm and what wage each pays, and compare with question 6. (Hint: start with the hours the fast-food firm wants at 20 and the hours each worker wants to work at 20.)",
     "answer": "Fast food at 20: it hires $L^D = 600 - 5(20) = 500$ hours, and each worker at 20 wants $h = 10$ hours, so **50 workers** work there at **20**. The other **90 workers** go to retail, where the wage is free: supply $90 \\times \\frac{w}{2} = 45w$, demand $600 - 5w$, so $50w = 600$, **$w = 12$** and retail hours are 540 (6 per worker). Compared with question 6: fast-food workers earn more (20 vs 15) but fewer people work there (500 hours vs 525); displaced workers crowd into retail and push its wage down (12 vs 15); total hours fall slightly (1040 vs 1050). Like a union in the lecture, the floor helps the workers who keep the covered jobs at the expense of those in the uncovered sector.\n\n![Labor practice - fast-food minimum wage and the retail sector](<assets/Attachments/Labor practice - fast-food minimum wage and the retail sector.png>)",
     "rubric": [
      "Fast food at 20 hires 500 hours; workers want 10 hours each, so 50 workers",

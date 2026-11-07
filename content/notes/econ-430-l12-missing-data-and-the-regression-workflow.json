@@ -458,7 +458,7 @@
       {
        "t": "check",
        "kind": "numeric",
-       "prompt": "Using the step-4 coefficients ($1.27871$, $0.45674$, $0.00877$, $0.00646$), what is the predicted college GPA of a student with $hsGPA = 3.4$, $ACT = 24$ and 1 drink a week? Give two decimals.",
+       "prompt": "The fitted model is $\\widehat{colGPA} = 1.27871 + 0.45674\\,hsGPA + 0.00877\\,ACT + 0.00646\\,alcohol$, with $alcohol$ in drinks a week. What is the predicted college GPA of a student with $hsGPA = 3.4$, $ACT = 24$ and 1 drink a week? Give two decimals.",
        "answer": 3.05,
        "tol": 0.005,
        "wrong": [
@@ -479,11 +479,12 @@
        ]
       }
      ],
-     "words": 22,
+     "words": 27,
      "symbols": [
       "$h_i$",
       "$s_j^2$",
-      "$T_{BC}(x,\\lambda)$"
+      "$T_{BC}(x,\\lambda)$",
+      "$Y$, $X$, $p$, $q$, $a$, $b$"
      ]
     },
     {
@@ -725,7 +726,7 @@
       {
        "t": "check",
        "kind": "mcq",
-       "prompt": "In step 8, the White (HC1) standard errors are within about 8% of the usual ones for every coefficient. How does that fit with the rest of step 6?",
+       "prompt": "In the college-GPA regression, the Breusch-Pagan test gives $p = 0.77$, and the White (HC1) standard errors are within about 8% of the usual ones for every coefficient. How do the two results fit together?",
        "options": [
         {
          "md": "It agrees with the Breusch-Pagan test ($p = 0.77$): with roughly constant variance, the robust and the usual standard errors estimate the same thing",
@@ -753,7 +754,7 @@
        ]
       }
      ],
-     "words": 72,
+     "words": 75,
      "symbols": [
       "$p$, $n$"
      ]

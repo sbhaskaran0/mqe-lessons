@@ -414,7 +414,7 @@
       {
        "t": "check",
        "kind": "numeric",
-       "prompt": "1b. There is no exact fit, so take the closest one: the least-squares fit of $\\mathbf{b} = (1,2,4)'$ on the two columns of that matrix. What is its residual sum of squares?",
+       "prompt": "1b. $\\mathbf{b} = (1,2,4)'$ is not in the column space of $\\begin{pmatrix}1&0\\\\0&1\\\\1&1\\end{pmatrix}$, so take the closest fit: the least-squares fit of $\\mathbf{b}$ on its two columns. What is its residual sum of squares?",
        "answer": 0.3333333333333333,
        "tol": 0.005,
        "wrong": [
@@ -435,7 +435,7 @@
        ]
       }
      ],
-     "words": 29,
+     "words": 28,
      "symbols": [
       "$\\mathbf{b}$"
      ]

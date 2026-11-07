@@ -152,10 +152,10 @@
       },
       {
        "t": "prose",
-       "md": "The course's conventions: with $Y = AK^{\\alpha}L^{1-\\alpha}$, $\\tilde{A} = A^{1/(1-\\alpha)}$ grows at $\\tilde{\\gamma} = \\gamma/(1-\\alpha)$, $\\tilde{y} = \\tilde{k}^{\\alpha}$, and $\\tilde{k}_{t+1}(1 + \\eta + \\tilde{\\gamma}) = s\\tilde{k}_t^{\\alpha} + (1-\\delta)\\tilde{k}_t$."
+       "md": "Conventions used throughout: with $Y = AK^{\\alpha}L^{1-\\alpha}$, TFP $A$ grows at $\\gamma$ and labor at $\\eta$; effective workers are $\\tilde{A}L$ with $\\tilde{A} = A^{1/(1-\\alpha)}$, which grows at $\\tilde{\\gamma} = \\gamma/(1-\\alpha)$; $\\tilde{k} = K/(\\tilde{A}L)$ and $\\tilde{y} = \\tilde{k}^{\\alpha}$; and capital per effective worker follows the approximate law $\\tilde{k}_{t+1}(1 + \\eta + \\tilde{\\gamma}) = s\\tilde{k}_t^{\\alpha} + (1-\\delta)\\tilde{k}_t$ (the small $\\eta\\tilde{\\gamma}$ term dropped), so break-even investment is $(\\delta + \\eta + \\tilde{\\gamma})\\tilde{k}$."
       }
      ],
-     "words": 75,
+     "words": 103,
      "symbols": [
       "$Y$",
       "$K$",

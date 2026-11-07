@@ -657,6 +657,10 @@
       },
       {
        "t": "prose",
+       "md": "The true variance of $b_2$ weights each household's error variance by $(x_i - \\bar{x})^2$, as the White formula's numerator does; the usual formula $\\widehat{\\sigma}^2/\\sum(x_i - \\bar{x})^2$ replaces those variances with their plain average."
+      },
+      {
+       "t": "prose",
        "md": "Before seeing the food results, check against repeated samples what the usual standard error does when the variance grows with income."
       },
       {
@@ -713,7 +717,7 @@
        "md": "| | Intercept | Income |\n| --- | --- | --- |\n| Coefficient | 83.42 | 10.21 |\n| Usual se | 43.41 | 2.093 |\n| White (HC1) se | 27.46 | 1.809 |"
       }
      ],
-     "words": 90,
+     "words": 116,
      "symbols": [
       "$x_i$, $\\mathbf{X}$",
       "$\\sigma^2$",
@@ -1072,7 +1076,7 @@
       {
        "t": "check",
        "kind": "mcq",
-       "prompt": "The FGLS variance regression for the food data gives $\\widehat{\\gamma} = 2.33$ (se 0.54), while the WLS step assumed $\\mathrm{Var}(e_i) = \\sigma^2 x_i$. What does this say?",
+       "prompt": "For the food data, FGLS models $\\mathrm{Var}(e_i) = \\sigma^2 x_i^{\\gamma}$ and estimates $\\widehat{\\gamma} = 2.33$ (se 0.54) by regressing $\\ln\\widehat{e}_i^{\\,2}$ on $\\ln x_i$. The earlier WLS step assumed $\\mathrm{Var}(e_i) = \\sigma^2 x_i$ and gave a slope standard error of 1.39; FGLS gives 0.97. What does this say?",
        "options": [
         {
          "md": "The WLS weights were right, because $\\widehat{\\gamma}$ is positive",
@@ -1100,12 +1104,13 @@
        ]
       }
      ],
-     "words": 78,
+     "words": 93,
      "symbols": [
       "$e_i$, $\\boldsymbol{\\varepsilon}$",
       "$x_i$, $\\mathbf{X}$",
       "$\\sigma^2$",
       "$\\beta_1$, $\\beta_2$",
+      "$e_i$, $\\widehat{e}_i$",
       "$\\gamma$"
      ]
     },

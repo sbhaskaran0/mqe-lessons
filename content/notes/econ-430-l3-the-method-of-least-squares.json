@@ -500,10 +500,11 @@
         "line",
         "residuals",
         "squares",
-        "ssr"
+        "ssr",
+        "ssr_excess"
        ],
        "highlight": "squares",
-       "prompt": "Forty simulated households: weekly food expenditure $y$ in dollars against weekly income $x$ in hundreds of dollars. Drag the line, or the $b_1$ and $b_2$ sliders, until $\\text{SSR}$, the total area of the squares, is as small as you can make it.",
+       "prompt": "Forty simulated households: weekly food expenditure $y$ in dollars against weekly income $x$ in hundreds of dollars. Drag the line, or the $b_1$ and $b_2$ sliders, until $\\text{SSR}$, the total area of the squares, is within 1% of its smallest possible value.",
        "goal": {
         "when": "ssr <= 1.01*ssr_min",
         "success": "Within 1% of the minimum. The exact minimizer for this simulated sample is the OLS line, $b_1 = 82.89$ and $b_2 = 10.21$: each extra \\$100 of weekly income goes with about \\$10.21 more food spending, the same slope as the food-expenditure regression of the practice questions (the intercepts differ, since these households are simulated).",
@@ -841,7 +842,7 @@
       {
        "t": "check",
        "kind": "mcq",
-       "prompt": "Suppose all 40 households had the same income, $x_i = 20$. Then the second-order condition's determinant is $D = 4N\\sum(x_i - \\bar{x})^2 = 0$. Reading this with Math Prep L3 and L6, what happens to the minimization of SSR?",
+       "prompt": "Suppose all 40 households had the same income, $x_i = 20$. Then the second-order condition's determinant is $D = 4N\\sum(x_i - \\bar{x})^2 = 0$. What happens to the minimization of SSR?",
        "options": [
         {
          "md": "The Hessian becomes negative definite, so the first-order conditions now give a maximum",
@@ -869,7 +870,7 @@
        ]
       }
      ],
-     "words": 80,
+     "words": 72,
      "symbols": [
       "$x_i$",
       "$b_2$",
@@ -911,7 +912,7 @@
       {
        "t": "check",
        "kind": "mcq",
-       "prompt": "Which assumptions does the proof that $E[b_2 \\mid x] = \\beta_2$ use?",
+       "prompt": "The simple regression assumptions are SR1 linear model, SR2 $E[e_i \\mid x_i] = 0$, SR3 constant error variance, SR4 uncorrelated errors, SR5 $x$ varies, SR6 normal errors. Which of them does the proof that $E[b_2 \\mid x] = \\beta_2$ use?",
        "options": [
         {
          "md": "SR1 and SR2 only: linearity and $E[e_i \\mid x_i] = 0$ are all it takes",
@@ -940,7 +941,7 @@
        ]
       }
      ],
-     "words": 51,
+     "words": 73,
      "symbols": [
       "$y_i$",
       "$x_i$",
@@ -1543,7 +1544,7 @@
       {
        "t": "check",
        "kind": "numeric",
-       "prompt": "The lecture's food-expenditure regression ($N = 40$) reports $b_2 = 10.21$ with standard error 2.093, and $b_1 = 83.42$ with standard error 43.41. The 0.975 quantile of the $t$ distribution with 38 degrees of freedom is 2.024. What is the upper limit of the 95% confidence interval for $\\beta_2$?",
+       "prompt": "The lecture's food-expenditure regression ($N = 40$) reports $b_2 = 10.21$ with standard error 2.093, and $b_1 = 83.42$ with standard error 43.41. The 0.975 quantile of the $t$ distribution with 38 degrees of freedom is 2.024. What is the upper limit of the 95% confidence interval for $\\beta_2$? Give three decimals.",
        "answer": 14.446,
        "tol": 0.02,
        "wrong": [
@@ -1574,7 +1575,7 @@
        ]
       }
      ],
-     "words": 42,
+     "words": 45,
      "symbols": [
       "$\\beta_1$",
       "$e_i$",
@@ -1757,7 +1758,7 @@
       {
        "t": "check",
        "kind": "mcq",
-       "prompt": "The Gauss-Markov theorem says OLS is BLUE. Which assumptions does it need?",
+       "prompt": "The Gauss-Markov theorem says OLS is BLUE. Which assumptions does it need (SR1 linear model, SR2 $E[e_i \\mid x_i] = 0$, SR3 constant error variance, SR4 uncorrelated errors, SR5 $x$ varies, SR6 normal errors)?",
        "options": [
         {
          "md": "SR1 to SR6: the errors must also be normal",
@@ -1780,9 +1781,11 @@
        ]
       }
      ],
-     "words": 34,
+     "words": 50,
      "symbols": [
       "$y_i$",
+      "$x_i$",
+      "$e_i$",
       "$\\sigma^2$",
       "$b_2$",
       "$\\tilde{\\beta}_2 = \\sum a_iy_i$",

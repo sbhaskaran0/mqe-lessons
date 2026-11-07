@@ -335,7 +335,7 @@
       {
        "t": "check",
        "kind": "mcq",
-       "prompt": "2. Is that matrix positive definite?",
+       "prompt": "2. Is $A = \\begin{pmatrix}2&1\\\\1&2\\end{pmatrix}$ positive definite?",
        "options": [
         {
          "md": "Yes: both eigenvalues are positive",
@@ -358,7 +358,7 @@
        ]
       }
      ],
-     "words": 29,
+     "words": 27,
      "symbols": [
       "$A$",
       "$\\mathbf{x}$, $\\mathbf{v}$"

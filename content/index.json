@@ -1,6 +1,6 @@
 {
  "schema": "mqe-lessons/1",
- "generated_at": "2026-11-07T03:09:02Z",
+ "generated_at": "2026-11-07T17:09:52Z",
  "vault": {
   "notes": 302,
   "errors": 0,
@@ -5880,7 +5880,7 @@
    ],
    "checks": 13,
    "derives": 6,
-   "words": 2249,
+   "words": 2287,
    "objectives": [
     {
      "n": 1,
@@ -5933,8 +5933,8 @@
      "tested": 7
     }
    ],
-   "created": "2026-11-03T03:51:38Z",
-   "updated": "2026-11-06T19:04:25Z"
+   "created": "2026-11-07T05:38:36Z",
+   "updated": "2026-11-07T05:38:36Z"
   },
   "econ-402a-l1-solow-revision-answers": {
    "slug": "econ-402a-l1-solow-revision-answers",
@@ -5996,10 +5996,10 @@
    ],
    "interactives": [],
    "checks": 0,
-   "words": 1626,
+   "words": 1676,
    "pairedAnswers": "econ-402a-l1-solow-revision-answers",
    "created": "2026-10-13T18:33:51Z",
-   "updated": "2026-10-16T18:52:57Z"
+   "updated": "2026-11-07T05:41:48Z"
   },
   "econ-402a-l2-two-period-saving-model": {
    "slug": "econ-402a-l2-two-period-saving-model",
@@ -6107,7 +6107,7 @@
    ],
    "checks": 9,
    "derives": 2,
-   "words": 1352,
+   "words": 1433,
    "objectives": [
     {
      "n": 1,
@@ -6146,7 +6146,7 @@
     }
    ],
    "created": "2026-10-16T20:07:54Z",
-   "updated": "2026-11-06T19:04:25Z"
+   "updated": "2026-11-07T05:39:31Z"
   },
   "econ-402a-l3-the-ramsey-cass-koopmans-model": {
    "slug": "econ-402a-l3-the-ramsey-cass-koopmans-model",
@@ -6250,7 +6250,7 @@
    ],
    "checks": 11,
    "derives": 2,
-   "words": 1802,
+   "words": 1824,
    "objectives": [
     {
      "n": 1,
@@ -6289,7 +6289,7 @@
     }
    ],
    "created": "2026-10-22T01:55:48Z",
-   "updated": "2026-11-06T19:04:25Z"
+   "updated": "2026-11-07T05:39:48Z"
   },
   "econ-402a-l4-classical-labor-market": {
    "slug": "econ-402a-l4-classical-labor-market",
@@ -6395,7 +6395,7 @@
    ],
    "checks": 8,
    "derives": 1,
-   "words": 1695,
+   "words": 1721,
    "objectives": [
     {
      "n": 1,
@@ -6434,7 +6434,7 @@
     }
    ],
    "created": "2026-10-21T19:53:42Z",
-   "updated": "2026-11-06T19:04:25Z"
+   "updated": "2026-11-07T05:40:02Z"
   },
   "econ-402a-l5-a-search-and-matching-model-of-the-labor-market": {
    "slug": "econ-402a-l5-a-search-and-matching-model-of-the-labor-market",
@@ -6524,7 +6524,7 @@
    ],
    "checks": 9,
    "derives": 3,
-   "words": 2055,
+   "words": 2115,
    "objectives": [
     {
      "n": 1,
@@ -6563,7 +6563,7 @@
     }
    ],
    "created": "2026-10-22T01:57:58Z",
-   "updated": "2026-11-06T19:04:25Z"
+   "updated": "2026-11-07T05:40:24Z"
   },
   "econ-402a-l6-keynesian-economics": {
    "slug": "econ-402a-l6-keynesian-economics",
@@ -6678,7 +6678,7 @@
    ],
    "checks": 8,
    "derives": 1,
-   "words": 2203,
+   "words": 2231,
    "objectives": [
     {
      "n": 1,
@@ -6722,7 +6722,7 @@
     }
    ],
    "created": "2026-10-28T20:07:00Z",
-   "updated": "2026-11-06T19:04:25Z"
+   "updated": "2026-11-07T05:40:37Z"
   },
   "econ-402a-l7-the-is-mp-pc-model": {
    "slug": "econ-402a-l7-the-is-mp-pc-model",
@@ -6810,7 +6810,7 @@
     "inflation-shock-paths"
    ],
    "checks": 8,
-   "words": 2362,
+   "words": 2398,
    "objectives": [
     {
      "n": 1,
@@ -6854,7 +6854,7 @@
     }
    ],
    "created": "2026-11-03T03:51:38Z",
-   "updated": "2026-11-03T03:51:38Z"
+   "updated": "2026-11-07T05:41:15Z"
   },
   "econ-402a-labor-market-exam-practice-answers": {
    "slug": "econ-402a-labor-market-exam-practice-answers",
@@ -6910,10 +6910,10 @@
    "figures": [],
    "interactives": [],
    "checks": 0,
-   "words": 331,
+   "words": 338,
    "pairedAnswers": "econ-402a-labor-market-exam-practice-answers",
    "created": "2026-11-01T00:06:11Z",
-   "updated": "2026-11-01T00:06:11Z"
+   "updated": "2026-11-07T05:42:10Z"
   },
   "econ-402a-policy-exam-practice-answers": {
    "slug": "econ-402a-policy-exam-practice-answers",
@@ -6969,10 +6969,10 @@
    "figures": [],
    "interactives": [],
    "checks": 0,
-   "words": 379,
+   "words": 392,
    "pairedAnswers": "econ-402a-policy-exam-practice-answers",
    "created": "2026-11-01T00:06:11Z",
-   "updated": "2026-11-01T00:06:11Z"
+   "updated": "2026-11-07T05:42:10Z"
   },
   "econ-402a-saving-exam-practice-answers": {
    "slug": "econ-402a-saving-exam-practice-answers",
@@ -7024,10 +7024,10 @@
    "figures": [],
    "interactives": [],
    "checks": 0,
-   "words": 501,
+   "words": 515,
    "pairedAnswers": "econ-402a-saving-exam-practice-answers",
    "created": "2026-11-01T00:06:12Z",
-   "updated": "2026-11-01T04:10:46Z"
+   "updated": "2026-11-07T05:42:10Z"
   },
   "econ-402a-solow-exam-practice-answers": {
    "slug": "econ-402a-solow-exam-practice-answers",
@@ -7086,10 +7086,10 @@
    "figures": [],
    "interactives": [],
    "checks": 0,
-   "words": 551,
+   "words": 579,
    "pairedAnswers": "econ-402a-solow-exam-practice-answers",
-   "created": "2026-11-01T00:06:12Z",
-   "updated": "2026-11-01T00:06:12Z"
+   "created": "2026-11-07T05:41:59Z",
+   "updated": "2026-11-07T05:41:59Z"
   },
   "econ-424": {
    "slug": "econ-424",
@@ -7257,7 +7257,7 @@
     "lognormal-inequality-explorer"
    ],
    "checks": 5,
-   "words": 799,
+   "words": 807,
    "objectives": [
     {
      "n": 1,
@@ -7285,8 +7285,8 @@
      "tested": 1
     }
    ],
-   "created": "2026-11-03T03:51:38Z",
-   "updated": "2026-11-03T03:51:38Z"
+   "created": "2026-11-07T05:40:22Z",
+   "updated": "2026-11-07T05:40:22Z"
   },
   "econ-424-l2-between-group-inequality": {
    "slug": "econ-424-l2-between-group-inequality",
@@ -7429,7 +7429,7 @@
    ],
    "checks": 8,
    "derives": 1,
-   "words": 1091,
+   "words": 1149,
    "objectives": [
     {
      "n": 1,
@@ -7467,8 +7467,8 @@
      "tested": 1
     }
    ],
-   "created": "2026-10-16T19:18:19Z",
-   "updated": "2026-11-06T19:04:25Z"
+   "created": "2026-11-07T05:40:38Z",
+   "updated": "2026-11-07T05:40:38Z"
   },
   "econ-424-l3-total-and-within-group-inequality": {
    "slug": "econ-424-l3-total-and-within-group-inequality",
@@ -7593,7 +7593,7 @@
    "interactives": [],
    "checks": 8,
    "derives": 1,
-   "words": 1874,
+   "words": 1926,
    "objectives": [
     {
      "n": 1,
@@ -7636,8 +7636,8 @@
      "tested": 1
     }
    ],
-   "created": "2026-10-16T19:22:37Z",
-   "updated": "2026-11-06T19:04:25Z"
+   "created": "2026-11-07T05:40:45Z",
+   "updated": "2026-11-07T05:40:45Z"
   },
   "econ-424-l4-international-trade-theory": {
    "slug": "econ-424-l4-international-trade-theory",
@@ -7728,7 +7728,7 @@
     "envelope-theorem-and-job-switching"
    ],
    "checks": 5,
-   "words": 1311,
+   "words": 1348,
    "objectives": [
     {
      "n": 1,
@@ -7761,8 +7761,8 @@
      "tested": 2
     }
    ],
-   "created": "2026-10-16T18:52:17Z",
-   "updated": "2026-10-16T18:52:17Z"
+   "created": "2026-11-07T05:40:57Z",
+   "updated": "2026-11-07T05:40:57Z"
   },
   "econ-424-l5-international-trade-empirics": {
    "slug": "econ-424-l5-international-trade-empirics",
@@ -7921,7 +7921,7 @@
    ],
    "interactives": [],
    "checks": 15,
-   "words": 2357,
+   "words": 2653,
    "objectives": [
     {
      "n": 1,
@@ -7964,8 +7964,8 @@
      "tested": 1
     }
    ],
-   "created": "2026-10-16T20:08:14Z",
-   "updated": "2026-10-27T16:11:01Z"
+   "created": "2026-11-07T05:41:44Z",
+   "updated": "2026-11-07T05:47:24Z"
   },
   "econ-424-l6-immigration-and-the-mariel-boatlift": {
    "slug": "econ-424-l6-immigration-and-the-mariel-boatlift",
@@ -8036,7 +8036,7 @@
     "mariel-boatlift-miami-vs-comparison-cities"
    ],
    "checks": 6,
-   "words": 1329,
+   "words": 1394,
    "objectives": [
     {
      "n": 1,
@@ -8069,8 +8069,8 @@
      "tested": 1
     }
    ],
-   "created": "2026-10-27T16:09:38Z",
-   "updated": "2026-10-27T16:15:54Z"
+   "created": "2026-11-07T05:41:52Z",
+   "updated": "2026-11-07T05:47:24Z"
   },
   "econ-424-l7-immigration-across-skills-jobs-and-places": {
    "slug": "econ-424-l7-immigration-across-skills-jobs-and-places",
@@ -8194,7 +8194,7 @@
    ],
    "checks": 9,
    "derives": 1,
-   "words": 2076,
+   "words": 2193,
    "objectives": [
     {
      "n": 1,
@@ -8232,8 +8232,8 @@
      "tested": 1
     }
    ],
-   "created": "2026-11-03T03:51:38Z",
-   "updated": "2026-11-06T19:04:25Z"
+   "created": "2026-11-07T05:42:07Z",
+   "updated": "2026-11-07T05:42:07Z"
   },
   "econ-430": {
    "slug": "econ-430",
@@ -8360,10 +8360,10 @@
    "figures": [],
    "interactives": [],
    "checks": 0,
-   "words": 1664,
+   "words": 1675,
    "pairedAnswers": "econ-430-fall-2025-midterm-answers",
    "created": "2026-11-06T20:26:39Z",
-   "updated": "2026-11-06T20:26:39Z"
+   "updated": "2026-11-07T05:48:38Z"
   },
   "econ-430-l1-univariate-characterizations": {
    "slug": "econ-430-l1-univariate-characterizations",
@@ -8440,7 +8440,7 @@
     "q-q-plot-shape-explorer"
    ],
    "checks": 8,
-   "words": 1269,
+   "words": 1280,
    "objectives": [
     {
      "n": 1,
@@ -8473,8 +8473,8 @@
      "tested": 2
     }
    ],
-   "created": "2026-11-03T03:51:38Z",
-   "updated": "2026-11-03T03:51:49Z"
+   "created": "2026-11-07T05:37:32Z",
+   "updated": "2026-11-07T05:37:32Z"
   },
   "econ-430-l10-modeling-issues-in-multiple-regression": {
    "slug": "econ-430-l10-modeling-issues-in-multiple-regression",
@@ -8561,7 +8561,7 @@
     "ols-sampling-distribution"
    ],
    "checks": 14,
-   "words": 2180,
+   "words": 2214,
    "objectives": [
     {
      "n": 1,
@@ -8605,7 +8605,7 @@
     }
    ],
    "created": "2026-11-06T21:09:43Z",
-   "updated": "2026-11-06T21:09:43Z"
+   "updated": "2026-11-07T05:47:24Z"
   },
   "econ-430-l11-heteroskedasticity": {
    "slug": "econ-430-l11-heteroskedasticity",
@@ -8674,7 +8674,7 @@
    ],
    "checks": 7,
    "derives": 2,
-   "words": 1136,
+   "words": 1177,
    "objectives": [
     {
      "n": 1,
@@ -8708,7 +8708,7 @@
     }
    ],
    "created": "2026-11-03T03:51:38Z",
-   "updated": "2026-11-06T19:04:25Z"
+   "updated": "2026-11-07T05:48:35Z"
   },
   "econ-430-l12-missing-data-and-the-regression-workflow": {
    "slug": "econ-430-l12-missing-data-and-the-regression-workflow",
@@ -8790,7 +8790,7 @@
    ],
    "interactives": [],
    "checks": 8,
-   "words": 1825,
+   "words": 1833,
    "objectives": [
     {
      "n": 1,
@@ -8818,8 +8818,8 @@
      "tested": 1
     }
    ],
-   "created": "2026-10-19T18:36:05Z",
-   "updated": "2026-10-19T18:36:05Z"
+   "created": "2026-11-07T05:39:05Z",
+   "updated": "2026-11-07T05:39:05Z"
   },
   "econ-430-l2-bivariate-characterizations": {
    "slug": "econ-430-l2-bivariate-characterizations",
@@ -9006,7 +9006,7 @@
    ],
    "checks": 16,
    "derives": 4,
-   "words": 1934,
+   "words": 1967,
    "objectives": [
     {
      "n": 1,
@@ -9054,8 +9054,8 @@
      "tested": 2
     }
    ],
-   "created": "2026-11-07T03:06:40Z",
-   "updated": "2026-11-07T03:06:40Z"
+   "created": "2026-11-07T05:39:27Z",
+   "updated": "2026-11-07T05:39:27Z"
   },
   "econ-430-l4-cross-validation-and-the-bootstrap": {
    "slug": "econ-430-l4-cross-validation-and-the-bootstrap",
@@ -9125,7 +9125,7 @@
     "ols-sampling-distribution"
    ],
    "checks": 6,
-   "words": 1140,
+   "words": 1147,
    "objectives": [
     {
      "n": 1,
@@ -9153,8 +9153,8 @@
      "tested": 2
     }
    ],
-   "created": "2026-11-03T03:51:38Z",
-   "updated": "2026-11-03T03:51:38Z"
+   "created": "2026-11-07T05:23:21Z",
+   "updated": "2026-11-07T05:48:36Z"
   },
   "econ-430-l5-estimating-nonlinear-relationships": {
    "slug": "econ-430-l5-estimating-nonlinear-relationships",
@@ -9224,7 +9224,7 @@
     "box-cox-ladder-explorer"
    ],
    "checks": 16,
-   "words": 1668,
+   "words": 1719,
    "objectives": [
     {
      "n": 1,
@@ -9257,8 +9257,8 @@
      "tested": 3
     }
    ],
-   "created": "2026-11-06T21:06:13Z",
-   "updated": "2026-11-06T21:06:13Z"
+   "created": "2026-11-07T17:06:15Z",
+   "updated": "2026-11-07T17:06:15Z"
   },
   "econ-430-l6-indicator-variables-and-the-ols-workflow": {
    "slug": "econ-430-l6-indicator-variables-and-the-ols-workflow",
@@ -9355,7 +9355,7 @@
     "leverage-and-influence-explorer"
    ],
    "checks": 8,
-   "words": 1464,
+   "words": 1518,
    "objectives": [
     {
      "n": 1,
@@ -9394,7 +9394,7 @@
     }
    ],
    "created": "2026-11-06T21:03:22Z",
-   "updated": "2026-11-06T21:03:22Z"
+   "updated": "2026-11-07T05:48:37Z"
   },
   "econ-430-l7-the-classical-linear-regression-model": {
    "slug": "econ-430-l7-the-classical-linear-regression-model",
@@ -9609,7 +9609,7 @@
    ],
    "checks": 14,
    "derives": 1,
-   "words": 2565,
+   "words": 2686,
    "objectives": [
     {
      "n": 1,
@@ -9658,7 +9658,7 @@
     }
    ],
    "created": "2026-11-06T21:04:57Z",
-   "updated": "2026-11-06T21:04:57Z"
+   "updated": "2026-11-07T05:48:37Z"
   },
   "econ-430-l9-bootstrapping-regression-models": {
    "slug": "econ-430-l9-bootstrapping-regression-models",
@@ -9712,7 +9712,7 @@
    ],
    "interactives": [],
    "checks": 4,
-   "words": 690,
+   "words": 719,
    "objectives": [
     {
      "n": 1,
@@ -9726,7 +9726,7 @@
     }
    ],
    "created": "2026-10-19T18:36:06Z",
-   "updated": "2026-10-19T18:36:06Z"
+   "updated": "2026-11-07T05:48:38Z"
   },
   "econ-430-midterm-review-answers": {
    "slug": "econ-430-midterm-review-answers",
@@ -9818,9 +9818,9 @@
     "ols-sampling-distribution"
    ],
    "checks": 26,
-   "words": 3749,
+   "words": 3770,
    "created": "2026-11-06T20:25:46Z",
-   "updated": "2026-11-06T20:25:46Z"
+   "updated": "2026-11-07T05:48:34Z"
   },
   "econ-430-midterm-review-questions": {
    "slug": "econ-430-midterm-review-questions",
@@ -9845,10 +9845,10 @@
    "figures": [],
    "interactives": [],
    "checks": 0,
-   "words": 2834,
+   "words": 2895,
    "pairedAnswers": "econ-430-midterm-review-answers",
    "created": "2026-11-06T20:24:04Z",
-   "updated": "2026-11-06T20:27:50Z"
+   "updated": "2026-11-07T05:48:38Z"
   },
   "econ-430-simple-linear-regression-practice-answers": {
    "slug": "econ-430-simple-linear-regression-practice-answers",
@@ -9900,10 +9900,10 @@
    "figures": [],
    "interactives": [],
    "checks": 0,
-   "words": 572,
+   "words": 577,
    "pairedAnswers": "econ-430-simple-linear-regression-practice-answers",
    "created": "2026-11-03T03:51:39Z",
-   "updated": "2026-11-03T03:51:39Z"
+   "updated": "2026-11-07T05:48:39Z"
   },
   "eda-for-regression": {
    "slug": "eda-for-regression",
@@ -17625,7 +17625,7 @@
     "projection-onto-a-vector"
    ],
    "checks": 7,
-   "words": 453,
+   "words": 452,
    "objectives": [
     {
      "n": 1,
@@ -17648,8 +17648,8 @@
      "tested": 3
     }
    ],
-   "created": "2026-11-03T03:51:38Z",
-   "updated": "2026-11-03T03:51:38Z"
+   "created": "2026-11-07T05:38:05Z",
+   "updated": "2026-11-07T05:38:05Z"
   },
   "math-prep-l3-eigenvalues-and-quadratic-forms": {
    "slug": "math-prep-l3-eigenvalues-and-quadratic-forms",
@@ -17707,7 +17707,7 @@
     "quadratic-form-explorer"
    ],
    "checks": 6,
-   "words": 409,
+   "words": 407,
    "objectives": [
     {
      "n": 1,
@@ -17730,8 +17730,8 @@
      "tested": 1
     }
    ],
-   "created": "2026-10-17T19:25:22Z",
-   "updated": "2026-10-17T19:25:46Z"
+   "created": "2026-11-07T05:38:06Z",
+   "updated": "2026-11-07T05:38:06Z"
   },
   "math-prep-l4-multivariable-differentiation": {
    "slug": "math-prep-l4-multivariable-differentiation",
@@ -17799,7 +17799,7 @@
    "figures": [],
    "interactives": [],
    "checks": 5,
-   "words": 369,
+   "words": 376,
    "objectives": [
     {
      "n": 1,
@@ -17827,8 +17827,8 @@
      "tested": 1
     }
    ],
-   "created": "2026-10-16T19:44:22Z",
-   "updated": "2026-10-16T20:06:25Z"
+   "created": "2026-11-07T05:38:07Z",
+   "updated": "2026-11-07T05:38:07Z"
   },
   "math-prep-l5-matrix-calculus": {
    "slug": "math-prep-l5-matrix-calculus",
@@ -17880,7 +17880,7 @@
    "figures": [],
    "interactives": [],
    "checks": 5,
-   "words": 287,
+   "words": 319,
    "objectives": [
     {
      "n": 1,
@@ -17903,8 +17903,8 @@
      "tested": 1
     }
    ],
-   "created": "2026-10-17T19:25:22Z",
-   "updated": "2026-10-17T19:25:46Z"
+   "created": "2026-11-07T05:38:21Z",
+   "updated": "2026-11-07T05:47:24Z"
   },
   "math-prep-l6-optimization": {
    "slug": "math-prep-l6-optimization",
@@ -17966,7 +17966,7 @@
     "envelope-theorem-and-job-switching"
    ],
    "checks": 5,
-   "words": 352,
+   "words": 354,
    "objectives": [
     {
      "n": 1,
@@ -17994,8 +17994,8 @@
      "tested": 1
     }
    ],
-   "created": "2026-11-03T03:51:38Z",
-   "updated": "2026-11-03T03:51:38Z"
+   "created": "2026-11-07T05:38:10Z",
+   "updated": "2026-11-07T05:38:10Z"
   },
   "math-prep-l7-approximations-logs-and-series": {
    "slug": "math-prep-l7-approximations-logs-and-series",
@@ -18062,7 +18062,7 @@
    ],
    "checks": 6,
    "derives": 1,
-   "words": 487,
+   "words": 506,
    "objectives": [
     {
      "n": 1,
@@ -18090,8 +18090,8 @@
      "tested": 2
     }
    ],
-   "created": "2026-10-18T19:51:11Z",
-   "updated": "2026-11-06T19:04:25Z"
+   "created": "2026-11-07T05:38:14Z",
+   "updated": "2026-11-07T05:38:14Z"
   },
   "math-prep-l8-integration-for-probability": {
    "slug": "math-prep-l8-integration-for-probability",

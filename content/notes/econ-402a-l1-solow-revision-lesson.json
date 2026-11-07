@@ -705,14 +705,14 @@
       },
       {
        "t": "prose",
-       "md": "1. In the model with growth, classify each as exogenous, endogenous or a parameter: $\\eta$, $\\tilde{A}$, $\\alpha$, $\\tilde{k}$, $C$, $L$.\n2. True or false, and why: \"A permanent rise in TFP growth $\\gamma$ permanently raises the growth rate of output per worker.\"\n3. The depreciation rate $\\delta$ rises. In the period of the rise, which of $k$, $y$ and $c$ change? Why does consumption not jump here, when it does after a change in $s$?"
+       "md": "1. In the model with growth, classify each as exogenous (given from outside, and can change over time), endogenous (solved for by the model) or a parameter (a fixed constant): $\\eta$, $\\tilde{A}$, $\\alpha$, $\\tilde{k}$, $C$, $L$.\n2. True or false, and why: \"A permanent rise in TFP growth $\\gamma$ permanently raises the growth rate of output per worker.\"\n3. The depreciation rate $\\delta$ rises. In the period of the rise, which of $k$, $y$ and $c$ change? Why does consumption not jump here, when it does after a change in $s$?"
       },
       {
        "t": "prose",
        "md": "**B. Calculations** (basic model, $A = 1$)"
       }
      ],
-     "words": 69,
+     "words": 85,
      "symbols": [
       "$L$",
       "$A$",
@@ -731,11 +731,12 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "4. $\\alpha = 0.5$, $s = 0.36$, $\\delta = 0.08$, $k = 9$. Compute investment, depreciation and next period's $k$. Is the economy above or below its steady state? Find $\\bar{k}$, and the saving rate that would make $k = 9$ the steady state.\n5. $\\alpha = 0.5$ and $\\delta = 0.05$. What saving rate gives a steady state of $\\bar{k} = 16$? Find $\\bar{y}$ and $\\bar{c}$ at that saving rate.\n6. For the economy in question 5, compute the MPK at the steady state directly from $f'(k) = \\alpha k^{\\alpha-1}$. Should it save more or less to raise steady-state consumption? What is the golden-rule saving rate, and what consumption does it deliver?\n7. Same economy: $s$ rises from 0.2 to 0.6. What happens to consumption immediately, and what is the new steady-state consumption? Compare it with the old $\\bar{c}$ and with the golden-rule $\\bar{c}$."
+       "md": "4. Basic model (no population or technology growth) with $A = 1$, $\\alpha = 0.5$, $s = 0.36$, $\\delta = 0.08$, $k = 9$. Compute investment, depreciation and next period's $k$. Is the economy above or below its steady state? Find $\\bar{k}$, and the saving rate that would make $k = 9$ the steady state.\n5. $A = 1$, $\\alpha = 0.5$ and $\\delta = 0.05$. What saving rate gives a steady state of $\\bar{k} = 16$? Find $\\bar{y}$ and $\\bar{c}$ at that saving rate.\n6. For the economy in question 5 ($A = 1$, $\\alpha = 0.5$, $\\delta = 0.05$), compute the MPK at the steady state directly from $f'(k) = \\alpha k^{\\alpha-1}$. Should it save more or less to raise steady-state consumption? What is the golden-rule saving rate, and what consumption does it deliver?\n7. Same economy ($A = 1$, $\\alpha = 0.5$, $\\delta = 0.05$): $s$ rises from 0.2 to 0.6. What happens to consumption immediately, and what is the new steady-state consumption? Compare it with the old $\\bar{c}$ and with the golden-rule $\\bar{c}$."
       }
      ],
-     "words": 112,
+     "words": 120,
      "symbols": [
+      "$A$",
       "$y = Y/L$, $k = K/L$, $c = C/L$",
       "$s$",
       "$\\alpha$",
@@ -773,13 +774,14 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "10. $\\alpha = 0.5$, $\\eta = 0.015$, and output per worker grows at 4% a year in the long run. Find $\\tilde{\\gamma}$ and $\\gamma$, and the long-run growth rates of $\\tilde{k}$, $k$, $K$, $y$ and $Y$.\n11. $s = 0.24$, $\\delta = 0.04$, $\\eta = 0.02$, $\\gamma = 0.01$, $\\alpha = 0.5$. Find $\\tilde{\\gamma}$, break-even investment, $\\bar{k}$, $\\tilde{y}$ and $\\tilde{c}$ in steady state. Is MPK above or below break-even investment?\n12. Multiple choice — in the model with growth, the depreciation rate $\\delta$ rises. In the long run:\n    a) $\\tilde{k}$ falls and per-worker growth falls\n    b) $\\tilde{k}$ rises and per-worker growth is unchanged\n    c) $\\tilde{k}$ falls and per-worker growth is unchanged\n    d) $\\tilde{k}$ is unchanged; only the speed of convergence changes\n13. Population growth rises. Sketch $\\ln\\tilde{k}$, $\\ln\\tilde{A}$ and $\\ln k$ against time, and say whether the change in $\\ln k$ is a level or a growth effect.\n14. Explain in two sentences why the model is \"stationarized\" — what goes wrong without it?"
+       "md": "10. $\\alpha = 0.5$, $\\eta = 0.015$, and output per worker grows at 4% a year in the long run. Use the course's convention: TFP $A$ grows at $\\gamma$, and labor-augmenting technology $\\tilde{A} = A^{1/(1-\\alpha)}$ grows at $\\tilde{\\gamma} \\approx \\gamma/(1-\\alpha)$. Find $\\tilde{\\gamma}$ and $\\gamma$, and the long-run growth rates of $\\tilde{k}$, $k$, $K$, $y$ and $Y$.\n11. $s = 0.24$, $\\delta = 0.04$, $\\eta = 0.02$, TFP growth $\\gamma = 0.01$, $\\alpha = 0.5$, with $\\tilde{\\gamma} \\approx \\gamma/(1-\\alpha)$ the growth rate of $\\tilde{A} = A^{1/(1-\\alpha)}$ and the approximate law of motion $\\tilde{k}_{t+1}(1 + \\tilde{\\gamma} + \\eta) = s\\tilde{k}_t^{\\alpha} + (1-\\delta)\\tilde{k}_t$. Find $\\tilde{\\gamma}$, break-even investment, $\\bar{k}$, $\\tilde{y}$ and $\\tilde{c}$ in steady state. Is MPK above or below the break-even rate $\\delta + \\eta + \\tilde{\\gamma}$?\n12. Multiple choice — in the model with growth, the depreciation rate $\\delta$ rises. In the long run:\n    a) $\\tilde{k}$ falls and per-worker growth falls\n    b) $\\tilde{k}$ rises and per-worker growth is unchanged\n    c) $\\tilde{k}$ falls and per-worker growth is unchanged\n    d) $\\tilde{k}$ is unchanged; only the speed of convergence changes"
       }
      ],
-     "words": 119,
+     "words": 109,
      "symbols": [
       "$Y$",
       "$K$",
+      "$A$",
       "$y = Y/L$, $k = K/L$, $c = C/L$",
       "$s$",
       "$\\alpha$",
@@ -796,14 +798,29 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "**E. Derivations** (show each step, using only results from this lesson)"
+       "md": "13. Population growth rises. Sketch $\\ln\\tilde{k}$, $\\ln\\tilde{A}$ and $\\ln k$ against time, and say whether the change in $\\ln k$ is a level or a growth effect.\n14. Explain in two sentences why the model is \"stationarized\" — what goes wrong without it?"
       },
+      {
+       "t": "prose",
+       "md": "**E. Derivations** (show each step, using only results from this lesson)"
+      }
+     ],
+     "words": 47,
+     "symbols": [
+      "$y = Y/L$, $k = K/L$, $c = C/L$",
+      "$\\tilde{\\gamma}$, $\\tilde{k}$",
+      "$\\tilde{A} = A^{1/(1-\\alpha)}$"
+     ]
+    },
+    {
+     "id": "part-7-practice-questions-6",
+     "blocks": [
       {
        "t": "prose",
        "md": "15. Start from $K_{t+1} = sY_t + (1-\\delta)K_t$ with $Y_t = AK_t^{\\alpha}L^{1-\\alpha}$ and a constant number of workers $L$. Derive the steady state $\\bar{k}$, and write $\\bar{y}$ in terms of $s$, $A$, $\\delta$ and $\\alpha$ only.\n16. Using your $\\bar{y}$ from question 15 and $c = (1-s)y$, write steady-state consumption as a function of the saving rate, $\\bar{c}(s)$, and show that it is highest at $s = \\alpha$.\n17. From $\\Delta k = sAk^{\\alpha} - \\delta k$, derive the growth rate of capital per worker, $\\Delta k/k$, and write it in terms of $\\bar{k}$. Use it to explain why capital grows below the steady state, shrinks above it, and moves fastest when it is far away.\n18. In the model with growth, steady-state investment just covers break-even investment, $s\\bar{k}^{\\alpha} = (\\delta + \\eta + \\tilde{\\gamma})\\bar{k}$. Derive the golden rule $f'(\\bar{k}) = \\delta + \\eta + \\tilde{\\gamma}$ for consumption per effective worker, and show that it still gives $s = \\alpha$."
       }
      ],
-     "words": 121,
+     "words": 110,
      "symbols": [
       "$Y$",
       "$K$",
@@ -830,7 +847,7 @@
     "id": "q1",
     "number": "1",
     "group": "A. Concepts",
-    "prompt": "In the model with growth, classify each as exogenous, endogenous or a parameter: $\\eta$, $\\tilde{A}$, $\\alpha$, $\\tilde{k}$, $C$, $L$.",
+    "prompt": "In the model with growth, classify each as exogenous (given from outside, and can change over time), endogenous (solved for by the model) or a parameter (a fixed constant): $\\eta$, $\\tilde{A}$, $\\alpha$, $\\tilde{k}$, $C$, $L$.",
     "answer": "Exogenous (given from outside): $\\tilde{A}$ and $L$ — both grow over time, at rates the model takes as given. Endogenous (solved by the model): $\\tilde{k}$ and $C$. Parameters (fixed constants): $\\eta$, the growth rate of $L$, and $\\alpha$. See [Endogenous and Exogenous Variables](note:endogenous-and-exogenous-variables).",
     "rubric": [
      "Classify $\\tilde{A}$ and $L$ as exogenous: given from outside, though they grow over time",
@@ -871,7 +888,7 @@
     "id": "q4",
     "number": "4",
     "group": "B. Calculations (basic model, $A = 1$)",
-    "prompt": "$\\alpha = 0.5$, $s = 0.36$, $\\delta = 0.08$, $k = 9$. Compute investment, depreciation and next period's $k$. Is the economy above or below its steady state? Find $\\bar{k}$, and the saving rate that would make $k = 9$ the steady state.",
+    "prompt": "Basic model (no population or technology growth) with $A = 1$, $\\alpha = 0.5$, $s = 0.36$, $\\delta = 0.08$, $k = 9$. Compute investment, depreciation and next period's $k$. Is the economy above or below its steady state? Find $\\bar{k}$, and the saving rate that would make $k = 9$ the steady state.",
     "answer": "Investment $= 0.36 \\times \\sqrt{9} = 1.08$. Depreciation $= 0.08 \\times 9 = 0.72$. Next period $k = 9 + 1.08 - 0.72 = 9.36$. Investment exceeds depreciation, so the economy is **below** its steady state: $\\bar{k} = (0.36/0.08)^{1/(1-0.5)} = 4.5^2 = 20.25$. For $k = 9$ to be the steady state, investment must equal depreciation there: $s\\sqrt{9} = 0.08 \\times 9$, so $s = 0.72/3 = 0.24$.",
     "rubric": [
      "Investment $= 0.36 \\times \\sqrt{9} = 1.08$ and depreciation $= 0.08 \\times 9 = 0.72$",
@@ -885,7 +902,7 @@
     "id": "q5",
     "number": "5",
     "group": "B. Calculations (basic model, $A = 1$)",
-    "prompt": "$\\alpha = 0.5$ and $\\delta = 0.05$. What saving rate gives a steady state of $\\bar{k} = 16$? Find $\\bar{y}$ and $\\bar{c}$ at that saving rate.",
+    "prompt": "$A = 1$, $\\alpha = 0.5$ and $\\delta = 0.05$. What saving rate gives a steady state of $\\bar{k} = 16$? Find $\\bar{y}$ and $\\bar{c}$ at that saving rate.",
     "answer": "The steady state satisfies $s\\bar{k}^{\\alpha} = \\delta\\bar{k}$, so $s = \\delta\\bar{k}^{1-\\alpha} = 0.05 \\times \\sqrt{16} = 0.2$. Check: $(0.2/0.05)^2 = 16$. ✓ Then $\\bar{y} = \\sqrt{16} = 4$ and $\\bar{c} = (1 - 0.2) \\times 4 = 3.2$.",
     "rubric": [
      "Rearrange $s\\bar{k}^{\\alpha} = \\delta\\bar{k}$ to $s = \\delta\\bar{k}^{1-\\alpha}$",
@@ -898,7 +915,7 @@
     "id": "q6",
     "number": "6",
     "group": "B. Calculations (basic model, $A = 1$)",
-    "prompt": "For the economy in question 5, compute the MPK at the steady state directly from $f'(k) = \\alpha k^{\\alpha-1}$. Should it save more or less to raise steady-state consumption? What is the golden-rule saving rate, and what consumption does it deliver?",
+    "prompt": "For the economy in question 5 ($A = 1$, $\\alpha = 0.5$, $\\delta = 0.05$), compute the MPK at the steady state directly from $f'(k) = \\alpha k^{\\alpha-1}$. Should it save more or less to raise steady-state consumption? What is the golden-rule saving rate, and what consumption does it deliver?",
     "answer": "MPK $= \\alpha\\bar{k}^{\\alpha-1} = 0.5 \\times 16^{-0.5} = 0.5/4 = 0.125$ (the shortcut $\\alpha\\delta/s = 0.5 \\times 0.05/0.2$ gives the same). That is **above** $\\delta = 0.05$, so the economy saves too little — saving more raises steady-state consumption. Golden rule: $s = \\alpha = 0.5$, giving $\\bar{k} = (0.5/0.05)^2 = 100$, $\\bar{y} = 10$, $\\bar{c} = 0.5 \\times 10 = 5$ — higher than 3.2. ✓",
     "rubric": [
      "MPK $= 0.5 \\times 16^{-0.5} = 0.125$",
@@ -912,7 +929,7 @@
     "id": "q7",
     "number": "7",
     "group": "B. Calculations (basic model, $A = 1$)",
-    "prompt": "Same economy: $s$ rises from 0.2 to 0.6. What happens to consumption immediately, and what is the new steady-state consumption? Compare it with the old $\\bar{c}$ and with the golden-rule $\\bar{c}$.",
+    "prompt": "Same economy ($A = 1$, $\\alpha = 0.5$, $\\delta = 0.05$): $s$ rises from 0.2 to 0.6. What happens to consumption immediately, and what is the new steady-state consumption? Compare it with the old $\\bar{c}$ and with the golden-rule $\\bar{c}$.",
     "answer": "Immediately: output is unchanged at 4 (capital cannot jump), but the consumed share falls from 0.8 to 0.4: $c = 0.4 \\times 4 = 1.6$ (down from 3.2). In the new steady state: $\\bar{k} = (0.6/0.05)^2 = 144$, $\\bar{y} = 12$, $\\bar{c} = 0.4 \\times 12 = 4.8$. That is **higher** than the old 3.2 but **below** the golden-rule 5: $s$ overshot $\\alpha = 0.5$, and the MPK is now $0.5/12 = 0.042 < \\delta$, so the economy saves too much. (With $\\alpha = 0.5$, $s = 0.4$ would give the same 4.8 with a smaller drop on impact.)",
     "rubric": [
      "On impact $y$ is unchanged ($k$ cannot jump) but $c = 0.4 \\times 4 = 1.6$, down from 3.2",
@@ -951,7 +968,7 @@
     "id": "q10",
     "number": "10",
     "group": "D. Growth version",
-    "prompt": "$\\alpha = 0.5$, $\\eta = 0.015$, and output per worker grows at 4% a year in the long run. Find $\\tilde{\\gamma}$ and $\\gamma$, and the long-run growth rates of $\\tilde{k}$, $k$, $K$, $y$ and $Y$.",
+    "prompt": "$\\alpha = 0.5$, $\\eta = 0.015$, and output per worker grows at 4% a year in the long run. Use the course's convention: TFP $A$ grows at $\\gamma$, and labor-augmenting technology $\\tilde{A} = A^{1/(1-\\alpha)}$ grows at $\\tilde{\\gamma} \\approx \\gamma/(1-\\alpha)$. Find $\\tilde{\\gamma}$ and $\\gamma$, and the long-run growth rates of $\\tilde{k}$, $k$, $K$, $y$ and $Y$.",
     "answer": "Output per worker grows at $\\tilde{\\gamma}$ in the long run, so $\\tilde{\\gamma} = 0.04$. From $\\tilde{\\gamma} \\approx \\gamma/(1-\\alpha)$: $\\gamma \\approx 0.04 \\times 0.5 = 0.02$. Long run: $\\tilde{k}$: 0; $k$: 4%; $y$: 4%; $K$: 4% + 1.5% ≈ 5.5%; $Y$: ≈ 5.5% (exactly $1.04 \\times 1.015 - 1 = 5.56\\%$). (With the exact formula $(1+\\gamma)^{1/(1-\\alpha)} = 1 + \\tilde{\\gamma}$, $\\gamma = 1.04^{0.5} - 1 = 0.0198$.)",
     "rubric": [
      "Long-run per-worker growth is $\\tilde{\\gamma}$, so $\\tilde{\\gamma} = 0.04$",
@@ -964,7 +981,7 @@
     "id": "q11",
     "number": "11",
     "group": "D. Growth version",
-    "prompt": "$s = 0.24$, $\\delta = 0.04$, $\\eta = 0.02$, $\\gamma = 0.01$, $\\alpha = 0.5$. Find $\\tilde{\\gamma}$, break-even investment, $\\bar{k}$, $\\tilde{y}$ and $\\tilde{c}$ in steady state. Is MPK above or below break-even investment?",
+    "prompt": "$s = 0.24$, $\\delta = 0.04$, $\\eta = 0.02$, TFP growth $\\gamma = 0.01$, $\\alpha = 0.5$, with $\\tilde{\\gamma} \\approx \\gamma/(1-\\alpha)$ the growth rate of $\\tilde{A} = A^{1/(1-\\alpha)}$ and the approximate law of motion $\\tilde{k}_{t+1}(1 + \\tilde{\\gamma} + \\eta) = s\\tilde{k}_t^{\\alpha} + (1-\\delta)\\tilde{k}_t$. Find $\\tilde{\\gamma}$, break-even investment, $\\bar{k}$, $\\tilde{y}$ and $\\tilde{c}$ in steady state. Is MPK above or below the break-even rate $\\delta + \\eta + \\tilde{\\gamma}$?",
     "answer": "$\\tilde{\\gamma} \\approx 0.01/0.5 = 0.02$ (exactly $1.01^2 - 1 = 0.0201$). Break-even rate $\\approx 0.04 + 0.02 + 0.02 = 0.08$, dropping the small $\\eta\\tilde{\\gamma}$ term as the lecture does (exactly $(1.02)(1.0201) - 0.96 = 0.0805$). $\\bar{k} = (0.24/0.08)^{1/(1-0.5)} = 3^2 = 9$; $\\tilde{y} = \\sqrt{9} = 3$; $\\tilde{c} = (1 - 0.24) \\times 3 = 2.28$. MPK $= \\alpha\\bar{k}^{\\alpha-1} = 0.5/3 = 0.167 > 0.08$ — above break-even, so saving more would raise steady-state consumption ($s = 0.24 < \\alpha = 0.5$).",
     "rubric": [
      "$\\tilde{\\gamma} \\approx 0.01/0.5 = 0.02$, so break-even rate $\\approx 0.04 + 0.02 + 0.02 = 0.08$",

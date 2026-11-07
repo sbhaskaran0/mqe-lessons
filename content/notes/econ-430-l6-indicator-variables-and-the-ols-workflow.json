@@ -523,7 +523,7 @@
       {
        "t": "check",
        "kind": "mcq",
-       "prompt": "Using the table of test results and a 5% level, which conclusions follow? Tick all that apply.",
+       "prompt": "For the wage-on-experience regression ($n = 526$), Harvey-Collier (null: the relationship is linear) gives $p = 0.0012$, Jarque-Bera (null: normal residuals) $p \\approx 0$, and Breusch-Pagan (null: constant error variance) $p = 0.017$. At the 5% level, which conclusions follow? Tick all that apply.",
        "options": [
         {
          "md": "The linear form is rejected: wages do not rise in a straight line with experience",
@@ -550,7 +550,7 @@
        ]
       }
      ],
-     "words": 74,
+     "words": 89,
      "symbols": [
       "$p$, $n$"
      ]
@@ -584,7 +584,7 @@
       {
        "t": "check",
        "kind": "mcq",
-       "prompt": "In the normal probability plot of the wage residuals, the points at the left end lie above the reference line and those at the right end lie far above it. What does this show?",
+       "prompt": "In the normal probability plot of the wage residuals (residual quantiles on the vertical axis, normal quantiles on the horizontal), the points at the left end lie above the reference line and those at the right end lie far above it. What does this show?",
        "options": [
         {
          "md": "Light tails: fewer extreme residuals than a normal",
@@ -607,7 +607,7 @@
        ]
       }
      ],
-     "words": 66,
+     "words": 77,
      "symbols": []
     },
     {
@@ -660,7 +660,7 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "Leverage measures how unusual an observation's $x$ is: the $i$-th diagonal $h_i$ of the projection matrix, flagged when $h_i > 2p/n$. Outliers are observations with studentized residuals beyond $\\pm 2$. The lecture's residual-leverage plot colours high-leverage points blue, outliers red and points that are both purple; its influence plots scale each point by Cook's distance or DFFITS."
+       "md": "Leverage measures how unusual an observation's $x$ is: the $i$-th diagonal $h_i$ of the projection matrix, flagged when $h_i > 2p/n$. Outliers are observations with studentized residuals beyond $\\pm 2$. The lecture's residual-leverage plot colours high-leverage points blue, outliers red and points that are both purple; its influence plots scale each point by Cook's distance or DFFITS. An observation is influential when dropping it would visibly move the fitted line; Cook's distance $D$ measures that shift."
       },
       {
        "t": "figure",
@@ -668,8 +668,9 @@
        "alt": "Wage on experience - outlier and leverage diagnostics"
       }
      ],
-     "words": 50,
+     "words": 68,
      "symbols": [
+      "$D_i$ (e.g. $UTOWN$, $FEMALE$)",
       "$h_i$",
       "$p$, $n$",
       "$x_{(i)}$"
@@ -681,7 +682,7 @@
       {
        "t": "check",
        "kind": "numeric",
-       "prompt": "The wage-on-experience regression has $p = 2$ parameters and $n = 526$ observations. Above what leverage $h_i$ does the lecture's rule flag an observation as high-leverage? Give four decimal places.",
+       "prompt": "The wage-on-experience regression has $p = 2$ parameters and $n = 526$ observations. The rule flags an observation as high-leverage when $h_i$ is more than twice the average leverage. Above what leverage $h_i$ is an observation flagged? Give four decimal places.",
        "answer": 0.0076,
        "tol": 5e-05,
        "wrong": [
@@ -707,7 +708,7 @@
        ]
       }
      ],
-     "words": 23,
+     "words": 33,
      "symbols": [
       "$\\boldsymbol{\\varepsilon}$, $y$",
       "$h_i$",
@@ -798,6 +799,7 @@
         "rl",
         "h_now",
         "t_now",
+        "slope_now",
         "slope_base"
        ],
        "highlight": "pt",

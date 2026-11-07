@@ -355,6 +355,7 @@
        "prompt": "Now $\\sigma$ is locked and $\\mu$ is free. Raising $\\mu$ by 1 multiplies every wage by $e \\approx 2.7$.",
        "predict": {
         "hide": [
+         "lorenz",
          "gini",
          "varlog",
          "p90p10"
@@ -388,7 +389,7 @@
       {
        "t": "check",
        "kind": "numeric",
-       "prompt": "Nine workers earn 10, 10, 10, 11, 12, 13, 17, 20 and 22. What is their Gini coefficient?",
+       "prompt": "Nine workers earn 10, 10, 10, 11, 12, 13, 17, 20 and 22. What is their Gini coefficient, using the population formula (divide by $n^2$ pairs, not $n(n-1)$)?",
        "answer": 0.167,
        "tol": 0.002,
        "wrong": [
@@ -414,7 +415,7 @@
        ]
       }
      ],
-     "words": 18,
+     "words": 26,
      "symbols": [
       "$z_i$",
       "$n$",

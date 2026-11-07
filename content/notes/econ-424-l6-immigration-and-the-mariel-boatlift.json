@@ -422,7 +422,7 @@
       {
        "t": "check",
        "kind": "mcq",
-       "prompt": "Which summary of Card's results for the whole Miami workforce is right?",
+       "prompt": "The 1980 Mariel boatlift raised Miami's labor force by 7%. Card (1990)'s differences-in-differences against four comparison cities, from 1979: blacks' log wage −0.08 in 1982 and +0.10 in 1985; blacks' unemployment rate +5.3 points in 1982 and −3.5 in 1985; whites' log wage within ±0.02 in every year. Which summary of Card's results is right?",
        "options": [
         {
          "md": "Wages fell about 7% for good, one for one with the 7% rise in the labor force",
@@ -435,7 +435,7 @@
          "feedback": "Over 1979–82 there is a small relative fall in wages and employment and a rise in unemployment; the effects are small, not absent."
         },
         {
-         "md": "Small relative declines in wages and employment and a rise in unemployment over 1979–82, gone afterwards",
+         "md": "Small relative declines in blacks' wages and a rise in their unemployment over 1979–82, gone afterwards",
          "correct": true
         },
         {
@@ -450,7 +450,7 @@
        ]
       }
      ],
-     "words": 58,
+     "words": 107,
      "symbols": []
     }
    ]
@@ -481,7 +481,7 @@
       {
        "t": "check",
        "kind": "mcq",
-       "prompt": "Natives moving out of Miami, or no longer moving in, after the boatlift would spread its effect across the country. Which of Card's explanations is this, and which later paper takes it up?",
+       "prompt": "Card (1990) finds only small, short-lived effects of the 1980 Mariel boatlift on Miami's labor market. Natives moving out of Miami, or no longer moving in, would spread the shock across the country. Which proposed explanation for the small effects is this, and which later paper takes it up?",
        "options": [
         {
          "md": "Outcomes are too aggregated — Friedberg",
@@ -509,7 +509,7 @@
        ]
       }
      ],
-     "words": 61,
+     "words": 77,
      "symbols": []
     }
    ]
