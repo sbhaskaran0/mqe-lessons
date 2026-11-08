@@ -1,6 +1,6 @@
 {
  "schema": "mqe-lessons/1",
- "generated_at": "2026-11-07T17:09:52Z",
+ "generated_at": "2026-11-08T04:48:54Z",
  "vault": {
   "notes": 302,
   "errors": 0,
@@ -9224,7 +9224,7 @@
     "box-cox-ladder-explorer"
    ],
    "checks": 16,
-   "words": 1719,
+   "words": 1969,
    "objectives": [
     {
      "n": 1,
@@ -9257,8 +9257,8 @@
      "tested": 3
     }
    ],
-   "created": "2026-11-07T17:06:15Z",
-   "updated": "2026-11-07T17:06:15Z"
+   "created": "2026-11-08T04:42:50Z",
+   "updated": "2026-11-08T04:42:50Z"
   },
   "econ-430-l6-indicator-variables-and-the-ols-workflow": {
    "slug": "econ-430-l6-indicator-variables-and-the-ols-workflow",

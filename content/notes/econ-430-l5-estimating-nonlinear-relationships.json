@@ -935,19 +935,70 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "When groups with larger medians also have larger spreads, as in the Ornstein boxplots of L1, a power below 1 evens them out. Tukey's spread-level plot regresses the log of each group's hinge spread on the log of its median; the suggested power is 1 minus the slope."
+       "md": "In the Ornstein boxplots of L1 (interlocking directorships of 248 Canadian firms, by nation of control), the groups with larger medians also have taller boxes. Comparing groups is easiest when their spreads are similar, and a power below 1 can even them out, because it squeezes large values more than small ones. Tukey's **spread-level plot** says which power."
+      },
+      {
+       "t": "prose",
+       "md": "**What it plots.** Each group is one point:"
+      },
+      {
+       "t": "prose",
+       "md": "- **across:** the group's median, its level;\n- **up:** its **hinge spread**, the distance between the two hinges of its box, roughly the interquartile range $Q_3 - Q_1$."
+      }
+     ],
+     "words": 91,
+     "symbols": []
+    },
+    {
+     "id": "7-equalizing-spread-across-groups-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Both axes are on log scales. Some firms have 0 interlocks, so the lecture uses interlocks + 1 to keep every log finite:"
+      },
+      {
+       "t": "table",
+       "md": "| Nation | Median | Hinge spread |\n| --- | --- | --- |\n| Canada | 13.0 | 24.0 |\n| Other | 15.5 | 20.0 |\n| UK | 9.0 | 10.0 |\n| US | 6.0 | 11.0 |"
       },
       {
        "t": "figure",
        "src": "assets/Attachments/Spread-level plot - Ornstein interlocks by nation.png",
        "alt": "Spread-level plot - Ornstein interlocks by nation"
+      },
+      {
+       "t": "prose",
+       "md": "**Why logs.** Suppose spread grows as a power of level, $\\text{spread} \\approx c \\cdot \\text{median}^{b}$. Taking logs gives a straight line, $\\log(\\text{spread}) = \\log c + b \\log(\\text{median})$, so the fitted slope estimates $b$:"
+      },
+      {
+       "t": "prose",
+       "md": "- $b = 0$: the spreads are equal and nothing needs fixing;\n- $b = 1$: spread is proportional to level, as when every group's values vary by a similar percentage."
       }
      ],
-     "words": 48,
-     "symbols": []
+     "words": 95,
+     "symbols": [
+      "$Y$, $X$, $p$, $q$, $a$, $b$"
+     ]
     },
     {
-     "id": "7-equalizing-spread-across-groups-2",
+     "id": "7-equalizing-spread-across-groups-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Why the power is $1 - b$.** Transform the data to $y^p$. Near a group's median $m$, $y^p$ changes by about $p\\,m^{p-1}$ for each unit change in $y$ (its derivative). So the group's spread becomes about $p\\,m^{p-1} \\times c\\,m^{b} \\propto m^{\\,p - 1 + b}$. The spreads stop depending on the level when the exponent is 0, that is when $p = 1 - b$. For $b = 1$ that is $p = 0$, the log."
+      },
+      {
+       "t": "prose",
+       "md": "**The Ornstein result.** The least-squares line through the four points has slope 0.847, so the plot suggests $p = 1 - 0.847 = 0.153$. With only four groups the slope is rough, so the lecture rounds to the nearest rung of the ladder, 0, and uses the log. After $\\log_{10}(1 + \\text{interlocks})$ the four boxes have similar spreads. L11 uses the same idea on regression residuals, plotting their spread against the fitted values."
+      }
+     ],
+     "words": 112,
+     "symbols": [
+      "$y$, $x$",
+      "$Y$, $X$, $p$, $q$, $a$, $b$"
+     ]
+    },
+    {
+     "id": "7-equalizing-spread-across-groups-4",
      "blocks": [
       {
        "t": "check",
@@ -972,14 +1023,16 @@
          "md": "that is the negative of the slope; the suggestion is $1 - \\text{slope}$"
         }
        ],
-       "why": "$1 - 0.847 = 0.153$. Because 0.153 is close to 0, the lecture uses the log, $\\log_{10}(1 + \\text{interlocks})$, after which the four boxes have similar spreads. A slope of 1 (spread proportional to level) would point exactly to the log; a slope of 0 (no relation) to no transformation.",
+       "why": "If spread grows like $\\text{median}^{b}$, the power $p$ makes it grow like $\\text{median}^{\\,p-1+b}$, which is flat when $p = 1 - b$. So $1 - 0.847 = 0.153$. Because 0.153 is close to 0, the lecture uses the log, $\\log_{10}(1 + \\text{interlocks})$, after which the four boxes have similar spreads. A slope of 1 (spread proportional to level) would point exactly to the log; a slope of 0 (no relation) to no transformation.",
        "objectives": [
         5
        ]
       }
      ],
      "words": 38,
-     "symbols": []
+     "symbols": [
+      "$Y$, $X$, $p$, $q$, $a$, $b$"
+     ]
     }
    ]
   },
