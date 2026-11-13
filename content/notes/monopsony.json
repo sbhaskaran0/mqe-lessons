@@ -1,0 +1,337 @@
+{
+ "slug": "monopsony",
+ "notation": [
+  {
+   "tex": "$L$",
+   "meaning": "Employment (workers or hours)",
+   "kind": "Choice",
+   "typical": "266.7 at the monopsony optimum in the example",
+   "keys": [
+    "L"
+   ]
+  },
+  {
+   "tex": "$w(L)$",
+   "meaning": "Inverse labor supply: the wage needed to attract $L$ workers",
+   "kind": "Function",
+   "typical": "$4 + L/50$ in the example",
+   "keys": [
+    "w"
+   ]
+  },
+  {
+   "tex": "$p\\,q'(L)$",
+   "meaning": "Marginal revenue product of labor (MRP)",
+   "kind": "Function",
+   "typical": "$20 - L/50$ in the example",
+   "keys": [
+    "~pq'(L)"
+   ]
+  },
+  {
+   "tex": "$a$, $b$",
+   "meaning": "Intercept and slope of inverse supply, $w(L) = a + bL$",
+   "kind": "Parameters",
+   "typical": "4, 0.02",
+   "keys": [
+    "a",
+    "b"
+   ]
+  },
+  {
+   "tex": "$c$, $d$",
+   "meaning": "Intercept and slope of the MRP, $c - dL$",
+   "kind": "Parameters",
+   "typical": "20, 0.02",
+   "keys": [
+    "c",
+    "d"
+   ]
+  },
+  {
+   "tex": "$\\pi(L)$",
+   "meaning": "Profit at employment $L$",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "pi"
+   ]
+  },
+  {
+   "tex": "$MC$",
+   "meaning": "Marginal cost of labor, $w(L) + L\\,w'(L)$",
+   "kind": "Function",
+   "typical": "$4 + 2L/50$",
+   "keys": [
+    "~MC"
+   ]
+  },
+  {
+   "tex": "$w_{mon}$, $L_{mon}$",
+   "meaning": "Monopsony wage and employment",
+   "kind": "Equilibrium",
+   "typical": "9.33, 266.7",
+   "keys": [
+    "w",
+    "L"
+   ]
+  },
+  {
+   "tex": "$w_{eff}$, $L_{eff}$",
+   "meaning": "Competitive wage and employment, where supply meets MRP",
+   "kind": "Equilibrium",
+   "typical": "12, 400",
+   "keys": [
+    "w",
+    "L"
+   ]
+  },
+  {
+   "tex": "$w_{mw}$",
+   "meaning": "Minimum wage",
+   "kind": "Policy",
+   "typical": "—",
+   "keys": [
+    "w"
+   ]
+  },
+  {
+   "tex": "$w^*_{mw}$",
+   "meaning": "Minimum wage that maximizes employment (equals $w_{eff}$)",
+   "kind": "Policy",
+   "typical": "12",
+   "keys": [
+    "w*"
+   ]
+  },
+  {
+   "tex": "$p$",
+   "meaning": "Price of output",
+   "kind": "Exogenous",
+   "typical": "1 (normalized)",
+   "keys": [
+    "p"
+   ],
+   "from": "labor-demand"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "In a competitive labor market a firm can hire as many workers as it wants at the going wage. A monopsonist is a firm big enough in its local labor market that, to hire more, it must raise the wage, and it must pay that higher wage to everyone it already employs, not just the new hire. Each extra worker therefore costs more than their own wage. The firm responds by hiring fewer people and paying less than a competitive market would. A minimum wage changes that calculation: once the wage is fixed by law, hiring one more worker no longer raises the pay of the others, so the firm hires more. Set at the right level, a minimum wage can raise both wages and employment."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the main theoretical reason a minimum wage need not cost jobs, and it underlies tests that compare minimum-wage effects in more and less concentrated labor markets.",
+       "folded": false
+      }
+     ],
+     "words": 157,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A firm with revenue $p\\,q(L)$ faces inverse labor supply $w(L)$ with $w'(L) > 0$. Profit is $\\pi(L) = p\\,q(L) - L\\,w(L)$, and the first-order condition is"
+      },
+      {
+       "t": "math",
+       "tex": "\\underbrace{p\\,q'(L)}_{\\text{marginal revenue product}} = \\underbrace{w(L) + L\\,w'(L)}_{\\text{marginal cost of labor}}"
+      },
+      {
+       "t": "prose",
+       "md": "Because $w'(L) > 0$, the marginal cost of labor exceeds the wage, so the monopsonist hires $L_{mon}$ below the competitive $L_{eff}$ and pays $w_{mon} = w(L_{mon})$, below the competitive wage."
+      }
+     ],
+     "words": 38,
+     "symbols": [
+      "$L$",
+      "$w(L)$",
+      "$p\\,q'(L)$",
+      "$\\pi(L)$",
+      "$w_{mon}$, $L_{mon}$",
+      "$w_{eff}$, $L_{eff}$",
+      "$w_{mw}$",
+      "$p$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "a-minimum-wage-under-monopsony",
+   "heading": "A minimum wage under monopsony",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "a-minimum-wage-under-monopsony-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With a binding minimum wage $w_{mw}$, the marginal cost of labor is flat at $w_{mw}$ until the supply curve is reached. Employment is"
+      },
+      {
+       "t": "prose",
+       "md": "- $L_{mon}$ if $w_{mw} \\le w_{mon}$ (the floor does not bind);\n- **rising** along the supply curve, $L = w^{-1}(w_{mw})$, if $w_{mon} < w_{mw} \\le w_{eff}$;\n- **falling** along the MRP curve if $w_{mw} > w_{eff}$, back down to $L_{mon}$ at the wage where MRP $= w_{mw}$ at $L_{mon}$, and below it beyond."
+      },
+      {
+       "t": "prose",
+       "md": "So employment is hump-shaped in the minimum wage, peaking at $w^*_{mw} = w_{eff}$. A \"well-chosen\" minimum wage lies between $w_{mon}$ and that upper wage."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Monopsony - wage and employment choice.png",
+       "alt": "Monopsony - wage and employment choice"
+      }
+     ],
+     "words": 75,
+     "symbols": [
+      "$L$",
+      "$w(L)$",
+      "$w_{mon}$, $L_{mon}$",
+      "$w_{eff}$, $L_{eff}$",
+      "$w_{mw}$",
+      "$w^*_{mw}$"
+     ]
+    },
+    {
+     "id": "a-minimum-wage-under-monopsony-2",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Monopsony - employment for any minimum wage.png",
+       "alt": "Monopsony - employment for any minimum wage",
+       "caption": "Lecture figures: the monopsonist's choice (left) and employment for any minimum wage (right panel, red)."
+      }
+     ],
+     "words": 15,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With $w(L) = 4 + L/50$ and MRP $= 20 - L/50$: competitive employment solves $4 + L/50 = 20 - L/50$, so $L_{eff} = 400$, $w_{eff} = 12$. The monopsonist sets MC $= 4 + 2L/50$ equal to MRP: $L_{mon} = 266.7$, $w_{mon} = 9.33$ (while MRP there is 14.67). A minimum wage of 11 raises employment to $50(11 - 4) = 350$; 12 gives the maximum, 400; 14 gives $50(20 - 14) = 300$; above 14.67 employment falls below the monopsony level. (Illustrative numbers, not from the lecture.)"
+      },
+      {
+       "t": "interactive",
+       "widget": "monopsony-and-minimum-wage-explorer",
+       "prompt": "Drag the minimum wage and watch employment rise, peak and fall"
+      }
+     ],
+     "words": 61,
+     "symbols": [
+      "$L$",
+      "$w(L)$",
+      "$p\\,q'(L)$",
+      "$a$, $b$",
+      "$c$, $d$",
+      "$MC$",
+      "$w_{mon}$, $L_{mon}$",
+      "$w_{eff}$, $L_{eff}$",
+      "$w_{mw}$",
+      "$p$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "measuring-monopsony-power",
+   "heading": "Measuring monopsony power",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "measuring-monopsony-power-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Labor-market concentration is a common proxy: the [Herfindahl-Hirschman Index](note:herfindahl-hirschman-index) of employers' shares of hiring or vacancies in an occupation and area. Where concentration is high, minimum-wage employment effects should be less negative, or positive."
+      }
+     ],
+     "words": 34,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Thinking any minimum wage helps under monopsony.** Above the competitive wage it lowers employment, just as in a competitive market.\n- **Using the supply curve as the cost of labor.** The monopsonist's relevant cost is the marginal cost curve, which lies above supply.\n- **Equating monopsony with a single employer.** Any upward-sloping supply to the firm (search frictions, commuting costs, job differentiation) gives some wage-setting power."
+      }
+     ],
+     "words": 67,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Labor: minimum wages, labor-market concentration and antitrust, gender pay gaps, the effect of noncompete agreements."
+      }
+     ],
+     "words": 16,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Labor Demand](note:labor-demand) · [Classical Labor Market Model](note:classical-labor-market-model) · [Minimum Wage](note:minimum-wage) · [Herfindahl-Hirschman Index](note:herfindahl-hirschman-index)\n- Paper: [Azar et al 2024 - Minimum Wage Employment Effects and Labor Market Concentration](note:azar-et-al-2024-minimum-wage-employment-effects-and-labor-market-concentration)"
+      }
+     ],
+     "words": 26,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

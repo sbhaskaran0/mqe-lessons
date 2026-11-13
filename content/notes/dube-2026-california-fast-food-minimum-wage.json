@@ -1,0 +1,180 @@
+{
+ "slug": "dube-2026-california-fast-food-minimum-wage",
+ "notation": [],
+ "sections": [
+  {
+   "id": "key-takeaways",
+   "heading": "Key takeaways",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "key-takeaways-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. **A demanding test.** AB 1228 raised the floor for large fast-food chains from the \\$16 state minimum to \\$20 on April 1, 2024 (+25%, about 77% of the state median wage), with customers able to switch to uncovered restaurants.\n2. **Earnings up about 7%.** In limited-service restaurants relative to states at the \\$7.25 federal minimum.\n3. **Employment roughly unchanged.** Synthetic DiD gives −0.26 (0.54) log points (QCEW) and +0.74 (QWI); conventional DiD −1.39. Separations fell sharply, consistent with lower quits."
+      }
+     ],
+     "words": 86,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "research-question",
+   "heading": "Research question",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "research-question-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "What happened to fast-food earnings and employment in California after AB 1228?"
+      }
+     ],
+     "words": 12,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "data-and-setting",
+   "heading": "Data and setting",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "data-and-setting-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Limited-service restaurants (NAICS 722513), covered and uncovered, in two UI-based sources: [Quarterly Census of Employment and Wages (QCEW)](note:quarterly-census-of-employment-and-wages-qcew) through 2025Q3 and the Quarterly Workforce Indicators (QWI, with worker flows) through 2024Q4. Controls: 20 states at the federal minimum. Outcome: log jobs per capita; weights fit on 2015Q1–2023Q4 excluding 2020–21, with 2024Q1 dropped as a transition quarter."
+      }
+     ],
+     "words": 58,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "empirical-strategy",
+   "heading": "Empirical strategy",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "empirical-strategy-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Synthetic difference-in-differences](note:synthetic-control): California's employment rate had been converging toward control states, so simple parallel trends may fail. SDID chooses state weights so controls track California's pre-policy path up to a constant gap, and time weights so the controls' weighted past predicts their post-policy average."
+      }
+     ],
+     "words": 44,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "results",
+   "heading": "Results",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "results-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Dube 2026 QCEW earnings and employment effects.png",
+       "alt": "Table - Dube 2026 QCEW earnings and employment effects"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    },
+    {
+     "id": "results-2",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Dube 2026 QWI earnings, employment and separations.png",
+       "alt": "Table - Dube 2026 QWI earnings, employment and separations"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    },
+    {
+     "id": "results-3",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Dube 2026 - synthetic control for California fast-food employment.png",
+       "alt": "Dube 2026 - synthetic control for California fast-food employment"
+      },
+      {
+       "t": "prose",
+       "md": "Own-wage elasticity −0.04 (SDID) versus −0.19 (conventional DiD). Across 16 QWI specifications employment estimates run from about −0.6% to +1.7%. Earnings gains and separation declines are larger at large employers."
+      }
+     ],
+     "words": 34,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "caveats",
+   "heading": "Caveats",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "caveats-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- One treated state; inference and estimates depend on donor pool and design choices (see Clemens, Edwards, Meer and Nguyen 2026).\n- Employers could adjust between enactment (September 2023) and implementation.\n- Short post-period."
+      }
+     ],
+     "words": 34,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "in-econ-424-l8-minimum-wages-and-employment",
+   "heading": "In Econ 424 L8 Minimum Wages and Employment",
+   "role": "paper-in-lesson",
+   "steps": [
+    {
+     "id": "in-econ-424-l8-minimum-wages-and-employment-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The newest round of the debate, with a new tool: when one state is treated, the counterfactual is built rather than chosen."
+      }
+     ],
+     "words": 22,
+     "symbols": []
+    }
+   ],
+   "lesson": "econ-424-l8-minimum-wages-and-employment"
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Synthetic Control](note:synthetic-control) · [California Fast-Food Minimum Wage Employment Effects 2024-2025](note:california-fast-food-minimum-wage-employment-effects-2024-2025) · [Minimum Wage](note:minimum-wage)"
+      }
+     ],
+     "words": 12,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

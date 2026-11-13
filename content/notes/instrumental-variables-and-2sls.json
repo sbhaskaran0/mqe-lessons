@@ -217,10 +217,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "- [Canonical Model of the Skill Premium](note:canonical-model-of-the-skill-premium)\n- [OLS Estimator](note:ols-estimator)\n- [Shift-Share Instrument](note:shift-share-instrument) — instruments built from base-period shares × external shocks\n- Paper: [Friedberg 2001 - The Impact of Mass Migration on the Israeli Labor Market](note:friedberg-2001-the-impact-of-mass-migration-on-the-israeli-labor-market)\n- Paper: [Monras 2020 - Immigration and Wage Dynamics](note:monras-2020-immigration-and-wage-dynamics)"
+       "md": "- [Canonical Model of the Skill Premium](note:canonical-model-of-the-skill-premium)\n- [OLS Estimator](note:ols-estimator)\n- [Shift-Share Instrument](note:shift-share-instrument) — instruments built from base-period shares × external shocks\n- Paper: [Friedberg 2001 - The Impact of Mass Migration on the Israeli Labor Market](note:friedberg-2001-the-impact-of-mass-migration-on-the-israeli-labor-market)\n- Paper: [Monras 2020 - Immigration and Wage Dynamics](note:monras-2020-immigration-and-wage-dynamics)\n- [Effective Minimum Wage](note:effective-minimum-wage) — instrumenting the effective minimum with the real minimum wage to remove measurement-error bias\n- Paper: [Autor, Manning and Smith 2016 - The Contribution of the Minimum Wage to US Wage Inequality](note:autor-manning-and-smith-2016-the-contribution-of-the-minimum-wage-to-us-wage-inequality)"
       }
      ],
-     "words": 44,
+     "words": 79,
      "symbols": []
     }
    ]

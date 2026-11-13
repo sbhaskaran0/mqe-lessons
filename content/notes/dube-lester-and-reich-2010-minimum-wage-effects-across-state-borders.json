@@ -1,0 +1,266 @@
+{
+ "slug": "dube-lester-and-reich-2010-minimum-wage-effects-across-state-borders",
+ "notation": [
+  {
+   "tex": "$y_{ipt}$",
+   "meaning": "Restaurant employment or earnings in location $i$ of pair $p$ in quarter $t$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "y"
+   ],
+   "from": "contiguous-border-county-design"
+  },
+  {
+   "tex": "$MW_{it}$",
+   "meaning": "Minimum wage in force in $i$",
+   "kind": "Policy",
+   "typical": "—",
+   "keys": [
+    "~MW_it"
+   ],
+   "from": "contiguous-border-county-design"
+  },
+  {
+   "tex": "$\\eta$",
+   "meaning": "Minimum-wage elasticity of employment (or earnings)",
+   "kind": "Parameter",
+   "typical": "≈ 0 for employment, 0.2 for earnings (DLR)",
+   "keys": [
+    "eta"
+   ],
+   "from": "contiguous-border-county-design"
+  },
+  {
+   "tex": "$y^{TOT}_{it}$",
+   "meaning": "Total private-sector employment (or earnings) control",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "~y^TOT_it"
+   ],
+   "from": "contiguous-border-county-design"
+  },
+  {
+   "tex": "$\\phi_i$",
+   "meaning": "Location fixed effect",
+   "kind": "Fixed effect",
+   "typical": "—",
+   "keys": [
+    "phi"
+   ],
+   "from": "contiguous-border-county-design"
+  },
+  {
+   "tex": "$\\tau_{pt}$",
+   "meaning": "Pair-by-period fixed effect",
+   "kind": "Fixed effect",
+   "typical": "—",
+   "keys": [
+    "tau"
+   ],
+   "from": "contiguous-border-county-design"
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "Intercept",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "alpha"
+   ],
+   "from": "contiguous-border-county-design"
+  },
+  {
+   "tex": "$\\delta$",
+   "meaning": "Coefficient on total employment (or earnings)",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "delta"
+   ],
+   "from": "contiguous-border-county-design"
+  },
+  {
+   "tex": "$\\varepsilon_{ipt}$",
+   "meaning": "Error term",
+   "kind": "Error",
+   "typical": "—",
+   "keys": [
+    "varepsilon"
+   ],
+   "from": "contiguous-border-county-design"
+  }
+ ],
+ "sections": [
+  {
+   "id": "key-takeaways",
+   "heading": "Key takeaways",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "key-takeaways-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. **Generalizing Card–Krueger.** Every contiguous county pair straddling a state border with a minimum-wage difference, 1990–2006, becomes its own case study.\n2. **Earnings rise, employment does not fall.** Earnings elasticity ≈ 0.2 in every specification; employment elasticity ≈ 0 once local controls are used (0.016 in the border-pair sample).\n3. **National estimates are biased.** With common time effects the employment elasticity is −0.21: minimum-wage states grew more slowly for unrelated reasons (no Southern state had its own minimum, and the South grew fast)."
+      }
+     ],
+     "words": 86,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "research-question",
+   "heading": "Research question",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "research-question-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Why do case studies find small or no job losses while national panels find negative effects, and which identifying assumption is more credible?"
+      }
+     ],
+     "words": 23,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "data-and-setting",
+   "heading": "Data and setting",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "data-and-setting-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Quarterly Census of Employment and Wages (QCEW)](note:quarterly-census-of-employment-and-wages-qcew) county-level restaurant employment and earnings (full-service and limited-service), 1990Q1–2006Q2. In 2006 restaurants employed 29.9% of workers paid within 10% of the minimum. 1,139 border counties form 504 pairs with full data; 288 pairs had a minimum-wage differential at some point."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Dube, Lester and Reich 2010 - contiguous border county pairs.png",
+       "alt": "Dube, Lester and Reich 2010 - contiguous border county pairs"
+      }
+     ],
+     "words": 50,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "empirical-strategy",
+   "heading": "Empirical strategy",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "empirical-strategy-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$\\ln y_{it} = \\alpha + \\eta\\ln MW_{it} + \\delta\\ln y^{TOT}_{it} + \\phi_i + \\tau_t + \\varepsilon_{it}$ with common time effects, then census-division-by-period effects, state trends, MSA-by-period effects and finally pair-by-period effects $\\tau_{pt}$ ([Contiguous Border County Design](note:contiguous-border-county-design))."
+      }
+     ],
+     "words": 19,
+     "symbols": [
+      "$y_{ipt}$",
+      "$MW_{it}$",
+      "$\\eta$",
+      "$y^{TOT}_{it}$",
+      "$\\phi_i$",
+      "$\\tau_{pt}$",
+      "$\\alpha$",
+      "$\\delta$",
+      "$\\varepsilon_{ipt}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "results",
+   "heading": "Results",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "results-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Dube, Lester and Reich 2010 minimum wage effects on earnings and employment.png",
+       "alt": "Table - Dube, Lester and Reich 2010 minimum wage effects on earnings and employment"
+      },
+      {
+       "t": "table",
+       "md": "| Specification | Earnings | Employment |\n| --- | --- | --- |\n| (1) All counties, common time effects | 0.224 | −0.211 |\n| (2) + census division × period | 0.204 | −0.028 |\n| (3) + state trends | 0.219 | 0.054 |\n| (5) Border pairs, common time effects | 0.232 | −0.137 |\n| (6) Border pairs, pair × period | 0.200 | 0.057 |"
+      },
+      {
+       "t": "prose",
+       "md": "Dynamic (leads and lags) estimates show no pre-trends with local controls and no employment decline after increases."
+      }
+     ],
+     "words": 67,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "caveats",
+   "heading": "Caveats",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "caveats-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Neighboring counties may not share a labor market; cross-border spillovers bias toward zero.\n- Pair-by-period effects discard much variation and reduce precision.\n- Only one low-wage industry is studied in detail."
+      }
+     ],
+     "words": 32,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "in-econ-424-l8-minimum-wages-and-employment",
+   "heading": "In Econ 424 L8 Minimum Wages and Employment",
+   "role": "paper-in-lesson",
+   "steps": [
+    {
+     "id": "in-econ-424-l8-minimum-wages-and-employment-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The bridge from a single case study to a national design: it shows how the control group (all states versus neighbors) flips the employment answer, setting up Jha, Neumark and Rodriguez-Lopez's challenge."
+      }
+     ],
+     "words": 32,
+     "symbols": []
+    }
+   ],
+   "lesson": "econ-424-l8-minimum-wages-and-employment"
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Contiguous Border County Design](note:contiguous-border-county-design) · [Minimum Wage](note:minimum-wage) · [Fixed Effects Regression](note:fixed-effects-regression)"
+      }
+     ],
+     "words": 10,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,157 @@
+{
+ "slug": "lucas-1976-econometric-policy-evaluation",
+ "notation": [],
+ "sections": [
+  {
+   "id": "key-takeaways",
+   "heading": "Key takeaways",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "key-takeaways-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. **The critique.** \"Any change in policy will systematically alter the structure of econometric models\" ([Lucas Critique](note:lucas-critique)).\n2. **Forecasting under a new policy from past behavior is doomed,** because behavior depends on the policies in place and on expectations of them.\n3. **The way out:** models whose parameters are policy-invariant — preferences and technology — with expectations formed rationally."
+      }
+     ],
+     "words": 57,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "research-question",
+   "heading": "Research question",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "research-question-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Can the large macroeconometric models of the 1960s be used to compare alternative policy rules?"
+      }
+     ],
+     "words": 15,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "data-and-setting",
+   "heading": "Data and setting",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "data-and-setting-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A methodological paper with examples from consumption, investment and the Phillips curve."
+      }
+     ],
+     "words": 12,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "empirical-strategy",
+   "heading": "Empirical strategy",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "empirical-strategy-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Shows, for each example, that the estimated reduced-form coefficients are functions of the policy process the agents faced."
+      }
+     ],
+     "words": 18,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "results",
+   "heading": "Results",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "results-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Solow and Samuelson 1960 - Phillips curve menu for the US.png",
+       "alt": "Solow and Samuelson 1960 - Phillips curve menu for the US",
+       "caption": "The kind of relationship the critique targets: Solow and Samuelson's 1960 Phillips-curve menu, estimated on past US data."
+      },
+      {
+       "t": "prose",
+       "md": "Reduced-form relationships — the Phillips curve above all — shift when policy tries to exploit them. With rational expectations, systematic monetary policy cannot move real variables in Lucas's framework."
+      }
+     ],
+     "words": 45,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "caveats",
+   "heading": "Caveats",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "caveats-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- The quantitative importance of the critique is an empirical matter; some reduced forms have been fairly stable across regimes."
+      }
+     ],
+     "words": 20,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "in-econ-402a-l8-modern-macro-theory",
+   "heading": "In Econ 402A L8 Modern Macro Theory",
+   "role": "paper-in-lesson",
+   "steps": [
+    {
+     "id": "in-econ-402a-l8-modern-macro-theory-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The turning point in the lecture's history: from the neoclassical synthesis and the Phillips-curve \"menu\" to microfounded, rational-expectations models. Lucas's 1980 remark that \"Keynesian economics is dead\" captures the shift."
+      }
+     ],
+     "words": 30,
+     "symbols": []
+    }
+   ],
+   "lesson": "econ-402a-l8-modern-macro-theory"
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Lucas Critique](note:lucas-critique) · [Phillips Curve](note:phillips-curve) · [Adaptive Expectations](note:adaptive-expectations)"
+      }
+     ],
+     "words": 7,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

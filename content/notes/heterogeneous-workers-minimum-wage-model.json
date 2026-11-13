@@ -1,0 +1,97 @@
+{
+ "slug": "heterogeneous-workers-minimum-wage-model",
+ "notation": [
+  {
+   "tex": "$w_{mw}$",
+   "meaning": "Minimum wage",
+   "kind": "Policy",
+   "typical": "5.05 in New Jersey, 1992",
+   "keys": [
+    "w"
+   ],
+   "from": "minimum-wage"
+  },
+  {
+   "tex": "$A_i$",
+   "meaning": "Ability (output per hour) of worker $i$",
+   "kind": "Worker attribute",
+   "typical": "10 to 50 in the example",
+   "keys": [
+    "A"
+   ],
+   "from": "minimum-wage"
+  },
+  {
+   "tex": "$p$",
+   "meaning": "Output price",
+   "kind": "Parameter",
+   "typical": "1",
+   "keys": [
+    "p"
+   ],
+   "from": "minimum-wage"
+  },
+  {
+   "tex": "$\\beta$",
+   "meaning": "Worker's share of the revenue she produces",
+   "kind": "Parameter in [0, 1]",
+   "typical": "0.5",
+   "keys": [
+    "beta"
+   ],
+   "from": "minimum-wage"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "minimum-wage-with-heterogeneous-workers"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$w_{mw}$",
+      "$A_i$",
+      "$p$",
+      "$\\beta$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The model behind [Minimum Wage with Heterogeneous Workers](note:minimum-wage-with-heterogeneous-workers). Place that view, not this note."
+      },
+      {
+       "t": "prose",
+       "md": "- **Model.** The lecture's Theory III ([Minimum Wage](note:minimum-wage)): worker $i$ produces $A_i$ and is paid $\\beta p A_i$; with a floor, an employed worker earns $\\max\\{\\beta p A_i, w_{mw}\\}$ and is hired only if $pA_i \\ge w_{mw}$. Abilities are uniform between $A_{min}$ and $A_{max}$ so that shares can be read off.\n- **Tests.** Python."
+      }
+     ],
+     "words": 54,
+     "symbols": [
+      "$w_{mw}$",
+      "$A_i$",
+      "$p$",
+      "$\\beta$"
+     ]
+    }
+   ]
+  }
+ ]
+}

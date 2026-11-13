@@ -1,0 +1,125 @@
+{
+ "slug": "monopsony-and-minimum-wage-explorer",
+ "notation": [
+  {
+   "tex": "$L$",
+   "meaning": "Employment (workers or hours)",
+   "kind": "Choice",
+   "typical": "266.7 at the monopsony optimum in the example",
+   "keys": [
+    "L"
+   ],
+   "from": "monopsony"
+  },
+  {
+   "tex": "$w(L)$",
+   "meaning": "Inverse labor supply: the wage needed to attract $L$ workers",
+   "kind": "Function",
+   "typical": "$4 + L/50$ in the example",
+   "keys": [
+    "w"
+   ],
+   "from": "monopsony"
+  },
+  {
+   "tex": "$p\\,q'(L)$",
+   "meaning": "Marginal revenue product of labor (MRP)",
+   "kind": "Function",
+   "typical": "$20 - L/50$ in the example",
+   "keys": [
+    "~pq'(L)"
+   ],
+   "from": "monopsony"
+  },
+  {
+   "tex": "$a$, $b$",
+   "meaning": "Intercept and slope of inverse supply, $w(L) = a + bL$",
+   "kind": "Parameters",
+   "typical": "4, 0.02",
+   "keys": [
+    "a",
+    "b"
+   ],
+   "from": "monopsony"
+  },
+  {
+   "tex": "$c$, $d$",
+   "meaning": "Intercept and slope of the MRP, $c - dL$",
+   "kind": "Parameters",
+   "typical": "20, 0.02",
+   "keys": [
+    "c",
+    "d"
+   ],
+   "from": "monopsony"
+  },
+  {
+   "tex": "$MC$",
+   "meaning": "Marginal cost of labor, $w(L) + L\\,w'(L)$",
+   "kind": "Function",
+   "typical": "$4 + 2L/50$",
+   "keys": [
+    "~MC"
+   ],
+   "from": "monopsony"
+  },
+  {
+   "tex": "$p$",
+   "meaning": "Output price",
+   "kind": "Parameter",
+   "typical": "1",
+   "keys": [
+    "p"
+   ],
+   "from": "minimum-wage"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "monopsony-and-minimum-wage-explorer"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$L$",
+      "$w(L)$",
+      "$p\\,q'(L)$",
+      "$a$, $b$",
+      "$c$, $d$",
+      "$MC$",
+      "$p$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Purpose.** See why a minimum wage can raise employment under monopsony: once the wage is fixed by law, hiring one more worker no longer raises everyone's wage, so the firm's marginal cost of labor is the floor itself. Then see where that stops: above the competitive wage the floor cuts employment.\n- **Model.** A view of [Monopsony Minimum Wage Model](note:monopsony-minimum-wage-model).\n- **Elements.** Panel `market`: curves `supply`, `mc`, `mrp`; points `mon`, `eff`, `now` (draggable vertically, bound to `wmw`); line `floor`. Panel `employment`: curve `empcurve` (swept over `wmw`). Readouts `Lmw_out`, `w_out`, `gain_out`.\n- **Goal it supports.** `abs(Lmw - Leff) < 1`: met only at $w_{mw} = 12$ on the 0.5 grid.\n- **Tests.** Python."
+      }
+     ],
+     "words": 114,
+     "symbols": [
+      "$w(L)$"
+     ]
+    }
+   ]
+  }
+ ]
+}

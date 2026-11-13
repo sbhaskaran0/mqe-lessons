@@ -187,6 +187,29 @@
    ]
   },
   {
+   "id": "the-phillips-curve-as-a-policy-menu",
+   "heading": "The Phillips curve as a policy menu",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-phillips-curve-as-a-policy-menu-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Samuelson and Solow (1960) replicated Phillips's relationship on US data and presented it as a \"menu of choice\" for policy: lower unemployment could be bought with higher inflation (in their figure, roughly 3% unemployment with 4–5% inflation, or price stability with 5–6% unemployment). Friedman and Phelps argued instead that the economy returns to a **natural rate of unemployment** in the long run — the rate \"ground out by the Walrasian system of general equilibrium equations\" given the structure of the labor and goods markets — so higher inflation lowers unemployment only until expectations adjust. Trying to exploit the menu shifts the curve: an instance of the [Lucas Critique](note:lucas-critique)."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Solow and Samuelson 1960 - Phillips curve menu for the US.png",
+       "alt": "Solow and Samuelson 1960 - Phillips curve menu for the US"
+      }
+     ],
+     "words": 108,
+     "symbols": []
+    }
+   ]
+  },
+  {
    "id": "worked-example",
    "heading": "Worked example",
    "role": "depth",
@@ -260,10 +283,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "- [IS-MP-PC Model](note:is-mp-pc-model) · [Adaptive Expectations](note:adaptive-expectations) · [Monetary Policy Rule](note:monetary-policy-rule)"
+       "md": "- [IS-MP-PC Model](note:is-mp-pc-model) · [Adaptive Expectations](note:adaptive-expectations) · [Monetary Policy Rule](note:monetary-policy-rule)\n- [Lucas Critique](note:lucas-critique) · [New Keynesian Model](note:new-keynesian-model) — the New Keynesian Phillips curve derives the relationship from price-setting firms"
       }
      ],
-     "words": 8,
+     "words": 25,
      "symbols": []
     }
    ]

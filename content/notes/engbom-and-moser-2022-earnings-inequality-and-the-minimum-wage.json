@@ -1,0 +1,156 @@
+{
+ "slug": "engbom-and-moser-2022-earnings-inequality-and-the-minimum-wage",
+ "notation": [],
+ "sections": [
+  {
+   "id": "key-takeaways",
+   "heading": "Key takeaways",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "key-takeaways-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. **A larger, more persistent experiment.** Brazil's real minimum wage rose 128% over 1996–2018, far more than any US change.\n2. **Inequality fell with it.** The standard deviation of log earnings fell from ≈ 0.86 to ≈ 0.67; its correlation with the real minimum is −0.973.\n3. **Bottom first, and more in poor states.** P50/P10 fell much more than P90/P50, and more in low-income states where the minimum bites.\n4. **Effects reach far up.** Marginal effects decline from ≈ 0.55 at the 10th percentile to zero near the median (relative to P50), and stay positive up to about the 80th percentile relative to P90."
+      }
+     ],
+     "words": 108,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "research-question",
+   "heading": "Research question",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "research-question-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "How much did Brazil's rising minimum wage contribute to its large decline in earnings inequality?"
+      }
+     ],
+     "words": 15,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "data-and-setting",
+   "heading": "Data and setting",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "data-and-setting-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "RAIS, Brazil's matched employer-employee administrative records, 1996–2018; males 18–54; real minimum wage from IPEA."
+      }
+     ],
+     "words": 16,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "empirical-strategy",
+   "heading": "Empirical strategy",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "empirical-strategy-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Lee (1999) and Autor, Manning and Smith (2016) regressions of percentile gaps on the effective minimum across Brazil's 27 states, with state effects and trends; IV results are similar in this setting. (Beyond the lecture: the paper also builds an equilibrium job-ladder model with firm heterogeneity to quantify spillovers.)"
+      }
+     ],
+     "words": 49,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "results",
+   "heading": "Results",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "results-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "See [Brazil Minimum Wage and Earnings Inequality 1996-2018](note:brazil-minimum-wage-and-earnings-inequality-1996-2018) for the figures."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Engbom and Moser 2022 - minimum wage effects by percentile.png",
+       "alt": "Engbom and Moser 2022 - minimum wage effects by percentile"
+      }
+     ],
+     "words": 11,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "caveats",
+   "heading": "Caveats",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "caveats-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Brazil's large informal sector is outside RAIS, so formal-sector inequality may fall partly through composition.\n- National changes identified through regional bite share the assumptions of Lee's approach."
+      }
+     ],
+     "words": 29,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "in-econ-424-l9-minimum-wages-and-wage-inequality",
+   "heading": "In Econ 424 L9 Minimum Wages and Wage Inequality",
+   "role": "paper-in-lesson",
+   "steps": [
+    {
+     "id": "in-econ-424-l9-minimum-wages-and-wage-inequality-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The same tools applied where minimum-wage changes were larger and more persistent: the link between the minimum and inequality is much stronger, and effects spread higher up the distribution."
+      }
+     ],
+     "words": 29,
+     "symbols": []
+    }
+   ],
+   "lesson": "econ-424-l9-minimum-wages-and-wage-inequality"
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Effective Minimum Wage](note:effective-minimum-wage) · [Brazil Minimum Wage and Earnings Inequality 1996-2018](note:brazil-minimum-wage-and-earnings-inequality-1996-2018) · [Minimum Wage](note:minimum-wage)"
+      }
+     ],
+     "words": 13,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

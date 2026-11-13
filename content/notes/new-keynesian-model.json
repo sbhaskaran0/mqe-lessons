@@ -1,0 +1,163 @@
+{
+ "slug": "new-keynesian-model",
+ "notation": [],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The real business cycle model assumes competitive markets where prices adjust instantly, so money and monetary policy cannot affect output. Real economies look different: firms have some power to set their own prices, and they change them only occasionally — wages in particular barely ever fall. New Keynesian models put both features into the same optimizing framework. Because firms cannot all reset prices right away, a change in the interest rate moves spending and output, not just prices, so a central bank can stabilize the economy. The result boils down to three equations very like the IS-MP-PC model of this course, except that each is derived from households' and firms' optimization. Newer versions replace the single representative household with many different ones, so the model can speak to inequality."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the framework central banks use for forecasting and policy (for example the New York Fed's DSGE model), and it explains why monetary policy has real effects.",
+       "folded": false
+      }
+     ],
+     "words": 159,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "ingredients",
+   "heading": "Ingredients",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "ingredients-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Monopolistic competition (Dixit and Stiglitz 1977):** a constant-elasticity-of-substitution demand system; each firm sets its price at a constant markup over marginal cost.\n- **Sticky prices or wages:** not every firm can change its price each period — modeled as a random draw (Calvo pricing) or as a cost of changing prices (\"menu costs\").\n- **Policy:** imperfect competition plus stickiness make monetary policy non-neutral, so a Taylor-type rule matters."
+      }
+     ],
+     "words": 68,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "the-three-equations",
+   "heading": "The three equations",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-three-equations-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Equation | Relationship | Counterpart in this course |\n| --- | --- | --- |\n| New Keynesian Phillips curve | Output and inflation | [Phillips Curve](note:phillips-curve) |\n| IS curve (consumption Euler equation) | Interest rates and consumption (output) | [IS Curve](note:is-curve), [Consumption Euler Equation](note:consumption-euler-equation) |\n| Monetary policy rule (Taylor rule) | The central bank sets the interest rate | [Monetary Policy Rule](note:monetary-policy-rule) |"
+      },
+      {
+       "t": "prose",
+       "md": "The difference from the [IS-MP-PC Model](note:is-mp-pc-model) of class: each equation is derived from an optimization problem."
+      }
+     ],
+     "words": 64,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "evidence-for-sticky-wages",
+   "heading": "Evidence for sticky wages",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "evidence-for-sticky-wages-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Distribution of 12-month log wage changes 2006 and 2011.png",
+       "alt": "Distribution of 12-month log wage changes 2006 and 2011",
+       "caption": "A spike at exactly zero in 12-month wage changes, and few cuts, even in 2011 after the Great Recession (CPS)."
+      }
+     ],
+     "words": 20,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "representative-agents-and-hank",
+   "heading": "Representative agents and HANK",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "representative-agents-and-hank-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Kirman (1992):** the representative individual can prefer situation a to situation b while every individual it \"represents\" strictly prefers b to a; and a single agent cannot answer questions about distribution.\n- **HANK (Heterogeneous Agent New Keynesian) models** (Kaplan, Moll, Violante and others, mid-2010s) replace the representative household with a continuum of households differing in income and wealth — the frontier of macro research."
+      }
+     ],
+     "words": 64,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Calling it \"Keynesian\" in the IS-LM sense.** It is a rational-expectations DSGE model; the Keynesian part is the price stickiness."
+      }
+     ],
+     "words": 21,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Central-bank forecasting and policy analysis; the macro effects of inequality (HANK)."
+      }
+     ],
+     "words": 12,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [IS-MP-PC Model](note:is-mp-pc-model) · [Real Business Cycle Model](note:real-business-cycle-model) · [Phillips Curve](note:phillips-curve) · [Monetary Policy Rule](note:monetary-policy-rule) · [Lucas Critique](note:lucas-critique)"
+      }
+     ],
+     "words": 14,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

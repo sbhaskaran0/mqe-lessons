@@ -1,0 +1,164 @@
+{
+ "slug": "card-and-krueger-2000-minimum-wages-and-employment-reply",
+ "notation": [],
+ "sections": [
+  {
+   "id": "key-takeaways",
+   "heading": "Key takeaways",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "key-takeaways-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. **Same question, better data.** Employer-reported unemployment-insurance payroll records (BLS ES-202) replace the telephone survey, removing survey error, for all covered restaurants in the same chains.\n2. **Still no effect.** The New Jersey–Pennsylvania employment differential is small and insignificant: 0.225 (1.029) in levels, 0.009 (0.029) proportionally, with chain controls.\n3. **A second experiment.** In October 1996 the federal minimum rose and bound in Pennsylvania but not in New Jersey; employment in the two states again moved together through 1997."
+      }
+     ],
+     "words": 84,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "research-question",
+   "heading": "Research question",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "research-question-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Do the 1994 findings survive a critique based on payroll data collected by others?"
+      }
+     ],
+     "words": 14,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "data-and-setting",
+   "heading": "Data and setting",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "data-and-setting-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Two samples from the ES-202 files: a longitudinal file of a fixed set of establishments, 1992–93 (closest to the original design), and repeated cross-sections from late 1991 to 1997, which include store entry and a longer horizon. Pennsylvania controls: the original 7 counties or 14 counties."
+      }
+     ],
+     "words": 47,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "empirical-strategy",
+   "heading": "Empirical strategy",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "empirical-strategy-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The same [Difference-in-Differences](note:difference-in-differences) regressions of the change in employment on a New Jersey indicator, with chain and subunit dummies; robustness to closed stores, outliers, the shore, and timing."
+      }
+     ],
+     "words": 28,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "results",
+   "heading": "Results",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "results-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Card and Krueger 2000 basic regression results.png",
+       "alt": "Table - Card and Krueger 2000 basic regression results"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    },
+    {
+     "id": "results-2",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Card and Krueger 2000 - fast-food employment in NJ and PA 1991-1997.png",
+       "alt": "Card and Krueger 2000 - fast-food employment in NJ and PA 1991-1997"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "caveats",
+   "heading": "Caveats",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "caveats-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Still a two-state comparison; correlated state-level shocks remain the main threat.\n- Payroll \"reporting units\" can bundle several restaurants."
+      }
+     ],
+     "words": 20,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "in-econ-424-l8-minimum-wages-and-employment",
+   "heading": "In Econ 424 L8 Minimum Wages and Employment",
+   "role": "paper-in-lesson",
+   "steps": [
+    {
+     "id": "in-econ-424-l8-minimum-wages-and-employment-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Closes the New Jersey case study: with independent data and a reverse experiment in 1996, the result holds. The lecture's verdict: substantial increases had no differential employment effect but raised starting wages and prices — while noting how hard it is to rule out confounding with two states."
+      }
+     ],
+     "words": 47,
+     "symbols": []
+    }
+   ],
+   "lesson": "econ-424-l8-minimum-wages-and-employment"
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Card and Krueger 1994 - Minimum Wages and Employment](note:card-and-krueger-1994-minimum-wages-and-employment) · [New Jersey Fast-Food Employment After the 1992 Minimum Wage Increase](note:new-jersey-fast-food-employment-after-the-1992-minimum-wage-increase) · [Quarterly Census of Employment and Wages (QCEW)](note:quarterly-census-of-employment-and-wages-qcew)"
+      }
+     ],
+     "words": 27,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

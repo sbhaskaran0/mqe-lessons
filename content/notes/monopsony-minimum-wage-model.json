@@ -1,0 +1,132 @@
+{
+ "slug": "monopsony-minimum-wage-model",
+ "notation": [
+  {
+   "tex": "$L$",
+   "meaning": "Employment (workers or hours)",
+   "kind": "Choice",
+   "typical": "266.7 at the monopsony optimum in the example",
+   "keys": [
+    "L"
+   ],
+   "from": "monopsony"
+  },
+  {
+   "tex": "$w(L)$",
+   "meaning": "Inverse labor supply: the wage needed to attract $L$ workers",
+   "kind": "Function",
+   "typical": "$4 + L/50$ in the example",
+   "keys": [
+    "w"
+   ],
+   "from": "monopsony"
+  },
+  {
+   "tex": "$p\\,q'(L)$",
+   "meaning": "Marginal revenue product of labor (MRP)",
+   "kind": "Function",
+   "typical": "$20 - L/50$ in the example",
+   "keys": [
+    "~pq'(L)"
+   ],
+   "from": "monopsony"
+  },
+  {
+   "tex": "$a$, $b$",
+   "meaning": "Intercept and slope of inverse supply, $w(L) = a + bL$",
+   "kind": "Parameters",
+   "typical": "4, 0.02",
+   "keys": [
+    "a",
+    "b"
+   ],
+   "from": "monopsony"
+  },
+  {
+   "tex": "$c$, $d$",
+   "meaning": "Intercept and slope of the MRP, $c - dL$",
+   "kind": "Parameters",
+   "typical": "20, 0.02",
+   "keys": [
+    "c",
+    "d"
+   ],
+   "from": "monopsony"
+  },
+  {
+   "tex": "$MC$",
+   "meaning": "Marginal cost of labor, $w(L) + L\\,w'(L)$",
+   "kind": "Function",
+   "typical": "$4 + 2L/50$",
+   "keys": [
+    "~MC"
+   ],
+   "from": "monopsony"
+  },
+  {
+   "tex": "$p$",
+   "meaning": "Output price",
+   "kind": "Parameter",
+   "typical": "1",
+   "keys": [
+    "p"
+   ],
+   "from": "minimum-wage"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "monopsony-and-minimum-wage-explorer"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$L$",
+      "$w(L)$",
+      "$p\\,q'(L)$",
+      "$a$, $b$",
+      "$c$, $d$",
+      "$MC$",
+      "$p$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The model behind [Monopsony and Minimum Wage Explorer](note:monopsony-and-minimum-wage-explorer). Place that view, not this note."
+      },
+      {
+       "t": "prose",
+       "md": "- **Model.** [Monopsony](note:monopsony): inverse supply $w(L) = a + bL$, marginal cost $a + 2bL$, MRP $c - dL$. Without a floor the firm hires where MC = MRP; a floor $w_{mw}$ between $w_{mon}$ and $w_{eff}$ moves employment up the supply curve, and above $w_{eff}$ down the MRP curve ([Minimum Wage](note:minimum-wage)).\n- **Numbers.** Illustrative, not from the lecture. Tests computed in Python; the employment-maximizing floor (12) checked by numerical maximization."
+      }
+     ],
+     "words": 68,
+     "symbols": [
+      "$L$",
+      "$w(L)$",
+      "$a$, $b$",
+      "$c$, $d$"
+     ]
+    }
+   ]
+  }
+ ]
+}

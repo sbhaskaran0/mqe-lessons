@@ -1,0 +1,239 @@
+{
+ "slug": "vector-autoregression",
+ "notation": [
+  {
+   "tex": "$x_{i,t}$",
+   "meaning": "Variable $i$ in period $t$ (e.g. inflation, unemployment, interest rate)",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "x"
+   ]
+  },
+  {
+   "tex": "$c_i$",
+   "meaning": "Constant in equation $i$",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "c"
+   ]
+  },
+  {
+   "tex": "$\\beta_{ij}$",
+   "meaning": "Effect of last period's variable $j$ on variable $i$",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$\\varepsilon_{i,t}$",
+   "meaning": "Shock (innovation) to equation $i$",
+   "kind": "Error",
+   "typical": "—",
+   "keys": [
+    "varepsilon"
+   ]
+  },
+  {
+   "tex": "$k$",
+   "meaning": "Number of variables",
+   "kind": "Choice",
+   "typical": "2–6",
+   "keys": [
+    "k"
+   ]
+  },
+  {
+   "tex": "$p$",
+   "meaning": "Number of lags",
+   "kind": "Choice",
+   "typical": "—",
+   "keys": [
+    "p"
+   ]
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Large macro models of the 1960s decided in advance which variables explain which: consumption depends on this list, labor supply on that one. Christopher Sims argued that those choices were mostly guesswork, and that once expectations are taken seriously almost anything can affect almost anything — reading about a frost in Brazil can make US consumers stockpile coffee before prices move. His alternative was to stop deciding: let every variable depend on the recent past of every variable, including itself. That system is a vector autoregression. Its individual coefficients are hard to interpret, so researchers instead trace out what happens to every variable after a one-time surprise in one of them, and ask how much of each variable's unpredictable movement comes from each kind of surprise."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "VARs are the standard data-first tool of empirical macroeconomics, used to measure how inflation, unemployment and interest rates respond to shocks such as monetary-policy surprises.",
+       "folded": false
+      }
+     ],
+     "words": 153,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A two-variable VAR with one lag:"
+      },
+      {
+       "t": "math",
+       "tex": "x_{1,t} = c_1 + \\beta_{11}x_{1,t-1} + \\beta_{12}x_{2,t-1} + \\varepsilon_{1,t}"
+      },
+      {
+       "t": "math",
+       "tex": "x_{2,t} = c_2 + \\beta_{21}x_{1,t-1} + \\beta_{22}x_{2,t-1} + \\varepsilon_{2,t}"
+      },
+      {
+       "t": "prose",
+       "md": "With $k$ variables and $p$ lags each equation has $kp$ slope coefficients plus a constant, so the system has $k^2p + k$ parameters: 186 for $k = 6$, $p = 5$. With stationary data each equation is estimated by OLS."
+      }
+     ],
+     "words": 34,
+     "symbols": [
+      "$x_{i,t}$",
+      "$c_i$",
+      "$\\beta_{ij}$",
+      "$\\varepsilon_{i,t}$",
+      "$k$",
+      "$p$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "reading-a-var",
+   "heading": "Reading a VAR",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "reading-a-var-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Impulse response function (IRF):** shock one equation's error once and plot the path of every variable using the estimated coefficients.\n- **Forecast error variance decomposition (FEVD):** the share of each variable's forecast-error variance due to its own shocks versus shocks to the others — is inflation driven by past inflation shocks or by shocks to other variables?\n- **Granger causality:** $X$ Granger-causes $Y$ if past $X$ helps predict $Y$ beyond what past $Y$ predicts. This is predictive, not true causality: if the central bank responds to high inflation by raising interest rates, the data may show inflation Granger-causing interest rates, even though the causal effect that matters runs from rates to inflation (higher rates lower inflation). A structural model is needed for causality."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Stock and Watson 2001 - impulse responses in the inflation-unemployment-interest rate VAR.png",
+       "alt": "Stock and Watson 2001 - impulse responses in the inflation-unemployment-interest rate VAR",
+       "caption": "Impulse responses in a recursive inflation–unemployment–interest rate VAR, with confidence bands (Stock and Watson 2001)."
+      }
+     ],
+     "words": 135,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "steps",
+   "heading": "Steps",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "steps-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Test each series for stationarity (ADF and KPSS; [Stationarity and Unit Roots](note:stationarity-and-unit-roots)).\n2. If needed, difference to make it stationary.\n3. Choose the lag length (ACF/PACF plots or information criteria; [Model Selection Criteria](note:model-selection-criteria)).\n4. Estimate; plot impulse responses; compute Granger causality and the FEVD."
+      }
+     ],
+     "words": 46,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "reduced-form-and-structural-vars",
+   "heading": "Reduced form and structural VARs",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "reduced-form-and-structural-vars-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The VAR above is a **reduced-form** VAR: its shocks are usually correlated across equations, so \"a shock to inflation alone\" is not well defined. A **structural VAR (SVAR)** imposes restrictions from theory (for example, an ordering in which the interest rate responds within the period to inflation but not vice versa) so that shocks are uncorrelated and the effect of a specific shock can be isolated."
+      }
+     ],
+     "words": 66,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Interpreting single coefficients as effects \"holding all else constant\".** All variables are endogenous; use impulse responses.\n- **Too many variables.** Parameters grow with $k^2$; most VARs use a handful of variables to keep degrees of freedom.\n- **Thinking VARs escape the Lucas critique.** They are estimated on past data under past policy, so they do not ([Lucas Critique](note:lucas-critique))."
+      }
+     ],
+     "words": 58,
+     "symbols": [
+      "$k$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Monetary policy shocks, fiscal multipliers, oil shocks; macro forecasting."
+      }
+     ],
+     "words": 10,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Autoregressive Model](note:autoregressive-model) · [Stationarity and Unit Roots](note:stationarity-and-unit-roots) · [Endogenous and Exogenous Variables](note:endogenous-and-exogenous-variables) · [Lucas Critique](note:lucas-critique) · [Model Selection Criteria](note:model-selection-criteria)\n- Paper: [Sims 1980 - Macroeconomics and Reality](note:sims-1980-macroeconomics-and-reality)\n- Paper: [Stock and Watson 2001 - Vector Autoregressions](note:stock-and-watson-2001-vector-autoregressions)"
+      }
+     ],
+     "words": 33,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

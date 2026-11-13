@@ -1,0 +1,151 @@
+{
+ "slug": "new-jersey-fast-food-employment-after-the-1992-minimum-wage-increase",
+ "notation": [
+  {
+   "tex": "$A_i$",
+   "meaning": "Ability (output per hour) of worker $i$",
+   "kind": "Worker attribute",
+   "typical": "10 to 50 in the example",
+   "keys": [
+    "A"
+   ],
+   "from": "minimum-wage"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**On April 1, 1992 New Jersey raised its minimum wage from \\$4.25 to \\$5.05 (+18.8%), while Pennsylvania stayed at \\$4.25. Surveying 410 Burger King, KFC, Wendy's and Roy Rogers restaurants a month before and eight months after, Card and Krueger found full-time-equivalent employment per store rose slightly in New Jersey relative to Pennsylvania (+2.76), along with starting wages and meal prices.**"
+      }
+     ],
+     "words": 66,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "means-of-key-variables-table-2",
+   "heading": "Means of key variables (Table 2)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "means-of-key-variables-table-2-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Variable | NJ wave 1 | PA wave 1 | NJ wave 2 | PA wave 2 |\n| --- | --- | --- | --- | --- |\n| FTE employment | 20.4 | 23.3 | 21.0 | 21.2 |\n| Starting wage ($) | 4.61 | 4.63 | 5.08 | 4.62 |\n| Share paying exactly \\$4.25 (%) | 30.5 | 32.9 | 0.0 | 25.3 |\n| Share paying \\$5.05 (%) | — | — | 85.2 | 1.3 |\n| Price of a full meal ($) | 3.35 | 3.04 | 3.41 | 3.03 |"
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Card and Krueger 1994 - distribution of starting wages in NJ and PA.png",
+       "alt": "Card and Krueger 1994 - distribution of starting wages in NJ and PA",
+       "caption": "Starting wages piled up at \\$4.25 in both states in February 1992; by November 85% of New Jersey stores paid exactly \\$5.05."
+      }
+     ],
+     "words": 96,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "average-employment-per-store-table-3",
+   "heading": "Average employment per store (Table 3)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "average-employment-per-store-table-3-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| FTE employment | PA | NJ | NJ − PA | NJ, wage = \\$4.25 | NJ, \\$4.26–4.99 | NJ, ≥ \\$5.00 |\n| --- | --- | --- | --- | --- | --- | --- |\n| Before | 23.33 | 20.44 | −2.89 | 19.56 | 20.08 | 22.25 |\n| After | 21.17 | 21.03 | −0.14 | 20.88 | 20.96 | 20.21 |\n| Change | −2.16 | +0.59 | **+2.76** (1.36) | +1.32 | +0.87 | −2.04 |\n| Change, balanced sample | −2.28 | +0.47 | +2.75 (1.34) | +1.21 | +0.71 | −2.16 |"
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Card and Krueger 1994 average employment per store.png",
+       "alt": "Table - Card and Krueger 1994 average employment per store"
+      },
+      {
+       "t": "prose",
+       "md": "Within New Jersey, low-wage stores (most affected) gained 3.36 FTE relative to high-wage stores, which the increase did not touch."
+      }
+     ],
+     "words": 104,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "regressions-tables-4-and-7",
+   "heading": "Regressions (Tables 4 and 7)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "regressions-tables-4-and-7-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Dependent variable | NJ dummy | Initial wage gap |\n| --- | --- | --- |\n| Change in FTE employment, no controls | 2.33 (1.19) | 15.65 (6.08) |\n| … with chain and ownership controls | 2.30 (1.20) | 14.92 (6.21) |\n| Change in log meal price, with controls | 0.037 (0.014) | 0.146 (0.074) |"
+      },
+      {
+       "t": "prose",
+       "md": "The wage gap is $GAP_i = (5.05 - W_{1i})/W_{1i}$ for New Jersey stores below \\$5.05 and 0 otherwise; it predicts the actual proportional wage change well ($R^2 = 0.75$)."
+      }
+     ],
+     "words": 74,
+     "symbols": [
+      "$A_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "reanalysis-with-administrative-data-card-and-krueger-2000",
+   "heading": "Reanalysis with administrative data (Card and Krueger 2000)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "reanalysis-with-administrative-data-card-and-krueger-2000-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With BLS ES-202 payroll records for the same chains ([Quarterly Census of Employment and Wages (QCEW)](note:quarterly-census-of-employment-and-wages-qcew)), the New Jersey–Pennsylvania employment differential is small and insignificant: 0.225 (1.029) in levels with controls, 0.009 (0.029) proportionally. Over 1991–1997, the 1996 federal increase bound in Pennsylvania but not New Jersey, and again employment moved together."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Card and Krueger 2000 - fast-food employment in NJ and PA 1991-1997.png",
+       "alt": "Card and Krueger 2000 - fast-food employment in NJ and PA 1991-1997"
+      }
+     ],
+     "words": 58,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Difference-in-Differences](note:difference-in-differences) · [Minimum Wage](note:minimum-wage)\n- Paper: [Card and Krueger 1994 - Minimum Wages and Employment](note:card-and-krueger-1994-minimum-wages-and-employment)\n- Paper: [Card and Krueger 2000 - Minimum Wages and Employment Reply](note:card-and-krueger-2000-minimum-wages-and-employment-reply)"
+      }
+     ],
+     "words": 27,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

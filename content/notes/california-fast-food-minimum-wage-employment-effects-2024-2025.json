@@ -1,0 +1,134 @@
+{
+ "slug": "california-fast-food-minimum-wage-employment-effects-2024-2025",
+ "notation": [],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**AB 1228, enacted in September 2023, raised the wage floor for large fast-food chains to \\$20 an hour on April 1, 2024, when the general state minimum was \\$16: a 25% increase, to about 77% of the state's median hourly wage. Limited-service restaurant earnings rose about 7 log points relative to states at the \\$7.25 federal minimum. The employment estimate depends heavily on how the counterfactual is built.**"
+      }
+     ],
+     "words": 69,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "dube-2026-qcew-limited-service-restaurants",
+   "heading": "Dube (2026): QCEW, limited-service restaurants",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "dube-2026-qcew-limited-service-restaurants-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Method | Earnings | Employment | Own-wage elasticity |\n| --- | --- | --- | --- |\n| Conventional DiD | +7.50 (0.81) | −1.39 (0.44) | −0.19 (0.06) |\n| Synthetic DiD | +6.99 (0.71) | −0.26 (0.54) | −0.04 (0.08) |"
+      },
+      {
+       "t": "prose",
+       "md": "Log points (≈ percent), average of 2024Q2–2025Q3 relative to 2023Q4; standard errors in parentheses. Conventional triple-difference estimates range from −0.38 to −2.19 depending on the comparison industry; synthetic triple differences are all close to zero."
+      }
+     ],
+     "words": 74,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "dube-2026-qwi-with-worker-flows",
+   "heading": "Dube (2026): QWI, with worker flows",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "dube-2026-qwi-with-worker-flows-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Method | Earnings | Employment | Separation rate |\n| --- | --- | --- | --- |\n| Conventional DiD | +7.62 | −0.34 | −12.74 |\n| Synthetic DiD | +5.60 | +0.74 | −18.97 |"
+      },
+      {
+       "t": "prose",
+       "md": "Average of 2024Q2–2024Q4 relative to 2023Q4. Across 16 QWI specifications employment ranges from about −0.6% to +1.7% (12 of 16 non-negative). Dube's reading: higher pay reduced quits, helping firms retain workers."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Dube 2026 - synthetic control for California fast-food employment.png",
+       "alt": "Dube 2026 - synthetic control for California fast-food employment"
+      }
+     ],
+     "words": 59,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "clemens-edwards-meer-and-nguyen-2026-1-440-synthetic-californias",
+   "heading": "Clemens, Edwards, Meer and Nguyen (2026): 1,440 synthetic Californias",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "clemens-edwards-meer-and-nguyen-2026-1-440-synthetic-californias-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Crossing data source (QCEW, QWI), donor pool (20 federal-minimum states or all 48), outcome (5 definitions), seasonal adjustment (3), trend adjustment (3) and matching window (5) gives 900 SDID and 540 synthetic-control specifications through 2025Q4."
+      },
+      {
+       "t": "table",
+       "md": "| Panel | Median employment effect |\n| --- | --- |\n| QCEW, SDID | −3.58% |\n| QWI, SDID | −2.90% |\n| QCEW, SC | −3.12% |\n| QWI, SC | −2.43% |"
+      },
+      {
+       "t": "prose",
+       "md": "96.3% of the estimates are negative (53 of 1,440 positive). Detrending matters most: relative to no detrending, annual detrending shifts the median by −2.15 to −2.98 percentage points; but even without detrending the median two-year SDID estimate is −2.83%."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Clemens, Edwards, Meer and Nguyen 2026 - distribution of 1,440 employment estimates.png",
+       "alt": "Clemens, Edwards, Meer and Nguyen 2026 - distribution of 1,440 employment estimates"
+      }
+     ],
+     "words": 101,
+     "symbols": []
+    },
+    {
+     "id": "clemens-edwards-meer-and-nguyen-2026-1-440-synthetic-californias-2",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Clemens, Edwards, Meer and Nguyen 2026 how specification choices move the estimate.png",
+       "alt": "Table - Clemens, Edwards, Meer and Nguyen 2026 how specification choices move the estimate"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Synthetic Control](note:synthetic-control) · [Minimum Wage](note:minimum-wage) · [Quarterly Census of Employment and Wages (QCEW)](note:quarterly-census-of-employment-and-wages-qcew)\n- Paper: [Dube 2026 - California Fast-Food Minimum Wage](note:dube-2026-california-fast-food-minimum-wage)\n- Paper: [Clemens, Edwards, Meer and Nguyen 2026 - Synthetic Controls for the California Fast-Food Minimum Wage](note:clemens-edwards-meer-and-nguyen-2026-synthetic-controls-for-the-california-fast-food-minimum-wage)"
+      }
+     ],
+     "words": 38,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

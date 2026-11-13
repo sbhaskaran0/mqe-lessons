@@ -1,0 +1,258 @@
+{
+ "slug": "contiguous-border-county-design",
+ "notation": [
+  {
+   "tex": "$y_{ipt}$",
+   "meaning": "Restaurant employment or earnings in location $i$ of pair $p$ in quarter $t$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "y"
+   ]
+  },
+  {
+   "tex": "$MW_{it}$",
+   "meaning": "Minimum wage in force in $i$",
+   "kind": "Policy",
+   "typical": "—",
+   "keys": [
+    "~MW_it"
+   ]
+  },
+  {
+   "tex": "$\\eta$",
+   "meaning": "Minimum-wage elasticity of employment (or earnings)",
+   "kind": "Parameter",
+   "typical": "≈ 0 for employment, 0.2 for earnings (DLR)",
+   "keys": [
+    "eta"
+   ]
+  },
+  {
+   "tex": "$y^{TOT}_{it}$",
+   "meaning": "Total private-sector employment (or earnings) control",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "~y^TOT_it"
+   ]
+  },
+  {
+   "tex": "$\\phi_i$",
+   "meaning": "Location fixed effect",
+   "kind": "Fixed effect",
+   "typical": "—",
+   "keys": [
+    "phi"
+   ]
+  },
+  {
+   "tex": "$\\tau_{pt}$",
+   "meaning": "Pair-by-period fixed effect",
+   "kind": "Fixed effect",
+   "typical": "—",
+   "keys": [
+    "tau"
+   ]
+  },
+  {
+   "tex": "$\\tau_t$",
+   "meaning": "Common period fixed effect (national approach)",
+   "kind": "Fixed effect",
+   "typical": "—",
+   "keys": [
+    "tau"
+   ]
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "Intercept",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "alpha"
+   ]
+  },
+  {
+   "tex": "$\\delta$",
+   "meaning": "Coefficient on total employment (or earnings)",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "delta"
+   ]
+  },
+  {
+   "tex": "$\\varepsilon_{ipt}$",
+   "meaning": "Error term",
+   "kind": "Error",
+   "typical": "—",
+   "keys": [
+    "varepsilon"
+   ]
+  },
+  {
+   "tex": "$p$",
+   "meaning": "Output price",
+   "kind": "Parameter",
+   "typical": "1",
+   "keys": [
+    "p"
+   ],
+   "from": "minimum-wage"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "States that raise their minimum wage differ from those that do not, and their economies may be growing at different speeds for unrelated reasons. A national comparison can then mistake those differences for minimum-wage effects. A sharper comparison uses neighbors: two counties on either side of a state line share weather, industries and local booms and busts, but face different minimum wages because they sit in different states. Comparing them period by period removes anything that hits both. The open question is whether neighboring counties really share a labor market, or whether a wider area, such as a commuting zone spanning the border, is the better unit."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the main design behind the \"no job loss\" findings for US minimum wages, and the debate over it shows how much the choice of control group drives the answer.",
+       "folded": false
+      }
+     ],
+     "words": 141,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "For location $i$ in cross-border pair $p$ at time $t$,"
+      },
+      {
+       "t": "math",
+       "tex": "\\ln y_{ipt} = \\alpha + \\eta \\ln MW_{it} + \\delta \\ln y^{TOT}_{it} + \\phi_i + \\tau_{pt} + \\varepsilon_{ipt}"
+      },
+      {
+       "t": "prose",
+       "md": "The **pair-by-period fixed effect** $\\tau_{pt}$ absorbs every shock common to the two sides of the border at time $t$, so $\\eta$ is identified only from differences in minimum wages within a pair. The national approach replaces $\\tau_{pt}$ with a common time effect $\\tau_t$."
+      }
+     ],
+     "words": 45,
+     "symbols": [
+      "$y_{ipt}$",
+      "$MW_{it}$",
+      "$\\eta$",
+      "$y^{TOT}_{it}$",
+      "$\\phi_i$",
+      "$\\tau_{pt}$",
+      "$\\tau_t$",
+      "$\\alpha$",
+      "$\\delta$",
+      "$\\varepsilon_{ipt}$",
+      "$p$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "evidence",
+   "heading": "Evidence",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "evidence-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Dube, Lester and Reich (2010):** with common time effects, the employment elasticity is −0.21 (significant): states with higher minimum wages had slower employment growth, partly for unrelated reasons (no Southern state had its own minimum wage, and the South grew fast). With census-division effects, state trends or pair-by-period effects, it is about 0 (e.g. 0.016 in the border-pair sample), while earnings rise about 0.2."
+      }
+     ],
+     "words": 69,
+     "symbols": []
+    },
+    {
+     "id": "evidence-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Jha, Neumark and Rodriguez-Lopez (2024):** two contiguous counties may have little in common, while a **commuting zone** is by definition one labor market. Using the 137 commuting zones that cross state lines and fuller County Business Patterns data, the pair estimate is −0.24 to −0.26 for commuting zones versus −0.02 to −0.08 for county pairs, and cumulative effects in commuting zones grow over time."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Dube, Lester and Reich 2010 - contiguous border county pairs.png",
+       "alt": "Dube, Lester and Reich 2010 - contiguous border county pairs"
+      }
+     ],
+     "words": 69,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Assuming neighbors are identical.** The design needs similar *changes*, not levels, and spillovers across the border (commuters, shoppers) bias the comparison toward zero.\n- **Forgetting what is thrown away.** Pair-by-period effects use only within-pair variation, so precision falls and long-run effects may be missed."
+      }
+     ],
+     "words": 45,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Labor and public economics: minimum wages, state taxes, unemployment insurance, any state policy with sharp borders."
+      }
+     ],
+     "words": 17,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Difference-in-Differences](note:difference-in-differences) · [Fixed Effects Regression](note:fixed-effects-regression) · [Commuting Zone](note:commuting-zone) · [Minimum Wage](note:minimum-wage)\n- Paper: [Dube, Lester and Reich 2010 - Minimum Wage Effects Across State Borders](note:dube-lester-and-reich-2010-minimum-wage-effects-across-state-borders)\n- Paper: [Jha, Neumark and Rodriguez-Lopez 2024 - Re-Evaluating the Cross-Border Evidence](note:jha-neumark-and-rodriguez-lopez-2024-re-evaluating-the-cross-border-evidence)"
+      }
+     ],
+     "words": 35,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,196 @@
+{
+ "slug": "azar-et-al-2024-minimum-wage-employment-effects-and-labor-market-concentration",
+ "notation": [
+  {
+   "tex": "$HHI$",
+   "meaning": "Herfindahl-Hirschman Index",
+   "kind": "Statistic",
+   "typical": "0.25 = \"highly concentrated\" threshold",
+   "keys": [
+    "~HHI"
+   ],
+   "from": "herfindahl-hirschman-index"
+  },
+  {
+   "tex": "$\\beta$",
+   "meaning": "Worker's share of the revenue she produces",
+   "kind": "Parameter in [0, 1]",
+   "typical": "0.5",
+   "keys": [
+    "beta"
+   ],
+   "from": "minimum-wage"
+  }
+ ],
+ "sections": [
+  {
+   "id": "key-takeaways",
+   "heading": "Key takeaways",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "key-takeaways-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. **Both theories are right, in different markets.** Competitive markets should lose jobs when the minimum rises; monopsonistic ones may gain. Employer concentration sorts markets between the two.\n2. **Negative where competitive.** A 10% higher minimum lowers employment 2–3% where concentration is near zero, and by slightly less than 2% where HHI < 0.25.\n3. **Positive where concentrated.** In high-HHI markets the interaction offsets the negative effect, and the total effect is positive."
+      }
+     ],
+     "words": 74,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "research-question",
+   "heading": "Research question",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "research-question-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Why are minimum-wage employment effects often found to be about zero?"
+      }
+     ],
+     "words": 11,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "data-and-setting",
+   "heading": "Data and setting",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "data-and-setting-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Employment and weekly wages from the [Quarterly Census of Employment and Wages (QCEW)](note:quarterly-census-of-employment-and-wages-qcew) for general merchandise stores (food service does not post jobs online).\n- All federal, state and county minimum-wage changes.\n- Concentration from Burning Glass online vacancy postings: the [Herfindahl-Hirschman Index](note:herfindahl-hirschman-index) of postings for the three main minimum-wage occupations in the sector — stock clerks and order fillers, retail salespersons, cashiers (together 65% of its workforce) — by county and quarter."
+      }
+     ],
+     "words": 72,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "empirical-strategy",
+   "heading": "Empirical strategy",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "empirical-strategy-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$\\log Y_{it} = \\alpha + \\beta\\log MW_{it} + \\phi HHI_i + \\delta\\log MW_{it}\\times HHI_i + \\dots + \\gamma_i + \\tau_{ct} + \\chi_{Is}\\times t$, with county effects, census-division-by-quarter effects and state trends. A first stage checks that earnings rise (elasticity ≈ 0.09)."
+      }
+     ],
+     "words": 18,
+     "symbols": [
+      "$HHI$",
+      "$\\beta$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "results",
+   "heading": "Results",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "results-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Azar et al 2024 minimum wage effect on employment by concentration.png",
+       "alt": "Table - Azar et al 2024 minimum wage effect on employment by concentration"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    },
+    {
+     "id": "results-2",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Occupation | Log min wage | × High HHI (≥ 0.25) | Total in high-HHI markets |\n| --- | --- | --- | --- |\n| Stock clerks | −0.179 | +0.291 | +0.112 |\n| Retail sales | −0.168 | +0.432 | +0.264 |\n| Cashiers | −0.184 | +0.309 | +0.125 |"
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Azar et al 2024 - employment elasticities by HHI tercile.png",
+       "alt": "Azar et al 2024 - employment elasticities by HHI tercile"
+      },
+      {
+       "t": "prose",
+       "md": "By HHI tercile the elasticities are negative in the bottom tercile, about zero in the middle and positive in the top."
+      }
+     ],
+     "words": 60,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "caveats",
+   "heading": "Caveats",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "caveats-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Concentration is a proxy for monopsony power and depends on how markets are defined.\n- One sector (general merchandise), chosen for vacancy-posting coverage.\n- The earnings elasticity is small (≈ 0.09), so own-wage elasticities are imprecise."
+      }
+     ],
+     "words": 37,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "in-econ-424-l8-minimum-wages-and-employment",
+   "heading": "In Econ 424 L8 Minimum Wages and Employment",
+   "role": "paper-in-lesson",
+   "steps": [
+    {
+     "id": "in-econ-424-l8-minimum-wages-and-employment-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The direct test of the monopsony theory from the first part of the lecture: if employer power explains near-zero effects, effects should differ with concentration — and they do."
+      }
+     ],
+     "words": 28,
+     "symbols": []
+    }
+   ],
+   "lesson": "econ-424-l8-minimum-wages-and-employment"
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Monopsony](note:monopsony) · [Herfindahl-Hirschman Index](note:herfindahl-hirschman-index) · [Minimum Wage](note:minimum-wage)"
+      }
+     ],
+     "words": 6,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

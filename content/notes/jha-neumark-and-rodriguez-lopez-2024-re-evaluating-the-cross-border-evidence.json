@@ -1,0 +1,202 @@
+{
+ "slug": "jha-neumark-and-rodriguez-lopez-2024-re-evaluating-the-cross-border-evidence",
+ "notation": [
+  {
+   "tex": "$MW_{it}$",
+   "meaning": "Minimum wage in force in $i$",
+   "kind": "Policy",
+   "typical": "—",
+   "keys": [
+    "~MW_it"
+   ],
+   "from": "contiguous-border-county-design"
+  },
+  {
+   "tex": "$\\eta$",
+   "meaning": "Minimum-wage elasticity of employment (or earnings)",
+   "kind": "Parameter",
+   "typical": "≈ 0 for employment, 0.2 for earnings (DLR)",
+   "keys": [
+    "eta"
+   ],
+   "from": "contiguous-border-county-design"
+  },
+  {
+   "tex": "$\\beta$",
+   "meaning": "Worker's share of the revenue she produces",
+   "kind": "Parameter in [0, 1]",
+   "typical": "0.5",
+   "keys": [
+    "beta"
+   ],
+   "from": "minimum-wage"
+  }
+ ],
+ "sections": [
+  {
+   "id": "key-takeaways",
+   "heading": "Key takeaways",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "key-takeaways-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. **A better local labor market.** Two contiguous counties may have little in common; a commuting zone (CZ) is defined as one labor market. The 137 CZs that cross state lines (of 741) give 282 CZ-state units and 153 pairs.\n2. **Better data coverage.** County Business Patterns (CBP) has complete data for 1,165 of 1,181 county pairs versus 316 in the QCEW, and 151 of 153 CZ pairs versus 73.\n3. **Negative effects.** With CBP data, 1990–2016, the pair estimate of the employment elasticity is −0.24 to −0.26 for CZ pairs versus −0.02 to −0.08 for county pairs; earnings elasticities are 0.16–0.21 in both."
+      }
+     ],
+     "words": 114,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "research-question",
+   "heading": "Research question",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "research-question-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Do cross-border comparisons really show no job losses, or does it depend on what counts as \"across the border\"?"
+      }
+     ],
+     "words": 19,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "data-and-setting",
+   "heading": "Data and setting",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "data-and-setting-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Restaurant employment and earnings. Step I replicates DLR exactly and then aggregates their counties to CZs; Step II switches to CBP, imputing suppressed cells as in Autor, Dorn and Hanson; Step III estimates in differences within each pair, $\\log e_{ipt} - \\log e_{jpt} = \\beta[\\log MW_{it} - \\log MW_{jt}] + \\rho[Z_{it} - Z_{jt}] + \\eta_{ij} + \\nu_{ijt}$, avoiding two-way fixed-effects problems."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Jha, Neumark and Rodriguez-Lopez - multi-state commuting zones.png",
+       "alt": "Jha, Neumark and Rodriguez-Lopez - multi-state commuting zones"
+      }
+     ],
+     "words": 42,
+     "symbols": [
+      "$MW_{it}$",
+      "$\\eta$",
+      "$\\beta$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "results",
+   "heading": "Results",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "results-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Jha, Neumark and Rodriguez-Lopez replication of Dube, Lester and Reich.png",
+       "alt": "Table - Jha, Neumark and Rodriguez-Lopez replication of Dube, Lester and Reich"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    },
+    {
+     "id": "results-2",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Jha, Neumark and Rodriguez-Lopez pair-approach estimates.png",
+       "alt": "Table - Jha, Neumark and Rodriguez-Lopez pair-approach estimates"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    },
+    {
+     "id": "results-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Replication with DLR's own QCEW data: county pairs −0.137 to 0.057; their CZ-pair sample −0.128 to −0.212.\n- Pair approach with CBP: CZ pairs −0.242 and −0.255; county pairs −0.081 and −0.023.\n- Over sample periods ending 2006 to 2016 the CZ estimates stay around −0.29 to −0.34; cumulative effects in event time grow after increases, with no pre-trends."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Jha, Neumark and Rodriguez-Lopez - pretrends in minimum wage effects.png",
+       "alt": "Jha, Neumark and Rodriguez-Lopez - pretrends in minimum wage effects"
+      }
+     ],
+     "words": 70,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "caveats",
+   "heading": "Caveats",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "caveats-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- CBP county-industry cells are often reported as ranges and require imputation.\n- Cross-border CZs cover about 30% of US employment and may not be representative (the paper shows they track the rest of the country)."
+      }
+     ],
+     "words": 36,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "in-econ-424-l8-minimum-wages-and-employment",
+   "heading": "In Econ 424 L8 Minimum Wages and Employment",
+   "role": "paper-in-lesson",
+   "steps": [
+    {
+     "id": "in-econ-424-l8-minimum-wages-and-employment-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The counterpoint to DLR: same idea (compare places sharing local conditions), different definition of the local market and different data, opposite answer. A lesson in how sensitive \"no effect\" findings are to the control group."
+      }
+     ],
+     "words": 35,
+     "symbols": []
+    }
+   ],
+   "lesson": "econ-424-l8-minimum-wages-and-employment"
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Contiguous Border County Design](note:contiguous-border-county-design) · [Commuting Zone](note:commuting-zone) · [Minimum Wage](note:minimum-wage) · [Dube, Lester and Reich 2010 - Minimum Wage Effects Across State Borders](note:dube-lester-and-reich-2010-minimum-wage-effects-across-state-borders)"
+      }
+     ],
+     "words": 21,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

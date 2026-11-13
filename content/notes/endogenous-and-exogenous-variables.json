@@ -280,10 +280,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "- [Solow Growth Model](note:solow-growth-model) · [Strict Exogeneity](note:strict-exogeneity) · [Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls) · [Implicit Function Theorem](note:implicit-function-theorem)"
+       "md": "- [Solow Growth Model](note:solow-growth-model) · [Strict Exogeneity](note:strict-exogeneity) · [Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls) · [Implicit Function Theorem](note:implicit-function-theorem)\n- [Vector Autoregression](note:vector-autoregression) — Sims's response to arbitrary exogeneity choices: treat every variable as endogenous"
       }
      ],
-     "words": 13,
+     "words": 27,
      "symbols": []
     }
    ]

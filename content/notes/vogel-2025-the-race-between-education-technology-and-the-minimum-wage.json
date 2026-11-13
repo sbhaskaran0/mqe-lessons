@@ -1,0 +1,200 @@
+{
+ "slug": "vogel-2025-the-race-between-education-technology-and-the-minimum-wage",
+ "notation": [],
+ "sections": [
+  {
+   "id": "key-takeaways",
+   "heading": "Key takeaways",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "key-takeaways-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. **Measurement changes the answer.** Autor, Katz and Kearney used the federal minimum and a short sample; measuring the real minimum as the average across states and using 1963–2016 gives a sizable elasticity of the college premium to the real minimum wage, −0.13 to −0.20.\n2. **The 1980s.** The real minimum fell about 26% over 1979–89; with an elasticity of −0.13 that alone raised the national college premium by about 3.4%.\n3. **Revisiting the puzzle.** Out-of-sample predictions from 1987 track the post-1987 college premium better when the minimum wage is included: changes in the real minimum help resolve the puzzle of slowing trend relative demand."
+      }
+     ],
+     "words": 111,
+     "symbols": []
+    },
+    {
+     "id": "key-takeaways-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "4. **Why so large?** Few workers earn the minimum and direct spillovers are small, but in a job-ladder model the elasticity is small on impact and grows over time; state-level estimates show exactly that pattern."
+      }
+     ],
+     "words": 35,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "research-question",
+   "heading": "Research question",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "research-question-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Does the minimum wage belong in the canonical supply-demand account of the college premium?"
+      }
+     ],
+     "words": 14,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "data-and-setting",
+   "heading": "Data and setting",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "data-and-setting-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "National composition-adjusted college premium and relative supply, 1963–2016 (54 observations), with the real minimum measured from state minimums; state-level panels for the dynamic evidence."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Vogel 2025 - residualized college premium, supply and minimum wage.png",
+       "alt": "Vogel 2025 - residualized college premium, supply and minimum wage"
+      }
+     ],
+     "words": 25,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "empirical-strategy",
+   "heading": "Empirical strategy",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "empirical-strategy-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "2SLS regressions of the premium on relative supply (instrumented) and the log real minimum, with time polynomials of degree 1 to 5 ([Canonical Model of the Skill Premium](note:canonical-model-of-the-skill-premium)); event-study estimates of time-varying \"magnification elasticities\" at the state level."
+      }
+     ],
+     "words": 38,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "results",
+   "heading": "Results",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "results-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Vogel 2025 college premium regressions with the minimum wage.png",
+       "alt": "Table - Vogel 2025 college premium regressions with the minimum wage"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    },
+    {
+     "id": "results-2",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Time polynomial | Relative supply | Real minimum wage |\n| --- | --- | --- |\n| 1 | −0.632 | −0.220 |\n| 2 | −0.703 | −0.199 |\n| 3 | −0.608 | −0.133 |\n| 4 | −0.619 | −0.129 |\n| 5 | −0.387 | −0.132 |"
+      },
+      {
+       "t": "prose",
+       "md": "With the federal minimum instead (column 6) the coefficient is −0.161."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Vogel 2025 - predicted college premium with and without the minimum wage.png",
+       "alt": "Vogel 2025 - predicted college premium with and without the minimum wage"
+      }
+     ],
+     "words": 47,
+     "symbols": []
+    },
+    {
+     "id": "results-3",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Vogel 2025 - time-varying magnification elasticities.png",
+       "alt": "Vogel 2025 - time-varying magnification elasticities"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "caveats",
+   "heading": "Caveats",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "caveats-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- National time series are short; the state-level dynamics carry much of the causal weight."
+      }
+     ],
+     "words": 15,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "in-econ-424-l9-minimum-wages-and-wage-inequality",
+   "heading": "In Econ 424 L9 Minimum Wages and Wage Inequality",
+   "role": "paper-in-lesson",
+   "steps": [
+    {
+     "id": "in-econ-424-l9-minimum-wages-and-wage-inequality-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The lecturer's own paper, closing the lecture: the minimum wage matters not only for the bottom of the distribution but for the college premium, through effects that build over time. The slides cite it as both \"Vogel (2024)\" (working paper) and \"Vogel (2025)\" (QJE)."
+      }
+     ],
+     "words": 44,
+     "symbols": []
+    }
+   ],
+   "lesson": "econ-424-l9-minimum-wages-and-wage-inequality"
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Canonical Model of the Skill Premium](note:canonical-model-of-the-skill-premium) · [Skill Premium](note:skill-premium) · [Minimum Wage](note:minimum-wage) · [Autor, Katz and Kearney 2008 - Trends in US Wage Inequality](note:autor-katz-and-kearney-2008-trends-in-us-wage-inequality)"
+      }
+     ],
+     "words": 22,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

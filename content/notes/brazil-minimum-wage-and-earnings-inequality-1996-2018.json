@@ -1,0 +1,116 @@
+{
+ "slug": "brazil-minimum-wage-and-earnings-inequality-1996-2018",
+ "notation": [],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Between 1996 and 2018 Brazil raised its real minimum wage by 128%. Over the same years earnings inequality among men aged 18–54 fell steeply: the standard deviation of log earnings went from ≈ 0.86 to ≈ 0.67 (chart-read), and its correlation with the real minimum wage is −0.973. The decline was concentrated at the bottom (P50/P10) and in low-income states, where the minimum bites hardest.**"
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Engbom and Moser 2022 - real minimum wage and earnings inequality in Brazil.png",
+       "alt": "Engbom and Moser 2022 - real minimum wage and earnings inequality in Brazil"
+      }
+     ],
+     "words": 68,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "national-distribution-relative-to-the-minimum",
+   "heading": "National distribution relative to the minimum",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "national-distribution-relative-to-the-minimum-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Engbom and Moser 2022 - Brazil wage distributions and percentile ratios.png",
+       "alt": "Engbom and Moser 2022 - Brazil wage distributions and percentile ratios"
+      },
+      {
+       "t": "prose",
+       "md": "In 1996 the distribution of log earnings (in multiples of the minimum) is wide; by 2018 it is compressed and bunched just above the minimum. Normalized to 1 in 1996, the log P50/P10 ratio falls to ≈ 0.62 by 2018 and the log P90/P50 ratio only to ≈ 0.85 (chart-read)."
+      }
+     ],
+     "words": 52,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "rich-versus-poor-states",
+   "heading": "Rich versus poor states",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "rich-versus-poor-states-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Engbom and Moser 2022 - inequality in high- and low-income Brazilian states.png",
+       "alt": "Engbom and Moser 2022 - inequality in high- and low-income Brazilian states"
+      },
+      {
+       "t": "prose",
+       "md": "The three lowest-income states (Maranhão, Piauí, Paraíba) saw the variance of log wages and lower-tail ratios fall far more than the three highest-income (Rio de Janeiro, São Paulo, Distrito Federal): the same national minimum bites more where wages are low. This is the variation Lee's and Autor, Manning and Smith's approach exploits."
+      }
+     ],
+     "words": 55,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "estimated-effects-by-percentile",
+   "heading": "Estimated effects by percentile",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "estimated-effects-by-percentile-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Engbom and Moser 2022 - minimum wage effects by percentile.png",
+       "alt": "Engbom and Moser 2022 - minimum wage effects by percentile"
+      },
+      {
+       "t": "prose",
+       "md": "Regressions in the style of Lee and AMS (state fixed effects and trends, OLS; IV similar) give marginal effects on the log wage gap relative to the median of ≈ 0.55 at the 10th percentile, declining to 0 near the median and slightly negative above it; relative to the 90th percentile, effects stay positive up to about the 80th percentile — spillovers further up than in the US (chart-read)."
+      }
+     ],
+     "words": 68,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Effective Minimum Wage](note:effective-minimum-wage) · [Percentile Ratios](note:percentile-ratios) · [Minimum Wage](note:minimum-wage)\n- Paper: [Engbom and Moser 2022 - Earnings Inequality and the Minimum Wage](note:engbom-and-moser-2022-earnings-inequality-and-the-minimum-wage)"
+      }
+     ],
+     "words": 21,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

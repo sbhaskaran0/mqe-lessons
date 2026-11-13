@@ -1,0 +1,156 @@
+{
+ "slug": "stock-and-watson-2001-vector-autoregressions",
+ "notation": [],
+ "sections": [
+  {
+   "id": "key-takeaways",
+   "heading": "Key takeaways",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "key-takeaways-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. (Beyond the lecture) **Four uses of VARs:** data description, forecasting, structural inference and policy analysis.\n2. **Data description works well.** Impulse responses and variance decompositions from a recursive inflation–unemployment–interest rate VAR summarize the joint dynamics.\n3. **Structural inference is hard.** Results depend on identifying assumptions such as the recursive ordering."
+      }
+     ],
+     "words": 53,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "research-question",
+   "heading": "Research question",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "research-question-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "What can VARs do, and what can they not do?"
+      }
+     ],
+     "words": 10,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "data-and-setting",
+   "heading": "Data and setting",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "data-and-setting-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Quarterly US inflation, unemployment and the federal funds rate, 1960–2000."
+      }
+     ],
+     "words": 11,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "empirical-strategy",
+   "heading": "Empirical strategy",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "empirical-strategy-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Reduced-form, recursive and structural VARs with four lags; impulse responses with confidence bands."
+      }
+     ],
+     "words": 13,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "results",
+   "heading": "Results",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "results-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Stock and Watson 2001 - impulse responses in the inflation-unemployment-interest rate VAR.png",
+       "alt": "Stock and Watson 2001 - impulse responses in the inflation-unemployment-interest rate VAR"
+      },
+      {
+       "t": "prose",
+       "md": "Each panel shows one variable's response to a one-time shock to one equation: for example, an interest-rate shock raises unemployment for about two years (chart-read ≈)."
+      }
+     ],
+     "words": 25,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "caveats",
+   "heading": "Caveats",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "caveats-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Recursive orderings are assumptions; different orderings can change the estimated effects of monetary policy."
+      }
+     ],
+     "words": 15,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "in-econ-402a-l9-working-with-macroeconomic-data",
+   "heading": "In Econ 402A L9 Working with Macroeconomic Data",
+   "role": "paper-in-lesson",
+   "steps": [
+    {
+     "id": "in-econ-402a-l9-working-with-macroeconomic-data-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The lecture's example of an impulse-response figure — what the final step of estimating a VAR produces."
+      }
+     ],
+     "words": 16,
+     "symbols": []
+    }
+   ],
+   "lesson": "econ-402a-l9-working-with-macroeconomic-data"
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Vector Autoregression](note:vector-autoregression) · [Autoregressive Model](note:autoregressive-model)"
+      }
+     ],
+     "words": 5,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

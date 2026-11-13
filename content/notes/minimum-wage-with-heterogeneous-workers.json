@@ -1,0 +1,92 @@
+{
+ "slug": "minimum-wage-with-heterogeneous-workers",
+ "notation": [
+  {
+   "tex": "$w_{mw}$",
+   "meaning": "Minimum wage",
+   "kind": "Policy",
+   "typical": "5.05 in New Jersey, 1992",
+   "keys": [
+    "w"
+   ],
+   "from": "minimum-wage"
+  },
+  {
+   "tex": "$A_i$",
+   "meaning": "Ability (output per hour) of worker $i$",
+   "kind": "Worker attribute",
+   "typical": "10 to 50 in the example",
+   "keys": [
+    "A"
+   ],
+   "from": "minimum-wage"
+  },
+  {
+   "tex": "$p$",
+   "meaning": "Output price",
+   "kind": "Parameter",
+   "typical": "1",
+   "keys": [
+    "p"
+   ],
+   "from": "minimum-wage"
+  },
+  {
+   "tex": "$\\beta$",
+   "meaning": "Worker's share of the revenue she produces",
+   "kind": "Parameter in [0, 1]",
+   "typical": "0.5",
+   "keys": [
+    "beta"
+   ],
+   "from": "minimum-wage"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "minimum-wage-with-heterogeneous-workers"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$w_{mw}$",
+      "$A_i$",
+      "$p$",
+      "$\\beta$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Purpose.** The three locations of the minimum wage in the lecture: below $\\beta pA_{min}$ (no effect), between $\\beta pA_{min}$ and $pA_{min}$ (pay of the least able rises to the floor, everyone still hired, inequality falls), above $pA_{min}$ (workers who produce less than the floor are not hired).\n- **Model.** A view of [Heterogeneous Workers Minimum Wage Model](note:heterogeneous-workers-minimum-wage-model).\n- **Elements.** Panel `wages`: curves `nofloor`, `floored`; lines `floor`, `hirecut`, `raisecut`, `amin`. Readouts `unemp_out`, `raised_out`, `ratio_out`, `regime_out`.\n- **Tests.** Python."
+      }
+     ],
+     "words": 76,
+     "symbols": [
+      "$A_i$",
+      "$p$",
+      "$\\beta$"
+     ]
+    }
+   ]
+  }
+ ]
+}

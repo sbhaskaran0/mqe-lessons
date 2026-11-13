@@ -307,6 +307,24 @@
    ]
   },
   {
+   "id": "adding-the-minimum-wage",
+   "heading": "Adding the minimum wage",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "adding-the-minimum-wage-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Autor, Katz and Kearney (2008) added the log real federal minimum wage to the canonical regression of the college premium on relative supply and trends, 1963–2005: its coefficient was small and imprecise (−0.05 to −0.14) and did not alter the central role of supply and trend demand. Vogel (2025), measuring the real minimum from state minimums over 1963–2016, finds an elasticity of −0.13 to −0.20: the roughly 26% fall in the real minimum over 1979–89 alone raised the college premium by about $0.26 \\times 0.13 \\approx 3.4\\%$, and including the minimum helps explain the apparent slowdown in trend relative demand ([Minimum Wage](note:minimum-wage))."
+      }
+     ],
+     "words": 104,
+     "symbols": []
+    }
+   ]
+  },
+  {
    "id": "links",
    "heading": "Links",
    "role": "other",
@@ -316,10 +334,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "- Math background: [Homogeneous Functions and Euler's Theorem](note:homogeneous-functions-and-eulers-theorem) · [Logarithms and Growth Rates](note:logarithms-and-growth-rates) · [Taylor Series Approximation](note:taylor-series-approximation)\n- [Skill Premium](note:skill-premium)\n- [Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls) — the robustness check on $\\beta$\n- Paper: [Katz and Murphy 1992 - Changes in Relative Wages](note:katz-and-murphy-1992-changes-in-relative-wages)"
+       "md": "- Math background: [Homogeneous Functions and Euler's Theorem](note:homogeneous-functions-and-eulers-theorem) · [Logarithms and Growth Rates](note:logarithms-and-growth-rates) · [Taylor Series Approximation](note:taylor-series-approximation)\n- [Skill Premium](note:skill-premium)\n- [Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls) — the robustness check on $\\beta$\n- Paper: [Katz and Murphy 1992 - Changes in Relative Wages](note:katz-and-murphy-1992-changes-in-relative-wages)\n- Paper: [Autor, Katz and Kearney 2008 - Trends in US Wage Inequality](note:autor-katz-and-kearney-2008-trends-in-us-wage-inequality)\n- Paper: [Vogel 2025 - The Race Between Education, Technology, and the Minimum Wage](note:vogel-2025-the-race-between-education-technology-and-the-minimum-wage)"
       }
      ],
-     "words": 38,
+     "words": 65,
      "symbols": [
       "$\\beta = -1/\\sigma$"
      ]

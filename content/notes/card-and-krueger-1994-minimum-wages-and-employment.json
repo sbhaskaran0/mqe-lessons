@@ -1,0 +1,231 @@
+{
+ "slug": "card-and-krueger-1994-minimum-wages-and-employment",
+ "notation": [
+  {
+   "tex": "$y_{it}$",
+   "meaning": "Outcome for unit $i$ (industry, region, worker) in period $t$",
+   "kind": "Data",
+   "typical": "log employment",
+   "keys": [
+    "y"
+   ],
+   "from": "difference-in-differences"
+  },
+  {
+   "tex": "$\\varepsilon_{it}$",
+   "meaning": "Error",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "varepsilon"
+   ],
+   "from": "difference-in-differences"
+  },
+  {
+   "tex": "$w_{mw}$",
+   "meaning": "Minimum wage",
+   "kind": "Policy",
+   "typical": "5.05 in New Jersey, 1992",
+   "keys": [
+    "w"
+   ],
+   "from": "minimum-wage"
+  },
+  {
+   "tex": "$a$, $b$",
+   "meaning": "Intercept and slope of inverse supply, $w(L) = a + bL$",
+   "kind": "Parameters",
+   "typical": "4, 0.02",
+   "keys": [
+    "a",
+    "b"
+   ],
+   "from": "monopsony"
+  },
+  {
+   "tex": "$c$, $d$",
+   "meaning": "Intercept and slope of the MRP, $c - dL$",
+   "kind": "Parameters",
+   "typical": "20, 0.02",
+   "keys": [
+    "c",
+    "d"
+   ],
+   "from": "monopsony"
+  }
+ ],
+ "sections": [
+  {
+   "id": "key-takeaways",
+   "heading": "Key takeaways",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "key-takeaways-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. **A clean natural experiment.** New Jersey's minimum rose from \\$4.25 to \\$5.05 on April 1, 1992; eastern Pennsylvania, across the border, stayed at \\$4.25.\n2. **No job loss.** Full-time-equivalent employment per store rose 0.59 in New Jersey and fell 2.16 in Pennsylvania: a difference-in-differences of **+2.76** (s.e. 1.36).\n3. **The most affected gained most.** Within New Jersey, stores that had paid exactly \\$4.25 gained relative to stores already paying \\$5 or more.\n4. **Wages and prices rose.** Starting wages converged to \\$5.05; meal prices rose about 3.7% relative to Pennsylvania."
+      }
+     ],
+     "words": 102,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "research-question",
+   "heading": "Research question",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "research-question-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "How does employment in a low-wage industry respond to an increase in the minimum wage?"
+      }
+     ],
+     "words": 15,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "data-and-setting",
+   "heading": "Data and setting",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "data-and-setting-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Own telephone survey of 410 Burger King, KFC, Wendy's and Roy Rogers restaurants, wave 1 in late February–early March 1992 (a month before the increase), wave 2 in November–December 1992; 399 re-interviewed, closures verified in person. Fast food is a leading low-wage employer, covered by the law (unlike tipped work), with homogeneous jobs and products. New Jersey fell into recession between the vote and the effective date, and the governor vetoed a slowdown, which makes the timing hard to call endogenous."
+      }
+     ],
+     "words": 83,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "empirical-strategy",
+   "heading": "Empirical strategy",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "empirical-strategy-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Difference-in-Differences](note:difference-in-differences) in store means, New Jersey versus Pennsylvania.\n- Store-level regressions of the change in employment on a New Jersey dummy, $\\Delta E_i = a + bX_i + cNJ_i + \\varepsilon_i$, or on the initial wage gap  = (5.05 - W_{1i})/W_{1i}$ (zero in Pennsylvania and for New Jersey stores already at \\$5.05), which uses variation in exposure within New Jersey."
+      }
+     ],
+     "words": 45,
+     "symbols": [
+      "$y_{it}$",
+      "$\\varepsilon_{it}$",
+      "$w_{mw}$",
+      "$a$, $b$",
+      "$c$, $d$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "results",
+   "heading": "Results",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "results-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Card and Krueger 1994 average employment per store.png",
+       "alt": "Table - Card and Krueger 1994 average employment per store"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    },
+    {
+     "id": "results-2",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Card and Krueger 1994 reduced-form models for change in employment.png",
+       "alt": "Table - Card and Krueger 1994 reduced-form models for change in employment"
+      },
+      {
+       "t": "prose",
+       "md": "- NJ dummy: 2.33 (1.19) without controls, 2.30 (1.20) with chain and ownership controls. Wage gap: 15.65 (6.08), 14.92 (6.21), 11.91 (7.39) with region controls.\n- In proportional changes the effects are insignificant; results survive many specification checks (Table 5).\n- Meal prices: NJ dummy 0.033–0.037 in log price; the wage gap is not significant within New Jersey."
+      },
+      {
+       "t": "prose",
+       "md": "Full tables: [New Jersey Fast-Food Employment After the 1992 Minimum Wage Increase](note:new-jersey-fast-food-employment-after-the-1992-minimum-wage-increase)."
+      }
+     ],
+     "words": 83,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "caveats",
+   "heading": "Caveats",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "caveats-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Only two states: any New Jersey–specific shock in 1992 is confounded with the policy, and with correlated shocks within a state the effective sample is small.\n- Survey measures of employment are noisy (taken up in the 2000 reply with payroll data).\n- An eight-month horizon cannot capture slower adjustments such as fewer new restaurants."
+      }
+     ],
+     "words": 57,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "in-econ-424-l8-minimum-wages-and-employment",
+   "heading": "In Econ 424 L8 Minimum Wages and Employment",
+   "role": "paper-in-lesson",
+   "steps": [
+    {
+     "id": "in-econ-424-l8-minimum-wages-and-employment-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The first-generation case study that challenged the competitive prediction. It sets up the design questions the rest of the lecture keeps asking: is the control group good, and is the policy change exogenous? Be able to compute the DiD from Table 3 and explain the wage-gap regressor."
+      }
+     ],
+     "words": 47,
+     "symbols": []
+    }
+   ],
+   "lesson": "econ-424-l8-minimum-wages-and-employment"
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Difference-in-Differences](note:difference-in-differences) · [Minimum Wage](note:minimum-wage) · [Monopsony](note:monopsony) · [New Jersey Fast-Food Employment After the 1992 Minimum Wage Increase](note:new-jersey-fast-food-employment-after-the-1992-minimum-wage-increase)"
+      }
+     ],
+     "words": 15,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

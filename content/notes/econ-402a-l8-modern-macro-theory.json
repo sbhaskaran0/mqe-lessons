@@ -1,0 +1,716 @@
+{
+ "slug": "econ-402a-l8-modern-macro-theory",
+ "notation": [
+  {
+   "tex": "$\\alpha$",
+   "meaning": "Intercept of the traditional curve (here not the IS slope)",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "alpha"
+   ],
+   "from": "phillips-curve"
+  },
+  {
+   "tex": "$A_t$",
+   "meaning": "Total factor productivity",
+   "kind": "Exogenous shock process",
+   "typical": "—",
+   "keys": [
+    "A"
+   ],
+   "from": "real-business-cycle-model"
+  },
+  {
+   "tex": "$Y$, $K$, $L$",
+   "meaning": "Output, capital, labor",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "Y",
+    "K",
+    "L"
+   ],
+   "from": "solow-residual"
+  },
+  {
+   "tex": "$g_Y$, $g_K$, $g_L$, $g_A$",
+   "meaning": "Growth rates of output, capital, labor and TFP",
+   "kind": "Data / residual",
+   "typical": "3%, 4%, 1%, 1% in the example",
+   "keys": [
+    "g"
+   ],
+   "from": "solow-residual"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**A short history of how macroeconomics got to its modern models. In 1960 macro was Keynesian: large IS-LM models and a Phillips curve read as a menu of inflation and unemployment. Friedman and Phelps argued the menu exists only until expectations adjust, and Lucas that any model fitted to past behavior breaks when policy changes — so models should be built from optimizing agents with rational expectations. Kydland and Prescott's real business cycle model did that: the growth model plus productivity shocks, the first DSGE model. It fits the data surprisingly well, but only on HP-filtered data and only by feeding in measured TFP, \"a measure of our ignorance\"; it assumes competitive markets, flexible prices and identical agents, and leaves no role for policy. Endogenous growth, New Keynesian and heterogeneous-agent (HANK) models each repair one of those assumptions.**"
+      }
+     ],
+     "words": 137,
+     "symbols": []
+    },
+    {
+     "id": "intro-2",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "info",
+       "title": "Sources and notation",
+       "md": "This summary follows the slides of Chris Surro's lecture (course logistics slides omitted). It is mostly history of thought; the equations are in the linked concept notes. TFP is total factor productivity $A$; DSGE stands for dynamic stochastic general equilibrium.",
+       "folded": false
+      }
+     ],
+     "words": 42,
+     "symbols": [
+      "$A_t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1-where-the-course-is",
+   "heading": "1. Where the course is",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-where-the-course-is-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "So far the course has built theoretical models: growth ([Solow](note:econ-402a-l1-solow-growth-model), [Ramsey](note:econ-402a-l3-the-ramsey-cass-koopmans-model)), labor markets and the short run ([IS-MP-PC](note:econ-402a-l7-the-is-mp-pc-model)). This lecture asks how modern macro developed and gives an overview of DSGE models; the next two turn to working with macroeconomic data (VAR models), and the rest of the course to macro policy in reality."
+      }
+     ],
+     "words": 54,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "2-the-neoclassical-synthesis",
+   "heading": "2. The neoclassical synthesis",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-the-neoclassical-synthesis-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Macroeconomics in 1960 was largely Keynesian: large-scale IS-LM style models dominated ([IS-LM Model](note:is-lm-model)). Samuelson (1955) called the consensus a \"neoclassical synthesis\" of older economics and the new theories of income determination, accepted in broad outline by all but the extremes."
+      },
+      {
+       "t": "prose",
+       "md": "Its empirical centerpiece was the **Phillips curve** ([Phillips Curve](note:phillips-curve)). A. W. Phillips found that in the UK, when unemployment was low, wages grew quickly, and when it was high, slowly. Solow and Samuelson (1960) replicated this on US data and read it as a **menu of policy choices**: lower unemployment could be had only by tolerating higher inflation."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Solow and Samuelson 1960 - Phillips curve menu for the US.png",
+       "alt": "Solow and Samuelson 1960 - Phillips curve menu for the US",
+       "caption": "Solow and Samuelson's menu: point A, price stability with about 5.5% unemployment; point B, 3% unemployment with about 4.5% inflation."
+      }
+     ],
+     "words": 120,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "3-the-death-of-keynes",
+   "heading": "3. The death of Keynes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "3-the-death-of-keynes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Friedman and Phelps** independently explained why the Phillips curve moved. The economy always returns to a **natural rate of unemployment** in the long run — the rate \"ground out by the Walrasian system\", given the real structure of labor and goods markets. Raising inflation lowers unemployment only in the short run, until expectations adjust ([Adaptive Expectations](note:adaptive-expectations))."
+      }
+     ],
+     "words": 55,
+     "symbols": []
+    },
+    {
+     "id": "3-the-death-of-keynes-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**The Lucas critique** (1976) went further: an econometric model is made of people's optimal decision rules, and those rules change when the policies they face change. So \"any change in policy will systematically alter the structure of econometric models\". Forecasting how people will act under a new policy from their past behavior is doomed to fail, because that behavior depended on the old policy — and a new policy changes expectations and therefore choices ([Lucas Critique](note:lucas-critique))."
+      }
+     ],
+     "words": 75,
+     "symbols": []
+    },
+    {
+     "id": "3-the-death-of-keynes-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "In the 1960s US policymakers tried to buy permanently lower unemployment with higher inflation, using the Phillips curve estimated on past data. What does the Lucas critique predict?",
+       "options": [
+        {
+         "md": "Once people expect the higher inflation, the curve shifts up: inflation stays high but unemployment returns to its natural rate",
+         "correct": true
+        },
+        {
+         "md": "Unemployment falls permanently, as long as the central bank keeps inflation high",
+         "correct": false,
+         "feedback": "That is the menu reading the critique rejects: the relationship was estimated under a different policy."
+        },
+        {
+         "md": "Inflation falls back to its old level because the Phillips curve is downward sloping",
+         "correct": false,
+         "feedback": "Nothing in the critique says inflation falls; the trade-off itself disappears."
+        },
+        {
+         "md": "The Phillips curve becomes steeper, so the same inflation buys more employment",
+         "correct": false,
+         "feedback": "Higher expected inflation shifts the curve up; it does not buy more employment."
+        }
+       ],
+       "why": "The Phillips-curve relationship embedded people's expectations of low inflation. Under a policy of persistently high inflation those expectations change, so the estimated relationship breaks — the 1970s combined high inflation with high unemployment.",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 86,
+     "symbols": []
+    },
+    {
+     "id": "3-the-death-of-keynes-4",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Lucas's solution was to impose **rational expectations** — expectations consistent with the model itself — and he showed that monetary policy is ineffective when agents have them. By 1980 Lucas could write that Keynesian economics was \"dead\": a sociological observation that no good young economist called themselves Keynesian any more."
+      },
+      {
+       "t": "quote",
+       "md": "Paper summary: [Lucas 1976 - Econometric Policy Evaluation](note:lucas-1976-econometric-policy-evaluation)",
+       "papers": [
+        "lucas-1976-econometric-policy-evaluation"
+       ]
+      }
+     ],
+     "words": 56,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "4-neoclassical-macro-the-rbc-model",
+   "heading": "4. Neoclassical macro: the RBC model",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "4-neoclassical-macro-the-rbc-model-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Prescott describes a revolution in methodology: macroeconomics, once separate from the rest of economics, was rebuilt on **microfoundations**. People maximize utility given prices, policy and their consumption possibilities; firms maximize profits given their technology, prices and policy; markets clear."
+      },
+      {
+       "t": "prose",
+       "md": "The core of a neoclassical business-cycle model is the neoclassical growth model ([Ramsey-Cass-Koopmans Model](note:ramsey-cass-koopmans-model)): consumers maximize utility over an infinite horizon, firms use capital and labor to produce with a given technology, and the economy converges to a steady state. **Kydland and Prescott (1982)** added random shocks to productivity (TFP): business cycles are then optimal responses to real productivity shocks — the **real business cycle** model, and the first dynamic stochastic general equilibrium (DSGE) model ([Real Business Cycle Model](note:real-business-cycle-model))."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Uhlig 2003 - RBC model simulations vs data.png",
+       "alt": "Uhlig 2003 - RBC model simulations vs data",
+       "caption": "Uhlig (2003): the simulated RBC model (dashed), fed with measured TFP, tracks HP-filtered US output, hours, capital, labor productivity, investment and consumption (solid) closely."
+      }
+     ],
+     "words": 141,
+     "symbols": []
+    },
+    {
+     "id": "4-neoclassical-macro-the-rbc-model-2",
+     "blocks": [
+      {
+       "t": "quote",
+       "md": "Paper summary: [Kydland and Prescott 1982 - Time to Build and Aggregate Fluctuations](note:kydland-and-prescott-1982-time-to-build-and-aggregate-fluctuations)",
+       "papers": [
+        "kydland-and-prescott-1982-time-to-build-and-aggregate-fluctuations"
+       ]
+      }
+     ],
+     "words": 13,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "5-why-does-the-rbc-model-seem-to-fit-so-well",
+   "heading": "5. Why does the RBC model (seem to) fit so well?",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "5-why-does-the-rbc-model-seem-to-fit-so-well-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The model is relatively simple yet appears to fit the data. Is it too good to be true?"
+      },
+      {
+       "t": "prose",
+       "md": "**What are the shocks?** TFP is measured as the **Solow residual**: the part of output growth not explained by growth in capital and labor ([Solow Residual](note:solow-residual)). Kydland and Prescott called it technology, but it could be anything not included in $K$ or $L$ — even animal spirits."
+      }
+     ],
+     "words": 62,
+     "symbols": [
+      "$Y$, $K$, $L$"
+     ]
+    },
+    {
+     "id": "5-why-does-the-rbc-model-seem-to-fit-so-well-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "Output grows 3% a year, labor 1%, and capital grows $g_K = 4$ percent; the capital share is $\\alpha = 1/3$. What is measured TFP growth (the Solow residual), in percent?",
+       "answer": 1.0,
+       "tol": 0.02,
+       "vary": [
+        {
+         "sym": "g_K",
+         "values": [
+          3.0,
+          4.0,
+          5.0,
+          6.0
+         ]
+        }
+       ],
+       "compute": "3 - \\frac{g_K}{3} - \\frac{2}{3}",
+       "bindings": [
+        {
+         "sym": "g_K",
+         "value": 4.0,
+         "span": "$g_K = 4$"
+        }
+       ],
+       "wrongCompute": [
+        {
+         "tex": "3 - g_K - 1",
+         "md": "weight capital and labor growth by their shares, $\\alpha$ and $1 - \\alpha$"
+        },
+        {
+         "tex": "3 - \\frac{2g_K}{3} - \\frac{1}{3}",
+         "md": "the shares are swapped: capital's is $\\alpha = 1/3$"
+        },
+        {
+         "tex": "3 - \\frac{g_K}{3}",
+         "md": "subtract labor's contribution too, $(1 - \\alpha)g_L$"
+        }
+       ],
+       "why": "$g_A = g_Y - \\alpha g_K - (1 - \\alpha)g_L = 3 - \\tfrac{1}{3}(4) - \\tfrac{2}{3}(1) = 1\\%$. Whatever growth capital and labor do not account for is labelled \"technology\" — which is why it may include much more than technology.",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 25,
+     "symbols": [
+      "$\\alpha$",
+      "$g_Y$, $g_K$, $g_L$, $g_A$"
+     ]
+    },
+    {
+     "id": "5-why-does-the-rbc-model-seem-to-fit-so-well-3",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Output vs TFP and TFP correlations.png",
+       "alt": "Output vs TFP and TFP correlations",
+       "caption": "Measured TFP moves almost one-for-one with output over the cycle."
+      }
+     ],
+     "words": 10,
+     "symbols": []
+    },
+    {
+     "id": "5-why-does-the-rbc-model-seem-to-fit-so-well-4",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**HP filtering.** A second caveat: the fit works only on filtered data. As a business-cycle model, RBC does not try to explain the long-run trend, so the trend is removed with a kind of moving average, the **Hodrick-Prescott filter** ([Hodrick-Prescott Filter](note:hodrick-prescott-filter))."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/HP filter - GDP trend and cyclical deviations.png",
+       "alt": "HP filter - GDP trend and cyclical deviations"
+      }
+     ],
+     "words": 41,
+     "symbols": []
+    },
+    {
+     "id": "5-why-does-the-rbc-model-seem-to-fit-so-well-5",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Uhlig 2003 - RBC fit on unfiltered data without TFP.png",
+       "alt": "Uhlig 2003 - RBC fit on unfiltered data without TFP",
+       "caption": "On unfiltered data, and without feeding in measured TFP, the model's fit is far weaker."
+      }
+     ],
+     "words": 15,
+     "symbols": []
+    },
+    {
+     "id": "5-why-does-the-rbc-model-seem-to-fit-so-well-6",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Why does the RBC model's good fit to US business cycles prove less than it seems?",
+       "options": [
+        {
+         "md": "The model has too many parameters, so it can fit anything",
+         "correct": false,
+         "feedback": "The RBC model is relatively simple; the problem is what is fed in and what is filtered out."
+        },
+        {
+         "md": "It is driven by measured TFP — a residual that may absorb anything not in $K$ or $L$ — and fits only HP-filtered data",
+         "correct": true
+        },
+        {
+         "md": "It ignores capital, so it cannot explain investment",
+         "correct": false,
+         "feedback": "Capital accumulation is at the heart of the model, and it fits investment fairly well."
+        },
+        {
+         "md": "It fits unfiltered data but not filtered data",
+         "correct": false,
+         "feedback": "The reverse: the fit works on filtered data."
+        }
+       ],
+       "why": "If the \"shock\" is whatever output does that capital and labor don't explain, a model driven by it will track output almost by construction. And the HP filter removes the trend the model does not try to explain, so the fit is to the cycle alone.",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 63,
+     "symbols": [
+      "$Y$, $K$, $L$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "6-beyond-neoclassical-macro",
+   "heading": "6. Beyond neoclassical macro",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "6-beyond-neoclassical-macro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The lecture lists four unsatisfying assumptions and the research each prompted:"
+      },
+      {
+       "t": "table",
+       "md": "| Assumption | Problem | Response |\n| --- | --- | --- |\n| Reliance on TFP | Growth and cycles driven by exogenous shocks | Endogenous growth models |\n| Market structure | Competitive markets, flexible prices, Cobb-Douglas | Monopolistic competition, sticky prices |\n| Policy | Government can only make things worse | New Keynesian models |\n| Representative agents | All consumers and firms identical | Heterogeneous-agent (HANK) models |"
+      }
+     ],
+     "words": 61,
+     "symbols": []
+    },
+    {
+     "id": "6-beyond-neoclassical-macro-2",
+     "heading": "Reliance on TFP",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "TFP is supposed to measure technological progress, but really it measures anything not captured by $K$ and $L$: human capital, institutions, culture, government policy and countless other factors. Abramovitz (1956) called it \"a measure of our ignorance\". Hall (1989) found that military spending, market power, product demand and factor prices all correlate with TFP. If TFP causes growth, we need to understand what causes TFP."
+      }
+     ],
+     "words": 63,
+     "symbols": [
+      "$Y$, $K$, $L$"
+     ]
+    },
+    {
+     "id": "6-beyond-neoclassical-macro-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Endogenous growth models** explain growth inside the model instead of assuming it ([Endogenous Growth Models](note:endogenous-growth-models)). In Romer's (1990) **expanding varieties** model, investment in R&D produces new inputs that make production more efficient, and agents decide how many resources to devote to R&D. In Aghion and Howitt's (1992) **Schumpeterian** (\"quality ladder\") model, new production methods displace older, less productive ones."
+      }
+     ],
+     "words": 61,
+     "symbols": []
+    },
+    {
+     "id": "6-beyond-neoclassical-macro-4",
+     "heading": "Market structure",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Solow argued the Cobb-Douglas production function fit the data well ([Cobb-Douglas Production Function](note:cobb-douglas-production-function)). Shaikh showed that Cobb-Douglas will fit *any* data with constant factor shares: in a fake \"Humbug economy\" whose data spell the word HUMBUG, the fit is just as good."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Shaikh - the Humbug economy.png",
+       "alt": "Shaikh - the Humbug economy"
+      }
+     ],
+     "words": 42,
+     "symbols": []
+    },
+    {
+     "id": "6-beyond-neoclassical-macro-5",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "RBC and neoclassical growth models also assume competitive markets, which gives wage = MPL and rental rate = MPK; in reality most markets have some market power. And prices always adjust to clear markets, so the model is always in equilibrium; in reality prices are sticky. Wage changes, for example, bunch at exactly zero: about 12% of workers had no change in their wage over 12 months in 2006, and about 16% in the slump of 2011, when many would otherwise have had cuts (chart-read)."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Distribution of 12-month log wage changes 2006 and 2011.png",
+       "alt": "Distribution of 12-month log wage changes 2006 and 2011"
+      }
+     ],
+     "words": 83,
+     "symbols": []
+    },
+    {
+     "id": "6-beyond-neoclassical-macro-6",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The responses: **monopolistic competition** (Dixit and Stiglitz 1977), a CES demand system in which firms set prices at a constant markup over marginal cost; and **sticky prices and wages**, with not every firm able to change its price or wage each period — usually modelled as a random draw (Calvo pricing) or with \"menu costs\" of changing prices."
+      }
+     ],
+     "words": 57,
+     "symbols": []
+    },
+    {
+     "id": "6-beyond-neoclassical-macro-7",
+     "heading": "Policy",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "In the neoclassical model monetary policy has no effect on real variables, and fiscal policy can only make things worse. In reality policy seems to have real and sometimes beneficial effects. Luckily, fixing the market structure fixes this too: imperfect competition and sticky prices give policy a role. The result is the **New Keynesian model** ([New Keynesian Model](note:new-keynesian-model)), similar to the course's IS-MP-PC model:"
+      },
+      {
+       "t": "prose",
+       "md": "- a **New Keynesian Phillips curve** linking output and inflation;\n- an **IS curve** (Euler equation) linking interest rates and consumption (output);\n- a **monetary policy rule** (Taylor rule) setting the interest rate ([Monetary Policy Rule](note:monetary-policy-rule))."
+      },
+      {
+       "t": "prose",
+       "md": "The difference from the class model: each equation is derived from an optimization problem."
+      }
+     ],
+     "words": 114,
+     "symbols": []
+    },
+    {
+     "id": "6-beyond-neoclassical-macro-8",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Why do sticky prices give monetary policy real effects in a New Keynesian model?",
+       "options": [
+        {
+         "md": "If not every firm can reset its price, a change in the nominal interest rate changes the real interest rate, and so demand and output",
+         "correct": true
+        },
+        {
+         "md": "Sticky prices make firms competitive, so they produce more",
+         "correct": false,
+         "feedback": "Stickiness comes with monopolistic competition, not perfect competition."
+        },
+        {
+         "md": "Sticky prices stop inflation from responding to anything",
+         "correct": false,
+         "feedback": "Inflation still responds through the Phillips curve, just not fully at once."
+        },
+        {
+         "md": "The central bank sets prices directly",
+         "correct": false,
+         "feedback": "It sets the nominal rate; firms set prices."
+        }
+       ],
+       "why": "With flexible prices, a nominal change is matched by prices and nothing real moves. When prices adjust slowly, raising the nominal rate raises the real rate, lowering consumption and investment — the IS-MP-PC mechanism, now derived from optimizing households and firms.",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 62,
+     "symbols": []
+    },
+    {
+     "id": "6-beyond-neoclassical-macro-9",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The New York Fed's DSGE forecasting model is a representative-agent New Keynesian model with eight kinds of agents: households supplying differentiated labor, labor aggregators, final-good firms, monopolistically competitive intermediate-good firms, capital producers, entrepreneurs who borrow to buy capital, a bank, and a government with monetary and fiscal authorities."
+      }
+     ],
+     "words": 48,
+     "symbols": []
+    },
+    {
+     "id": "6-beyond-neoclassical-macro-10",
+     "heading": "Representative agents",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Who does the representative agent represent? Kirman (1992): the representative individual may prefer situation a to b while every individual it \"represents\" strictly prefers b to a — it can make the same choices as the aggregate while having completely different preferences. And a model built on one agent cannot answer questions about the distribution of resources."
+      },
+      {
+       "t": "prose",
+       "md": "**Heterogeneous Agent New Keynesian (HANK)** models, developed in the mid-2010s by Benjamin Moll, Greg Kaplan, Giovanni Violante and others, replace the representative agent with a continuum of different individuals. The research frontier keeps expanding the HANK paradigm with richer firm dynamics, financial markets and more."
+      }
+     ],
+     "words": 101,
+     "symbols": []
+    },
+    {
+     "id": "6-beyond-neoclassical-macro-11",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Which question can a HANK model answer that a representative-agent New Keynesian model cannot?",
+       "options": [
+        {
+         "md": "How a monetary policy change affects households differently depending on their income and wealth",
+         "correct": true
+        },
+        {
+         "md": "Whether monetary policy has real effects at all",
+         "correct": false,
+         "feedback": "Any New Keynesian model, with sticky prices, gives policy real effects."
+        },
+        {
+         "md": "How a productivity shock affects aggregate output",
+         "correct": false,
+         "feedback": "A representative-agent model already answers that."
+        },
+        {
+         "md": "Why prices are sticky",
+         "correct": false,
+         "feedback": "Price stickiness is assumed in both, through Calvo pricing or menu costs."
+        }
+       ],
+       "why": "With a single agent there is no distribution to study. A continuum of households differing in income and wealth lets a model ask who gains and who loses from a policy — and whether those differences change the aggregate response.",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 47,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "7-next-time",
+   "heading": "7. Next time",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "7-next-time-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "This lecture was mostly theoretical macro. Is there a role for a data-first approach? Vector autoregressions offer one ([Econ 402A L9 Working with Macroeconomic Data](note:econ-402a-l9-working-with-macroeconomic-data))."
+      }
+     ],
+     "words": 25,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Explain the Phillips-curve menu, why Friedman, Phelps and Lucas argued it could not be exploited, and the microfoundations/rational-expectations response (the Lucas critique).\n2. Describe the RBC model and explain why its fit depends on measured TFP and the HP filter; compute a Solow residual.\n3. Match each unsatisfying neoclassical assumption to its modern response: endogenous growth, monopolistic competition and sticky prices, New Keynesian policy, HANK."
+      }
+     ],
+     "words": 67,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "papers-in-this-lecture",
+   "heading": "Papers in this lecture",
+   "role": "papers",
+   "steps": [
+    {
+     "id": "papers-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "papers",
+       "items": [
+        "lucas-1976-econometric-policy-evaluation",
+        "kydland-and-prescott-1982-time-to-build-and-aggregate-fluctuations"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "phillips-curve",
+        "adaptive-expectations",
+        "lucas-critique",
+        "real-business-cycle-model",
+        "solow-residual",
+        "hodrick-prescott-filter",
+        "endogenous-growth-models",
+        "cobb-douglas-production-function",
+        "new-keynesian-model",
+        "monetary-policy-rule",
+        "ramsey-cass-koopmans-model",
+        "is-lm-model"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

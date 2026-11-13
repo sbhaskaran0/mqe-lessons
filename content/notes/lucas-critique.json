@@ -1,0 +1,187 @@
+{
+ "slug": "lucas-critique",
+ "notation": [
+  {
+   "tex": "$y_t$",
+   "meaning": "Outcome (e.g. unemployment)",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "y"
+   ]
+  },
+  {
+   "tex": "$x_t$",
+   "meaning": "Observed state variables",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "x"
+   ]
+  },
+  {
+   "tex": "$\\theta$",
+   "meaning": "Deep parameters: preferences and technology",
+   "kind": "Structural",
+   "typical": "—",
+   "keys": [
+    "theta"
+   ]
+  },
+  {
+   "tex": "$\\lambda$",
+   "meaning": "Parameters of the policy rule",
+   "kind": "Policy",
+   "typical": "—",
+   "keys": [
+    "lambda"
+   ]
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Suppose that in the past, whenever inflation rose, unemployment fell. A policymaker might conclude that printing money to raise inflation will lower unemployment. Robert Lucas pointed out the flaw: the old pattern held because people did not expect the inflation. Once the central bank starts using inflation deliberately, people see it coming, build it into wages and prices, and the pattern disappears. More generally, the relationships in a macro model summarize how people decide, and those decisions depend on the policy in force. Change the policy and the relationships change too, so a model estimated on past data cannot reliably predict what a new policy will do."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It ended the large IS-LM-style forecasting models of the 1960s as tools for policy analysis and pushed macroeconomics toward models built from optimizing agents with rational expectations.",
+       "folded": false
+      }
+     ],
+     "words": 137,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "In Lucas's (1976) words: \"Given that the structure of an econometric model consists of optimal decision rules of economic agents, and that optimal decision rules vary systematically with changes in the structure of series relevant to the decision maker, it follows that any change in policy will systematically alter the structure of econometric models.\""
+      },
+      {
+       "t": "prose",
+       "md": "Formally, if behavior is $y_t = F(x_t, \\theta, \\lambda)$, with $\\lambda$ the parameters of the policy rule, an estimated reduced form $y_t = \\hat{F}(x_t)$ holds only for the $\\lambda$ in the sample; a new policy $\\lambda'$ changes $F$."
+      }
+     ],
+     "words": 80,
+     "symbols": [
+      "$y_t$",
+      "$x_t$",
+      "$\\theta$",
+      "$\\lambda$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "responses",
+   "heading": "Responses",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "responses-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Rational expectations:** people's forecasts use the model itself, including the policy rule ([Adaptive Expectations](note:adaptive-expectations) is the backward-looking alternative). Lucas showed systematic monetary policy is ineffective when agents have rational expectations.\n- **Microfoundations:** build models from preferences and technology ($\\theta$), which do not change with policy, so the effects of a new policy can be derived — the DSGE approach ([Real Business Cycle Model](note:real-business-cycle-model), [New Keynesian Model](note:new-keynesian-model)).\n- **Not a full answer:** [VARs](note:vector-autoregression) estimated on past data are still subject to the critique."
+      }
+     ],
+     "words": 81,
+     "symbols": [
+      "$\\theta$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The Phillips-curve \"menu\" of Samuelson and Solow (1960): it held in 1950s data, but when policy tried to exploit it in the late 1960s and 1970s, expected inflation rose and the curve shifted up, giving inflation and unemployment together ([Phillips Curve](note:phillips-curve))."
+      }
+     ],
+     "words": 41,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Thinking it says models are useless.** It says reduced-form relationships are not policy-invariant; structural models can still answer policy questions."
+      }
+     ],
+     "words": 21,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Macroeconomics: the rationale for DSGE models; any evaluation of a regime change (inflation targeting, tax reforms) from historical correlations."
+      }
+     ],
+     "words": 20,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Phillips Curve](note:phillips-curve) · [Adaptive Expectations](note:adaptive-expectations) · [Real Business Cycle Model](note:real-business-cycle-model) · [New Keynesian Model](note:new-keynesian-model) · [Vector Autoregression](note:vector-autoregression)\n- Paper: [Lucas 1976 - Econometric Policy Evaluation](note:lucas-1976-econometric-policy-evaluation)"
+      }
+     ],
+     "words": 22,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

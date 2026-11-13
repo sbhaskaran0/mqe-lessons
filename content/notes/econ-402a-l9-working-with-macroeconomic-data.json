@@ -1,0 +1,975 @@
+{
+ "slug": "econ-402a-l9-working-with-macroeconomic-data",
+ "notation": [
+  {
+   "tex": "$x_{i,t}$",
+   "meaning": "Variable $i$ in period $t$ (e.g. inflation, unemployment, interest rate)",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "x"
+   ],
+   "from": "vector-autoregression"
+  },
+  {
+   "tex": "$c_i$",
+   "meaning": "Constant in equation $i$",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "c"
+   ],
+   "from": "vector-autoregression"
+  },
+  {
+   "tex": "$\\beta_{ij}$",
+   "meaning": "Effect of last period's variable $j$ on variable $i$",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ],
+   "from": "vector-autoregression"
+  },
+  {
+   "tex": "$\\varepsilon_{i,t}$",
+   "meaning": "Shock (innovation) to equation $i$",
+   "kind": "Error",
+   "typical": "—",
+   "keys": [
+    "varepsilon"
+   ],
+   "from": "vector-autoregression"
+  },
+  {
+   "tex": "$k$",
+   "meaning": "Number of variables",
+   "kind": "Choice",
+   "typical": "2–6",
+   "keys": [
+    "k"
+   ],
+   "from": "vector-autoregression"
+  },
+  {
+   "tex": "$p$",
+   "meaning": "Number of lags",
+   "kind": "Choice",
+   "typical": "—",
+   "keys": [
+    "p"
+   ],
+   "from": "vector-autoregression"
+  },
+  {
+   "tex": "$\\mu$",
+   "meaning": "Mean of a stationary AR(1), $\\beta_0/(1 - \\beta_1)$",
+   "kind": "Parameter",
+   "typical": "2 in the example",
+   "keys": [
+    "mu"
+   ],
+   "from": "autoregressive-model"
+  },
+  {
+   "tex": "$t$",
+   "meaning": "Time period",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "t"
+   ],
+   "from": "autoregressive-model"
+  },
+  {
+   "tex": "$\\Delta x_t$",
+   "meaning": "First difference, $x_t - x_{t-1}$",
+   "kind": "Transformed data",
+   "typical": "—",
+   "keys": [
+    "~\\Deltax_t"
+   ],
+   "from": "stationarity-and-unit-roots"
+  },
+  {
+   "tex": "$AIC$, $BIC$",
+   "meaning": "Information criteria",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "~AIC",
+    "~BIC"
+   ],
+   "from": "model-selection-criteria"
+  },
+  {
+   "tex": "$\\ln L$",
+   "meaning": "Maximized log-likelihood",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "L"
+   ],
+   "from": "model-selection-criteria"
+  },
+  {
+   "tex": "$C_p$",
+   "meaning": "Mallows' statistic",
+   "kind": "Statistic",
+   "typical": "2.32",
+   "keys": [
+    "C"
+   ],
+   "from": "model-selection-criteria"
+  },
+  {
+   "tex": "$y$",
+   "meaning": "Endogenous variables (outcomes the model solves for)",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "y"
+   ],
+   "from": "endogenous-and-exogenous-variables"
+  },
+  {
+   "tex": "$A$, $L$, $K$",
+   "meaning": "Technology, labor and capital in the growth example",
+   "kind": "Exogenous, exogenous, endogenous",
+   "typical": "—",
+   "keys": [
+    "A",
+    "L",
+    "K"
+   ],
+   "from": "endogenous-and-exogenous-variables"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**The Lucas critique attacked 1960s macro models from theory; Sims (1980) attacked them from econometrics. Large models decided which variables were exogenous and which entered each equation by intuition, not theory — and once expectations matter, almost any variable could belong in any equation. His answer was the vector autoregression (VAR): treat every variable as endogenous and let each depend on the lags of all the others. Getting there takes time-series basics: macro data are autocorrelated, often non-stationary (differencing usually fixes that), and can be modelled as autoregressions whose lag length is chosen by ACF plots or information criteria. A VAR's coefficients are hard to read directly, so it is read through impulse responses, variance decompositions and Granger causality — none of which escapes the Lucas critique.**"
+      }
+     ],
+     "words": 125,
+     "symbols": []
+    },
+    {
+     "id": "intro-2",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "info",
+       "title": "Sources and notation",
+       "md": "This summary follows the slides of Chris Surro's lecture, the first of two on macroeconomic data; the course's coding assignment replicates a simple VAR. $x_t$ is a time series at time $t$; $\\Delta x_t = x_t - x_{t-1}$ is its first difference. The time-series theory is covered more technically in Econ 430.",
+       "folded": false
+      }
+     ],
+     "words": 47,
+     "symbols": [
+      "$x_{i,t}$",
+      "$t$",
+      "$\\Delta x_t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1-a-different-critique-of-1950s-and-60s-macro",
+   "heading": "1. A different critique of 1950s and 60s macro",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-a-different-critique-of-1950s-and-60s-macro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Last time: the Lucas critique — when policy changes, behavior changes, so models must account for it; the answers were microfoundations, rational expectations and DSGE models ([Econ 402A L8 Modern Macro Theory](note:econ-402a-l8-modern-macro-theory), [Lucas Critique](note:lucas-critique)). Today: a different critique, from econometrics."
+      },
+      {
+       "t": "prose",
+       "md": "**Review.** In a linear regression $y_i = \\beta_0 + \\beta_1 x_{1i} + \\beta_2 x_{2i} + \\varepsilon_i$, the left-hand variable $y$ is **endogenous** — explained by the model — and the right-hand $x_1, x_2$ are **exogenous**: inputs, not explained by the model, and assumed independent of the error ([Endogenous and Exogenous Variables](note:endogenous-and-exogenous-variables))."
+      }
+     ],
+     "words": 74,
+     "symbols": [
+      "$x_{i,t}$",
+      "$\\beta_{ij}$",
+      "$\\varepsilon_{i,t}$",
+      "$y$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "2-sims-1980-macroeconomics-and-reality",
+   "heading": "2. Sims (1980): Macroeconomics and Reality",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-sims-1980-macroeconomics-and-reality-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Sims argued that econometric macro models were badly identified: \"any variable which appears on the right-hand-side of one of these equations belongs in principle on the right-hand-side of all of them.\" Models ended up with different variables in different equations not by economic theory but by \"an intuitive, econometrician's version of psychological and sociological theory\"."
+      },
+      {
+       "t": "prose",
+       "md": "His example was the FRB-MIT model, which explains consumption with one selection of variables and labor supply with an entirely different one."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Sims 1980 - FRB-MIT consumption equation.png",
+       "alt": "Sims 1980 - FRB-MIT consumption equation"
+      }
+     ],
+     "words": 77,
+     "symbols": []
+    },
+    {
+     "id": "2-sims-1980-macroeconomics-and-reality-2",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Sims 1980 - FRB-MIT labor supply equation.png",
+       "alt": "Sims 1980 - FRB-MIT labor supply equation"
+      },
+      {
+       "t": "prose",
+       "md": "It seems implausible that what affects consumption has no effect on labor supply. Expectations make it worse: U.S. consumers' tastes are unaffected by the temperature in Brazil, but reading of a frost in Brazil they might stockpile coffee in anticipation of its effect on price. So variables known to affect supply enter the demand equation, and vice versa, through expectations — undermining the exclusion restrictions econometricians had thought most reliable."
+      }
+     ],
+     "words": 70,
+     "symbols": []
+    },
+    {
+     "id": "2-sims-1980-macroeconomics-and-reality-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "One solution is the DSGE approach of last lecture: define the structure of the economy explicitly. But Sims argued that choosing among policy regimes can often be done with reduced-form models of how policy affects the economy's evolution. His solution avoids any *a priori* judgement about which variables are exogenous: **all variables are endogenous**, and every variable can influence every other over time. That model is the **vector autoregression** ([Vector Autoregression](note:vector-autoregression))."
+      },
+      {
+       "t": "quote",
+       "md": "Paper summary: [Sims 1980 - Macroeconomics and Reality](note:sims-1980-macroeconomics-and-reality)",
+       "papers": [
+        "sims-1980-macroeconomics-and-reality"
+       ]
+      }
+     ],
+     "words": 79,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "3-time-series-data",
+   "heading": "3. Time-series data",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "3-time-series-data-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With cross-sectional data, $y_i = \\beta_0 + \\beta_1 x_i + \\varepsilon_i$ can be estimated by OLS as long as the observations are independent and identically distributed — for example, cross-country regressions within a single year. With time series, $y_t = \\beta_0 + \\beta_1 x_t + \\varepsilon_t$, observations are rarely independent: if this month's inflation is high, next month's probably is too. The variable is **autocorrelated** (serially correlated)."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/US price level (PCE deflator).png",
+       "alt": "US price level (PCE deflator)"
+      }
+     ],
+     "words": 50,
+     "symbols": [
+      "$x_{i,t}$",
+      "$\\beta_{ij}$",
+      "$\\varepsilon_{i,t}$",
+      "$y$"
+     ]
+    },
+    {
+     "id": "3-time-series-data-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Stationarity.** A time series is stationary when its distribution does not depend on time: constant mean and variance, and no trend. Most time-series analysis needs stationary data, and the price level is clearly not stationary. A non-stationary series can often be made stationary by taking the **first difference**, $\\Delta X_t = X_t - X_{t-1}$: the first difference of the (log) price level is inflation ([Stationarity and Unit Roots](note:stationarity-and-unit-roots))."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/US inflation, first difference of the price level.png",
+       "alt": "US inflation, first difference of the price level"
+      }
+     ],
+     "words": 62,
+     "symbols": []
+    },
+    {
+     "id": "3-time-series-data-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "The US price level trends up throughout 1960–2025. What is the standard way to get a stationary series from it before estimating a VAR?",
+       "options": [
+        {
+         "md": "Take the first difference, $\\Delta X_t = X_t - X_{t-1}$ (inflation)",
+         "correct": true
+        },
+        {
+         "md": "Use more lags of the price level",
+         "correct": false,
+         "feedback": "Extra lags do not remove a trend; the series still has no constant mean."
+        },
+        {
+         "md": "Drop the years with the fastest price increases",
+         "correct": false,
+         "feedback": "That throws away data without removing the trend."
+        },
+        {
+         "md": "Estimate the model with OLS anyway; OLS does not need stationarity",
+         "correct": false,
+         "feedback": "The classical VAR assumptions require stationary data."
+        }
+       ],
+       "why": "Differencing turns a trending level into its period-to-period change, which fluctuates around a mean. If one difference is not enough, difference again (the lecture's recipe allows first or second differences).",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 56,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "4-autoregressive-models",
+   "heading": "4. Autoregressive models",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "4-autoregressive-models-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "When a variable is serially correlated, it can be represented as a function of its own lags ([Autoregressive Model](note:autoregressive-model)). An AR(1) uses one lag,"
+      },
+      {
+       "t": "math",
+       "tex": "x_t = \\beta_0 + \\beta_1 x_{t-1} + \\varepsilon_t"
+      },
+      {
+       "t": "prose",
+       "md": "and an AR($p$) uses $p$: $x_t = \\beta_0 + \\beta_1 x_{t-1} + \\dots + \\beta_p x_{t-p} + \\varepsilon_t$. The coefficients are estimated by OLS."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Inflation vs lagged inflation.png",
+       "alt": "Inflation vs lagged inflation",
+       "caption": "Inflation against its own lag: points lie close to a line with slope near one — strong persistence."
+      }
+     ],
+     "words": 52,
+     "symbols": [
+      "$x_{i,t}$",
+      "$\\beta_{ij}$",
+      "$\\varepsilon_{i,t}$",
+      "$p$"
+     ]
+    },
+    {
+     "id": "4-autoregressive-models-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "In an AR(1), $\\beta_1$ is the share of a shock that carries into the next period, so a shock $\\varepsilon$ is still worth $\\beta_1^k\\varepsilon$ after $k$ periods."
+      },
+      {
+       "t": "interactive",
+       "widget": "ar-1-impulse-response",
+       "state": {
+        "beta1": 0.75,
+        "eps": 2,
+        "ts": 5
+       },
+       "lock": [
+        "beta1",
+        "eps",
+        "ts"
+       ],
+       "show": [
+        "level",
+        "irf",
+        "series",
+        "mean",
+        "response",
+        "after4_out",
+        "share10_out"
+       ],
+       "highlight": "response",
+       "prompt": "A shock of 2 hits a series with persistence 0.75: predict what is left four periods later",
+       "predict": {
+        "hide": [
+         "series",
+         "response",
+         "after4_out",
+         "share10_out"
+        ],
+        "ask": "An AR(1) series with $\\beta_1 = 0.75$ sits at its mean of 2 until a one-time shock of 2 hits in period 5. How much of the shock is left four periods later, in period 9?",
+        "readout": "after4_out",
+        "tol": 0.01
+       },
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 42,
+     "symbols": [
+      "$x_{i,t}$",
+      "$\\beta_{ij}$",
+      "$\\varepsilon_{i,t}$",
+      "$k$",
+      "$\\mu$",
+      "$t$"
+     ]
+    },
+    {
+     "id": "4-autoregressive-models-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The gap from the mean falls to $2(0.75) = 1.5$, then 1.125, 0.844 and $2(0.75)^4 = 0.633$; after 10 periods only 5.6% of the shock is left. Unlock $\\beta_1$ to see faster decay at 0.5 and slower at 0.9."
+      },
+      {
+       "t": "prose",
+       "md": "**Testing for stationarity.** The **augmented Dickey-Fuller (ADF)** test checks whether a series has a **unit root**: in $x_t = \\beta_0 + \\beta_1 x_{t-1} + \\varepsilon_t$, a unit root is $\\beta_1 = 1$, so today's value is last period's plus noise. The Dickey-Fuller test's null hypothesis is $\\beta_1 = 1$; the augmented version adds more lagged terms."
+      },
+      {
+       "t": "interactive",
+       "widget": "ar-1-impulse-response",
+       "state": {
+        "beta1": 1,
+        "eps": 2,
+        "ts": 5
+       },
+       "lock": [
+        "beta1",
+        "ts"
+       ],
+       "show": [
+        "level",
+        "irf",
+        "series",
+        "mean",
+        "response",
+        "share10_out"
+       ],
+       "highlight": "series",
+       "prompt": "Set persistence to one: predict what happens to the shock",
+       "predict": {
+        "hide": [
+         "series",
+         "response",
+         "share10_out"
+        ],
+        "ask": "Now $\\beta_1 = 1$, a unit root. A one-time shock of 2 hits in period 5. What does the series do afterwards?",
+        "options": [
+         "It returns to 2, more slowly than with $\\beta_1 = 0.75$",
+         "It stays at 4 for ever: the shock is permanent",
+         "It keeps rising by 2 every period",
+         "It oscillates around 2"
+        ],
+        "answer": 1,
+        "why": "With $\\beta_1 = 1$ and no intercept, $x_t = x_{t-1} + \\varepsilon_t$: a random walk. The shock moves the level to 4 and nothing brings it back, so the series has no mean to return to — it is not stationary. This is the null hypothesis of the ADF test.",
+        "feedback": [
+         "With $\\beta_1 = 1$ each period carries over all of the previous gap: nothing pulls it back.",
+         null,
+         "That would need the shock to repeat (or a drift term). A one-time shock shifts the level once.",
+         "Oscillation needs a negative $\\beta_1$."
+        ]
+       },
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 89,
+     "symbols": [
+      "$x_{i,t}$",
+      "$\\beta_{ij}$",
+      "$\\varepsilon_{i,t}$",
+      "$\\mu$",
+      "$t$"
+     ]
+    },
+    {
+     "id": "4-autoregressive-models-4",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The **KPSS** (Kwiatkowski–Phillips–Schmidt–Shin) test is often paired with it, as a \"reverse\" ADF: its null hypothesis is that the series **is** stationary, so for stationarity you want to fail to reject."
+      }
+     ],
+     "words": 34,
+     "symbols": []
+    },
+    {
+     "id": "4-autoregressive-models-5",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "For a stationary series, what should the ADF and KPSS tests show?",
+       "options": [
+        {
+         "md": "ADF rejects its null (a unit root); KPSS fails to reject its null (stationarity)",
+         "correct": true
+        },
+        {
+         "md": "ADF fails to reject; KPSS rejects",
+         "correct": false,
+         "feedback": "That is the pattern for a series with a unit root."
+        },
+        {
+         "md": "Both reject their nulls",
+         "correct": false,
+         "feedback": "Rejecting KPSS's null is evidence *against* stationarity — the two tests would then disagree."
+        },
+        {
+         "md": "Both fail to reject their nulls",
+         "correct": false,
+         "feedback": "Then the data cannot tell a unit root from stationarity: the tests are inconclusive."
+        }
+       ],
+       "why": "The two tests have opposite nulls. ADF's null is non-stationarity, so rejecting it supports stationarity; KPSS's null is stationarity, so failing to reject it is consistent with it. Running both guards against a test that simply has low power.",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 42,
+     "symbols": []
+    },
+    {
+     "id": "4-autoregressive-models-6",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Classical VAR assumptions require stationary data; in certain applications that can be relaxed (next time)."
+      }
+     ],
+     "words": 15,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "5-choosing-lags",
+   "heading": "5. Choosing lags",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "5-choosing-lags-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "To estimate an AR model, and later a VAR, you must decide how many lags to include, using ACF plots or an information criterion. An **information criterion** balances how well a model fits against the risk of overfitting ([Model Selection Criteria](note:model-selection-criteria)):"
+      },
+      {
+       "t": "math",
+       "tex": "AIC = 2k - 2\\ln(L), \\qquad BIC = k\\ln(n) - 2\\ln(L)"
+      },
+      {
+       "t": "prose",
+       "md": "where $k$ is the number of lags (more precisely, of estimated parameters), $L$ the maximized likelihood and $n$ the number of observations. Choose the model with the **minimum** value."
+      }
+     ],
+     "words": 67,
+     "symbols": [
+      "$k$",
+      "$AIC$, $BIC$",
+      "$\\ln L$",
+      "$C_p$",
+      "$A$, $L$, $K$"
+     ]
+    },
+    {
+     "id": "5-choosing-lags-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "With $n = 100$ observations, an AR model with 2 lags has $\\ln L = -100$ and one with 4 lags has $\\ln L = -98.5$. Using $k$ as the number of lags, which model do AIC and BIC choose?",
+       "options": [
+        {
+         "md": "Both choose 2 lags",
+         "correct": true
+        },
+        {
+         "md": "Both choose 4 lags, because it fits better",
+         "correct": false,
+         "feedback": "It fits better ($\\ln L$ is higher), but not by enough to pay for two more parameters."
+        },
+        {
+         "md": "AIC chooses 4 lags and BIC chooses 2",
+         "correct": false,
+         "feedback": "AIC is 204 with 2 lags and 205 with 4: AIC also prefers 2."
+        },
+        {
+         "md": "AIC chooses 2 lags and BIC chooses 4",
+         "correct": false,
+         "feedback": "BIC penalizes parameters more ($\\ln 100 = 4.6$ per parameter against AIC's 2), so it never prefers the bigger model when AIC doesn't."
+        }
+       ],
+       "why": "AIC: $2(2) + 200 = 204$ against $2(4) + 197 = 205$. BIC: $2\\ln 100 + 200 = 209.2$ against $4\\ln 100 + 197 = 215.4$. Both pick the smaller model.",
+       "objectives": [
+        4
+       ]
+      }
+     ],
+     "words": 56,
+     "symbols": [
+      "$k$",
+      "$\\ln L$"
+     ]
+    },
+    {
+     "id": "5-choosing-lags-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "An **autocorrelation function (ACF)** plot shows the correlation of a variable with each of its lags. A **partial autocorrelation function (PACF)** plot isolates the direct effect of each lag: $x_{t-4}$ affects $x_t$ directly and also indirectly through $x_{t-1}$, $x_{t-2}$ and $x_{t-3}$, and the PACF removes the indirect part."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/ACF of inflation.png",
+       "alt": "ACF of inflation",
+       "caption": "ACF of inflation: correlations decay slowly and stay well above the significance band for many lags — the signature of a highly persistent, possibly non-stationary series."
+      }
+     ],
+     "words": 68,
+     "symbols": [
+      "$x_{i,t}$"
+     ]
+    },
+    {
+     "id": "5-choosing-lags-4",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/ACF of differenced inflation.png",
+       "alt": "ACF of differenced inflation",
+       "caption": "ACF of differenced inflation: only the first couple of lags are clearly positive, with smaller swings after."
+      }
+     ],
+     "words": 17,
+     "symbols": []
+    },
+    {
+     "id": "5-choosing-lags-5",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "An AR model can then forecast the future path of a variable."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/AR forecast of inflation.png",
+       "alt": "AR forecast of inflation",
+       "caption": "An AR forecast (orange) of US inflation."
+      }
+     ],
+     "words": 19,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "6-var-models",
+   "heading": "6. VAR models",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "6-var-models-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "An AR model makes a variable a function of its own lags. A **vector autoregression** makes each variable a function of its own lags **and the lags of every other variable** in the model, so every variable is endogenous. A two-variable VAR with one lag:"
+      },
+      {
+       "t": "math",
+       "tex": "x_{1,t} = c_1 + \\beta_{11} x_{1,t-1} + \\beta_{12} x_{2,t-1} + \\varepsilon_{1,t}"
+      },
+      {
+       "t": "math",
+       "tex": "x_{2,t} = c_2 + \\beta_{21} x_{1,t-1} + \\beta_{22} x_{2,t-1} + \\varepsilon_{2,t}"
+      },
+      {
+       "t": "prose",
+       "md": "The number of parameters grows quickly with variables and lags: with $k$ variables and $p$ lags, each of the $k$ equations has $kp$ lag coefficients and an intercept."
+      }
+     ],
+     "words": 69,
+     "symbols": [
+      "$x_{i,t}$",
+      "$c_i$",
+      "$\\beta_{ij}$",
+      "$\\varepsilon_{i,t}$",
+      "$k$",
+      "$p$"
+     ]
+    },
+    {
+     "id": "6-var-models-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "How many parameters must be estimated in a VAR with $k = 6$ variables and 5 lags?",
+       "answer": 186.0,
+       "tol": 0.5,
+       "vary": [
+        {
+         "sym": "k",
+         "values": [
+          2.0,
+          3.0,
+          4.0,
+          6.0
+         ]
+        }
+       ],
+       "compute": "5k^2 + k",
+       "bindings": [
+        {
+         "sym": "k",
+         "value": 6.0,
+         "span": "$k = 6$"
+        }
+       ],
+       "wrongCompute": [
+        {
+         "tex": "5k^2",
+         "md": "each of the $k$ equations also has an intercept"
+        },
+        {
+         "tex": "5k + k",
+         "md": "each equation includes 5 lags of *every* variable, not just its own"
+        }
+       ],
+       "why": "$k^2p + k = 36 \\times 5 + 6 = 186$ — the lecture's example. This is why standard VARs use only a few variables: each one added costs many degrees of freedom.",
+       "objectives": [
+        5
+       ]
+      }
+     ],
+     "words": 14,
+     "symbols": [
+      "$k$",
+      "$p$"
+     ]
+    },
+    {
+     "id": "6-var-models-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Assuming stationary data, the parameters are estimated equation by equation with OLS. But interpreting the coefficients is tricky. In $y_i = \\beta_0 + \\beta_1 x_{1,i} + \\beta_2 x_{2,i} + \\varepsilon_i$, $\\beta_1$ is the average change in $y$ when $x_1$ rises one unit holding everything else constant; in a VAR every variable is endogenous, so you cannot hold the others constant, and isolating one variable's impact on another is hard. Three tools help."
+      },
+      {
+       "t": "prose",
+       "md": "**Impulse response functions (IRFs).** Shock the error of one equation once, and trace the path of every variable over time using the estimated coefficients — the AR impulse response above, for a whole system."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Stock and Watson 2001 - impulse responses in the inflation-unemployment-interest rate VAR.png",
+       "alt": "Stock and Watson 2001 - impulse responses in the inflation-unemployment-interest rate VAR",
+       "caption": "Stock and Watson's three-variable VAR: each panel traces one variable's response to a one-time shock to one equation, with confidence bands."
+      }
+     ],
+     "words": 112,
+     "symbols": [
+      "$x_{i,t}$",
+      "$\\beta_{ij}$",
+      "$\\varepsilon_{i,t}$",
+      "$y$"
+     ]
+    },
+    {
+     "id": "6-var-models-4",
+     "blocks": [
+      {
+       "t": "quote",
+       "md": "Paper summary: [Stock and Watson 2001 - Vector Autoregressions](note:stock-and-watson-2001-vector-autoregressions)",
+       "papers": [
+        "stock-and-watson-2001-vector-autoregressions"
+       ]
+      },
+      {
+       "t": "prose",
+       "md": "**Forecast error variance decomposition (FEVD).** How much of the variance of each variable is explained by its own shocks versus shocks to the other variables: is inflation's path mainly driven by past inflation shocks, or by shocks to other variables?"
+      },
+      {
+       "t": "prose",
+       "md": "**Granger causality.** A statistical version of causality: do past values of $X$ help predict current values of $Y$ beyond what past values of $Y$ alone predict? It does not necessarily imply true causality."
+      }
+     ],
+     "words": 79,
+     "symbols": []
+    },
+    {
+     "id": "6-var-models-5",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "A central bank raises interest rates whenever inflation is high, and higher rates lower inflation. What would a VAR of inflation and the interest rate most likely show?",
+       "options": [
+        {
+         "md": "Inflation Granger-causes the interest rate, even though the policy causes inflation to fall",
+         "correct": true
+        },
+        {
+         "md": "The interest rate Granger-causes inflation, and inflation does not Granger-cause the interest rate",
+         "correct": false,
+         "feedback": "Rates respond to past inflation, so past inflation does help predict rates."
+        },
+        {
+         "md": "Neither Granger-causes the other, because the effects cancel",
+         "correct": false,
+         "feedback": "Each variable's past helps predict the other; Granger causality measures prediction, not net effects."
+        },
+        {
+         "md": "Granger causality would reveal that rates truly cause inflation",
+         "correct": false,
+         "feedback": "Granger causality is about prediction; it cannot settle true causation without a structural model."
+        }
+       ],
+       "why": "Past inflation predicts future rate rises, so in the data inflation \"Granger-causes\" interest rates — even though the causal story of interest is the reverse. To identify true causality you need a structural model.",
+       "objectives": [
+        6
+       ]
+      }
+     ],
+     "words": 71,
+     "symbols": []
+    },
+    {
+     "id": "6-var-models-6",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Recap — estimating a VAR:**"
+      },
+      {
+       "t": "prose",
+       "md": "1. Test the data for stationarity (ADF and KPSS).\n2. If not stationary, transform the data (first or second differences).\n3. Choose the number of lags (ACF/PACF plots or information criteria).\n4. Estimate the model; plot impulse responses, test Granger causality, compute the FEVD."
+      }
+     ],
+     "words": 49,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "7-do-vars-solve-the-lucas-critique",
+   "heading": "7. Do VARs solve the Lucas critique?",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "7-do-vars-solve-the-lucas-critique-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Not really. VARs still estimate relationships from past data, and those relationships are almost certainly not independent of the policy environment. DSGE models are still needed to model the underlying mechanisms explicitly."
+      },
+      {
+       "t": "prose",
+       "md": "The VARs above are **reduced-form**. A **structural VAR** (SVAR) uses theory to impose specific restrictions on the parameters, usually so that the shocks are uncorrelated, which makes it easier to isolate the effect of a specific shock. Next time: prominent macro papers that use VARs, and the coding assignment."
+      }
+     ],
+     "words": 81,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Explain Sims's critique of large-scale macro models and why a VAR treats every variable as endogenous.\n2. Define stationarity, explain why differencing helps, and read ACF plots.\n3. Write and interpret an AR($p$) model, including the decay of a shock in an AR(1) and what a unit root means.\n4. State the null hypotheses of the ADF and KPSS tests and use AIC and BIC to choose lags.\n5. Write a VAR and count its parameters.\n6. Interpret impulse responses, variance decompositions and Granger causality, and explain why VARs do not escape the Lucas critique."
+      }
+     ],
+     "words": 97,
+     "symbols": [
+      "$p$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "papers-in-this-lecture",
+   "heading": "Papers in this lecture",
+   "role": "papers",
+   "steps": [
+    {
+     "id": "papers-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "papers",
+       "items": [
+        "sims-1980-macroeconomics-and-reality",
+        "stock-and-watson-2001-vector-autoregressions"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "vector-autoregression",
+        "autoregressive-model",
+        "stationarity-and-unit-roots",
+        "model-selection-criteria",
+        "endogenous-and-exogenous-variables",
+        "lucas-critique"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

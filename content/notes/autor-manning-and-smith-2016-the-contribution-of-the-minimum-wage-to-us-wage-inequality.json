@@ -1,0 +1,269 @@
+{
+ "slug": "autor-manning-and-smith-2016-the-contribution-of-the-minimum-wage-to-us-wage-inequality",
+ "notation": [
+  {
+   "tex": "$\\sigma_u^2$",
+   "meaning": "Variance of the measurement error",
+   "kind": "Parameter",
+   "typical": "0.05 in the example",
+   "keys": [
+    "sigma"
+   ],
+   "from": "classical-measurement-error"
+  },
+  {
+   "tex": "$\\beta$",
+   "meaning": "True slope on $x^{*}$",
+   "kind": "Parameter",
+   "typical": "0.10 in the example",
+   "keys": [
+    "beta"
+   ],
+   "from": "classical-measurement-error"
+  },
+  {
+   "tex": "$w^{p}_{jt}$, $w_{st}(p)$",
+   "meaning": "Log wage at percentile $p$ in state $j$ (or $s$), year $t$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "~w^p_jt",
+    "w"
+   ],
+   "from": "effective-minimum-wage"
+  },
+  {
+   "tex": "$w^m_{st}$",
+   "meaning": "Log real minimum wage in state $s$, year $t$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "~w^m_st"
+   ],
+   "from": "effective-minimum-wage"
+  },
+  {
+   "tex": "$\\beta$, $\\gamma$",
+   "meaning": "Linear and quadratic coefficients on $mw$",
+   "kind": "Parameters",
+   "typical": "1.494, 0.634 (Lee, trimmed mean)",
+   "keys": [
+    "beta",
+    "gamma"
+   ],
+   "from": "effective-minimum-wage"
+  },
+  {
+   "tex": "$u_{jt}$, $\\varepsilon_{st}(p)$",
+   "meaning": "Regression errors",
+   "kind": "Error",
+   "typical": "—",
+   "keys": [
+    "u",
+    "varepsilon"
+   ],
+   "from": "effective-minimum-wage"
+  },
+  {
+   "tex": "$p$",
+   "meaning": "Percentile of the wage distribution",
+   "kind": "Index",
+   "typical": "5 to 95",
+   "keys": [
+    "p"
+   ],
+   "from": "effective-minimum-wage"
+  }
+ ],
+ "sections": [
+  {
+   "id": "key-takeaways",
+   "heading": "Key takeaways",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "key-takeaways-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. **OLS looks like Lee.** Regressing percentile gaps on the effective minimum, with state effects and trends, finds effects in the lower tail but also in the upper tail.\n2. **The upper-tail effect is bias.** The median appears in both the dependent and the explanatory variable; its measurement error makes them correlated, more so far from the 50th percentile ([Classical Measurement Error](note:classical-measurement-error)).\n3. **Instrumented, effects shrink.** Effects reach only the 20th percentile for women and the 5th–10th for men, with none at the top.\n4. **Counterfactual:** the decline in the minimum explains none of the growth in upper-tail inequality and about 10% (men) and 50% (women) of the growth in lower-tail inequality."
+      }
+     ],
+     "words": 113,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "research-question",
+   "heading": "Research question",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "research-question-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Using additional decades of data, in which state minimum wages vary much more, and an IV strategy, how much did the minimum wage contribute to US wage inequality?"
+      }
+     ],
+     "words": 28,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "data-and-setting",
+   "heading": "Data and setting",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "data-and-setting-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "CPS MORG 1979–2012, state-by-year percentiles. By the 2000s 15–30 states had minimums above the federal level."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Autor, Manning and Smith 2016 - share of hours at or below the minimum wage.png",
+       "alt": "Autor, Manning and Smith 2016 - share of hours at or below the minimum wage"
+      }
+     ],
+     "words": 18,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "empirical-strategy",
+   "heading": "Empirical strategy",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "empirical-strategy-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$w_{st}(p) - w_{st}(50) = \\beta_1(p)[w^m_{st} - w_{st}(50)] + \\beta_2(p)[w^m_{st} - w_{st}(50)]^2 + \\sigma_{s0}(p) + \\sigma_{s1}(p)\\,t + \\gamma_t(p) + \\varepsilon_{st}(p)$ with state effects and trends, the linear and quadratic terms instrumented by the log real minimum, its square, and the minimum interacted with the state's average real median over the sample ([Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls), [Effective Minimum Wage](note:effective-minimum-wage))."
+      }
+     ],
+     "words": 38,
+     "symbols": [
+      "$\\sigma_u^2$",
+      "$\\beta$",
+      "$w^{p}_{jt}$, $w_{st}(p)$",
+      "$w^m_{st}$",
+      "$\\beta$, $\\gamma$",
+      "$u_{jt}$, $\\varepsilon_{st}(p)$",
+      "$p$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "results",
+   "heading": "Results",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "results-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Autor, Manning and Smith 2016 - OLS marginal effects by percentile.png",
+       "alt": "Autor, Manning and Smith 2016 - OLS marginal effects by percentile"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    },
+    {
+     "id": "results-2",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Autor, Manning and Smith 2016 - 2SLS marginal effects by percentile.png",
+       "alt": "Autor, Manning and Smith 2016 - 2SLS marginal effects by percentile"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    },
+    {
+     "id": "results-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Pooled marginal effects: OLS 0.35 at $p5$, 0.17 at $p10$, 0.15 at $p90$; 2SLS 0.29, 0.16 and 0.01.\n- Lee's specification on the extended data still produces large effects far up the distribution for men."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Autor, Manning and Smith 2016 actual and counterfactual changes in 50-10.png",
+       "alt": "Table - Autor, Manning and Smith 2016 actual and counterfactual changes in 50-10"
+      }
+     ],
+     "words": 39,
+     "symbols": [
+      "$p$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "caveats",
+   "heading": "Caveats",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "caveats-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- The instrument relies on federal changes interacting with state wage levels; it assumes no state-specific shocks correlated with that interaction.\n- Spillovers may be partly measurement artefacts (reported wages bunched at the minimum)."
+      }
+     ],
+     "words": 34,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "in-econ-424-l9-minimum-wages-and-wage-inequality",
+   "heading": "In Econ 424 L9 Minimum Wages and Wage Inequality",
+   "role": "paper-in-lesson",
+   "steps": [
+    {
+     "id": "in-econ-424-l9-minimum-wages-and-wage-inequality-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Revisits Lee: same idea, longer data, and an instrument that fixes the median-on-both-sides problem. Differences from Lee come from both the sample and the instrumentation."
+      }
+     ],
+     "words": 25,
+     "symbols": []
+    }
+   ],
+   "lesson": "econ-424-l9-minimum-wages-and-wage-inequality"
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Effective Minimum Wage](note:effective-minimum-wage) · [Classical Measurement Error](note:classical-measurement-error) · [Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls) · [US Minimum Wage and Lower-Tail Wage Inequality 1979-2012](note:us-minimum-wage-and-lower-tail-wage-inequality-1979-2012) · [Lee 1999 - Wage Inequality in the US During the 1980s](note:lee-1999-wage-inequality-in-the-us-during-the-1980s)"
+      }
+     ],
+     "words": 30,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

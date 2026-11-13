@@ -113,6 +113,27 @@
     "~TSS"
    ],
    "from": "coefficient-of-determination"
+  },
+  {
+   "tex": "$s$, $k$",
+   "meaning": "Period of the shock; periods since the shock",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "s",
+    "k"
+   ],
+   "from": "autoregressive-model"
+  },
+  {
+   "tex": "$n$",
+   "meaning": "Sample size",
+   "kind": "Count",
+   "typical": "—",
+   "keys": [
+    "n"
+   ],
+   "from": "cross-validation"
   }
  ],
  "sections": [
@@ -267,6 +288,38 @@
    ]
   },
   {
+   "id": "likelihood-form-and-choosing-lags",
+   "heading": "Likelihood form and choosing lags",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "likelihood-form-and-choosing-lags-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "In time series the criteria are usually written with the maximized log likelihood $\\ln(\\hat{L})$ and $k$ estimated parameters (or lags):"
+      },
+      {
+       "t": "math",
+       "tex": "AIC = 2k - 2\\ln(\\hat{L}), \\qquad BIC = k\\ln(n) - 2\\ln(\\hat{L})"
+      },
+      {
+       "t": "prose",
+       "md": "with $n$ observations. Choose the model with the **minimum** value. They are used to pick the number of lags $p$ in an [Autoregressive Model](note:autoregressive-model) or a [Vector Autoregression](note:vector-autoregression). Example: with $n = 100$, two lags and $\\ln \\hat{L} = -100$ give AIC 204 and BIC 209.2; four lags and $\\ln \\hat{L} = -98.5$ give AIC 205 and BIC 215.4, so both criteria pick two lags — the better fit is not worth two extra parameters."
+      }
+     ],
+     "words": 81,
+     "symbols": [
+      "$AIC$, $BIC$",
+      "$p$",
+      "$C_p$",
+      "$s$, $k$",
+      "$n$"
+     ]
+    }
+   ]
+  },
+  {
    "id": "common-mistakes",
    "heading": "Common mistakes",
    "role": "depth",
@@ -299,10 +352,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "- [Coefficient of Determination](note:coefficient-of-determination) · [Variable Selection](note:variable-selection) · [Cross-Validation](note:cross-validation) · [Omitted Variable Bias](note:omitted-variable-bias)"
+       "md": "- [Coefficient of Determination](note:coefficient-of-determination) · [Variable Selection](note:variable-selection) · [Cross-Validation](note:cross-validation) · [Omitted Variable Bias](note:omitted-variable-bias)\n- [Autoregressive Model](note:autoregressive-model) · [Vector Autoregression](note:vector-autoregression) — choosing lag length"
       }
      ],
-     "words": 10,
+     "words": 18,
      "symbols": []
     }
    ]

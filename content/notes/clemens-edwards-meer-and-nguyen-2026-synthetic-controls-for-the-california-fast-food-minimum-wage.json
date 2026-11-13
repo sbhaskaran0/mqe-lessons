@@ -1,0 +1,164 @@
+{
+ "slug": "clemens-edwards-meer-and-nguyen-2026-synthetic-controls-for-the-california-fast-food-minimum-wage",
+ "notation": [],
+ "sections": [
+  {
+   "id": "key-takeaways",
+   "heading": "Key takeaways",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "key-takeaways-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. **A specification curve.** Crossing data source, donor pool, outcome, seasonal adjustment, trend adjustment and matching window gives 900 synthetic DiD and 540 synthetic-control estimates.\n2. **Mostly negative.** 96.3% are negative (53 of 1,440 positive); medians −3.58% (QCEW, SDID), −2.90% (QWI, SDID), −3.12% (QCEW, SC), −2.43% (QWI, SC).\n3. **Detrending matters most.** Detrending lowers estimates by 2.2–3.0 percentage points relative to no detrending; but even without it, their median two-year SDID estimate is −2.83%, and applying their implementation to Dube's own choices still gives near-zero effects."
+      }
+     ],
+     "words": 96,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "research-question",
+   "heading": "Research question",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "research-question-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "How much does the estimated employment effect depend on the choices used to construct a synthetic California?"
+      }
+     ],
+     "words": 17,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "data-and-setting",
+   "heading": "Data and setting",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "data-and-setting-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "QCEW and QWI limited-service restaurant employment through 2025Q4. Choices: data (QCEW, QWI); donors (20 federal-minimum states or all 48); outcome (jobs, log jobs, jobs per capita, log jobs per capita, indexed jobs); seasonal adjustment (none, moving average, quarter effects); trend adjustment (none, annual 2021–23, 2021Q3–2023Q3); matching window (five)."
+      }
+     ],
+     "words": 50,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "empirical-strategy",
+   "heading": "Empirical strategy",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "empirical-strategy-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Synthetic Control](note:synthetic-control) and synthetic DiD, estimated for every combination; SC uses three outcomes (California is too large to match raw or log counts), giving $2 \\times 2 \\times 5 \\times 3 \\times 3 \\times 5 = 900$ SDID and 540 SC specifications."
+      }
+     ],
+     "words": 29,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "results",
+   "heading": "Results",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "results-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Clemens, Edwards, Meer and Nguyen 2026 - distribution of 1,440 employment estimates.png",
+       "alt": "Clemens, Edwards, Meer and Nguyen 2026 - distribution of 1,440 employment estimates"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    },
+    {
+     "id": "results-2",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Clemens, Edwards, Meer and Nguyen 2026 how specification choices move the estimate.png",
+       "alt": "Table - Clemens, Edwards, Meer and Nguyen 2026 how specification choices move the estimate"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "caveats",
+   "heading": "Caveats",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "caveats-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Whether to detrend is a substantive judgment (did California's fast-food employment have its own trend?), not a nuisance choice; the distribution of estimates is not a sampling distribution."
+      }
+     ],
+     "words": 29,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "in-econ-424-l8-minimum-wages-and-employment",
+   "heading": "In Econ 424 L8 Minimum Wages and Employment",
+   "role": "paper-in-lesson",
+   "steps": [
+    {
+     "id": "in-econ-424-l8-minimum-wages-and-employment-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The lecture's closing lesson: with one treated unit, defensible choices can move the estimate from about zero to −3%, so robustness across specifications matters as much as any single estimate."
+      }
+     ],
+     "words": 30,
+     "symbols": []
+    }
+   ],
+   "lesson": "econ-424-l8-minimum-wages-and-employment"
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Synthetic Control](note:synthetic-control) · [California Fast-Food Minimum Wage Employment Effects 2024-2025](note:california-fast-food-minimum-wage-employment-effects-2024-2025) · [Dube 2026 - California Fast-Food Minimum Wage](note:dube-2026-california-fast-food-minimum-wage)"
+      }
+     ],
+     "words": 17,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

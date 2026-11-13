@@ -1,0 +1,121 @@
+{
+ "slug": "us-minimum-wage-and-lower-tail-wage-inequality-1979-2012",
+ "notation": [],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**The real value of the federal minimum wage fell in every year between 1979 and 1989, exactly as lower-tail wage inequality rose. Relative to the median, the minimum fell by about 0.38 log points over the decade (chart-read ≈), and the 10th percentile by about 0.2. Using state variation and an instrument, Autor, Manning and Smith attribute 48% of the 1979–2012 rise in the women's 50/10 gap, 11% of men's and 39% of the pooled rise to the minimum wage.**"
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/US real federal minimum wage 1979-2012.png",
+       "alt": "US real federal minimum wage 1979-2012",
+       "caption": "Real federal minimum wage: ≈ 7.1 in 1979, ≈ 5.2 in 1989 (chart-read; lecture's deflator), back up after the 1990–91, 1996–97 and 2007–09 increases."
+      }
+     ],
+     "words": 110,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "percentiles-relative-to-the-median-lee-1999-figure-ii",
+   "heading": "Percentiles relative to the median (Lee 1999, Figure II)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "percentiles-relative-to-the-median-lee-1999-figure-ii-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Lee 1999 - wage percentiles and the minimum wage relative to the median 1973-1993.png",
+       "alt": "Lee 1999 - wage percentiles and the minimum wage relative to the median 1973-1993"
+      },
+      {
+       "t": "prose",
+       "md": "All series are normalized to 0 in 1979. By 1989 the minimum relative to the median is ≈ −0.38, the 5th percentile ≈ −0.20, the 10th ≈ −0.14 and the 25th ≈ −0.05, while the 75th and 90th rise slightly (≈ +0.02 to +0.05; all chart-read)."
+      }
+     ],
+     "words": 47,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "how-much-of-the-minimum-wage-binds-autor-manning-and-smith-2016",
+   "heading": "How much of the minimum wage binds (Autor, Manning and Smith 2016)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "how-much-of-the-minimum-wage-binds-autor-manning-and-smith-2016-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Autor, Manning and Smith 2016 - share of hours at or below the minimum wage.png",
+       "alt": "Autor, Manning and Smith 2016 - share of hours at or below the minimum wage"
+      },
+      {
+       "t": "prose",
+       "md": "The share of hours paid at or below the applicable minimum fell from ≈ 13% (women) and ≈ 5% (men) in 1979–81 to ≈ 4% and ≈ 3% by the mid-2000s (chart-read)."
+      }
+     ],
+     "words": 29,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "counterfactual-change-in-the-50-10-log-wage-gap-ams-table-3-log-points-100",
+   "heading": "Counterfactual change in the 50/10 log wage gap (AMS Table 3, log points × 100)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "counterfactual-change-in-the-50-10-log-wage-gap-ams-table-3-log-points-100-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Period, group | Observed change | Counterfactual with constant effective minimum (2SLS, levels) | Share due to the minimum |\n| --- | --- | --- | --- |\n| 1979–1989, women | 24.6 | 11.3 | 54% |\n| 1979–1989, men | 2.5 | 1.2 | 52% |\n| 1979–1989, pooled | 11.8 | 6.7 | 43% |\n| 1979–2012, women | 28.5 | 14.8 | 48% |\n| 1979–2012, men | 7.9 | 7.0 | 11% |\n| 1979–2012, pooled | 11.4 | 6.9 | 39% |"
+      },
+      {
+       "t": "prose",
+       "md": "\"Share due to the minimum\" is (observed − counterfactual)/observed, computed here from the table. OLS counterfactuals without state fixed effects (Lee's approach) leave little or nothing to explain: −1.2 for the pooled 1979–1989 change."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Autor, Manning and Smith 2016 actual and counterfactual changes in 50-10.png",
+       "alt": "Table - Autor, Manning and Smith 2016 actual and counterfactual changes in 50-10"
+      }
+     ],
+     "words": 104,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Effective Minimum Wage](note:effective-minimum-wage) · [Percentile Ratios](note:percentile-ratios) · [US Wage Percentiles 1963-2008](note:us-wage-percentiles-1963-2008) · [Minimum Wage](note:minimum-wage)\n- Paper: [Lee 1999 - Wage Inequality in the US During the 1980s](note:lee-1999-wage-inequality-in-the-us-during-the-1980s)\n- Paper: [Autor, Manning and Smith 2016 - The Contribution of the Minimum Wage to US Wage Inequality](note:autor-manning-and-smith-2016-the-contribution-of-the-minimum-wage-to-us-wage-inequality)"
+      }
+     ],
+     "words": 43,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

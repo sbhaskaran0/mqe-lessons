@@ -1,0 +1,208 @@
+{
+ "slug": "synthetic-control",
+ "notation": [
+  {
+   "tex": "$y_{jt}$",
+   "meaning": "Outcome of unit $j$ in period $t$ (e.g. fast-food jobs per 1,000 people)",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "y"
+   ]
+  },
+  {
+   "tex": "$\\omega_j$",
+   "meaning": "Weight on donor unit $j$",
+   "kind": "Estimated weight",
+   "typical": "sums to 1",
+   "keys": [
+    "omega"
+   ]
+  },
+  {
+   "tex": "$\\lambda_s$",
+   "meaning": "Weight on pre-policy period $s$ (SDID)",
+   "kind": "Estimated weight",
+   "typical": "sums to 1",
+   "keys": [
+    "lambda"
+   ]
+  },
+  {
+   "tex": "$\\hat{\\tau}_{SDID}$",
+   "meaning": "Synthetic DiD effect estimate",
+   "kind": "Estimate",
+   "typical": "−0.26 log points (Dube, QCEW)",
+   "keys": [
+    "hat(tau)"
+   ]
+  },
+  {
+   "tex": "$\\bar{y}_{j,post}$",
+   "meaning": "Average post-policy outcome of unit $j$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "bar(y)"
+   ]
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Suppose one state, say California, adopts a policy and no other state does. No single other state looks enough like California to serve as a comparison. Instead, build one: find the weighted average of other states whose path before the policy matches California's as closely as possible, then treat that \"synthetic California\" as what would have happened without the policy. The effect is the gap that opens up afterwards. Synthetic difference-in-differences relaxes the match: the comparison only has to move in parallel with California, not sit on top of it, and it also chooses which earlier periods to use as the baseline. Both methods involve many choices, and the estimated effect can depend on them."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the standard tool when a single state or country is treated, as with California's 20-dollar fast-food minimum wage, where parallel trends with any one comparison are implausible.",
+       "folded": false
+      }
+     ],
+     "words": 147,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With treated unit 1 and donor units $j = 2, \\dots, J$:"
+      },
+      {
+       "t": "prose",
+       "md": "- **Synthetic control (SC):** choose weights $\\omega_j \\ge 0$, $\\sum_j \\omega_j = 1$, so that $\\sum_j \\omega_j y_{jt} \\approx y_{1t}$ in pre-policy periods. The effect in period $t$ after the policy is $y_{1t} - \\sum_j \\omega_j y_{jt}$.\n- **Synthetic difference-in-differences (SDID):** choose $\\omega$ so the weighted donors track the treated unit's pre-policy path up to a constant gap, and time weights $\\lambda_s$ on pre-policy periods so the donors' weighted past predicts their post-policy average. Then"
+      },
+      {
+       "t": "math",
+       "tex": "\\hat{\\tau}_{SDID} = \\left(\\bar{y}_{1,post} - \\sum_s \\lambda_s y_{1s}\\right) - \\sum_j \\omega_j\\left(\\bar{y}_{j,post} - \\sum_s \\lambda_s y_{js}\\right)"
+      },
+      {
+       "t": "prose",
+       "md": "the post-policy gap minus the time-weighted pre-policy gap."
+      }
+     ],
+     "words": 70,
+     "symbols": [
+      "$y_{jt}$",
+      "$\\omega_j$",
+      "$\\lambda_s$",
+      "$\\hat{\\tau}_{SDID}$",
+      "$\\bar{y}_{j,post}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The lecture's illustration: California's gap with its comparison moves from +2 to −1 jobs per 1,000 residents. SDID, which allows a constant pre-policy gap, estimates $-1 - 2 = -3$; SC instead seeks weights that eliminate the initial gap, so its estimate is the post-policy gap alone."
+      }
+     ],
+     "words": 43,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "the-california-fast-food-minimum-wage",
+   "heading": "The California fast-food minimum wage",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-california-fast-food-minimum-wage-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Dube (2026):** SDID with 20 federal-minimum states as donors gives earnings +6.99 and employment −0.26 log points (QCEW), an own-wage elasticity of −0.04; conventional DiD gives −1.39.\n- **Clemens, Edwards, Meer and Nguyen (2026):** crossing data source, donor pool, outcome, seasonal adjustment, trend adjustment and matching window gives 1,440 specifications; 96.3% are negative, with medians around −2.4% to −3.6%. Whether to detrend is the biggest single choice."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Clemens, Edwards, Meer and Nguyen 2026 - distribution of 1,440 employment estimates.png",
+       "alt": "Clemens, Edwards, Meer and Nguyen 2026 - distribution of 1,440 employment estimates"
+      }
+     ],
+     "words": 76,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Treating the weights as given.** Donor pool, matching window and outcome definition all change them, and so the estimate (a specification curve shows how much).\n- **Reading a good pre-period fit as proof.** A synthetic unit can match the past and still diverge for reasons unrelated to the policy.\n- **Using conventional standard errors.** Inference relies on placebo or permutation methods."
+      }
+     ],
+     "words": 62,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Policy evaluation with one or few treated units: state minimum wages, tobacco taxes, German reunification, Brexit."
+      }
+     ],
+     "words": 17,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Difference-in-Differences](note:difference-in-differences) · [Minimum Wage](note:minimum-wage)\n- Paper: [Dube 2026 - California Fast-Food Minimum Wage](note:dube-2026-california-fast-food-minimum-wage)\n- Paper: [Clemens, Edwards, Meer and Nguyen 2026 - Synthetic Controls for the California Fast-Food Minimum Wage](note:clemens-edwards-meer-and-nguyen-2026-synthetic-controls-for-the-california-fast-food-minimum-wage)"
+      }
+     ],
+     "words": 30,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

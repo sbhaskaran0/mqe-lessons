@@ -1,0 +1,68 @@
+{
+ "slug": "minimum-wage-bite-explorer",
+ "notation": [
+  {
+   "tex": "$w^{p}_{jt}$, $w_{st}(p)$",
+   "meaning": "Log wage at percentile $p$ in state $j$ (or $s$), year $t$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "~w^p_jt",
+    "w"
+   ],
+   "from": "effective-minimum-wage"
+  },
+  {
+   "tex": "$\\beta$, $\\gamma$",
+   "meaning": "Linear and quadratic coefficients on $mw$",
+   "kind": "Parameters",
+   "typical": "1.494, 0.634 (Lee, trimmed mean)",
+   "keys": [
+    "beta",
+    "gamma"
+   ],
+   "from": "effective-minimum-wage"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "minimum-wage-bite-explorer"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$w^{p}_{jt}$, $w_{st}(p)$",
+      "$\\beta$, $\\gamma$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Purpose.** The bite of a minimum wage depends on how close it is to typical pay. Near the median, raising it compresses the lower tail almost one-for-one; far below, it does nothing. A federal minimum that falls in real terms moves low-wage states down this curve, so their lower tail widens most.\n- **Model.** A view of [Minimum Wage Bite Model](note:minimum-wage-bite-model) (Lee's trimmed-mean estimates).\n- **Elements.** Panel `bite`: curve `effect`; point `here` (draggable, bound to `mw`); line `zeroline`. Readouts `effect_out`, `zero_out`.\n- **Tests.** Python."
+      }
+     ],
+     "words": 87,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

@@ -115,6 +115,16 @@
    "from": "homogeneous-functions-and-eulers-theorem"
   },
   {
+   "tex": "$g$",
+   "meaning": "Concave or convex function in Jensen's inequality",
+   "kind": "Function",
+   "typical": "e.g. log",
+   "keys": [
+    "g"
+   ],
+   "from": "convexity-and-concavity"
+  },
+  {
    "tex": "$F(\\cdot)$",
    "meaning": "General production function",
    "kind": "Function",
@@ -133,6 +143,16 @@
     "s"
    ],
    "from": "solow-growth-model"
+  },
+  {
+   "tex": "$q$",
+   "meaning": "Vacancy-filling rate: probability a vacancy is filled this period",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "q"
+   ],
+   "from": "matching-function"
   }
  ],
  "sections": [
@@ -324,6 +344,32 @@
    ]
   },
   {
+   "id": "a-critique-the-humbug-economy",
+   "heading": "A critique: the Humbug economy",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "a-critique-the-humbug-economy-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Solow argued that Cobb-Douglas fits the data well. Shaikh pointed out that a Cobb-Douglas function will fit *any* data in which the shares of capital and labor are roughly constant: points in the $(k, q)$ plane spelling out the word HUMBUG fit as well as the true data. A good fit therefore does not show that the economy has a Cobb-Douglas technology — one of the critiques of neoclassical macro discussed alongside the [Solow Residual](note:solow-residual)."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Shaikh - the Humbug economy.png",
+       "alt": "Shaikh - the Humbug economy"
+      }
+     ],
+     "words": 72,
+     "symbols": [
+      "$y = Y/L$, $k = K/L$",
+      "$q$"
+     ]
+    }
+   ]
+  },
+  {
    "id": "where-it-is-used",
    "heading": "Where it is used",
    "role": "depth",
@@ -355,11 +401,14 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "- [CES Production Function](note:ces-production-function)\n- [Partial Derivatives and the Gradient](note:partial-derivatives-and-the-gradient)\n- [Matching Function](note:matching-function) — the same functional form, with unemployed workers and vacancies as inputs and hires as output"
+       "md": "- [CES Production Function](note:ces-production-function)\n- [Partial Derivatives and the Gradient](note:partial-derivatives-and-the-gradient)\n- [Matching Function](note:matching-function) — the same functional form, with unemployed workers and vacancies as inputs and hires as output\n- [Solow Residual](note:solow-residual) — growth accounting with Cobb-Douglas: $g_A = g_Y - \\alpha g_K - (1-\\alpha)g_L$"
       }
      ],
-     "words": 28,
-     "symbols": []
+     "words": 35,
+     "symbols": [
+      "$\\alpha$",
+      "$g$"
+     ]
     }
    ]
   }

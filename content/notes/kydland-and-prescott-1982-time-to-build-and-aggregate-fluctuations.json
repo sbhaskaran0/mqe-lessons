@@ -1,0 +1,157 @@
+{
+ "slug": "kydland-and-prescott-1982-time-to-build-and-aggregate-fluctuations",
+ "notation": [],
+ "sections": [
+  {
+   "id": "key-takeaways",
+   "heading": "Key takeaways",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "key-takeaways-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. **Business cycles as optimal responses.** Fluctuations are households' and firms' best responses to real productivity (TFP) shocks; markets clear throughout.\n2. **A new method.** A dynamic stochastic general equilibrium model, calibrated to long-run facts and judged by how well simulated moments match HP-filtered data.\n3. **Fit.** The model accounts for much of the volatility of output and the co-movement of hours, investment and consumption ([Real Business Cycle Model](note:real-business-cycle-model))."
+      }
+     ],
+     "words": 69,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "research-question",
+   "heading": "Research question",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "research-question-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Can a competitive growth model with technology shocks explain postwar US business cycles?"
+      }
+     ],
+     "words": 13,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "data-and-setting",
+   "heading": "Data and setting",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "data-and-setting-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Quarterly US aggregates, detrended with the [Hodrick-Prescott Filter](note:hodrick-prescott-filter)."
+      }
+     ],
+     "words": 8,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "empirical-strategy",
+   "heading": "Empirical strategy",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "empirical-strategy-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Calibration: parameters set from growth facts and micro evidence; the model is simulated and its second moments compared with the data. Investment projects take several quarters to complete (\"time to build\")."
+      }
+     ],
+     "words": 31,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "results",
+   "heading": "Results",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "results-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Uhlig 2003 - RBC model simulations vs data.png",
+       "alt": "Uhlig 2003 - RBC model simulations vs data",
+       "caption": "The RBC model's fit as shown in the lecture (Uhlig 2003, not Kydland and Prescott's own figure): simulated series (dashed), driven by measured TFP, against HP-filtered US data."
+      },
+      {
+       "t": "prose",
+       "md": "Simulated output, hours, investment and consumption match the relative volatilities and correlations of the filtered data reasonably well."
+      }
+     ],
+     "words": 46,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "caveats",
+   "heading": "Caveats",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "caveats-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- What the shocks are is unclear: measured TFP is a residual ([Solow Residual](note:solow-residual)).\n- The fit is to filtered data; the trend is not explained.\n- Policy has no beneficial role in the model."
+      }
+     ],
+     "words": 35,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "in-econ-402a-l8-modern-macro-theory",
+   "heading": "In Econ 402A L8 Modern Macro Theory",
+   "role": "paper-in-lesson",
+   "steps": [
+    {
+     "id": "in-econ-402a-l8-modern-macro-theory-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Marks the move from the growth model to business cycles and the introduction of DSGE models; the rest of the lecture lists its unsatisfying assumptions and the models that relaxed them."
+      }
+     ],
+     "words": 31,
+     "symbols": []
+    }
+   ],
+   "lesson": "econ-402a-l8-modern-macro-theory"
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Real Business Cycle Model](note:real-business-cycle-model) · [Hodrick-Prescott Filter](note:hodrick-prescott-filter) · [Solow Residual](note:solow-residual) · [Ramsey-Cass-Koopmans Model](note:ramsey-cass-koopmans-model)"
+      }
+     ],
+     "words": 11,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

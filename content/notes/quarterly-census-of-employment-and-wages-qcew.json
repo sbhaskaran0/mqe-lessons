@@ -1,0 +1,114 @@
+{
+ "slug": "quarterly-census-of-employment-and-wages-qcew",
+ "notation": [],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The Bureau of Labor Statistics compiles the QCEW from the quarterly reports every employer covered by unemployment insurance (UI) must file (the \"ES-202\" program). About 98% of US jobs are covered, so it is close to a census of employment and payroll."
+      }
+     ],
+     "words": 42,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "what-it-contains",
+   "heading": "What it contains",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-it-contains-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Monthly employment and quarterly total wages, by **county** and detailed **industry** (NAICS), for each establishment's reporting unit.\n- Average weekly earnings follow by division; there is no information on hours, so hourly wages and the wage distribution are not observed."
+      }
+     ],
+     "words": 41,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "strengths",
+   "heading": "Strengths",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "strengths-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Administrative, not a survey:** employment counts are free of survey response error (the reason Card and Krueger re-ran their New Jersey comparison on ES-202 data).\n- **Geographic detail:** large enough for county-level comparisons that the [Current Population Survey (CPS)](note:current-population-survey-cps) cannot support, such as cross-border county pairs ([Contiguous Border County Design](note:contiguous-border-county-design))."
+      }
+     ],
+     "words": 51,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "limitations",
+   "heading": "Limitations",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "limitations-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Suppression:** to protect confidentiality, many small county-industry cells are not published. Only 316 of 1,181 contiguous county pairs have complete restaurant data for 1990–2006, which led Jha, Neumark and Rodriguez-Lopez to County Business Patterns (CBP) instead.\n- **No wages per hour or worker characteristics.** Related programs fill gaps: the Quarterly Workforce Indicators (QWI), built from linked UI records, add worker flows such as hires and separations."
+      }
+     ],
+     "words": 69,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "used-in",
+   "heading": "Used in",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "used-in-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Minimum wages: Card and Krueger (2000), Dube, Lester and Reich (2010), Azar et al. (2024), Dube (2026)."
+      }
+     ],
+     "words": 18,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Current Population Survey (CPS)](note:current-population-survey-cps) · [Contiguous Border County Design](note:contiguous-border-county-design) · [Minimum Wage](note:minimum-wage)"
+      }
+     ],
+     "words": 11,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

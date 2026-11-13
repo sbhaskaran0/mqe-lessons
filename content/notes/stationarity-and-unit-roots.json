@@ -1,0 +1,202 @@
+{
+ "slug": "stationarity-and-unit-roots",
+ "notation": [
+  {
+   "tex": "$x_t$",
+   "meaning": "Value of the series in period $t$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "x"
+   ]
+  },
+  {
+   "tex": "$\\Delta x_t$",
+   "meaning": "First difference, $x_t - x_{t-1}$",
+   "kind": "Transformed data",
+   "typical": "—",
+   "keys": [
+    "~\\Deltax_t"
+   ]
+  },
+  {
+   "tex": "$\\beta_0$",
+   "meaning": "Intercept (drift, if $\\beta_1 = 1$)",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$\\beta_1$",
+   "meaning": "Coefficient on the lag",
+   "kind": "Parameter",
+   "typical": "1 under a unit root",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$\\varepsilon_t$",
+   "meaning": "Shock",
+   "kind": "Error",
+   "typical": "—",
+   "keys": [
+    "varepsilon"
+   ]
+  },
+  {
+   "tex": "$t$",
+   "meaning": "Time period",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "t"
+   ]
+  }
+ ],
+ "notationIntro": "*The price level trends up (non-stationary); its first difference, inflation, does not trend.*",
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The price level in the US has risen almost every year since 1960: its average keeps changing, so the past says little about where it will be in ten years. Inflation — the year-to-year change in prices — instead keeps returning to familiar levels. A series like inflation, whose average and spread do not drift over time, is called stationary. Most time-series tools, including regressions of a variable on its own past, need stationary data; with trending data they can find strong but meaningless relationships. The usual fix is to look at changes instead of levels. A unit root is the case where every shock is permanent: today's value is just yesterday's plus noise, so the series wanders and never returns."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "Checking and enforcing stationarity is step one of every AR and VAR analysis in macroeconomics.",
+       "folded": false
+      }
+     ],
+     "words": 137,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A time series $x_t$ is (weakly) **stationary** if its mean and variance are constant over time (and its autocovariances depend only on the lag). In the AR(1) model"
+      },
+      {
+       "t": "math",
+       "tex": "x_t = \\beta_0 + \\beta_1 x_{t-1} + \\varepsilon_t"
+      },
+      {
+       "t": "prose",
+       "md": "a **unit root** is $\\beta_1 = 1$: $x_t = \\beta_0 + x_{t-1} + \\varepsilon_t$, a random walk (with drift $\\beta_0$), which is non-stationary. A non-stationary series can often be made stationary by **first-differencing**,"
+      },
+      {
+       "t": "math",
+       "tex": "\\Delta x_t = x_t - x_{t-1}"
+      }
+     ],
+     "words": 50,
+     "symbols": [
+      "$x_t$",
+      "$\\Delta x_t$",
+      "$\\beta_0$",
+      "$\\beta_1$",
+      "$\\varepsilon_t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "testing",
+   "heading": "Testing",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "testing-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Test | Null hypothesis | Rejecting means |\n| --- | --- | --- |\n| Dickey-Fuller | Unit root, $\\beta_1 = 1$ | Evidence of stationarity |\n| Augmented Dickey-Fuller (ADF) | Unit root, allowing more lags | Evidence of stationarity |\n| KPSS (Kwiatkowski-Phillips-Schmidt-Shin) | Stationary | Evidence of a unit root |"
+      },
+      {
+       "t": "prose",
+       "md": "The two are paired: for a stationary series you want to **reject** in the ADF test and **fail to reject** in the KPSS test. If the data are not stationary, difference once (or twice) and test again."
+      }
+     ],
+     "words": 70,
+     "symbols": [
+      "$\\beta_0$",
+      "$\\beta_1$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Reading the ADF null backwards.** The null is non-stationarity; a large p-value means you cannot rule out a unit root.\n- **Regressing one trending series on another.** Two unrelated random walks often show a \"significant\" relationship (spurious regression)."
+      }
+     ],
+     "words": 39,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Macroeconomic time series: preparing data for AR and VAR models; testing whether shocks to GDP or unemployment are permanent."
+      }
+     ],
+     "words": 20,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Autoregressive Model](note:autoregressive-model) · [Vector Autoregression](note:vector-autoregression) · [Hodrick-Prescott Filter](note:hodrick-prescott-filter) · [Logarithms and Growth Rates](note:logarithms-and-growth-rates)"
+      }
+     ],
+     "words": 11,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

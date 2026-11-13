@@ -179,10 +179,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "- Math background: [Logarithms and Growth Rates](note:logarithms-and-growth-rates)\n- [Log Wage Gap](note:log-wage-gap) — the between-group analogue\n- [Top Income Shares](note:top-income-shares)\n- [Properties of Inequality Measures](note:properties-of-inequality-measures)"
+       "md": "- Math background: [Logarithms and Growth Rates](note:logarithms-and-growth-rates)\n- [Log Wage Gap](note:log-wage-gap) — the between-group analogue\n- [Top Income Shares](note:top-income-shares)\n- [Properties of Inequality Measures](note:properties-of-inequality-measures)\n- [Effective Minimum Wage](note:effective-minimum-wage) — the minimum wage and the 50-10 gap"
       }
      ],
-     "words": 23,
+     "words": 34,
      "symbols": []
     }
    ]

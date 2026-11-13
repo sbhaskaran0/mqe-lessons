@@ -1,0 +1,308 @@
+{
+ "slug": "autoregressive-model",
+ "notation": [
+  {
+   "tex": "$x_t$",
+   "meaning": "Value of the series in period $t$",
+   "kind": "Data",
+   "typical": "inflation, %",
+   "keys": [
+    "x"
+   ]
+  },
+  {
+   "tex": "$x_{t-k}$",
+   "meaning": "Lag $k$ of the series",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "x"
+   ]
+  },
+  {
+   "tex": "$\\beta_0$",
+   "meaning": "Intercept",
+   "kind": "Parameter",
+   "typical": "0.5 in the example",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$\\mu$",
+   "meaning": "Mean of a stationary AR(1), $\\beta_0/(1 - \\beta_1)$",
+   "kind": "Parameter",
+   "typical": "2 in the example",
+   "keys": [
+    "mu"
+   ]
+  },
+  {
+   "tex": "$\\beta_1, \\dots, \\beta_p$",
+   "meaning": "Coefficients on lags 1 to $p$",
+   "kind": "Parameters",
+   "typical": "$\\beta_1 = 0.75$ in the example",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$p$",
+   "meaning": "Number of lags",
+   "kind": "Choice",
+   "typical": "—",
+   "keys": [
+    "p"
+   ]
+  },
+  {
+   "tex": "$\\varepsilon_t$",
+   "meaning": "Shock in period $t$",
+   "kind": "Error",
+   "typical": "2 in the example",
+   "keys": [
+    "varepsilon"
+   ]
+  },
+  {
+   "tex": "$s$, $k$",
+   "meaning": "Period of the shock; periods since the shock",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "s",
+    "k"
+   ]
+  },
+  {
+   "tex": "$t$",
+   "meaning": "Time period",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "t"
+   ]
+  }
+ ],
+ "notationIntro": "*US inflation against its own lag: a tight positive relationship — strong persistence.*",
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "If inflation is high this month, it will probably be high next month too. Most economic time series have this memory: each observation is correlated with the ones before it (autocorrelation, or serial correlation). That breaks the assumption behind ordinary regression that observations are independent, but it also gives a simple way to model and forecast the series: explain it by its own recent past. In the simplest version, this period's value is a constant plus a fraction of last period's value plus a fresh shock. That fraction measures persistence: close to zero, a shock is forgotten almost at once; close to one, it lingers for years; exactly one, it never fades."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "AR models are the building block of forecasting and of vector autoregressions, the workhorse of empirical macroeconomics.",
+       "folded": false
+      }
+     ],
+     "words": 132,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "An AR(1) model:"
+      },
+      {
+       "t": "math",
+       "tex": "x_t = \\beta_0 + \\beta_1 x_{t-1} + \\varepsilon_t"
+      },
+      {
+       "t": "prose",
+       "md": "An AR(p) model:"
+      },
+      {
+       "t": "math",
+       "tex": "x_t = \\beta_0 + \\beta_1 x_{t-1} + \\beta_2 x_{t-2} + \\dots + \\beta_p x_{t-p} + \\varepsilon_t"
+      },
+      {
+       "t": "prose",
+       "md": "With stationary data the coefficients are estimated by OLS. In an AR(1) with $|\\beta_1| < 1$, the mean is $\\beta_0/(1 - \\beta_1)$, and a one-time shock $\\varepsilon$ in period $s$ leaves $\\beta_1^{k}\\varepsilon$ in period $s + k$: the **impulse response**."
+      }
+     ],
+     "words": 37,
+     "symbols": [
+      "$x_t$",
+      "$x_{t-k}$",
+      "$\\beta_0$",
+      "$\\beta_1, \\dots, \\beta_p$",
+      "$\\varepsilon_t$",
+      "$s$, $k$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With $\\beta_0 = 0.5$ and $\\beta_1 = 0.75$ the mean is $0.5/0.25 = 2$. A shock of 2 lifts $x$ from 2 to 4; then the gap from 2 shrinks to $2(0.75) = 1.5$, $1.125$, $0.844$, $0.633$ after 4 periods, and $2(0.75)^{10} = 0.11$ after 10. With $\\beta_1 = 1$ (a unit root) the gap never shrinks."
+      },
+      {
+       "t": "interactive",
+       "widget": "ar-1-impulse-response",
+       "prompt": "Shock the series and vary its persistence"
+      }
+     ],
+     "words": 42,
+     "symbols": [
+      "$x_t$",
+      "$x_{t-k}$",
+      "$\\beta_0$",
+      "$\\mu$",
+      "$\\beta_1, \\dots, \\beta_p$",
+      "$\\varepsilon_t$",
+      "$t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "choosing-the-number-of-lags",
+   "heading": "Choosing the number of lags",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "choosing-the-number-of-lags-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **ACF plot:** the correlation of $x_t$ with each lag $x_{t-k}$. Slowly decaying autocorrelations (as for inflation in levels) signal strong persistence or non-stationarity.\n- **PACF plot:** the correlation with lag $k$ after removing the effect of the lags in between ($x_{t-4}$ affects $x_t$ directly and through $x_{t-1}, x_{t-2}, x_{t-3}$; the PACF isolates the direct effect).\n- **Information criteria:** choose the $p$ that minimizes AIC or BIC ([Model Selection Criteria](note:model-selection-criteria))."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/ACF of inflation.png",
+       "alt": "ACF of inflation"
+      }
+     ],
+     "words": 61,
+     "symbols": [
+      "$x_t$",
+      "$x_{t-k}$",
+      "$p$",
+      "$s$, $k$"
+     ]
+    },
+    {
+     "id": "choosing-the-number-of-lags-2",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/ACF of differenced inflation.png",
+       "alt": "ACF of differenced inflation",
+       "caption": "ACF of inflation (left: decays slowly) and of its first difference (right: dies out within a few lags)."
+      }
+     ],
+     "words": 18,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "forecasting",
+   "heading": "Forecasting",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "forecasting-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Iterate the estimated equation forward: $\\hat{x}_{T+1} = \\hat{\\beta}_0 + \\hat{\\beta}_1 x_T$, $\\hat{x}_{T+2} = \\hat{\\beta}_0 + \\hat{\\beta}_1\\hat{x}_{T+1}$, … The forecast converges to the estimated mean."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/AR forecast of inflation.png",
+       "alt": "AR forecast of inflation"
+      }
+     ],
+     "words": 12,
+     "symbols": [
+      "$x_t$",
+      "$x_{t-k}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Using OLS standard errors that assume independence** in regressions with serially correlated errors.\n- **Fitting an AR model to non-stationary data.** Difference first ([Stationarity and Unit Roots](note:stationarity-and-unit-roots))."
+      }
+     ],
+     "words": 28,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Forecasting inflation, GDP, unemployment; modeling shock processes (TFP in the [Real Business Cycle Model](note:real-business-cycle-model)); each equation of a [Vector Autoregression](note:vector-autoregression)."
+      }
+     ],
+     "words": 21,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Stationarity and Unit Roots](note:stationarity-and-unit-roots) · [Vector Autoregression](note:vector-autoregression) · [Model Selection Criteria](note:model-selection-criteria) · [Geometric Series](note:geometric-series)"
+      }
+     ],
+     "words": 12,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

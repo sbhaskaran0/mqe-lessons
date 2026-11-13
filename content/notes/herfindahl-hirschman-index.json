@@ -1,0 +1,181 @@
+{
+ "slug": "herfindahl-hirschman-index",
+ "notation": [
+  {
+   "tex": "$s_j$",
+   "meaning": "Share of employer $j$ in the market's vacancies or employment",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "s"
+   ]
+  },
+  {
+   "tex": "$J$",
+   "meaning": "Number of employers",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "J"
+   ]
+  },
+  {
+   "tex": "$HHI$",
+   "meaning": "Herfindahl-Hirschman Index",
+   "kind": "Statistic",
+   "typical": "0.25 = \"highly concentrated\" threshold",
+   "keys": [
+    "~HHI"
+   ]
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "How much choice does a worker have among employers? If a town's cashier jobs are spread across fifty stores, workers can easily switch and no store can hold wages down. If two stores post nearly all the openings, they can. The Herfindahl-Hirschman Index puts a number on this: take each employer's share of the market, square it, and add the squares up. Squaring makes big employers count for much more than small ones. The index is close to zero when the market is split among many small firms and equals one when a single firm has it all. Antitrust agencies use the same measure for product markets."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the standard empirical proxy for monopsony power, used to test whether minimum wages cost fewer jobs where employers have more power.",
+       "folded": false
+      }
+     ],
+     "words": 133,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With $J$ employers and market shares $s_j$ (of employment, hires or vacancies) summing to 1,"
+      },
+      {
+       "t": "math",
+       "tex": "HHI = \\sum_{j=1}^{J} s_j^2"
+      },
+      {
+       "t": "prose",
+       "md": "It ranges from $1/J$ (equal shares) to 1 (one employer). The US Department of Justice treats markets above 0.25 as highly concentrated."
+      }
+     ],
+     "words": 35,
+     "symbols": [
+      "$s_j$",
+      "$J$",
+      "$HHI$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Four employers with shares 0.4, 0.3, 0.2, 0.1: $HHI = 0.16 + 0.09 + 0.04 + 0.01 = 0.30$, above 0.25. Ten equal employers: $HHI = 10 \\times 0.1^2 = 0.10$."
+      }
+     ],
+     "words": 18,
+     "symbols": [
+      "$HHI$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "in-labor-markets",
+   "heading": "In labor markets",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "in-labor-markets-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Azar et al. define a labor market as an occupation in a commuting area and compute the HHI of online job postings. They interact the log minimum wage with the HHI: the employment elasticity is negative where concentration is low and rises toward zero or above where it is high, as [Monopsony](note:monopsony) predicts."
+      }
+     ],
+     "words": 53,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Mixing percent and share scales.** With shares in percent the index runs to 10,000 (the DOJ's 2,500 threshold = 0.25).\n- **Treating concentration as power itself.** It is a proxy: market definition (occupation, area) drives the number."
+      }
+     ],
+     "words": 40,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Industrial organization and antitrust (merger review); labor economics (monopsony, minimum wages, wage markdowns)."
+      }
+     ],
+     "words": 14,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Monopsony](note:monopsony) · [Minimum Wage](note:minimum-wage)\n- Paper: [Azar et al 2024 - Minimum Wage Employment Effects and Labor Market Concentration](note:azar-et-al-2024-minimum-wage-employment-effects-and-labor-market-concentration)"
+      }
+     ],
+     "words": 19,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

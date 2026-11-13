@@ -1,0 +1,107 @@
+{
+ "slug": "endogenous-growth-models",
+ "notation": [],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "In the Solow model, living standards keep rising only because technology improves, and technology simply falls from the sky at a fixed rate. That leaves the most important question — why some economies innovate faster than others — outside the model. Endogenous growth models make innovation an economic decision. Firms spend resources on research because new ideas earn profits, and the ideas add to what the whole economy knows. In one family of models, research creates new kinds of inputs that make production more efficient. In another, each innovation makes an older way of producing obsolete, as entrants climb a \"quality ladder\" and displace incumbents. Either way, policies that change the incentive to innovate change the long-run growth rate."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It replaces the [Solow Residual](note:solow-residual) as an unexplained driver of growth with something people choose, which gives policy (patents, R&D subsidies, competition) a role in long-run growth.",
+       "folded": false
+      }
+     ],
+     "words": 148,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Growth in productivity is determined within the model by agents' choices:"
+      },
+      {
+       "t": "prose",
+       "md": "- **Expanding varieties (Romer 1990):** investment in R&D produces new intermediate inputs; more varieties make final production more efficient. Agents decide how many resources to devote to R&D.\n- **Schumpeterian, or quality-ladder (Aghion and Howitt 1992):** innovations create better production methods that displace older, less productive ones (\"creative destruction\")."
+      }
+     ],
+     "words": 62,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Equating \"endogenous\" with \"fast\".** It means the growth rate is explained by the model; it can be slow, and depends on incentives."
+      }
+     ],
+     "words": 23,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Growth economics: innovation policy, competition and growth, firm dynamics, why growth differs across countries."
+      }
+     ],
+     "words": 15,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Solow Growth Model](note:solow-growth-model) · [Solow Residual](note:solow-residual) · [Real Business Cycle Model](note:real-business-cycle-model)"
+      }
+     ],
+     "words": 10,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

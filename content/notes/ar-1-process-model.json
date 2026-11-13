@@ -1,0 +1,120 @@
+{
+ "slug": "ar-1-process-model",
+ "notation": [
+  {
+   "tex": "$x_t$",
+   "meaning": "Value of the series in period $t$",
+   "kind": "Data",
+   "typical": "inflation, %",
+   "keys": [
+    "x"
+   ],
+   "from": "autoregressive-model"
+  },
+  {
+   "tex": "$\\beta_0$",
+   "meaning": "Intercept",
+   "kind": "Parameter",
+   "typical": "0.5 in the example",
+   "keys": [
+    "beta"
+   ],
+   "from": "autoregressive-model"
+  },
+  {
+   "tex": "$\\mu$",
+   "meaning": "Mean of a stationary AR(1), $\\beta_0/(1 - \\beta_1)$",
+   "kind": "Parameter",
+   "typical": "2 in the example",
+   "keys": [
+    "mu"
+   ],
+   "from": "autoregressive-model"
+  },
+  {
+   "tex": "$\\varepsilon_t$",
+   "meaning": "Shock in period $t$",
+   "kind": "Error",
+   "typical": "2 in the example",
+   "keys": [
+    "varepsilon"
+   ],
+   "from": "autoregressive-model"
+  },
+  {
+   "tex": "$s$, $k$",
+   "meaning": "Period of the shock; periods since the shock",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "s",
+    "k"
+   ],
+   "from": "autoregressive-model"
+  },
+  {
+   "tex": "$t$",
+   "meaning": "Time period",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "t"
+   ],
+   "from": "autoregressive-model"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "ar-1-impulse-response"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$x_t$",
+      "$\\beta_0$",
+      "$\\mu$",
+      "$\\varepsilon_t$",
+      "$t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The model behind [AR(1) Impulse Response](note:ar-1-impulse-response). Place that view, not this note."
+      },
+      {
+       "t": "prose",
+       "md": "- **Model.** [Autoregressive Model](note:autoregressive-model): $x_t = \\beta_0 + \\beta_1 x_{t-1} + \\varepsilon_t$ with $\\beta_0 = \\mu(1 - \\beta_1)$, so the series sits at $\\mu$ until a shock hits; the shock then decays as $\\beta_1^k\\varepsilon$. At $\\beta_1 = 1$ there is a unit root ([Stationarity and Unit Roots](note:stationarity-and-unit-roots)).\n- **Tests.** Python."
+      }
+     ],
+     "words": 45,
+     "symbols": [
+      "$x_t$",
+      "$\\beta_0$",
+      "$\\mu$",
+      "$\\varepsilon_t$",
+      "$s$, $k$"
+     ]
+    }
+   ]
+  }
+ ]
+}

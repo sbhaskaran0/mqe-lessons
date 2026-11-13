@@ -1,0 +1,260 @@
+{
+ "slug": "lee-1999-wage-inequality-in-the-us-during-the-1980s",
+ "notation": [
+  {
+   "tex": "$mw_{jt}$",
+   "meaning": "Effective minimum: log minimum minus log median (or trimmed mean)",
+   "kind": "Data",
+   "typical": "−0.4 to −1.3",
+   "keys": [
+    "~mw_jt"
+   ],
+   "from": "effective-minimum-wage"
+  },
+  {
+   "tex": "$w^{p}_{jt}$, $w_{st}(p)$",
+   "meaning": "Log wage at percentile $p$ in state $j$ (or $s$), year $t$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "~w^p_jt",
+    "w"
+   ],
+   "from": "effective-minimum-wage"
+  },
+  {
+   "tex": "$\\beta$, $\\gamma$",
+   "meaning": "Linear and quadratic coefficients on $mw$",
+   "kind": "Parameters",
+   "typical": "1.494, 0.634 (Lee, trimmed mean)",
+   "keys": [
+    "beta",
+    "gamma"
+   ],
+   "from": "effective-minimum-wage"
+  },
+  {
+   "tex": "$\\alpha_t$, $\\gamma_t(p)$",
+   "meaning": "Year effects",
+   "kind": "Fixed effects",
+   "typical": "—",
+   "keys": [
+    "alpha",
+    "gamma"
+   ],
+   "from": "effective-minimum-wage"
+  },
+  {
+   "tex": "$u_{jt}$, $\\varepsilon_{st}(p)$",
+   "meaning": "Regression errors",
+   "kind": "Error",
+   "typical": "—",
+   "keys": [
+    "u",
+    "varepsilon"
+   ],
+   "from": "effective-minimum-wage"
+  }
+ ],
+ "sections": [
+  {
+   "id": "key-takeaways",
+   "heading": "Key takeaways",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "key-takeaways-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. **Bite varies across states.** The same federal minimum binds more in low-wage states; in 1979 the 10-50 gap tracks the gap between the minimum and the median almost one-for-one across states.\n2. **Different evolution of the bottom.** From 1979 to 1991 the 10-50 gap widened far more in low-wage states, while the 75-50 gap evolved similarly in high- and low-wage states.\n3. **Explains (almost) everything.** Counterfactual distributions with the 1979 effective minimum imply that its decline accounts for all of the rise in inequality at the bottom.\n4. **Too good?** It also finds effects on the 70-50, 80-50 and 90-50 gaps for men — which a minimum wage should not cause."
+      }
+     ],
+     "words": 111,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "research-question",
+   "heading": "Research question",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "research-question-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Do minimum wages affect the wage distribution, and how much of the 1980s rise in inequality reflects the falling real minimum?"
+      }
+     ],
+     "words": 21,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "data-and-setting",
+   "heading": "Data and setting",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "data-and-setting-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "CPS MORG, 1979–1991, state-by-year percentiles. Primary variation: state wage levels (the federal minimum binds more where wages are low); secondary: state minimums above the federal one (rare before the late 1980s)."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Lee 1999 - wage densities for women 1979 and 1989.png",
+       "alt": "Lee 1999 - wage densities for women 1979 and 1989"
+      }
+     ],
+     "words": 32,
+     "symbols": []
+    },
+    {
+     "id": "data-and-setting-2",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Lee 1999 - 10-50 and 75-50 differentials in high- and low-wage states.png",
+       "alt": "Lee 1999 - 10-50 and 75-50 differentials in high- and low-wage states"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "empirical-strategy",
+   "heading": "Empirical strategy",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "empirical-strategy-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$w^{10}_{jt} - w^{50}_{jt} = \\alpha_t + \\beta\\, mw_{jt} + \\gamma\\, mw_{jt}^2 + u_{jt}$, with $mw_{jt}$ the log minimum minus the log median — replaced in the final specification by the trimmed mean of the 30th–70th percentiles, because the median on both sides causes endogeneity through measurement error ([Effective Minimum Wage](note:effective-minimum-wage)). Key assumption: the latent wage distribution is the same across states."
+      }
+     ],
+     "words": 47,
+     "symbols": [
+      "$mw_{jt}$",
+      "$w^{p}_{jt}$, $w_{st}(p)$",
+      "$\\beta$, $\\gamma$",
+      "$\\alpha_t$, $\\gamma_t(p)$",
+      "$u_{jt}$, $\\varepsilon_{st}(p)$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "results",
+   "heading": "Results",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "results-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Lee 1999 10-50 differential on the minimum wage.png",
+       "alt": "Table - Lee 1999 10-50 differential on the minimum wage"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    },
+    {
+     "id": "results-2",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Lee 1999 upper-tail differentials on the minimum wage.png",
+       "alt": "Table - Lee 1999 upper-tail differentials on the minimum wage"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    },
+    {
+     "id": "results-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Trimmed-mean specification: $\\beta = 1.494$, $\\gamma = 0.634$; marginal effect at the average 0.515 (all workers 16+).\n- No effect on the 60-50 gap, but large effects for men on 70-50 (0.12), 80-50 (0.21) and 90-50 (0.30) in the pooled cross section."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Lee 1999 - actual and latent changes in wage percentiles 1979-1989.png",
+       "alt": "Lee 1999 - actual and latent changes in wage percentiles 1979-1989"
+      }
+     ],
+     "words": 41,
+     "symbols": [
+      "$\\beta$, $\\gamma$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "caveats",
+   "heading": "Caveats",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "caveats-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Cross-state differences in latent distributions or in trends (e.g. the South) are attributed to the minimum.\n- The upper-tail \"effects\" signal bias; Lee suggests focusing on women."
+      }
+     ],
+     "words": 29,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "in-econ-424-l9-minimum-wages-and-wage-inequality",
+   "heading": "In Econ 424 L9 Minimum Wages and Wage Inequality",
+   "role": "paper-in-lesson",
+   "steps": [
+    {
+     "id": "in-econ-424-l9-minimum-wages-and-wage-inequality-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The regional-variation workhorse. The lecture's questions: why does it succeed so well, and should that make us skeptical? Autor, Manning and Smith answer both."
+      }
+     ],
+     "words": 24,
+     "symbols": []
+    }
+   ],
+   "lesson": "econ-424-l9-minimum-wages-and-wage-inequality"
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Effective Minimum Wage](note:effective-minimum-wage) · [Percentile Ratios](note:percentile-ratios) · [US Minimum Wage and Lower-Tail Wage Inequality 1979-2012](note:us-minimum-wage-and-lower-tail-wage-inequality-1979-2012) · [Autor, Manning and Smith 2016 - The Contribution of the Minimum Wage to US Wage Inequality](note:autor-manning-and-smith-2016-the-contribution-of-the-minimum-wage-to-us-wage-inequality)"
+      }
+     ],
+     "words": 30,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

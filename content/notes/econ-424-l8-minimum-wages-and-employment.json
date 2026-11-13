@@ -1,0 +1,1682 @@
+{
+ "slug": "econ-424-l8-minimum-wages-and-employment",
+ "notation": [
+  {
+   "tex": "$w_{mw}$",
+   "meaning": "Minimum wage",
+   "kind": "Policy",
+   "typical": "5.05 in New Jersey, 1992",
+   "keys": [
+    "w"
+   ],
+   "from": "minimum-wage"
+  },
+  {
+   "tex": "$w_{eff}$, $L_{eff}$",
+   "meaning": "Competitive wage and employment",
+   "kind": "Equilibrium",
+   "typical": "—",
+   "keys": [
+    "w",
+    "L"
+   ],
+   "from": "minimum-wage"
+  },
+  {
+   "tex": "$A_i$",
+   "meaning": "Ability (output per hour) of worker $i$",
+   "kind": "Worker attribute",
+   "typical": "10 to 50 in the example",
+   "keys": [
+    "A"
+   ],
+   "from": "minimum-wage"
+  },
+  {
+   "tex": "$p$",
+   "meaning": "Output price",
+   "kind": "Parameter",
+   "typical": "1",
+   "keys": [
+    "p"
+   ],
+   "from": "minimum-wage"
+  },
+  {
+   "tex": "$\\beta$",
+   "meaning": "Worker's share of the revenue she produces",
+   "kind": "Parameter in [0, 1]",
+   "typical": "0.5",
+   "keys": [
+    "beta"
+   ],
+   "from": "minimum-wage"
+  },
+  {
+   "tex": "$\\varepsilon$",
+   "meaning": "Own-wage elasticity: % change in employment ÷ % change in the affected wage",
+   "kind": "Estimate",
+   "typical": "about 0.4 (Cengiz et al.)",
+   "keys": [
+    "varepsilon"
+   ],
+   "from": "minimum-wage"
+  },
+  {
+   "tex": "$p\\,q'(L)$",
+   "meaning": "Marginal revenue product of labor (MRP)",
+   "kind": "Function",
+   "typical": "$20 - L/50$ in the example",
+   "keys": [
+    "~pq'(L)"
+   ],
+   "from": "monopsony"
+  },
+  {
+   "tex": "$a$, $b$",
+   "meaning": "Intercept and slope of inverse supply, $w(L) = a + bL$",
+   "kind": "Parameters",
+   "typical": "4, 0.02",
+   "keys": [
+    "a",
+    "b"
+   ],
+   "from": "monopsony"
+  },
+  {
+   "tex": "$c$, $d$",
+   "meaning": "Intercept and slope of the MRP, $c - dL$",
+   "kind": "Parameters",
+   "typical": "20, 0.02",
+   "keys": [
+    "c",
+    "d"
+   ],
+   "from": "monopsony"
+  },
+  {
+   "tex": "$\\pi(L)$",
+   "meaning": "Profit at employment $L$",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "pi"
+   ],
+   "from": "monopsony"
+  },
+  {
+   "tex": "$MC$",
+   "meaning": "Marginal cost of labor, $w(L) + L\\,w'(L)$",
+   "kind": "Function",
+   "typical": "$4 + 2L/50$",
+   "keys": [
+    "~MC"
+   ],
+   "from": "monopsony"
+  },
+  {
+   "tex": "$J$",
+   "meaning": "Number of employers",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "J"
+   ],
+   "from": "herfindahl-hirschman-index"
+  },
+  {
+   "tex": "$HHI$",
+   "meaning": "Herfindahl-Hirschman Index",
+   "kind": "Statistic",
+   "typical": "0.25 = \"highly concentrated\" threshold",
+   "keys": [
+    "~HHI"
+   ],
+   "from": "herfindahl-hirschman-index"
+  },
+  {
+   "tex": "$y_{it}$",
+   "meaning": "Outcome for unit $i$ (industry, region, worker) in period $t$",
+   "kind": "Data",
+   "typical": "log employment",
+   "keys": [
+    "y"
+   ],
+   "from": "difference-in-differences"
+  },
+  {
+   "tex": "$\\delta_i$, $\\delta_t$",
+   "meaning": "Unit and time fixed effects",
+   "kind": "Parameters",
+   "typical": "—",
+   "keys": [
+    "delta"
+   ],
+   "from": "difference-in-differences"
+  },
+  {
+   "tex": "$\\mathbf{x}_{it}$, $\\gamma$",
+   "meaning": "Controls and their coefficients",
+   "kind": "Data / parameters",
+   "typical": "—",
+   "keys": [
+    "bold(x)",
+    "gamma"
+   ],
+   "from": "difference-in-differences"
+  },
+  {
+   "tex": "$\\mathbb{1}\\{\\tau = t\\}$",
+   "meaning": "Indicator for year $\\tau$",
+   "kind": "Indicator",
+   "typical": "—",
+   "keys": [
+    "tau"
+   ],
+   "from": "difference-in-differences"
+  },
+  {
+   "tex": "$MW_{it}$",
+   "meaning": "Minimum wage in force in $i$",
+   "kind": "Policy",
+   "typical": "—",
+   "keys": [
+    "~MW_it"
+   ],
+   "from": "contiguous-border-county-design"
+  },
+  {
+   "tex": "$\\eta$",
+   "meaning": "Minimum-wage elasticity of employment (or earnings)",
+   "kind": "Parameter",
+   "typical": "≈ 0 for employment, 0.2 for earnings (DLR)",
+   "keys": [
+    "eta"
+   ],
+   "from": "contiguous-border-county-design"
+  },
+  {
+   "tex": "$y^{TOT}_{it}$",
+   "meaning": "Total private-sector employment (or earnings) control",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "~y^TOT_it"
+   ],
+   "from": "contiguous-border-county-design"
+  },
+  {
+   "tex": "$\\phi_i$",
+   "meaning": "Location fixed effect",
+   "kind": "Fixed effect",
+   "typical": "—",
+   "keys": [
+    "phi"
+   ],
+   "from": "contiguous-border-county-design"
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "Intercept",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "alpha"
+   ],
+   "from": "contiguous-border-county-design"
+  },
+  {
+   "tex": "$\\bar{W}$",
+   "meaning": "Upper wage above which no effect is assumed",
+   "kind": "Choice",
+   "typical": "minimum + 4 dollars",
+   "keys": [
+    "bar(W)"
+   ],
+   "from": "missing-and-excess-jobs"
+  },
+  {
+   "tex": "$MW$",
+   "meaning": "New minimum wage",
+   "kind": "Policy",
+   "typical": "—",
+   "keys": [
+    "~MW"
+   ],
+   "from": "missing-and-excess-jobs"
+  },
+  {
+   "tex": "$\\omega_j$",
+   "meaning": "Weight on donor unit $j$",
+   "kind": "Estimated weight",
+   "typical": "sums to 1",
+   "keys": [
+    "omega"
+   ],
+   "from": "synthetic-control"
+  },
+  {
+   "tex": "$\\lambda_s$",
+   "meaning": "Weight on pre-policy period $s$ (SDID)",
+   "kind": "Estimated weight",
+   "typical": "sums to 1",
+   "keys": [
+    "lambda"
+   ],
+   "from": "synthetic-control"
+  },
+  {
+   "tex": "$w/p$",
+   "meaning": "Real wage",
+   "kind": "Endogenous",
+   "typical": "20",
+   "keys": [
+    "~w/p"
+   ],
+   "from": "classical-labor-market-model"
+  },
+  {
+   "tex": "$N$",
+   "meaning": "Number of identical consumers",
+   "kind": "Parameter",
+   "typical": "600",
+   "keys": [
+    "N"
+   ],
+   "from": "classical-labor-market-model"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**To what extent have changes in the minimum wage affected inequality in the US? This lecture builds the theory and the employment evidence; the next turns to inequality. In theory a minimum wage lowers employment in a competitive market, can raise both wages and employment under monopsony, and with heterogeneous workers compresses wages at the bottom while possibly pricing the least productive out of work. The evidence starts with Card and Krueger's New Jersey fast-food study (employment rose relative to Pennsylvania), generalizes it to every cross-border county pair (no job loss) and is challenged with commuting zones (losses). Effects are less negative where employers are concentrated, jobs lost below a new minimum reappear just above it, and California's 20-dollar fast-food minimum shows how much the answer depends on how the counterfactual is built.**"
+      }
+     ],
+     "words": 133,
+     "symbols": []
+    },
+    {
+     "id": "intro-2",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "info",
+       "title": "Sources and notation",
+       "md": "This summary follows the slides of Jonathan Vogel's lecture. The theory slides have diagrams but no numbers; the widgets use illustrative numbers, labelled as such. **Notation:** \"m.w.\" on the slides is the minimum wage $w_{mw}$; FTE is full-time-equivalent employment (a part-timer counts as half); HHI is the [Herfindahl-Hirschman Index](note:herfindahl-hirschman-index).",
+       "folded": false
+      }
+     ],
+     "words": 52,
+     "symbols": [
+      "$w_{mw}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1-the-question",
+   "heading": "1. The question",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-the-question-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "To what extent have changes in the minimum wage affected inequality in the United States over time? Before inequality comes employment: a floor that raises the pay of low-wage workers but costs many of them their jobs is a different policy from one that does not. The lecture keeps the theory simple (\"let's not worry about the math; let's instead focus on the ideas\"), asking why we might want a minimum wage and what its wage and employment effects might be."
+      }
+     ],
+     "words": 81,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "2-theory-i-a-competitive-labor-market",
+   "heading": "2. Theory I: a competitive labor market",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-theory-i-a-competitive-labor-market-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "When the labor market is otherwise efficient, a binding minimum wage raises the wage from $w_{eff}$ to $w_{mw}$ and lowers employment from $L_{eff}$ to $L_{mw}$: firms move up their demand curve. If it does anything, it raises wages and cuts jobs ([Classical Labor Market Model](note:classical-labor-market-model))."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Minimum wage in a competitive labor market.png",
+       "alt": "Minimum wage in a competitive labor market"
+      }
+     ],
+     "words": 41,
+     "symbols": [
+      "$w_{mw}$",
+      "$w_{eff}$, $L_{eff}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "3-theory-ii-monopsony",
+   "heading": "3. Theory II: monopsony",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "3-theory-ii-monopsony-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "If a firm has market power in the labor market, its wage depends on how many people it hires: $w'(L) > 0$. It maximizes $\\pi(L) = p\\,q(L) - L\\,w(L)$, so"
+      },
+      {
+       "t": "math",
+       "tex": "p\\,q'(L) = w(L) + L\\,w'(L)"
+      },
+      {
+       "t": "prose",
+       "md": "marginal revenue product equals the marginal cost of labor, which exceeds the wage because a higher wage must be paid to everyone. The monopsonist restricts employment to $L_{mon}$ and pays $w_{mon}$ ([Monopsony](note:monopsony))."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Monopsony - wage and employment choice.png",
+       "alt": "Monopsony - wage and employment choice"
+      }
+     ],
+     "words": 52,
+     "symbols": [
+      "$w_{mw}$",
+      "$w_{eff}$, $L_{eff}$",
+      "$p$",
+      "$p\\,q'(L)$",
+      "$\\pi(L)$"
+     ]
+    },
+    {
+     "id": "3-theory-ii-monopsony-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A minimum wage changes the marginal cost: up to the supply curve, hiring another worker now costs exactly $w_{mw}$. A floor between $w_{mon}$ and the competitive wage raises **both** wages and employment, with the \"perfect\" minimum wage at the competitive level. Above that, employment falls along the MRP curve."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Monopsony - employment for any minimum wage.png",
+       "alt": "Monopsony - employment for any minimum wage",
+       "caption": "Lecture figure: the red curve (right) is employment at each minimum wage."
+      }
+     ],
+     "words": 59,
+     "symbols": [
+      "$w_{mw}$"
+     ]
+    },
+    {
+     "id": "3-theory-ii-monopsony-3",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "monopsony-and-minimum-wage-explorer",
+       "state": {
+        "b": 0.02,
+        "c": 20,
+        "wmw": 11
+       },
+       "lock": [
+        "wmw",
+        "c",
+        "b"
+       ],
+       "show": [
+        "market",
+        "supply",
+        "mc",
+        "mrp",
+        "mon",
+        "now",
+        "floor",
+        "Lmw_out",
+        "w_out",
+        "gain_out"
+       ],
+       "highlight": "now",
+       "prompt": "Set a minimum wage of 11 and predict employment",
+       "predict": {
+        "hide": [
+         "now",
+         "Lmw_out",
+         "w_out",
+         "gain_out"
+        ],
+        "ask": "Illustrative numbers: labor supply $w = 4 + L/50$, MRP $= 20 - L/50$. The monopsonist hires 266.7 workers at a wage of 9.33. A minimum wage of 11 is imposed. How many workers does it hire now?",
+        "readout": "Lmw_out",
+        "tol": 1
+       },
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 9,
+     "symbols": [
+      "$w_{mw}$",
+      "$w_{eff}$, $L_{eff}$",
+      "$p$",
+      "$p\\,q'(L)$",
+      "$a$, $b$",
+      "$c$, $d$",
+      "$MC$"
+     ]
+    },
+    {
+     "id": "3-theory-ii-monopsony-4",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "At a floor of 11 the firm can hire anyone willing to work at 11 for 11, so it hires up the supply curve to $L = 50(11 - 4) = 350$: 83 more workers, each paid more."
+      },
+      {
+       "t": "interactive",
+       "widget": "monopsony-and-minimum-wage-explorer",
+       "state": {
+        "b": 0.02,
+        "c": 20,
+        "wmw": 0
+       },
+       "lock": [
+        "c",
+        "b"
+       ],
+       "show": [
+        "market",
+        "employment",
+        "supply",
+        "mc",
+        "mrp",
+        "mon",
+        "eff",
+        "now",
+        "floor",
+        "empcurve",
+        "Lmw_out",
+        "w_out"
+       ],
+       "highlight": "empcurve",
+       "prompt": "Find the minimum wage that maximizes employment",
+       "goal": {
+        "when": "abs(Lmw - Leff) < 1",
+        "success": "At $w_{mw} = 12$ — the competitive wage, where supply meets MRP — employment reaches 400, the competitive level. Below 12 the floor is on the rising (supply) part of the curve; above it the firm moves down its MRP curve: 375 at 12.5, 300 at 14, and below the monopsony level beyond 14.67.",
+        "hint": "Raising the floor from 9.33 increases employment along the supply curve. Keep going until it stops rising."
+       },
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 38,
+     "symbols": [
+      "$w_{mw}$",
+      "$w_{eff}$, $L_{eff}$",
+      "$p$",
+      "$p\\,q'(L)$",
+      "$a$, $b$",
+      "$c$, $d$",
+      "$MC$"
+     ]
+    },
+    {
+     "id": "3-theory-ii-monopsony-5",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "In a monopsony labor market, which minimum wage lowers employment below the level with no minimum wage at all?",
+       "options": [
+        {
+         "md": "Any minimum wage above the monopsony wage $w_{mon}$",
+         "correct": false,
+         "feedback": "Between $w_{mon}$ and the competitive wage, the floor raises employment."
+        },
+        {
+         "md": "Only a minimum wage set exactly at the competitive wage",
+         "correct": false,
+         "feedback": "That one maximizes employment."
+        },
+        {
+         "md": "One high enough that the marginal revenue product at $L_{mon}$ is below it",
+         "correct": true
+        },
+        {
+         "md": "None: under monopsony a minimum wage always raises employment",
+         "correct": false,
+         "feedback": "Above the competitive wage the firm hires only where MRP covers the floor, and a high enough floor takes it below $L_{mon}$."
+        }
+       ],
+       "why": "Above the competitive wage, employment is read off the MRP curve. It equals $L_{mon}$ when the floor equals the MRP at $L_{mon}$ (14.67 in the illustrative numbers) and falls below it for higher floors. \"Well chosen\" means between $w_{mon}$ and that level.",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 57,
+     "symbols": [
+      "$w_{mw}$",
+      "$w_{eff}$, $L_{eff}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "4-theory-iii-heterogeneous-workers",
+   "heading": "4. Theory III: heterogeneous workers",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "4-theory-iii-heterogeneous-workers-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "So far all workers were identical. Now worker $i$ produces $A_i$ (revenue $pA_i$), the lowest ability is $A_{min}$, firms are price takers, and firms and workers bargain: the worker gets a share $\\beta$ of the revenue she produces, $w_i = \\beta p A_i$. With no minimum wage everyone is employed and relative wages are relative abilities, $w_j/w_i = A_j/A_i$."
+      },
+      {
+       "t": "prose",
+       "md": "With a minimum wage, an employed worker earns $w_i = \\max\\{\\beta p A_i, w_{mw}\\}$, and the firm hires her only if $pA_i \\ge w_{mw}$. Three locations of the floor ([Minimum Wage](note:minimum-wage)):"
+      },
+      {
+       "t": "prose",
+       "md": "1. $\\beta p A_{min} \\ge w_{mw}$: no effects.\n2. $\\beta p A_{min} < w_{mw} \\le p A_{min}$: wage effects but no unemployment.\n3. $w_{mw} > p A_{min}$: wage and unemployment effects."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Heterogeneous workers - minimum wage with no effects.png",
+       "alt": "Heterogeneous workers - minimum wage with no effects",
+       "caption": "Case 1: the floor is below every wage."
+      }
+     ],
+     "words": 90,
+     "symbols": [
+      "$w_{mw}$",
+      "$A_i$",
+      "$p$",
+      "$\\beta$"
+     ]
+    },
+    {
+     "id": "4-theory-iii-heterogeneous-workers-2",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Heterogeneous workers - minimum wage raises wages without unemployment.png",
+       "alt": "Heterogeneous workers - minimum wage raises wages without unemployment",
+       "caption": "Case 2: workers with ability below $w_{mw}/(p\\beta)$ are paid the minimum; everyone is still hired."
+      }
+     ],
+     "words": 14,
+     "symbols": [
+      "$w_{mw}$",
+      "$p$",
+      "$\\beta$"
+     ]
+    },
+    {
+     "id": "4-theory-iii-heterogeneous-workers-3",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Heterogeneous workers - minimum wage raises wages and creates unemployment.png",
+       "alt": "Heterogeneous workers - minimum wage raises wages and creates unemployment",
+       "caption": "Case 3: workers with ability below $w_{mw}/p$ are not hired."
+      }
+     ],
+     "words": 9,
+     "symbols": [
+      "$w_{mw}$",
+      "$p$",
+      "$w/p$"
+     ]
+    },
+    {
+     "id": "4-theory-iii-heterogeneous-workers-4",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "minimum-wage-with-heterogeneous-workers",
+       "state": {
+        "beta": 0.5,
+        "Amin": 10,
+        "wmw": 15
+       },
+       "lock": [
+        "wmw",
+        "beta",
+        "Amin"
+       ],
+       "show": [
+        "wages",
+        "nofloor",
+        "floored",
+        "floor",
+        "hirecut",
+        "raisecut",
+        "amin",
+        "unemp_out",
+        "raised_out",
+        "ratio_out"
+       ],
+       "highlight": "hirecut",
+       "prompt": "A minimum wage of 15: predict which case the economy is in",
+       "predict": {
+        "hide": [
+         "floored",
+         "hirecut",
+         "raisecut",
+         "unemp_out",
+         "raised_out",
+         "ratio_out"
+        ],
+        "ask": "Workers' abilities run from 10 to 50, $p = 1$ and $\\beta = 0.5$, so wages run from 5 to 25. A minimum wage of 15 is imposed. What happens?",
+        "options": [
+         "Nothing: most workers already earn more than 15",
+         "Wages rise for low-ability workers, and no one loses a job",
+         "Wages rise for some workers, and those with ability below 15 are not hired",
+         "Everyone's wage rises to at least 15 and everyone keeps their job"
+        ],
+        "answer": 2,
+        "why": "Case 3, since $w_{mw} = 15 > pA_{min} = 10$. Workers with ability below 15 (12.5% of workers) are unemployed; those from 15 to 30 (37.5%) are paid 15 instead of $0.5A_i$; above 30 nothing changes. Among the employed, the top-to-bottom wage ratio falls from 5 to $25/15 = 1.67$. Try a floor of 8 (case 2) and 4 (case 1).",
+        "feedback": [
+         "Workers with ability below 30 earned less than 15 ($0.5 \\times A_i$), so the floor binds for many of them.",
+         "That needs $w_{mw} \\le pA_{min} = 10$. At 15, a worker with ability 12 produces only 12 of revenue: hiring her at 15 loses money.",
+         null,
+         "Firms hire only when $pA_i \\ge w_{mw}$; below ability 15 that fails."
+        ]
+       },
+       "objectives": [
+        1
+       ]
+      },
+      {
+       "t": "prose",
+       "md": "The minimum wage can reallocate income from firms to workers, and can reduce inequality across workers by raising wages at the bottom relative to others — but it may also reduce employment."
+      }
+     ],
+     "words": 43,
+     "symbols": [
+      "$w_{mw}$",
+      "$A_i$",
+      "$p$",
+      "$\\beta$",
+      "$w/p$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "5-theory-summary",
+   "heading": "5. Theory: summary",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "5-theory-summary-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "In theory a minimum wage could raise **or** lower employment, and it could reduce inequality, most likely by raising bottom wages relative to others. Which effects dominate is an empirical question."
+      }
+     ],
+     "words": 31,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "6-first-generation-evidence",
+   "heading": "6. First-generation evidence",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "6-first-generation-evidence-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "How does employment in a low-wage labor market respond to an increase in the minimum wage? Early studies looked at teenage employment nationally (a high share of teens is paid the minimum) and found small negative effects; studies of affected establishments found none. Two issues run through the whole literature: the **control group** can be tricky, and changes in the minimum wage may be **endogenous** — legislatures raise it when the economy is doing well."
+      }
+     ],
+     "words": 74,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "7-card-and-krueger-1994-new-jersey-and-pennsylvania",
+   "heading": "7. Card and Krueger (1994): New Jersey and Pennsylvania",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "7-card-and-krueger-1994-new-jersey-and-pennsylvania-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "New Jersey raised its minimum from 3.35 to 3.80 dollars in 1990 and 4.25 in 1991, and in early 1990 voted a further rise to 5.05 dollars, effective April 1, 1992 — the highest state minimum in the country. In the two years between the vote and the effective date New Jersey slipped into recession; the legislature tried to slow the increase, but fell just short of a veto-proof majority and the governor vetoed the slowdown. That history makes the April 1992 increase hard to call a response to good times."
+      }
+     ],
+     "words": 94,
+     "symbols": []
+    },
+    {
+     "id": "7-card-and-krueger-1994-new-jersey-and-pennsylvania-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Card and Krueger surveyed 410 fast-food restaurants (Burger King, KFC, Wendy's, Roy Rogers) in New Jersey and eastern Pennsylvania, which stayed at 4.25 dollars: by telephone in late February–early March 1992, a little over a month before the increase, and again in November–December, eight months after. Fast food is a leading employer of low-wage workers, is covered by the law (unlike tipped jobs), and has homogeneous jobs and products, so employment, wages and prices are easy to measure. Pennsylvania stores near the border serve as the control group ([Difference-in-Differences](note:difference-in-differences))."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Card and Krueger 1994 means of key variables.png",
+       "alt": "Table - Card and Krueger 1994 means of key variables"
+      }
+     ],
+     "words": 92,
+     "symbols": []
+    },
+    {
+     "id": "7-card-and-krueger-1994-new-jersey-and-pennsylvania-3",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Card and Krueger 1994 - distribution of starting wages in NJ and PA.png",
+       "alt": "Card and Krueger 1994 - distribution of starting wages in NJ and PA",
+       "caption": "Starting wages: in February both states pile up at 4.25 dollars; by November 85% of New Jersey stores pay exactly 5.05."
+      }
+     ],
+     "words": 23,
+     "symbols": []
+    },
+    {
+     "id": "7-card-and-krueger-1994-new-jersey-and-pennsylvania-4",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Card and Krueger 1994 average employment per store.png",
+       "alt": "Table - Card and Krueger 1994 average employment per store"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    },
+    {
+     "id": "7-card-and-krueger-1994-new-jersey-and-pennsylvania-5",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "Using Card and Krueger's Table 3, FTE employment per store was 20.44 before and 21.03 after in New Jersey, and 23.33 before and 21.17 after in Pennsylvania. What is the difference-in-differences estimate of the effect on employment per store?",
+       "answer": 2.75,
+       "tol": 0.02,
+       "wrong": [
+        {
+         "answer": 0.59,
+         "tol": 0.02,
+         "md": "that is New Jersey's change alone; subtract Pennsylvania's change (−2.16) to remove what happened anyway"
+        },
+        {
+         "answer": -1.57,
+         "tol": 0.02,
+         "md": "that adds Pennsylvania's change instead of subtracting it: $0.59 + (-2.16)$"
+        },
+        {
+         "answer": -0.14,
+         "tol": 0.02,
+         "md": "that is the New Jersey–Pennsylvania gap after the increase; the DiD compares it with the gap before ($-2.89$)"
+        }
+       ],
+       "why": "$(21.03 - 20.44) - (21.17 - 23.33) = 0.59 - (-2.16) = 2.75$ (2.76 in the table, from unrounded means). Employment rose in New Jersey relative to Pennsylvania, where it fell. The same answer comes from the gaps: $-0.14 - (-2.89) = 2.75$.",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 43,
+     "symbols": []
+    },
+    {
+     "id": "7-card-and-krueger-1994-new-jersey-and-pennsylvania-6",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The regressions allow for other differences, such as chains: $\\Delta E_i = a + bX_i + cNJ_i + \\varepsilon_i$, or, replacing the New Jersey dummy with a measure of how much the increase binds at store $i$,"
+      },
+      {
+       "t": "math",
+       "tex": "GAP_i = \\begin{cases} 0 & \\text{in Pennsylvania, or in New Jersey if } W_{1i} \\ge 5.05 \\\\ \\dfrac{5.05 - W_{1i}}{W_{1i}} & \\text{otherwise} \\end{cases}"
+      },
+      {
+       "t": "prose",
+       "md": "the proportional raise needed to reach the new minimum from the store's wave-1 starting wage $W_{1i}$. The gap predicts actual wage changes well ($R^2 = 0.75$)."
+      }
+     ],
+     "words": 48,
+     "symbols": [
+      "$A_i$",
+      "$\\varepsilon$",
+      "$a$, $b$",
+      "$c$, $d$",
+      "$J$",
+      "$N$"
+     ]
+    },
+    {
+     "id": "7-card-and-krueger-1994-new-jersey-and-pennsylvania-7",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "A New Jersey store paid a starting wage of $W_1 = 4.25$ dollars before the increase to 5.05. What is its wage gap $GAP_i$? Give three decimals.",
+       "answer": 0.188,
+       "tol": 0.002,
+       "vary": [
+        {
+         "sym": "W_1",
+         "values": [
+          4.0,
+          4.25,
+          4.5,
+          4.75
+         ]
+        }
+       ],
+       "compute": "\\frac{5.05 - W_1}{W_1}",
+       "bindings": [
+        {
+         "sym": "W_1",
+         "value": 4.25,
+         "span": "$W_1 = 4.25$"
+        }
+       ],
+       "wrongCompute": [
+        {
+         "tex": "5.05 - W_1",
+         "md": "that is the raise in dollars; the gap is proportional, divided by the initial wage"
+        },
+        {
+         "tex": "\\frac{5.05 - W_1}{5.05}",
+         "md": "divide by the store's initial wage $W_1$, not the new minimum"
+        }
+       ],
+       "why": "$(5.05 - 4.25)/4.25 = 0.188$: the store must raise its starting wage by 18.8%. A Pennsylvania store, or a New Jersey store already paying 5.05 or more, has a gap of 0.",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 24,
+     "symbols": [
+      "$A_i$"
+     ]
+    },
+    {
+     "id": "7-card-and-krueger-1994-new-jersey-and-pennsylvania-8",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Card and Krueger 1994 reduced-form models for change in employment.png",
+       "alt": "Table - Card and Krueger 1994 reduced-form models for change in employment"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    },
+    {
+     "id": "7-card-and-krueger-1994-new-jersey-and-pennsylvania-9",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "If anything, employment rose in New Jersey relative to Pennsylvania (NJ dummy 2.30), and rose more at stores with larger gaps (14.92). With percentage changes in employment as the outcome the effects are insignificant, and other specification tests (Table 5) agree. Meal prices rose in New Jersey relative to Pennsylvania (about 3.7%), but not more at high-gap stores within New Jersey."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Card and Krueger 1994 change in the price of a full meal.png",
+       "alt": "Table - Card and Krueger 1994 change in the price of a full meal"
+      },
+      {
+       "t": "prose",
+       "md": "**Summary:** relative to Pennsylvania, the increase raised New Jersey fast-food starting wages, did not lower (slightly raised) employment, and raised prices — not consistent with the traditional competitive view. ([New Jersey Fast-Food Employment After the 1992 Minimum Wage Increase](note:new-jersey-fast-food-employment-after-the-1992-minimum-wage-increase))"
+      },
+      {
+       "t": "quote",
+       "md": "Paper summary: [Card and Krueger 1994 - Minimum Wages and Employment](note:card-and-krueger-1994-minimum-wages-and-employment)",
+       "papers": [
+        "card-and-krueger-1994-minimum-wages-and-employment"
+       ]
+      }
+     ],
+     "words": 113,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "8-card-and-krueger-2000-payroll-data",
+   "heading": "8. Card and Krueger (2000): payroll data",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "8-card-and-krueger-2000-payroll-data-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "In reply to a critique, Card and Krueger redid the comparison with BLS ES-202 data — unemployment-insurance payroll records free of survey error, for all covered employers in the same chains ([Quarterly Census of Employment and Wages (QCEW)](note:quarterly-census-of-employment-and-wages-qcew)). In a longitudinal file for 1992–93 the increase had no differential effect on employment (0.225 in levels, 0.009 proportionally). Repeated cross-sections from late 1991 to 1997 add store entry and a second experiment: the October 1996 federal increase bound in Pennsylvania but not in New Jersey."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Card and Krueger 2000 basic regression results.png",
+       "alt": "Table - Card and Krueger 2000 basic regression results"
+      }
+     ],
+     "words": 86,
+     "symbols": []
+    },
+    {
+     "id": "8-card-and-krueger-2000-payroll-data-2",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Card and Krueger 2000 - fast-food employment in NJ and PA 1991-1997.png",
+       "alt": "Card and Krueger 2000 - fast-food employment in NJ and PA 1991-1997"
+      },
+      {
+       "t": "prose",
+       "md": "Combining the papers: a substantial increase in New Jersey's minimum had no differential effect on employment but raised starting wages and prices. The worry that remains is contemporaneous shocks in New Jersey versus Pennsylvania: with two states it is incredibly hard to rule them out, even if the minimum wage had been randomly assigned, because shocks are correlated across stores within a state."
+      },
+      {
+       "t": "quote",
+       "md": "Paper summary: [Card and Krueger 2000 - Minimum Wages and Employment Reply](note:card-and-krueger-2000-minimum-wages-and-employment-reply)",
+       "papers": [
+        "card-and-krueger-2000-minimum-wages-and-employment-reply"
+       ]
+      }
+     ],
+     "words": 75,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "9-dube-lester-and-reich-2010-every-border",
+   "heading": "9. Dube, Lester and Reich (2010): every border",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "9-dube-lester-and-reich-2010-every-border-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Dube, Lester and Reich generalize the case study by using every local difference in minimum wages between 1990 and 2006: counties on either side of a state border ([Contiguous Border County Design](note:contiguous-border-county-design)). Case studies like Card and Krueger's find small or no job losses; national studies across states give a mixed verdict, some negative. The paper puts both approaches in one framework."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Dube, Lester and Reich 2010 - employment growth in minimum-wage vs other states.png",
+       "alt": "Dube, Lester and Reich 2010 - employment growth in minimum-wage vs other states"
+      }
+     ],
+     "words": 62,
+     "symbols": []
+    },
+    {
+     "id": "9-dube-lester-and-reich-2010-every-border-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The national approach compares states with and without higher minimums. But employment grew more slowly in high-minimum states over 1991–98 — and a minimum wage should affect the level of employment, not its growth rate. The likely reason is regional: as recently as 2004 no Southern state had its own minimum wage, and the South was growing faster than the rest of the country for unrelated reasons."
+      }
+     ],
+     "words": 67,
+     "symbols": []
+    },
+    {
+     "id": "9-dube-lester-and-reich-2010-every-border-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "In a national panel with common time effects, states with higher minimum wages show lower restaurant employment. Why might this estimate be biased?",
+       "options": [
+        {
+         "md": "States with higher minimums (none in the South) were on slower growth paths for reasons unrelated to the minimum wage",
+         "correct": true
+        },
+        {
+         "md": "Restaurants in high-minimum states pay higher wages, which mechanically lowers employment",
+         "correct": false,
+         "feedback": "That would be a true effect of the minimum, not a bias."
+        },
+        {
+         "md": "The CPS is too small to measure restaurant employment",
+         "correct": false,
+         "feedback": "DLR use the QCEW, a near-census; sample size is not the problem here."
+        },
+        {
+         "md": "Common time effects remove the effect of the minimum wage",
+         "correct": false,
+         "feedback": "Common time effects remove shocks shared by all states; the problem is shocks that are *not* shared."
+        }
+       ],
+       "why": "Identification with common time effects requires that, absent the policy, high- and low-minimum states would have moved together. The South grew fast and had no state minimums, so slower growth elsewhere is attributed to the minimum wage. Comparing neighbors removes such regional shocks.",
+       "objectives": [
+        4
+       ]
+      }
+     ],
+     "words": 73,
+     "symbols": []
+    },
+    {
+     "id": "9-dube-lester-and-reich-2010-every-border-4",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "They use the QCEW, quarterly county-level payroll by industry, 1990Q1–2006Q2, for full-service and limited-service restaurants, which in 2006 employed 29.9% of workers paid within 10% of the relevant minimum. 1,139 counties lie on a state border with full data, forming 504 county pairs; 288 of them had a minimum-wage difference at some point. Border pairs are good controls if (1) their minimum wages differ substantially — easy to check — and (2) the counties are otherwise similar, which the paper checks in part."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Dube, Lester and Reich 2010 - contiguous border county pairs.png",
+       "alt": "Dube, Lester and Reich 2010 - contiguous border county pairs"
+      }
+     ],
+     "words": 84,
+     "symbols": []
+    },
+    {
+     "id": "9-dube-lester-and-reich-2010-every-border-5",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The specification first replicates the national approach, $\\ln y_{it} = \\alpha + \\eta\\ln MW_{it} + \\delta\\ln y^{TOT}_{it} + \\phi_i + \\tau_t + \\varepsilon_{it}$, then allows period effects by census division, state trends and MSA-specific time effects, and finally uses only the border-pair sample with a time effect for each pair, $\\tau_{pt}$."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Dube, Lester and Reich 2010 minimum wage effects on earnings and employment.png",
+       "alt": "Table - Dube, Lester and Reich 2010 minimum wage effects on earnings and employment"
+      }
+     ],
+     "words": 34,
+     "symbols": [
+      "$\\varepsilon$",
+      "$y_{it}$",
+      "$\\delta_i$, $\\delta_t$",
+      "$\\mathbb{1}\\{\\tau = t\\}$",
+      "$MW_{it}$",
+      "$\\eta$",
+      "$y^{TOT}_{it}$",
+      "$\\phi_i$",
+      "$\\alpha$",
+      "$MW$"
+     ]
+    },
+    {
+     "id": "9-dube-lester-and-reich-2010-every-border-6",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Earnings effects are similar everywhere (elasticity ≈ 0.2). Employment effects are negative and significant only in the national specification with common time effects (−0.21); with local controls they are about zero. The traditional approach suffers from endogeneity."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Dube, Lester and Reich 2010 - dynamic minimum wage effects part 1.png",
+       "alt": "Dube, Lester and Reich 2010 - dynamic minimum wage effects part 1"
+      },
+      {
+       "t": "quote",
+       "md": "Paper summary: [Dube, Lester and Reich 2010 - Minimum Wage Effects Across State Borders](note:dube-lester-and-reich-2010-minimum-wage-effects-across-state-borders)",
+       "papers": [
+        "dube-lester-and-reich-2010-minimum-wage-effects-across-state-borders"
+       ]
+      }
+     ],
+     "words": 52,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "10-jha-neumark-and-rodriguez-lopez-what-is-across-the-border",
+   "heading": "10. Jha, Neumark and Rodriguez-Lopez: what is across the border?",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "10-jha-neumark-and-rodriguez-lopez-what-is-across-the-border-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Both papers rest on the same idea: $x$ is a good control for $y$ if they would face the same time-varying economic conditions without the minimum-wage difference. DLR compare contiguous counties; JNRL argue that a **commuting zone** is by definition a single local labor market, whereas two contiguous counties may have little in common ([Commuting Zone](note:commuting-zone)). They compare the state parts of the 137 commuting zones that cross state lines (282 CZ-state units, 153 pairs), and switch to County Business Patterns data, which cover far more pairs than the QCEW (151 of 153 CZ pairs versus 73)."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Jha, Neumark and Rodriguez-Lopez - multi-state commuting zones.png",
+       "alt": "Jha, Neumark and Rodriguez-Lopez - multi-state commuting zones"
+      }
+     ],
+     "words": 95,
+     "symbols": [
+      "$y_{it}$"
+     ]
+    },
+    {
+     "id": "10-jha-neumark-and-rodriguez-lopez-what-is-across-the-border-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "They replicate DLR, aggregate DLR's counties to commuting zones, add CBP data and ten more years, and finally estimate in differences within each pair, avoiding two-way fixed-effects problems."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Jha, Neumark and Rodriguez-Lopez pair-approach estimates.png",
+       "alt": "Table - Jha, Neumark and Rodriguez-Lopez pair-approach estimates"
+      }
+     ],
+     "words": 28,
+     "symbols": []
+    },
+    {
+     "id": "10-jha-neumark-and-rodriguez-lopez-what-is-across-the-border-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "With the pair approach and CBP data, the minimum-wage elasticity of restaurant employment is about −0.25 across commuting-zone pairs but −0.02 to −0.08 across contiguous county pairs. What is JNRL's reading?",
+       "options": [
+        {
+         "md": "County pairs are not the right local labor market; within a commuting zone, a higher minimum on one side costs jobs",
+         "correct": true
+        },
+        {
+         "md": "The two designs agree: both are statistically zero",
+         "correct": false,
+         "feedback": "The commuting-zone estimates (−0.24, −0.26) are significant at 5% or better."
+        },
+        {
+         "md": "Commuting zones are too large, so their estimates are biased toward zero",
+         "correct": false,
+         "feedback": "The commuting-zone estimates are the *more* negative ones."
+        },
+        {
+         "md": "The difference comes from the earnings effect, which is larger in commuting zones",
+         "correct": false,
+         "feedback": "Earnings elasticities are similar, 0.16–0.21, in both samples."
+        }
+       ],
+       "why": "Same data, same specification, different definition of \"across the border\". If neighboring counties trade workers and customers, effects spill across the border and county comparisons understate them; a commuting zone is designed to contain those flows. The debate shows how much \"no effect\" depends on the control group.",
+       "objectives": [
+        4
+       ]
+      }
+     ],
+     "words": 88,
+     "symbols": []
+    },
+    {
+     "id": "10-jha-neumark-and-rodriguez-lopez-what-is-across-the-border-4",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Jha, Neumark and Rodriguez-Lopez - pretrends in minimum wage effects.png",
+       "alt": "Jha, Neumark and Rodriguez-Lopez - pretrends in minimum wage effects",
+       "caption": "Cumulative effects in commuting-zone pairs (red) grow after an increase, with no pre-trends."
+      },
+      {
+       "t": "quote",
+       "md": "Paper summary: [Jha, Neumark and Rodriguez-Lopez 2024 - Re-Evaluating the Cross-Border Evidence](note:jha-neumark-and-rodriguez-lopez-2024-re-evaluating-the-cross-border-evidence)",
+       "papers": [
+        "jha-neumark-and-rodriguez-lopez-2024-re-evaluating-the-cross-border-evidence"
+       ]
+      }
+     ],
+     "words": 25,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "11-monopsony-labor-market-concentration",
+   "heading": "11. Monopsony? Labor-market concentration",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "11-monopsony-labor-market-concentration-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Why are employment effects so often found to be about zero? One theory says they should be negative (competition), another positive if the floor is not too high (monopsony). Azar et al.: both are right — some markets are closer to competitive, others closer to monopsony. They proxy competition by employment concentration, the HHI of online job postings (Burning Glass) for the main minimum-wage occupations in general merchandise stores — stock clerks, retail salespersons, cashiers — in each county, and estimate"
+      },
+      {
+       "t": "math",
+       "tex": "\\log Y_{it} = \\alpha + \\beta\\log MW_{it} + \\phi HHI_i + \\delta\\log MW_{it}\\times HHI_i + \\dots + \\gamma_i + \\tau_{ct} + \\chi_{Is}\\times t"
+      },
+      {
+       "t": "prose",
+       "md": "A first stage confirms earnings rise (elasticity ≈ 0.09)."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Azar et al 2024 minimum wage effect on employment by concentration.png",
+       "alt": "Table - Azar et al 2024 minimum wage effect on employment by concentration"
+      }
+     ],
+     "words": 87,
+     "symbols": [
+      "$\\beta$",
+      "$HHI$",
+      "$\\delta_i$, $\\delta_t$",
+      "$\\mathbf{x}_{it}$, $\\gamma$",
+      "$\\mathbb{1}\\{\\tau = t\\}$",
+      "$MW_{it}$",
+      "$\\phi_i$",
+      "$\\alpha$",
+      "$MW$"
+     ]
+    },
+    {
+     "id": "11-monopsony-labor-market-concentration-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "In Azar et al.'s Table 2 for stock clerks, the log minimum wage coefficient is −0.179 and its interaction with a high-concentration dummy (HHI ≥ 0.25) is +0.291. What is the minimum-wage elasticity of employment in highly concentrated markets? Give three decimals.",
+       "answer": 0.112,
+       "tol": 0.002,
+       "wrong": [
+        {
+         "answer": -0.179,
+         "tol": 0.002,
+         "md": "that is the effect in unconcentrated markets; add the interaction for high-HHI markets"
+        },
+        {
+         "answer": 0.291,
+         "tol": 0.002,
+         "md": "that is the difference between the two kinds of market, not the total effect in concentrated ones"
+        },
+        {
+         "answer": -0.47,
+         "tol": 0.002,
+         "md": "the interaction is positive: add it, don't subtract it"
+        }
+       ],
+       "why": "$-0.179 + 0.291 = 0.112$: in concentrated markets a 10% higher minimum *raises* employment about 1.1%, as monopsony predicts, while in unconcentrated markets it lowers it about 1.8%. Retail sales ($-0.168 + 0.432 = 0.264$) and cashiers ($-0.184 + 0.309 = 0.125$) show the same pattern.",
+       "objectives": [
+        5
+       ]
+      }
+     ],
+     "words": 45,
+     "symbols": []
+    },
+    {
+     "id": "11-monopsony-labor-market-concentration-3",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Azar et al 2024 - employment elasticities by HHI tercile.png",
+       "alt": "Azar et al 2024 - employment elasticities by HHI tercile"
+      },
+      {
+       "t": "prose",
+       "md": "In numbers: a 10% higher minimum lowers employment 2–3% where concentration is zero and slightly less than 2% where HHI is below 0.25; the negative effect is smaller where concentration is higher, and positive in high-HHI markets."
+      },
+      {
+       "t": "quote",
+       "md": "Paper summary: [Azar et al 2024 - Minimum Wage Employment Effects and Labor Market Concentration](note:azar-et-al-2024-minimum-wage-employment-effects-and-labor-market-concentration)",
+       "papers": [
+        "azar-et-al-2024-minimum-wage-employment-effects-and-labor-market-concentration"
+       ]
+      }
+     ],
+     "words": 54,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "12-employment-by-wage-missing-and-excess-jobs",
+   "heading": "12. Employment by wage: missing and excess jobs",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "12-employment-by-wage-missing-and-excess-jobs-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Cengiz, Dube, Lindner and Zipperer look only where the minimum can matter. When the minimum rises, workers below it may lose their jobs or get raises. Assume no effect above some wage $\\bar{W}$; then the change in employment is the jobs lost below the new minimum plus the jobs gained between the minimum and $\\bar{W}$ ([Missing and Excess Jobs](note:missing-and-excess-jobs))."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Cengiz et al 2019 - missing jobs below and excess jobs above the minimum wage.png",
+       "alt": "Cengiz et al 2019 - missing jobs below and excess jobs above the minimum wage"
+      }
+     ],
+     "words": 57,
+     "symbols": [
+      "$\\bar{W}$"
+     ]
+    },
+    {
+     "id": "12-employment-by-wage-missing-and-excess-jobs-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "They use 138 state increases 1979–2016 that bound on at least 2% of the workforce (on average 8.6% of workers were below the new minimum; mean real increase 10.1%), in an event study of employment per capita in 0.25-dollar wage bins relative to the new minimum, with $\\bar{W}$ = minimum + 4 dollars. Each event's controls are states with no change in its window."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Cengiz et al 2019 - impact of minimum wages on the wage distribution.png",
+       "alt": "Cengiz et al 2019 - impact of minimum wages on the wage distribution"
+      }
+     ],
+     "words": 65,
+     "symbols": [
+      "$\\bar{W}$"
+     ]
+    },
+    {
+     "id": "12-employment-by-wage-missing-and-excess-jobs-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "In Cengiz et al., employment of affected workers changes by +2.8% while their average wage rises 6.8%. What is the own-wage elasticity of employment? Give two decimals.",
+       "answer": 0.41,
+       "tol": 0.01,
+       "wrong": [
+        {
+         "answer": 2.43,
+         "tol": 0.01,
+         "md": "that divides the wage effect by the employment effect; the elasticity is employment over wage"
+        },
+        {
+         "answer": 0.19,
+         "tol": 0.01,
+         "md": "that multiplies the two percentages; divide them"
+        }
+       ],
+       "why": "$0.028/0.068 \\approx 0.41$, not significantly different from zero: missing jobs below ($-0.018$) are offset by excess jobs above ($+0.021$), a net change of $+0.003$ of pre-treatment employment. The own-wage elasticity makes studies with different wage increases comparable.",
+       "objectives": [
+        5
+       ]
+      }
+     ],
+     "words": 29,
+     "symbols": []
+    },
+    {
+     "id": "12-employment-by-wage-missing-and-excess-jobs-4",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Cengiz et al 2019 - missing and excess jobs over time.png",
+       "alt": "Cengiz et al 2019 - missing and excess jobs over time"
+      },
+      {
+       "t": "quote",
+       "md": "Paper summary: [Cengiz, Dube, Lindner and Zipperer 2019 - The Effect of Minimum Wages on Low-Wage Jobs](note:cengiz-dube-lindner-and-zipperer-2019-the-effect-of-minimum-wages-on-low-wage-jobs)",
+       "papers": [
+        "cengiz-dube-lindner-and-zipperer-2019-the-effect-of-minimum-wages-on-low-wage-jobs"
+       ]
+      }
+     ],
+     "words": 17,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "13-californias-fast-food-minimum-wage",
+   "heading": "13. California's fast-food minimum wage",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "13-californias-fast-food-minimum-wage-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "AB 1228 raised the hourly floor for covered fast-food chains to 20 dollars on April 1, 2024, when the general state minimum was 16: a 25% increase, to about 77% of the state's median wage. Enacted in September 2023, it let firms adjust in advance; it covers large chains only, so customers can switch to independent and full-service restaurants. A demanding test."
+      }
+     ],
+     "words": 62,
+     "symbols": []
+    },
+    {
+     "id": "13-californias-fast-food-minimum-wage-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Dube studies limited-service restaurants in the QCEW and in the Quarterly Workforce Indicators (QWI, with worker flows), comparing California with the 20 states at the 7.25-dollar federal minimum. California's employment rate had been converging toward those states before the law, so simple parallel trends may fail. He uses **synthetic difference-in-differences**: state weights $\\omega$ so the weighted controls track California's pre-policy path (up to a constant gap), and time weights $\\lambda$ so the controls' weighted past predicts their post-policy average; the effect is the post-policy gap minus the time-weighted pre-policy gap ([Synthetic Control](note:synthetic-control))."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Dube 2026 - synthetic control for California fast-food employment.png",
+       "alt": "Dube 2026 - synthetic control for California fast-food employment"
+      }
+     ],
+     "words": 91,
+     "symbols": [
+      "$\\omega_j$",
+      "$\\lambda_s$"
+     ]
+    },
+    {
+     "id": "13-californias-fast-food-minimum-wage-3",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Dube 2026 QCEW earnings and employment effects.png",
+       "alt": "Table - Dube 2026 QCEW earnings and employment effects"
+      },
+      {
+       "t": "prose",
+       "md": "Earnings rose about 7 log points. Conventional DiD gives employment −1.39 (own-wage elasticity −0.19); synthetic DiD gives −0.26 (−0.04), and in the QWI +0.74 with sharply lower separations — Dube's reading: higher pay reduced quits, helping firms keep workers."
+      },
+      {
+       "t": "prose",
+       "md": "Clemens, Edwards, Meer and Nguyen ask how much this depends on the choices used to build a synthetic California. **Synthetic control** matches California's pre-policy path in levels and reads the effect as the post-policy gap; **synthetic DiD** allows a constant level gap and subtracts a time-weighted pre-policy gap."
+      }
+     ],
+     "words": 91,
+     "symbols": []
+    },
+    {
+     "id": "13-californias-fast-food-minimum-wage-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "In the lecture's illustration, California's employment gap with its synthetic comparison moves from +2 jobs per 1,000 residents before the policy to −1 after. What does synthetic difference-in-differences estimate?",
+       "answer": -3.0,
+       "tol": 0.01,
+       "wrong": [
+        {
+         "answer": -1.0,
+         "tol": 0.01,
+         "md": "that is the post-policy gap alone, the synthetic-control reading; SDID subtracts the pre-policy gap of +2"
+        },
+        {
+         "answer": 1.0,
+         "tol": 0.01,
+         "md": "that adds the two gaps; the estimate is the change in the gap"
+        },
+        {
+         "answer": 3.0,
+         "tol": 0.01,
+         "md": "the gap fell, so the effect is negative"
+        }
+       ],
+       "why": "SDID allows the comparison to lie consistently above or below California, so it estimates the change in the gap: $-1 - 2 = -3$. Synthetic control instead looks for weights that eliminate the initial gap and reads the effect off the post-policy gap.",
+       "objectives": [
+        6
+       ]
+      }
+     ],
+     "words": 30,
+     "symbols": []
+    },
+    {
+     "id": "13-californias-fast-food-minimum-wage-5",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Crossing data source, donor pool, outcome, seasonal adjustment, trend adjustment and matching window gives 1,440 specifications; 96.3% of the estimates are negative, with medians from −2.4% to −3.6%. Detrending is the strongest driver, but negative estimates persist without it (their median two-year SDID estimate without detrending is −2.83%), while applying their implementation to Dube's choices still gives near-zero effects. ([California Fast-Food Minimum Wage Employment Effects 2024-2025](note:california-fast-food-minimum-wage-employment-effects-2024-2025))"
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Clemens, Edwards, Meer and Nguyen 2026 - distribution of 1,440 employment estimates.png",
+       "alt": "Clemens, Edwards, Meer and Nguyen 2026 - distribution of 1,440 employment estimates"
+      }
+     ],
+     "words": 71,
+     "symbols": []
+    },
+    {
+     "id": "13-californias-fast-food-minimum-wage-6",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Clemens, Edwards, Meer and Nguyen 2026 how specification choices move the estimate.png",
+       "alt": "Table - Clemens, Edwards, Meer and Nguyen 2026 how specification choices move the estimate"
+      },
+      {
+       "t": "quote",
+       "md": "Paper summary: [Dube 2026 - California Fast-Food Minimum Wage](note:dube-2026-california-fast-food-minimum-wage)",
+       "papers": [
+        "dube-2026-california-fast-food-minimum-wage"
+       ]
+      },
+      {
+       "t": "quote",
+       "md": "Paper summary: [Clemens, Edwards, Meer and Nguyen 2026 - Synthetic Controls for the California Fast-Food Minimum Wage](note:clemens-edwards-meer-and-nguyen-2026-synthetic-controls-for-the-california-fast-food-minimum-wage)",
+       "papers": [
+        "clemens-edwards-meer-and-nguyen-2026-synthetic-controls-for-the-california-fast-food-minimum-wage"
+       ]
+      }
+     ],
+     "words": 26,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Show how a minimum wage affects wages, employment and inequality with heterogeneous workers, and identify the three cases for the location of the floor.\n2. Explain why a monopsonist pays less and hires less than a competitive market, and why a minimum wage between the monopsony and competitive wages raises both wages and employment.\n3. Compute and interpret Card and Krueger's difference-in-differences and wage-gap measure, and explain why New Jersey's 1992 increase makes a good natural experiment and what its limits are.\n4. Explain why national panel estimates may be biased, how the contiguous border county design fixes it, and why commuting zones give different answers."
+      }
+     ],
+     "words": 107,
+     "symbols": []
+    },
+    {
+     "id": "what-to-be-able-to-do-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "5. Use labor-market concentration and the missing/excess-jobs approach to interpret employment effects, including own-wage elasticities.\n6. Explain synthetic control and synthetic difference-in-differences, and why specification choices matter for California's fast-food minimum wage."
+      }
+     ],
+     "words": 33,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "papers-in-this-lecture",
+   "heading": "Papers in this lecture",
+   "role": "papers",
+   "steps": [
+    {
+     "id": "papers-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "papers",
+       "items": [
+        "card-and-krueger-1994-minimum-wages-and-employment",
+        "card-and-krueger-2000-minimum-wages-and-employment-reply",
+        "dube-lester-and-reich-2010-minimum-wage-effects-across-state-borders",
+        "jha-neumark-and-rodriguez-lopez-2024-re-evaluating-the-cross-border-evidence",
+        "azar-et-al-2024-minimum-wage-employment-effects-and-labor-market-concentration",
+        "cengiz-dube-lindner-and-zipperer-2019-the-effect-of-minimum-wages-on-low-wage-jobs",
+        "dube-2026-california-fast-food-minimum-wage",
+        "clemens-edwards-meer-and-nguyen-2026-synthetic-controls-for-the-california-fast-food-minimum-wage"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "minimum-wage",
+        "monopsony",
+        "herfindahl-hirschman-index",
+        "difference-in-differences",
+        "contiguous-border-county-design",
+        "missing-and-excess-jobs",
+        "synthetic-control",
+        "classical-labor-market-model",
+        "commuting-zone",
+        "fixed-effects-regression"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "facts-and-data-in-this-lecture",
+   "heading": "Facts and data in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "facts-and-data-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "facts",
+       "items": [
+        "new-jersey-fast-food-employment-after-the-1992-minimum-wage-increase",
+        "california-fast-food-minimum-wage-employment-effects-2024-2025",
+        "quarterly-census-of-employment-and-wages-qcew"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

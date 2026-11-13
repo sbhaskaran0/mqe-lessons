@@ -1,0 +1,87 @@
+{
+ "slug": "minimum-wage-bite-model",
+ "notation": [
+  {
+   "tex": "$w^{p}_{jt}$, $w_{st}(p)$",
+   "meaning": "Log wage at percentile $p$ in state $j$ (or $s$), year $t$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "~w^p_jt",
+    "w"
+   ],
+   "from": "effective-minimum-wage"
+  },
+  {
+   "tex": "$\\beta$, $\\gamma$",
+   "meaning": "Linear and quadratic coefficients on $mw$",
+   "kind": "Parameters",
+   "typical": "1.494, 0.634 (Lee, trimmed mean)",
+   "keys": [
+    "beta",
+    "gamma"
+   ],
+   "from": "effective-minimum-wage"
+  },
+  {
+   "tex": "$\\alpha_t$, $\\gamma_t(p)$",
+   "meaning": "Year effects",
+   "kind": "Fixed effects",
+   "typical": "—",
+   "keys": [
+    "alpha",
+    "gamma"
+   ],
+   "from": "effective-minimum-wage"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "minimum-wage-bite-explorer"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$w^{p}_{jt}$, $w_{st}(p)$",
+      "$\\beta$, $\\gamma$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The model behind [Minimum Wage Bite Explorer](note:minimum-wage-bite-explorer). Place that view, not this note."
+      },
+      {
+       "t": "prose",
+       "md": "- **Model.** [Effective Minimum Wage](note:effective-minimum-wage): Lee's regression $w^{10} - w^{50} = \\alpha_t + \\beta\\, mw + \\gamma\\, mw^2$, so the marginal effect is $\\beta + 2\\gamma\\, mw$. `gap` is the regression's fitted part net of year effects (a level of 0 means nothing; only changes along the curve matter).\n- **Numbers.** Lee's trimmed-mean estimates; his \"derivative at average\" is 0.515, at $mw \\approx -0.77$. Tests in Python."
+      }
+     ],
+     "words": 63,
+     "symbols": [
+      "$w^{p}_{jt}$, $w_{st}(p)$",
+      "$\\beta$, $\\gamma$",
+      "$\\alpha_t$, $\\gamma_t(p)$"
+     ]
+    }
+   ]
+  }
+ ]
+}

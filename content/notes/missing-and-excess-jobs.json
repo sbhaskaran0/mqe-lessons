@@ -1,0 +1,200 @@
+{
+ "slug": "missing-and-excess-jobs",
+ "notation": [
+  {
+   "tex": "$\\Delta b$",
+   "meaning": "Change in jobs below the new minimum, relative to pre-period employment",
+   "kind": "Estimate",
+   "typical": "−0.018",
+   "keys": [
+    "~\\Deltab"
+   ]
+  },
+  {
+   "tex": "$\\Delta a$",
+   "meaning": "Change in jobs from the minimum up to $\\bar{W}$",
+   "kind": "Estimate",
+   "typical": "+0.021",
+   "keys": [
+    "~\\Deltaa"
+   ]
+  },
+  {
+   "tex": "$\\Delta e$",
+   "meaning": "Employment effect, $\\Delta a + \\Delta b$",
+   "kind": "Estimate",
+   "typical": "+0.003",
+   "keys": [
+    "~\\Deltae"
+   ]
+  },
+  {
+   "tex": "$\\bar{W}$",
+   "meaning": "Upper wage above which no effect is assumed",
+   "kind": "Choice",
+   "typical": "minimum + 4 dollars",
+   "keys": [
+    "bar(W)"
+   ]
+  },
+  {
+   "tex": "$MW$",
+   "meaning": "New minimum wage",
+   "kind": "Policy",
+   "typical": "—",
+   "keys": [
+    "~MW"
+   ]
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "When the minimum wage goes up, jobs that paid less than the new floor cannot legally continue at that pay. Each of them either gets a raise, so it reappears at or just above the new minimum, or it is destroyed. So instead of looking at total employment, which is buffeted by everything else happening in the economy, look at the count of jobs at each wage level. Jobs that vanish below the new minimum are \"missing\"; jobs that pile up just above it are \"excess\". If the excess roughly equals the missing, the floor raised pay without destroying jobs. Above some wage the minimum should have no effect at all, which gives a built-in check."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It focuses the comparison on the workers a minimum wage can actually affect, which makes small effects detectable and gives a falsification test higher up the distribution.",
+       "folded": false
+      }
+     ],
+     "words": 146,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "For each wage bin $j$ (relative to the new minimum) and state, compare employment per head after an increase with a counterfactual from states without an increase, in an event study:"
+      },
+      {
+       "t": "prose",
+       "md": "- $\\Delta b$ = change in jobs paying below the new minimum (negative: missing jobs);\n- $\\Delta a$ = change in jobs paying between the new minimum and an upper cutoff $\\bar{W}$ (positive: excess jobs);"
+      },
+      {
+       "t": "math",
+       "tex": "\\Delta e = \\Delta a + \\Delta b"
+      },
+      {
+       "t": "prose",
+       "md": "is the employment effect. Dividing the percentage change in affected employment by the percentage change in the affected workers' average wage gives the **own-wage elasticity**."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Cengiz et al 2019 - missing jobs below and excess jobs above the minimum wage.png",
+       "alt": "Cengiz et al 2019 - missing jobs below and excess jobs above the minimum wage"
+      }
+     ],
+     "words": 83,
+     "symbols": [
+      "$\\Delta b$",
+      "$\\Delta a$",
+      "$\\Delta e$",
+      "$\\bar{W}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Cengiz, Dube, Lindner and Zipperer (2019), 138 state increases 1979–2016 (mean real increase 10.1%; 8.6% of workers below the new minimum beforehand): $\\Delta b = -0.018$, $\\Delta a = +0.021$, so $\\Delta e = +0.003$. Affected employment rises 2.8% while the affected wage rises 6.8%: an own-wage elasticity of $0.028/0.068 \\approx 0.41$, not significantly different from zero."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Cengiz et al 2019 - impact of minimum wages on the wage distribution.png",
+       "alt": "Cengiz et al 2019 - impact of minimum wages on the wage distribution"
+      }
+     ],
+     "words": 47,
+     "symbols": [
+      "$\\Delta b$",
+      "$\\Delta a$",
+      "$\\Delta e$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Using total employment only.** Most workers earn well above the minimum, so their noise swamps the effect on the few who are affected.\n- **Ignoring the upper cutoff.** Effects estimated well above $\\bar{W}$ should be zero; nonzero ones flag a bad control group."
+      }
+     ],
+     "words": 43,
+     "symbols": [
+      "$\\bar{W}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Labor: minimum-wage evaluation; bunching methods more generally (taxes, kinks and notches)."
+      }
+     ],
+     "words": 12,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Minimum Wage](note:minimum-wage) · [Difference-in-Differences](note:difference-in-differences)\n- Paper: [Cengiz, Dube, Lindner and Zipperer 2019 - The Effect of Minimum Wages on Low-Wage Jobs](note:cengiz-dube-lindner-and-zipperer-2019-the-effect-of-minimum-wages-on-low-wage-jobs)"
+      }
+     ],
+     "words": 21,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

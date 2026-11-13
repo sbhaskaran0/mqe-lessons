@@ -311,10 +311,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "- [OLS Estimator](note:ols-estimator) · [Variance of Log Income](note:variance-of-log-income) · [Within- and Between-Group Inequality](note:within-and-between-group-inequality) · [Strict Exogeneity](note:strict-exogeneity)"
+       "md": "- [OLS Estimator](note:ols-estimator) · [Variance of Log Income](note:variance-of-log-income) · [Within- and Between-Group Inequality](note:within-and-between-group-inequality) · [Strict Exogeneity](note:strict-exogeneity)\n- [Effective Minimum Wage](note:effective-minimum-wage) — noise in the median appears on both sides of a percentile-gap regression and creates spurious effects"
       }
      ],
-     "words": 13,
+     "words": 33,
      "symbols": []
     }
    ]

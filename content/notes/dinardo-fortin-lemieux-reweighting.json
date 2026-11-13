@@ -1,0 +1,196 @@
+{
+ "slug": "dinardo-fortin-lemieux-reweighting",
+ "notation": [
+  {
+   "tex": "$f(w \\mid z, t)$",
+   "meaning": "Density of log wages given attributes $z$ in year $t$",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "f"
+   ]
+  },
+  {
+   "tex": "$F(z \\mid t)$",
+   "meaning": "Distribution of attributes in year $t$",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "F"
+   ]
+  },
+  {
+   "tex": "$f_t^{\\,t'}(w)$",
+   "meaning": "Counterfactual density: year-$t$ attributes, year-$t'$ wage schedule",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "~f_t^t'(w)"
+   ]
+  },
+  {
+   "tex": "$\\psi(z)$",
+   "meaning": "Reweighting factor, ratio of attribute distributions",
+   "kind": "Weight",
+   "typical": "—",
+   "keys": [
+    "psi"
+   ]
+  },
+  {
+   "tex": "$z$",
+   "meaning": "Worker attributes (education, experience, union status…)",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "z"
+   ]
+  },
+  {
+   "tex": "$w$",
+   "meaning": "Log real wage",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "w"
+   ]
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The whole wage distribution changed shape between 1979 and 1988: the bottom spread out. To ask how much of that change came from, say, a falling minimum wage or a different mix of workers, build what the distribution would have looked like if only one thing had changed. For the workforce mix, reweight the 1988 workers so that their characteristics (education, age, union status) look like 1979's, and redraw the density. For the minimum wage, take the 1988 density and push the workers who sit below the 1979 minimum (in real terms) up to it, as the old floor would have. Comparing actual and counterfactual densities attributes the change to each factor."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It extends composition adjustment from averages to the entire distribution, and gave the first systematic estimate of the minimum wage's role in the 1980s rise in inequality.",
+       "folded": false
+      }
+     ],
+     "words": 142,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "DFL ask: \"What would the density of wages have been if individual attributes had remained at their year-$t$ level and workers had been paid according to the wage schedule observed in year $t'$?\" With attributes $z$, the counterfactual density is"
+      },
+      {
+       "t": "math",
+       "tex": "f_{t}^{\\,t'}(w) = \\int f(w \\mid z, t')\\, dF(z \\mid t) = \\int f(w \\mid z, t')\\, \\psi(z)\\, dF(z \\mid t')"
+      },
+      {
+       "t": "prose",
+       "md": "where the reweighting factor $\\psi(z) = dF(z \\mid t)/dF(z \\mid t')$ is estimated from a probit or logit for the year. For the minimum wage, the mass of the year-$t'$ density below the year-$t$ real minimum is replaced by the year-$t$ density's shape below that minimum (equivalently, piled at the minimum), assuming the floor has no employment effects and no effects above it."
+      }
+     ],
+     "words": 94,
+     "symbols": [
+      "$f(w \\mid z, t)$",
+      "$F(z \\mid t)$",
+      "$f_t^{\\,t'}(w)$",
+      "$\\psi(z)$",
+      "$z$",
+      "$w$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "DFL's illustration for female high-school dropouts with up to 20 years of experience: (a) the 1988 density with the 1979 real minimum superimposed, well inside the distribution; (b) the 1979 density, with a spike at that minimum; (c) the 1988 density redrawn with the 1979 minimum, keeping the mass to its left as in 1979 and moving the rest to the minimum. The spike reappears and the lower tail compresses."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/DiNardo, Fortin and Lemieux 1996 - adjusting the 1988 distribution to the 1979 minimum wage.png",
+       "alt": "DiNardo, Fortin and Lemieux 1996 - adjusting the 1988 distribution to the 1979 minimum wage"
+      }
+     ],
+     "words": 70,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Reading the decomposition as causal.** It is accounting: it assumes no employment effects, no spillovers above the minimum, and that the wage schedule does not depend on the attribute mix.\n- **Order dependence.** Adjusting for factors in a different order gives different shares."
+      }
+     ],
+     "words": 44,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Inequality: the role of unions, minimum wages and composition in changing wage distributions; any counterfactual density (the method behind modern reweighting estimators)."
+      }
+     ],
+     "words": 23,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Kernel Density Estimation](note:kernel-density-estimation) · [Composition Adjustment](note:composition-adjustment) · [Effective Minimum Wage](note:effective-minimum-wage) · [Minimum Wage](note:minimum-wage)\n- Paper: [DiNardo, Fortin and Lemieux 1996 - Labor Market Institutions and the Distribution of Wages](note:dinardo-fortin-and-lemieux-1996-labor-market-institutions-and-the-distribution-of-wages)"
+      }
+     ],
+     "words": 27,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

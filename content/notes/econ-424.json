@@ -23,10 +23,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "7. [Econ 424 L7 Immigration Across Skills, Jobs and Places](note:econ-424-l7-immigration-across-skills-jobs-and-places) — immigration II: Borjas's skill cells, Monras's peso crisis, Friedberg's occupations, tradability (Burstein et al.), the bracero exclusion"
+       "md": "7. [Econ 424 L7 Immigration Across Skills, Jobs and Places](note:econ-424-l7-immigration-across-skills-jobs-and-places) — immigration II: Borjas's skill cells, Monras's peso crisis, Friedberg's occupations, tradability (Burstein et al.), the bracero exclusion\n8. [Econ 424 L8 Minimum Wages and Employment](note:econ-424-l8-minimum-wages-and-employment) — minimum wages I: competition, monopsony and heterogeneous workers; Card and Krueger's New Jersey study, border counties vs commuting zones, labor-market concentration, missing and excess jobs, California's fast-food minimum\n9. [Econ 424 L9 Minimum Wages and Wage Inequality](note:econ-424-l9-minimum-wages-and-wage-inequality) — minimum wages II: DFL's densities, Lee's state variation, AMS's measurement-error correction, Brazil, and the minimum wage in the college premium (Vogel)"
       }
      ],
-     "words": 27,
+     "words": 93,
      "symbols": []
     }
    ]
@@ -41,10 +41,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "L1 builds the measurement toolkit. L2 applies it to the most-studied between-group gap, the college premium, and introduces the supply–demand framework the rest of the course will extend (\"much more to follow\" on what drives demand). L3 turns to total and within-group inequality: a pervasive rise in the 1980s, then a split by education that adds up to wage polarization. L4 starts on *why* demand shifts, with trade: price shocks pass through to the incomes of immobile factors, weighted by each region's or group's exposure. L5 takes that to data: regions, industries, workers and firms more exposed to negative trade shocks lose relative to others. L6 and L7 turn to the supply side with immigration: a huge local shock (the Mariel boatlift) leaves Miami's wages barely changed relative to comparison cities, while national skill-cell comparisons find large relative effects; occupation, tradability and technology show where a supply shock is absorbed."
+       "md": "L1 builds the measurement toolkit. L2 applies it to the most-studied between-group gap, the college premium, and introduces the supply–demand framework the rest of the course will extend (\"much more to follow\" on what drives demand). L3 turns to total and within-group inequality: a pervasive rise in the 1980s, then a split by education that adds up to wage polarization. L4 starts on *why* demand shifts, with trade: price shocks pass through to the incomes of immobile factors, weighted by each region's or group's exposure. L5 takes that to data: regions, industries, workers and firms more exposed to negative trade shocks lose relative to others. L6 and L7 turn to the supply side with immigration: a huge local shock (the Mariel boatlift) leaves Miami's wages barely changed relative to comparison cities, while national skill-cell comparisons find large relative effects; occupation, tradability and technology show where a supply shock is absorbed. L8 and L9 turn to labor-market institutions, starting with the minimum wage: in theory it can lower employment (competition) or raise it ([Monopsony](note:monopsony)), and the evidence from natural experiments is mostly of small employment effects, with live disputes over the control group. Its effect on inequality is clearer at the bottom: the falling real minimum of the 1980s explains about half of the rise in women's lower-tail inequality and a tenth of men's ([Effective Minimum Wage](note:effective-minimum-wage)), and may matter for the college premium too."
       }
      ],
-     "words": 151,
+     "words": 235,
      "symbols": []
     }
    ]

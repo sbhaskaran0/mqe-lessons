@@ -262,6 +262,24 @@
    ]
   },
   {
+   "id": "worked-example-the-new-jersey-minimum-wage",
+   "heading": "Worked example — the New Jersey minimum wage",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-the-new-jersey-minimum-wage-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Card and Krueger (1994): full-time-equivalent employment per fast-food store went from 20.44 to 21.03 in New Jersey, whose minimum rose from 4.25 to 5.05 dollars, and from 23.33 to 21.17 in eastern Pennsylvania, whose did not. DiD $= (21.03 - 20.44) - (21.17 - 23.33) = 0.59 + 2.16 = 2.75$ (2.76 in their table, from unrounded means): employment rose relative to the control. With a single treated state, later work builds the control instead ([Synthetic Control](note:synthetic-control)) or uses many cross-border pairs ([Contiguous Border County Design](note:contiguous-border-county-design)); see also [Missing and Excess Jobs](note:missing-and-excess-jobs) for an event-study design by wage level."
+      }
+     ],
+     "words": 92,
+     "symbols": []
+    }
+   ]
+  },
+  {
    "id": "identifying-assumption-parallel-trends",
    "heading": "Identifying assumption: parallel trends",
    "role": "depth",
@@ -394,10 +412,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "- [Fixed Effects Regression](note:fixed-effects-regression) · [Indicator Variables](note:indicator-variables) · [Clustered Standard Errors](note:clustered-standard-errors) · [OLS Estimator](note:ols-estimator)\n- Paper: [Card 1990 - The Impact of the Mariel Boatlift](note:card-1990-the-impact-of-the-mariel-boatlift)\n- Paper: [Clemens, Lewis and Postel 2018 - Immigration Restrictions as Active Labor Market Policy](note:clemens-lewis-and-postel-2018-immigration-restrictions-as-active-labor-market-policy)"
+       "md": "- [Fixed Effects Regression](note:fixed-effects-regression) · [Indicator Variables](note:indicator-variables) · [Clustered Standard Errors](note:clustered-standard-errors) · [OLS Estimator](note:ols-estimator)\n- Paper: [Card 1990 - The Impact of the Mariel Boatlift](note:card-1990-the-impact-of-the-mariel-boatlift)\n- Paper: [Clemens, Lewis and Postel 2018 - Immigration Restrictions as Active Labor Market Policy](note:clemens-lewis-and-postel-2018-immigration-restrictions-as-active-labor-market-policy)\n- [Synthetic Control](note:synthetic-control) · [Contiguous Border County Design](note:contiguous-border-county-design) · [Missing and Excess Jobs](note:missing-and-excess-jobs)\n- Paper: [Card and Krueger 1994 - Minimum Wages and Employment](note:card-and-krueger-1994-minimum-wages-and-employment)"
       }
      ],
-     "words": 37,
+     "words": 59,
      "symbols": []
     }
    ]

@@ -527,10 +527,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "- [Solow Diagram](note:solow-diagram) · [Golden Rule Saving Rate](note:golden-rule-saving-rate) · [Solow Model with Technological Progress](note:solow-model-with-technological-progress) · [Endogenous and Exogenous Variables](note:endogenous-and-exogenous-variables)\n- [Two-Period Consumption-Saving Model](note:two-period-consumption-saving-model) — saving as a choice: with capital, MPK plays the interest rate's role"
+       "md": "- [Solow Diagram](note:solow-diagram) · [Golden Rule Saving Rate](note:golden-rule-saving-rate) · [Solow Model with Technological Progress](note:solow-model-with-technological-progress) · [Endogenous and Exogenous Variables](note:endogenous-and-exogenous-variables)\n- [Two-Period Consumption-Saving Model](note:two-period-consumption-saving-model) — saving as a choice: with capital, MPK plays the interest rate's role\n- [Solow Residual](note:solow-residual) · [Endogenous Growth Models](note:endogenous-growth-models) — what TFP measures, and models that explain its growth"
       }
      ],
-     "words": 32,
+     "words": 47,
      "symbols": []
     }
    ]

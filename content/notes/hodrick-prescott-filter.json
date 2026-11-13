@@ -1,0 +1,166 @@
+{
+ "slug": "hodrick-prescott-filter",
+ "notation": [
+  {
+   "tex": "$y_t$",
+   "meaning": "Log of the series (e.g. real GDP)",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "y"
+   ]
+  },
+  {
+   "tex": "$\\tau_t$",
+   "meaning": "Trend component",
+   "kind": "Estimated",
+   "typical": "—",
+   "keys": [
+    "tau"
+   ]
+  },
+  {
+   "tex": "$c_t$",
+   "meaning": "Cyclical component, percent deviation from trend",
+   "kind": "Estimated",
+   "typical": "±2–6%",
+   "keys": [
+    "c"
+   ]
+  },
+  {
+   "tex": "$\\lambda$",
+   "meaning": "Smoothing parameter",
+   "kind": "Choice",
+   "typical": "1,600 for quarterly data",
+   "keys": [
+    "lambda"
+   ]
+  },
+  {
+   "tex": "$T$",
+   "meaning": "Number of periods",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "T"
+   ]
+  }
+ ],
+ "notationIntro": "*US real GDP with its HP trend (left) and the log deviations from trend (right).*",
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "GDP grows over decades and wiggles around that growth from year to year. To study recessions and booms, economists separate the two: a smooth trend line through the data, and the deviations from it, the \"cycle\". The Hodrick-Prescott filter draws the trend by balancing two goals: stay close to the data, but don't bend too sharply. A single number decides the balance; the larger it is, the straighter the trend and the more movement is counted as cycle. Business-cycle models are typically judged on these deviations only, which means they are not asked to explain the trend at all."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "Most stylized facts about business cycles, and the apparent fit of the RBC model, are statements about HP-filtered data.",
+       "folded": false
+      }
+     ],
+     "words": 121,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The lecture describes the filter as \"a kind of moving average\". (Beyond the lecture:) for a (log) series $y_t = \\tau_t + c_t$, the trend $\\tau_t$ solves"
+      },
+      {
+       "t": "math",
+       "tex": "\\min_{\\{\\tau_t\\}} \\sum_{t=1}^{T} (y_t - \\tau_t)^2 + \\lambda \\sum_{t=2}^{T-1}\\left[(\\tau_{t+1} - \\tau_t) - (\\tau_t - \\tau_{t-1})\\right]^2"
+      },
+      {
+       "t": "prose",
+       "md": "and the cycle is $c_t = y_t - \\tau_t$. With $\\lambda = 0$ the trend is the data; as $\\lambda \\to \\infty$ it becomes a straight line. Conventional values: 1,600 (quarterly), 100 or 6.25 (annual)."
+      }
+     ],
+     "words": 47,
+     "symbols": [
+      "$y_t$",
+      "$\\tau_t$",
+      "$c_t$",
+      "$\\lambda$",
+      "$T$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Treating the cycle as a fact of nature.** It depends on $\\lambda$ and on the filter; it can create spurious cycles and behaves badly at the ends of the sample.\n- **Asking a model to fit filtered data and calling that a full test.** The trend, and the transition between trend and cycle, are left unexplained."
+      }
+     ],
+     "words": 56,
+     "symbols": [
+      "$\\lambda$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Macroeconomics: business-cycle facts, calibrating and evaluating DSGE models, output-gap estimates."
+      }
+     ],
+     "words": 11,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Real Business Cycle Model](note:real-business-cycle-model) · [Stationarity and Unit Roots](note:stationarity-and-unit-roots)"
+      }
+     ],
+     "words": 9,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

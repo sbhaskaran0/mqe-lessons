@@ -180,10 +180,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "- [Phillips Curve](note:phillips-curve) · [IS-MP-PC Model](note:is-mp-pc-model) · [Monetary Policy Rule](note:monetary-policy-rule)"
+       "md": "- [Phillips Curve](note:phillips-curve) · [IS-MP-PC Model](note:is-mp-pc-model) · [Monetary Policy Rule](note:monetary-policy-rule)\n- [Lucas Critique](note:lucas-critique) — Lucas's case for rational expectations: forecasts that ignore the policy rule fail when the rule changes"
       }
      ],
-     "words": 8,
+     "words": 27,
      "symbols": []
     }
    ]

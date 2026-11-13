@@ -1,0 +1,168 @@
+{
+ "slug": "sims-1980-macroeconomics-and-reality",
+ "notation": [],
+ "sections": [
+  {
+   "id": "key-takeaways",
+   "heading": "Key takeaways",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "key-takeaways-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. **Under-identification.** Models such as the FRB-MIT model put different, hand-picked sets of variables in each equation (one list for consumption, another for labor supply) without economic theory to justify the exclusions.\n2. **Expectations make it worse.** \"However certain we are that the tastes of consumers in the U.S. are unaffected by the temperature in Brazil,\" news of a frost there can make them stockpile coffee: supply variables enter demand through expected prices.\n3. **The alternative.** Avoid a priori choices of what is exogenous: let every variable depend on lags of every variable — a [Vector Autoregression](note:vector-autoregression) — and use reduced-form models for policy projection."
+      }
+     ],
+     "words": 104,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "research-question",
+   "heading": "Research question",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "research-question-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Are the identifying restrictions of large-scale macro models credible, and if not, how should macro data be modeled?"
+      }
+     ],
+     "words": 18,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "data-and-setting",
+   "heading": "Data and setting",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "data-and-setting-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Critique of 1960s–70s models (the FRB-MIT model's consumption and labor-supply equations); illustrative VARs on US and German data (beyond the lecture)."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Sims 1980 - FRB-MIT consumption equation.png",
+       "alt": "Sims 1980 - FRB-MIT consumption equation"
+      }
+     ],
+     "words": 22,
+     "symbols": []
+    },
+    {
+     "id": "data-and-setting-2",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Sims 1980 - FRB-MIT labor supply equation.png",
+       "alt": "Sims 1980 - FRB-MIT labor supply equation"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "empirical-strategy",
+   "heading": "Empirical strategy",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "empirical-strategy-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Small unrestricted VARs, read through impulse responses and variance decompositions."
+      }
+     ],
+     "words": 10,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "results",
+   "heading": "Results",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "results-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "VARs summarize the dynamic interactions among macro variables without imposing exclusion restrictions."
+      }
+     ],
+     "words": 12,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "caveats",
+   "heading": "Caveats",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "caveats-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- VARs are reduced forms estimated under past policy, so they remain subject to the [Lucas Critique](note:lucas-critique); structural VARs reintroduce theory through restrictions."
+      }
+     ],
+     "words": 23,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "in-econ-402a-l9-working-with-macroeconomic-data",
+   "heading": "In Econ 402A L9 Working with Macroeconomic Data",
+   "role": "paper-in-lesson",
+   "steps": [
+    {
+     "id": "in-econ-402a-l9-working-with-macroeconomic-data-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "\"A different critique of 1950s and 60s macro models\" from Lucas's, and the motivation for the lecture's build-up from time series to VARs."
+      }
+     ],
+     "words": 23,
+     "symbols": []
+    }
+   ],
+   "lesson": "econ-402a-l9-working-with-macroeconomic-data"
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Vector Autoregression](note:vector-autoregression) · [Endogenous and Exogenous Variables](note:endogenous-and-exogenous-variables) · [Lucas Critique](note:lucas-critique)"
+      }
+     ],
+     "words": 9,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

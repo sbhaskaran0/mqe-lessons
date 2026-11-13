@@ -1,0 +1,235 @@
+{
+ "slug": "real-business-cycle-model",
+ "notation": [
+  {
+   "tex": "$c_t$, $l_t$, $h_t$",
+   "meaning": "Consumption, leisure, hours worked",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "c",
+    "l",
+    "h"
+   ]
+  },
+  {
+   "tex": "$k_t$, $i_t$, $y_t$",
+   "meaning": "Capital, investment, output",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "k",
+    "i",
+    "y"
+   ]
+  },
+  {
+   "tex": "$A_t$",
+   "meaning": "Total factor productivity",
+   "kind": "Exogenous shock process",
+   "typical": "—",
+   "keys": [
+    "A"
+   ]
+  },
+  {
+   "tex": "$\\rho$",
+   "meaning": "Persistence of TFP",
+   "kind": "Parameter",
+   "typical": "close to 1",
+   "keys": [
+    "rho"
+   ]
+  },
+  {
+   "tex": "$\\varepsilon_t$",
+   "meaning": "TFP innovation",
+   "kind": "Shock",
+   "typical": "—",
+   "keys": [
+    "varepsilon"
+   ]
+  },
+  {
+   "tex": "$\\beta$, $\\delta$",
+   "meaning": "Discount factor, depreciation rate",
+   "kind": "Parameters",
+   "typical": "0.99, 0.025 (quarterly)",
+   "keys": [
+    "beta",
+    "delta"
+   ]
+  },
+  {
+   "tex": "$E_0$",
+   "meaning": "Expectation at date 0",
+   "kind": "Operator",
+   "typical": "—",
+   "keys": [
+    "E"
+   ]
+  },
+  {
+   "tex": "$u(c_t, l_t)$, $f(k_t, h_t)$",
+   "meaning": "Utility and production functions",
+   "kind": "Functions",
+   "typical": "—",
+   "keys": [
+    "u",
+    "f"
+   ]
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Take the growth model from earlier in the course — households choosing how much to consume and save over an infinite horizon, firms combining capital and labor — and add one thing: productivity is hit by random shocks. In a good year, workers are more productive, so households work more and invest more; in a bad year, the reverse. Recessions are then not failures of markets but the best response to temporarily bad technology. This was the first dynamic stochastic general equilibrium (DSGE) model: dynamic, with random shocks, and with every market clearing. It matched the ups and downs of output, hours and investment surprisingly well, which raised the question of whether it was too good to be true."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It established the method — optimizing agents, rational expectations, calibration — that all modern macro models, including New Keynesian ones, use.",
+       "folded": false
+      }
+     ],
+     "words": 139,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "(The equations are beyond the lecture, which describes the model in words.) Households maximize $E_0\\sum_t \\beta^t u(c_t, l_t)$; firms produce $y_t = A_t f(k_t, h_t)$; capital accumulates $k_{t+1} = (1-\\delta)k_t + i_t$; and log TFP follows an AR(1),"
+      },
+      {
+       "t": "math",
+       "tex": "\\ln A_{t+1} = \\rho \\ln A_t + \\varepsilon_{t+1}"
+      },
+      {
+       "t": "prose",
+       "md": "All markets clear and prices are flexible. The model is solved for its stochastic equilibrium and simulated; simulated moments are compared with [HP-filtered](note:hodrick-prescott-filter) data."
+      }
+     ],
+     "words": 49,
+     "symbols": [
+      "$c_t$, $l_t$, $h_t$",
+      "$k_t$, $i_t$, $y_t$",
+      "$A_t$",
+      "$\\rho$",
+      "$\\varepsilon_t$",
+      "$\\beta$, $\\delta$",
+      "$E_0$",
+      "$u(c_t, l_t)$, $f(k_t, h_t)$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fit-and-critiques",
+   "heading": "Fit and critiques",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "fit-and-critiques-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Uhlig 2003 - RBC model simulations vs data.png",
+       "alt": "Uhlig 2003 - RBC model simulations vs data",
+       "caption": "Simulated (driven by measured TFP) versus actual HP-filtered output, hours, capital, productivity, investment and consumption (Uhlig 2003)."
+      }
+     ],
+     "words": 17,
+     "symbols": []
+    },
+    {
+     "id": "fit-and-critiques-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **What are the shocks?** Measured TFP is the [Solow Residual](note:solow-residual): anything not in capital or labor, possibly \"animal spirits\".\n- **Filtered data only.** The fit is to deviations from an HP trend; on unfiltered data and without measured TFP the model tracks the data poorly.\n- **Unsatisfying assumptions:** exogenous TFP, competitive markets and flexible prices, Cobb-Douglas production, no useful role for policy, a representative agent. Each motivated a later development: [Endogenous Growth Models](note:endogenous-growth-models), the [New Keynesian Model](note:new-keynesian-model), heterogeneous-agent models."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Uhlig 2003 - RBC fit on unfiltered data without TFP.png",
+       "alt": "Uhlig 2003 - RBC fit on unfiltered data without TFP"
+      }
+     ],
+     "words": 80,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Thinking \"real\" means adjusted for inflation.** It means the shocks are real (technology), not monetary.\n- **Calling every DSGE model an RBC model.** New Keynesian models are DSGE models too, with sticky prices and policy."
+      }
+     ],
+     "words": 36,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Macroeconomics: the core of DSGE modeling; calibration; the benchmark for business-cycle facts."
+      }
+     ],
+     "words": 13,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Ramsey-Cass-Koopmans Model](note:ramsey-cass-koopmans-model) · [Solow Residual](note:solow-residual) · [Hodrick-Prescott Filter](note:hodrick-prescott-filter) · [New Keynesian Model](note:new-keynesian-model) · [Lucas Critique](note:lucas-critique)\n- Paper: [Kydland and Prescott 1982 - Time to Build and Aggregate Fluctuations](note:kydland-and-prescott-1982-time-to-build-and-aggregate-fluctuations)"
+      }
+     ],
+     "words": 25,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

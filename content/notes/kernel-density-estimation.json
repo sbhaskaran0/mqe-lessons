@@ -266,10 +266,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "- [EDA for Regression](note:eda-for-regression) · [Skewness and Kurtosis](note:skewness-and-kurtosis)"
+       "md": "- [EDA for Regression](note:eda-for-regression) · [Skewness and Kurtosis](note:skewness-and-kurtosis)\n- [DiNardo-Fortin-Lemieux Reweighting](note:dinardo-fortin-lemieux-reweighting) — kernel densities of log wages, year by year, and counterfactual densities"
       }
      ],
-     "words": 7,
+     "words": 21,
      "symbols": []
     }
    ]

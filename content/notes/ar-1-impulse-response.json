@@ -1,0 +1,114 @@
+{
+ "slug": "ar-1-impulse-response",
+ "notation": [
+  {
+   "tex": "$x_t$",
+   "meaning": "Value of the series in period $t$",
+   "kind": "Data",
+   "typical": "inflation, %",
+   "keys": [
+    "x"
+   ],
+   "from": "autoregressive-model"
+  },
+  {
+   "tex": "$\\beta_0$",
+   "meaning": "Intercept",
+   "kind": "Parameter",
+   "typical": "0.5 in the example",
+   "keys": [
+    "beta"
+   ],
+   "from": "autoregressive-model"
+  },
+  {
+   "tex": "$\\mu$",
+   "meaning": "Mean of a stationary AR(1), $\\beta_0/(1 - \\beta_1)$",
+   "kind": "Parameter",
+   "typical": "2 in the example",
+   "keys": [
+    "mu"
+   ],
+   "from": "autoregressive-model"
+  },
+  {
+   "tex": "$\\varepsilon_t$",
+   "meaning": "Shock in period $t$",
+   "kind": "Error",
+   "typical": "2 in the example",
+   "keys": [
+    "varepsilon"
+   ],
+   "from": "autoregressive-model"
+  },
+  {
+   "tex": "$s$, $k$",
+   "meaning": "Period of the shock; periods since the shock",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "s",
+    "k"
+   ],
+   "from": "autoregressive-model"
+  },
+  {
+   "tex": "$t$",
+   "meaning": "Time period",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "t"
+   ],
+   "from": "autoregressive-model"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "ar-1-impulse-response"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$x_t$",
+      "$\\beta_0$",
+      "$\\mu$",
+      "$\\varepsilon_t$",
+      "$t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Purpose.** Persistence in one picture: the coefficient on the lag is the share of a shock carried into the next period, so the response to a one-time shock is $\\beta_1^k\\varepsilon$. At $\\beta_1 = 1$ (a unit root) shocks are permanent and the series has no mean to return to — it is not stationary. The bottom panel is the impulse response a [Vector Autoregression](note:vector-autoregression) reports, for the one-variable case.\n- **Model.** A view of [AR(1) Process Model](note:ar-1-process-model).\n- **Elements.** Panels `level` (series `series`, `mean`) and `irf` (series `response`). Readouts `after4_out`, `share10_out`.\n- **Tests.** Python."
+      }
+     ],
+     "words": 93,
+     "symbols": [
+      "$\\beta_0$",
+      "$\\varepsilon_t$",
+      "$s$, $k$"
+     ]
+    }
+   ]
+  }
+ ]
+}

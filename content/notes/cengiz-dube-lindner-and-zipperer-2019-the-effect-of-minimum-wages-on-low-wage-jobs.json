@@ -1,0 +1,192 @@
+{
+ "slug": "cengiz-dube-lindner-and-zipperer-2019-the-effect-of-minimum-wages-on-low-wage-jobs",
+ "notation": [
+  {
+   "tex": "$\\Delta b$",
+   "meaning": "Change in jobs below the new minimum, relative to pre-period employment",
+   "kind": "Estimate",
+   "typical": "−0.018",
+   "keys": [
+    "~\\Deltab"
+   ],
+   "from": "missing-and-excess-jobs"
+  },
+  {
+   "tex": "$\\Delta a$",
+   "meaning": "Change in jobs from the minimum up to $\\bar{W}$",
+   "kind": "Estimate",
+   "typical": "+0.021",
+   "keys": [
+    "~\\Deltaa"
+   ],
+   "from": "missing-and-excess-jobs"
+  }
+ ],
+ "sections": [
+  {
+   "id": "key-takeaways",
+   "heading": "Key takeaways",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "key-takeaways-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. **Count jobs by wage.** A minimum-wage increase should remove jobs below the new floor (missing jobs) and add jobs at or just above it (excess jobs); the employment effect is their sum ([Missing and Excess Jobs](note:missing-and-excess-jobs)).\n2. **Missing ≈ excess.** On average $\\Delta b = -0.018$ and $\\Delta a = +0.021$ of pre-treatment employment: no net loss of low-wage jobs.\n3. **Small spillovers.** Effects fade by about \\$4 above the new minimum, and estimates higher up are near zero, a built-in check."
+      }
+     ],
+     "words": 74,
+     "symbols": [
+      "$\\Delta b$",
+      "$\\Delta a$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "research-question",
+   "heading": "Research question",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "research-question-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "How many low-wage jobs does a minimum-wage increase destroy, and how much does it raise affected workers' pay?"
+      }
+     ],
+     "words": 18,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "data-and-setting",
+   "heading": "Data and setting",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "data-and-setting-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "138 \"non-small\" state increases 1979–2016 (each binding on at least 2% of the workforce): on average 8.6% of workers were below the new minimum the year before, and the mean real increase was 10.1%. CPS employment counts by state, quarter and \\$0.25 real wage bin."
+      }
+     ],
+     "words": 49,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "empirical-strategy",
+   "heading": "Empirical strategy",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "empirical-strategy-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "An event study, stacked by event, of employment per capita in each wage bin relative to the new minimum, with state-by-bin and quarter-by-bin effects; controls are states without a change in the event window ([Difference-in-Differences](note:difference-in-differences))."
+      }
+     ],
+     "words": 35,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "results",
+   "heading": "Results",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "results-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Cengiz et al 2019 - impact of minimum wages on the wage distribution.png",
+       "alt": "Cengiz et al 2019 - impact of minimum wages on the wage distribution"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    },
+    {
+     "id": "results-2",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Cengiz et al 2019 - missing and excess jobs over time.png",
+       "alt": "Cengiz et al 2019 - missing and excess jobs over time"
+      },
+      {
+       "t": "prose",
+       "md": "- Missing jobs −0.018 (0.004), excess jobs +0.021 (0.003); affected employment +2.8% (2.9), affected wage +6.8% (1.0).\n- Own-wage elasticity $0.028/0.068 \\approx 0.41$; no pre-trends, and the pattern persists five years out."
+      }
+     ],
+     "words": 37,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "caveats",
+   "heading": "Caveats",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "caveats-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Bins from survey wages carry reporting error; the upper cutoff is a choice.\n- Results average many modest increases; large increases relative to the median may behave differently."
+      }
+     ],
+     "words": 29,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "in-econ-424-l8-minimum-wages-and-employment",
+   "heading": "In Econ 424 L8 Minimum Wages and Employment",
+   "role": "paper-in-lesson",
+   "steps": [
+    {
+     "id": "in-econ-424-l8-minimum-wages-and-employment-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A design built for the question \"employment by wage\": it looks only where a minimum wage can have effects, and it bridges to the next lecture by showing how the minimum reshapes the bottom of the wage distribution."
+      }
+     ],
+     "words": 38,
+     "symbols": []
+    }
+   ],
+   "lesson": "econ-424-l8-minimum-wages-and-employment"
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Missing and Excess Jobs](note:missing-and-excess-jobs) · [Minimum Wage](note:minimum-wage) · [Difference-in-Differences](note:difference-in-differences)"
+      }
+     ],
+     "words": 8,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

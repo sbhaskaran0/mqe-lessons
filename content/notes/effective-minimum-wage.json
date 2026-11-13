@@ -1,0 +1,293 @@
+{
+ "slug": "effective-minimum-wage",
+ "notation": [
+  {
+   "tex": "$mw_{jt}$",
+   "meaning": "Effective minimum: log minimum minus log median (or trimmed mean)",
+   "kind": "Data",
+   "typical": "−0.4 to −1.3",
+   "keys": [
+    "~mw_jt"
+   ]
+  },
+  {
+   "tex": "$w^{p}_{jt}$, $w_{st}(p)$",
+   "meaning": "Log wage at percentile $p$ in state $j$ (or $s$), year $t$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "~w^p_jt",
+    "w"
+   ]
+  },
+  {
+   "tex": "$w^m_{st}$",
+   "meaning": "Log real minimum wage in state $s$, year $t$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "~w^m_st"
+   ]
+  },
+  {
+   "tex": "$\\bar{w}_{jt}$",
+   "meaning": "Trimmed mean of log wages, 30th–70th percentiles",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "bar(w)"
+   ]
+  },
+  {
+   "tex": "$\\beta$, $\\gamma$",
+   "meaning": "Linear and quadratic coefficients on $mw$",
+   "kind": "Parameters",
+   "typical": "1.494, 0.634 (Lee, trimmed mean)",
+   "keys": [
+    "beta",
+    "gamma"
+   ]
+  },
+  {
+   "tex": "$\\alpha_t$, $\\gamma_t(p)$",
+   "meaning": "Year effects",
+   "kind": "Fixed effects",
+   "typical": "—",
+   "keys": [
+    "alpha",
+    "gamma"
+   ]
+  },
+  {
+   "tex": "$\\sigma_{s0}(p)$, $\\sigma_{s1}(p)$",
+   "meaning": "State effects and state trends",
+   "kind": "Fixed effects",
+   "typical": "—",
+   "keys": [
+    "sigma"
+   ]
+  },
+  {
+   "tex": "$u_{jt}$, $\\varepsilon_{st}(p)$",
+   "meaning": "Regression errors",
+   "kind": "Error",
+   "typical": "—",
+   "keys": [
+    "u",
+    "varepsilon"
+   ]
+  },
+  {
+   "tex": "$\\varepsilon^{\\mu}_{st}(p)$",
+   "meaning": "Measurement error in the log wage at percentile $p$",
+   "kind": "Error",
+   "typical": "—",
+   "keys": [
+    "~\\varepsilon^\\mu_st(p)"
+   ]
+  },
+  {
+   "tex": "$p$",
+   "meaning": "Percentile of the wage distribution",
+   "kind": "Index",
+   "typical": "5 to 95",
+   "keys": [
+    "p"
+   ]
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A 7-dollar minimum wage means little in a state where most people earn 30 dollars an hour, and a lot in a state where the typical wage is 12. What matters for how much a minimum wage shapes the wage distribution is its level relative to typical pay: its \"bite\". Measuring that bite state by state and year by year, and seeing how the bottom of each state's wage distribution moves with it, is how researchers estimate how much of the rise in US inequality at the bottom came from the falling real value of the minimum wage. The method has a trap: the typical wage appears on both sides of the comparison, and errors in measuring it create a spurious relationship."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the tool behind the main estimates of the minimum wage's role in US lower-tail inequality, from \"all of it\" (Lee) to \"about half for women, a tenth for men\" (Autor, Manning and Smith).",
+       "folded": false
+      }
+     ],
+     "words": 160,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "For state $j$ in year $t$, with all wages in logs, the effective minimum wage is"
+      },
+      {
+       "t": "math",
+       "tex": "mw_{jt} = \\text{min wage}_{jt} - w^{50}_{jt}"
+      },
+      {
+       "t": "prose",
+       "md": "(Lee's final specification replaces the median with the trimmed mean $\\bar{w}_{jt}$ of the 30th–70th percentiles). Lee (1999) estimates"
+      },
+      {
+       "t": "math",
+       "tex": "w^{10}_{jt} - w^{50}_{jt} = \\alpha_t + \\beta\\, mw_{jt} + \\gamma\\, mw_{jt}^2 + u_{jt}"
+      },
+      {
+       "t": "prose",
+       "md": "and Autor, Manning and Smith (2016) the same for every percentile $p$, with state effects and trends:"
+      },
+      {
+       "t": "math",
+       "tex": "w_{st}(p) - w_{st}(50) = \\beta_1(p)\\left[w^m_{st} - w_{st}(50)\\right] + \\beta_2(p)\\left[w^m_{st} - w_{st}(50)\\right]^2 + \\sigma_{s0}(p) + \\sigma_{s1}(p)\\, t + \\gamma_t(p) + \\varepsilon_{st}(p)"
+      },
+      {
+       "t": "prose",
+       "md": "The marginal effect $\\beta + 2\\gamma\\, mw$ is largest where the minimum is close to the median and fades where it is far below."
+      }
+     ],
+     "words": 68,
+     "symbols": [
+      "$mw_{jt}$",
+      "$w^{p}_{jt}$, $w_{st}(p)$",
+      "$w^m_{st}$",
+      "$\\bar{w}_{jt}$",
+      "$\\beta$, $\\gamma$",
+      "$\\alpha_t$, $\\gamma_t(p)$",
+      "$\\sigma_{s0}(p)$, $\\sigma_{s1}(p)$",
+      "$u_{jt}$, $\\varepsilon_{st}(p)$",
+      "$p$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With Lee's trimmed-mean estimates, the marginal effect on the 10-50 gap is $1.494 + 2(0.634)\\, mw$: 0.86 at $mw = -0.5$, 0.52 at $mw = -0.77$ (Lee's \"derivative at average\", 0.515), and zero at $mw = -1.18$. A minimum far below the median does nothing to the bottom tail."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Lee 1999 - 10-50 differential vs relative minimum wage across states.png",
+       "alt": "Lee 1999 - 10-50 differential vs relative minimum wage across states"
+      }
+     ],
+     "words": 39,
+     "symbols": [
+      "$w^{p}_{jt}$, $w_{st}(p)$"
+     ]
+    },
+    {
+     "id": "worked-example-2",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "minimum-wage-bite-explorer",
+       "prompt": "Slide the effective minimum wage and see where it bites"
+      }
+     ],
+     "words": 10,
+     "symbols": [
+      "$w^{p}_{jt}$, $w_{st}(p)$",
+      "$\\beta$, $\\gamma$",
+      "$\\alpha_t$, $\\gamma_t(p)$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "the-identification-problem",
+   "heading": "The identification problem",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-identification-problem-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Lee's key assumption is that the **latent** wage distribution (what wages would be without the minimum) is the same across states up to location. If the median is measured with error $\\varepsilon^{\\mu}_{st}(50)$, it enters the dependent variable with a minus sign and the regressor with a minus sign too, so the two are correlated, more so for percentiles far from 50. That produces spurious \"effects\" in both tails. Autor, Manning and Smith instrument the effective minimum with the log real minimum, its square, and the minimum times the state's average median ([Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls))."
+      }
+     ],
+     "words": 94,
+     "symbols": [
+      "$u_{jt}$, $\\varepsilon_{st}(p)$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Reading upper-tail \"effects\" as real.** An estimated effect on the 90-50 gap is a red flag for bias, not evidence of large spillovers.\n- **Using the nominal minimum.** Bite is relative to the state's own wage level, and federal changes bind very differently in rich and poor states."
+      }
+     ],
+     "words": 49,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Inequality: decomposing changes in lower-tail inequality; cross-country comparisons of minimum wages (Brazil, UK, Germany)."
+      }
+     ],
+     "words": 15,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Minimum Wage](note:minimum-wage) · [Percentile Ratios](note:percentile-ratios) · [Classical Measurement Error](note:classical-measurement-error) · [Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls) · [DiNardo-Fortin-Lemieux Reweighting](note:dinardo-fortin-lemieux-reweighting)\n- Paper: [Lee 1999 - Wage Inequality in the US During the 1980s](note:lee-1999-wage-inequality-in-the-us-during-the-1980s)\n- Paper: [Autor, Manning and Smith 2016 - The Contribution of the Minimum Wage to US Wage Inequality](note:autor-manning-and-smith-2016-the-contribution-of-the-minimum-wage-to-us-wage-inequality)"
+      }
+     ],
+     "words": 45,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

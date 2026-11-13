@@ -55,10 +55,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "7. [Econ 402A L7 The IS-MP-PC Model](note:econ-402a-l7-the-is-mp-pc-model) — written notes (typed notes for history, the Taylor rule, rational expectations, the numerical example and the zero lower bound): New Keynesian three-equation model; Phillips curve, IS curve in the output gap, inflation-targeting rule, IS-MP curve, θ and the inflation-output trade-off, adaptive expectations, zero lower bound"
+       "md": "7. [Econ 402A L7 The IS-MP-PC Model](note:econ-402a-l7-the-is-mp-pc-model) — written notes (typed notes for history, the Taylor rule, rational expectations, the numerical example and the zero lower bound): New Keynesian three-equation model; Phillips curve, IS curve in the output gap, inflation-targeting rule, IS-MP curve, θ and the inflation-output trade-off, adaptive expectations, zero lower bound\n8. [Econ 402A L8 Modern Macro Theory](note:econ-402a-l8-modern-macro-theory) — slides: the neoclassical synthesis and the Phillips-curve menu, Friedman-Phelps and the Lucas critique, RBC/DSGE models and their critiques (TFP, HP filter, Cobb-Douglas, flexible prices), New Keynesian and HANK models\n9. [Econ 402A L9 Working with Macroeconomic Data](note:econ-402a-l9-working-with-macroeconomic-data) — slides: Sims's critique and VARs; stationarity, differencing, AR models, ADF/KPSS tests, lag selection, impulse responses, FEVD, Granger causality"
       }
      ],
-     "words": 51,
+     "words": 115,
      "symbols": []
     }
    ]
@@ -143,6 +143,17 @@
     },
     {
      "id": "course-arc-so-far-7",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "[Econ 402A L8 Modern Macro Theory](note:econ-402a-l8-modern-macro-theory) steps back to how these models came about: the [Lucas Critique](note:lucas-critique) pushed macro toward microfoundations and the [Real Business Cycle Model](note:real-business-cycle-model), whose reliance on the [Solow Residual](note:solow-residual) and the [Hodrick-Prescott Filter](note:hodrick-prescott-filter) — and its competitive, flexible-price, representative-agent assumptions — led to the [New Keynesian Model](note:new-keynesian-model) the course has been using and to HANK models. [Econ 402A L9 Working with Macroeconomic Data](note:econ-402a-l9-working-with-macroeconomic-data) takes the data-first route instead: [stationary](note:stationarity-and-unit-roots) series, the [Autoregressive Model](note:autoregressive-model) and the [Vector Autoregression](note:vector-autoregression), read through impulse responses."
+      }
+     ],
+     "words": 83,
+     "symbols": []
+    },
+    {
+     "id": "course-arc-so-far-8",
      "blocks": [
       {
        "t": "prose",

@@ -1,0 +1,347 @@
+{
+ "slug": "minimum-wage",
+ "notation": [
+  {
+   "tex": "$w_{mw}$",
+   "meaning": "Minimum wage",
+   "kind": "Policy",
+   "typical": "5.05 in New Jersey, 1992",
+   "keys": [
+    "w"
+   ]
+  },
+  {
+   "tex": "$w_{eff}$, $L_{eff}$",
+   "meaning": "Competitive wage and employment",
+   "kind": "Equilibrium",
+   "typical": "—",
+   "keys": [
+    "w",
+    "L"
+   ]
+  },
+  {
+   "tex": "$L_{mw}$",
+   "meaning": "Employment at the minimum wage",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "L"
+   ]
+  },
+  {
+   "tex": "$A_i$",
+   "meaning": "Ability (output per hour) of worker $i$",
+   "kind": "Worker attribute",
+   "typical": "10 to 50 in the example",
+   "keys": [
+    "A"
+   ]
+  },
+  {
+   "tex": "$A_{min}$",
+   "meaning": "Lowest ability in the workforce",
+   "kind": "Parameter",
+   "typical": "10",
+   "keys": [
+    "A"
+   ]
+  },
+  {
+   "tex": "$A_{max}$",
+   "meaning": "Highest ability (abilities uniform between $A_{min}$ and $A_{max}$ in the widget)",
+   "kind": "Parameter",
+   "typical": "50",
+   "keys": [
+    "A"
+   ]
+  },
+  {
+   "tex": "$p$",
+   "meaning": "Output price",
+   "kind": "Parameter",
+   "typical": "1",
+   "keys": [
+    "p"
+   ]
+  },
+  {
+   "tex": "$\\beta$",
+   "meaning": "Worker's share of the revenue she produces",
+   "kind": "Parameter in [0, 1]",
+   "typical": "0.5",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$w_i$",
+   "meaning": "Wage of worker $i$",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "w"
+   ]
+  },
+  {
+   "tex": "$\\varepsilon$",
+   "meaning": "Own-wage elasticity: % change in employment ÷ % change in the affected wage",
+   "kind": "Estimate",
+   "typical": "about 0.4 (Cengiz et al.)",
+   "keys": [
+    "varepsilon"
+   ]
+  },
+  {
+   "tex": "$w/p$",
+   "meaning": "Real wage",
+   "kind": "Endogenous",
+   "typical": "20",
+   "keys": [
+    "~w/p"
+   ],
+   "from": "classical-labor-market-model"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A minimum wage makes it illegal to pay less than a set hourly amount. Whether it helps low-wage workers depends on the labor market it lands in. If employers compete for workers, a wage above the market level makes firms hire fewer people: those who keep their jobs gain, those who lose them or are never hired lose. If employers have power to hold wages down, a minimum wage can push pay up and draw more people into work. And because workers differ in how much they produce, a floor raises pay most at the bottom of the wage distribution, narrowing inequality, while possibly shutting the least productive workers out. Which case holds is an empirical question, and economists have argued about the answer for decades."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is one of the most studied labor-market institutions, and its decline in real value in the 1980s is a leading candidate explanation for the rise in lower-tail wage inequality.",
+       "folded": false
+      }
+     ],
+     "words": 159,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A minimum wage $w_{mw}$ requires every employed worker to be paid at least $w_{mw}$. Its effects are summarized by changes in wages, employment and the shape of the wage distribution."
+      }
+     ],
+     "words": 28,
+     "symbols": [
+      "$w_{mw}$",
+      "$w_{eff}$, $L_{eff}$",
+      "$w_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "three-theories",
+   "heading": "Three theories",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "three-theories-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. **Competitive market.** A binding floor above $w_{eff}$ raises the wage to $w_{mw}$ and cuts employment to labor demand, $L_{mw} < L_{eff}$ ([Classical Labor Market Model](note:classical-labor-market-model))."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Minimum wage in a competitive labor market.png",
+       "alt": "Minimum wage in a competitive labor market"
+      }
+     ],
+     "words": 21,
+     "symbols": [
+      "$w_{mw}$",
+      "$w_{eff}$, $L_{eff}$",
+      "$L_{mw}$",
+      "$w_i$"
+     ]
+    },
+    {
+     "id": "three-theories-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "2. **Monopsony.** If employers face an upward-sloping supply curve, a floor between the monopsony wage and the competitive wage raises **both** wages and employment ([Monopsony](note:monopsony)).\n\n3. **Heterogeneous workers.** Worker $i$ produces $A_i$ and is paid a share $\\beta$ of the revenue, $w_i = \\beta p A_i$. With a floor, an employed worker earns $w_i = \\max\\{\\beta p A_i, w_{mw}\\}$, and is hired only if $pA_i \\ge w_{mw}$. Three cases:"
+      },
+      {
+       "t": "table",
+       "md": "| Location of the floor | Effect |\n| --- | --- |\n| $\\beta p A_{min} \\ge w_{mw}$ | None: the floor is below every wage |\n| $\\beta p A_{min} < w_{mw} \\le p A_{min}$ | Wages of workers with $A_i < w_{mw}/(p\\beta)$ rise to $w_{mw}$; no one loses a job |\n| $w_{mw} > p A_{min}$ | Wage gains for some, and workers with $A_i < w_{mw}/p$ are unemployed |"
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Heterogeneous workers - minimum wage with no effects.png",
+       "alt": "Heterogeneous workers - minimum wage with no effects"
+      }
+     ],
+     "words": 86,
+     "symbols": [
+      "$w_{mw}$",
+      "$w_{eff}$, $L_{eff}$",
+      "$A_i$",
+      "$A_{min}$",
+      "$A_{max}$",
+      "$p$",
+      "$\\beta$",
+      "$w_i$",
+      "$w/p$"
+     ]
+    },
+    {
+     "id": "three-theories-3",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Heterogeneous workers - minimum wage raises wages without unemployment.png",
+       "alt": "Heterogeneous workers - minimum wage raises wages without unemployment"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    },
+    {
+     "id": "three-theories-4",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Heterogeneous workers - minimum wage raises wages and creates unemployment.png",
+       "alt": "Heterogeneous workers - minimum wage raises wages and creates unemployment",
+       "caption": "Lecture figures: wage against ability in the three cases."
+      }
+     ],
+     "words": 9,
+     "symbols": []
+    },
+    {
+     "id": "three-theories-5",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The floor transfers income from firms to the lowest-paid workers and compresses the wage distribution, but it can also reduce employment."
+      },
+      {
+       "t": "interactive",
+       "widget": "minimum-wage-with-heterogeneous-workers",
+       "prompt": "Raise the minimum wage through the three regimes"
+      }
+     ],
+     "words": 29,
+     "symbols": [
+      "$w_{mw}$",
+      "$w_{eff}$, $L_{eff}$",
+      "$A_i$",
+      "$A_{min}$",
+      "$A_{max}$",
+      "$p$",
+      "$\\beta$",
+      "$w_i$",
+      "$w/p$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "measuring-the-effects",
+   "heading": "Measuring the effects",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "measuring-the-effects-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Employment:** compare places or groups hit harder by an increase with similar ones that were not ([Difference-in-Differences](note:difference-in-differences), [Contiguous Border County Design](note:contiguous-border-county-design), [Synthetic Control](note:synthetic-control)).\n- **Bunching:** count jobs that disappear below the new floor and jobs that appear just above it ([Missing and Excess Jobs](note:missing-and-excess-jobs)).\n- **Inequality:** relate lower-tail percentiles to the [Effective Minimum Wage](note:effective-minimum-wage), the gap between the minimum and the median.\n- **Own-wage elasticity:** the employment effect divided by the wage effect, so studies with different wage increases can be compared. In Cengiz et al. (2019), $0.028/0.068 \\approx 0.41$ for affected workers; in Dube's (2026) California synthetic DiD, $-0.26/6.99 \\approx -0.04$."
+      }
+     ],
+     "words": 97,
+     "symbols": []
+    },
+    {
+     "id": "measuring-the-effects-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Spillovers:** raises for workers paid somewhat above the floor. Large estimated spillovers far up the distribution are a warning sign of bias (Autor, Manning and Smith)."
+      }
+     ],
+     "words": 27,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Treating \"no employment effect\" as proof of monopsony.** It is also what a competitive model predicts when the floor barely binds.\n- **Reading a percent effect without the wage effect.** Compare own-wage elasticities, not raw employment effects.\n- **Ignoring who is covered.** Tipped workers, small firms or uncovered sectors absorb displaced workers and change the result."
+      }
+     ],
+     "words": 57,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Labor and inequality: employment effects, the wage distribution, the college premium; policy debates on federal, state and city minimum wages."
+      }
+     ],
+     "words": 21,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Monopsony](note:monopsony) · [Classical Labor Market Model](note:classical-labor-market-model) · [Effective Minimum Wage](note:effective-minimum-wage) · [Missing and Excess Jobs](note:missing-and-excess-jobs) · [Herfindahl-Hirschman Index](note:herfindahl-hirschman-index) · [Tax Incidence](note:tax-incidence)\n- Paper: [Card and Krueger 1994 - Minimum Wages and Employment](note:card-and-krueger-1994-minimum-wages-and-employment)\n- Paper: [Cengiz, Dube, Lindner and Zipperer 2019 - The Effect of Minimum Wages on Low-Wage Jobs](note:cengiz-dube-lindner-and-zipperer-2019-the-effect-of-minimum-wages-on-low-wage-jobs)"
+      }
+     ],
+     "words": 45,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}
