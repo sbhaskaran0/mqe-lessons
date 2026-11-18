@@ -1,10 +1,10 @@
 {
  "schema": "mqe-lessons/1",
- "generated_at": "2026-11-13T20:57:19Z",
+ "generated_at": "2026-11-18T21:09:32Z",
  "vault": {
-  "notes": 354,
+  "notes": 363,
   "errors": 0,
-  "warnings": 21
+  "warnings": 22
  },
  "courses": [
   {
@@ -180,6 +180,7 @@
     "leverage-and-influence-explorer",
     "lowess-smoother",
     "lowess-span-explorer",
+    "ramey-2016-macroeconomic-shocks-and-their-propagation",
     "sims-1980-macroeconomics-and-reality",
     "marginal-effects",
     "missing-data-and-imputation",
@@ -210,6 +211,7 @@
     "sr-assumptions",
     "stationarity-and-unit-roots",
     "strict-exogeneity",
+    "structural-shock-identification",
     "synthetic-control",
     "variable-selection",
     "vector-autoregression",
@@ -227,7 +229,8 @@
    "id": "finance",
    "label": "Finance",
    "notes": [
-    "discount-factor"
+    "discount-factor",
+    "gertler-and-karadi-2015-monetary-policy-surprises-credit-costs-and-economic-activity"
    ]
   },
   {
@@ -439,7 +442,9 @@
    "id": "macroeconomics",
    "label": "Macroeconomics",
    "notes": [
+    "romer-and-romer-2004-a-new-measure-of-monetary-shocks",
     "adaptive-expectations",
+    "blanchard-and-perotti-2002-dynamic-effects-of-government-spending-and-taxes",
     "balanced-growth-path",
     "beveridge-curve",
     "capital-accumulation-equation",
@@ -480,11 +485,14 @@
     "lm-curve",
     "petrongolo-and-pissarides-2001-looking-into-the-black-box",
     "lucas-critique",
+    "ramey-2016-macroeconomic-shocks-and-their-propagation",
     "sims-1980-macroeconomics-and-reality",
     "marginal-rate-of-substitution",
     "market-clearing",
     "matching-function",
     "monetary-policy-rule",
+    "christiano-eichenbaum-and-evans-1999-monetary-policy-shocks",
+    "gertler-and-karadi-2015-monetary-policy-surprises-credit-costs-and-economic-activity",
     "new-keynesian-model",
     "phillips-curve",
     "ramsey-steady-state-explorer",
@@ -509,6 +517,9 @@
     "solow-steady-state-explorer",
     "steady-state",
     "steady-state-unemployment-rate",
+    "beaudry-and-portier-2006-stock-prices-news-and-economic-fluctuations",
+    "structural-shock-identification",
+    "gali-1999-technology-employment-and-the-business-cycle",
     "fisher-1930-the-theory-of-interest",
     "three-equation-macro-model",
     "kydland-and-prescott-1982-time-to-build-and-aggregate-fluctuations",
@@ -518,6 +529,7 @@
     "two-period-consumer-model",
     "two-period-consumption-choice",
     "two-period-consumption-saving-model",
+    "us-sources-of-output-and-hours-fluctuations-1954-2005",
     "vector-autoregression",
     "stock-and-watson-2001-vector-autoregressions",
     "zero-lower-bound"
@@ -649,6 +661,7 @@
    "id": "public finance",
    "label": "Public finance",
    "notes": [
+    "blanchard-and-perotti-2002-dynamic-effects-of-government-spending-and-taxes",
     "tax-incidence"
    ]
   },
@@ -689,6 +702,7 @@
     "autoregressive-model",
     "hodrick-prescott-filter",
     "stationarity-and-unit-roots",
+    "structural-shock-identification",
     "vector-autoregression"
    ]
   },
@@ -1942,6 +1956,71 @@
    "created": "2026-10-05T19:37:15Z",
    "updated": "2026-10-08T23:22:55Z"
   },
+  "beaudry-and-portier-2006-stock-prices-news-and-economic-fluctuations": {
+   "slug": "beaudry-and-portier-2006-stock-prices-news-and-economic-fluctuations",
+   "name": "Beaudry and Portier 2006 - Stock Prices, News, and Economic Fluctuations",
+   "title": "Stock Prices, News, and Economic Fluctuations",
+   "type": "paper",
+   "path": "Papers/Beaudry and Portier 2006 - Stock Prices, News, and Economic Fluctuations.md",
+   "summary": "Stock prices move ahead of future productivity, so Beaudry and Portier use them to identify news shocks about future TFP and find that such news explains a large share of business cycles.",
+   "domain": "macroeconomics",
+   "domains": [
+    "macroeconomics"
+   ],
+   "tags": [],
+   "aliases": [
+    "Beaudry and Portier (2006)"
+   ],
+   "requires": [],
+   "lessons": [
+    "econ-402a-l9-working-with-macroeconomic-data"
+   ],
+   "courses": [
+    "Econ 402A"
+   ],
+   "authors": [
+    "Paul Beaudry",
+    "Franck Portier"
+   ],
+   "year": 2006,
+   "venue": "American Economic Review 96(4), 1293–1307",
+   "edges": {
+    "out": [
+     {
+      "kind": "uses",
+      "note": "real-business-cycle-model"
+     },
+     {
+      "kind": "uses",
+      "note": "solow-residual"
+     },
+     {
+      "kind": "uses",
+      "note": "structural-shock-identification"
+     }
+    ],
+    "in": [
+     {
+      "kind": "cites",
+      "note": "real-business-cycle-model"
+     },
+     {
+      "kind": "cites",
+      "note": "structural-shock-identification"
+     },
+     {
+      "kind": "presents",
+      "note": "econ-402a-l9-working-with-macroeconomic-data"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 201,
+   "created": "2026-11-18T20:42:05Z",
+   "updated": "2026-11-18T20:42:05Z"
+  },
   "beveridge-curve": {
    "slug": "beveridge-curve",
    "name": "Beveridge Curve",
@@ -2093,6 +2172,74 @@
    "words": 330,
    "created": "2026-10-21T19:59:26Z",
    "updated": "2026-10-21T19:59:26Z"
+  },
+  "blanchard-and-perotti-2002-dynamic-effects-of-government-spending-and-taxes": {
+   "slug": "blanchard-and-perotti-2002-dynamic-effects-of-government-spending-and-taxes",
+   "name": "Blanchard and Perotti 2002 - Dynamic Effects of Government Spending and Taxes",
+   "title": "An Empirical Characterization of the Dynamic Effects of Changes in Government Spending and Taxes on Output",
+   "type": "paper",
+   "path": "Papers/Blanchard and Perotti 2002 - Dynamic Effects of Government Spending and Taxes.md",
+   "summary": "A tax–spending–GDP VAR identified by decision lags (spending does not respond to the economy within a quarter) and an outside estimate of how taxes respond to GDP (2.08): spending raises output, tax increases lower it.",
+   "domain": "macroeconomics",
+   "domains": [
+    "macroeconomics",
+    "public finance"
+   ],
+   "tags": [],
+   "aliases": [
+    "Blanchard and Perotti (2002)"
+   ],
+   "requires": [],
+   "lessons": [
+    "econ-402a-l9-working-with-macroeconomic-data"
+   ],
+   "courses": [
+    "Econ 402A"
+   ],
+   "authors": [
+    "Olivier Blanchard",
+    "Roberto Perotti"
+   ],
+   "year": 2002,
+   "venue": "Quarterly Journal of Economics 117(4), 1329–1368",
+   "edges": {
+    "out": [
+     {
+      "kind": "uses",
+      "note": "keynesian-multiplier"
+     },
+     {
+      "kind": "uses",
+      "note": "structural-shock-identification"
+     },
+     {
+      "kind": "uses",
+      "note": "vector-autoregression"
+     }
+    ],
+    "in": [
+     {
+      "kind": "cites",
+      "note": "keynesian-multiplier"
+     },
+     {
+      "kind": "cites",
+      "note": "structural-shock-identification"
+     },
+     {
+      "kind": "presents",
+      "note": "econ-402a-l9-working-with-macroeconomic-data"
+     }
+    ]
+   },
+   "figures": [
+    "assets/Attachments/Fiscal VARs - responses to government spending shocks.png"
+   ],
+   "interactives": [],
+   "checks": 0,
+   "words": 255,
+   "created": "2026-11-18T20:42:05Z",
+   "updated": "2026-11-18T20:42:05Z"
   },
   "bootstrapping-ols": {
    "slug": "bootstrapping-ols",
@@ -3734,6 +3881,71 @@
    "words": 263,
    "created": "2026-10-04T21:53:30Z",
    "updated": "2026-10-06T04:46:24Z"
+  },
+  "christiano-eichenbaum-and-evans-1999-monetary-policy-shocks": {
+   "slug": "christiano-eichenbaum-and-evans-1999-monetary-policy-shocks",
+   "name": "Christiano, Eichenbaum and Evans 1999 - Monetary Policy Shocks",
+   "title": "Monetary Policy Shocks: What Have We Learned and to What End?",
+   "type": "paper",
+   "path": "Papers/Christiano, Eichenbaum and Evans 1999 - Monetary Policy Shocks.md",
+   "summary": "The benchmark recursive monetary VAR: with output, prices and commodity prices ordered before the federal funds rate, a contractionary policy shock lowers output with a hump and lowers prices only slowly.",
+   "domain": "macroeconomics",
+   "domains": [
+    "macroeconomics"
+   ],
+   "tags": [],
+   "aliases": [
+    "Christiano, Eichenbaum and Evans (1999)",
+    "CEE (1999)"
+   ],
+   "requires": [],
+   "lessons": [
+    "econ-402a-l9-working-with-macroeconomic-data"
+   ],
+   "courses": [
+    "Econ 402A"
+   ],
+   "authors": [
+    "Lawrence J. Christiano",
+    "Martin Eichenbaum",
+    "Charles L. Evans"
+   ],
+   "year": 1999,
+   "venue": "Handbook of Macroeconomics, Vol. 1A, ch. 2, 65–148",
+   "edges": {
+    "out": [
+     {
+      "kind": "uses",
+      "note": "monetary-policy-rule"
+     },
+     {
+      "kind": "uses",
+      "note": "structural-shock-identification"
+     },
+     {
+      "kind": "uses",
+      "note": "vector-autoregression"
+     }
+    ],
+    "in": [
+     {
+      "kind": "cites",
+      "note": "structural-shock-identification"
+     },
+     {
+      "kind": "presents",
+      "note": "econ-402a-l9-working-with-macroeconomic-data"
+     }
+    ]
+   },
+   "figures": [
+    "assets/Attachments/Christiano, Eichenbaum and Evans 1999 - responses to a monetary policy shock.png"
+   ],
+   "interactives": [],
+   "checks": 0,
+   "words": 217,
+   "created": "2026-11-18T20:42:05Z",
+   "updated": "2026-11-18T20:42:05Z"
   },
   "classical-labor-market-model": {
    "slug": "classical-labor-market-model",
@@ -7204,9 +7416,9 @@
    "figures": [],
    "interactives": [],
    "checks": 0,
-   "words": 985,
+   "words": 1037,
    "created": "2026-10-05T19:41:53Z",
-   "updated": "2026-11-13T18:16:40Z"
+   "updated": "2026-11-18T20:42:24Z"
   },
   "econ-402a-fall-2025-midterm-answers": {
    "slug": "econ-402a-fall-2025-midterm-answers",
@@ -8509,7 +8721,7 @@
    "title": "Working with Macroeconomic Data",
    "type": "lecture",
    "path": "Courses/Econ 402A/Lectures/Econ 402A L9 Working with Macroeconomic Data.md",
-   "summary": "Sims's critique of 1960s macro models and the VAR answer: treat every variable as endogenous. Stationarity, differencing, AR models, ADF/KPSS tests and lag choice build to VARs read through impulse responses, FEVD and Granger causality.",
+   "summary": "Sims's critique and the VAR answer: stationarity, AR models, ADF/KPSS and lag choice build to VARs; Part 2 identifies structural shocks (Cholesky, narrative, high-frequency, long-run) and reviews monetary, fiscal and technology shocks.",
    "tags": [],
    "aliases": [],
    "requires": [],
@@ -8519,7 +8731,7 @@
    ],
    "course": "Econ 402A",
    "lecture": 9,
-   "source": "04 - Working with Macroeconomic Data - Part 1.pdf (slides)",
+   "source": "04 - Working with Macroeconomic Data - Part 1.pdf and 05 - Working with Macroeconomic Data - Part 2.pdf (slides)",
    "edges": {
     "out": [
      {
@@ -8532,6 +8744,14 @@
      },
      {
       "kind": "covers",
+      "note": "instrumental-variables-and-2sls"
+     },
+     {
+      "kind": "covers",
+      "note": "keynesian-multiplier"
+     },
+     {
+      "kind": "covers",
       "note": "lucas-critique"
      },
      {
@@ -8540,7 +8760,23 @@
      },
      {
       "kind": "covers",
+      "note": "real-business-cycle-model"
+     },
+     {
+      "kind": "covers",
+      "note": "solow-residual"
+     },
+     {
+      "kind": "covers",
       "note": "stationarity-and-unit-roots"
+     },
+     {
+      "kind": "covers",
+      "note": "structural-shock-identification"
+     },
+     {
+      "kind": "covers",
+      "note": "us-sources-of-output-and-hours-fluctuations-1954-2005"
      },
      {
       "kind": "covers",
@@ -8549,6 +8785,34 @@
      {
       "kind": "part_of",
       "note": "econ-402a"
+     },
+     {
+      "kind": "presents",
+      "note": "beaudry-and-portier-2006-stock-prices-news-and-economic-fluctuations"
+     },
+     {
+      "kind": "presents",
+      "note": "blanchard-and-perotti-2002-dynamic-effects-of-government-spending-and-taxes"
+     },
+     {
+      "kind": "presents",
+      "note": "christiano-eichenbaum-and-evans-1999-monetary-policy-shocks"
+     },
+     {
+      "kind": "presents",
+      "note": "gali-1999-technology-employment-and-the-business-cycle"
+     },
+     {
+      "kind": "presents",
+      "note": "gertler-and-karadi-2015-monetary-policy-surprises-credit-costs-and-economic-activity"
+     },
+     {
+      "kind": "presents",
+      "note": "ramey-2016-macroeconomic-shocks-and-their-propagation"
+     },
+     {
+      "kind": "presents",
+      "note": "romer-and-romer-2004-a-new-measure-of-monetary-shocks"
      },
      {
       "kind": "presents",
@@ -8579,13 +8843,21 @@
     "assets/Attachments/ACF of inflation.png",
     "assets/Attachments/ACF of differenced inflation.png",
     "assets/Attachments/AR forecast of inflation.png",
-    "assets/Attachments/Stock and Watson 2001 - impulse responses in the inflation-unemployment-interest rate VAR.png"
+    "assets/Attachments/Stock and Watson 2001 - impulse responses in the inflation-unemployment-interest rate VAR.png",
+    "assets/Attachments/Christiano, Eichenbaum and Evans 1999 - responses to a monetary policy shock.png",
+    "assets/Attachments/Romer and Romer 2004 - responses to a narrative monetary policy shock.png",
+    "assets/Attachments/Gertler and Karadi 2015 - responses to a high-frequency monetary policy shock.png",
+    "assets/Attachments/Fiscal VARs - responses to government spending shocks.png",
+    "assets/Attachments/Gali 1999 - impulse responses to a technology shock.png",
+    "assets/Attachments/Gali 1999 - technology and non-technology components of GDP and hours.png",
+    "assets/Attachments/Technology VARs - responses to TFP and news shocks.png",
+    "assets/Attachments/Table - Ramey 2016 combined VAR forecast error variance decomposition.png"
    ],
    "interactives": [
     "ar-1-impulse-response"
    ],
-   "checks": 5,
-   "words": 1713,
+   "checks": 12,
+   "words": 3810,
    "objectives": [
     {
      "n": 1,
@@ -8594,8 +8866,8 @@
     },
     {
      "n": 2,
-     "md": "Define stationarity, explain why differencing helps, and read ACF plots.",
-     "tested": 2
+     "md": "Define stationarity, explain why differencing helps and when estimating in levels is preferred, and read ACF plots.",
+     "tested": 3
     },
     {
      "n": 3,
@@ -8616,10 +8888,25 @@
      "n": 6,
      "md": "Interpret impulse responses, variance decompositions and Granger causality, and explain why VARs do not escape the Lucas critique.",
      "tested": 1
+    },
+    {
+     "n": 7,
+     "md": "State what makes a structural shock, count the restrictions needed, and identify shocks with a recursive (Cholesky) ordering to start an impulse response.",
+     "tested": 3
+    },
+    {
+     "n": 8,
+     "md": "Describe narrative, high-frequency, instrumental-variable and long-run identification, and the foresight problems (including the price puzzle).",
+     "tested": 1
+    },
+    {
+     "n": 9,
+     "md": "Summarize the evidence on monetary, fiscal and technology shocks: larger monetary effects with better identification, multipliers measured as peaks or integrals, and Galí's challenge to the RBC model.",
+     "tested": 2
     }
    ],
-   "created": "2026-11-13T18:15:35Z",
-   "updated": "2026-11-13T18:19:34Z"
+   "created": "2026-11-18T20:41:32Z",
+   "updated": "2026-11-18T20:42:57Z"
   },
   "econ-402a-labor-market-exam-practice-answers": {
    "slug": "econ-402a-labor-market-exam-practice-answers",
@@ -12786,6 +13073,10 @@
      },
      {
       "kind": "requires",
+      "note": "structural-shock-identification"
+     },
+     {
+      "kind": "requires",
       "note": "vector-autoregression"
      },
      {
@@ -14067,6 +14358,78 @@
    "created": "2026-10-19T18:36:08Z",
    "updated": "2026-10-19T18:36:08Z"
   },
+  "gali-1999-technology-employment-and-the-business-cycle": {
+   "slug": "gali-1999-technology-employment-and-the-business-cycle",
+   "name": "Gali 1999 - Technology, Employment, and the Business Cycle",
+   "title": "Technology, Employment, and the Business Cycle: Do Technology Shocks Explain Aggregate Fluctuations?",
+   "type": "paper",
+   "path": "Papers/Gali 1999 - Technology, Employment, and the Business Cycle.md",
+   "summary": "Identifying technology shocks as the only shocks with long-run effects on productivity, Galí finds a positive technology shock lowers hours on impact and non-technology shocks drive most business-cycle co-movement, against RBC.",
+   "domain": "macroeconomics",
+   "domains": [
+    "macroeconomics"
+   ],
+   "tags": [],
+   "aliases": [
+    "Galí (1999)",
+    "Gali (1999)"
+   ],
+   "requires": [],
+   "lessons": [
+    "econ-402a-l9-working-with-macroeconomic-data"
+   ],
+   "courses": [
+    "Econ 402A"
+   ],
+   "authors": [
+    "Jordi Galí"
+   ],
+   "year": 1999,
+   "venue": "American Economic Review 89(1), 249–271",
+   "edges": {
+    "out": [
+     {
+      "kind": "uses",
+      "note": "real-business-cycle-model"
+     },
+     {
+      "kind": "uses",
+      "note": "solow-residual"
+     },
+     {
+      "kind": "uses",
+      "note": "structural-shock-identification"
+     }
+    ],
+    "in": [
+     {
+      "kind": "cites",
+      "note": "real-business-cycle-model"
+     },
+     {
+      "kind": "cites",
+      "note": "solow-residual"
+     },
+     {
+      "kind": "cites",
+      "note": "structural-shock-identification"
+     },
+     {
+      "kind": "presents",
+      "note": "econ-402a-l9-working-with-macroeconomic-data"
+     }
+    ]
+   },
+   "figures": [
+    "assets/Attachments/Gali 1999 - impulse responses to a technology shock.png",
+    "assets/Attachments/Gali 1999 - technology and non-technology components of GDP and hours.png"
+   ],
+   "interactives": [],
+   "checks": 0,
+   "words": 246,
+   "created": "2026-11-18T20:42:05Z",
+   "updated": "2026-11-18T20:42:05Z"
+  },
   "gauss-markov-theorem": {
    "slug": "gauss-markov-theorem",
    "name": "Gauss-Markov Theorem",
@@ -14338,6 +14701,70 @@
    "words": 211,
    "created": "2026-10-28T20:07:03Z",
    "updated": "2026-10-28T20:07:03Z"
+  },
+  "gertler-and-karadi-2015-monetary-policy-surprises-credit-costs-and-economic-activity": {
+   "slug": "gertler-and-karadi-2015-monetary-policy-surprises-credit-costs-and-economic-activity",
+   "name": "Gertler and Karadi 2015 - Monetary Policy Surprises, Credit Costs, and Economic Activity",
+   "title": "Monetary Policy Surprises, Credit Costs, and Economic Activity",
+   "type": "paper",
+   "path": "Papers/Gertler and Karadi 2015 - Monetary Policy Surprises, Credit Costs, and Economic Activity.md",
+   "summary": "With financial variables in the VAR a recursive ordering is implausible, so Gertler and Karadi identify policy shocks with surprises in Fed funds futures around FOMC announcements: tightening raises credit spreads and lowers output.",
+   "domain": "macroeconomics",
+   "domains": [
+    "macroeconomics",
+    "finance"
+   ],
+   "tags": [],
+   "aliases": [
+    "Gertler and Karadi (2015)"
+   ],
+   "requires": [],
+   "lessons": [
+    "econ-402a-l9-working-with-macroeconomic-data"
+   ],
+   "courses": [
+    "Econ 402A"
+   ],
+   "authors": [
+    "Mark Gertler",
+    "Peter Karadi"
+   ],
+   "year": 2015,
+   "venue": "American Economic Journal: Macroeconomics 7(1), 44–76",
+   "edges": {
+    "out": [
+     {
+      "kind": "uses",
+      "note": "instrumental-variables-and-2sls"
+     },
+     {
+      "kind": "uses",
+      "note": "structural-shock-identification"
+     },
+     {
+      "kind": "uses",
+      "note": "vector-autoregression"
+     }
+    ],
+    "in": [
+     {
+      "kind": "cites",
+      "note": "structural-shock-identification"
+     },
+     {
+      "kind": "presents",
+      "note": "econ-402a-l9-working-with-macroeconomic-data"
+     }
+    ]
+   },
+   "figures": [
+    "assets/Attachments/Gertler and Karadi 2015 - responses to a high-frequency monetary policy shock.png"
+   ],
+   "interactives": [],
+   "checks": 0,
+   "words": 242,
+   "created": "2026-11-18T20:42:05Z",
+   "updated": "2026-11-18T20:42:05Z"
   },
   "gini-coefficient": {
    "slug": "gini-coefficient",
@@ -16122,12 +16549,14 @@
     "ols-estimator"
    ],
    "lessons": [
+    "econ-402a-l9-working-with-macroeconomic-data",
     "econ-424-l2-between-group-inequality",
     "econ-424-l5-international-trade-empirics",
     "econ-424-l7-immigration-across-skills-jobs-and-places",
     "econ-424-l9-minimum-wages-and-wage-inequality"
    ],
    "courses": [
+    "Econ 402A",
     "Econ 424"
    ],
    "edges": {
@@ -16180,6 +16609,10 @@
      },
      {
       "kind": "covers",
+      "note": "econ-402a-l9-working-with-macroeconomic-data"
+     },
+     {
+      "kind": "covers",
       "note": "econ-424-l2-between-group-inequality"
      },
      {
@@ -16228,6 +16661,10 @@
      },
      {
       "kind": "related",
+      "note": "structural-shock-identification"
+     },
+     {
+      "kind": "related",
       "note": "tradable-and-non-tradable-occupations"
      },
      {
@@ -16256,6 +16693,10 @@
      },
      {
       "kind": "uses",
+      "note": "gertler-and-karadi-2015-monetary-policy-surprises-credit-costs-and-economic-activity"
+     },
+     {
+      "kind": "uses",
       "note": "hummels-jorgensen-munch-and-xiang-2014-the-wage-effects-of-offshoring"
      },
      {
@@ -16272,8 +16713,8 @@
    "interactives": [],
    "checks": 0,
    "words": 479,
-   "created": "2026-11-13T18:16:55Z",
-   "updated": "2026-11-13T18:16:55Z"
+   "created": "2026-11-18T20:42:05Z",
+   "updated": "2026-11-18T20:42:05Z"
   },
   "integration-by-parts": {
    "slug": "integration-by-parts",
@@ -17705,13 +18146,22 @@
     "keynesian-cross"
    ],
    "lessons": [
-    "econ-402a-l6-keynesian-economics"
+    "econ-402a-l6-keynesian-economics",
+    "econ-402a-l9-working-with-macroeconomic-data"
    ],
    "courses": [
     "Econ 402A"
    ],
    "edges": {
     "out": [
+     {
+      "kind": "cites",
+      "note": "blanchard-and-perotti-2002-dynamic-effects-of-government-spending-and-taxes"
+     },
+     {
+      "kind": "cites",
+      "note": "ramey-2016-macroeconomic-shocks-and-their-propagation"
+     },
      {
       "kind": "related",
       "note": "geometric-series"
@@ -17725,6 +18175,10 @@
       "note": "is-lm-model"
      },
      {
+      "kind": "related",
+      "note": "structural-shock-identification"
+     },
+     {
       "kind": "requires",
       "note": "keynesian-cross"
      }
@@ -17733,6 +18187,10 @@
      {
       "kind": "covers",
       "note": "econ-402a-l6-keynesian-economics"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-402a-l9-working-with-macroeconomic-data"
      },
      {
       "kind": "illustrates",
@@ -17761,6 +18219,22 @@
      {
       "kind": "related",
       "note": "keynesian-cross"
+     },
+     {
+      "kind": "related",
+      "note": "structural-shock-identification"
+     },
+     {
+      "kind": "related",
+      "note": "us-sources-of-output-and-hours-fluctuations-1954-2005"
+     },
+     {
+      "kind": "uses",
+      "note": "blanchard-and-perotti-2002-dynamic-effects-of-government-spending-and-taxes"
+     },
+     {
+      "kind": "uses",
+      "note": "ramey-2016-macroeconomic-shocks-and-their-propagation"
      }
     ]
    },
@@ -17769,9 +18243,9 @@
    ],
    "interactives": [],
    "checks": 0,
-   "words": 406,
-   "created": "2026-10-28T20:07:03Z",
-   "updated": "2026-10-28T20:07:03Z"
+   "words": 598,
+   "created": "2026-11-18T20:42:05Z",
+   "updated": "2026-11-18T20:42:24Z"
   },
   "kovak-2013-regional-effects-of-trade-reform": {
    "slug": "kovak-2013-regional-effects-of-trade-reform",
@@ -20014,6 +20488,10 @@
      },
      {
       "kind": "related",
+      "note": "structural-shock-identification"
+     },
+     {
+      "kind": "related",
       "note": "vector-autoregression"
      },
      {
@@ -22193,6 +22671,14 @@
      {
       "kind": "requires",
       "note": "is-mp-pc-model"
+     },
+     {
+      "kind": "uses",
+      "note": "christiano-eichenbaum-and-evans-1999-monetary-policy-shocks"
+     },
+     {
+      "kind": "uses",
+      "note": "romer-and-romer-2004-a-new-measure-of-monetary-shocks"
      }
     ]
    },
@@ -25113,6 +25599,95 @@
    "created": "2026-11-13T18:16:56Z",
    "updated": "2026-11-13T18:16:56Z"
   },
+  "ramey-2016-macroeconomic-shocks-and-their-propagation": {
+   "slug": "ramey-2016-macroeconomic-shocks-and-their-propagation",
+   "name": "Ramey 2016 - Macroeconomic Shocks and Their Propagation",
+   "title": "Macroeconomic Shocks and Their Propagation",
+   "type": "paper",
+   "path": "Papers/Ramey 2016 - Macroeconomic Shocks and Their Propagation.md",
+   "summary": "A Handbook survey of how monetary, fiscal and technology shocks are identified and propagated, mostly in VARs: shocks must be exogenous, uncorrelated and unanticipated; identification and foresight are the central problems.",
+   "domain": "macroeconomics",
+   "domains": [
+    "macroeconomics",
+    "econometrics"
+   ],
+   "tags": [],
+   "aliases": [
+    "Ramey (2016)"
+   ],
+   "requires": [],
+   "lessons": [
+    "econ-402a-l9-working-with-macroeconomic-data"
+   ],
+   "courses": [
+    "Econ 402A"
+   ],
+   "authors": [
+    "Valerie A. Ramey"
+   ],
+   "year": 2016,
+   "venue": "Handbook of Macroeconomics, Vol. 2A, ch. 2, 71–162",
+   "edges": {
+    "out": [
+     {
+      "kind": "uses",
+      "note": "keynesian-multiplier"
+     },
+     {
+      "kind": "uses",
+      "note": "real-business-cycle-model"
+     },
+     {
+      "kind": "uses",
+      "note": "solow-residual"
+     },
+     {
+      "kind": "uses",
+      "note": "structural-shock-identification"
+     },
+     {
+      "kind": "uses",
+      "note": "us-sources-of-output-and-hours-fluctuations-1954-2005"
+     },
+     {
+      "kind": "uses",
+      "note": "vector-autoregression"
+     }
+    ],
+    "in": [
+     {
+      "kind": "cites",
+      "note": "keynesian-multiplier"
+     },
+     {
+      "kind": "cites",
+      "note": "structural-shock-identification"
+     },
+     {
+      "kind": "cites",
+      "note": "us-sources-of-output-and-hours-fluctuations-1954-2005"
+     },
+     {
+      "kind": "cites",
+      "note": "vector-autoregression"
+     },
+     {
+      "kind": "presents",
+      "note": "econ-402a-l9-working-with-macroeconomic-data"
+     }
+    ]
+   },
+   "figures": [
+    "assets/Attachments/Fiscal VARs - responses to government spending shocks.png",
+    "assets/Attachments/Technology VARs - responses to TFP and news shocks.png",
+    "assets/Attachments/Table - Ramey 2016 combined VAR forecast error variance decomposition.png"
+   ],
+   "interactives": [],
+   "checks": 0,
+   "words": 354,
+   "created": "2026-11-18T20:42:05Z",
+   "updated": "2026-11-18T20:42:05Z"
+  },
   "ramsey-cass-koopmans-model": {
    "slug": "ramsey-cass-koopmans-model",
    "name": "Ramsey-Cass-Koopmans Model",
@@ -25533,13 +26108,22 @@
     "solow-residual"
    ],
    "lessons": [
-    "econ-402a-l8-modern-macro-theory"
+    "econ-402a-l8-modern-macro-theory",
+    "econ-402a-l9-working-with-macroeconomic-data"
    ],
    "courses": [
     "Econ 402A"
    ],
    "edges": {
     "out": [
+     {
+      "kind": "cites",
+      "note": "beaudry-and-portier-2006-stock-prices-news-and-economic-fluctuations"
+     },
+     {
+      "kind": "cites",
+      "note": "gali-1999-technology-employment-and-the-business-cycle"
+     },
      {
       "kind": "cites",
       "note": "kydland-and-prescott-1982-time-to-build-and-aggregate-fluctuations"
@@ -25561,6 +26145,10 @@
       "note": "new-keynesian-model"
      },
      {
+      "kind": "related",
+      "note": "structural-shock-identification"
+     },
+     {
       "kind": "requires",
       "note": "ramsey-cass-koopmans-model"
      },
@@ -25573,6 +26161,10 @@
      {
       "kind": "covers",
       "note": "econ-402a-l8-modern-macro-theory"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-402a-l9-working-with-macroeconomic-data"
      },
      {
       "kind": "related",
@@ -25600,7 +26192,19 @@
      },
      {
       "kind": "uses",
+      "note": "beaudry-and-portier-2006-stock-prices-news-and-economic-fluctuations"
+     },
+     {
+      "kind": "uses",
+      "note": "gali-1999-technology-employment-and-the-business-cycle"
+     },
+     {
+      "kind": "uses",
       "note": "kydland-and-prescott-1982-time-to-build-and-aggregate-fluctuations"
+     },
+     {
+      "kind": "uses",
+      "note": "ramey-2016-macroeconomic-shocks-and-their-propagation"
      }
     ]
    },
@@ -25610,9 +26214,9 @@
    ],
    "interactives": [],
    "checks": 0,
-   "words": 359,
-   "created": "2026-11-13T18:16:56Z",
-   "updated": "2026-11-13T18:16:56Z"
+   "words": 449,
+   "created": "2026-11-18T20:42:05Z",
+   "updated": "2026-11-18T20:42:24Z"
   },
   "regression-diagnostics": {
    "slug": "regression-diagnostics",
@@ -26089,6 +26693,69 @@
    "words": 644,
    "created": "2026-10-27T16:09:40Z",
    "updated": "2026-10-27T16:09:40Z"
+  },
+  "romer-and-romer-2004-a-new-measure-of-monetary-shocks": {
+   "slug": "romer-and-romer-2004-a-new-measure-of-monetary-shocks",
+   "name": "Romer and Romer 2004 - A New Measure of Monetary Shocks",
+   "title": "A New Measure of Monetary Shocks: Derivation and Implications",
+   "type": "paper",
+   "path": "Papers/Romer and Romer 2004 - A New Measure of Monetary Shocks.md",
+   "summary": "Narrative identification: regress the Fed's intended funds-rate change on its own Greenbook forecasts and treat the residual as the policy shock. These shocks give larger, faster effects on output and prices than standard VAR shocks.",
+   "domain": "macroeconomics",
+   "domains": [
+    "macroeconomics"
+   ],
+   "tags": [],
+   "aliases": [
+    "Romer and Romer (2004)"
+   ],
+   "requires": [],
+   "lessons": [
+    "econ-402a-l9-working-with-macroeconomic-data"
+   ],
+   "courses": [
+    "Econ 402A"
+   ],
+   "authors": [
+    "Christina D. Romer",
+    "David H. Romer"
+   ],
+   "year": 2004,
+   "venue": "American Economic Review 94(4), 1055–1084",
+   "edges": {
+    "out": [
+     {
+      "kind": "uses",
+      "note": "monetary-policy-rule"
+     },
+     {
+      "kind": "uses",
+      "note": "structural-shock-identification"
+     },
+     {
+      "kind": "uses",
+      "note": "vector-autoregression"
+     }
+    ],
+    "in": [
+     {
+      "kind": "cites",
+      "note": "structural-shock-identification"
+     },
+     {
+      "kind": "presents",
+      "note": "econ-402a-l9-working-with-macroeconomic-data"
+     }
+    ]
+   },
+   "figures": [
+    "assets/Attachments/Romer and Romer 2004 - responses to a narrative monetary policy shock.png"
+   ],
+   "interactives": [],
+   "checks": 0,
+   "words": 261,
+   "created": "2026-11-18T20:42:05Z",
+   "updated": "2026-11-18T20:42:05Z"
   },
   "sampling-distribution-of-ols": {
    "slug": "sampling-distribution-of-ols",
@@ -27941,13 +28608,18 @@
     "logarithms-and-growth-rates"
    ],
    "lessons": [
-    "econ-402a-l8-modern-macro-theory"
+    "econ-402a-l8-modern-macro-theory",
+    "econ-402a-l9-working-with-macroeconomic-data"
    ],
    "courses": [
     "Econ 402A"
    ],
    "edges": {
     "out": [
+     {
+      "kind": "cites",
+      "note": "gali-1999-technology-employment-and-the-business-cycle"
+     },
      {
       "kind": "related",
       "note": "endogenous-growth-models"
@@ -27959,6 +28631,10 @@
      {
       "kind": "related",
       "note": "solow-growth-model"
+     },
+     {
+      "kind": "related",
+      "note": "structural-shock-identification"
      },
      {
       "kind": "requires",
@@ -27975,12 +28651,24 @@
       "note": "econ-402a-l8-modern-macro-theory"
      },
      {
+      "kind": "covers",
+      "note": "econ-402a-l9-working-with-macroeconomic-data"
+     },
+     {
       "kind": "related",
       "note": "cobb-douglas-production-function"
      },
      {
       "kind": "related",
       "note": "solow-growth-model"
+     },
+     {
+      "kind": "related",
+      "note": "structural-shock-identification"
+     },
+     {
+      "kind": "related",
+      "note": "us-sources-of-output-and-hours-fluctuations-1954-2005"
      },
      {
       "kind": "requires",
@@ -27992,7 +28680,19 @@
      },
      {
       "kind": "uses",
+      "note": "beaudry-and-portier-2006-stock-prices-news-and-economic-fluctuations"
+     },
+     {
+      "kind": "uses",
+      "note": "gali-1999-technology-employment-and-the-business-cycle"
+     },
+     {
+      "kind": "uses",
       "note": "kydland-and-prescott-1982-time-to-build-and-aggregate-fluctuations"
+     },
+     {
+      "kind": "uses",
+      "note": "ramey-2016-macroeconomic-shocks-and-their-propagation"
      }
     ]
    },
@@ -28001,9 +28701,9 @@
    ],
    "interactives": [],
    "checks": 0,
-   "words": 262,
-   "created": "2026-11-13T18:16:56Z",
-   "updated": "2026-11-13T18:19:34Z"
+   "words": 321,
+   "created": "2026-11-18T20:42:05Z",
+   "updated": "2026-11-18T20:42:24Z"
   },
   "solow-steady-state-explorer": {
    "slug": "solow-steady-state-explorer",
@@ -28653,9 +29353,9 @@
    ],
    "interactives": [],
    "checks": 0,
-   "words": 327,
+   "words": 365,
    "created": "2026-11-13T18:16:56Z",
-   "updated": "2026-11-13T18:19:34Z"
+   "updated": "2026-11-18T20:42:24Z"
   },
   "steady-state": {
    "slug": "steady-state",
@@ -28914,9 +29614,9 @@
    ],
    "interactives": [],
    "checks": 0,
-   "words": 148,
+   "words": 186,
    "created": "2026-11-13T18:16:56Z",
-   "updated": "2026-11-13T18:16:56Z"
+   "updated": "2026-11-18T20:42:24Z"
   },
   "strict-exogeneity": {
    "slug": "strict-exogeneity",
@@ -29038,6 +29738,160 @@
    "words": 380,
    "created": "2026-10-17T19:26:06Z",
    "updated": "2026-10-19T18:42:14Z"
+  },
+  "structural-shock-identification": {
+   "slug": "structural-shock-identification",
+   "name": "Structural Shock Identification",
+   "title": "Structural Shock Identification",
+   "type": "concept",
+   "path": "Concepts/Structural Shock Identification.md",
+   "summary": "A VAR's residuals mix economic shocks; restrictions separate out exogenous, uncorrelated, unanticipated structural shocks: a recursive (Cholesky) ordering, narrative or high-frequency measures, instruments, long-run or sign restrictions.",
+   "domain": "macroeconomics",
+   "domains": [
+    "macroeconomics",
+    "time series",
+    "econometrics"
+   ],
+   "tags": [],
+   "aliases": [
+    "Structural VAR",
+    "SVAR",
+    "Identifying structural shocks",
+    "Recursive identification",
+    "Cholesky identification",
+    "Triangularization",
+    "Narrative identification",
+    "High-frequency identification",
+    "Long-run restrictions",
+    "Price puzzle",
+    "Macroeconomic shock"
+   ],
+   "requires": [
+    "vector-autoregression",
+    "endogenous-and-exogenous-variables"
+   ],
+   "lessons": [
+    "econ-402a-l9-working-with-macroeconomic-data"
+   ],
+   "courses": [
+    "Econ 402A"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "cites",
+      "note": "beaudry-and-portier-2006-stock-prices-news-and-economic-fluctuations"
+     },
+     {
+      "kind": "cites",
+      "note": "blanchard-and-perotti-2002-dynamic-effects-of-government-spending-and-taxes"
+     },
+     {
+      "kind": "cites",
+      "note": "christiano-eichenbaum-and-evans-1999-monetary-policy-shocks"
+     },
+     {
+      "kind": "cites",
+      "note": "gali-1999-technology-employment-and-the-business-cycle"
+     },
+     {
+      "kind": "cites",
+      "note": "gertler-and-karadi-2015-monetary-policy-surprises-credit-costs-and-economic-activity"
+     },
+     {
+      "kind": "cites",
+      "note": "ramey-2016-macroeconomic-shocks-and-their-propagation"
+     },
+     {
+      "kind": "cites",
+      "note": "romer-and-romer-2004-a-new-measure-of-monetary-shocks"
+     },
+     {
+      "kind": "related",
+      "note": "instrumental-variables-and-2sls"
+     },
+     {
+      "kind": "related",
+      "note": "keynesian-multiplier"
+     },
+     {
+      "kind": "related",
+      "note": "lucas-critique"
+     },
+     {
+      "kind": "related",
+      "note": "solow-residual"
+     },
+     {
+      "kind": "requires",
+      "note": "endogenous-and-exogenous-variables"
+     },
+     {
+      "kind": "requires",
+      "note": "vector-autoregression"
+     }
+    ],
+    "in": [
+     {
+      "kind": "covers",
+      "note": "econ-402a-l9-working-with-macroeconomic-data"
+     },
+     {
+      "kind": "related",
+      "note": "keynesian-multiplier"
+     },
+     {
+      "kind": "related",
+      "note": "real-business-cycle-model"
+     },
+     {
+      "kind": "related",
+      "note": "solow-residual"
+     },
+     {
+      "kind": "related",
+      "note": "vector-autoregression"
+     },
+     {
+      "kind": "requires",
+      "note": "us-sources-of-output-and-hours-fluctuations-1954-2005"
+     },
+     {
+      "kind": "uses",
+      "note": "beaudry-and-portier-2006-stock-prices-news-and-economic-fluctuations"
+     },
+     {
+      "kind": "uses",
+      "note": "blanchard-and-perotti-2002-dynamic-effects-of-government-spending-and-taxes"
+     },
+     {
+      "kind": "uses",
+      "note": "christiano-eichenbaum-and-evans-1999-monetary-policy-shocks"
+     },
+     {
+      "kind": "uses",
+      "note": "gali-1999-technology-employment-and-the-business-cycle"
+     },
+     {
+      "kind": "uses",
+      "note": "gertler-and-karadi-2015-monetary-policy-surprises-credit-costs-and-economic-activity"
+     },
+     {
+      "kind": "uses",
+      "note": "ramey-2016-macroeconomic-shocks-and-their-propagation"
+     },
+     {
+      "kind": "uses",
+      "note": "romer-and-romer-2004-a-new-measure-of-monetary-shocks"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 833,
+   "created": "2026-11-18T20:42:05Z",
+   "updated": "2026-11-18T20:42:05Z"
   },
   "synthetic-control": {
    "slug": "synthetic-control",
@@ -31226,6 +32080,74 @@
    "created": "2026-10-16T06:33:16Z",
    "updated": "2026-10-16T06:33:16Z"
   },
+  "us-sources-of-output-and-hours-fluctuations-1954-2005": {
+   "slug": "us-sources-of-output-and-hours-fluctuations-1954-2005",
+   "name": "US Sources of Output and Hours Fluctuations 1954-2005",
+   "title": "US Sources of Output and Hours Fluctuations 1954-2005",
+   "type": "fact",
+   "path": "Facts/US Sources of Output and Hours Fluctuations 1954-2005.md",
+   "summary": "In Ramey's combined VAR, 1954–2005, identified shocks explain 78% of the output forecast-error variance on impact and 63% at 5 years. News and investment-efficiency shocks dominate; monetary shocks explain about 7–8% of output.",
+   "domain": "macroeconomics",
+   "domains": [
+    "macroeconomics"
+   ],
+   "tags": [],
+   "aliases": [],
+   "requires": [
+    "vector-autoregression",
+    "structural-shock-identification"
+   ],
+   "lessons": [
+    "econ-402a-l9-working-with-macroeconomic-data"
+   ],
+   "courses": [
+    "Econ 402A"
+   ],
+   "source": "Ramey (2016), \"Macroeconomic Shocks and Their Propagation\", Table 13",
+   "period": "1954q3–2005q4",
+   "edges": {
+    "out": [
+     {
+      "kind": "cites",
+      "note": "ramey-2016-macroeconomic-shocks-and-their-propagation"
+     },
+     {
+      "kind": "related",
+      "note": "keynesian-multiplier"
+     },
+     {
+      "kind": "related",
+      "note": "solow-residual"
+     },
+     {
+      "kind": "requires",
+      "note": "structural-shock-identification"
+     },
+     {
+      "kind": "requires",
+      "note": "vector-autoregression"
+     }
+    ],
+    "in": [
+     {
+      "kind": "covers",
+      "note": "econ-402a-l9-working-with-macroeconomic-data"
+     },
+     {
+      "kind": "uses",
+      "note": "ramey-2016-macroeconomic-shocks-and-their-propagation"
+     }
+    ]
+   },
+   "figures": [
+    "assets/Attachments/Table - Ramey 2016 combined VAR forecast error variance decomposition.png"
+   ],
+   "interactives": [],
+   "checks": 0,
+   "words": 468,
+   "created": "2026-11-18T20:43:00Z",
+   "updated": "2026-11-18T20:43:00Z"
+  },
   "us-top-income-shares-by-state-2015": {
    "slug": "us-top-income-shares-by-state-2015",
    "name": "US Top Income Shares by State 2015",
@@ -31921,8 +32843,6 @@
     "VAR",
     "VAR model",
     "Reduced-form VAR",
-    "Structural VAR",
-    "SVAR",
     "Impulse response function",
     "IRF",
     "Forecast error variance decomposition",
@@ -31944,6 +32864,10 @@
     "out": [
      {
       "kind": "cites",
+      "note": "ramey-2016-macroeconomic-shocks-and-their-propagation"
+     },
+     {
+      "kind": "cites",
       "note": "sims-1980-macroeconomics-and-reality"
      },
      {
@@ -31957,6 +32881,10 @@
      {
       "kind": "related",
       "note": "model-selection-criteria"
+     },
+     {
+      "kind": "related",
+      "note": "structural-shock-identification"
      },
      {
       "kind": "requires",
@@ -31997,6 +32925,34 @@
       "note": "stationarity-and-unit-roots"
      },
      {
+      "kind": "requires",
+      "note": "structural-shock-identification"
+     },
+     {
+      "kind": "requires",
+      "note": "us-sources-of-output-and-hours-fluctuations-1954-2005"
+     },
+     {
+      "kind": "uses",
+      "note": "blanchard-and-perotti-2002-dynamic-effects-of-government-spending-and-taxes"
+     },
+     {
+      "kind": "uses",
+      "note": "christiano-eichenbaum-and-evans-1999-monetary-policy-shocks"
+     },
+     {
+      "kind": "uses",
+      "note": "gertler-and-karadi-2015-monetary-policy-surprises-credit-costs-and-economic-activity"
+     },
+     {
+      "kind": "uses",
+      "note": "ramey-2016-macroeconomic-shocks-and-their-propagation"
+     },
+     {
+      "kind": "uses",
+      "note": "romer-and-romer-2004-a-new-measure-of-monetary-shocks"
+     },
+     {
       "kind": "uses",
       "note": "sims-1980-macroeconomics-and-reality"
      },
@@ -32011,9 +32967,9 @@
    ],
    "interactives": [],
    "checks": 0,
-   "words": 535,
+   "words": 624,
    "created": "2026-11-13T18:16:56Z",
-   "updated": "2026-11-13T18:19:34Z"
+   "updated": "2026-11-18T20:42:24Z"
   },
   "vogel-2025-the-race-between-education-technology-and-the-minimum-wage": {
    "slug": "vogel-2025-the-race-between-education-technology-and-the-minimum-wage",

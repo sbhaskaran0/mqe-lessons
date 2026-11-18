@@ -164,7 +164,18 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "- **What are the shocks?** Measured TFP is the [Solow Residual](note:solow-residual): anything not in capital or labor, possibly \"animal spirits\".\n- **Filtered data only.** The fit is to deviations from an HP trend; on unfiltered data and without measured TFP the model tracks the data poorly.\n- **Unsatisfying assumptions:** exogenous TFP, competitive markets and flexible prices, Cobb-Douglas production, no useful role for policy, a representative agent. Each motivated a later development: [Endogenous Growth Models](note:endogenous-growth-models), the [New Keynesian Model](note:new-keynesian-model), heterogeneous-agent models."
+       "md": "- **What are the shocks?** Measured TFP is the [Solow Residual](note:solow-residual): anything not in capital or labor, possibly \"animal spirits\".\n- **Filtered data only.** The fit is to deviations from an HP trend; on unfiltered data and without measured TFP the model tracks the data poorly.\n- **VAR evidence on technology shocks.** Identifying technology shocks as the only shocks that move productivity in the long run, Galí (1999) finds that a positive technology shock *lowers* hours on impact and that non-technology shocks drive the co-movement of output and hours — against the model's central claim. News shocks about future technology (Beaudry and Portier 2006) may matter more than current TFP ([Structural Shock Identification](note:structural-shock-identification))."
+      }
+     ],
+     "words": 112,
+     "symbols": []
+    },
+    {
+     "id": "fit-and-critiques-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Unsatisfying assumptions:** exogenous TFP, competitive markets and flexible prices, Cobb-Douglas production, no useful role for policy, a representative agent. Each motivated a later development: [Endogenous Growth Models](note:endogenous-growth-models), the [New Keynesian Model](note:new-keynesian-model), heterogeneous-agent models."
       },
       {
        "t": "figure",
@@ -172,7 +183,7 @@
        "alt": "Uhlig 2003 - RBC fit on unfiltered data without TFP"
       }
      ],
-     "words": 80,
+     "words": 34,
      "symbols": []
     }
    ]
@@ -223,10 +234,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "- [Ramsey-Cass-Koopmans Model](note:ramsey-cass-koopmans-model) · [Solow Residual](note:solow-residual) · [Hodrick-Prescott Filter](note:hodrick-prescott-filter) · [New Keynesian Model](note:new-keynesian-model) · [Lucas Critique](note:lucas-critique)\n- Paper: [Kydland and Prescott 1982 - Time to Build and Aggregate Fluctuations](note:kydland-and-prescott-1982-time-to-build-and-aggregate-fluctuations)"
+       "md": "- [Ramsey-Cass-Koopmans Model](note:ramsey-cass-koopmans-model) · [Solow Residual](note:solow-residual) · [Hodrick-Prescott Filter](note:hodrick-prescott-filter) · [New Keynesian Model](note:new-keynesian-model) · [Lucas Critique](note:lucas-critique)\n- Paper: [Kydland and Prescott 1982 - Time to Build and Aggregate Fluctuations](note:kydland-and-prescott-1982-time-to-build-and-aggregate-fluctuations)\n- Paper: [Gali 1999 - Technology, Employment, and the Business Cycle](note:gali-1999-technology-employment-and-the-business-cycle)\n- Paper: [Beaudry and Portier 2006 - Stock Prices, News, and Economic Fluctuations](note:beaudry-and-portier-2006-stock-prices-news-and-economic-fluctuations)"
       }
      ],
-     "words": 25,
+     "words": 49,
      "symbols": []
     }
    ]

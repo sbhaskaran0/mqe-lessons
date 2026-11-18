@@ -1,0 +1,153 @@
+{
+ "slug": "romer-and-romer-2004-a-new-measure-of-monetary-shocks",
+ "notation": [],
+ "sections": [
+  {
+   "id": "key-takeaways",
+   "heading": "Key takeaways",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "key-takeaways-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. **Narrative approach.** Use the Fed's records — its intended federal funds rate at each meeting — and its staff (Greenbook) forecasts ([Structural Shock Identification](note:structural-shock-identification)).\n2. **The shock is the residual.** Regress the intended rate change on the Greenbook forecasts; what the forecasts do not explain is the unanticipated policy shock, purged of the Fed's own information (the cause of the price puzzle).\n3. **Larger effects** on output and prices than conventional measures.\n4. **Problems:** still combined with a recursive ordering in the VAR, and there are not many true monetary shocks."
+      }
+     ],
+     "words": 90,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "research-question",
+   "heading": "Research question",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "research-question-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "What are the effects of monetary policy once its systematic response to the Fed's forecasts is removed?"
+      }
+     ],
+     "words": 17,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "data-and-setting",
+   "heading": "Data and setting",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "data-and-setting-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "FOMC meetings 1969–1996: intended funds-rate changes from narrative records; Greenbook forecasts of output, inflation and unemployment."
+      }
+     ],
+     "words": 17,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "empirical-strategy",
+   "heading": "Empirical strategy",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "empirical-strategy-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "First stage: intended rate change on the level and changes of Greenbook forecasts; the residual is the shock. Second stage: the shock in a VAR (and single-equation regressions) with output and prices."
+      }
+     ],
+     "words": 32,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "results",
+   "heading": "Results",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "results-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Romer and Romer 2004 - responses to a narrative monetary policy shock.png",
+       "alt": "Romer and Romer 2004 - responses to a narrative monetary policy shock",
+       "caption": "Ramey's (2016) re-estimates with the Romer–Romer shock: 1969–96 (black, with bands) and 1969–2007 (red, blue). Industrial production falls by about 0.4% after about a year before recovering, unemployment rises, and the CPI falls by about 0.4–0.5 after four years (chart-read)."
+      }
+     ],
+     "words": 47,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "caveats",
+   "heading": "Caveats",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "caveats-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Few genuine shocks; the Greenbook may not capture all the Fed's information."
+      }
+     ],
+     "words": 13,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "in-econ-402a-l9-working-with-macroeconomic-data",
+   "heading": "In Econ 402A L9 Working with Macroeconomic Data",
+   "role": "paper-in-lesson",
+   "steps": [
+    {
+     "id": "in-econ-402a-l9-working-with-macroeconomic-data-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Example 2 of monetary VARs: narrative identification, which finds larger effects. The lecture also cites Romer and Romer (1989), an earlier narrative dating of policy shocks."
+      }
+     ],
+     "words": 26,
+     "symbols": []
+    }
+   ],
+   "lesson": "econ-402a-l9-working-with-macroeconomic-data"
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Structural Shock Identification](note:structural-shock-identification) · [Vector Autoregression](note:vector-autoregression) · [Monetary Policy Rule](note:monetary-policy-rule)\n- Paper: [Ramey 2016 - Macroeconomic Shocks and Their Propagation](note:ramey-2016-macroeconomic-shocks-and-their-propagation)"
+      }
+     ],
+     "words": 19,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

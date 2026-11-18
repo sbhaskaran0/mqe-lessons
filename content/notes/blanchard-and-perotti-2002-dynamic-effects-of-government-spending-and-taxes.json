@@ -1,0 +1,201 @@
+{
+ "slug": "blanchard-and-perotti-2002-dynamic-effects-of-government-spending-and-taxes",
+ "notation": [
+  {
+   "tex": "$\\pi_t$, $u_t$, $r_t$",
+   "meaning": "Inflation, unemployment rate, interest rate",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "pi",
+    "u",
+    "r"
+   ],
+   "from": "structural-shock-identification"
+  },
+  {
+   "tex": "$k$",
+   "meaning": "Number of variables in the VAR",
+   "kind": "Choice",
+   "typical": "2–11",
+   "keys": [
+    "k"
+   ],
+   "from": "structural-shock-identification"
+  },
+  {
+   "tex": "$x_{i,t}$",
+   "meaning": "Variable $i$ in period $t$ (e.g. inflation, unemployment, interest rate)",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "x"
+   ],
+   "from": "vector-autoregression"
+  },
+  {
+   "tex": "$c_i$",
+   "meaning": "Constant in equation $i$",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "c"
+   ],
+   "from": "vector-autoregression"
+  }
+ ],
+ "sections": [
+  {
+   "id": "key-takeaways",
+   "heading": "Key takeaways",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "key-takeaways-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. **Structure of the VAR.** Three equations whose residuals are taxes, government spending and GDP, linked within the quarter as in [Structural Shock Identification](note:structural-shock-identification).\n2. **Decision lags.** Government spending is assumed not to respond to tax or GDP innovations within the quarter ({21} = b_{23} = 0$): only spending shocks move spending on impact.\n3. **Outside information.** The within-quarter response of tax revenue to GDP (automatic stabilizers), {13} = 2.08$, is taken from institutional estimates rather than from the VAR.\n4. **Results (beyond the lecture):** positive spending shocks raise output, with multipliers around 1; tax increases lower output."
+      }
+     ],
+     "words": 97,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "research-question",
+   "heading": "Research question",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "research-question-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "What are the dynamic effects of government spending and tax shocks on output?"
+      }
+     ],
+     "words": 13,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "data-and-setting",
+   "heading": "Data and setting",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "data-and-setting-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "US quarterly data, 1947–1997 (beyond the lecture): taxes net of transfers, government purchases, GDP."
+      }
+     ],
+     "words": 15,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "empirical-strategy",
+   "heading": "Empirical strategy",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "empirical-strategy-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A structural VAR identified by fiscal decision lags and an external tax elasticity; the remaining coefficient follows from the residual covariances."
+      }
+     ],
+     "words": 21,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "results",
+   "heading": "Results",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "results-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Fiscal VARs - responses to government spending shocks.png",
+       "alt": "Fiscal VARs - responses to government spending shocks",
+       "caption": "The Blanchard–Perotti spending shock (red dashed, \"BP shock\") in Ramey's (2016) comparison with defense-news shocks: government purchases jump on impact, while news shocks build up over several quarters."
+      }
+     ],
+     "words": 29,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "caveats",
+   "heading": "Caveats",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "caveats-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Foresight:** many spending changes are announced before they happen; a recursive spending shock can be anticipated, which biases its estimated effects (Ramey's critique)."
+      }
+     ],
+     "words": 24,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "in-econ-402a-l9-working-with-macroeconomic-data",
+   "heading": "In Econ 402A L9 Working with Macroeconomic Data",
+   "role": "paper-in-lesson",
+   "steps": [
+    {
+     "id": "in-econ-402a-l9-working-with-macroeconomic-data-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The fiscal example: the lecture's three-equation identification reused for taxes, spending and GDP. The slide describes {13} = 2.08$ as \"the effect of a tax shock on GDP\"; in the system as written, {13}$ is the within-quarter response of the tax innovation to the GDP innovation (how much tax revenue moves with output)."
+      }
+     ],
+     "words": 38,
+     "symbols": [
+      "$\\pi_t$, $u_t$, $r_t$",
+      "$k$",
+      "$x_{i,t}$",
+      "$c_i$"
+     ]
+    }
+   ],
+   "lesson": "econ-402a-l9-working-with-macroeconomic-data"
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Structural Shock Identification](note:structural-shock-identification) · [Keynesian Multiplier](note:keynesian-multiplier) · [Vector Autoregression](note:vector-autoregression)\n- Paper: [Ramey 2016 - Macroeconomic Shocks and Their Propagation](note:ramey-2016-macroeconomic-shocks-and-their-propagation)"
+      }
+     ],
+     "words": 18,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

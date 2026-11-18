@@ -154,10 +154,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "- **Reading the ADF null backwards.** The null is non-stationarity; a large p-value means you cannot rule out a unit root.\n- **Regressing one trending series on another.** Two unrelated random walks often show a \"significant\" relationship (spurious regression)."
+       "md": "- **Reading the ADF null backwards.** The null is non-stationarity; a large p-value means you cannot rule out a unit root.\n- **Differencing by reflex before a VAR.** Sims, Stock and Watson (1990): estimated in (log) levels, a VAR still gives consistent estimates for most results, and differencing discards long-run information; the price is more careful inference ([Vector Autoregression](note:vector-autoregression)).\n- **Regressing one trending series on another.** Two unrelated random walks often show a \"significant\" relationship (spurious regression)."
       }
      ],
-     "words": 39,
+     "words": 77,
      "symbols": []
     }
    ]

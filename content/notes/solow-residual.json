@@ -141,7 +141,7 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "- Abramovitz (1956): \"a measure of our ignorance\".\n- Hall (1989): measured TFP moves with military spending, market power, product demand and factor prices — things technology should not respond to. If TFP causes growth, we need to know what causes TFP ([Endogenous Growth Models](note:endogenous-growth-models)).\n- In the RBC data, measured TFP correlates 0.81 with output over the cycle."
+       "md": "- Abramovitz (1956): \"a measure of our ignorance\".\n- Hall (1989): measured TFP moves with military spending, market power, product demand and factor prices — things technology should not respond to. If TFP causes growth, we need to know what causes TFP ([Endogenous Growth Models](note:endogenous-growth-models)).\n- In the RBC data, measured TFP correlates 0.81 with output over the cycle.\n- Evans (1992): money, interest rates and government spending **Granger-cause** the Solow residual — technology should not respond to them. Adjusted for the utilization of labor and capital, its strong cyclical effects largely disappear, and technology shocks as estimated may not drive business cycles at all ([Structural Shock Identification](note:structural-shock-identification))."
       },
       {
        "t": "figure",
@@ -149,7 +149,7 @@
        "alt": "Output vs TFP and TFP correlations"
       }
      ],
-     "words": 59,
+     "words": 107,
      "symbols": []
     }
    ]
@@ -200,10 +200,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "- [Cobb-Douglas Production Function](note:cobb-douglas-production-function) · [Solow Growth Model](note:solow-growth-model) · [Real Business Cycle Model](note:real-business-cycle-model) · [Endogenous Growth Models](note:endogenous-growth-models)"
+       "md": "- [Cobb-Douglas Production Function](note:cobb-douglas-production-function) · [Solow Growth Model](note:solow-growth-model) · [Real Business Cycle Model](note:real-business-cycle-model) · [Endogenous Growth Models](note:endogenous-growth-models)\n- Paper: [Gali 1999 - Technology, Employment, and the Business Cycle](note:gali-1999-technology-employment-and-the-business-cycle)"
       }
      ],
-     "words": 14,
+     "words": 25,
      "symbols": []
     }
    ]

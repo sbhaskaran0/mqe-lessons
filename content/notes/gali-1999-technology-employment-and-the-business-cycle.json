@@ -1,0 +1,166 @@
+{
+ "slug": "gali-1999-technology-employment-and-the-business-cycle",
+ "notation": [],
+ "sections": [
+  {
+   "id": "key-takeaways",
+   "heading": "Key takeaways",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "key-takeaways-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. **Long-run restriction.** Take the RBC model's own assumption that in the long run only technology shocks affect productivity, and use it to identify technology shocks in a VAR ([Structural Shock Identification](note:structural-shock-identification)).\n2. **Hours fall.** After a positive technology shock, productivity rises but hours *fall* on impact — the opposite of the RBC prediction ([Real Business Cycle Model](note:real-business-cycle-model)).\n3. **Technology does not drive the cycle.** The technology components of output and hours are negatively correlated; the business-cycle co-movement of output and hours comes from non-technology shocks.\n4. Later papers use different assumptions to try to restore the classic RBC results."
+      }
+     ],
+     "words": 99,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "research-question",
+   "heading": "Research question",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "research-question-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Do technology shocks explain aggregate fluctuations, as RBC models claim?"
+      }
+     ],
+     "words": 10,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "data-and-setting",
+   "heading": "Data and setting",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "data-and-setting-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "US quarterly post-war data: labor productivity and hours (bivariate VAR); a five-variable version adds real balances, the real interest rate and inflation."
+      }
+     ],
+     "words": 22,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "empirical-strategy",
+   "heading": "Empirical strategy",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "empirical-strategy-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Structural VAR with a long-run restriction: only technology shocks have a permanent effect on labor productivity."
+      }
+     ],
+     "words": 16,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "results",
+   "heading": "Results",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "results-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Gali 1999 - impulse responses to a technology shock.png",
+       "alt": "Gali 1999 - impulse responses to a technology shock",
+       "caption": "Responses to a positive technology shock in the five-variable model (with bands): productivity, real balances, GDP, real rate, hours and inflation. Hours start below zero before rising (chart-read)."
+      }
+     ],
+     "words": 28,
+     "symbols": []
+    },
+    {
+     "id": "results-2",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Gali 1999 - technology and non-technology components of GDP and hours.png",
+       "alt": "Gali 1999 - technology and non-technology components of GDP and hours",
+       "caption": "HP-filtered technology (top) and non-technology (bottom) components of GDP (solid) and hours (dashed): only the non-technology components move together over the cycle."
+      }
+     ],
+     "words": 22,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "caveats",
+   "heading": "Caveats",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "caveats-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Results depend on whether hours enter in levels or differences, and on the long-run restriction itself."
+      }
+     ],
+     "words": 17,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "in-econ-402a-l9-working-with-macroeconomic-data",
+   "heading": "In Econ 402A L9 Working with Macroeconomic Data",
+   "role": "paper-in-lesson",
+   "steps": [
+    {
+     "id": "in-econ-402a-l9-working-with-macroeconomic-data-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The technology-shock example: a long-run restriction, and evidence against technology-driven business cycles."
+      }
+     ],
+     "words": 12,
+     "symbols": []
+    }
+   ],
+   "lesson": "econ-402a-l9-working-with-macroeconomic-data"
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Structural Shock Identification](note:structural-shock-identification) · [Real Business Cycle Model](note:real-business-cycle-model) · [Solow Residual](note:solow-residual)\n- Paper: [Ramey 2016 - Macroeconomic Shocks and Their Propagation](note:ramey-2016-macroeconomic-shocks-and-their-propagation)"
+      }
+     ],
+     "words": 20,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

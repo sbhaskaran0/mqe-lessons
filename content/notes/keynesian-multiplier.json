@@ -302,6 +302,41 @@
    ]
   },
   {
+   "id": "empirical-estimates",
+   "heading": "Empirical estimates",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "empirical-estimates-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The textbook multiplier is a model result; measuring it in data means identifying genuine fiscal shocks ([Structural Shock Identification](note:structural-shock-identification))."
+      },
+      {
+       "t": "prose",
+       "md": "- **Identification.** Military spending driven by wars is often treated as exogenous, sometimes with narrative dating; recursive VARs (Blanchard and Perotti) assume spending does not respond to the economy within a quarter. Recursive shocks tend to give smaller effects and are more exposed to **foresight**: many spending changes are announced before they happen.\n- **Range.** VAR estimates run from about 0.6 to 1.5 for government spending and from −0.5 to −5 for taxes (Ramey 2016) — far below the textbook 5 at $b = 0.8$, since interest rates, prices and expectations all respond."
+      }
+     ],
+     "words": 111,
+     "symbols": [
+      "$b$"
+     ]
+    },
+    {
+     "id": "empirical-estimates-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **What to measure.** The **peak** multiplier divides the peak output response by the peak spending response; the **cumulative** (integral) multiplier divides the summed responses. Example: spending 1, 1, 0.5 and output 0.6, 0.9, 0.6 over three quarters give a peak multiplier of 0.9 and a cumulative one of $2.1/2.5 = 0.84$."
+      }
+     ],
+     "words": 54,
+     "symbols": []
+    }
+   ]
+  },
+  {
    "id": "common-mistakes",
    "heading": "Common mistakes",
    "role": "depth",
@@ -353,10 +388,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "- [Keynesian Cross](note:keynesian-cross) · [Geometric Series](note:geometric-series) · [IS Curve](note:is-curve) · [IS-LM Model](note:is-lm-model)"
+       "md": "- [Keynesian Cross](note:keynesian-cross) · [Geometric Series](note:geometric-series) · [IS Curve](note:is-curve) · [IS-LM Model](note:is-lm-model) · [Structural Shock Identification](note:structural-shock-identification)\n- Paper: [Blanchard and Perotti 2002 - Dynamic Effects of Government Spending and Taxes](note:blanchard-and-perotti-2002-dynamic-effects-of-government-spending-and-taxes)\n- Paper: [Ramey 2016 - Macroeconomic Shocks and Their Propagation](note:ramey-2016-macroeconomic-shocks-and-their-propagation)"
       }
      ],
-     "words": 9,
+     "words": 36,
      "symbols": []
     }
    ]

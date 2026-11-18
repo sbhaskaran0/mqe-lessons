@@ -62,6 +62,38 @@
    "from": "vector-autoregression"
   },
   {
+   "tex": "$\\pi_t$, $u_t$, $r_t$",
+   "meaning": "Inflation, unemployment rate, interest rate",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "pi",
+    "u",
+    "r"
+   ],
+   "from": "structural-shock-identification"
+  },
+  {
+   "tex": "$\\eta_{it}$",
+   "meaning": "Reduced-form residual (innovation) of equation $i$",
+   "kind": "Error",
+   "typical": "—",
+   "keys": [
+    "eta"
+   ],
+   "from": "structural-shock-identification"
+  },
+  {
+   "tex": "$b_{ij}$",
+   "meaning": "Within-period effect of innovation $j$ on innovation $i$",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "b"
+   ],
+   "from": "structural-shock-identification"
+  },
+  {
    "tex": "$\\mu$",
    "meaning": "Mean of a stationary AR(1), $\\beta_0/(1 - \\beta_1)$",
    "kind": "Parameter",
@@ -143,6 +175,28 @@
     "K"
    ],
    "from": "endogenous-and-exogenous-variables"
+  },
+  {
+   "tex": "$X$",
+   "meaning": "Size of an initial spending increase or tax cut",
+   "kind": "Policy",
+   "typical": "1,000",
+   "keys": [
+    "X"
+   ],
+   "from": "keynesian-multiplier"
+  },
+  {
+   "tex": "$Y$, $K$, $L$",
+   "meaning": "Output, capital, labor",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "Y",
+    "K",
+    "L"
+   ],
+   "from": "solow-residual"
   }
  ],
  "sections": [
@@ -156,10 +210,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "**The Lucas critique attacked 1960s macro models from theory; Sims (1980) attacked them from econometrics. Large models decided which variables were exogenous and which entered each equation by intuition, not theory — and once expectations matter, almost any variable could belong in any equation. His answer was the vector autoregression (VAR): treat every variable as endogenous and let each depend on the lags of all the others. Getting there takes time-series basics: macro data are autocorrelated, often non-stationary (differencing usually fixes that), and can be modelled as autoregressions whose lag length is chosen by ACF plots or information criteria. A VAR's coefficients are hard to read directly, so it is read through impulse responses, variance decompositions and Granger causality — none of which escapes the Lucas critique.**"
+       "md": "**The Lucas critique attacked 1960s macro models from theory; Sims (1980) attacked them from econometrics. Large models decided which variables were exogenous and which entered each equation by intuition, not theory — and once expectations matter, almost any variable could belong in any equation. His answer was the vector autoregression (VAR): treat every variable as endogenous and let each depend on the lags of all the others. Getting there takes time-series basics: macro data are autocorrelated, often non-stationary (differencing usually fixes that), and can be modelled as autoregressions whose lag length is chosen by ACF plots or information criteria. A VAR's coefficients are hard to read directly, so it is read through impulse responses, variance decompositions and Granger causality — none of which escapes the Lucas critique. Part 2 asks how to pull genuine economic shocks out of a VAR — recursive (Cholesky) orderings, narrative records, high-frequency market data, long-run restrictions — and, following Ramey's survey, what they say about monetary, fiscal and technology shocks.**"
       }
      ],
-     "words": 125,
+     "words": 161,
      "symbols": []
     },
     {
@@ -169,11 +223,11 @@
        "t": "callout",
        "kind": "info",
        "title": "Sources and notation",
-       "md": "This summary follows the slides of Chris Surro's lecture, the first of two on macroeconomic data; the course's coding assignment replicates a simple VAR. $x_t$ is a time series at time $t$; $\\Delta x_t = x_t - x_{t-1}$ is its first difference. The time-series theory is covered more technically in Econ 430.",
+       "md": "This summary follows the slides of Chris Surro's lecture, covering both parts of \"Working with Macroeconomic Data\": sections 1–7 are Part 1, sections 8–14 Part 2, which follows Valerie Ramey's 2016 *Handbook of Macroeconomics* chapter. The coding assignment replicates Stock and Watson's three-variable VAR. $x_t$ is a time series at time $t$; $\\Delta x_t = x_t - x_{t-1}$ is its first difference. The time-series theory is covered more technically in Econ 430.",
        "folded": false
       }
      ],
-     "words": 47,
+     "words": 69,
      "symbols": [
       "$x_{i,t}$",
       "$t$",
@@ -310,7 +364,9 @@
       }
      ],
      "words": 62,
-     "symbols": []
+     "symbols": [
+      "$X$"
+     ]
     },
     {
      "id": "3-time-series-data-3",
@@ -347,7 +403,9 @@
       }
      ],
      "words": 56,
-     "symbols": []
+     "symbols": [
+      "$X$"
+     ]
     }
    ]
   },
@@ -825,7 +883,10 @@
       }
      ],
      "words": 79,
-     "symbols": []
+     "symbols": [
+      "$X$",
+      "$Y$, $K$, $L$"
+     ]
     },
     {
      "id": "6-var-models-5",
@@ -895,10 +956,724 @@
       },
       {
        "t": "prose",
-       "md": "The VARs above are **reduced-form**. A **structural VAR** (SVAR) uses theory to impose specific restrictions on the parameters, usually so that the shocks are uncorrelated, which makes it easier to isolate the effect of a specific shock. Next time: prominent macro papers that use VARs, and the coding assignment."
+       "md": "The VARs above are **reduced-form**. A **structural VAR** (SVAR) uses theory to impose specific restrictions on the parameters, usually so that the shocks are uncorrelated, which makes it easier to isolate the effect of a specific shock. Part 2 is about exactly that: how macroeconomists over the past 30 years have identified shocks with VARs."
+      }
+     ],
+     "words": 87,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "8-part-2-levels-or-differences-and-the-coding-assignment",
+   "heading": "8. Part 2: levels or differences, and the coding assignment",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "8-part-2-levels-or-differences-and-the-coding-assignment-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Part 2 explains the coding assignment and then follows Valerie Ramey's 2016 *Handbook of Macroeconomics* chapter through examples of VARs in macroeconomic research."
+      },
+      {
+       "t": "prose",
+       "md": "**Is stationarity necessary?** Strictly, a VAR's standard theory needs stationary data. But Sims, Stock and Watson (1990) show that for most results, estimating the VAR in **levels** still gives consistent estimates, while taking first differences throws away important information about the long-run relationships between variables. They recommend estimating most macro VARs in **log levels** rather than first differences — with care when doing inference (hypothesis tests) on non-stationary data ([Stationarity and Unit Roots](note:stationarity-and-unit-roots))."
+      }
+     ],
+     "words": 95,
+     "symbols": []
+    },
+    {
+     "id": "8-part-2-levels-or-differences-and-the-coding-assignment-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Part 1's recipe says to difference non-stationary series before estimating a VAR. What do Sims, Stock and Watson (1990) recommend for most macro VARs instead?",
+       "options": [
+        {
+         "md": "Estimate in log levels: the estimates stay consistent, and differencing throws away information on long-run relationships",
+         "correct": true
+        },
+        {
+         "md": "Always take second differences to be safe",
+         "correct": false,
+         "feedback": "Over-differencing discards even more information about how the variables move together."
+        },
+        {
+         "md": "Detrend every series with the HP filter first",
+         "correct": false,
+         "feedback": "That is a business-cycle filtering choice, not their recommendation for VARs."
+        },
+        {
+         "md": "Drop the non-stationary variables from the VAR",
+         "correct": false,
+         "feedback": "Prices and output are non-stationary and are exactly what macro VARs study."
+        }
+       ],
+       "why": "Consistency survives in levels for most results, and the levels keep the information that differencing removes. The cost is inference: hypothesis tests on non-stationary data need care.",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 63,
+     "symbols": []
+    },
+    {
+     "id": "8-part-2-levels-or-differences-and-the-coding-assignment-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**The coding assignment** replicates [Stock and Watson 2001 - Vector Autoregressions](note:stock-and-watson-2001-vector-autoregressions): a three-variable VAR in inflation, the unemployment rate and the federal funds rate to measure the effects of monetary policy, with impulse responses, Granger causality and a variance decomposition. The tasks: (1) download the data, (2) replicate Stock and Watson's basic results in Python, (3) update with more recent data, (4) test on another country, (5) make good visualizations, (6) put it together in one PDF. Due Wednesday 11/26."
+      },
+      {
+       "t": "quote",
+       "md": "Paper summary: [Ramey 2016 - Macroeconomic Shocks and Their Propagation](note:ramey-2016-macroeconomic-shocks-and-their-propagation)",
+       "papers": [
+        "ramey-2016-macroeconomic-shocks-and-their-propagation"
+       ]
+      }
+     ],
+     "words": 91,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "9-what-is-a-shock",
+   "heading": "9. What is a shock?",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "9-what-is-a-shock-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Ramey examines how three kinds of shocks affect the economy — **monetary, fiscal and technology** — mainly through VARs. In her framework an economic shock must satisfy three properties ([Structural Shock Identification](note:structural-shock-identification)):"
+      },
+      {
+       "t": "prose",
+       "md": "1. **Exogenous** — unrelated to the variables in the model other than the one being shocked;\n2. **Uncorrelated** with other shocks;\n3. **Unanticipated**."
+      },
+      {
+       "t": "prose",
+       "md": "Identifying such shocks is very difficult, and is the main challenge in this literature."
+      }
+     ],
+     "words": 66,
+     "symbols": []
+    },
+    {
+     "id": "9-what-is-a-shock-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "The government announces in January a spending increase that takes effect in July. Why is the July rise in spending a poor \"shock\" for estimating its effects?",
+       "options": [
+        {
+         "md": "It was anticipated: people and firms could react from January, so July is not a surprise",
+         "correct": true
+        },
+        {
+         "md": "It is correlated with tax shocks",
+         "correct": false,
+         "feedback": "Nothing in the story ties it to taxes; the problem is timing."
+        },
+        {
+         "md": "Government spending is never exogenous",
+         "correct": false,
+         "feedback": "Military build-ups driven by wars are often treated as exogenous; this one fails a different test."
+        },
+        {
+         "md": "Spending only affects output with a lag",
+         "correct": false,
+         "feedback": "Lags are fine for an impulse response; what matters is whether the shock was a surprise."
+        }
+       ],
+       "why": "A shock must be unanticipated as well as exogenous and uncorrelated. With six months' warning, behavior changes before the spending arrives, so a VAR that dates the shock in July mis-times its effects — Ramey's \"foresight by agents\".",
+       "objectives": [
+        7
+       ]
+      }
+     ],
+     "words": 61,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "10-identifying-shocks",
+   "heading": "10. Identifying shocks",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "10-identifying-shocks-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Estimate a VAR in inflation, unemployment and the interest rate by OLS:"
+      },
+      {
+       "t": "math",
+       "tex": "\\pi_t = \\beta_{11}\\pi_{t-1} + \\beta_{12}u_{t-1} + \\beta_{13}r_{t-1} + \\eta_{1t}"
+      },
+      {
+       "t": "math",
+       "tex": "u_t = \\beta_{21}\\pi_{t-1} + \\beta_{22}u_{t-1} + \\beta_{23}r_{t-1} + \\eta_{2t}"
+      },
+      {
+       "t": "math",
+       "tex": "r_t = \\beta_{31}\\pi_{t-1} + \\beta_{32}u_{t-1} + \\beta_{33}r_{t-1} + \\eta_{3t}"
+      },
+      {
+       "t": "prose",
+       "md": "where $\\eta$ is the OLS residual. If these residuals (\"innovations\") were uncorrelated, there would be no identification problem: we could separate inflation, unemployment and interest-rate shocks. Usually we can't assume that. Suppose instead the innovations are related within the period:"
+      },
+      {
+       "t": "math",
+       "tex": "\\eta_{1t} = b_{12}\\eta_{2t} + b_{13}\\eta_{3t} + \\varepsilon_{1t}"
+      },
+      {
+       "t": "math",
+       "tex": "\\eta_{2t} = b_{21}\\eta_{1t} + b_{23}\\eta_{3t} + \\varepsilon_{2t}"
+      },
+      {
+       "t": "math",
+       "tex": "\\eta_{3t} = b_{31}\\eta_{1t} + b_{32}\\eta_{2t} + \\varepsilon_{3t}"
+      },
+      {
+       "t": "prose",
+       "md": "where the $\\varepsilon$ terms are the **structural shocks** — actual economic shocks such as the outbreak of a war or an unexpected policy change. As written, this system is unidentified: we have data on 3 objects but need to estimate 6 parameters, so we need **3 more restrictions**."
+      }
+     ],
+     "words": 97,
+     "symbols": [
+      "$\\beta_{ij}$",
+      "$\\varepsilon_{i,t}$",
+      "$\\pi_t$, $u_t$, $r_t$",
+      "$\\eta_{it}$",
+      "$b_{ij}$"
+     ]
+    },
+    {
+     "id": "10-identifying-shocks-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "A VAR has $k = 3$ variables. How many restrictions on the within-period relationships between the innovations does a recursive (Cholesky) ordering impose?",
+       "answer": 3.0,
+       "tol": 0.01,
+       "vary": [
+        {
+         "sym": "k",
+         "values": [
+          3.0,
+          4.0,
+          5.0,
+          6.0
+         ]
+        }
+       ],
+       "compute": "\\frac{k(k - 1)}{2}",
+       "bindings": [
+        {
+         "sym": "k",
+         "value": 3.0,
+         "span": "$k = 3$"
+        }
+       ],
+       "wrongCompute": [
+        {
+         "tex": "k(k - 1)",
+         "md": "that is the number of within-period coefficients $b_{ij}$; the ordering sets half of them to zero"
+        },
+        {
+         "tex": "k^2",
+         "md": "the diagonal is not a parameter: each innovation is not regressed on itself"
+        }
+       ],
+       "why": "There are $k(k - 1)$ off-diagonal coefficients $b_{ij}$, and the covariances of the innovations pin down only half of them, so $k(k-1)/2$ must be restricted — for $k = 3$, three zeros ($b_{31} = b_{32} = b_{21} = 0$). A recursive ordering does exactly that: everything above (or below) the diagonal is zero.",
+       "objectives": [
+        7
+       ]
+      }
+     ],
+     "words": 20,
+     "symbols": [
+      "$k$",
+      "$b_{ij}$"
+     ]
+    },
+    {
+     "id": "10-identifying-shocks-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Recursive ordering.** One solution: assume certain shocks are unrelated to certain variables and order the equations recursively. For example, assume the interest rate is unaffected within the period by shocks to inflation or unemployment ($b_{31} = b_{32} = 0$), and unemployment unaffected by shocks to inflation ($b_{21} = 0$). The system becomes"
+      },
+      {
+       "t": "math",
+       "tex": "\\eta_{1t} = b_{12}\\eta_{2t} + b_{13}\\eta_{3t} + \\varepsilon_{1t}, \\qquad \\eta_{2t} = b_{23}\\eta_{3t} + \\varepsilon_{2t}, \\qquad \\eta_{3t} = \\varepsilon_{3t}"
+      },
+      {
+       "t": "prose",
+       "md": "and the remaining parameters can be estimated with OLS. This is the **Cholesky decomposition**, or \"triangularization\"."
+      },
+      {
+       "t": "prose",
+       "md": "Once the structural shocks are identified, impulse responses follow in three steps: (1) set one structural shock equal to 1; (2) calculate the VAR innovations that shock implies, using the estimated relationships; (3) feed those innovations through the original reduced-form VAR to trace the path of each variable."
+      }
+     ],
+     "words": 108,
+     "symbols": [
+      "$\\varepsilon_{i,t}$",
+      "$\\eta_{it}$",
+      "$b_{ij}$"
+     ]
+    },
+    {
+     "id": "10-identifying-shocks-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "In the recursive system above, suppose $b_{23} = 0.5$, $b_{12} = 0.4$ and $b_{13} = 0.1$. An interest-rate shock sets $\\varepsilon_{3t} = 1$ (and the other structural shocks are 0). What is the inflation innovation $\\eta_{1t}$?",
+       "answer": 0.3,
+       "tol": 0.01,
+       "wrong": [
+        {
+         "answer": 0.1,
+         "tol": 0.01,
+         "md": "that is only the direct effect $b_{13}\\eta_{3t}$; the shock also moves unemployment, which moves inflation"
+        },
+        {
+         "answer": 0.2,
+         "tol": 0.01,
+         "md": "that is only the effect through unemployment, $b_{12}\\eta_{2t}$; add the direct effect"
+        },
+        {
+         "answer": 0.5,
+         "tol": 0.01,
+         "md": "that is the unemployment innovation $\\eta_{2t}$"
+        }
+       ],
+       "why": "Work down the ordering: $\\eta_{3t} = 1$, then $\\eta_{2t} = 0.5 \\times 1 = 0.5$, then $\\eta_{1t} = 0.4 \\times 0.5 + 0.1 \\times 1 = 0.3$. These innovations are step 2; feeding them through the reduced-form VAR gives the impulse response.",
+       "objectives": [
+        7
+       ]
+      }
+     ],
+     "words": 23,
+     "symbols": [
+      "$\\varepsilon_{i,t}$",
+      "$\\eta_{it}$",
+      "$b_{ij}$"
+     ]
+    },
+    {
+     "id": "10-identifying-shocks-5",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Other identification methods:**"
+      },
+      {
+       "t": "prose",
+       "md": "- **Narrative approach:** estimate structural shocks directly from historical information — usually still combined with a recursive ordering.\n- **High-frequency data:** more likely to isolate exogenous shocks (market moves in minutes around an announcement).\n- **Instrumental variables:** estimate the structural shocks indirectly through external instruments ([Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls)).\n- **Other restrictions:** long-run restrictions, sign restrictions, restrictions from a DSGE model."
+      }
+     ],
+     "words": 63,
+     "symbols": []
+    },
+    {
+     "id": "10-identifying-shocks-6",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**The problem of foresight.** Ramey notes two more problems. **Foresight by agents:** if shocks are anticipated, even a properly identified structural shock may not give clean estimates — an anticipated policy change does not affect the economy the way an unanticipated one does. **Foresight by policymakers:** policymakers often have more information than the model includes, so the model may be capturing the policymaker responding to changing expectations about the future that are missing from the model."
+      }
+     ],
+     "words": 75,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "11-monetary-shocks",
+   "heading": "11. Monetary shocks",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "11-monetary-shocks-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Early VARs suggested a relatively small role for monetary policy, and RBC models of the same period reached similar conclusions ([Real Business Cycle Model](note:real-business-cycle-model)). Pushback came from Romer and Romer (1989), who identified monetary shocks with a narrative approach, and Bernanke and Blinder (1992), who used interest-rate shocks instead of money-supply shocks. Both found larger effects."
+      },
+      {
+       "t": "prose",
+       "md": "**The price puzzle.** Early VARs tended to find that prices *rose* after a monetary tightening — the opposite of what theory suggests. Sims (1992): the Fed uses much more information than a typical VAR includes. Including commodity prices (often gold or oil) can proxy expectations about future inflation; another option is to include many more variables with a factor-augmented VAR (FAVAR)."
+      }
+     ],
+     "words": 116,
+     "symbols": []
+    },
+    {
+     "id": "11-monetary-shocks-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Why might a small VAR show prices rising after the Fed raises interest rates?",
+       "options": [
+        {
+         "md": "The Fed raises rates when it expects inflation, using information the VAR leaves out, so the \"shock\" partly reflects coming inflation",
+         "correct": true
+        },
+        {
+         "md": "Higher interest rates raise firms' costs, so prices rise permanently",
+         "correct": false,
+         "feedback": "That cost channel is possible but would not explain why the puzzle disappears once commodity prices are added."
+        },
+        {
+         "md": "Prices are sticky, so they cannot respond to policy",
+         "correct": false,
+         "feedback": "Sticky prices respond slowly, not in the wrong direction."
+        },
+        {
+         "md": "The VAR was estimated in levels instead of differences",
+         "correct": false,
+         "feedback": "Estimating in levels is usually fine for consistency; the puzzle is about missing information."
+        }
+       ],
+       "why": "This is foresight by the policymaker: the identified shock is not exogenous to future inflation. Adding commodity prices (a proxy for expected inflation) or many more variables (FAVAR) gives the VAR the Fed's information, and the puzzle largely goes away.",
+       "objectives": [
+        8
+       ]
+      }
+     ],
+     "words": 63,
+     "symbols": []
+    },
+    {
+     "id": "11-monetary-shocks-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Example 1: Christiano, Eichenbaum and Evans (1999).** Economic variables (industrial production, unemployment, CPI, a commodity price index), the federal funds rate, and money (non-borrowed reserves, total reserves, M1), identified recursively (Cholesky)."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Christiano, Eichenbaum and Evans 1999 - responses to a monetary policy shock.png",
+       "alt": "Christiano, Eichenbaum and Evans 1999 - responses to a monetary policy shock",
+       "caption": "Impulse responses to a monetary shock (an increase in the funds rate), as re-estimated by Ramey: 1965–95 in black with bands; 1983–2007 in blue (dashed) and red (omitting money and reserves). In the original sample output falls and prices decline; in the later sample the effects are much weaker (chart-read)."
+      }
+     ],
+     "words": 83,
+     "symbols": []
+    },
+    {
+     "id": "11-monetary-shocks-4",
+     "blocks": [
+      {
+       "t": "quote",
+       "md": "Paper summary: [Christiano, Eichenbaum and Evans 1999 - Monetary Policy Shocks](note:christiano-eichenbaum-and-evans-1999-monetary-policy-shocks)",
+       "papers": [
+        "christiano-eichenbaum-and-evans-1999-monetary-policy-shocks"
+       ]
+      },
+      {
+       "t": "prose",
+       "md": "**Example 2: Romer and Romer (2004).** Similar variables to CEE, but identification by the narrative approach: regress the Fed's target funds rate on its Greenbook forecasts and use the residual as the unanticipated monetary policy shock. These shocks give larger effects. Problems: the VAR still relies on recursive identification, and there are not that many true monetary shocks."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Romer and Romer 2004 - responses to a narrative monetary policy shock.png",
+       "alt": "Romer and Romer 2004 - responses to a narrative monetary policy shock"
+      }
+     ],
+     "words": 69,
+     "symbols": []
+    },
+    {
+     "id": "11-monetary-shocks-5",
+     "blocks": [
+      {
+       "t": "quote",
+       "md": "Paper summary: [Romer and Romer 2004 - A New Measure of Monetary Shocks](note:romer-and-romer-2004-a-new-measure-of-monetary-shocks)",
+       "papers": [
+        "romer-and-romer-2004-a-new-measure-of-monetary-shocks"
+       ]
+      },
+      {
+       "t": "prose",
+       "md": "**Example 3: Gertler and Karadi (2015).** Add financial variables to the monetary VAR and incorporate forward guidance. Traditional identification is then hard to justify — financial-market variables almost certainly respond immediately to policy shocks. The solution: use shocks to Fed funds futures as a high-frequency indicator (HFI). The results are relatively similar."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Gertler and Karadi 2015 - responses to a high-frequency monetary policy shock.png",
+       "alt": "Gertler and Karadi 2015 - responses to a high-frequency monetary policy shock"
+      },
+      {
+       "t": "quote",
+       "md": "Paper summary: [Gertler and Karadi 2015 - Monetary Policy Surprises, Credit Costs, and Economic Activity](note:gertler-and-karadi-2015-monetary-policy-surprises-credit-costs-and-economic-activity)",
+       "papers": [
+        "gertler-and-karadi-2015-monetary-policy-surprises-credit-costs-and-economic-activity"
+       ]
+      }
+     ],
+     "words": 79,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "12-fiscal-shocks",
+   "heading": "12. Fiscal shocks",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "12-fiscal-shocks-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Identifying fiscal shocks.** Many papers treat **military spending** as plausibly exogenous — driven by wars, not by the macroeconomy — sometimes combined with a narrative approach. The **recursive approach**, as for monetary policy, assumes spending or tax shocks only affect spending or taxes within the period; it tends to find smaller effects and is more exposed to foresight problems."
+      },
+      {
+       "t": "prose",
+       "md": "**Estimating multipliers.** Many papers use VARs to estimate the size of the spending or tax multiplier ([Keynesian Multiplier](note:keynesian-multiplier)). Estimates range from **0.6 to 1.5 for spending** and **−0.5 to −5 for taxes**. Disagreement remains on what to measure: the ratio of the **peak** responses of output and government spending, or of their **integrals** (cumulative responses)."
+      }
+     ],
+     "words": 115,
+     "symbols": []
+    },
+    {
+     "id": "12-fiscal-shocks-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "Illustrative numbers: after a spending shock, government spending is 1, 1 and 0.5 above normal in quarters 0–2, and output is 0.6, 0.9 and 0.6 above normal. What is the cumulative (integral) multiplier over the three quarters? Give two decimals.",
+       "answer": 0.84,
+       "tol": 0.01,
+       "wrong": [
+        {
+         "answer": 0.9,
+         "tol": 0.01,
+         "md": "that is the peak multiplier, peak output response over peak spending response"
+        },
+        {
+         "answer": 0.6,
+         "tol": 0.01,
+         "md": "that is the impact multiplier in quarter 0"
+        },
+        {
+         "answer": 1.19,
+         "tol": 0.01,
+         "md": "that divides cumulative spending by cumulative output; the multiplier is output over spending"
+        }
+       ],
+       "why": "Cumulative output $0.6 + 0.9 + 0.6 = 2.1$ over cumulative spending $1 + 1 + 0.5 = 2.5$ gives 0.84; the peak ratio is $0.9/1 = 0.9$. Same impulse responses, different multipliers — one reason published estimates disagree.",
+       "objectives": [
+        9
+       ]
+      }
+     ],
+     "words": 45,
+     "symbols": []
+    },
+    {
+     "id": "12-fiscal-shocks-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Example: Blanchard and Perotti (2002).** Take the three-equation system above, but let the equations be the residuals of **taxes**, **government spending** and **GDP**. Blanchard and Perotti assume $b_{21} = b_{23} = 0$ — only government spending shocks have an immediate effect on spending — and take $b_{13} = 2.08$ from the literature. *(In the system as written, $b_{13}$ is how much the tax innovation responds within the quarter to the GDP innovation: tax revenue moving automatically with output.)*"
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Fiscal VARs - responses to government spending shocks.png",
+       "alt": "Fiscal VARs - responses to government spending shocks",
+       "caption": "Ramey's comparison of spending shocks: Blanchard–Perotti (red dashed), Ramey's defense news (blue) and Ben Zeev–Pappa defense news (green). Government purchases jump at once after a BP shock but build up over several quarters after news — foresight in action."
+      }
+     ],
+     "words": 107,
+     "symbols": [
+      "$b_{ij}$"
+     ]
+    },
+    {
+     "id": "12-fiscal-shocks-4",
+     "blocks": [
+      {
+       "t": "quote",
+       "md": "Paper summary: [Blanchard and Perotti 2002 - Dynamic Effects of Government Spending and Taxes](note:blanchard-and-perotti-2002-dynamic-effects-of-government-spending-and-taxes)",
+       "papers": [
+        "blanchard-and-perotti-2002-dynamic-effects-of-government-spending-and-taxes"
+       ]
+      }
+     ],
+     "words": 14,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "13-technology-shocks",
+   "heading": "13. Technology shocks",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "13-technology-shocks-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Technology (TFP) shocks are usually estimated with DSGE models; early models used the Solow residual ([Solow Residual](note:solow-residual)). Problems: money, interest rates and government spending **Granger-cause** the Solow residual (Evans 1992) — technology should not respond to them; and after adjusting the residual for factors such as the utilization of labor and capital, its strong effects disappear. Technology shocks as estimated might not cause business-cycle movements at all."
+      }
+     ],
+     "words": 66,
+     "symbols": []
+    },
+    {
+     "id": "13-technology-shocks-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Galí (1999)** uses the RBC model's own assumption — in the long run only productivity shocks affect productivity — to identify a VAR: first a bivariate VAR in productivity and hours, then a five-variable model adding real balances, interest rates and inflation. He finds that technology shocks do not produce the majority of business-cycle fluctuations, as an RBC model would predict. Later papers have used different assumptions to try to restore the classic RBC results."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Gali 1999 - impulse responses to a technology shock.png",
+       "alt": "Gali 1999 - impulse responses to a technology shock",
+       "caption": "Responses to a positive technology shock: productivity and GDP rise, but hours fall at first (chart-read)."
+      }
+     ],
+     "words": 89,
+     "symbols": []
+    },
+    {
+     "id": "13-technology-shocks-3",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Gali 1999 - technology and non-technology components of GDP and hours.png",
+       "alt": "Gali 1999 - technology and non-technology components of GDP and hours"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    },
+    {
+     "id": "13-technology-shocks-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "In Galí's VAR, a positive technology shock raises productivity but lowers hours on impact, and the technology components of output and hours are negatively correlated. What does this imply for the RBC model?",
+       "options": [
+        {
+         "md": "Technology shocks cannot be the main source of business cycles, in which output and hours rise and fall together",
+         "correct": true
+        },
+        {
+         "md": "It confirms the RBC model: technology shocks move hours",
+         "correct": false,
+         "feedback": "The RBC model predicts hours *rise* with a positive technology shock; here they fall."
+        },
+        {
+         "md": "The long-run restriction must be wrong, because the RBC model is right",
+         "correct": false,
+         "feedback": "That is one possible response (later papers try other assumptions), but it is not what the estimates imply."
+        },
+        {
+         "md": "Technology shocks have no effect on output",
+         "correct": false,
+         "feedback": "GDP rises after the shock; what fails is the co-movement with hours."
+        }
+       ],
+       "why": "Business cycles are periods when output and hours move together. If technology shocks push them in opposite directions, the co-movement must come from other (non-technology) shocks — the opposite of the RBC claim. When theory and evidence conflict, one can still ask whether the model or the identification is wrong.",
+       "objectives": [
+        9
+       ]
       }
      ],
      "words": 81,
+     "symbols": []
+    },
+    {
+     "id": "13-technology-shocks-5",
+     "blocks": [
+      {
+       "t": "quote",
+       "md": "Paper summary: [Gali 1999 - Technology, Employment, and the Business Cycle](note:gali-1999-technology-employment-and-the-business-cycle)",
+       "papers": [
+        "gali-1999-technology-employment-and-the-business-cycle"
+       ]
+      },
+      {
+       "t": "prose",
+       "md": "**News shocks.** Beaudry and Portier (2006) use stock market data as a proxy for expectations about future productivity and find a large role for news shocks. Problems: the model may not be properly identified, and future TFP changes may not show up in stock prices at all — big innovations tend to happen in private companies before they go public."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Technology VARs - responses to TFP and news shocks.png",
+       "alt": "Technology VARs - responses to TFP and news shocks",
+       "caption": "Other TFP estimates in Ramey's comparison: responses of real GDP, labor productivity, hours, stock prices, consumption and investment to technology shocks measured three ways."
+      },
+      {
+       "t": "quote",
+       "md": "Paper summary: [Beaudry and Portier 2006 - Stock Prices, News, and Economic Fluctuations](note:beaudry-and-portier-2006-stock-prices-news-and-economic-fluctuations)",
+       "papers": [
+        "beaudry-and-portier-2006-stock-prices-news-and-economic-fluctuations"
+       ]
+      }
+     ],
+     "words": 107,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "14-other-shocks-combining-them-and-where-we-stand",
+   "heading": "14. Other shocks, combining them, and where we stand",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "14-other-shocks-combining-them-and-where-we-stand-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Other shocks used less often in VARs: **oil** shocks, **credit** shocks, **policy uncertainty**, and **labor market** shocks."
+      },
+      {
+       "t": "prose",
+       "md": "Ramey combines what she considers the most promising shock series into one VAR and asks how much of the forecast-error variance of output and hours each explains ([US Sources of Output and Hours Fluctuations 1954-2005](note:us-sources-of-output-and-hours-fluctuations-1954-2005))."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Ramey 2016 combined VAR forecast error variance decomposition.png",
+       "alt": "Table - Ramey 2016 combined VAR forecast error variance decomposition"
+      },
+      {
+       "t": "prose",
+       "md": "Together the identified shocks explain about 78% of output's forecast-error variance on impact and 63% at five years. News about investment-specific technology and shocks to the marginal efficiency of investment matter most; monetary policy (the federal funds rate) explains 7–8% of output at two to five years and up to 18% of hours; each fiscal shock explains under 10% of output."
+      }
+     ],
+     "words": 114,
+     "symbols": []
+    },
+    {
+     "id": "14-other-shocks-combining-them-and-where-we-stand-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Where do we stand?** Ramey concludes that we are making progress on which shocks drive the economy, but there is still a long way to go. When the empirical evidence and theory conflict, do we assume the theory is wrong or the empirical model is mis-specified?"
+      }
+     ],
+     "words": 46,
      "symbols": []
     }
    ]
@@ -913,13 +1688,24 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "1. Explain Sims's critique of large-scale macro models and why a VAR treats every variable as endogenous.\n2. Define stationarity, explain why differencing helps, and read ACF plots.\n3. Write and interpret an AR($p$) model, including the decay of a shock in an AR(1) and what a unit root means.\n4. State the null hypotheses of the ADF and KPSS tests and use AIC and BIC to choose lags.\n5. Write a VAR and count its parameters.\n6. Interpret impulse responses, variance decompositions and Granger causality, and explain why VARs do not escape the Lucas critique."
+       "md": "1. Explain Sims's critique of large-scale macro models and why a VAR treats every variable as endogenous.\n2. Define stationarity, explain why differencing helps and when estimating in levels is preferred, and read ACF plots.\n3. Write and interpret an AR($p$) model, including the decay of a shock in an AR(1) and what a unit root means.\n4. State the null hypotheses of the ADF and KPSS tests and use AIC and BIC to choose lags.\n5. Write a VAR and count its parameters.\n6. Interpret impulse responses, variance decompositions and Granger causality, and explain why VARs do not escape the Lucas critique."
       }
      ],
-     "words": 97,
+     "words": 104,
      "symbols": [
       "$p$"
      ]
+    },
+    {
+     "id": "what-to-be-able-to-do-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "7. State what makes a structural shock, count the restrictions needed, and identify shocks with a recursive (Cholesky) ordering to start an impulse response.\n8. Describe narrative, high-frequency, instrumental-variable and long-run identification, and the foresight problems (including the price puzzle).\n9. Summarize the evidence on monetary, fiscal and technology shocks: larger monetary effects with better identification, multipliers measured as peaks or integrals, and Galí's challenge to the RBC model."
+      }
+     ],
+     "words": 70,
+     "symbols": []
     }
    ]
   },
@@ -936,7 +1722,14 @@
        "role": "papers",
        "items": [
         "sims-1980-macroeconomics-and-reality",
-        "stock-and-watson-2001-vector-autoregressions"
+        "stock-and-watson-2001-vector-autoregressions",
+        "ramey-2016-macroeconomic-shocks-and-their-propagation",
+        "christiano-eichenbaum-and-evans-1999-monetary-policy-shocks",
+        "romer-and-romer-2004-a-new-measure-of-monetary-shocks",
+        "gertler-and-karadi-2015-monetary-policy-surprises-credit-costs-and-economic-activity",
+        "blanchard-and-perotti-2002-dynamic-effects-of-government-spending-and-taxes",
+        "gali-1999-technology-employment-and-the-business-cycle",
+        "beaudry-and-portier-2006-stock-prices-news-and-economic-fluctuations"
        ]
       }
      ],
@@ -958,11 +1751,37 @@
        "role": "concepts",
        "items": [
         "vector-autoregression",
+        "structural-shock-identification",
         "autoregressive-model",
         "stationarity-and-unit-roots",
         "model-selection-criteria",
         "endogenous-and-exogenous-variables",
-        "lucas-critique"
+        "lucas-critique",
+        "instrumental-variables-and-2sls",
+        "keynesian-multiplier",
+        "solow-residual",
+        "real-business-cycle-model"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "facts-and-data-in-this-lecture",
+   "heading": "Facts and data in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "facts-and-data-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "facts",
+       "items": [
+        "us-sources-of-output-and-hours-fluctuations-1954-2005"
        ]
       }
      ],

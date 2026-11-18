@@ -1,0 +1,95 @@
+{
+ "slug": "us-sources-of-output-and-hours-fluctuations-1954-2005",
+ "notation": [],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Ramey puts the most promising shock series from the literature into one VAR (four lags, quadratic trend, US 1954q3–2005q4) and asks how much of the unpredictable movement in output and hours each explains. Together the identified shocks account for 77.7% of the output forecast-error variance on impact and 63.2% at 20 quarters. News about future technology (Ben Zeev and Khan) and the marginal efficiency of investment (Justiniano, Primiceri and Tambalotti) matter most; monetary policy shocks explain 7–8% of output and about 18% of hours at 4–5 years; each fiscal shock explains under 10% of output.**"
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Ramey 2016 combined VAR forecast error variance decomposition.png",
+       "alt": "Table - Ramey 2016 combined VAR forecast error variance decomposition"
+      }
+     ],
+     "words": 100,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "share-of-forecast-error-variance-by-shock-and-horizon-quarters",
+   "heading": "Share of forecast-error variance (%), by shock and horizon (quarters)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "share-of-forecast-error-variance-by-shock-and-horizon-quarters-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**A. Output**"
+      },
+      {
+       "t": "table",
+       "md": "| Horizon | Gov. spending news (bzp_gov) | Anticipated tax (lrw) | Unanticipated tax (rrtaxu) | TFP (ford_tfp) | Investment-tech news (bzk_ist_news) | Investment efficiency (jpt_mei) | Fed funds (ffr) | Total |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| 0 | 5.5 | 0.1 | 2.4 | 15.8 | 11.8 | 42.1 | 0.0 | 77.7 |\n| 4 | 1.6 | 5.6 | 1.6 | 15.1 | 28.8 | 23.9 | 2.0 | 78.6 |\n| 8 | 1.4 | 4.8 | 1.5 | 13.9 | 26.9 | 16.3 | 6.1 | 70.9 |\n| 12 | 3.0 | 4.8 | 1.2 | 12.6 | 22.1 | 13.6 | 8.1 | 65.4 |\n| 16 | 4.4 | 6.9 | 1.2 | 11.2 | 19.6 | 12.5 | 7.8 | 63.6 |\n| 20 | 4.9 | 8.5 | 1.2 | 10.7 | 18.6 | 11.9 | 7.4 | 63.2 |"
+      }
+     ],
+     "words": 141,
+     "symbols": []
+    },
+    {
+     "id": "share-of-forecast-error-variance-by-shock-and-horizon-quarters-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**B. Hours**"
+      },
+      {
+       "t": "table",
+       "md": "| Horizon | bzp_gov | lrw | rrtaxu | ford_tfp | bzk_ist_news | jpt_mei | ffr | Total |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| 0 | 2.3 | 0.8 | 0.3 | 17.6 | 13.2 | 20.5 | 0.0 | 54.7 |\n| 4 | 0.5 | 6.6 | 0.8 | 3.7 | 38.3 | 22.1 | 3.2 | 75.2 |\n| 8 | 0.9 | 6.3 | 0.9 | 2.4 | 39.5 | 14.2 | 10.9 | 75.1 |\n| 12 | 4.1 | 5.2 | 0.7 | 1.8 | 33.4 | 11.5 | 16.8 | 73.5 |\n| 16 | 7.3 | 6.0 | 0.7 | 1.7 | 28.6 | 10.6 | 18.3 | 73.2 |\n| 20 | 8.9 | 7.0 | 0.8 | 2.0 | 26.7 | 10.2 | 18.1 | 73.7 |"
+      }
+     ],
+     "words": 127,
+     "symbols": []
+    },
+    {
+     "id": "share-of-forecast-error-variance-by-shock-and-horizon-quarters-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "\"Total\" is the sum across the seven shocks, computed here. The ordering is the table's (shock series first, then GDP, hours, commodity prices, the GDP deflator and the federal funds rate), so the federal funds rate shock is identified recursively and has no effect on impact by construction. Series: bzp, Ben Zeev and Pappa; lrw, Leeper, Richter and Walker; rrtaxu, Romer–Romer unanticipated tax; ford, Francis, Owyang, Roush and DiCecio; bzk, Ben Zeev and Khan; jpt, Justiniano, Primiceri and Tambalotti."
+      }
+     ],
+     "words": 80,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Structural Shock Identification](note:structural-shock-identification) · [Vector Autoregression](note:vector-autoregression) · [Solow Residual](note:solow-residual) · [Keynesian Multiplier](note:keynesian-multiplier)\n- Paper: [Ramey 2016 - Macroeconomic Shocks and Their Propagation](note:ramey-2016-macroeconomic-shocks-and-their-propagation)"
+      }
+     ],
+     "words": 20,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

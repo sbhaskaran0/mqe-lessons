@@ -1,0 +1,193 @@
+{
+ "slug": "ramey-2016-macroeconomic-shocks-and-their-propagation",
+ "notation": [],
+ "sections": [
+  {
+   "id": "key-takeaways",
+   "heading": "Key takeaways",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "key-takeaways-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. **What a shock is.** Exogenous with respect to the other variables, uncorrelated with other shocks, and unanticipated ([Structural Shock Identification](note:structural-shock-identification)).\n2. **Identification is the hard part.** Recursive orderings, narrative series, high-frequency data, external instruments, long-run and sign restrictions — each with weaknesses; foresight by agents and by policymakers complicates all of them.\n3. **Monetary shocks:** identified shocks have sizable effects, but explain a modest share of output fluctuations.\n4. **Fiscal multipliers:** estimates range from about 0.6 to 1.5 for government spending and −0.5 to −5 for taxes; studies disagree even on whether to measure the peak or the cumulative (integral) response ([Keynesian Multiplier](note:keynesian-multiplier))."
+      }
+     ],
+     "words": 106,
+     "symbols": []
+    },
+    {
+     "id": "key-takeaways-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "5. **Technology shocks:** measured TFP is contaminated by non-technology factors; corrected, technology shocks may not drive business cycles; news shocks may matter more.\n6. **Where we stand:** progress, but a long way to go — when evidence and theory conflict, is the theory wrong or the empirical model mis-specified?"
+      }
+     ],
+     "words": 48,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "research-question",
+   "heading": "Research question",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "research-question-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Which shocks drive macroeconomic fluctuations, and how do they propagate?"
+      }
+     ],
+     "words": 10,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "data-and-setting",
+   "heading": "Data and setting",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "data-and-setting-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "US quarterly and monthly data, mostly post-war; re-estimates of leading specifications on common and later samples (for example 1983–2007)."
+      }
+     ],
+     "words": 20,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "empirical-strategy",
+   "heading": "Empirical strategy",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "empirical-strategy-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "VARs and local projections with each literature's identification method; a combined VAR with the most promising shock series ordered first."
+      }
+     ],
+     "words": 20,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "results",
+   "heading": "Results",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "results-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Fiscal VARs - responses to government spending shocks.png",
+       "alt": "Fiscal VARs - responses to government spending shocks",
+       "caption": "Responses to government spending shocks identified three ways: Blanchard–Perotti recursive shock (red dashed), Ramey's defense news (blue) and Ben Zeev–Pappa defense news (green). News shocks move government purchases with a delay, as foresight implies."
+      }
+     ],
+     "words": 36,
+     "symbols": []
+    },
+    {
+     "id": "results-2",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Technology VARs - responses to TFP and news shocks.png",
+       "alt": "Technology VARs - responses to TFP and news shocks",
+       "caption": "Responses to technology shocks from different TFP measures (Fernald utilization-adjusted TFP, Francis et al. and Justiniano–Primiceri–Tambalotti series)."
+      }
+     ],
+     "words": 19,
+     "symbols": []
+    },
+    {
+     "id": "results-3",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Table - Ramey 2016 combined VAR forecast error variance decomposition.png",
+       "alt": "Table - Ramey 2016 combined VAR forecast error variance decomposition"
+      },
+      {
+       "t": "prose",
+       "md": "In the combined VAR the identified shocks explain 78% of the output forecast-error variance on impact and 63% at 20 quarters ([US Sources of Output and Hours Fluctuations 1954-2005](note:us-sources-of-output-and-hours-fluctuations-1954-2005))."
+      }
+     ],
+     "words": 29,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "caveats",
+   "heading": "Caveats",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "caveats-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Shock series are measured with error and may still be partly anticipated; the combined VAR's ordering is itself an assumption."
+      }
+     ],
+     "words": 21,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "in-econ-402a-l9-working-with-macroeconomic-data",
+   "heading": "In Econ 402A L9 Working with Macroeconomic Data",
+   "role": "paper-in-lesson",
+   "steps": [
+    {
+     "id": "in-econ-402a-l9-working-with-macroeconomic-data-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The lecture's outline: Part 2 follows Ramey's chapter through the definition of a shock, identification methods, foresight, and monetary, fiscal and technology shocks, ending with her combined VAR and her verdict."
+      }
+     ],
+     "words": 31,
+     "symbols": []
+    }
+   ],
+   "lesson": "econ-402a-l9-working-with-macroeconomic-data"
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Structural Shock Identification](note:structural-shock-identification) · [Vector Autoregression](note:vector-autoregression) · [Keynesian Multiplier](note:keynesian-multiplier) · [Solow Residual](note:solow-residual) · [Real Business Cycle Model](note:real-business-cycle-model)"
+      }
+     ],
+     "words": 14,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

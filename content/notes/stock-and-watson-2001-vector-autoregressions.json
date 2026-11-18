@@ -125,10 +125,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "The lecture's example of an impulse-response figure — what the final step of estimating a VAR produces."
+       "md": "The lecture's example of an impulse-response figure — what the final step of estimating a VAR produces. In Part 2 it is also the **coding assignment**: replicate this three-variable VAR (inflation, unemployment, federal funds rate) in Python — impulse responses, Granger causality, variance decomposition — then update it with recent data and test it on another country."
       }
      ],
-     "words": 16,
+     "words": 54,
      "symbols": []
     }
    ],

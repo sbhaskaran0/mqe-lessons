@@ -1,0 +1,295 @@
+{
+ "slug": "structural-shock-identification",
+ "notation": [
+  {
+   "tex": "$\\pi_t$, $u_t$, $r_t$",
+   "meaning": "Inflation, unemployment rate, interest rate",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "pi",
+    "u",
+    "r"
+   ]
+  },
+  {
+   "tex": "$\\beta_{ij}$",
+   "meaning": "Reduced-form coefficient of variable $i$ on lagged variable $j$",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$\\eta_{it}$",
+   "meaning": "Reduced-form residual (innovation) of equation $i$",
+   "kind": "Error",
+   "typical": "—",
+   "keys": [
+    "eta"
+   ]
+  },
+  {
+   "tex": "$\\varepsilon_{it}$",
+   "meaning": "Structural shock $i$: exogenous, uncorrelated, unanticipated",
+   "kind": "Shock",
+   "typical": "—",
+   "keys": [
+    "varepsilon"
+   ]
+  },
+  {
+   "tex": "$b_{ij}$",
+   "meaning": "Within-period effect of innovation $j$ on innovation $i$",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "b"
+   ]
+  },
+  {
+   "tex": "$k$",
+   "meaning": "Number of variables in the VAR",
+   "kind": "Choice",
+   "typical": "2–11",
+   "keys": [
+    "k"
+   ]
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A VAR tells you how inflation, unemployment and interest rates usually move together, and its leftover surprises each period are a blend: a surprise rise in the interest rate might be the central bank's own decision, or its reaction to news about inflation that arrived the same quarter. To ask \"what does a monetary policy shock do?\" you must pull out the part of the surprise that is truly the central bank's own choice. The data alone cannot do it — there are more unknown links than the data pins down — so researchers add assumptions: some variables cannot react within the quarter, a shock can be read from historical records or from market prices minutes after an announcement, or a shock can only have temporary effects. Each assumption is a claim that can be argued over."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "Every causal statement from a VAR — the effect of a rate hike, the size of the fiscal multiplier, whether technology drives business cycles — rests on its identifying assumptions.",
+       "folded": false
+      }
+     ],
+     "words": 166,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**What counts as a shock** (Ramey 2016). A structural shock should be (1) **exogenous** — unrelated to the other variables in the model, (2) **uncorrelated** with the other shocks, and (3) **unanticipated**."
+      },
+      {
+       "t": "prose",
+       "md": "**The problem.** Estimate a three-variable VAR in inflation $\\pi_t$, unemployment $u_t$ and the interest rate $r_t$ by OLS:"
+      },
+      {
+       "t": "math",
+       "tex": "\\pi_t = \\beta_{11}\\pi_{t-1} + \\beta_{12}u_{t-1} + \\beta_{13}r_{t-1} + \\eta_{1t}"
+      },
+      {
+       "t": "math",
+       "tex": "u_t = \\beta_{21}\\pi_{t-1} + \\beta_{22}u_{t-1} + \\beta_{23}r_{t-1} + \\eta_{2t}"
+      },
+      {
+       "t": "math",
+       "tex": "r_t = \\beta_{31}\\pi_{t-1} + \\beta_{32}u_{t-1} + \\beta_{33}r_{t-1} + \\eta_{3t}"
+      },
+      {
+       "t": "prose",
+       "md": "If the residuals (\"innovations\") $\\eta_{it}$ were uncorrelated, each would be a separate shock. Usually they are not. Suppose they are related within the period by"
+      }
+     ],
+     "words": 70,
+     "symbols": [
+      "$\\pi_t$, $u_t$, $r_t$",
+      "$\\beta_{ij}$",
+      "$\\eta_{it}$"
+     ]
+    },
+    {
+     "id": "definition-2",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "\\eta_{1t} = b_{12}\\eta_{2t} + b_{13}\\eta_{3t} + \\varepsilon_{1t}, \\quad \\eta_{2t} = b_{21}\\eta_{1t} + b_{23}\\eta_{3t} + \\varepsilon_{2t}, \\quad \\eta_{3t} = b_{31}\\eta_{1t} + b_{32}\\eta_{2t} + \\varepsilon_{3t}"
+      },
+      {
+       "t": "prose",
+       "md": "where the $\\varepsilon_{it}$ are the **structural shocks** — actual economic events such as the outbreak of a war or an unexpected policy change. This system is **unidentified**: the data give 3 objects (the variances and covariances not already used) but there are 6 parameters $b_{ij}$, so **3 more restrictions** are needed. In general, with $k$ variables there are $k(k-1)$ contemporaneous coefficients and $k(k-1)/2$ restrictions are needed."
+      },
+      {
+       "t": "prose",
+       "md": "**Recursive identification (Cholesky decomposition, \"triangularization\").** Order the variables so that each responds within the period only to those ordered after it in this layout. Assuming the interest rate is unaffected within the period by inflation and unemployment shocks ($b_{31} = b_{32} = 0$) and unemployment by inflation shocks ($b_{21} = 0$):"
+      },
+      {
+       "t": "math",
+       "tex": "\\eta_{1t} = b_{12}\\eta_{2t} + b_{13}\\eta_{3t} + \\varepsilon_{1t}, \\qquad \\eta_{2t} = b_{23}\\eta_{3t} + \\varepsilon_{2t}, \\qquad \\eta_{3t} = \\varepsilon_{3t}"
+      },
+      {
+       "t": "prose",
+       "md": "and the remaining parameters can be estimated by OLS."
+      }
+     ],
+     "words": 112,
+     "symbols": [
+      "$\\eta_{it}$",
+      "$\\varepsilon_{it}$",
+      "$b_{ij}$",
+      "$k$"
+     ]
+    },
+    {
+     "id": "definition-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Impulse responses from structural shocks:** (1) set one structural shock to 1; (2) compute the innovations it implies from the estimated $b_{ij}$; (3) feed those innovations through the reduced-form VAR to trace each variable's path."
+      },
+      {
+       "t": "prose",
+       "md": "**Other identification methods**"
+      }
+     ],
+     "words": 37,
+     "symbols": [
+      "$b_{ij}$"
+     ]
+    },
+    {
+     "id": "definition-4",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Method | Idea | Example |\n| --- | --- | --- |\n| Narrative | Read shocks from historical records (often still combined with a recursive ordering) | Romer and Romer: Fed decisions net of its own forecasts |\n| High-frequency data | Market prices in a narrow window around an announcement capture only the surprise | Gertler and Karadi: Fed funds futures |\n| Instrumental variables (external instruments) | An outside series correlated with the shock and not with the others | Narrative or high-frequency series used as instruments |\n| Long-run restrictions | Theory says only some shocks have permanent effects | Galí: only technology moves productivity in the long run |\n| Sign restrictions, DSGE restrictions | Require responses with theory-consistent signs, or impose a model's structure | — |"
+      }
+     ],
+     "words": 106,
+     "symbols": []
+    },
+    {
+     "id": "definition-5",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Foresight.** Two further problems: if *agents* anticipate a shock (an announced tax change), even a correctly identified shock is not a surprise, and its effect differs from an unanticipated one; and *policymakers* often know more than the VAR includes, so what looks like a policy shock may be the policy responding to expectations the model leaves out."
+      }
+     ],
+     "words": 57,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Recursive ordering with $b_{23} = 0.5$, $b_{12} = 0.4$, $b_{13} = 0.1$ (illustrative). An interest-rate shock $\\varepsilon_{3t} = 1$ gives $\\eta_{3t} = 1$, then $\\eta_{2t} = 0.5 \\times 1 = 0.5$, then $\\eta_{1t} = 0.4 \\times 0.5 + 0.1 \\times 1 = 0.3$: the inflation innovation includes both the direct effect (0.1) and the effect through unemployment (0.2). These three innovations are the period-0 inputs to the impulse response."
+      }
+     ],
+     "words": 38,
+     "symbols": [
+      "$\\eta_{it}$",
+      "$\\varepsilon_{it}$",
+      "$b_{ij}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "the-price-puzzle",
+   "heading": "The price puzzle",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-price-puzzle-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Early monetary VARs found that the price level *rose* after a monetary tightening — the opposite of theory. Sims (1992): the Fed uses far more information than a small VAR; if it raises rates because it expects inflation, the \"shock\" carries that expected inflation. Adding commodity prices (oil, gold) as a proxy for inflation expectations, or many more variables in a factor-augmented VAR (FAVAR), largely removes the puzzle."
+      }
+     ],
+     "words": 67,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Treating reduced-form residuals as shocks.** They are correlated mixtures unless the identifying assumptions say otherwise.\n- **Forgetting that the ordering is an assumption.** A different order gives different shocks and impulse responses; the order must be defended with economics (for example, decision lags).\n- **Ignoring anticipation.** A shock that was announced earlier is not a surprise when it happens."
+      }
+     ],
+     "words": 60,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Monetary policy shocks, fiscal multipliers, technology and news shocks, oil and credit shocks ([Vector Autoregression](note:vector-autoregression))."
+      }
+     ],
+     "words": 16,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Vector Autoregression](note:vector-autoregression) · [Endogenous and Exogenous Variables](note:endogenous-and-exogenous-variables) · [Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls) · [Lucas Critique](note:lucas-critique) · [Keynesian Multiplier](note:keynesian-multiplier) · [Solow Residual](note:solow-residual)\n- Paper: [Ramey 2016 - Macroeconomic Shocks and Their Propagation](note:ramey-2016-macroeconomic-shocks-and-their-propagation)\n- Paper: [Christiano, Eichenbaum and Evans 1999 - Monetary Policy Shocks](note:christiano-eichenbaum-and-evans-1999-monetary-policy-shocks)\n- Paper: [Romer and Romer 2004 - A New Measure of Monetary Shocks](note:romer-and-romer-2004-a-new-measure-of-monetary-shocks)\n- Paper: [Gertler and Karadi 2015 - Monetary Policy Surprises, Credit Costs, and Economic Activity](note:gertler-and-karadi-2015-monetary-policy-surprises-credit-costs-and-economic-activity)\n- Paper: [Blanchard and Perotti 2002 - Dynamic Effects of Government Spending and Taxes](note:blanchard-and-perotti-2002-dynamic-effects-of-government-spending-and-taxes)\n- Paper: [Gali 1999 - Technology, Employment, and the Business Cycle](note:gali-1999-technology-employment-and-the-business-cycle)\n- Paper: [Beaudry and Portier 2006 - Stock Prices, News, and Economic Fluctuations](note:beaudry-and-portier-2006-stock-prices-news-and-economic-fluctuations)"
+      }
+     ],
+     "words": 104,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,153 @@
+{
+ "slug": "christiano-eichenbaum-and-evans-1999-monetary-policy-shocks",
+ "notation": [],
+ "sections": [
+  {
+   "id": "key-takeaways",
+   "heading": "Key takeaways",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "key-takeaways-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. **Recursive identification.** The federal funds rate responds within the month to the economic variables, which respond to it only with a lag (Cholesky ordering; [Structural Shock Identification](note:structural-shock-identification)).\n2. **Commodity prices.** Including a commodity price index proxies the Fed's information about future inflation and removes the price puzzle.\n3. **Effects:** a funds-rate increase lowers industrial production with a hump, raises unemployment, and lowers prices slowly."
+      }
+     ],
+     "words": 65,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "research-question",
+   "heading": "Research question",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "research-question-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "What happens to the economy after a monetary policy shock?"
+      }
+     ],
+     "words": 10,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "data-and-setting",
+   "heading": "Data and setting",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "data-and-setting-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "US monthly data: industrial production, unemployment, CPI, a commodity price index; the federal funds rate; non-borrowed reserves, total reserves and M1."
+      }
+     ],
+     "words": 21,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "empirical-strategy",
+   "heading": "Empirical strategy",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "empirical-strategy-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A VAR identified recursively, with the economic variables ordered before the federal funds rate and the money variables after it."
+      }
+     ],
+     "words": 20,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "results",
+   "heading": "Results",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "results-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Christiano, Eichenbaum and Evans 1999 - responses to a monetary policy shock.png",
+       "alt": "Christiano, Eichenbaum and Evans 1999 - responses to a monetary policy shock",
+       "caption": "Ramey's (2016) re-estimates: the CEE specification on 1965–95 (black, with bands) and on 1983–2007 (blue dashed; red omits money and reserves). In the original sample industrial production falls and CPI declines steadily (≈ −0.25 after four years); on 1983–2007 the output and price responses largely disappear (chart-read)."
+      }
+     ],
+     "words": 50,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "caveats",
+   "heading": "Caveats",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "caveats-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- The ordering is an assumption; the effects are fragile to the sample period."
+      }
+     ],
+     "words": 14,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "in-econ-402a-l9-working-with-macroeconomic-data",
+   "heading": "In Econ 402A L9 Working with Macroeconomic Data",
+   "role": "paper-in-lesson",
+   "steps": [
+    {
+     "id": "in-econ-402a-l9-working-with-macroeconomic-data-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Example 1 of monetary VARs: the recursive benchmark, with commodity prices as the fix for the price puzzle."
+      }
+     ],
+     "words": 18,
+     "symbols": []
+    }
+   ],
+   "lesson": "econ-402a-l9-working-with-macroeconomic-data"
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Structural Shock Identification](note:structural-shock-identification) · [Vector Autoregression](note:vector-autoregression) · [Monetary Policy Rule](note:monetary-policy-rule)\n- Paper: [Ramey 2016 - Macroeconomic Shocks and Their Propagation](note:ramey-2016-macroeconomic-shocks-and-their-propagation)"
+      }
+     ],
+     "words": 19,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

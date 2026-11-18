@@ -171,10 +171,28 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "The VAR above is a **reduced-form** VAR: its shocks are usually correlated across equations, so \"a shock to inflation alone\" is not well defined. A **structural VAR (SVAR)** imposes restrictions from theory (for example, an ordering in which the interest rate responds within the period to inflation but not vice versa) so that shocks are uncorrelated and the effect of a specific shock can be isolated."
+       "md": "The VAR above is a **reduced-form** VAR: its shocks are usually correlated across equations, so \"a shock to inflation alone\" is not well defined. A **structural VAR (SVAR)** imposes restrictions from theory (for example, an ordering in which the interest rate responds within the period to inflation but not vice versa) so that shocks are uncorrelated and the effect of a specific shock can be isolated. [Structural Shock Identification](note:structural-shock-identification) shows how: recursive (Cholesky) orderings, narrative and high-frequency measures, external instruments, long-run and sign restrictions."
       }
      ],
-     "words": 66,
+     "words": 84,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "levels-or-differences",
+   "heading": "Levels or differences?",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "levels-or-differences-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Standard VAR theory assumes stationary data, but Sims, Stock and Watson (1990) show that for most results a VAR estimated in **levels** still gives consistent estimates, while first-differencing throws away information about long-run relationships between the variables. Most macro VARs are therefore estimated in **log levels**; hypothesis tests on non-stationary data still need care ([Stationarity and Unit Roots](note:stationarity-and-unit-roots))."
+      }
+     ],
+     "words": 58,
      "symbols": []
     }
    ]
@@ -227,10 +245,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "- [Autoregressive Model](note:autoregressive-model) · [Stationarity and Unit Roots](note:stationarity-and-unit-roots) · [Endogenous and Exogenous Variables](note:endogenous-and-exogenous-variables) · [Lucas Critique](note:lucas-critique) · [Model Selection Criteria](note:model-selection-criteria)\n- Paper: [Sims 1980 - Macroeconomics and Reality](note:sims-1980-macroeconomics-and-reality)\n- Paper: [Stock and Watson 2001 - Vector Autoregressions](note:stock-and-watson-2001-vector-autoregressions)"
+       "md": "- [Autoregressive Model](note:autoregressive-model) · [Stationarity and Unit Roots](note:stationarity-and-unit-roots) · [Endogenous and Exogenous Variables](note:endogenous-and-exogenous-variables) · [Lucas Critique](note:lucas-critique) · [Model Selection Criteria](note:model-selection-criteria) · [Structural Shock Identification](note:structural-shock-identification)\n- Paper: [Sims 1980 - Macroeconomics and Reality](note:sims-1980-macroeconomics-and-reality)\n- Paper: [Stock and Watson 2001 - Vector Autoregressions](note:stock-and-watson-2001-vector-autoregressions)\n- Paper: [Ramey 2016 - Macroeconomic Shocks and Their Propagation](note:ramey-2016-macroeconomic-shocks-and-their-propagation)"
       }
      ],
-     "words": 33,
+     "words": 46,
      "symbols": []
     }
    ]

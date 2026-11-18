@@ -1,0 +1,153 @@
+{
+ "slug": "gertler-and-karadi-2015-monetary-policy-surprises-credit-costs-and-economic-activity",
+ "notation": [],
+ "sections": [
+  {
+   "id": "key-takeaways",
+   "heading": "Key takeaways",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "key-takeaways-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. **Financial variables break recursive identification.** Bond spreads respond to policy within minutes, so they cannot be ordered \"before\" the policy rate.\n2. **High-frequency identification.** The change in Fed funds futures prices in a narrow window around an FOMC announcement is a surprise by construction; it is used as an external instrument for the policy shock ([Structural Shock Identification](note:structural-shock-identification)). It also captures forward guidance, since a one-year rate is the policy indicator.\n3. **Effects:** a tightening raises the excess bond premium (credit costs) and lowers industrial production and prices — relatively similar to earlier results."
+      }
+     ],
+     "words": 94,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "research-question",
+   "heading": "Research question",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "research-question-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "How do monetary policy surprises, including forward guidance, affect credit costs and economic activity?"
+      }
+     ],
+     "words": 14,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "data-and-setting",
+   "heading": "Data and setting",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "data-and-setting-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "US monthly data: one-year government bond rate, industrial production, CPI, excess bond premium; high-frequency futures surprises around FOMC announcements."
+      }
+     ],
+     "words": 19,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "empirical-strategy",
+   "heading": "Empirical strategy",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "empirical-strategy-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A VAR identified with external instruments (a \"proxy SVAR\"): the reduced-form residual of the policy indicator is instrumented by the futures surprise."
+      }
+     ],
+     "words": 22,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "results",
+   "heading": "Results",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "results-1",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Gertler and Karadi 2015 - responses to a high-frequency monetary policy shock.png",
+       "alt": "Gertler and Karadi 2015 - responses to a high-frequency monetary policy shock",
+       "caption": "The one-year rate rises about 0.25, the excess bond premium about 0.1 on impact, industrial production falls about 0.4% after two years, and the CPI declines by about 0.1–0.15 (chart-read)."
+      }
+     ],
+     "words": 36,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "caveats",
+   "heading": "Caveats",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "caveats-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Announcement surprises may also reveal the Fed's private information about the economy, not only its policy choice."
+      }
+     ],
+     "words": 18,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "in-econ-402a-l9-working-with-macroeconomic-data",
+   "heading": "In Econ 402A L9 Working with Macroeconomic Data",
+   "role": "paper-in-lesson",
+   "steps": [
+    {
+     "id": "in-econ-402a-l9-working-with-macroeconomic-data-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Example 3 of monetary VARs: high-frequency data as the fix when financial variables make recursive ordering hard to justify."
+      }
+     ],
+     "words": 19,
+     "symbols": []
+    }
+   ],
+   "lesson": "econ-402a-l9-working-with-macroeconomic-data"
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Structural Shock Identification](note:structural-shock-identification) · [Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls) · [Vector Autoregression](note:vector-autoregression)\n- Paper: [Ramey 2016 - Macroeconomic Shocks and Their Propagation](note:ramey-2016-macroeconomic-shocks-and-their-propagation)"
+      }
+     ],
+     "words": 20,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}
