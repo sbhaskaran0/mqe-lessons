@@ -1,0 +1,261 @@
+{
+ "slug": "identification-in-simultaneous-equations",
+ "notation": [
+  {
+   "tex": "$M$",
+   "meaning": "Number of equations (= endogenous variables) in the system",
+   "kind": "Index",
+   "typical": "2 for supply and demand",
+   "keys": [
+    "M"
+   ]
+  },
+  {
+   "tex": "$M_1$",
+   "meaning": "Endogenous variables in the equation, including its dependent variable",
+   "kind": "Index",
+   "typical": "2",
+   "keys": [
+    "M"
+   ]
+  },
+  {
+   "tex": "$K$, $K_1$",
+   "meaning": "Exogenous variables in the system and in the equation",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "K"
+   ]
+  },
+  {
+   "tex": "$Q$, $P$",
+   "meaning": "Quantity and price",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "Q",
+    "P"
+   ]
+  },
+  {
+   "tex": "$X$",
+   "meaning": "Income",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "X"
+   ]
+  },
+  {
+   "tex": "$\\alpha_k$, $\\beta_k$",
+   "meaning": "Demand and supply coefficients",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "alpha",
+    "beta"
+   ]
+  },
+  {
+   "tex": "$e_d$, $e_s$",
+   "meaning": "Demand and supply errors",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "e"
+   ]
+  },
+  {
+   "tex": "$\\pi_{11}$, $\\pi_{21}$",
+   "meaning": "Reduced-form coefficients of $X$ in the price and quantity equations",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "pi"
+   ]
+  },
+  {
+   "tex": "$NI$, $S$, $T$",
+   "meaning": "Non-labor income, labor income and total income ($T = NI + S$) in the example",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "~NI",
+    "S",
+    "T"
+   ],
+   "from": "full-rank-and-identification"
+  },
+  {
+   "tex": "$F$",
+   "meaning": "First-stage $F$ statistic for $\\theta_1 = \\cdots = \\theta_L = 0$",
+   "kind": "Statistic",
+   "typical": "55.4 in the example",
+   "keys": [
+    "F"
+   ],
+   "from": "weak-instruments"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "To trace out a curve you need something that moves the other curve while leaving yours alone. If income shifts demand but not supply, the market's crossing points slide along the supply curve, and supply can be estimated. If nothing shifts supply alone, the demand curve is never traced and cannot be estimated, however much data you have. Identification is this bookkeeping: an equation can be estimated only if enough variables that appear elsewhere in the system are left out of it. Each left-out outside variable is an instrument for one of the jointly determined variables on its right-hand side."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It decides, before any data are touched, which equations of a model can be estimated at all and by what method.",
+       "folded": false
+      }
+     ],
+     "words": 124,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Order condition (necessary).** In a system of $M$ simultaneous equations, an equation is identified only if at least $M - 1$ variables in the system are excluded from it. Equivalently, the number of excluded exogenous variables must be at least the number of endogenous variables on its right-hand side."
+      },
+      {
+       "t": "table",
+       "md": "| Exclusions | Status | Estimation |\n| --- | --- | --- |\n| Fewer than $M - 1$ | **Unidentified** | Cannot be estimated consistently |\n| Exactly $M - 1$ | **Exactly (just) identified** | IV/2SLS, unique; equals indirect least squares |\n| More than $M - 1$ | **Overidentified** | 2SLS; surplus restrictions testable ([Overidentifying Restrictions Test](note:overidentifying-restrictions-test)) |"
+      }
+     ],
+     "words": 79,
+     "symbols": [
+      "$M$",
+      "$M_1$"
+     ]
+    },
+    {
+     "id": "definition-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Rank condition (necessary and sufficient).** The excluded exogenous variables must move the included right-hand endogenous variables in linearly independent ways: the matrix of their reduced-form coefficients must have rank equal to the number of included right-hand endogenous variables, $M_1 - 1$ when the equation contains $M_1$ endogenous variables in all. In practice, if the order condition holds and the excluded variables actually enter the reduced forms (are not perfectly collinear, and their coefficients are not zero), the rank condition holds."
+      },
+      {
+       "t": "math",
+       "tex": "\\#\\{\\text{excluded exogenous}\\} \\;\\ge\\; \\#\\{\\text{right-hand endogenous}\\} = M_1 - 1"
+      }
+     ],
+     "words": 76,
+     "symbols": [
+      "$M$",
+      "$M_1$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "example-supply-and-demand",
+   "heading": "Example: supply and demand",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "example-supply-and-demand-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Demand $Q = \\alpha_1 + \\alpha_2P + \\alpha_3X + e_d$; supply $Q = \\beta_1 + \\beta_2P + e_s$. $M = 2$, so each equation must exclude at least one variable."
+      },
+      {
+       "t": "prose",
+       "md": "- **Demand** contains $Q$, $P$, $X$: it excludes nothing in the system. **Not identified.**\n- **Supply** contains $Q$, $P$: it excludes $X$. **Exactly identified**: $\\beta_2 = \\pi_{21}/\\pi_{11}$, or 2SLS with $X$ as the instrument for $P$."
+      },
+      {
+       "t": "prose",
+       "md": "The truffle model, with demand shifters $PS$, $DI$ and supply shifter $PF$: demand excludes $PF$ (one exclusion, exactly identified) and supply excludes $PS$ and $DI$ (two, overidentified)."
+      }
+     ],
+     "words": 57,
+     "symbols": [
+      "$M$",
+      "$M_1$",
+      "$Q$, $P$",
+      "$X$",
+      "$\\alpha_k$, $\\beta_k$",
+      "$e_d$, $e_s$",
+      "$\\pi_{11}$, $\\pi_{21}$",
+      "$NI$, $S$, $T$",
+      "$F$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "when-it-fails-in-practice",
+   "heading": "When it fails in practice",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "when-it-fails-in-practice-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The order condition counts variables, but the rank condition needs them to matter. In the Fulton fish market, supply excludes the weekday dummies, which satisfies the order condition, but the dummies barely move price, so the supply equation is identified only on paper and its 2SLS estimate is unreliable ([Weak Instruments](note:weak-instruments))."
+      }
+     ],
+     "words": 51,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Counting excluded *endogenous* variables as instruments. Only excluded exogenous (or predetermined) variables can instrument.\n- Forgetting the rank condition: an excluded variable whose reduced-form coefficient is zero identifies nothing.\n- Thinking an unidentified equation becomes identified with more data."
+      }
+     ],
+     "words": 40,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Simultaneous Equations Model](note:simultaneous-equations-model) · [Full Rank and Identification](note:full-rank-and-identification) · [Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls) · [Overidentifying Restrictions Test](note:overidentifying-restrictions-test) · [Weak Instruments](note:weak-instruments)"
+      }
+     ],
+     "words": 17,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

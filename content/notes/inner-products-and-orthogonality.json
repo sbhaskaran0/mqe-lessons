@@ -291,14 +291,25 @@
    "from": "instrumental-variables-and-2sls"
   },
   {
-   "tex": "$b_2$",
-   "meaning": "OLS slope",
+   "tex": "$\\hat\\beta_1$, $\\hat\\beta_2$, $b_2$",
+   "meaning": "IV estimates and the OLS slope",
    "kind": "Estimator",
    "typical": "—",
    "keys": [
+    "hat(beta)",
     "b"
    ],
-   "from": "gauss-markov-theorem"
+   "from": "instrumental-variables-and-2sls"
+  },
+  {
+   "tex": "$r_{zx}$",
+   "meaning": "Sample correlation of $z$ and $x$",
+   "kind": "Statistic",
+   "typical": "0.39",
+   "keys": [
+    "r"
+   ],
+   "from": "instrumental-variables-and-2sls"
   },
   {
    "tex": "$w_i$",
@@ -383,7 +394,7 @@
       "$\\theta$",
       "$V$, $V^\\perp$",
       "$a$",
-      "$b_2$"
+      "$\\hat\\beta_1$, $\\hat\\beta_2$, $b_2$"
      ]
     }
    ]
@@ -462,7 +473,7 @@
       "$\\theta$",
       "$n$, $K$",
       "$a$",
-      "$b_2$"
+      "$\\hat\\beta_1$, $\\hat\\beta_2$, $b_2$"
      ]
     }
    ]
@@ -801,7 +812,8 @@
       "$\\mathbf{y}$, $\\hat{\\mathbf{y}}$",
       "$n$, $K$",
       "$\\mathbf{1}$, $\\bar{y}$",
-      "$\\mathbf{x}$"
+      "$\\mathbf{x}$",
+      "$r_{zx}$"
      ]
     }
    ]
@@ -937,7 +949,7 @@
       "$\\mathbf{y}$, $\\hat{\\mathbf{y}}$",
       "$n$, $K$",
       "$\\mathbf{x}$",
-      "$b_2$"
+      "$\\hat\\beta_1$, $\\hat\\beta_2$, $b_2$"
      ]
     },
     {
@@ -982,7 +994,7 @@
       "$\\mathbf{y}$, $\\hat{\\mathbf{y}}$",
       "$n$, $K$",
       "$\\mathbf{x}$",
-      "$b_2$"
+      "$\\hat\\beta_1$, $\\hat\\beta_2$, $b_2$"
      ]
     },
     {
@@ -1095,7 +1107,8 @@
       "$\\lVert\\mathbf{a}\\rVert$",
       "$\\Omega$",
       "$\\mathbf{y}$, $\\hat{\\mathbf{y}}$",
-      "$\\mathbf{x}$"
+      "$\\mathbf{x}$",
+      "$r_{zx}$"
      ]
     }
    ]

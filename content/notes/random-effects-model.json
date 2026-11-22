@@ -1,0 +1,446 @@
+{
+ "slug": "random-effects-model",
+ "notation": [
+  {
+   "tex": "$y_{it}$, $x_{kit}$",
+   "meaning": "Outcome and regressors",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "y",
+    "x"
+   ]
+  },
+  {
+   "tex": "$\\beta_{1i}$",
+   "meaning": "Unit $i$'s intercept",
+   "kind": "Parameter (random)",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$\\bar\\beta_1$",
+   "meaning": "Population mean intercept",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "bar(beta)"
+   ]
+  },
+  {
+   "tex": "$\\beta_2$, $\\beta_3$",
+   "meaning": "Slopes",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$u_i$",
+   "meaning": "Random individual effect",
+   "kind": "Exogenous (random)",
+   "typical": "—",
+   "keys": [
+    "u"
+   ]
+  },
+  {
+   "tex": "$e_{it}$",
+   "meaning": "Idiosyncratic error",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "e"
+   ]
+  },
+  {
+   "tex": "$v_{it}$",
+   "meaning": "Combined error $u_i + e_{it}$",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "v"
+   ]
+  },
+  {
+   "tex": "$\\sigma_u^2$, $\\sigma_e^2$",
+   "meaning": "Variances of $u_i$ and $e_{it}$",
+   "kind": "Parameter",
+   "typical": "0.1083, 0.0381",
+   "keys": [
+    "sigma"
+   ]
+  },
+  {
+   "tex": "$\\rho$",
+   "meaning": "Correlation of a unit's errors in two periods",
+   "kind": "Parameter",
+   "typical": "0.74",
+   "keys": [
+    "rho"
+   ]
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "GLS demeaning weight (the share of the unit mean removed)",
+   "kind": "Parameter",
+   "typical": "0.7437",
+   "keys": [
+    "alpha"
+   ]
+  },
+  {
+   "tex": "$\\bar y_i$, $\\bar x_{ki}$",
+   "meaning": "Unit means over time",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "bar(y)",
+    "bar(x)"
+   ]
+  },
+  {
+   "tex": "$N$, $T$",
+   "meaning": "Units and periods",
+   "kind": "Index",
+   "typical": "716, 5",
+   "keys": [
+    "N",
+    "T"
+   ]
+  },
+  {
+   "tex": "$\\chi^2_{(1)}$",
+   "meaning": "Chi-square distribution with one degree of freedom",
+   "kind": "Distribution",
+   "typical": "—",
+   "keys": [
+    "chi"
+   ]
+  },
+  {
+   "tex": "$LM$",
+   "meaning": "Breusch-Pagan statistic for $\\sigma_u^2 = 0$",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "~LM"
+   ]
+  },
+  {
+   "tex": "$i$, $t$, $s$",
+   "meaning": "Unit and period indices",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "i",
+    "t",
+    "s"
+   ],
+   "from": "panel-data"
+  },
+  {
+   "tex": "$\\sigma_i^2$, $\\widehat{\\sigma}_i^2$",
+   "meaning": "Variance of $e_i$ and its estimate",
+   "kind": "Parameter / estimator",
+   "typical": "—",
+   "keys": [
+    "sigma",
+    "hat(sigma)"
+   ],
+   "from": "generalized-least-squares"
+  },
+  {
+   "tex": "$y_i^{*}$, $x_{i1}^{*}$, $x_{i2}^{*}$, $e_i^{*}$",
+   "meaning": "Transformed outcome, regressors and error",
+   "kind": "Computed",
+   "typical": "—",
+   "keys": [
+    "y*",
+    "x*",
+    "e*"
+   ],
+   "from": "generalized-least-squares"
+  },
+  {
+   "tex": "$\\widehat{e}_i$",
+   "meaning": "OLS residual",
+   "kind": "Computed",
+   "typical": "—",
+   "keys": [
+    "hat(e)"
+   ],
+   "from": "generalized-least-squares"
+  },
+  {
+   "tex": "$H$",
+   "meaning": "Hausman statistic",
+   "kind": "Statistic",
+   "typical": "36.2 in the wage example",
+   "keys": [
+    "H"
+   ],
+   "from": "hausman-test"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Each woman in a wage survey has her own baseline: some earn more than others year after year for reasons no variable captures. Fixed effects estimates a separate baseline for every woman. Random effects takes a different view: the women were drawn at random from a population, so their baselines are random draws too, like one more error term that sticks with a person across all her years. That shared piece makes a person's errors correlated over time. Random effects uses that structure to weight the data efficiently, and it can still estimate the effect of things that never change, like education. The catch is a strong assumption: the personal baseline must be unrelated to the explanatory variables."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is more precise than fixed effects and keeps time-invariant variables, but it is inconsistent if the individual effect is correlated with the regressors, which the Hausman test checks.",
+       "folded": false
+      }
+     ],
+     "words": 150,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Start from the unit-intercept model $y_{it} = \\beta_{1i} + \\beta_2x_{2it} + \\beta_3x_{3it} + e_{it}$ and let"
+      },
+      {
+       "t": "math",
+       "tex": "\\beta_{1i} = \\bar\\beta_1 + u_i, \\qquad E(u_i) = 0,\\ \\mathrm{Cov}(u_i, u_j) = 0,\\ \\mathrm{Var}(u_i) = \\sigma_u^2 ."
+      },
+      {
+       "t": "prose",
+       "md": "Then"
+      },
+      {
+       "t": "math",
+       "tex": "y_{it} = \\bar\\beta_1 + \\beta_2x_{2it} + \\beta_3x_{3it} + v_{it}, \\qquad v_{it} = u_i + e_{it},"
+      },
+      {
+       "t": "prose",
+       "md": "an **error components** model. Its assumptions: $E(v_{it}) = 0$; $\\mathrm{Var}(v_{it}) = \\sigma_u^2 + \\sigma_e^2$; $\\mathrm{Cov}(v_{it}, v_{is}) = \\sigma_u^2$ for $t \\ne s$; $\\mathrm{Cov}(v_{it}, v_{js}) = 0$ for $i \\ne j$; and both $e_{it}$ and $u_i$ uncorrelated with the regressors."
+      }
+     ],
+     "words": 23,
+     "symbols": [
+      "$y_{it}$, $x_{kit}$",
+      "$\\beta_{1i}$",
+      "$\\bar\\beta_1$",
+      "$\\beta_2$, $\\beta_3$",
+      "$u_i$",
+      "$e_{it}$",
+      "$v_{it}$",
+      "$\\sigma_u^2$, $\\sigma_e^2$",
+      "$i$, $t$, $s$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "the-error-correlations",
+   "heading": "The error correlations",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-error-correlations-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Same period, different units: $\\mathrm{Cov}(v_{it}, v_{jt}) = E(u_iu_j) + E(u_ie_{jt}) + E(e_{it}u_j) + E(e_{it}e_{jt}) = 0$.\n- Same unit, different periods: $\\mathrm{Cov}(v_{it}, v_{is}) = E(u_i^2) = \\sigma_u^2$.\n- Different units and periods: 0."
+      },
+      {
+       "t": "prose",
+       "md": "So"
+      },
+      {
+       "t": "math",
+       "tex": "\\rho = \\mathrm{Corr}(v_{it}, v_{is}) = \\frac{\\sigma_u^2}{\\sigma_u^2 + \\sigma_e^2}, \\quad t \\ne s ,"
+      },
+      {
+       "t": "prose",
+       "md": "the share of the error variance due to individual heterogeneity. Unlike AR(1) errors, the correlation does not decline as the periods get further apart. For one unit the covariance matrix is $\\sigma_e^2\\mathbf{I}_T + \\sigma_u^2\\mathbf{J}_T$ ($\\mathbf{J}_T$ a matrix of ones): OLS is consistent but inefficient, and its usual standard errors are wrong."
+      }
+     ],
+     "words": 65,
+     "symbols": [
+      "$u_i$",
+      "$e_{it}$",
+      "$v_{it}$",
+      "$\\sigma_u^2$, $\\sigma_e^2$",
+      "$\\rho$",
+      "$i$, $t$, $s$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "gls-partial-demeaning",
+   "heading": "GLS: partial demeaning",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "gls-partial-demeaning-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Apply OLS to"
+      },
+      {
+       "t": "math",
+       "tex": "y_{it}^{*} = y_{it} - \\alpha\\bar y_i,\\quad x_{1it}^{*} = 1 - \\alpha,\\quad x_{kit}^{*} = x_{kit} - \\alpha\\bar x_{ki},\\qquad \\alpha = 1 - \\frac{\\sigma_e}{\\sqrt{T\\sigma_u^2 + \\sigma_e^2}} ."
+      },
+      {
+       "t": "prose",
+       "md": "- $\\alpha = 0$ ($\\sigma_u^2 = 0$): random effects = pooled OLS.\n- $\\alpha \\to 1$ ($T\\sigma_u^2$ large relative to $\\sigma_e^2$): random effects → fixed effects (full demeaning).\n- In between: a matrix-weighted average of the within and between estimators."
+      },
+      {
+       "t": "prose",
+       "md": "Feasible GLS estimates $\\sigma_e^2$ from the fixed-effects residuals and $\\sigma_u^2$ from the pooled residuals minus $\\hat\\sigma_e^2$."
+      },
+      {
+       "t": "prose",
+       "md": "**Example.** Wage panel, $T = 5$, $\\hat\\sigma_e = 0.1951$, $\\hat\\sigma_u^2 = 0.1083$:"
+      },
+      {
+       "t": "math",
+       "tex": "\\hat\\alpha = 1 - \\frac{0.1951}{\\sqrt{5 \\times 0.1083 + 0.0381}} = 0.7437 ,"
+      },
+      {
+       "t": "prose",
+       "md": "and $\\hat\\rho = 0.1083/(0.1083 + 0.0381) = 0.74$."
+      }
+     ],
+     "words": 47,
+     "symbols": [
+      "$y_{it}$, $x_{kit}$",
+      "$\\sigma_u^2$, $\\sigma_e^2$",
+      "$\\alpha$",
+      "$\\bar y_i$, $\\bar x_{ki}$",
+      "$N$, $T$",
+      "$\\sigma_i^2$, $\\widehat{\\sigma}_i^2$",
+      "$y_i^{*}$, $x_{i1}^{*}$, $x_{i2}^{*}$, $e_i^{*}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "testing-for-random-effects",
+   "heading": "Testing for random effects",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "testing-for-random-effects-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$H_0\\!: \\sigma_u^2 = 0$ against $H_1\\!: \\sigma_u^2 > 0$, from the pooled OLS residuals of a balanced panel:"
+      },
+      {
+       "t": "math",
+       "tex": "LM = \\sqrt{\\frac{NT}{2(T-1)}}\\left(\\frac{\\sum_i\\left(\\sum_t \\hat e_{it}\\right)^2}{\\sum_i\\sum_t \\hat e_{it}^2} - 1\\right) \\;\\sim\\; N(0, 1),"
+      },
+      {
+       "t": "prose",
+       "md": "a one-sided test (reject at 5% if $LM > 1.645$). Its square is the Breusch-Pagan $\\chi^2_{(1)}$ version (reject if above 3.84 for a two-sided alternative). If the residuals of a unit tend to share a sign, $\\left(\\sum_t \\hat e_{it}\\right)^2$ is large relative to $\\sum_t \\hat e_{it}^2$ and $LM$ is positive."
+      }
+     ],
+     "words": 50,
+     "symbols": [
+      "$\\sigma_u^2$, $\\sigma_e^2$",
+      "$N$, $T$",
+      "$\\chi^2_{(1)}$",
+      "$LM$",
+      "$\\widehat{e}_i$",
+      "$H$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "random-or-fixed-effects",
+   "heading": "Random or fixed effects?",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "random-or-fixed-effects-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| | Random effects | Fixed effects |\n| --- | --- | --- |\n| Treats unit effects as | Random draws | Parameters |\n| Requires $\\mathrm{Cov}(u_i, x_{kit}) = 0$ | Yes | No |\n| Time-invariant regressors | Estimated | Dropped |\n| Efficiency | GLS, more efficient | Less efficient |"
+      },
+      {
+       "t": "prose",
+       "md": "The [Hausman Test](note:hausman-test) compares them; if $u_i$ is correlated with a regressor, random effects is inconsistent and the [Hausman-Taylor Estimator](note:hausman-taylor-estimator) or fixed effects is needed."
+      }
+     ],
+     "words": 51,
+     "symbols": [
+      "$y_{it}$, $x_{kit}$",
+      "$u_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Calling $\\alpha$ \"the fraction of the variance due to individual heterogeneity\". That is $\\rho$; $\\alpha$ is the demeaning weight, which also depends on $T$.\n- Using random effects because the units \"were randomly sampled\" while ignoring correlation between $u_i$ and the regressors."
+      }
+     ],
+     "words": 38,
+     "symbols": [
+      "$u_i$",
+      "$\\rho$",
+      "$\\alpha$",
+      "$N$, $T$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Panel Data](note:panel-data) · [Generalized Least Squares](note:generalized-least-squares) · [Fixed Effects Regression](note:fixed-effects-regression) · [Hausman Test](note:hausman-test) · [Hausman-Taylor Estimator](note:hausman-taylor-estimator) · [Clustered Standard Errors](note:clustered-standard-errors)"
+      }
+     ],
+     "words": 16,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

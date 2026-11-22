@@ -1,0 +1,474 @@
+{
+ "slug": "econ-430-l18-reduced-form-equations",
+ "notation": [
+  {
+   "tex": "$Q$, $P$",
+   "meaning": "Equilibrium quantity and price",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "Q",
+    "P"
+   ],
+   "from": "simultaneous-equations-model"
+  },
+  {
+   "tex": "$X$",
+   "meaning": "Demand shifter (income)",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "X"
+   ],
+   "from": "simultaneous-equations-model"
+  },
+  {
+   "tex": "$\\alpha_1$, $\\alpha_2$, $\\alpha_3$",
+   "meaning": "Demand intercept, price slope ($< 0$), income effect",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "alpha"
+   ],
+   "from": "simultaneous-equations-model"
+  },
+  {
+   "tex": "$\\beta_1$, $\\beta_2$",
+   "meaning": "Supply intercept and price slope ($> 0$)",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ],
+   "from": "simultaneous-equations-model"
+  },
+  {
+   "tex": "$e_d$, $e_s$",
+   "meaning": "Demand and supply errors",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "e"
+   ],
+   "from": "simultaneous-equations-model"
+  },
+  {
+   "tex": "$\\pi_{10}$, $\\pi_{11}$",
+   "meaning": "Reduced-form intercept and slope for $P$",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "pi"
+   ],
+   "from": "simultaneous-equations-model"
+  },
+  {
+   "tex": "$v_1$, $v_2$",
+   "meaning": "Reduced-form errors",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "v"
+   ],
+   "from": "simultaneous-equations-model"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Solving the supply and demand system for price and quantity expresses each in terms of income and the errors alone. These reduced-form equations have only exogenous variables on the right, so least squares estimates them consistently, and they are what is needed to predict the effect of an income change on the market. Their coefficients are combinations of the structural ones: the ratio of the two income effects recovers the supply slope, but nothing recovers the demand slope.**"
+      },
+      {
+       "t": "callout",
+       "kind": "info",
+       "title": "Source",
+       "md": "Section 3 of `Regression_Lecture4.ipynb` and sections 3.1 and 3.2 of its mathematical appendix (see [Econ 430 L17 Simultaneous Equations and Supply and Demand](note:econ-430-l17-simultaneous-equations-and-supply-and-demand) for how the notebook maps to lectures).",
+       "folded": false
+      }
+     ],
+     "words": 113,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "1-deriving-the-reduced-form",
+   "heading": "1. Deriving the reduced form",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-deriving-the-reduced-form-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "From [Econ 430 L17 Simultaneous Equations and Supply and Demand](note:econ-430-l17-simultaneous-equations-and-supply-and-demand), the equilibrium price is"
+      },
+      {
+       "t": "math",
+       "tex": "P = \\underbrace{\\frac{\\beta_1 - \\alpha_1}{\\alpha_2 - \\beta_2}}_{\\pi_{10}} + \\underbrace{\\frac{\\alpha_3}{\\beta_2 - \\alpha_2}}_{\\pi_{11}}X + \\underbrace{\\frac{e_s - e_d}{\\alpha_2 - \\beta_2}}_{v_1} ."
+      },
+      {
+       "t": "prose",
+       "md": "Substituting it into the supply equation and simplifying gives the quantity equation"
+      },
+      {
+       "t": "math",
+       "tex": "Q = \\pi_{20} + \\pi_{21}X + v_2, \\qquad \\pi_{21} = \\frac{\\beta_2\\alpha_3}{\\beta_2 - \\alpha_2}, \\quad v_2 = \\frac{\\alpha_2e_s - \\beta_2e_d}{\\alpha_2 - \\beta_2} ,"
+      },
+      {
+       "t": "prose",
+       "md": "with $\\pi_{20} = (\\beta_1\\alpha_2 - \\beta_2\\alpha_1)/(\\alpha_2 - \\beta_2)$ ([Simultaneous Equations Model](note:simultaneous-equations-model)). The reduced-form errors have mean zero and are uncorrelated with the exogenous $X$, so **OLS on each reduced-form equation is consistent**. The reduced form answers \"what happens to equilibrium price and quantity if income rises?\" directly: $\\partial P/\\partial X = \\pi_{11} > 0$ and $\\partial Q/\\partial X = \\pi_{21} > 0$ when income raises demand ($\\alpha_3 > 0$)."
+      }
+     ],
+     "words": 70,
+     "symbols": [
+      "$Q$, $P$",
+      "$X$",
+      "$\\alpha_1$, $\\alpha_2$, $\\alpha_3$",
+      "$\\beta_1$, $\\beta_2$",
+      "$e_d$, $e_s$",
+      "$\\pi_{10}$, $\\pi_{11}$",
+      "$v_1$, $v_2$"
+     ]
+    },
+    {
+     "id": "1-deriving-the-reduced-form-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "In the reduced form, why is $v_1 = (e_s - e_d)/(\\alpha_2 - \\beta_2)$ uncorrelated with income $X$?",
+       "options": [
+        {
+         "md": "Because OLS residuals are always uncorrelated with the regressors",
+         "correct": false,
+         "feedback": "That is a property of residuals in the sample; consistency needs the *population* error to be uncorrelated with $X$."
+        },
+        {
+         "md": "Because $v_1$ is a combination of $e_d$ and $e_s$ only, and $X$ is exogenous, uncorrelated with both",
+         "correct": true
+        },
+        {
+         "md": "Because the errors $e_d$ and $e_s$ are uncorrelated with each other",
+         "correct": false,
+         "feedback": "$\\mathrm{Cov}(e_d, e_s) = 0$ matters for the size of the OLS bias, not for $\\mathrm{Cov}(X, v_1)$."
+        },
+        {
+         "md": "It is not; that is why reduced forms need instruments",
+         "correct": false,
+         "feedback": "Reduced forms contain only exogenous regressors, so OLS is consistent for them."
+        }
+       ],
+       "why": "Every endogenous variable has been solved out, so the right-hand side of a reduced-form equation has only exogenous variables, and the error is a mix of structural errors that those variables are uncorrelated with.",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 50,
+     "symbols": [
+      "$X$",
+      "$\\alpha_1$, $\\alpha_2$, $\\alpha_3$",
+      "$\\beta_1$, $\\beta_2$",
+      "$e_d$, $e_s$",
+      "$v_1$, $v_2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "2-from-reduced-form-to-structural-parameters",
+   "heading": "2. From reduced-form to structural parameters",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-from-reduced-form-to-structural-parameters-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Dividing the two income coefficients cancels the unknowns $\\alpha_2$ and $\\alpha_3$:"
+      }
+     ],
+     "words": 9,
+     "symbols": [
+      "$\\alpha_1$, $\\alpha_2$, $\\alpha_3$"
+     ]
+    },
+    {
+     "id": "2-from-reduced-form-to-structural-parameters-2",
+     "blocks": [
+      {
+       "t": "derive",
+       "title": "Recover the supply slope from the reduced-form coefficients",
+       "goal": "The reduced-form income effects are $\\pi_{11} = \\alpha_3/(\\beta_2 - \\alpha_2)$ for price and $\\pi_{21} = \\beta_2\\alpha_3/(\\beta_2 - \\alpha_2)$ for quantity. Writing $R$ for the ratio $\\pi_{21}/\\pi_{11}$, express $R$ in structural parameters. This is how a structural slope is recovered from coefficients that OLS can estimate.",
+       "objectives": [
+        2
+       ],
+       "symbols": [
+        "\\alpha_2 \\in (-2, -0.2)",
+        "\\alpha_3 \\in (0.5, 3)",
+        "\\beta_2 \\in (0.2, 2)"
+       ],
+       "inherited": [
+        {
+         "tex": "$\\alpha_1$, $\\alpha_2$, $\\alpha_3$",
+         "typical": "—",
+         "from": "simultaneous-equations-model"
+        },
+        {
+         "tex": "$\\beta_1$, $\\beta_2$",
+         "typical": "—",
+         "from": "simultaneous-equations-model"
+        },
+        {
+         "tex": "$\\pi_{10}$, $\\pi_{11}$",
+         "typical": "—",
+         "from": "simultaneous-equations-model"
+        }
+       ],
+       "unknowns": [
+        "$R$",
+        "$\\pi_{11}$",
+        "$\\pi_{21}$"
+       ],
+       "dims": [],
+       "data": [],
+       "matrices": [],
+       "define": [],
+       "given": [
+        "\\pi_{11} = \\frac{\\alpha_3}{\\beta_2 - \\alpha_2}",
+        "\\pi_{21} = \\frac{\\beta_2\\alpha_3}{\\beta_2 - \\alpha_2}",
+        "R = \\frac{\\pi_{21}}{\\pi_{11}}"
+       ],
+       "steps": [
+        {
+         "md": "Divide: the common factor $\\alpha_3/(\\beta_2 - \\alpha_2)$ cancels: $R = \\beta_2$",
+         "tex": "R = \\beta_2"
+        }
+       ],
+       "accept": [],
+       "reject": [
+        {
+         "tex": "R = \\alpha_2",
+         "md": "the demand slope does not survive the division; what survives is the factor that multiplies quantity's income effect, $\\beta_2$"
+        },
+        {
+         "tex": "R = \\frac{\\beta_2}{\\beta_2 - \\alpha_2}",
+         "md": "both coefficients share the denominator $\\beta_2 - \\alpha_2$, so it cancels too"
+        },
+        {
+         "tex": "R = \\beta_2\\alpha_3",
+         "md": "$\\alpha_3$ appears in both numerator and denominator"
+        }
+       ]
+      }
+     ],
+     "words": 13,
+     "symbols": [
+      "$\\alpha_1$, $\\alpha_2$, $\\alpha_3$",
+      "$\\beta_1$, $\\beta_2$",
+      "$\\pi_{10}$, $\\pi_{11}$"
+     ]
+    },
+    {
+     "id": "2-from-reduced-form-to-structural-parameters-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The intuition: income shifts demand only, so as income varies the equilibrium slides along the **supply** curve; the ratio of the quantity change to the price change is the supply slope. Estimating $\\pi_{11}$ and $\\pi_{21}$ by OLS and taking the ratio is *indirect least squares*."
+      },
+      {
+       "t": "interactive",
+       "widget": "market-equilibrium-and-identification",
+       "state": {
+        "X": 4,
+        "a2": -1,
+        "b2": 1
+       },
+       "lock": [
+        "a2",
+        "b2"
+       ],
+       "prompt": "Raise income and watch where the equilibrium goes",
+       "predict": {
+        "hide": [
+         "eq",
+         "P_out",
+         "Q_out"
+        ],
+        "ask": "Income has risen from 0 to 4, shifting demand right (dashed: the old demand curve, with the old equilibrium at $Q = 5$, $P = 5$). Along which curve does the new equilibrium lie relative to the old one?",
+        "options": [
+         "Along the supply curve: price and quantity both rise, to 7 and 7",
+         "Along the old demand curve",
+         "Price rises but quantity falls"
+        ],
+        "answer": 0,
+        "feedback": [
+         null,
+         "The old demand curve no longer applies at the new income; only supply, which income does not affect, links the two equilibria.",
+         "That would be a supply shift along demand; a demand shift moves price and quantity in the same direction along an upward supply curve."
+        ]
+       },
+       "objectives": [
+        2
+       ]
+      },
+      {
+       "t": "prose",
+       "md": "The demand parameters cannot be recovered: $\\pi_{11} = \\alpha_3/(\\beta_2 - \\alpha_2)$ gives $\\alpha_3 = \\pi_{11}(\\beta_2 - \\alpha_2)$, one equation in the two unknowns $\\alpha_2$ and $\\alpha_3$. The demand equation is **not identified** ([Identification in Simultaneous Equations](note:identification-in-simultaneous-equations))."
+      }
+     ],
+     "words": 75,
+     "symbols": [
+      "$Q$, $P$",
+      "$X$",
+      "$\\alpha_1$, $\\alpha_2$, $\\alpha_3$",
+      "$\\beta_1$, $\\beta_2$",
+      "$\\pi_{10}$, $\\pi_{11}$"
+     ]
+    },
+    {
+     "id": "2-from-reduced-form-to-structural-parameters-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "Reduced-form estimates for a market give $\\hat\\pi_{11} = 2$ (price rises 2 per unit of income) and $\\hat\\pi_{21} = 1.5$ (quantity rises 1.5). What is the indirect least squares estimate of the supply slope?",
+       "answer": 0.75,
+       "tol": 0.001,
+       "wrong": [
+        {
+         "answer": 1.333,
+         "tol": 0.002,
+         "md": "that is $\\pi_{11}/\\pi_{21}$, upside down: the slope is the change in quantity per unit change in price"
+        },
+        {
+         "answer": 3.0,
+         "tol": 0.0,
+         "md": "that multiplies the two coefficients"
+        }
+       ],
+       "why": "$\\beta_2 = \\pi_{21}/\\pi_{11} = 1.5/2 = 0.75$: an income-driven move along the supply curve raises quantity by 1.5 while price rises by 2.",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 29,
+     "symbols": [
+      "$\\beta_1$, $\\beta_2$",
+      "$\\pi_{10}$, $\\pi_{11}$"
+     ]
+    },
+    {
+     "id": "2-from-reduced-form-to-structural-parameters-5",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Using the same reduced form, what can be said about the demand slope $\\alpha_2$?",
+       "options": [
+        {
+         "md": "$\\alpha_2 = \\pi_{11}/\\pi_{21}$",
+         "correct": false,
+         "feedback": "That is just the reciprocal of the supply slope; it has nothing to do with demand."
+        },
+        {
+         "md": "$\\alpha_2$ is the OLS slope of $Q$ on $P$",
+         "correct": false,
+         "feedback": "That slope mixes both curves and is inconsistent."
+        },
+        {
+         "md": "Nothing: only a variable that shifts supply but not demand could trace out the demand curve, and the model has none",
+         "correct": true
+        },
+        {
+         "md": "$\\alpha_2 = -\\beta_2$ by symmetry",
+         "correct": false,
+         "feedback": "Nothing in the model ties the two slopes together."
+        }
+       ],
+       "why": "The one exogenous variable shifts demand, which traces supply. Two reduced-form coefficients cannot pin down the three demand parameters that remain ($\\alpha_2$, $\\alpha_3$ and, with them, $\\alpha_1$).",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 42,
+     "symbols": [
+      "$Q$, $P$",
+      "$\\alpha_1$, $\\alpha_2$, $\\alpha_3$",
+      "$\\beta_1$, $\\beta_2$",
+      "$\\pi_{10}$, $\\pi_{11}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "3-the-notebooks-example",
+   "heading": "3. The notebook's example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "3-the-notebooks-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The notebook estimates reduced-form regressions on the Kmenta market data (per-capita food consumption and food price, with income among the exogenous variables). The income coefficient is 0.2449 in the reduced form for consumption and 0.2838 in the reduced form for price: higher income raises both the quantity consumed and the price, the pattern of a demand shift along an upward-sloping supply curve."
+      }
+     ],
+     "words": 64,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Derive the reduced form for price and quantity from a two-equation market.\n2. Explain why OLS estimates reduced forms consistently and how they are used for prediction.\n3. Recover a structural parameter from reduced-form coefficients (indirect least squares), and show when one cannot be recovered."
+      }
+     ],
+     "words": 46,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "simultaneous-equations-model",
+        "identification-in-simultaneous-equations"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

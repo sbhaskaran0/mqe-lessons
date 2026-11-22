@@ -1,0 +1,342 @@
+{
+ "slug": "simultaneous-equations-model",
+ "notation": [
+  {
+   "tex": "$Q$, $P$",
+   "meaning": "Equilibrium quantity and price",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "Q",
+    "P"
+   ]
+  },
+  {
+   "tex": "$X$",
+   "meaning": "Demand shifter (income)",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "X"
+   ]
+  },
+  {
+   "tex": "$\\alpha_1$, $\\alpha_2$, $\\alpha_3$",
+   "meaning": "Demand intercept, price slope ($< 0$), income effect",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "alpha"
+   ]
+  },
+  {
+   "tex": "$\\beta_1$, $\\beta_2$",
+   "meaning": "Supply intercept and price slope ($> 0$)",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$e_d$, $e_s$",
+   "meaning": "Demand and supply errors",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "e"
+   ]
+  },
+  {
+   "tex": "$\\sigma_d^2$, $\\sigma_s^2$",
+   "meaning": "Variances of $e_d$ and $e_s$",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "sigma"
+   ]
+  },
+  {
+   "tex": "$\\pi_{10}$, $\\pi_{11}$",
+   "meaning": "Reduced-form intercept and slope for $P$",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "pi"
+   ]
+  },
+  {
+   "tex": "$\\pi_{20}$, $\\pi_{21}$",
+   "meaning": "Reduced-form intercept and slope for $Q$",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "pi"
+   ]
+  },
+  {
+   "tex": "$v_1$, $v_2$",
+   "meaning": "Reduced-form errors",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "v"
+   ]
+  },
+  {
+   "tex": "$\\hat\\alpha_2$",
+   "meaning": "OLS estimate of the demand slope",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "hat(alpha)"
+   ]
+  },
+  {
+   "tex": "$N$",
+   "meaning": "Sample size",
+   "kind": "Data",
+   "typical": "428 in the wage example",
+   "keys": [
+    "N"
+   ],
+   "from": "consistency-and-probability-limits"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "At a market, price and quantity are settled together: buyers' plans and sellers' plans meet at one point. If you regress quantity on price, which curve have you found? Each observed point is where the two curves crossed that day, and a shock that shifts demand moves price too, so price is tangled up with the demand equation's error. Least squares cannot separate the two. The way out is to find variables that shift only one curve. Income moves demand but not supply, so as income changes the crossing point slides along the supply curve and traces it out. Writing price and quantity in terms of such outside variables gives the reduced form, which least squares can estimate."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "Any regression of one jointly determined variable on another (quantity on price, hours on wages, crime on police) has this bias, and the fix is identification plus instrumental variables.",
+       "folded": false
+      }
+     ],
+     "words": 150,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Structural equations** describe behaviour and may contain other endogenous variables on the right. **Reduced-form equations** express each endogenous variable in terms of exogenous variables and errors only. In the canonical example"
+      },
+      {
+       "t": "math",
+       "tex": "\\text{Demand: } Q = \\alpha_1 + \\alpha_2P + \\alpha_3X + e_d, \\qquad \\text{Supply: } Q = \\beta_1 + \\beta_2P + e_s ,"
+      },
+      {
+       "t": "prose",
+       "md": "with $P$ and $Q$ endogenous, income $X$ exogenous, $E(e_d) = E(e_s) = 0$ and $\\mathrm{Cov}(e_d, e_s) = 0$. Predetermined variables are the exogenous ones plus lagged endogenous variables."
+      }
+     ],
+     "words": 47,
+     "symbols": [
+      "$Q$, $P$",
+      "$X$",
+      "$\\alpha_1$, $\\alpha_2$, $\\alpha_3$",
+      "$\\beta_1$, $\\beta_2$",
+      "$e_d$, $e_s$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "reduced-form",
+   "heading": "Reduced form",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "reduced-form-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Setting demand equal to supply, $(\\alpha_2 - \\beta_2)P = \\beta_1 - \\alpha_1 - \\alpha_3X + e_s - e_d$, so"
+      },
+      {
+       "t": "math",
+       "tex": "P = \\underbrace{\\frac{\\beta_1 - \\alpha_1}{\\alpha_2 - \\beta_2}}_{\\pi_{10}} + \\underbrace{\\frac{\\alpha_3}{\\beta_2 - \\alpha_2}}_{\\pi_{11}}X + \\underbrace{\\frac{e_s - e_d}{\\alpha_2 - \\beta_2}}_{v_1},"
+      },
+      {
+       "t": "prose",
+       "md": "and substituting into supply,"
+      },
+      {
+       "t": "math",
+       "tex": "Q = \\underbrace{\\frac{\\beta_1\\alpha_2 - \\beta_2\\alpha_1}{\\alpha_2 - \\beta_2}}_{\\pi_{20}} + \\underbrace{\\frac{\\beta_2\\alpha_3}{\\beta_2 - \\alpha_2}}_{\\pi_{21}}X + \\underbrace{\\frac{\\alpha_2e_s - \\beta_2e_d}{\\alpha_2 - \\beta_2}}_{v_2}."
+      },
+      {
+       "t": "prose",
+       "md": "$X$ is uncorrelated with $v_1$ and $v_2$, so **the reduced forms can be estimated consistently by OLS**, and they are what is needed for prediction. Dividing,"
+      },
+      {
+       "t": "math",
+       "tex": "\\frac{\\pi_{21}}{\\pi_{11}} = \\beta_2 :"
+      },
+      {
+       "t": "prose",
+       "md": "the supply slope is recovered from reduced-form coefficients (indirect least squares). The demand equation is not: $\\pi_{11} = \\alpha_3/(\\beta_2 - \\alpha_2)$ is one equation in the two unknowns $\\alpha_2$, $\\alpha_3$ ([Identification in Simultaneous Equations](note:identification-in-simultaneous-equations))."
+      }
+     ],
+     "words": 60,
+     "symbols": [
+      "$Q$, $P$",
+      "$X$",
+      "$\\alpha_1$, $\\alpha_2$, $\\alpha_3$",
+      "$\\beta_1$, $\\beta_2$",
+      "$e_d$, $e_s$",
+      "$\\pi_{10}$, $\\pi_{11}$",
+      "$\\pi_{20}$, $\\pi_{21}$",
+      "$v_1$, $v_2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "why-ols-fails",
+   "heading": "Why OLS fails",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "why-ols-fails-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$P$ contains both errors. In the demand equation,"
+      },
+      {
+       "t": "math",
+       "tex": "\\mathrm{Cov}(P, e_d) = \\frac{1}{\\alpha_2 - \\beta_2}\\big[\\mathrm{Cov}(e_s, e_d) - \\mathrm{Var}(e_d)\\big] = \\frac{-\\sigma_d^2}{\\alpha_2 - \\beta_2} > 0"
+      },
+      {
+       "t": "prose",
+       "md": "because $\\alpha_2 - \\beta_2 < 0$; similarly $\\mathrm{Cov}(P, e_s) < 0$ in supply. Partialling out $X$ leaves $\\tilde P \\approx v_1$, with $\\mathrm{Var}(v_1) = (\\sigma_s^2 + \\sigma_d^2)/(\\alpha_2 - \\beta_2)^2$, so"
+      },
+      {
+       "t": "math",
+       "tex": "\\operatorname{plim}\\hat\\alpha_2 - \\alpha_2 = \\frac{\\mathrm{Cov}(\\tilde P, e_d)}{\\mathrm{Var}(\\tilde P)} = \\frac{-\\sigma_d^2(\\alpha_2 - \\beta_2)}{\\sigma_s^2 + \\sigma_d^2} > 0 ."
+      },
+      {
+       "t": "prose",
+       "md": "OLS makes demand look less elastic than it is: the estimated slope is too close to zero (or even positive), a **simultaneous equations bias** that does not shrink with $N$."
+      }
+     ],
+     "words": 45,
+     "symbols": [
+      "$Q$, $P$",
+      "$X$",
+      "$\\alpha_1$, $\\alpha_2$, $\\alpha_3$",
+      "$\\beta_1$, $\\beta_2$",
+      "$e_d$, $e_s$",
+      "$\\sigma_d^2$, $\\sigma_s^2$",
+      "$v_1$, $v_2$",
+      "$\\hat\\alpha_2$",
+      "$N$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "estimation",
+   "heading": "Estimation",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "estimation-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Each identified equation is estimated by two-stage least squares, using all exogenous variables in the system as instruments ([Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls)); three-stage least squares adds the cross-equation error correlation ([Seemingly Unrelated Regressions](note:seemingly-unrelated-regressions))."
+      }
+     ],
+     "words": 33,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Truffle market (30 monthly observations; price of a substitute $PS$ and income $DI$ shift demand, the price of a factor $PF$ shifts supply). Estimated reduced form for price:"
+      },
+      {
+       "t": "math",
+       "tex": "\\hat P = -32.512 + 1.708\\,PS + 7.603\\,DI + 1.354\\,PF ."
+      },
+      {
+       "t": "prose",
+       "md": "2SLS: demand $\\hat Q = -4.279 - 0.3745P + 1.296PS + 5.014DI$; supply $\\hat Q = 20.033 + 0.338P - 1.001PF$. Demand slopes down, supply up, as theory says."
+      }
+     ],
+     "words": 36,
+     "symbols": [
+      "$Q$, $P$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Estimating a structural equation by OLS \"because the reduced form is fine\": only the reduced form is consistent by OLS.\n- Getting the bias sign backwards: for demand it is positive (toward zero), for supply negative.\n- Believing every structural parameter can be recovered from the reduced form: only identified equations can."
+      }
+     ],
+     "words": 53,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Endogenous and Exogenous Variables](note:endogenous-and-exogenous-variables) · [Identification in Simultaneous Equations](note:identification-in-simultaneous-equations) · [Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls) · [Seemingly Unrelated Regressions](note:seemingly-unrelated-regressions) · [Consistency and Probability Limits](note:consistency-and-probability-limits)"
+      }
+     ],
+     "words": 20,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

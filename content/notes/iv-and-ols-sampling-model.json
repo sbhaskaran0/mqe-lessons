@@ -1,0 +1,166 @@
+{
+ "slug": "iv-and-ols-sampling-model",
+ "notation": [
+  {
+   "tex": "$x_K$",
+   "meaning": "Endogenous regressor",
+   "kind": "Data",
+   "typical": "Education",
+   "keys": [
+    "x"
+   ],
+   "from": "weak-instruments"
+  },
+  {
+   "tex": "$z_1, \\dots, z_L$",
+   "meaning": "Excluded instruments",
+   "kind": "Data",
+   "typical": "Parents' schooling",
+   "keys": [
+    "z"
+   ],
+   "from": "weak-instruments"
+  },
+  {
+   "tex": "$v_K$",
+   "meaning": "First-stage error",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "v"
+   ],
+   "from": "weak-instruments"
+  },
+  {
+   "tex": "$F$",
+   "meaning": "First-stage $F$ statistic for $\\theta_1 = \\cdots = \\theta_L = 0$",
+   "kind": "Statistic",
+   "typical": "55.4 in the example",
+   "keys": [
+    "F"
+   ],
+   "from": "weak-instruments"
+  },
+  {
+   "tex": "$\\rho_{zx}$",
+   "meaning": "Population correlation of instrument and regressor",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "rho"
+   ],
+   "from": "weak-instruments"
+  },
+  {
+   "tex": "$\\beta_2$, $\\hat\\beta_2$, $b_2$",
+   "meaning": "Slope, its IV estimate and its OLS estimate",
+   "kind": "Parameter, estimator",
+   "typical": "—",
+   "keys": [
+    "beta",
+    "hat(beta)",
+    "b"
+   ],
+   "from": "weak-instruments"
+  },
+  {
+   "tex": "$\\pi$",
+   "meaning": "First-stage slope in the simulation, $x = \\pi z + v$",
+   "kind": "Parameter",
+   "typical": "0.5",
+   "keys": [
+    "pi"
+   ],
+   "from": "weak-instruments"
+  },
+  {
+   "tex": "$N$",
+   "meaning": "Sample size",
+   "kind": "Data",
+   "typical": "428",
+   "keys": [
+    "N"
+   ],
+   "from": "weak-instruments"
+  },
+  {
+   "tex": "$y$",
+   "meaning": "Outcome",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "y"
+   ],
+   "from": "instrumental-variables-and-2sls"
+  },
+  {
+   "tex": "$e$",
+   "meaning": "Structural error",
+   "kind": "Correlated with $x$",
+   "typical": "—",
+   "keys": [
+    "e"
+   ],
+   "from": "instrumental-variables-and-2sls"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "iv-and-ols-sampling-distributions"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$F$",
+      "$\\rho_{zx}$",
+      "$\\beta_2$, $\\hat\\beta_2$, $b_2$",
+      "$\\pi$",
+      "$N$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The population behind [IV and OLS Sampling Distributions](note:iv-and-ols-sampling-distributions). Place that view, not this note."
+      },
+      {
+       "t": "prose",
+       "md": "- **Model.** $x = \\pi z + v$, $y = 1 \\cdot x + e$ with $e = \\rho v + \\sqrt{1 - \\rho^2}\\,w$; $z$, $v$, $w$ independent $N(0, 1)$. So $\\mathrm{Cov}(x, e) = \\rho$, $\\mathrm{Var}(x) = \\pi^2 + 1$ and $\\operatorname{plim} b_2 = 1 + \\rho/(\\pi^2 + 1)$ ([Consistency and Probability Limits](note:consistency-and-probability-limits)); $z$ is a valid instrument with first-stage slope $\\pi$.\n- **Derived.** `plim_ols`; `F_approx` $= N\\pi^2$, roughly the first-stage $F$ (its expected value is about $N\\pi^2 + 1$).\n- **Tests.** Exact arithmetic."
+      }
+     ],
+     "words": 49,
+     "symbols": [
+      "$x_K$",
+      "$z_1, \\dots, z_L$",
+      "$v_K$",
+      "$F$",
+      "$\\rho_{zx}$",
+      "$\\beta_2$, $\\hat\\beta_2$, $b_2$",
+      "$\\pi$",
+      "$N$",
+      "$y$",
+      "$e$"
+     ]
+    }
+   ]
+  }
+ ]
+}

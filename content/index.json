@@ -1,10 +1,10 @@
 {
  "schema": "mqe-lessons/1",
- "generated_at": "2026-11-18T21:09:32Z",
+ "generated_at": "2026-11-22T08:32:16Z",
  "vault": {
-  "notes": 363,
+  "notes": 400,
   "errors": 0,
-  "warnings": 22
+  "warnings": 26
  },
  "courses": [
   {
@@ -69,7 +69,25 @@
     "econ-430-l9-bootstrapping-regression-models",
     "econ-430-l10-modeling-issues-in-multiple-regression",
     "econ-430-l11-heteroskedasticity",
-    "econ-430-l12-missing-data-and-the-regression-workflow"
+    "econ-430-l12-missing-data-and-the-regression-workflow",
+    "econ-430-l13-linear-regression-with-random-regressors",
+    "econ-430-l14-when-x-and-e-are-correlated",
+    "econ-430-l15-instrumental-variables-estimation",
+    "econ-430-l16-specification-tests-for-instrumental-variables",
+    "econ-430-l17-simultaneous-equations-and-supply-and-demand",
+    "econ-430-l18-reduced-form-equations",
+    "econ-430-l19-the-failure-of-least-squares-and-identification",
+    "econ-430-l20-two-stage-least-squares-for-simultaneous-equations",
+    "econ-430-l21-truffle-supply-and-demand",
+    "econ-430-l22-the-fulton-fish-market",
+    "econ-430-l23-panel-data-and-microeconomic-panels",
+    "econ-430-l24-the-pooled-panel-model",
+    "econ-430-l25-the-fixed-effects-model",
+    "econ-430-l26-the-random-effects-model",
+    "econ-430-l27-comparing-fixed-and-random-effects",
+    "econ-430-l28-pooled-fixed-and-random-effects-in-practice",
+    "econ-430-l29-the-hausman-taylor-estimator",
+    "econ-430-l30-sets-of-regression-equations"
    ],
    "practice": [
     "econ-430-simple-linear-regression-practice-questions",
@@ -153,6 +171,7 @@
     "component-plus-residual-plot",
     "conditional-mean-vs-linear-projection",
     "confidence-vs-prediction-intervals",
+    "consistency-and-probability-limits",
     "contiguous-border-county-design",
     "cross-validation",
     "delta-method",
@@ -168,14 +187,19 @@
     "functional-forms-and-elasticities",
     "gauss-markov-theorem",
     "generalized-least-squares",
+    "hausman-test",
+    "hausman-taylor-estimator",
     "heteroskedasticity-tests",
     "heteroskedasticity-consistent-standard-errors",
     "homoskedasticity",
     "hypothesis-tests-on-regression-coefficients",
+    "identification-in-simultaneous-equations",
     "immigrant-share-wage-elasticity",
     "indicator-variables",
     "instrumental-variables-and-2sls",
     "interaction-terms",
+    "iv-and-ols-sampling-distributions",
+    "iv-and-ols-sampling-model",
     "kernel-density-bandwidth-explorer",
     "leverage-and-influence-explorer",
     "lowess-smoother",
@@ -183,6 +207,11 @@
     "ramey-2016-macroeconomic-shocks-and-their-propagation",
     "sims-1980-macroeconomics-and-reality",
     "marginal-effects",
+    "market-equilibrium-and-identification",
+    "market-equilibrium-identification-model",
+    "measurement-error-attenuation",
+    "measurement-error-attenuation-model",
+    "method-of-moments",
     "missing-data-and-imputation",
     "model-selection-criteria",
     "multicollinearity",
@@ -193,6 +222,8 @@
     "ols-sampling-distribution",
     "ols-sampling-model",
     "omitted-variable-bias",
+    "overidentifying-restrictions-test",
+    "panel-data",
     "poisson-pseudo-maximum-likelihood",
     "polynomial-degree-and-cross-validation",
     "projection-matrix-and-residual-maker",
@@ -201,12 +232,17 @@
     "quadratic-advertising-sales-model",
     "quadratic-marginal-effect-explorer",
     "ramsey-reset",
+    "random-effects-demeaning-weight",
+    "random-effects-model",
+    "random-effects-weight-model",
     "regression-diagnostics",
     "research-designs-for-immigration-effects",
     "sampling-distribution-of-ols",
+    "seemingly-unrelated-regressions",
     "shift-share-exposure",
     "shift-share-instrument",
     "simple-linear-regression-model",
+    "simultaneous-equations-model",
     "skewness-and-kurtosis",
     "sr-assumptions",
     "stationarity-and-unit-roots",
@@ -215,7 +251,8 @@
     "synthetic-control",
     "variable-selection",
     "vector-autoregression",
-    "stock-and-watson-2001-vector-autoregressions"
+    "stock-and-watson-2001-vector-autoregressions",
+    "weak-instruments"
    ]
   },
   {
@@ -673,6 +710,7 @@
     "classical-measurement-error",
     "coefficient-of-determination",
     "coefficient-of-variation",
+    "consistency-and-probability-limits",
     "cullen-frey-graph",
     "delta-method",
     "eda-for-regression",
@@ -683,6 +721,7 @@
     "law-of-total-variance",
     "lognormal-inequality-explorer",
     "lowess-smoother",
+    "method-of-moments",
     "missing-data-and-imputation",
     "model-selection-criteria",
     "q-q-plot",
@@ -778,6 +817,7 @@
    "eda-for-regression"
   ],
   "estimation": [
+   "iv-and-ols-sampling-distributions",
    "ols-estimator",
    "ols-in-matrix-form",
    "ols-line-fitter",
@@ -808,6 +848,8 @@
    "inflation-shock-paths",
    "is-lm-explorer",
    "is-mp-and-phillips-curve-diagram",
+   "iv-and-ols-sampling-distributions",
+   "iv-and-ols-sampling-model",
    "kernel-density-bandwidth-explorer",
    "keynesian-cross-expenditure-model",
    "keynesian-cross-explorer",
@@ -822,6 +864,10 @@
    "lognormal-inequality-explorer",
    "lowess-span-explorer",
    "mariel-boatlift-miami-vs-comparison-cities",
+   "market-equilibrium-and-identification",
+   "market-equilibrium-identification-model",
+   "measurement-error-attenuation",
+   "measurement-error-attenuation-model",
    "minimum-wage-bite-explorer",
    "minimum-wage-bite-model",
    "minimum-wage-with-heterogeneous-workers",
@@ -838,6 +884,8 @@
    "quadratic-marginal-effect-explorer",
    "ramsey-steady-state-explorer",
    "ramsey-steady-state-model",
+   "random-effects-demeaning-weight",
+   "random-effects-weight-model",
    "search-and-matching-equilibrium-explorer",
    "search-and-matching-equilibrium-model",
    "shift-share-wage-exposure-explorer",
@@ -873,6 +921,7 @@
    "inflation-shock-paths",
    "is-lm-explorer",
    "is-mp-and-phillips-curve-diagram",
+   "iv-and-ols-sampling-model",
    "keynesian-cross-expenditure-model",
    "keynesian-cross-explorer",
    "labor-leisure-choice-diagram",
@@ -882,6 +931,10 @@
    "labor-tax-wedge",
    "linear-is-lm-model",
    "log-change-taylor-expansion",
+   "market-equilibrium-and-identification",
+   "market-equilibrium-identification-model",
+   "measurement-error-attenuation",
+   "measurement-error-attenuation-model",
    "minimum-wage-bite-explorer",
    "minimum-wage-bite-model",
    "minimum-wage-with-heterogeneous-workers",
@@ -894,6 +947,8 @@
    "quadratic-marginal-effect-explorer",
    "ramsey-steady-state-explorer",
    "ramsey-steady-state-model",
+   "random-effects-demeaning-weight",
+   "random-effects-weight-model",
    "search-and-matching-equilibrium-explorer",
    "search-and-matching-equilibrium-model",
    "shift-share-wage-exposure-explorer",
@@ -4099,13 +4154,19 @@
    ],
    "lessons": [
     "econ-424-l3-total-and-within-group-inequality",
-    "econ-424-l9-minimum-wages-and-wage-inequality"
+    "econ-424-l9-minimum-wages-and-wage-inequality",
+    "econ-430-l14-when-x-and-e-are-correlated"
    ],
    "courses": [
-    "Econ 424"
+    "Econ 424",
+    "Econ 430"
    ],
    "edges": {
     "out": [
+     {
+      "kind": "related",
+      "note": "consistency-and-probability-limits"
+     },
      {
       "kind": "related",
       "note": "effective-minimum-wage"
@@ -4141,12 +4202,32 @@
       "note": "econ-424-l9-minimum-wages-and-wage-inequality"
      },
      {
+      "kind": "covers",
+      "note": "econ-430-l14-when-x-and-e-are-correlated"
+     },
+     {
+      "kind": "illustrates",
+      "note": "measurement-error-attenuation"
+     },
+     {
+      "kind": "illustrates",
+      "note": "measurement-error-attenuation-model"
+     },
+     {
+      "kind": "related",
+      "note": "consistency-and-probability-limits"
+     },
+     {
       "kind": "related",
       "note": "current-population-survey-cps"
      },
      {
       "kind": "related",
       "note": "effective-minimum-wage"
+     },
+     {
+      "kind": "related",
+      "note": "endogenous-and-exogenous-variables"
      },
      {
       "kind": "related",
@@ -4181,9 +4262,9 @@
    "figures": [],
    "interactives": [],
    "checks": 0,
-   "words": 454,
-   "created": "2026-11-13T18:16:55Z",
-   "updated": "2026-11-13T18:16:55Z"
+   "words": 510,
+   "created": "2026-11-22T07:52:42Z",
+   "updated": "2026-11-22T08:10:55Z"
   },
   "clemens-edwards-meer-and-nguyen-2026-synthetic-controls-for-the-california-fast-food-minimum-wage": {
    "slug": "clemens-edwards-meer-and-nguyen-2026-synthetic-controls-for-the-california-fast-food-minimum-wage",
@@ -4346,10 +4427,13 @@
     "ols-estimator"
    ],
    "lessons": [
-    "econ-424-l5-international-trade-empirics"
+    "econ-424-l5-international-trade-empirics",
+    "econ-430-l24-the-pooled-panel-model",
+    "econ-430-l26-the-random-effects-model"
    ],
    "courses": [
-    "Econ 424"
+    "Econ 424",
+    "Econ 430"
    ],
    "edges": {
     "out": [
@@ -4367,6 +4451,10 @@
      },
      {
       "kind": "related",
+      "note": "panel-data"
+     },
+     {
+      "kind": "related",
       "note": "shift-share-instrument"
      },
      {
@@ -4380,6 +4468,14 @@
       "note": "econ-424-l5-international-trade-empirics"
      },
      {
+      "kind": "covers",
+      "note": "econ-430-l24-the-pooled-panel-model"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l26-the-random-effects-model"
+     },
+     {
       "kind": "related",
       "note": "difference-in-differences"
      },
@@ -4390,6 +4486,14 @@
      {
       "kind": "related",
       "note": "heteroskedasticity-consistent-standard-errors"
+     },
+     {
+      "kind": "related",
+      "note": "panel-data"
+     },
+     {
+      "kind": "related",
+      "note": "random-effects-model"
      },
      {
       "kind": "related",
@@ -4416,9 +4520,9 @@
    "figures": [],
    "interactives": [],
    "checks": 0,
-   "words": 349,
-   "created": "2026-10-08T16:10:52Z",
-   "updated": "2026-10-08T16:11:59Z"
+   "words": 421,
+   "created": "2026-11-22T07:52:42Z",
+   "updated": "2026-11-22T07:52:42Z"
   },
   "cobb-douglas-production-function": {
    "slug": "cobb-douglas-production-function",
@@ -5387,6 +5491,142 @@
    "words": 746,
    "created": "2026-10-19T18:36:08Z",
    "updated": "2026-10-19T18:36:08Z"
+  },
+  "consistency-and-probability-limits": {
+   "slug": "consistency-and-probability-limits",
+   "name": "Consistency and Probability Limits",
+   "title": "Consistency and Probability Limits",
+   "type": "concept",
+   "path": "Concepts/Consistency and Probability Limits.md",
+   "summary": "An estimator is consistent if it converges in probability to the true value as N grows; for OLS, plim b2 = β2 + Cov(x,e)/Var(x), so it is consistent exactly when the regressor is uncorrelated with the error.",
+   "domain": "econometrics",
+   "domains": [
+    "econometrics",
+    "statistics"
+   ],
+   "tags": [],
+   "aliases": [
+    "Consistency",
+    "Consistent estimator",
+    "Probability limit",
+    "plim",
+    "Large-sample properties of OLS",
+    "Random regressors"
+   ],
+   "requires": [
+    "sampling-distribution-of-ols",
+    "strict-exogeneity"
+   ],
+   "lessons": [
+    "econ-430-l13-linear-regression-with-random-regressors",
+    "econ-430-l14-when-x-and-e-are-correlated",
+    "econ-430-l15-instrumental-variables-estimation",
+    "econ-430-l17-simultaneous-equations-and-supply-and-demand",
+    "econ-430-l19-the-failure-of-least-squares-and-identification"
+   ],
+   "courses": [
+    "Econ 430"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "related",
+      "note": "classical-measurement-error"
+     },
+     {
+      "kind": "related",
+      "note": "endogenous-and-exogenous-variables"
+     },
+     {
+      "kind": "related",
+      "note": "instrumental-variables-and-2sls"
+     },
+     {
+      "kind": "related",
+      "note": "law-of-iterated-expectations"
+     },
+     {
+      "kind": "related",
+      "note": "method-of-moments"
+     },
+     {
+      "kind": "related",
+      "note": "omitted-variable-bias"
+     },
+     {
+      "kind": "related",
+      "note": "simultaneous-equations-model"
+     },
+     {
+      "kind": "related",
+      "note": "weak-instruments"
+     },
+     {
+      "kind": "requires",
+      "note": "sampling-distribution-of-ols"
+     },
+     {
+      "kind": "requires",
+      "note": "strict-exogeneity"
+     }
+    ],
+    "in": [
+     {
+      "kind": "covers",
+      "note": "econ-430-l13-linear-regression-with-random-regressors"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l14-when-x-and-e-are-correlated"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l15-instrumental-variables-estimation"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l17-simultaneous-equations-and-supply-and-demand"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l19-the-failure-of-least-squares-and-identification"
+     },
+     {
+      "kind": "related",
+      "note": "classical-measurement-error"
+     },
+     {
+      "kind": "related",
+      "note": "endogenous-and-exogenous-variables"
+     },
+     {
+      "kind": "related",
+      "note": "instrumental-variables-and-2sls"
+     },
+     {
+      "kind": "related",
+      "note": "method-of-moments"
+     },
+     {
+      "kind": "related",
+      "note": "omitted-variable-bias"
+     },
+     {
+      "kind": "related",
+      "note": "strict-exogeneity"
+     },
+     {
+      "kind": "requires",
+      "note": "simultaneous-equations-model"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 510,
+   "created": "2026-11-22T07:52:42Z",
+   "updated": "2026-11-22T07:52:42Z"
   },
   "constrained-optimization-and-lagrange-multipliers": {
    "slug": "constrained-optimization-and-lagrange-multipliers",
@@ -10704,11 +10944,83 @@
      },
      {
       "kind": "part_of",
+      "note": "econ-430-l13-linear-regression-with-random-regressors"
+     },
+     {
+      "kind": "part_of",
+      "note": "econ-430-l14-when-x-and-e-are-correlated"
+     },
+     {
+      "kind": "part_of",
+      "note": "econ-430-l15-instrumental-variables-estimation"
+     },
+     {
+      "kind": "part_of",
+      "note": "econ-430-l16-specification-tests-for-instrumental-variables"
+     },
+     {
+      "kind": "part_of",
+      "note": "econ-430-l17-simultaneous-equations-and-supply-and-demand"
+     },
+     {
+      "kind": "part_of",
+      "note": "econ-430-l18-reduced-form-equations"
+     },
+     {
+      "kind": "part_of",
+      "note": "econ-430-l19-the-failure-of-least-squares-and-identification"
+     },
+     {
+      "kind": "part_of",
       "note": "econ-430-l2-bivariate-characterizations"
      },
      {
       "kind": "part_of",
+      "note": "econ-430-l20-two-stage-least-squares-for-simultaneous-equations"
+     },
+     {
+      "kind": "part_of",
+      "note": "econ-430-l21-truffle-supply-and-demand"
+     },
+     {
+      "kind": "part_of",
+      "note": "econ-430-l22-the-fulton-fish-market"
+     },
+     {
+      "kind": "part_of",
+      "note": "econ-430-l23-panel-data-and-microeconomic-panels"
+     },
+     {
+      "kind": "part_of",
+      "note": "econ-430-l24-the-pooled-panel-model"
+     },
+     {
+      "kind": "part_of",
+      "note": "econ-430-l25-the-fixed-effects-model"
+     },
+     {
+      "kind": "part_of",
+      "note": "econ-430-l26-the-random-effects-model"
+     },
+     {
+      "kind": "part_of",
+      "note": "econ-430-l27-comparing-fixed-and-random-effects"
+     },
+     {
+      "kind": "part_of",
+      "note": "econ-430-l28-pooled-fixed-and-random-effects-in-practice"
+     },
+     {
+      "kind": "part_of",
+      "note": "econ-430-l29-the-hausman-taylor-estimator"
+     },
+     {
+      "kind": "part_of",
       "note": "econ-430-l3-the-method-of-least-squares"
+     },
+     {
+      "kind": "part_of",
+      "note": "econ-430-l30-sets-of-regression-equations"
      },
      {
       "kind": "part_of",
@@ -10739,9 +11051,9 @@
    "figures": [],
    "interactives": [],
    "checks": 0,
-   "words": 833,
+   "words": 1420,
    "created": "2026-10-17T19:26:03Z",
-   "updated": "2026-10-19T18:42:14Z"
+   "updated": "2026-11-22T07:52:37Z"
   },
   "econ-430-fall-2025-midterm-answers": {
    "slug": "econ-430-fall-2025-midterm-answers",
@@ -11203,6 +11515,10 @@
       "note": "regression-diagnostics"
      },
      {
+      "kind": "next",
+      "note": "econ-430-l13-linear-regression-with-random-regressors"
+     },
+     {
       "kind": "part_of",
       "note": "econ-430"
      }
@@ -11252,7 +11568,592 @@
     }
    ],
    "created": "2026-11-07T05:39:05Z",
-   "updated": "2026-11-07T05:39:05Z"
+   "updated": "2026-11-22T07:52:37Z"
+  },
+  "econ-430-l13-linear-regression-with-random-regressors": {
+   "slug": "econ-430-l13-linear-regression-with-random-regressors",
+   "name": "Econ 430 L13 Linear Regression with Random Regressors",
+   "title": "Linear Regression with Random x's",
+   "type": "lecture",
+   "path": "Courses/Econ 430/Lectures/Econ 430 L13 Linear Regression with Random Regressors.md",
+   "summary": "With random x and random sampling, OLS keeps all its properties if E(e|x) = 0; with only Cov(x,e) = 0 it is consistent and asymptotically normal, but if Cov(x,e) ≠ 0 it is inconsistent and no usual inference is valid.",
+   "tags": [],
+   "aliases": [],
+   "requires": [],
+   "lessons": [],
+   "courses": [
+    "Econ 430"
+   ],
+   "course": "Econ 430",
+   "lecture": 13,
+   "source": "Regression_Lecture3.ipynb (section 1) and Mathematical_Appendix_Lecture3.ipynb",
+   "edges": {
+    "out": [
+     {
+      "kind": "covers",
+      "note": "consistency-and-probability-limits"
+     },
+     {
+      "kind": "covers",
+      "note": "endogenous-and-exogenous-variables"
+     },
+     {
+      "kind": "covers",
+      "note": "gauss-markov-theorem"
+     },
+     {
+      "kind": "covers",
+      "note": "law-of-iterated-expectations"
+     },
+     {
+      "kind": "covers",
+      "note": "sampling-distribution-of-ols"
+     },
+     {
+      "kind": "covers",
+      "note": "strict-exogeneity"
+     },
+     {
+      "kind": "next",
+      "note": "econ-430-l14-when-x-and-e-are-correlated"
+     },
+     {
+      "kind": "part_of",
+      "note": "econ-430"
+     }
+    ],
+    "in": [
+     {
+      "kind": "next",
+      "note": "econ-430-l12-missing-data-and-the-regression-workflow"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 4,
+   "words": 674,
+   "objectives": [
+    {
+     "n": 1,
+     "md": "State the regression assumptions for random regressors and say which one is new.",
+     "tested": 1
+    },
+    {
+     "n": 2,
+     "md": "Distinguish $E(e \\mid x) = 0$ from $\\mathrm{Cov}(x, e) = 0$, and say what each delivers (finite-sample versus large-sample properties).",
+     "tested": 1
+    },
+    {
+     "n": 3,
+     "md": "Derive $\\operatorname{plim} b_2 = \\beta_2 + \\mathrm{Cov}(x, e)/\\mathrm{Var}(x)$, use it to sign the inconsistency, and explain why no usual interval or test is then valid in any sample size.",
+     "tested": 2
+    }
+   ],
+   "created": "2026-11-22T07:51:30Z",
+   "updated": "2026-11-22T08:00:54Z"
+  },
+  "econ-430-l14-when-x-and-e-are-correlated": {
+   "slug": "econ-430-l14-when-x-and-e-are-correlated",
+   "name": "Econ 430 L14 When x and e Are Correlated",
+   "title": "Cases in which x and e are Correlated",
+   "type": "lecture",
+   "path": "Courses/Econ 430/Lectures/Econ 430 L14 When x and e Are Correlated.md",
+   "summary": "A regressor is endogenous when measured with error (Cov(x,e) = −β2σu², attenuation), jointly determined with y (simultaneity), or correlated with an omitted variable such as ability; the OLS return of 10.75% is suspect.",
+   "tags": [],
+   "aliases": [],
+   "requires": [],
+   "lessons": [],
+   "courses": [
+    "Econ 430"
+   ],
+   "course": "Econ 430",
+   "lecture": 14,
+   "source": "Regression_Lecture3.ipynb (section 2) and Mathematical_Appendix_Lecture3.ipynb",
+   "edges": {
+    "out": [
+     {
+      "kind": "applies",
+      "note": "hausman-test"
+     },
+     {
+      "kind": "covers",
+      "note": "classical-measurement-error"
+     },
+     {
+      "kind": "covers",
+      "note": "consistency-and-probability-limits"
+     },
+     {
+      "kind": "covers",
+      "note": "endogenous-and-exogenous-variables"
+     },
+     {
+      "kind": "covers",
+      "note": "omitted-variable-bias"
+     },
+     {
+      "kind": "covers",
+      "note": "simultaneous-equations-model"
+     },
+     {
+      "kind": "next",
+      "note": "econ-430-l15-instrumental-variables-estimation"
+     },
+     {
+      "kind": "part_of",
+      "note": "econ-430"
+     },
+     {
+      "kind": "shows",
+      "note": "measurement-error-attenuation"
+     }
+    ],
+    "in": [
+     {
+      "kind": "next",
+      "note": "econ-430-l13-linear-regression-with-random-regressors"
+     }
+    ]
+   },
+   "figures": [
+    "assets/Attachments/Wage regression - residuals against years of education.png"
+   ],
+   "interactives": [
+    "measurement-error-attenuation"
+   ],
+   "checks": 3,
+   "derives": 1,
+   "words": 728,
+   "objectives": [
+    {
+     "n": 1,
+     "md": "Show that measurement error in a regressor makes it endogenous, derive $\\mathrm{Cov}(x, e) = -\\beta_2\\sigma_u^2$ and the attenuation factor.",
+     "tested": 3
+    },
+    {
+     "n": 2,
+     "md": "Explain simultaneity bias and omitted-variable bias as correlations between a regressor and the error, and sign the OLS bias.",
+     "tested": 1
+    },
+    {
+     "n": 3,
+     "md": "Interpret the OLS wage equation and explain why its residuals cannot reveal endogeneity.",
+     "tested": 1
+    }
+   ],
+   "created": "2026-11-22T07:51:30Z",
+   "updated": "2026-11-22T08:10:55Z"
+  },
+  "econ-430-l15-instrumental-variables-estimation": {
+   "slug": "econ-430-l15-instrumental-variables-estimation",
+   "name": "Econ 430 L15 Instrumental Variables Estimation",
+   "title": "Estimators Based on the Method of Moments",
+   "type": "lecture",
+   "path": "Courses/Econ 430/Lectures/Econ 430 L15 Instrumental Variables Estimation.md",
+   "summary": "Swapping the moment condition E(xe) = 0 for E(ze) = 0 with an instrument z gives IV, and 2SLS with several instruments. Parents' schooling cuts the return to education from 10.75% (OLS) to 6.14%, with twice the standard error.",
+   "tags": [],
+   "aliases": [],
+   "requires": [],
+   "lessons": [],
+   "courses": [
+    "Econ 430"
+   ],
+   "course": "Econ 430",
+   "lecture": 15,
+   "source": "Regression_Lecture3.ipynb (section 3 and the additional examples) and Mathematical_Appendix_Lecture3.ipynb",
+   "edges": {
+    "out": [
+     {
+      "kind": "applies",
+      "note": "fixed-effects-regression"
+     },
+     {
+      "kind": "covers",
+      "note": "consistency-and-probability-limits"
+     },
+     {
+      "kind": "covers",
+      "note": "instrumental-variables-and-2sls"
+     },
+     {
+      "kind": "covers",
+      "note": "method-of-moments"
+     },
+     {
+      "kind": "covers",
+      "note": "ols-estimator"
+     },
+     {
+      "kind": "covers",
+      "note": "weak-instruments"
+     },
+     {
+      "kind": "next",
+      "note": "econ-430-l16-specification-tests-for-instrumental-variables"
+     },
+     {
+      "kind": "part_of",
+      "note": "econ-430"
+     }
+    ],
+    "in": [
+     {
+      "kind": "next",
+      "note": "econ-430-l14-when-x-and-e-are-correlated"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 4,
+   "derives": 1,
+   "words": 1073,
+   "objectives": [
+    {
+     "n": 1,
+     "md": "Write moment conditions for a parameter and solve them, including the mean and variance.",
+     "tested": 1
+    },
+    {
+     "n": 2,
+     "md": "Derive the IV estimator from $E(e) = 0$ and $E(ze) = 0$, and state the three properties of an instrument.",
+     "tested": 1
+    },
+    {
+     "n": 3,
+     "md": "Compare the IV and OLS variances through $r_{zx}^2$.",
+     "tested": 1
+    },
+    {
+     "n": 4,
+     "md": "Set up the first and second stages of 2SLS, count $G$, $B$ and $L$, and classify an equation as exactly or overidentified.",
+     "tested": 1
+    },
+    {
+     "n": 5,
+     "md": "Explain why two-step OLS gives wrong standard errors and why $R^2$ is not reported for IV, and interpret IV estimates of the return to education against OLS.",
+     "tested": 1
+    }
+   ],
+   "created": "2026-11-22T07:51:31Z",
+   "updated": "2026-11-22T07:54:39Z"
+  },
+  "econ-430-l16-specification-tests-for-instrumental-variables": {
+   "slug": "econ-430-l16-specification-tests-for-instrumental-variables",
+   "name": "Econ 430 L16 Specification Tests for Instrumental Variables",
+   "title": "Specification Tests",
+   "type": "lecture",
+   "path": "Courses/Econ 430/Lectures/Econ 430 L16 Specification Tests for Instrumental Variables.md",
+   "summary": "Three IV checks: instrument strength (first-stage F > 10), endogeneity (Hausman), and validity of surplus instruments (N·R² ~ χ²(L−B)). Wage equation: F = 55, Hausman p = 0.095, Sargan p = 0.54.",
+   "tags": [],
+   "aliases": [],
+   "requires": [],
+   "lessons": [],
+   "courses": [
+    "Econ 430"
+   ],
+   "course": "Econ 430",
+   "lecture": 16,
+   "source": "Regression_Lecture3.ipynb (section 4, the cigarette example and the additional test examples) and Mathematical_Appendix_Lecture3.ipynb",
+   "edges": {
+    "out": [
+     {
+      "kind": "covers",
+      "note": "f-test-of-joint-hypotheses"
+     },
+     {
+      "kind": "covers",
+      "note": "hausman-test"
+     },
+     {
+      "kind": "covers",
+      "note": "instrumental-variables-and-2sls"
+     },
+     {
+      "kind": "covers",
+      "note": "overidentifying-restrictions-test"
+     },
+     {
+      "kind": "covers",
+      "note": "weak-instruments"
+     },
+     {
+      "kind": "next",
+      "note": "econ-430-l17-simultaneous-equations-and-supply-and-demand"
+     },
+     {
+      "kind": "part_of",
+      "note": "econ-430"
+     },
+     {
+      "kind": "shows",
+      "note": "iv-and-ols-sampling-distributions"
+     }
+    ],
+    "in": [
+     {
+      "kind": "next",
+      "note": "econ-430-l15-instrumental-variables-estimation"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [
+    "iv-and-ols-sampling-distributions"
+   ],
+   "checks": 4,
+   "words": 993,
+   "objectives": [
+    {
+     "n": 1,
+     "md": "Run and interpret the first-stage $F$ test of instrument strength, in the right regression.",
+     "tested": 2
+    },
+    {
+     "n": 2,
+     "md": "Carry out the regression-based Hausman test and decide between OLS and IV.",
+     "tested": 1
+    },
+    {
+     "n": 3,
+     "md": "Compute $NR^2$ for the overidentification test, choose its degrees of freedom, and state what a rejection means.",
+     "tested": 1
+    },
+    {
+     "n": 4,
+     "md": "Spot the errors in a misapplied relevance check or $J$ test, and interpret IV estimates of a demand elasticity.",
+     "tested": 1
+    }
+   ],
+   "created": "2026-11-22T07:51:31Z",
+   "updated": "2026-11-22T08:10:55Z"
+  },
+  "econ-430-l17-simultaneous-equations-and-supply-and-demand": {
+   "slug": "econ-430-l17-simultaneous-equations-and-supply-and-demand",
+   "name": "Econ 430 L17 Simultaneous Equations and Supply and Demand",
+   "title": "Simultaneous Equations Models: Introduction and a Supply and Demand Model",
+   "type": "lecture",
+   "path": "Courses/Econ 430/Lectures/Econ 430 L17 Simultaneous Equations and Supply and Demand.md",
+   "summary": "In a supply-and-demand system price and quantity are both endogenous; solving the two equations shows price depends on both errors, so Cov(P, e_d) = −σd²/(α2 − β2) > 0 and neither curve can be estimated by OLS.",
+   "tags": [],
+   "aliases": [],
+   "requires": [],
+   "lessons": [],
+   "courses": [
+    "Econ 430"
+   ],
+   "course": "Econ 430",
+   "lecture": 17,
+   "source": "Regression_Lecture4.ipynb (introduction and section 2) and Mathematical_Appendix_Lecture4.ipynb",
+   "edges": {
+    "out": [
+     {
+      "kind": "applies",
+      "note": "identification-in-simultaneous-equations"
+     },
+     {
+      "kind": "covers",
+      "note": "consistency-and-probability-limits"
+     },
+     {
+      "kind": "covers",
+      "note": "endogenous-and-exogenous-variables"
+     },
+     {
+      "kind": "covers",
+      "note": "simultaneous-equations-model"
+     },
+     {
+      "kind": "next",
+      "note": "econ-430-l18-reduced-form-equations"
+     },
+     {
+      "kind": "part_of",
+      "note": "econ-430"
+     }
+    ],
+    "in": [
+     {
+      "kind": "next",
+      "note": "econ-430-l16-specification-tests-for-instrumental-variables"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 3,
+   "derives": 1,
+   "words": 569,
+   "objectives": [
+    {
+     "n": 1,
+     "md": "Classify the variables of a system as endogenous, exogenous or predetermined, and distinguish structural from reduced-form equations.",
+     "tested": 1
+    },
+    {
+     "n": 2,
+     "md": "Solve a two-equation market for the equilibrium price, and derive and sign $\\mathrm{Cov}(P, e_d)$ and $\\mathrm{Cov}(P, e_s)$.",
+     "tested": 2
+    },
+    {
+     "n": 3,
+     "md": "Explain why a regression of quantity on price estimates neither curve.",
+     "tested": 1
+    }
+   ],
+   "created": "2026-11-22T07:51:31Z",
+   "updated": "2026-11-22T07:54:39Z"
+  },
+  "econ-430-l18-reduced-form-equations": {
+   "slug": "econ-430-l18-reduced-form-equations",
+   "name": "Econ 430 L18 Reduced-Form Equations",
+   "title": "The Reduced-Form Equations",
+   "type": "lecture",
+   "path": "Courses/Econ 430/Lectures/Econ 430 L18 Reduced-Form Equations.md",
+   "summary": "Solving the structural equations gives reduced forms P = π10 + π11X + v1 and Q = π20 + π21X + v2, which OLS estimates consistently; π21/π11 recovers the supply slope β2, but the demand parameters cannot be recovered.",
+   "tags": [],
+   "aliases": [],
+   "requires": [],
+   "lessons": [],
+   "courses": [
+    "Econ 430"
+   ],
+   "course": "Econ 430",
+   "lecture": 18,
+   "source": "Regression_Lecture4.ipynb (section 3) and Mathematical_Appendix_Lecture4.ipynb",
+   "edges": {
+    "out": [
+     {
+      "kind": "covers",
+      "note": "identification-in-simultaneous-equations"
+     },
+     {
+      "kind": "covers",
+      "note": "simultaneous-equations-model"
+     },
+     {
+      "kind": "next",
+      "note": "econ-430-l19-the-failure-of-least-squares-and-identification"
+     },
+     {
+      "kind": "part_of",
+      "note": "econ-430"
+     },
+     {
+      "kind": "shows",
+      "note": "market-equilibrium-and-identification"
+     }
+    ],
+    "in": [
+     {
+      "kind": "next",
+      "note": "econ-430-l17-simultaneous-equations-and-supply-and-demand"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [
+    "market-equilibrium-and-identification"
+   ],
+   "checks": 3,
+   "derives": 1,
+   "words": 511,
+   "objectives": [
+    {
+     "n": 1,
+     "md": "Derive the reduced form for price and quantity from a two-equation market.",
+     "tested": 1
+    },
+    {
+     "n": 2,
+     "md": "Explain why OLS estimates reduced forms consistently and how they are used for prediction.",
+     "tested": 3
+    },
+    {
+     "n": 3,
+     "md": "Recover a structural parameter from reduced-form coefficients (indirect least squares), and show when one cannot be recovered.",
+     "tested": 1
+    }
+   ],
+   "created": "2026-11-22T07:51:31Z",
+   "updated": "2026-11-22T08:10:55Z"
+  },
+  "econ-430-l19-the-failure-of-least-squares-and-identification": {
+   "slug": "econ-430-l19-the-failure-of-least-squares-and-identification",
+   "name": "Econ 430 L19 The Failure of Least Squares and Identification",
+   "title": "The Failure of Least Squares Estimation and the Identification Problem",
+   "type": "lecture",
+   "path": "Courses/Econ 430/Lectures/Econ 430 L19 The Failure of Least Squares and Identification.md",
+   "summary": "OLS on demand converges to α2 − σd²(α2 − β2)/(σs² + σd²), biased toward zero. An equation in an M-equation system is identified only if it excludes at least M − 1 variables (order condition); rank is sufficient.",
+   "tags": [],
+   "aliases": [],
+   "requires": [],
+   "lessons": [],
+   "courses": [
+    "Econ 430"
+   ],
+   "course": "Econ 430",
+   "lecture": 19,
+   "source": "Regression_Lecture4.ipynb (sections 4 and 5) and Mathematical_Appendix_Lecture4.ipynb",
+   "edges": {
+    "out": [
+     {
+      "kind": "covers",
+      "note": "consistency-and-probability-limits"
+     },
+     {
+      "kind": "covers",
+      "note": "full-rank-and-identification"
+     },
+     {
+      "kind": "covers",
+      "note": "identification-in-simultaneous-equations"
+     },
+     {
+      "kind": "covers",
+      "note": "simultaneous-equations-model"
+     },
+     {
+      "kind": "next",
+      "note": "econ-430-l20-two-stage-least-squares-for-simultaneous-equations"
+     },
+     {
+      "kind": "part_of",
+      "note": "econ-430"
+     }
+    ],
+    "in": [
+     {
+      "kind": "next",
+      "note": "econ-430-l18-reduced-form-equations"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 3,
+   "derives": 1,
+   "words": 568,
+   "objectives": [
+    {
+     "n": 1,
+     "md": "Derive the asymptotic bias of OLS on a structural demand equation, sign it, and say when it is small.",
+     "tested": 2
+    },
+    {
+     "n": 2,
+     "md": "Apply the order condition to classify an equation as unidentified, exactly identified or overidentified.",
+     "tested": 1
+    },
+    {
+     "n": 3,
+     "md": "State the rank condition and give an example where the order condition holds but the rank condition fails.",
+     "tested": 1
+    }
+   ],
+   "created": "2026-11-22T07:51:32Z",
+   "updated": "2026-11-22T07:54:39Z"
   },
   "econ-430-l2-bivariate-characterizations": {
    "slug": "econ-430-l2-bivariate-characterizations",
@@ -11335,6 +12236,757 @@
    ],
    "created": "2026-10-18T20:03:03Z",
    "updated": "2026-10-18T20:03:03Z"
+  },
+  "econ-430-l20-two-stage-least-squares-for-simultaneous-equations": {
+   "slug": "econ-430-l20-two-stage-least-squares-for-simultaneous-equations",
+   "name": "Econ 430 L20 Two-Stage Least Squares for Simultaneous Equations",
+   "title": "Two-Stage Least Squares Estimation",
+   "type": "lecture",
+   "path": "Courses/Econ 430/Lectures/Econ 430 L20 Two-Stage Least Squares for Simultaneous Equations.md",
+   "summary": "2SLS replaces each right-hand endogenous variable by its fitted value on all the system's exogenous variables, then runs OLS: consistent, with standard errors from the original residuals. 3SLS adds error correlation.",
+   "tags": [],
+   "aliases": [],
+   "requires": [],
+   "lessons": [],
+   "courses": [
+    "Econ 430"
+   ],
+   "course": "Econ 430",
+   "lecture": 20,
+   "source": "Regression_Lecture4.ipynb (section 6 and the labour-supply examples) and Mathematical_Appendix_Lecture4.ipynb",
+   "edges": {
+    "out": [
+     {
+      "kind": "covers",
+      "note": "hausman-test"
+     },
+     {
+      "kind": "covers",
+      "note": "instrumental-variables-and-2sls"
+     },
+     {
+      "kind": "covers",
+      "note": "projection-matrix-and-residual-maker"
+     },
+     {
+      "kind": "covers",
+      "note": "seemingly-unrelated-regressions"
+     },
+     {
+      "kind": "covers",
+      "note": "simultaneous-equations-model"
+     },
+     {
+      "kind": "next",
+      "note": "econ-430-l21-truffle-supply-and-demand"
+     },
+     {
+      "kind": "part_of",
+      "note": "econ-430"
+     }
+    ],
+    "in": [
+     {
+      "kind": "next",
+      "note": "econ-430-l19-the-failure-of-least-squares-and-identification"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 3,
+   "words": 738,
+   "objectives": [
+    {
+     "n": 1,
+     "md": "Carry out 2SLS for an identified equation (which variables go in each stage, and why the fitted values are exogenous), show it is consistent, and explain why second-stage OLS standard errors are wrong.",
+     "tested": 1
+    },
+    {
+     "n": 2,
+     "md": "Weigh 2SLS against OLS (consistency versus efficiency) and against 3SLS (efficiency versus robustness).",
+     "tested": 1
+    },
+    {
+     "n": 3,
+     "md": "Interpret a level-log structural coefficient and compute the implied elasticity.",
+     "tested": 1
+    }
+   ],
+   "created": "2026-11-22T07:51:32Z",
+   "updated": "2026-11-22T07:54:39Z"
+  },
+  "econ-430-l21-truffle-supply-and-demand": {
+   "slug": "econ-430-l21-truffle-supply-and-demand",
+   "name": "Econ 430 L21 Truffle Supply and Demand",
+   "title": "An Example of Two-Stage Least Squares Estimation (Truffles)",
+   "type": "lecture",
+   "path": "Courses/Econ 430/Lectures/Econ 430 L21 Truffle Supply and Demand.md",
+   "summary": "Truffle demand is shifted by a substitute price and income, supply by a factor price; each curve is identified by the other's shifter. 2SLS gives a demand slope of −0.37 and a supply slope of 0.34.",
+   "tags": [],
+   "aliases": [],
+   "requires": [],
+   "lessons": [],
+   "courses": [
+    "Econ 430"
+   ],
+   "course": "Econ 430",
+   "lecture": 21,
+   "source": "Regression_Lecture4.ipynb (section 7) and Mathematical_Appendix_Lecture4.ipynb",
+   "edges": {
+    "out": [
+     {
+      "kind": "covers",
+      "note": "identification-in-simultaneous-equations"
+     },
+     {
+      "kind": "covers",
+      "note": "instrumental-variables-and-2sls"
+     },
+     {
+      "kind": "covers",
+      "note": "simultaneous-equations-model"
+     },
+     {
+      "kind": "next",
+      "note": "econ-430-l22-the-fulton-fish-market"
+     },
+     {
+      "kind": "part_of",
+      "note": "econ-430"
+     }
+    ],
+    "in": [
+     {
+      "kind": "next",
+      "note": "econ-430-l20-two-stage-least-squares-for-simultaneous-equations"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 4,
+   "words": 435,
+   "objectives": [
+    {
+     "n": 1,
+     "md": "Write down a two-equation market with demand and supply shifters and check each equation's identification.",
+     "tested": 1
+    },
+    {
+     "n": 2,
+     "md": "Read the first-stage (reduced-form) equation for price and predict from it.",
+     "tested": 1
+    },
+    {
+     "n": 3,
+     "md": "Interpret 2SLS coefficients, distinguishing a movement along a curve from a shift of it.",
+     "tested": 2
+    }
+   ],
+   "created": "2026-11-22T07:51:32Z",
+   "updated": "2026-11-22T07:54:38Z"
+  },
+  "econ-430-l22-the-fulton-fish-market": {
+   "slug": "econ-430-l22-the-fulton-fish-market",
+   "name": "Econ 430 L22 The Fulton Fish Market",
+   "title": "Supply and Demand at the Fulton Fish Market",
+   "type": "lecture",
+   "path": "Courses/Econ 430/Lectures/Econ 430 L22 The Fulton Fish Market.md",
+   "summary": "Daily whiting sales at the Fulton Fish Market: stormy weather at sea shifts supply and identifies demand, with a 2SLS price elasticity of −1.12 (3SLS −1.07). Weekday dummies barely move price, so supply is identified only on paper.",
+   "tags": [],
+   "aliases": [],
+   "requires": [],
+   "lessons": [],
+   "courses": [
+    "Econ 430"
+   ],
+   "course": "Econ 430",
+   "lecture": 22,
+   "source": "Regression_Lecture4.ipynb (section 8) and Mathematical_Appendix_Lecture4.ipynb",
+   "edges": {
+    "out": [
+     {
+      "kind": "covers",
+      "note": "identification-in-simultaneous-equations"
+     },
+     {
+      "kind": "covers",
+      "note": "instrumental-variables-and-2sls"
+     },
+     {
+      "kind": "covers",
+      "note": "seemingly-unrelated-regressions"
+     },
+     {
+      "kind": "covers",
+      "note": "simultaneous-equations-model"
+     },
+     {
+      "kind": "covers",
+      "note": "weak-instruments"
+     },
+     {
+      "kind": "next",
+      "note": "econ-430-l23-panel-data-and-microeconomic-panels"
+     },
+     {
+      "kind": "part_of",
+      "note": "econ-430"
+     }
+    ],
+    "in": [
+     {
+      "kind": "next",
+      "note": "econ-430-l21-truffle-supply-and-demand"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 3,
+   "words": 525,
+   "objectives": [
+    {
+     "n": 1,
+     "md": "Explain how a weather shock identifies a demand curve, and write the market as a two-equation system in logs.",
+     "tested": 1
+    },
+    {
+     "n": 2,
+     "md": "Use the reduced form to judge whether each equation's instruments are strong.",
+     "tested": 1
+    },
+    {
+     "n": 3,
+     "md": "Interpret a log-log 2SLS coefficient as an elasticity, and compare 2SLS with 3SLS.",
+     "tested": 1
+    }
+   ],
+   "created": "2026-11-22T07:51:33Z",
+   "updated": "2026-11-22T07:51:33Z"
+  },
+  "econ-430-l23-panel-data-and-microeconomic-panels": {
+   "slug": "econ-430-l23-panel-data-and-microeconomic-panels",
+   "name": "Econ 430 L23 Panel Data and Microeconomic Panels",
+   "title": "Panel Data Models: Introduction and a Microeconomic Panel",
+   "type": "lecture",
+   "path": "Courses/Econ 430/Lectures/Econ 430 L23 Panel Data and Microeconomic Panels.md",
+   "summary": "A panel observes the same N units over T periods; it can be long and narrow, short and wide, or long and wide. Micro panels are often unbalanced, and repeated cross sections of different people are not a panel.",
+   "tags": [],
+   "aliases": [],
+   "requires": [],
+   "lessons": [],
+   "courses": [
+    "Econ 430"
+   ],
+   "course": "Econ 430",
+   "lecture": 23,
+   "source": "Regression_Lecture5.ipynb (sections 1 and 2) and Mathematical_Appendix_Lecture5.ipynb",
+   "edges": {
+    "out": [
+     {
+      "kind": "covers",
+      "note": "panel-data"
+     },
+     {
+      "kind": "next",
+      "note": "econ-430-l24-the-pooled-panel-model"
+     },
+     {
+      "kind": "part_of",
+      "note": "econ-430"
+     }
+    ],
+    "in": [
+     {
+      "kind": "next",
+      "note": "econ-430-l22-the-fulton-fish-market"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 2,
+   "words": 461,
+   "objectives": [
+    {
+     "n": 1,
+     "md": "Define a panel, distinguish it from repeated cross sections, and classify its shape (long and narrow, short and wide, long and wide).",
+     "tested": 1
+    },
+    {
+     "n": 2,
+     "md": "Distinguish balanced from unbalanced panels and count their observations.",
+     "tested": 1
+    }
+   ],
+   "created": "2026-11-22T07:51:33Z",
+   "updated": "2026-11-22T07:54:39Z"
+  },
+  "econ-430-l24-the-pooled-panel-model": {
+   "slug": "econ-430-l24-the-pooled-panel-model",
+   "name": "Econ 430 L24 The Pooled Panel Model",
+   "title": "A Pooled Panel",
+   "type": "lecture",
+   "path": "Courses/Econ 430/Lectures/Econ 430 L24 The Pooled Panel Model.md",
+   "summary": "Pooled OLS stacks all NT observations with common coefficients. It stays consistent when a person's errors are correlated over time, but its usual standard errors are too small: education's se doubles when clustered.",
+   "tags": [],
+   "aliases": [],
+   "requires": [],
+   "lessons": [],
+   "courses": [
+    "Econ 430"
+   ],
+   "course": "Econ 430",
+   "lecture": 24,
+   "source": "Regression_Lecture5.ipynb (section 3) and Mathematical_Appendix_Lecture5.ipynb",
+   "edges": {
+    "out": [
+     {
+      "kind": "covers",
+      "note": "clustered-standard-errors"
+     },
+     {
+      "kind": "covers",
+      "note": "panel-data"
+     },
+     {
+      "kind": "next",
+      "note": "econ-430-l25-the-fixed-effects-model"
+     },
+     {
+      "kind": "part_of",
+      "note": "econ-430"
+     }
+    ],
+    "in": [
+     {
+      "kind": "next",
+      "note": "econ-430-l23-panel-data-and-microeconomic-panels"
+     }
+    ]
+   },
+   "figures": [
+    "assets/Attachments/NLS wage panel - mean log wage by year.png",
+    "assets/Attachments/NLS wage panel - mean log wage for ten women.png"
+   ],
+   "interactives": [],
+   "checks": 3,
+   "words": 674,
+   "objectives": [
+    {
+     "n": 1,
+     "md": "Write the pooled model, and explain what correlation of a unit's errors over time does to pooled OLS and how cluster-robust standard errors fix it.",
+     "tested": 1
+    },
+    {
+     "n": 2,
+     "md": "Compare usual and clustered results and recompute $t$ statistics.",
+     "tested": 1
+    },
+    {
+     "n": 3,
+     "md": "Read means plots by period and by unit as evidence of heterogeneity, and say which assumptions it threatens.",
+     "tested": 1
+    }
+   ],
+   "created": "2026-11-22T07:51:33Z",
+   "updated": "2026-11-22T07:54:39Z"
+  },
+  "econ-430-l25-the-fixed-effects-model": {
+   "slug": "econ-430-l25-the-fixed-effects-model",
+   "name": "Econ 430 L25 The Fixed Effects Model",
+   "title": "The Fixed Effects Model",
+   "type": "lecture",
+   "path": "Courses/Econ 430/Lectures/Econ 430 L25 The Fixed Effects Model.md",
+   "summary": "Fixed effects gives each unit its own intercept: by dummies (LSDV) or by demeaning each unit's data (within estimator), with identical slopes. An F test rejects equal intercepts: F = 4.13 for 10 women, 20.87 for all 716.",
+   "tags": [],
+   "aliases": [],
+   "requires": [],
+   "lessons": [],
+   "courses": [
+    "Econ 430"
+   ],
+   "course": "Econ 430",
+   "lecture": 25,
+   "source": "Regression_Lecture5.ipynb (section 4) and Mathematical_Appendix_Lecture5.ipynb",
+   "edges": {
+    "out": [
+     {
+      "kind": "covers",
+      "note": "f-test-of-joint-hypotheses"
+     },
+     {
+      "kind": "covers",
+      "note": "fixed-effects-regression"
+     },
+     {
+      "kind": "covers",
+      "note": "indicator-variables"
+     },
+     {
+      "kind": "covers",
+      "note": "panel-data"
+     },
+     {
+      "kind": "next",
+      "note": "econ-430-l26-the-random-effects-model"
+     },
+     {
+      "kind": "part_of",
+      "note": "econ-430"
+     }
+    ],
+    "in": [
+     {
+      "kind": "next",
+      "note": "econ-430-l24-the-pooled-panel-model"
+     }
+    ]
+   },
+   "figures": [
+    "assets/Attachments/NLS wage panel - dummy variable fits for ten women.png"
+   ],
+   "interactives": [],
+   "checks": 3,
+   "words": 634,
+   "objectives": [
+    {
+     "n": 1,
+     "md": "Write the fixed effects model, estimate it by LSDV and test for equal intercepts with an $F$ test.",
+     "tested": 1
+    },
+    {
+     "n": 2,
+     "md": "Derive the within transformation, recover the individual effects, and explain why time-invariant regressors cannot be estimated.",
+     "tested": 1
+    },
+    {
+     "n": 3,
+     "md": "Work out the degrees of freedom of the full-panel test of equal intercepts.",
+     "tested": 1
+    }
+   ],
+   "created": "2026-11-22T07:51:33Z",
+   "updated": "2026-11-22T07:54:39Z"
+  },
+  "econ-430-l26-the-random-effects-model": {
+   "slug": "econ-430-l26-the-random-effects-model",
+   "name": "Econ 430 L26 The Random Effects Model",
+   "title": "The Random Effects Model",
+   "type": "lecture",
+   "path": "Courses/Econ 430/Lectures/Econ 430 L26 The Random Effects Model.md",
+   "summary": "Random effects treats each intercept as a random draw, β1i = β̄1 + ui, so a person's errors share ui and correlate by ρ = σu²/(σu² + σe²). GLS removes a fraction α of each person's mean; in the wage panel α = 0.744.",
+   "tags": [],
+   "aliases": [],
+   "requires": [],
+   "lessons": [],
+   "courses": [
+    "Econ 430"
+   ],
+   "course": "Econ 430",
+   "lecture": 26,
+   "source": "Regression_Lecture5.ipynb (section 5) and Mathematical_Appendix_Lecture5.ipynb",
+   "edges": {
+    "out": [
+     {
+      "kind": "covers",
+      "note": "clustered-standard-errors"
+     },
+     {
+      "kind": "covers",
+      "note": "generalized-least-squares"
+     },
+     {
+      "kind": "covers",
+      "note": "panel-data"
+     },
+     {
+      "kind": "covers",
+      "note": "random-effects-model"
+     },
+     {
+      "kind": "next",
+      "note": "econ-430-l27-comparing-fixed-and-random-effects"
+     },
+     {
+      "kind": "part_of",
+      "note": "econ-430"
+     },
+     {
+      "kind": "shows",
+      "note": "random-effects-demeaning-weight"
+     }
+    ],
+    "in": [
+     {
+      "kind": "next",
+      "note": "econ-430-l25-the-fixed-effects-model"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [
+    "random-effects-demeaning-weight"
+   ],
+   "checks": 3,
+   "derives": 1,
+   "words": 618,
+   "objectives": [
+    {
+     "n": 1,
+     "md": "Write the random effects model and derive the covariances of the combined error and the within-person correlation $\\rho$.",
+     "tested": 2
+    },
+    {
+     "n": 2,
+     "md": "Compute and interpret the LM test for random effects.",
+     "tested": 1
+    },
+    {
+     "n": 3,
+     "md": "Compute the GLS weight $\\alpha$ and explain its limits $\\alpha = 0$ and $\\alpha = 1$.",
+     "tested": 2
+    }
+   ],
+   "created": "2026-11-22T07:51:34Z",
+   "updated": "2026-11-22T08:10:55Z"
+  },
+  "econ-430-l27-comparing-fixed-and-random-effects": {
+   "slug": "econ-430-l27-comparing-fixed-and-random-effects",
+   "name": "Econ 430 L27 Comparing Fixed and Random Effects",
+   "title": "Comparing Fixed and Random Effects Estimators",
+   "type": "lecture",
+   "path": "Courses/Econ 430/Lectures/Econ 430 L27 Comparing Fixed and Random Effects.md",
+   "summary": "Random effects is efficient and keeps time-invariant variables but is inconsistent if the individual effect is correlated with the regressors. Hausman compares it with fixed effects: χ²(6) = 36.2 in the wage panel, so FE.",
+   "tags": [],
+   "aliases": [],
+   "requires": [],
+   "lessons": [],
+   "courses": [
+    "Econ 430"
+   ],
+   "course": "Econ 430",
+   "lecture": 27,
+   "source": "Regression_Lecture5.ipynb (section 6) and Mathematical_Appendix_Lecture5.ipynb",
+   "edges": {
+    "out": [
+     {
+      "kind": "covers",
+      "note": "fixed-effects-regression"
+     },
+     {
+      "kind": "covers",
+      "note": "hausman-test"
+     },
+     {
+      "kind": "covers",
+      "note": "random-effects-model"
+     },
+     {
+      "kind": "next",
+      "note": "econ-430-l28-pooled-fixed-and-random-effects-in-practice"
+     },
+     {
+      "kind": "part_of",
+      "note": "econ-430"
+     }
+    ],
+    "in": [
+     {
+      "kind": "next",
+      "note": "econ-430-l26-the-random-effects-model"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 3,
+   "derives": 1,
+   "words": 580,
+   "objectives": [
+    {
+     "n": 1,
+     "md": "List the advantages of random effects, the assumption it needs that fixed effects does not, and why fixed effects survives its failure.",
+     "tested": 1
+    },
+    {
+     "n": 2,
+     "md": "Derive the Hausman variance of the difference.",
+     "tested": 1
+    },
+    {
+     "n": 3,
+     "md": "Compute the Hausman $t$ for one coefficient, interpret the joint $\\chi^2$ test, and state its limitation with cluster-robust errors.",
+     "tested": 2
+    }
+   ],
+   "created": "2026-11-22T07:51:34Z",
+   "updated": "2026-11-22T07:54:39Z"
+  },
+  "econ-430-l28-pooled-fixed-and-random-effects-in-practice": {
+   "slug": "econ-430-l28-pooled-fixed-and-random-effects-in-practice",
+   "name": "Econ 430 L28 Pooled, Fixed and Random Effects in Practice",
+   "title": "Examples of Pooled, Fixed and Random Effects",
+   "type": "lecture",
+   "path": "Courses/Econ 430/Lectures/Econ 430 L28 Pooled, Fixed and Random Effects in Practice.md",
+   "summary": "Six US airlines, 1970–1984: F tests show firm effects (F = 65.9) and, given them, year effects (F = 2.61) belong in the cost function. With firm effects only, Hausman χ²(4) = 5.62 (p = 0.23) does not reject random effects.",
+   "tags": [],
+   "aliases": [],
+   "requires": [],
+   "lessons": [],
+   "courses": [
+    "Econ 430"
+   ],
+   "course": "Econ 430",
+   "lecture": 28,
+   "source": "Regression_Lecture5.ipynb (section 7) and Mathematical_Appendix_Lecture5.ipynb",
+   "edges": {
+    "out": [
+     {
+      "kind": "covers",
+      "note": "f-test-of-joint-hypotheses"
+     },
+     {
+      "kind": "covers",
+      "note": "fixed-effects-regression"
+     },
+     {
+      "kind": "covers",
+      "note": "hausman-test"
+     },
+     {
+      "kind": "covers",
+      "note": "indicator-variables"
+     },
+     {
+      "kind": "covers",
+      "note": "panel-data"
+     },
+     {
+      "kind": "covers",
+      "note": "random-effects-model"
+     },
+     {
+      "kind": "next",
+      "note": "econ-430-l29-the-hausman-taylor-estimator"
+     },
+     {
+      "kind": "part_of",
+      "note": "econ-430"
+     }
+    ],
+    "in": [
+     {
+      "kind": "next",
+      "note": "econ-430-l27-comparing-fixed-and-random-effects"
+     }
+    ]
+   },
+   "figures": [
+    "assets/Attachments/Airline costs - year effects with 95 percent intervals.png",
+    "assets/Attachments/Airline costs - firm effects with 95 percent intervals.png",
+    "assets/Attachments/Airline costs - log cost against log output by firm.png",
+    "assets/Attachments/Airline costs - fixed and random effects coefficients.png"
+   ],
+   "interactives": [],
+   "checks": 3,
+   "words": 729,
+   "objectives": [
+    {
+     "n": 1,
+     "md": "Set up pooled, time, firm and two-way fixed effects models and test each kind of effect with an $F$ test.",
+     "tested": 1
+    },
+    {
+     "n": 2,
+     "md": "Explain why a test of one kind of effect depends on whether the other is controlled for, and read year and firm effect plots.",
+     "tested": 1
+    },
+    {
+     "n": 3,
+     "md": "Choose between fixed and random firm effects with a Hausman test.",
+     "tested": 1
+    }
+   ],
+   "created": "2026-11-22T07:51:34Z",
+   "updated": "2026-11-22T07:54:39Z"
+  },
+  "econ-430-l29-the-hausman-taylor-estimator": {
+   "slug": "econ-430-l29-the-hausman-taylor-estimator",
+   "name": "Econ 430 L29 The Hausman-Taylor Estimator",
+   "title": "The Hausman-Taylor Estimator",
+   "type": "lecture",
+   "path": "Courses/Econ 430/Lectures/Econ 430 L29 The Hausman-Taylor Estimator.md",
+   "summary": "Hausman-Taylor applies IV to random effects, with exogenous time-varying variables as internal instruments, so time-invariant effects survive correlation with the unit effect: the return to schooling is 0.171.",
+   "tags": [],
+   "aliases": [],
+   "requires": [],
+   "lessons": [],
+   "courses": [
+    "Econ 430"
+   ],
+   "course": "Econ 430",
+   "lecture": 29,
+   "source": "Regression_Lecture5.ipynb (section 8 and \"When to use the Hausman-Taylor estimator\") and Mathematical_Appendix_Lecture5.ipynb",
+   "edges": {
+    "out": [
+     {
+      "kind": "covers",
+      "note": "fixed-effects-regression"
+     },
+     {
+      "kind": "covers",
+      "note": "hausman-taylor-estimator"
+     },
+     {
+      "kind": "covers",
+      "note": "instrumental-variables-and-2sls"
+     },
+     {
+      "kind": "covers",
+      "note": "random-effects-model"
+     },
+     {
+      "kind": "next",
+      "note": "econ-430-l30-sets-of-regression-equations"
+     },
+     {
+      "kind": "part_of",
+      "note": "econ-430"
+     }
+    ],
+    "in": [
+     {
+      "kind": "next",
+      "note": "econ-430-l28-pooled-fixed-and-random-effects-in-practice"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 3,
+   "words": 614,
+   "objectives": [
+    {
+     "n": 1,
+     "md": "Classify regressors as time-varying or time-invariant and exogenous or endogenous with respect to $u_i$, and explain where Hausman-Taylor's instruments come from.",
+     "tested": 1
+    },
+    {
+     "n": 2,
+     "md": "Interpret Hausman-Taylor estimates against pooled and fixed effects results, and compute its demeaning weight.",
+     "tested": 1
+    },
+    {
+     "n": 3,
+     "md": "Decide when Hausman-Taylor is appropriate, and when it is not.",
+     "tested": 1
+    }
+   ],
+   "created": "2026-11-22T07:51:35Z",
+   "updated": "2026-11-22T07:54:39Z"
   },
   "econ-430-l3-the-method-of-least-squares": {
    "slug": "econ-430-l3-the-method-of-least-squares",
@@ -11489,6 +13141,81 @@
    ],
    "created": "2026-11-07T05:39:27Z",
    "updated": "2026-11-07T05:39:27Z"
+  },
+  "econ-430-l30-sets-of-regression-equations": {
+   "slug": "econ-430-l30-sets-of-regression-equations",
+   "name": "Econ 430 L30 Sets of Regression Equations",
+   "title": "Sets of Regression Equations",
+   "type": "lecture",
+   "path": "Courses/Econ 430/Lectures/Econ 430 L30 Sets of Regression Equations.md",
+   "summary": "For GE and Westinghouse investment, a Chow test does not reject equal coefficients (F = 1.19), but the errors are contemporaneously correlated (r² = 0.53, LM = 10.6), so SUR estimates the two equations jointly.",
+   "tags": [],
+   "aliases": [],
+   "requires": [],
+   "lessons": [],
+   "courses": [
+    "Econ 430"
+   ],
+   "course": "Econ 430",
+   "lecture": 30,
+   "source": "Regression_Lecture5.ipynb (section 9) and Mathematical_Appendix_Lecture5.ipynb",
+   "edges": {
+    "out": [
+     {
+      "kind": "covers",
+      "note": "f-test-of-joint-hypotheses"
+     },
+     {
+      "kind": "covers",
+      "note": "generalized-least-squares"
+     },
+     {
+      "kind": "covers",
+      "note": "indicator-variables"
+     },
+     {
+      "kind": "covers",
+      "note": "panel-data"
+     },
+     {
+      "kind": "covers",
+      "note": "seemingly-unrelated-regressions"
+     },
+     {
+      "kind": "part_of",
+      "note": "econ-430"
+     }
+    ],
+    "in": [
+     {
+      "kind": "next",
+      "note": "econ-430-l29-the-hausman-taylor-estimator"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 3,
+   "words": 618,
+   "objectives": [
+    {
+     "n": 1,
+     "md": "Decide when separate equations per unit are feasible, and set up the dummy variable model and Chow test for equal coefficients.",
+     "tested": 1
+    },
+    {
+     "n": 2,
+     "md": "Explain contemporaneous correlation, the steps of SUR and when it equals OLS, and compute the LM test for contemporaneous correlation.",
+     "tested": 1
+    },
+    {
+     "n": 3,
+     "md": "Explain why cross-equation hypotheses must be tested within SUR.",
+     "tested": 1
+    }
+   ],
+   "created": "2026-11-22T07:51:35Z",
+   "updated": "2026-11-22T07:54:39Z"
   },
   "econ-430-l4-cross-validation-and-the-bootstrap": {
    "slug": "econ-430-l4-cross-validation-and-the-bootstrap",
@@ -13022,10 +14749,14 @@
    "requires": [],
    "lessons": [
     "econ-402a-l1-solow-growth-model",
-    "econ-402a-l9-working-with-macroeconomic-data"
+    "econ-402a-l9-working-with-macroeconomic-data",
+    "econ-430-l13-linear-regression-with-random-regressors",
+    "econ-430-l14-when-x-and-e-are-correlated",
+    "econ-430-l17-simultaneous-equations-and-supply-and-demand"
    ],
    "courses": [
-    "Econ 402A"
+    "Econ 402A",
+    "Econ 430"
    ],
    "edges": {
     "out": [
@@ -13035,11 +14766,31 @@
      },
      {
       "kind": "related",
+      "note": "classical-measurement-error"
+     },
+     {
+      "kind": "related",
+      "note": "consistency-and-probability-limits"
+     },
+     {
+      "kind": "related",
+      "note": "hausman-test"
+     },
+     {
+      "kind": "related",
       "note": "implicit-function-theorem"
      },
      {
       "kind": "related",
       "note": "instrumental-variables-and-2sls"
+     },
+     {
+      "kind": "related",
+      "note": "omitted-variable-bias"
+     },
+     {
+      "kind": "related",
+      "note": "simultaneous-equations-model"
      },
      {
       "kind": "related",
@@ -13064,12 +14815,32 @@
       "note": "econ-402a-l9-working-with-macroeconomic-data"
      },
      {
+      "kind": "covers",
+      "note": "econ-430-l13-linear-regression-with-random-regressors"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l14-when-x-and-e-are-correlated"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l17-simultaneous-equations-and-supply-and-demand"
+     },
+     {
+      "kind": "related",
+      "note": "consistency-and-probability-limits"
+     },
+     {
       "kind": "related",
       "note": "small-open-economy"
      },
      {
       "kind": "related",
       "note": "solow-growth-model"
+     },
+     {
+      "kind": "requires",
+      "note": "simultaneous-equations-model"
      },
      {
       "kind": "requires",
@@ -13088,9 +14859,9 @@
    "figures": [],
    "interactives": [],
    "checks": 0,
-   "words": 531,
-   "created": "2026-11-13T18:16:55Z",
-   "updated": "2026-11-13T18:16:55Z"
+   "words": 624,
+   "created": "2026-11-22T07:52:42Z",
+   "updated": "2026-11-22T07:52:42Z"
   },
   "endogenous-growth-models": {
    "slug": "endogenous-growth-models",
@@ -13517,6 +15288,10 @@
     "multiple-regression-model"
    ],
    "lessons": [
+    "econ-430-l16-specification-tests-for-instrumental-variables",
+    "econ-430-l25-the-fixed-effects-model",
+    "econ-430-l28-pooled-fixed-and-random-effects-in-practice",
+    "econ-430-l30-sets-of-regression-equations",
     "econ-430-l8-building-multiple-regression-models"
    ],
    "courses": [
@@ -13556,6 +15331,22 @@
     "in": [
      {
       "kind": "covers",
+      "note": "econ-430-l16-specification-tests-for-instrumental-variables"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l25-the-fixed-effects-model"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l28-pooled-fixed-and-random-effects-in-practice"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l30-sets-of-regression-equations"
+     },
+     {
+      "kind": "covers",
       "note": "econ-430-l8-building-multiple-regression-models"
      },
      {
@@ -13579,12 +15370,20 @@
       "note": "multiple-regression-model"
      },
      {
+      "kind": "related",
+      "note": "seemingly-unrelated-regressions"
+     },
+     {
       "kind": "requires",
       "note": "analysis-of-variance"
      },
      {
       "kind": "requires",
       "note": "ramsey-reset"
+     },
+     {
+      "kind": "requires",
+      "note": "weak-instruments"
      }
     ]
    },
@@ -13592,8 +15391,8 @@
    "interactives": [],
    "checks": 0,
    "words": 344,
-   "created": "2026-10-19T18:36:08Z",
-   "updated": "2026-10-19T18:36:08Z"
+   "created": "2026-11-22T07:52:42Z",
+   "updated": "2026-11-22T07:52:42Z"
   },
   "factor-augmenting-technology": {
    "slug": "factor-augmenting-technology",
@@ -13816,7 +15615,10 @@
     "Fixed effects",
     "Two-way fixed effects",
     "TWFE",
-    "Within estimator"
+    "Within estimator",
+    "LSDV",
+    "Least squares dummy variable estimator",
+    "Fixed effects model"
    ],
    "requires": [
     "indicator-variables",
@@ -13825,10 +15627,15 @@
    "lessons": [
     "econ-424-l5-international-trade-empirics",
     "econ-424-l7-immigration-across-skills-jobs-and-places",
-    "econ-424-l8-minimum-wages-and-employment"
+    "econ-424-l8-minimum-wages-and-employment",
+    "econ-430-l25-the-fixed-effects-model",
+    "econ-430-l27-comparing-fixed-and-random-effects",
+    "econ-430-l28-pooled-fixed-and-random-effects-in-practice",
+    "econ-430-l29-the-hausman-taylor-estimator"
    ],
    "courses": [
-    "Econ 424"
+    "Econ 424",
+    "Econ 430"
    ],
    "edges": {
     "out": [
@@ -13846,7 +15653,23 @@
      },
      {
       "kind": "related",
+      "note": "hausman-taylor-estimator"
+     },
+     {
+      "kind": "related",
+      "note": "hausman-test"
+     },
+     {
+      "kind": "related",
       "note": "instrumental-variables-and-2sls"
+     },
+     {
+      "kind": "related",
+      "note": "panel-data"
+     },
+     {
+      "kind": "related",
+      "note": "random-effects-model"
      },
      {
       "kind": "requires",
@@ -13858,6 +15681,10 @@
      }
     ],
     "in": [
+     {
+      "kind": "applies",
+      "note": "econ-430-l15-instrumental-variables-estimation"
+     },
      {
       "kind": "covers",
       "note": "econ-424-l5-international-trade-empirics"
@@ -13871,12 +15698,44 @@
       "note": "econ-424-l8-minimum-wages-and-employment"
      },
      {
+      "kind": "covers",
+      "note": "econ-430-l25-the-fixed-effects-model"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l27-comparing-fixed-and-random-effects"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l28-pooled-fixed-and-random-effects-in-practice"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l29-the-hausman-taylor-estimator"
+     },
+     {
       "kind": "related",
       "note": "clustered-standard-errors"
      },
      {
       "kind": "related",
+      "note": "hausman-taylor-estimator"
+     },
+     {
+      "kind": "related",
+      "note": "hausman-test"
+     },
+     {
+      "kind": "related",
+      "note": "panel-data"
+     },
+     {
+      "kind": "related",
       "note": "poisson-pseudo-maximum-likelihood"
+     },
+     {
+      "kind": "related",
+      "note": "random-effects-model"
      },
      {
       "kind": "related",
@@ -13923,9 +15782,9 @@
    "figures": [],
    "interactives": [],
    "checks": 0,
-   "words": 410,
-   "created": "2026-11-13T18:16:55Z",
-   "updated": "2026-11-13T18:16:55Z"
+   "words": 577,
+   "created": "2026-11-22T07:52:42Z",
+   "updated": "2026-11-22T07:52:42Z"
   },
   "friedberg-2001-the-impact-of-mass-migration-on-the-israeli-labor-market": {
    "slug": "friedberg-2001-the-impact-of-mass-migration-on-the-israeli-labor-market",
@@ -14106,6 +15965,7 @@
     "linear-independence-and-rank"
    ],
    "lessons": [
+    "econ-430-l19-the-failure-of-least-squares-and-identification",
     "econ-430-l6-indicator-variables-and-the-ols-workflow",
     "econ-430-l7-the-classical-linear-regression-model"
    ],
@@ -14114,6 +15974,10 @@
    ],
    "edges": {
     "out": [
+     {
+      "kind": "related",
+      "note": "identification-in-simultaneous-equations"
+     },
      {
       "kind": "related",
       "note": "indicator-variables"
@@ -14143,6 +16007,10 @@
      {
       "kind": "applies",
       "note": "math-prep-l2-vector-spaces-rank-and-projection"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l19-the-failure-of-least-squares-and-identification"
      },
      {
       "kind": "covers",
@@ -14187,15 +16055,19 @@
      {
       "kind": "related",
       "note": "strict-exogeneity"
+     },
+     {
+      "kind": "requires",
+      "note": "identification-in-simultaneous-equations"
      }
     ]
    },
    "figures": [],
    "interactives": [],
    "checks": 0,
-   "words": 323,
-   "created": "2026-10-17T19:26:06Z",
-   "updated": "2026-10-17T19:26:06Z"
+   "words": 339,
+   "created": "2026-11-22T07:52:42Z",
+   "updated": "2026-11-22T07:52:42Z"
   },
   "functional-forms-and-elasticities": {
    "slug": "functional-forms-and-elasticities",
@@ -14451,6 +16323,7 @@
     "inner-products-and-orthogonality"
    ],
    "lessons": [
+    "econ-430-l13-linear-regression-with-random-regressors",
     "econ-430-l3-the-method-of-least-squares"
    ],
    "courses": [
@@ -14480,6 +16353,10 @@
      }
     ],
     "in": [
+     {
+      "kind": "covers",
+      "note": "econ-430-l13-linear-regression-with-random-regressors"
+     },
      {
       "kind": "covers",
       "note": "econ-430-l3-the-method-of-least-squares"
@@ -14522,8 +16399,8 @@
    "interactives": [],
    "checks": 0,
    "words": 333,
-   "created": "2026-10-17T19:25:21Z",
-   "updated": "2026-10-17T19:25:21Z"
+   "created": "2026-11-22T07:52:42Z",
+   "updated": "2026-11-22T07:52:42Z"
   },
   "generalized-least-squares": {
    "slug": "generalized-least-squares",
@@ -14553,7 +16430,9 @@
    ],
    "lessons": [
     "econ-430-l11-heteroskedasticity",
-    "econ-430-l12-missing-data-and-the-regression-workflow"
+    "econ-430-l12-missing-data-and-the-regression-workflow",
+    "econ-430-l26-the-random-effects-model",
+    "econ-430-l30-sets-of-regression-equations"
    ],
    "courses": [
     "Econ 430"
@@ -14567,6 +16446,14 @@
      {
       "kind": "related",
       "note": "heteroskedasticity-consistent-standard-errors"
+     },
+     {
+      "kind": "related",
+      "note": "random-effects-model"
+     },
+     {
+      "kind": "related",
+      "note": "seemingly-unrelated-regressions"
      },
      {
       "kind": "requires",
@@ -14587,6 +16474,14 @@
       "note": "econ-430-l12-missing-data-and-the-regression-workflow"
      },
      {
+      "kind": "covers",
+      "note": "econ-430-l26-the-random-effects-model"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l30-sets-of-regression-equations"
+     },
+     {
       "kind": "related",
       "note": "heteroskedasticity-consistent-standard-errors"
      },
@@ -14601,15 +16496,23 @@
      {
       "kind": "related",
       "note": "poisson-pseudo-maximum-likelihood"
+     },
+     {
+      "kind": "requires",
+      "note": "random-effects-model"
+     },
+     {
+      "kind": "requires",
+      "note": "seemingly-unrelated-regressions"
      }
     ]
    },
    "figures": [],
    "interactives": [],
    "checks": 0,
-   "words": 383,
-   "created": "2026-10-19T18:36:08Z",
-   "updated": "2026-10-19T18:36:08Z"
+   "words": 400,
+   "created": "2026-11-22T07:52:42Z",
+   "updated": "2026-11-22T07:52:42Z"
   },
   "geometric-series": {
    "slug": "geometric-series",
@@ -14991,6 +16894,200 @@
    "words": 754,
    "created": "2026-10-21T19:39:01Z",
    "updated": "2026-10-21T19:39:01Z"
+  },
+  "hausman-taylor-estimator": {
+   "slug": "hausman-taylor-estimator",
+   "name": "Hausman-Taylor Estimator",
+   "title": "Hausman-Taylor Estimator",
+   "type": "concept",
+   "path": "Concepts/Hausman-Taylor Estimator.md",
+   "summary": "IV applied to random effects: exogenous time-varying regressors instrument the endogenous ones, so time-invariant effects like schooling are estimated even when some regressors are correlated with the unit effect.",
+   "domain": "econometrics",
+   "domains": [
+    "econometrics"
+   ],
+   "tags": [],
+   "aliases": [
+    "Hausman-Taylor",
+    "HT estimator"
+   ],
+   "requires": [
+    "random-effects-model",
+    "instrumental-variables-and-2sls"
+   ],
+   "lessons": [
+    "econ-430-l29-the-hausman-taylor-estimator"
+   ],
+   "courses": [
+    "Econ 430"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "related",
+      "note": "fixed-effects-regression"
+     },
+     {
+      "kind": "related",
+      "note": "hausman-test"
+     },
+     {
+      "kind": "related",
+      "note": "panel-data"
+     },
+     {
+      "kind": "requires",
+      "note": "instrumental-variables-and-2sls"
+     },
+     {
+      "kind": "requires",
+      "note": "random-effects-model"
+     }
+    ],
+    "in": [
+     {
+      "kind": "covers",
+      "note": "econ-430-l29-the-hausman-taylor-estimator"
+     },
+     {
+      "kind": "related",
+      "note": "fixed-effects-regression"
+     },
+     {
+      "kind": "related",
+      "note": "hausman-test"
+     },
+     {
+      "kind": "related",
+      "note": "panel-data"
+     },
+     {
+      "kind": "related",
+      "note": "random-effects-model"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 420,
+   "created": "2026-11-22T07:52:42Z",
+   "updated": "2026-11-22T07:54:39Z"
+  },
+  "hausman-test": {
+   "slug": "hausman-test",
+   "name": "Hausman Test",
+   "title": "Hausman Test",
+   "type": "concept",
+   "path": "Concepts/Hausman Test.md",
+   "summary": "Compares an estimator consistent under both hypotheses with one efficient under the null; a large difference rejects the null. Used to test regressor endogeneity (OLS vs IV) and random vs fixed effects, with Var(diff) = Var(FE) − Var(RE).",
+   "domain": "econometrics",
+   "domains": [
+    "econometrics"
+   ],
+   "tags": [],
+   "aliases": [
+    "Durbin-Wu-Hausman test",
+    "Wu-Hausman test",
+    "Test for endogeneity",
+    "Hausman specification test"
+   ],
+   "requires": [
+    "instrumental-variables-and-2sls"
+   ],
+   "lessons": [
+    "econ-430-l16-specification-tests-for-instrumental-variables",
+    "econ-430-l20-two-stage-least-squares-for-simultaneous-equations",
+    "econ-430-l27-comparing-fixed-and-random-effects",
+    "econ-430-l28-pooled-fixed-and-random-effects-in-practice"
+   ],
+   "courses": [
+    "Econ 430"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "related",
+      "note": "fixed-effects-regression"
+     },
+     {
+      "kind": "related",
+      "note": "hausman-taylor-estimator"
+     },
+     {
+      "kind": "related",
+      "note": "random-effects-model"
+     },
+     {
+      "kind": "related",
+      "note": "weak-instruments"
+     },
+     {
+      "kind": "requires",
+      "note": "instrumental-variables-and-2sls"
+     }
+    ],
+    "in": [
+     {
+      "kind": "applies",
+      "note": "econ-430-l14-when-x-and-e-are-correlated"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l16-specification-tests-for-instrumental-variables"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l20-two-stage-least-squares-for-simultaneous-equations"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l27-comparing-fixed-and-random-effects"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l28-pooled-fixed-and-random-effects-in-practice"
+     },
+     {
+      "kind": "related",
+      "note": "endogenous-and-exogenous-variables"
+     },
+     {
+      "kind": "related",
+      "note": "fixed-effects-regression"
+     },
+     {
+      "kind": "related",
+      "note": "hausman-taylor-estimator"
+     },
+     {
+      "kind": "related",
+      "note": "instrumental-variables-and-2sls"
+     },
+     {
+      "kind": "related",
+      "note": "overidentifying-restrictions-test"
+     },
+     {
+      "kind": "related",
+      "note": "panel-data"
+     },
+     {
+      "kind": "related",
+      "note": "random-effects-model"
+     },
+     {
+      "kind": "related",
+      "note": "weak-instruments"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 425,
+   "created": "2026-11-22T07:52:42Z",
+   "updated": "2026-11-22T07:52:42Z"
   },
   "herfindahl-hirschman-index": {
    "slug": "herfindahl-hirschman-index",
@@ -15908,6 +18005,108 @@
    "created": "2026-11-06T20:58:27Z",
    "updated": "2026-11-06T20:58:27Z"
   },
+  "identification-in-simultaneous-equations": {
+   "slug": "identification-in-simultaneous-equations",
+   "name": "Identification in Simultaneous Equations",
+   "title": "Identification in Simultaneous Equations",
+   "type": "concept",
+   "path": "Concepts/Identification in Simultaneous Equations.md",
+   "summary": "An equation in an M-equation system is identified only if it excludes at least M − 1 of the system's variables (order condition): exactly M − 1 is exact, more is overidentified. The rank condition is necessary and sufficient.",
+   "domain": "econometrics",
+   "domains": [
+    "econometrics"
+   ],
+   "tags": [],
+   "aliases": [
+    "Order condition",
+    "Rank condition",
+    "Exactly identified",
+    "Just identified",
+    "Overidentified",
+    "Exclusion restriction"
+   ],
+   "requires": [
+    "simultaneous-equations-model",
+    "full-rank-and-identification"
+   ],
+   "lessons": [
+    "econ-430-l18-reduced-form-equations",
+    "econ-430-l19-the-failure-of-least-squares-and-identification",
+    "econ-430-l21-truffle-supply-and-demand",
+    "econ-430-l22-the-fulton-fish-market"
+   ],
+   "courses": [
+    "Econ 430"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "related",
+      "note": "instrumental-variables-and-2sls"
+     },
+     {
+      "kind": "related",
+      "note": "overidentifying-restrictions-test"
+     },
+     {
+      "kind": "related",
+      "note": "weak-instruments"
+     },
+     {
+      "kind": "requires",
+      "note": "full-rank-and-identification"
+     },
+     {
+      "kind": "requires",
+      "note": "simultaneous-equations-model"
+     }
+    ],
+    "in": [
+     {
+      "kind": "applies",
+      "note": "econ-430-l17-simultaneous-equations-and-supply-and-demand"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l18-reduced-form-equations"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l19-the-failure-of-least-squares-and-identification"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l21-truffle-supply-and-demand"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l22-the-fulton-fish-market"
+     },
+     {
+      "kind": "illustrates",
+      "note": "market-equilibrium-and-identification"
+     },
+     {
+      "kind": "related",
+      "note": "full-rank-and-identification"
+     },
+     {
+      "kind": "related",
+      "note": "overidentifying-restrictions-test"
+     },
+     {
+      "kind": "related",
+      "note": "simultaneous-equations-model"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 444,
+   "created": "2026-11-22T07:52:42Z",
+   "updated": "2026-11-22T07:54:39Z"
+  },
   "immigrant-share-elasticity-explorer": {
    "slug": "immigrant-share-elasticity-explorer",
    "name": "Immigrant Share Elasticity Explorer",
@@ -16242,6 +18441,9 @@
    ],
    "lessons": [
     "econ-430-l12-missing-data-and-the-regression-workflow",
+    "econ-430-l25-the-fixed-effects-model",
+    "econ-430-l28-pooled-fixed-and-random-effects-in-practice",
+    "econ-430-l30-sets-of-regression-equations",
     "econ-430-l6-indicator-variables-and-the-ols-workflow",
     "econ-430-l8-building-multiple-regression-models"
    ],
@@ -16287,6 +18489,18 @@
      {
       "kind": "covers",
       "note": "econ-430-l12-missing-data-and-the-regression-workflow"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l25-the-fixed-effects-model"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l28-pooled-fixed-and-random-effects-in-practice"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l30-sets-of-regression-equations"
      },
      {
       "kind": "covers",
@@ -16348,8 +18562,8 @@
    "interactives": [],
    "checks": 0,
    "words": 453,
-   "created": "2026-10-19T18:36:08Z",
-   "updated": "2026-10-19T18:42:14Z"
+   "created": "2026-11-22T07:52:42Z",
+   "updated": "2026-11-22T07:52:42Z"
   },
   "inflation-shock-paths": {
    "slug": "inflation-shock-paths",
@@ -16542,7 +18756,10 @@
    "aliases": [
     "IV",
     "2SLS",
-    "Two-stage least squares"
+    "Two-stage least squares",
+    "Instrumental variables",
+    "IV estimator",
+    "First-stage regression"
    ],
    "requires": [
     "strict-exogeneity",
@@ -16553,11 +18770,18 @@
     "econ-424-l2-between-group-inequality",
     "econ-424-l5-international-trade-empirics",
     "econ-424-l7-immigration-across-skills-jobs-and-places",
-    "econ-424-l9-minimum-wages-and-wage-inequality"
+    "econ-424-l9-minimum-wages-and-wage-inequality",
+    "econ-430-l15-instrumental-variables-estimation",
+    "econ-430-l16-specification-tests-for-instrumental-variables",
+    "econ-430-l20-two-stage-least-squares-for-simultaneous-equations",
+    "econ-430-l21-truffle-supply-and-demand",
+    "econ-430-l22-the-fulton-fish-market",
+    "econ-430-l29-the-hausman-taylor-estimator"
    ],
    "courses": [
     "Econ 402A",
-    "Econ 424"
+    "Econ 424",
+    "Econ 430"
    ],
    "edges": {
     "out": [
@@ -16579,6 +18803,10 @@
      },
      {
       "kind": "related",
+      "note": "consistency-and-probability-limits"
+     },
+     {
+      "kind": "related",
       "note": "effective-minimum-wage"
      },
      {
@@ -16587,11 +18815,31 @@
      },
      {
       "kind": "related",
+      "note": "hausman-test"
+     },
+     {
+      "kind": "related",
+      "note": "method-of-moments"
+     },
+     {
+      "kind": "related",
+      "note": "overidentifying-restrictions-test"
+     },
+     {
+      "kind": "related",
       "note": "research-designs-for-immigration-effects"
      },
      {
       "kind": "related",
       "note": "shift-share-instrument"
+     },
+     {
+      "kind": "related",
+      "note": "simultaneous-equations-model"
+     },
+     {
+      "kind": "related",
+      "note": "weak-instruments"
      },
      {
       "kind": "requires",
@@ -16628,12 +18876,48 @@
       "note": "econ-424-l9-minimum-wages-and-wage-inequality"
      },
      {
+      "kind": "covers",
+      "note": "econ-430-l15-instrumental-variables-estimation"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l16-specification-tests-for-instrumental-variables"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l20-two-stage-least-squares-for-simultaneous-equations"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l21-truffle-supply-and-demand"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l22-the-fulton-fish-market"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l29-the-hausman-taylor-estimator"
+     },
+     {
+      "kind": "illustrates",
+      "note": "iv-and-ols-sampling-distributions"
+     },
+     {
+      "kind": "illustrates",
+      "note": "iv-and-ols-sampling-model"
+     },
+     {
       "kind": "related",
       "note": "canonical-model-of-the-skill-premium"
      },
      {
       "kind": "related",
       "note": "classical-measurement-error"
+     },
+     {
+      "kind": "related",
+      "note": "consistency-and-probability-limits"
      },
      {
       "kind": "related",
@@ -16653,11 +18937,31 @@
      },
      {
       "kind": "related",
+      "note": "identification-in-simultaneous-equations"
+     },
+     {
+      "kind": "related",
       "note": "inner-products-and-orthogonality"
      },
      {
       "kind": "related",
+      "note": "method-of-moments"
+     },
+     {
+      "kind": "related",
+      "note": "omitted-variable-bias"
+     },
+     {
+      "kind": "related",
+      "note": "seemingly-unrelated-regressions"
+     },
+     {
+      "kind": "related",
       "note": "shift-share-exposure"
+     },
+     {
+      "kind": "related",
+      "note": "simultaneous-equations-model"
      },
      {
       "kind": "related",
@@ -16669,11 +18973,27 @@
      },
      {
       "kind": "requires",
+      "note": "hausman-taylor-estimator"
+     },
+     {
+      "kind": "requires",
+      "note": "hausman-test"
+     },
+     {
+      "kind": "requires",
+      "note": "overidentifying-restrictions-test"
+     },
+     {
+      "kind": "requires",
       "note": "research-designs-for-immigration-effects"
      },
      {
       "kind": "requires",
       "note": "shift-share-instrument"
+     },
+     {
+      "kind": "requires",
+      "note": "weak-instruments"
      },
      {
       "kind": "uses",
@@ -16712,9 +19032,9 @@
    "figures": [],
    "interactives": [],
    "checks": 0,
-   "words": 479,
-   "created": "2026-11-18T20:42:05Z",
-   "updated": "2026-11-18T20:42:05Z"
+   "words": 773,
+   "created": "2026-11-22T07:52:42Z",
+   "updated": "2026-11-22T07:54:39Z"
   },
   "integration-by-parts": {
    "slug": "integration-by-parts",
@@ -17626,6 +19946,93 @@
    "words": 531,
    "created": "2026-10-31T17:53:55Z",
    "updated": "2026-10-31T17:53:55Z"
+  },
+  "iv-and-ols-sampling-distributions": {
+   "slug": "iv-and-ols-sampling-distributions",
+   "name": "IV and OLS Sampling Distributions",
+   "title": "IV and OLS Sampling Distributions",
+   "type": "interactive",
+   "path": "Interactives/IV and OLS Sampling Distributions.md",
+   "summary": "Histograms of the OLS and IV slopes over 2,000 samples with an endogenous regressor: OLS centres on the wrong value, IV on the truth, and as the instrument weakens the IV histogram spreads out and drifts toward OLS.",
+   "domain": "econometrics",
+   "domains": [
+    "econometrics"
+   ],
+   "tags": [
+    "interactive",
+    "estimation"
+   ],
+   "aliases": [],
+   "requires": [],
+   "lessons": [
+    "econ-430-l16-specification-tests-for-instrumental-variables"
+   ],
+   "courses": [
+    "Econ 430"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "illustrates",
+      "note": "instrumental-variables-and-2sls"
+     },
+     {
+      "kind": "illustrates",
+      "note": "weak-instruments"
+     }
+    ],
+    "in": [
+     {
+      "kind": "shows",
+      "note": "econ-430-l16-specification-tests-for-instrumental-variables"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 175,
+   "created": "2026-11-22T08:10:58Z",
+   "updated": "2026-11-22T08:10:58Z"
+  },
+  "iv-and-ols-sampling-model": {
+   "slug": "iv-and-ols-sampling-model",
+   "name": "IV and OLS Sampling Model",
+   "title": "IV and OLS Sampling Model",
+   "type": "interactive",
+   "path": "Interactives/IV and OLS Sampling Model.md",
+   "summary": "A population with an endogenous regressor and one instrument: x = πz + v, y = x + ρv + noise. OLS converges to 1 + ρ/(π² + 1); IV is consistent for 1, and the first-stage F is about Nπ².",
+   "domain": "econometrics",
+   "domains": [
+    "econometrics"
+   ],
+   "tags": [
+    "interactive",
+    "model"
+   ],
+   "aliases": [],
+   "requires": [],
+   "lessons": [],
+   "courses": [],
+   "edges": {
+    "out": [
+     {
+      "kind": "illustrates",
+      "note": "instrumental-variables-and-2sls"
+     },
+     {
+      "kind": "illustrates",
+      "note": "weak-instruments"
+     }
+    ],
+    "in": []
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 49,
+   "created": "2026-11-22T08:26:17Z",
+   "updated": "2026-11-22T08:26:17Z"
   },
   "jha-neumark-and-rodriguez-lopez-2024-re-evaluating-the-cross-border-evidence": {
    "slug": "jha-neumark-and-rodriguez-lopez-2024-re-evaluating-the-cross-border-evidence",
@@ -18828,6 +21235,7 @@
    ],
    "lessons": [
     "econ-424-l2-between-group-inequality",
+    "econ-430-l13-linear-regression-with-random-regressors",
     "econ-430-l7-the-classical-linear-regression-model"
    ],
    "courses": [
@@ -18868,7 +21276,15 @@
      },
      {
       "kind": "covers",
+      "note": "econ-430-l13-linear-regression-with-random-regressors"
+     },
+     {
+      "kind": "covers",
       "note": "econ-430-l7-the-classical-linear-regression-model"
+     },
+     {
+      "kind": "related",
+      "note": "consistency-and-probability-limits"
      },
      {
       "kind": "related",
@@ -18896,8 +21312,8 @@
    "interactives": [],
    "checks": 0,
    "words": 187,
-   "created": "2026-10-17T19:26:06Z",
-   "updated": "2026-10-17T19:26:06Z"
+   "created": "2026-11-22T07:52:42Z",
+   "updated": "2026-11-22T07:52:42Z"
   },
   "law-of-total-variance": {
    "slug": "law-of-total-variance",
@@ -20857,6 +23273,89 @@
    "created": "2026-10-21T19:52:23Z",
    "updated": "2026-10-21T19:52:49Z"
   },
+  "market-equilibrium-and-identification": {
+   "slug": "market-equilibrium-and-identification",
+   "name": "Market Equilibrium and Identification",
+   "title": "Market Equilibrium and Identification",
+   "type": "interactive",
+   "path": "Interactives/Market Equilibrium and Identification.md",
+   "summary": "Raise income and watch demand shift along a fixed supply curve: the equilibria trace out supply, whose slope is the ratio of the reduced-form income effects, but never reveal the slope of demand.",
+   "domain": "econometrics",
+   "domains": [
+    "econometrics"
+   ],
+   "tags": [
+    "interactive",
+    "model"
+   ],
+   "aliases": [],
+   "requires": [],
+   "lessons": [
+    "econ-430-l18-reduced-form-equations"
+   ],
+   "courses": [
+    "Econ 430"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "illustrates",
+      "note": "identification-in-simultaneous-equations"
+     },
+     {
+      "kind": "illustrates",
+      "note": "simultaneous-equations-model"
+     }
+    ],
+    "in": [
+     {
+      "kind": "shows",
+      "note": "econ-430-l18-reduced-form-equations"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 116,
+   "created": "2026-11-22T08:10:58Z",
+   "updated": "2026-11-22T08:10:58Z"
+  },
+  "market-equilibrium-identification-model": {
+   "slug": "market-equilibrium-identification-model",
+   "name": "Market Equilibrium Identification Model",
+   "title": "Market Equilibrium Identification Model",
+   "type": "interactive",
+   "path": "Interactives/Market Equilibrium Identification Model.md",
+   "summary": "Linear demand Q = α1 + α2P + α3X and supply Q = β1 + β2P: equilibrium price and quantity as functions of income X, and the reduced-form income effects π11, π21 whose ratio is the supply slope.",
+   "domain": "econometrics",
+   "domains": [
+    "econometrics"
+   ],
+   "tags": [
+    "interactive",
+    "model"
+   ],
+   "aliases": [],
+   "requires": [],
+   "lessons": [],
+   "courses": [],
+   "edges": {
+    "out": [
+     {
+      "kind": "illustrates",
+      "note": "simultaneous-equations-model"
+     }
+    ],
+    "in": []
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 60,
+   "created": "2026-11-22T08:10:58Z",
+   "updated": "2026-11-22T08:10:58Z"
+  },
   "matching-function": {
    "slug": "matching-function",
    "name": "Matching Function",
@@ -21905,6 +24404,158 @@
    "words": 253,
    "created": "2026-10-17T19:26:06Z",
    "updated": "2026-10-17T19:26:06Z"
+  },
+  "measurement-error-attenuation": {
+   "slug": "measurement-error-attenuation",
+   "name": "Measurement Error Attenuation",
+   "title": "Measurement Error Attenuation",
+   "type": "interactive",
+   "path": "Interactives/Measurement Error Attenuation.md",
+   "summary": "Drag the measurement-noise variance and watch the OLS slope converge to a value ever closer to zero: β·S/(S + σu²), with half the slope lost when the noise is as large as the true variation.",
+   "domain": "econometrics",
+   "domains": [
+    "econometrics"
+   ],
+   "tags": [
+    "interactive",
+    "model"
+   ],
+   "aliases": [],
+   "requires": [],
+   "lessons": [
+    "econ-430-l14-when-x-and-e-are-correlated"
+   ],
+   "courses": [
+    "Econ 430"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "illustrates",
+      "note": "classical-measurement-error"
+     }
+    ],
+    "in": [
+     {
+      "kind": "shows",
+      "note": "econ-430-l14-when-x-and-e-are-correlated"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 89,
+   "created": "2026-11-22T08:10:58Z",
+   "updated": "2026-11-22T08:10:58Z"
+  },
+  "measurement-error-attenuation-model": {
+   "slug": "measurement-error-attenuation-model",
+   "name": "Measurement Error Attenuation Model",
+   "title": "Measurement Error Attenuation Model",
+   "type": "interactive",
+   "path": "Interactives/Measurement Error Attenuation Model.md",
+   "summary": "The OLS slope on a regressor measured with error converges to β·S/(S + σu²), where S is the variance of the true regressor: the reliability ratio λ shrinks the slope toward zero as the noise grows.",
+   "domain": "econometrics",
+   "domains": [
+    "econometrics"
+   ],
+   "tags": [
+    "interactive",
+    "model"
+   ],
+   "aliases": [],
+   "requires": [],
+   "lessons": [],
+   "courses": [],
+   "edges": {
+    "out": [
+     {
+      "kind": "illustrates",
+      "note": "classical-measurement-error"
+     }
+    ],
+    "in": []
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 24,
+   "created": "2026-11-22T08:10:58Z",
+   "updated": "2026-11-22T08:10:58Z"
+  },
+  "method-of-moments": {
+   "slug": "method-of-moments",
+   "name": "Method of Moments",
+   "title": "Method of Moments",
+   "type": "concept",
+   "path": "Concepts/Method of Moments.md",
+   "summary": "Estimate m parameters by setting m population moments equal to their sample analogues; for a regression the conditions E(e) = 0 and E(xe) = 0 give OLS, and E(ze) = 0 with an instrument z gives the IV estimator.",
+   "domain": "econometrics",
+   "domains": [
+    "econometrics",
+    "statistics"
+   ],
+   "tags": [],
+   "aliases": [
+    "Method of moments estimator",
+    "MoM",
+    "Moment conditions",
+    "Sample moments"
+   ],
+   "requires": [
+    "ols-estimator"
+   ],
+   "lessons": [
+    "econ-430-l15-instrumental-variables-estimation"
+   ],
+   "courses": [
+    "Econ 430"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "related",
+      "note": "consistency-and-probability-limits"
+     },
+     {
+      "kind": "related",
+      "note": "instrumental-variables-and-2sls"
+     },
+     {
+      "kind": "related",
+      "note": "overidentifying-restrictions-test"
+     },
+     {
+      "kind": "requires",
+      "note": "ols-estimator"
+     }
+    ],
+    "in": [
+     {
+      "kind": "covers",
+      "note": "econ-430-l15-instrumental-variables-estimation"
+     },
+     {
+      "kind": "related",
+      "note": "consistency-and-probability-limits"
+     },
+     {
+      "kind": "related",
+      "note": "instrumental-variables-and-2sls"
+     },
+     {
+      "kind": "requires",
+      "note": "overidentifying-restrictions-test"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 321,
+   "created": "2026-11-22T07:52:42Z",
+   "updated": "2026-11-22T07:52:42Z"
   },
   "miami-labor-market-after-the-mariel-boatlift-1979-1985": {
    "slug": "miami-labor-market-after-the-mariel-boatlift-1979-1985",
@@ -23194,6 +25845,10 @@
      {
       "kind": "requires",
       "note": "omitted-variable-bias"
+     },
+     {
+      "kind": "requires",
+      "note": "panel-data"
      }
     ]
    },
@@ -23545,6 +26200,7 @@
    ],
    "lessons": [
     "econ-424-l2-between-group-inequality",
+    "econ-430-l15-instrumental-variables-estimation",
     "econ-430-l3-the-method-of-least-squares"
    ],
    "courses": [
@@ -23598,6 +26254,10 @@
      {
       "kind": "covers",
       "note": "econ-424-l2-between-group-inequality"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l15-instrumental-variables-estimation"
      },
      {
       "kind": "covers",
@@ -23665,6 +26325,10 @@
      },
      {
       "kind": "requires",
+      "note": "method-of-moments"
+     },
+     {
+      "kind": "requires",
       "note": "ols-in-matrix-form"
      },
      {
@@ -23681,8 +26345,8 @@
    ],
    "checks": 0,
    "words": 390,
-   "created": "2026-10-17T19:25:21Z",
-   "updated": "2026-10-17T19:29:37Z"
+   "created": "2026-11-22T07:52:42Z",
+   "updated": "2026-11-22T07:52:42Z"
   },
   "ols-in-matrix-form": {
    "slug": "ols-in-matrix-form",
@@ -23835,6 +26499,7 @@
    "requires": [],
    "lessons": [
     "econ-424-l2-between-group-inequality",
+    "econ-430-l15-instrumental-variables-estimation",
     "econ-430-l3-the-method-of-least-squares"
    ],
    "courses": [
@@ -23875,8 +26540,8 @@
    "interactives": [],
    "checks": 0,
    "words": 372,
-   "created": "2026-10-17T19:25:22Z",
-   "updated": "2026-10-17T19:25:22Z"
+   "created": "2026-11-22T07:52:43Z",
+   "updated": "2026-11-22T07:52:43Z"
   },
   "ols-sampling-distribution": {
    "slug": "ols-sampling-distribution",
@@ -24014,7 +26679,8 @@
     "strict-exogeneity"
    ],
    "lessons": [
-    "econ-430-l10-modeling-issues-in-multiple-regression"
+    "econ-430-l10-modeling-issues-in-multiple-regression",
+    "econ-430-l14-when-x-and-e-are-correlated"
    ],
    "courses": [
     "Econ 430"
@@ -24023,7 +26689,15 @@
     "out": [
      {
       "kind": "related",
+      "note": "consistency-and-probability-limits"
+     },
+     {
+      "kind": "related",
       "note": "frisch-waugh-lovell-theorem"
+     },
+     {
+      "kind": "related",
+      "note": "instrumental-variables-and-2sls"
      },
      {
       "kind": "related",
@@ -24050,6 +26724,18 @@
      {
       "kind": "covers",
       "note": "econ-430-l10-modeling-issues-in-multiple-regression"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l14-when-x-and-e-are-correlated"
+     },
+     {
+      "kind": "related",
+      "note": "consistency-and-probability-limits"
+     },
+     {
+      "kind": "related",
+      "note": "endogenous-and-exogenous-variables"
      },
      {
       "kind": "related",
@@ -24080,9 +26766,211 @@
    "figures": [],
    "interactives": [],
    "checks": 0,
-   "words": 470,
-   "created": "2026-10-19T18:36:08Z",
-   "updated": "2026-10-19T18:36:08Z"
+   "words": 541,
+   "created": "2026-11-22T07:52:42Z",
+   "updated": "2026-11-22T07:52:42Z"
+  },
+  "overidentifying-restrictions-test": {
+   "slug": "overidentifying-restrictions-test",
+   "name": "Overidentifying Restrictions Test",
+   "title": "Overidentifying Restrictions Test",
+   "type": "concept",
+   "path": "Concepts/Overidentifying Restrictions Test.md",
+   "summary": "With more instruments (L) than endogenous regressors (B), regress the IV residuals on all exogenous variables and instruments; N·R² ~ χ²(L−B) if every surplus moment condition holds. Rejection means at least one instrument is invalid.",
+   "domain": "econometrics",
+   "domains": [
+    "econometrics"
+   ],
+   "tags": [],
+   "aliases": [
+    "Sargan test",
+    "J test",
+    "Sargan-Hansen test",
+    "Test of surplus moment conditions",
+    "Overidentification test"
+   ],
+   "requires": [
+    "instrumental-variables-and-2sls",
+    "method-of-moments"
+   ],
+   "lessons": [
+    "econ-430-l16-specification-tests-for-instrumental-variables"
+   ],
+   "courses": [
+    "Econ 430"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "related",
+      "note": "hausman-test"
+     },
+     {
+      "kind": "related",
+      "note": "identification-in-simultaneous-equations"
+     },
+     {
+      "kind": "related",
+      "note": "weak-instruments"
+     },
+     {
+      "kind": "requires",
+      "note": "instrumental-variables-and-2sls"
+     },
+     {
+      "kind": "requires",
+      "note": "method-of-moments"
+     }
+    ],
+    "in": [
+     {
+      "kind": "covers",
+      "note": "econ-430-l16-specification-tests-for-instrumental-variables"
+     },
+     {
+      "kind": "related",
+      "note": "identification-in-simultaneous-equations"
+     },
+     {
+      "kind": "related",
+      "note": "instrumental-variables-and-2sls"
+     },
+     {
+      "kind": "related",
+      "note": "method-of-moments"
+     },
+     {
+      "kind": "related",
+      "note": "weak-instruments"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 361,
+   "created": "2026-11-22T07:52:42Z",
+   "updated": "2026-11-22T07:52:42Z"
+  },
+  "panel-data": {
+   "slug": "panel-data",
+   "name": "Panel Data",
+   "title": "Panel Data",
+   "type": "concept",
+   "path": "Concepts/Panel Data.md",
+   "summary": "The same N units observed over T periods. Pooled OLS ignores the panel structure: it is consistent if errors are uncorrelated with the regressors, but its usual standard errors are too small when a unit's errors are correlated over time.",
+   "domain": "econometrics",
+   "domains": [
+    "econometrics"
+   ],
+   "tags": [],
+   "aliases": [
+    "Panel",
+    "Longitudinal data",
+    "Balanced panel",
+    "Unbalanced panel",
+    "Pooled OLS",
+    "Pooled least squares",
+    "Pooled model"
+   ],
+   "requires": [
+    "multiple-regression-model"
+   ],
+   "lessons": [
+    "econ-430-l23-panel-data-and-microeconomic-panels",
+    "econ-430-l24-the-pooled-panel-model",
+    "econ-430-l25-the-fixed-effects-model",
+    "econ-430-l26-the-random-effects-model",
+    "econ-430-l28-pooled-fixed-and-random-effects-in-practice",
+    "econ-430-l30-sets-of-regression-equations"
+   ],
+   "courses": [
+    "Econ 430"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "related",
+      "note": "clustered-standard-errors"
+     },
+     {
+      "kind": "related",
+      "note": "fixed-effects-regression"
+     },
+     {
+      "kind": "related",
+      "note": "hausman-taylor-estimator"
+     },
+     {
+      "kind": "related",
+      "note": "hausman-test"
+     },
+     {
+      "kind": "related",
+      "note": "random-effects-model"
+     },
+     {
+      "kind": "related",
+      "note": "seemingly-unrelated-regressions"
+     },
+     {
+      "kind": "requires",
+      "note": "multiple-regression-model"
+     }
+    ],
+    "in": [
+     {
+      "kind": "covers",
+      "note": "econ-430-l23-panel-data-and-microeconomic-panels"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l24-the-pooled-panel-model"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l25-the-fixed-effects-model"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l26-the-random-effects-model"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l28-pooled-fixed-and-random-effects-in-practice"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l30-sets-of-regression-equations"
+     },
+     {
+      "kind": "related",
+      "note": "clustered-standard-errors"
+     },
+     {
+      "kind": "related",
+      "note": "fixed-effects-regression"
+     },
+     {
+      "kind": "related",
+      "note": "hausman-taylor-estimator"
+     },
+     {
+      "kind": "related",
+      "note": "seemingly-unrelated-regressions"
+     },
+     {
+      "kind": "requires",
+      "note": "random-effects-model"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 437,
+   "created": "2026-11-22T07:52:42Z",
+   "updated": "2026-11-22T07:52:42Z"
   },
   "partial-derivatives-and-the-gradient": {
    "slug": "partial-derivatives-and-the-gradient",
@@ -24833,6 +27721,7 @@
    ],
    "lessons": [
     "econ-424-l2-between-group-inequality",
+    "econ-430-l20-two-stage-least-squares-for-simultaneous-equations",
     "econ-430-l7-the-classical-linear-regression-model",
     "math-prep-l2-vector-spaces-rank-and-projection"
    ],
@@ -24884,6 +27773,10 @@
      {
       "kind": "covers",
       "note": "econ-424-l2-between-group-inequality"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l20-two-stage-least-squares-for-simultaneous-equations"
      },
      {
       "kind": "covers",
@@ -24955,8 +27848,8 @@
    "interactives": [],
    "checks": 0,
    "words": 447,
-   "created": "2026-10-17T19:26:06Z",
-   "updated": "2026-10-17T19:26:06Z"
+   "created": "2026-11-22T07:52:42Z",
+   "updated": "2026-11-22T07:52:42Z"
   },
   "projection-onto-a-vector": {
    "slug": "projection-onto-a-vector",
@@ -25998,6 +28891,198 @@
    "created": "2026-10-21T20:14:28Z",
    "updated": "2026-10-21T20:14:28Z"
   },
+  "random-effects-demeaning-weight": {
+   "slug": "random-effects-demeaning-weight",
+   "name": "Random Effects Demeaning Weight",
+   "title": "Random Effects Demeaning Weight",
+   "type": "interactive",
+   "path": "Interactives/Random Effects Demeaning Weight.md",
+   "summary": "Drag the number of periods T and the variance components to see the random effects weight α move between pooled OLS (0) and fixed effects (1): 0.49 at T = 1, 0.74 at T = 5, 0.87 at T = 20 in the wage panel.",
+   "domain": "econometrics",
+   "domains": [
+    "econometrics"
+   ],
+   "tags": [
+    "interactive",
+    "model"
+   ],
+   "aliases": [],
+   "requires": [],
+   "lessons": [
+    "econ-430-l26-the-random-effects-model"
+   ],
+   "courses": [
+    "Econ 430"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "illustrates",
+      "note": "random-effects-model"
+     }
+    ],
+    "in": [
+     {
+      "kind": "shows",
+      "note": "econ-430-l26-the-random-effects-model"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 85,
+   "created": "2026-11-22T08:10:59Z",
+   "updated": "2026-11-22T08:10:59Z"
+  },
+  "random-effects-model": {
+   "slug": "random-effects-model",
+   "name": "Random Effects Model",
+   "title": "Random Effects Model",
+   "type": "concept",
+   "path": "Concepts/Random Effects Model.md",
+   "summary": "Unit intercepts are random draws, β1i = β̄1 + ui, so the error ui + eit has variance σu² + σe² and within-unit correlation ρ = σu²/(σu² + σe²). GLS (partial demeaning by α) is efficient if ui is uncorrelated with the regressors.",
+   "domain": "econometrics",
+   "domains": [
+    "econometrics"
+   ],
+   "tags": [],
+   "aliases": [
+    "Random effects",
+    "Error components model",
+    "RE estimator",
+    "Breusch-Pagan LM test for random effects",
+    "Partial demeaning"
+   ],
+   "requires": [
+    "panel-data",
+    "generalized-least-squares"
+   ],
+   "lessons": [
+    "econ-430-l26-the-random-effects-model",
+    "econ-430-l27-comparing-fixed-and-random-effects",
+    "econ-430-l28-pooled-fixed-and-random-effects-in-practice",
+    "econ-430-l29-the-hausman-taylor-estimator"
+   ],
+   "courses": [
+    "Econ 430"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "related",
+      "note": "clustered-standard-errors"
+     },
+     {
+      "kind": "related",
+      "note": "fixed-effects-regression"
+     },
+     {
+      "kind": "related",
+      "note": "hausman-taylor-estimator"
+     },
+     {
+      "kind": "related",
+      "note": "hausman-test"
+     },
+     {
+      "kind": "requires",
+      "note": "generalized-least-squares"
+     },
+     {
+      "kind": "requires",
+      "note": "panel-data"
+     }
+    ],
+    "in": [
+     {
+      "kind": "covers",
+      "note": "econ-430-l26-the-random-effects-model"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l27-comparing-fixed-and-random-effects"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l28-pooled-fixed-and-random-effects-in-practice"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l29-the-hausman-taylor-estimator"
+     },
+     {
+      "kind": "illustrates",
+      "note": "random-effects-demeaning-weight"
+     },
+     {
+      "kind": "illustrates",
+      "note": "random-effects-weight-model"
+     },
+     {
+      "kind": "related",
+      "note": "fixed-effects-regression"
+     },
+     {
+      "kind": "related",
+      "note": "generalized-least-squares"
+     },
+     {
+      "kind": "related",
+      "note": "hausman-test"
+     },
+     {
+      "kind": "related",
+      "note": "panel-data"
+     },
+     {
+      "kind": "requires",
+      "note": "hausman-taylor-estimator"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 440,
+   "created": "2026-11-22T07:52:42Z",
+   "updated": "2026-11-22T07:52:42Z"
+  },
+  "random-effects-weight-model": {
+   "slug": "random-effects-weight-model",
+   "name": "Random Effects Weight Model",
+   "title": "Random Effects Weight Model",
+   "type": "interactive",
+   "path": "Interactives/Random Effects Weight Model.md",
+   "summary": "The random effects GLS weight α = 1 − σe/√(Tσu² + σe²) and the within-unit error correlation ρ = σu²/(σu² + σe²) as functions of the number of periods T and the variance components.",
+   "domain": "econometrics",
+   "domains": [
+    "econometrics"
+   ],
+   "tags": [
+    "interactive",
+    "model"
+   ],
+   "aliases": [],
+   "requires": [],
+   "lessons": [],
+   "courses": [],
+   "edges": {
+    "out": [
+     {
+      "kind": "illustrates",
+      "note": "random-effects-model"
+     }
+    ],
+    "in": []
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 38,
+   "created": "2026-11-22T08:10:59Z",
+   "updated": "2026-11-22T08:10:59Z"
+  },
   "real-and-nominal-interest-rates": {
    "slug": "real-and-nominal-interest-rates",
    "name": "Real and Nominal Interest Rates",
@@ -26779,6 +29864,7 @@
     "quadratic-forms-and-definiteness"
    ],
    "lessons": [
+    "econ-430-l13-linear-regression-with-random-regressors",
     "econ-430-l3-the-method-of-least-squares"
    ],
    "courses": [
@@ -26846,6 +29932,10 @@
      },
      {
       "kind": "covers",
+      "note": "econ-430-l13-linear-regression-with-random-regressors"
+     },
+     {
+      "kind": "covers",
       "note": "econ-430-l3-the-method-of-least-squares"
      },
      {
@@ -26906,6 +29996,10 @@
      },
      {
       "kind": "requires",
+      "note": "consistency-and-probability-limits"
+     },
+     {
+      "kind": "requires",
       "note": "delta-method"
      },
      {
@@ -26926,8 +30020,8 @@
    "interactives": [],
    "checks": 0,
    "words": 360,
-   "created": "2026-10-17T19:25:21Z",
-   "updated": "2026-10-17T19:29:37Z"
+   "created": "2026-11-22T07:52:42Z",
+   "updated": "2026-11-22T07:52:42Z"
   },
   "saving-investment-identity": {
    "slug": "saving-investment-identity",
@@ -27089,6 +30183,94 @@
    "words": 116,
    "created": "2026-10-22T01:51:33Z",
    "updated": "2026-10-22T01:51:33Z"
+  },
+  "seemingly-unrelated-regressions": {
+   "slug": "seemingly-unrelated-regressions",
+   "name": "Seemingly Unrelated Regressions",
+   "title": "Seemingly Unrelated Regressions",
+   "type": "concept",
+   "path": "Concepts/Seemingly Unrelated Regressions.md",
+   "summary": "Joint GLS estimation of several equations whose errors are contemporaneously correlated; more efficient than equation-by-equation OLS unless errors are uncorrelated or regressors identical. 3SLS does the same for 2SLS.",
+   "domain": "econometrics",
+   "domains": [
+    "econometrics"
+   ],
+   "tags": [],
+   "aliases": [
+    "SUR",
+    "Seemingly unrelated regression",
+    "Contemporaneous correlation",
+    "Three-stage least squares",
+    "3SLS",
+    "Breusch-Pagan LM test of independence"
+   ],
+   "requires": [
+    "generalized-least-squares"
+   ],
+   "lessons": [
+    "econ-430-l20-two-stage-least-squares-for-simultaneous-equations",
+    "econ-430-l22-the-fulton-fish-market",
+    "econ-430-l30-sets-of-regression-equations"
+   ],
+   "courses": [
+    "Econ 430"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "related",
+      "note": "f-test-of-joint-hypotheses"
+     },
+     {
+      "kind": "related",
+      "note": "instrumental-variables-and-2sls"
+     },
+     {
+      "kind": "related",
+      "note": "panel-data"
+     },
+     {
+      "kind": "related",
+      "note": "simultaneous-equations-model"
+     },
+     {
+      "kind": "requires",
+      "note": "generalized-least-squares"
+     }
+    ],
+    "in": [
+     {
+      "kind": "covers",
+      "note": "econ-430-l20-two-stage-least-squares-for-simultaneous-equations"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l22-the-fulton-fish-market"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l30-sets-of-regression-equations"
+     },
+     {
+      "kind": "related",
+      "note": "generalized-least-squares"
+     },
+     {
+      "kind": "related",
+      "note": "panel-data"
+     },
+     {
+      "kind": "related",
+      "note": "simultaneous-equations-model"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 424,
+   "created": "2026-11-22T07:52:42Z",
+   "updated": "2026-11-22T07:54:38Z"
   },
   "shift-share-decomposition": {
    "slug": "shift-share-decomposition",
@@ -27645,6 +30827,133 @@
    "words": 221,
    "created": "2026-11-13T18:16:56Z",
    "updated": "2026-11-13T18:16:56Z"
+  },
+  "simultaneous-equations-model": {
+   "slug": "simultaneous-equations-model",
+   "name": "Simultaneous Equations Model",
+   "title": "Simultaneous Equations Model",
+   "type": "concept",
+   "path": "Concepts/Simultaneous Equations Model.md",
+   "summary": "Equations that jointly determine several endogenous variables, like supply and demand fixing P and Q. Reduced forms in exogenous variables are OLS-consistent; structural equations are not, since P is correlated with each error.",
+   "domain": "econometrics",
+   "domains": [
+    "econometrics"
+   ],
+   "tags": [],
+   "aliases": [
+    "Simultaneous equations",
+    "SEM",
+    "Structural equations",
+    "Reduced form",
+    "Reduced-form equations",
+    "Simultaneity bias",
+    "Simultaneous equations bias",
+    "Indirect least squares"
+   ],
+   "requires": [
+    "endogenous-and-exogenous-variables",
+    "consistency-and-probability-limits"
+   ],
+   "lessons": [
+    "econ-430-l14-when-x-and-e-are-correlated",
+    "econ-430-l17-simultaneous-equations-and-supply-and-demand",
+    "econ-430-l18-reduced-form-equations",
+    "econ-430-l19-the-failure-of-least-squares-and-identification",
+    "econ-430-l20-two-stage-least-squares-for-simultaneous-equations",
+    "econ-430-l21-truffle-supply-and-demand",
+    "econ-430-l22-the-fulton-fish-market"
+   ],
+   "courses": [
+    "Econ 430"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "related",
+      "note": "identification-in-simultaneous-equations"
+     },
+     {
+      "kind": "related",
+      "note": "instrumental-variables-and-2sls"
+     },
+     {
+      "kind": "related",
+      "note": "seemingly-unrelated-regressions"
+     },
+     {
+      "kind": "requires",
+      "note": "consistency-and-probability-limits"
+     },
+     {
+      "kind": "requires",
+      "note": "endogenous-and-exogenous-variables"
+     }
+    ],
+    "in": [
+     {
+      "kind": "covers",
+      "note": "econ-430-l14-when-x-and-e-are-correlated"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l17-simultaneous-equations-and-supply-and-demand"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l18-reduced-form-equations"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l19-the-failure-of-least-squares-and-identification"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l20-two-stage-least-squares-for-simultaneous-equations"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l21-truffle-supply-and-demand"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l22-the-fulton-fish-market"
+     },
+     {
+      "kind": "illustrates",
+      "note": "market-equilibrium-and-identification"
+     },
+     {
+      "kind": "illustrates",
+      "note": "market-equilibrium-identification-model"
+     },
+     {
+      "kind": "related",
+      "note": "consistency-and-probability-limits"
+     },
+     {
+      "kind": "related",
+      "note": "endogenous-and-exogenous-variables"
+     },
+     {
+      "kind": "related",
+      "note": "instrumental-variables-and-2sls"
+     },
+     {
+      "kind": "related",
+      "note": "seemingly-unrelated-regressions"
+     },
+     {
+      "kind": "requires",
+      "note": "identification-in-simultaneous-equations"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 444,
+   "created": "2026-11-22T07:52:42Z",
+   "updated": "2026-11-22T07:54:38Z"
   },
   "skewness-and-kurtosis": {
    "slug": "skewness-and-kurtosis",
@@ -29639,6 +32948,7 @@
    ],
    "lessons": [
     "econ-424-l2-between-group-inequality",
+    "econ-430-l13-linear-regression-with-random-regressors",
     "econ-430-l3-the-method-of-least-squares",
     "econ-430-l7-the-classical-linear-regression-model"
    ],
@@ -29651,6 +32961,10 @@
      {
       "kind": "related",
       "note": "conditional-mean-vs-linear-projection"
+     },
+     {
+      "kind": "related",
+      "note": "consistency-and-probability-limits"
      },
      {
       "kind": "related",
@@ -29677,6 +32991,10 @@
      {
       "kind": "covers",
       "note": "econ-424-l2-between-group-inequality"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l13-linear-regression-with-random-regressors"
      },
      {
       "kind": "covers",
@@ -29724,6 +33042,10 @@
      },
      {
       "kind": "requires",
+      "note": "consistency-and-probability-limits"
+     },
+     {
+      "kind": "requires",
       "note": "instrumental-variables-and-2sls"
      },
      {
@@ -29735,9 +33057,9 @@
    "figures": [],
    "interactives": [],
    "checks": 0,
-   "words": 380,
-   "created": "2026-10-17T19:26:06Z",
-   "updated": "2026-10-19T18:42:14Z"
+   "words": 393,
+   "created": "2026-11-22T07:52:43Z",
+   "updated": "2026-11-22T07:52:43Z"
   },
   "structural-shock-identification": {
    "slug": "structural-shock-identification",
@@ -33142,6 +36464,105 @@
    "created": "2026-10-06T15:43:27Z",
    "updated": "2026-10-08T16:11:59Z"
   },
+  "weak-instruments": {
+   "slug": "weak-instruments",
+   "name": "Weak Instruments",
+   "title": "Weak Instruments",
+   "type": "concept",
+   "path": "Concepts/Weak Instruments.md",
+   "summary": "An instrument only weakly correlated with the endogenous regressor inflates the IV variance by 1/r²(zx) and biases IV toward OLS in finite samples; the rule of thumb flags instruments as weak if the first-stage F is below 10.",
+   "domain": "econometrics",
+   "domains": [
+    "econometrics"
+   ],
+   "tags": [],
+   "aliases": [
+    "Weak instrument",
+    "Instrument relevance",
+    "First-stage F test",
+    "Instrument strength"
+   ],
+   "requires": [
+    "instrumental-variables-and-2sls",
+    "f-test-of-joint-hypotheses"
+   ],
+   "lessons": [
+    "econ-430-l15-instrumental-variables-estimation",
+    "econ-430-l16-specification-tests-for-instrumental-variables",
+    "econ-430-l22-the-fulton-fish-market"
+   ],
+   "courses": [
+    "Econ 430"
+   ],
+   "edges": {
+    "out": [
+     {
+      "kind": "related",
+      "note": "hausman-test"
+     },
+     {
+      "kind": "related",
+      "note": "overidentifying-restrictions-test"
+     },
+     {
+      "kind": "requires",
+      "note": "f-test-of-joint-hypotheses"
+     },
+     {
+      "kind": "requires",
+      "note": "instrumental-variables-and-2sls"
+     }
+    ],
+    "in": [
+     {
+      "kind": "covers",
+      "note": "econ-430-l15-instrumental-variables-estimation"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l16-specification-tests-for-instrumental-variables"
+     },
+     {
+      "kind": "covers",
+      "note": "econ-430-l22-the-fulton-fish-market"
+     },
+     {
+      "kind": "illustrates",
+      "note": "iv-and-ols-sampling-distributions"
+     },
+     {
+      "kind": "illustrates",
+      "note": "iv-and-ols-sampling-model"
+     },
+     {
+      "kind": "related",
+      "note": "consistency-and-probability-limits"
+     },
+     {
+      "kind": "related",
+      "note": "hausman-test"
+     },
+     {
+      "kind": "related",
+      "note": "identification-in-simultaneous-equations"
+     },
+     {
+      "kind": "related",
+      "note": "instrumental-variables-and-2sls"
+     },
+     {
+      "kind": "related",
+      "note": "overidentifying-restrictions-test"
+     }
+    ]
+   },
+   "figures": [],
+   "interactives": [],
+   "checks": 0,
+   "words": 460,
+   "created": "2026-11-22T07:52:43Z",
+   "updated": "2026-11-22T08:10:55Z"
+  },
   "within-and-between-group-inequality": {
    "slug": "within-and-between-group-inequality",
    "name": "Within- and Between-Group Inequality",
@@ -36328,6 +39749,452 @@
       "r"
      ],
      "from": "real-and-nominal-interest-rates"
+    }
+   ]
+  },
+  "iv-and-ols-sampling-distributions": {
+   "slug": "iv-and-ols-sampling-distributions",
+   "name": "IV and OLS Sampling Distributions",
+   "type": "panels",
+   "model": "iv-and-ols-sampling-model",
+   "spec": {
+    "type": "panels",
+    "title": "OLS and IV slopes across many samples",
+    "notation": "Weak Instruments",
+    "params": {
+     "pi": {
+      "tex": "\\pi",
+      "label": "Instrument strength (first-stage slope)",
+      "min": 0.05,
+      "max": 1,
+      "step": 0.05,
+      "default": 0.5
+     },
+     "rho": {
+      "tex": "\\rho",
+      "label": "Endogeneity: correlation of x's noise with the error",
+      "min": 0,
+      "max": 0.9,
+      "step": 0.1,
+      "default": 0.5
+     },
+     "N": {
+      "tex": "N",
+      "label": "Observations per sample",
+      "min": 50,
+      "max": 200,
+      "step": 50,
+      "default": 100
+     },
+     "R": {
+      "tex": "\\text{samples}",
+      "label": "Samples drawn",
+      "min": 200,
+      "max": 2000,
+      "step": 200,
+      "default": 2000
+     }
+    },
+    "derived": {
+     "plim_ols": "1 + rho/(pi^2 + 1)",
+     "F_approx": "N*pi^2"
+    },
+    "panels": [
+     {
+      "kind": "sampler",
+      "id": "ols_hist",
+      "title": "OLS slope in each sample",
+      "seed": 430016,
+      "reps": "R",
+      "rows": "N",
+      "columns": {
+       "z": "normal()",
+       "v": "normal()",
+       "x": "pi*z + v",
+       "y": "x + rho*v + sqrt(1 - rho^2)*normal()"
+      },
+      "fit": {
+       "y": "y",
+       "x": "x"
+      },
+      "stat": "b2",
+      "bins": 60,
+      "x": {
+       "tex": "b_2",
+       "label": "Slope estimate",
+       "min": -0.5,
+       "max": 2.5
+      },
+      "summaries": {
+       "ols_mean": "mean(b2)"
+      },
+      "lines": [
+       {
+        "id": "truth_ols",
+        "x": 1,
+        "tex": "\\beta_2",
+        "label": "true slope",
+        "style": "dashed"
+       },
+       {
+        "id": "plim_line",
+        "x": "plim_ols",
+        "label": "OLS limit",
+        "style": "dotted",
+        "color": "var(--chart-3)"
+       }
+      ]
+     },
+     {
+      "kind": "sampler",
+      "id": "iv_hist",
+      "title": "IV slope in each sample (instrument z)",
+      "seed": 430016,
+      "reps": "R",
+      "rows": "N",
+      "columns": {
+       "z": "normal()",
+       "v": "normal()",
+       "x": "pi*z + v",
+       "y": "x + rho*v + sqrt(1 - rho^2)*normal()"
+      },
+      "fit": {
+       "y": "y",
+       "x": "x",
+       "iv": "z"
+      },
+      "stat": "b2",
+      "bins": 60,
+      "x": {
+       "tex": "\\hat\\beta_2",
+       "label": "Slope estimate",
+       "min": -0.5,
+       "max": 2.5
+      },
+      "summaries": {
+       "iv_med": "quantile(b2, 0.5)",
+       "iv_iqr": "quantile(b2, 0.75) - quantile(b2, 0.25)"
+      },
+      "lines": [
+       {
+        "id": "truth_iv",
+        "x": 1,
+        "tex": "\\beta_2",
+        "label": "true slope",
+        "style": "dashed"
+       },
+       {
+        "id": "plim_line_iv",
+        "x": "plim_ols",
+        "label": "OLS limit",
+        "style": "dotted",
+        "color": "var(--chart-3)"
+       }
+      ]
+     }
+    ],
+    "readouts": [
+     {
+      "id": "ols_out",
+      "label": "Mean OLS slope",
+      "expr": "ols_mean",
+      "format": ".3f"
+     },
+     {
+      "id": "iv_out",
+      "label": "Median IV slope",
+      "expr": "iv_med",
+      "format": ".3f"
+     },
+     {
+      "id": "iqr_out",
+      "label": "Spread of IV (interquartile range)",
+      "expr": "iv_iqr",
+      "format": ".3f"
+     },
+     {
+      "id": "F_out",
+      "tex": "F",
+      "label": "First-stage F, roughly N·π²",
+      "expr": "F_approx",
+      "format": ".1f"
+     }
+    ],
+    "tests": [
+     {
+      "params": {
+       "pi": 0.5,
+       "rho": 0.5,
+       "N": 100,
+       "R": 2000
+      },
+      "expect": {
+       "ols_mean": 1.4,
+       "F_out": 25
+      },
+      "tol": 0.02
+     },
+     {
+      "params": {
+       "pi": 0.5,
+       "rho": 0.5,
+       "N": 100,
+       "R": 2000
+      },
+      "expect": {
+       "iv_med": 1.0
+      },
+      "tol": 0.03
+     },
+     {
+      "params": {
+       "pi": 0.5,
+       "rho": 0.5,
+       "N": 100,
+       "R": 2000
+      },
+      "expect": {
+       "iv_iqr": 0.274
+      },
+      "tol": 0.04
+     },
+     {
+      "params": {
+       "pi": 0.15,
+       "rho": 0.5,
+       "N": 100,
+       "R": 2000
+      },
+      "expect": {
+       "ols_mean": 1.489
+      },
+      "tol": 0.02
+     },
+     {
+      "params": {
+       "pi": 0.15,
+       "rho": 0.5,
+       "N": 100,
+       "R": 2000
+      },
+      "expect": {
+       "iv_med": 1.081
+      },
+      "tol": 0.12
+     },
+     {
+      "params": {
+       "pi": 0.15,
+       "rho": 0.5,
+       "N": 100,
+       "R": 2000
+      },
+      "expect": {
+       "iv_iqr": 0.921
+      },
+      "tol": 0.15
+     }
+    ]
+   },
+   "illustrates": [
+    "weak-instruments",
+    "instrumental-variables-and-2sls"
+   ],
+   "notation": [
+    {
+     "tex": "$F$",
+     "meaning": "First-stage $F$ statistic for $\\theta_1 = \\cdots = \\theta_L = 0$",
+     "kind": "Statistic",
+     "typical": "55.4 in the example",
+     "keys": [
+      "F"
+     ],
+     "from": "weak-instruments"
+    },
+    {
+     "tex": "$\\rho_{zx}$",
+     "meaning": "Population correlation of instrument and regressor",
+     "kind": "Parameter",
+     "typical": "—",
+     "keys": [
+      "rho"
+     ],
+     "from": "weak-instruments"
+    },
+    {
+     "tex": "$\\beta_2$, $\\hat\\beta_2$, $b_2$",
+     "meaning": "Slope, its IV estimate and its OLS estimate",
+     "kind": "Parameter, estimator",
+     "typical": "—",
+     "keys": [
+      "beta",
+      "hat(beta)",
+      "b"
+     ],
+     "from": "weak-instruments"
+    },
+    {
+     "tex": "$\\pi$",
+     "meaning": "First-stage slope in the simulation, $x = \\pi z + v$",
+     "kind": "Parameter",
+     "typical": "0.5",
+     "keys": [
+      "pi"
+     ],
+     "from": "weak-instruments"
+    },
+    {
+     "tex": "$\\rho$",
+     "meaning": "Correlation of the first-stage error with the structural error in the simulation",
+     "kind": "Parameter",
+     "typical": "0.5",
+     "keys": [
+      "rho"
+     ],
+     "from": "weak-instruments"
+    },
+    {
+     "tex": "$N$",
+     "meaning": "Sample size",
+     "kind": "Data",
+     "typical": "428",
+     "keys": [
+      "N"
+     ],
+     "from": "weak-instruments"
+    }
+   ]
+  },
+  "iv-and-ols-sampling-model": {
+   "slug": "iv-and-ols-sampling-model",
+   "name": "IV and OLS Sampling Model",
+   "type": "panels",
+   "spec": {
+    "type": "panels",
+    "title": "An endogenous regressor with one instrument",
+    "notation": "Weak Instruments",
+    "params": {
+     "pi": {
+      "tex": "\\pi",
+      "label": "Instrument strength (first-stage slope)",
+      "min": 0.05,
+      "max": 1,
+      "step": 0.05,
+      "default": 0.5
+     },
+     "rho": {
+      "tex": "\\rho",
+      "label": "Endogeneity: correlation of x's noise with the error",
+      "min": 0,
+      "max": 0.9,
+      "step": 0.1,
+      "default": 0.5
+     },
+     "N": {
+      "tex": "N",
+      "label": "Observations per sample",
+      "min": 50,
+      "max": 200,
+      "step": 50,
+      "default": 100
+     },
+     "R": {
+      "tex": "\\text{samples}",
+      "label": "Samples drawn",
+      "min": 200,
+      "max": 2000,
+      "step": 200,
+      "default": 2000
+     }
+    },
+    "derived": {
+     "plim_ols": "1 + rho/(pi^2 + 1)",
+     "F_approx": "N*pi^2"
+    },
+    "panels": [],
+    "tests": [
+     {
+      "params": {
+       "pi": 0.5,
+       "rho": 0.5,
+       "N": 100
+      },
+      "expect": {
+       "plim_ols": 1.4,
+       "F_approx": 25
+      },
+      "tol": 1e-06
+     },
+     {
+      "params": {
+       "pi": 1,
+       "rho": 0.5,
+       "N": 100
+      },
+      "expect": {
+       "plim_ols": 1.25,
+       "F_approx": 100
+      },
+      "tol": 1e-06
+     },
+     {
+      "params": {
+       "pi": 0.15,
+       "rho": 0.5,
+       "N": 100
+      },
+      "expect": {
+       "plim_ols": 1.488998,
+       "F_approx": 2.25
+      },
+      "tol": 1e-06
+     }
+    ]
+   },
+   "illustrates": [
+    "weak-instruments",
+    "instrumental-variables-and-2sls"
+   ],
+   "notation": [
+    {
+     "tex": "$\\rho_{zx}$",
+     "meaning": "Population correlation of instrument and regressor",
+     "kind": "Parameter",
+     "typical": "—",
+     "keys": [
+      "rho"
+     ],
+     "from": "weak-instruments"
+    },
+    {
+     "tex": "$\\pi$",
+     "meaning": "First-stage slope in the simulation, $x = \\pi z + v$",
+     "kind": "Parameter",
+     "typical": "0.5",
+     "keys": [
+      "pi"
+     ],
+     "from": "weak-instruments"
+    },
+    {
+     "tex": "$\\rho$",
+     "meaning": "Correlation of the first-stage error with the structural error in the simulation",
+     "kind": "Parameter",
+     "typical": "0.5",
+     "keys": [
+      "rho"
+     ],
+     "from": "weak-instruments"
+    },
+    {
+     "tex": "$N$",
+     "meaning": "Sample size",
+     "kind": "Data",
+     "typical": "428",
+     "keys": [
+      "N"
+     ],
+     "from": "weak-instruments"
     }
    ]
   },
@@ -40422,6 +44289,754 @@
       "hat(theta)"
      ],
      "from": "difference-in-differences"
+    }
+   ]
+  },
+  "market-equilibrium-and-identification": {
+   "slug": "market-equilibrium-and-identification",
+   "name": "Market Equilibrium and Identification",
+   "type": "panels",
+   "model": "market-equilibrium-identification-model",
+   "spec": {
+    "type": "panels",
+    "title": "Shifting demand traces out supply",
+    "notation": "Simultaneous Equations Model",
+    "params": {
+     "X": {
+      "tex": "X",
+      "label": "Income",
+      "min": 0,
+      "max": 6,
+      "step": 0.5,
+      "default": 0
+     },
+     "a2": {
+      "tex": "\\alpha_2",
+      "label": "Demand slope",
+      "min": -3,
+      "max": -0.25,
+      "step": 0.05,
+      "default": -1
+     },
+     "b2": {
+      "tex": "\\beta_2",
+      "label": "Supply slope",
+      "min": 0.25,
+      "max": 3,
+      "step": 0.05,
+      "default": 1
+     }
+    },
+    "fixed": {
+     "a1": 10,
+     "a3": 1,
+     "b1": 0
+    },
+    "vars": {
+     "Q": {
+      "tex": "Q",
+      "label": "Quantity"
+     }
+    },
+    "derived": {
+     "Pstar": "(b1 - a1 - a3*X)/(a2 - b2)",
+     "Qstar": "b1 + b2*(b1 - a1 - a3*X)/(a2 - b2)",
+     "P0": "(b1 - a1)/(a2 - b2)",
+     "Q0": "b1 + b2*(b1 - a1)/(a2 - b2)",
+     "pi11": "a3/(b2 - a2)",
+     "pi21": "b2*a3/(b2 - a2)"
+    },
+    "equations": {
+     "demand": "(Q - a1 - a3*X)/a2",
+     "demand0": "(Q - a1)/a2",
+     "supply": "(Q - b1)/b2"
+    },
+    "panels": [
+     {
+      "kind": "curve",
+      "id": "market",
+      "x": {
+       "var": "Q",
+       "tex": "Q",
+       "label": "Quantity",
+       "min": 0,
+       "max": 12
+      },
+      "y": {
+       "tex": "P",
+       "label": "Price",
+       "min": 0,
+       "max": 12
+      },
+      "curves": [
+       {
+        "id": "supply",
+        "expr": "supply",
+        "tex": "Q = \\beta_1 + \\beta_2P",
+        "label": "Supply"
+       },
+       {
+        "id": "demand",
+        "expr": "demand",
+        "tex": "Q = \\alpha_1 + \\alpha_2P + \\alpha_3X",
+        "label": "Demand at this income"
+       },
+       {
+        "id": "demand0",
+        "expr": "demand0",
+        "tex": "X",
+        "label": "Demand at income 0",
+        "style": "dashed"
+       }
+      ],
+      "points": [
+       {
+        "id": "eq",
+        "x": "Qstar",
+        "y": "Pstar",
+        "tex": "P",
+        "label": "Equilibrium at this income",
+        "guides": true
+       },
+       {
+        "id": "eq0",
+        "x": "Q0",
+        "y": "P0",
+        "tex": "X",
+        "label": "Equilibrium at income 0"
+       }
+      ]
+     }
+    ],
+    "readouts": [
+     {
+      "id": "P_out",
+      "tex": "P",
+      "label": "Equilibrium price",
+      "expr": "Pstar",
+      "format": ".2f"
+     },
+     {
+      "id": "Q_out",
+      "tex": "Q",
+      "label": "Equilibrium quantity",
+      "expr": "Qstar",
+      "format": ".2f"
+     },
+     {
+      "id": "ratio_out",
+      "tex": "\\pi_{21}",
+      "label": "Ratio of reduced-form income effects π21/π11",
+      "expr": "pi21/pi11",
+      "format": ".2f"
+     }
+    ],
+    "tests": [
+     {
+      "params": {
+       "X": 0,
+       "a2": -1,
+       "b2": 1
+      },
+      "expect": {
+       "P_out": 5,
+       "Q_out": 5,
+       "ratio_out": 1,
+       "supply@5": 5,
+       "demand@5": 5
+      },
+      "tol": 1e-06
+     },
+     {
+      "params": {
+       "X": 4,
+       "a2": -1,
+       "b2": 1
+      },
+      "expect": {
+       "P_out": 7,
+       "Q_out": 7,
+       "demand0@7": 3,
+       "demand@7": 7
+      },
+      "tol": 1e-06
+     },
+     {
+      "params": {
+       "X": 4,
+       "a2": -2,
+       "b2": 1
+      },
+      "expect": {
+       "ratio_out": 1,
+       "P_out": 4.666667,
+       "Q_out": 4.666667
+      },
+      "tol": 1e-06
+     }
+    ]
+   },
+   "illustrates": [
+    "simultaneous-equations-model",
+    "identification-in-simultaneous-equations"
+   ],
+   "notation": [
+    {
+     "tex": "$Q$, $P$",
+     "meaning": "Equilibrium quantity and price",
+     "kind": "Endogenous",
+     "typical": "—",
+     "keys": [
+      "Q",
+      "P"
+     ],
+     "from": "simultaneous-equations-model"
+    },
+    {
+     "tex": "$X$",
+     "meaning": "Demand shifter (income)",
+     "kind": "Exogenous",
+     "typical": "—",
+     "keys": [
+      "X"
+     ],
+     "from": "simultaneous-equations-model"
+    },
+    {
+     "tex": "$\\alpha_1$, $\\alpha_2$, $\\alpha_3$",
+     "meaning": "Demand intercept, price slope ($< 0$), income effect",
+     "kind": "Parameter",
+     "typical": "—",
+     "keys": [
+      "alpha"
+     ],
+     "from": "simultaneous-equations-model"
+    },
+    {
+     "tex": "$\\beta_1$, $\\beta_2$",
+     "meaning": "Supply intercept and price slope ($> 0$)",
+     "kind": "Parameter",
+     "typical": "—",
+     "keys": [
+      "beta"
+     ],
+     "from": "simultaneous-equations-model"
+    },
+    {
+     "tex": "$\\pi_{10}$, $\\pi_{11}$",
+     "meaning": "Reduced-form intercept and slope for $P$",
+     "kind": "Parameter",
+     "typical": "—",
+     "keys": [
+      "pi"
+     ],
+     "from": "simultaneous-equations-model"
+    },
+    {
+     "tex": "$\\pi_{20}$, $\\pi_{21}$",
+     "meaning": "Reduced-form intercept and slope for $Q$",
+     "kind": "Parameter",
+     "typical": "—",
+     "keys": [
+      "pi"
+     ],
+     "from": "simultaneous-equations-model"
+    }
+   ]
+  },
+  "market-equilibrium-identification-model": {
+   "slug": "market-equilibrium-identification-model",
+   "name": "Market Equilibrium Identification Model",
+   "type": "panels",
+   "spec": {
+    "type": "panels",
+    "title": "A market with a demand shifter",
+    "notation": "Simultaneous Equations Model",
+    "params": {
+     "a1": {
+      "tex": "\\alpha_1",
+      "label": "Demand intercept",
+      "min": 5,
+      "max": 15,
+      "step": 0.5,
+      "default": 10
+     },
+     "a2": {
+      "tex": "\\alpha_2",
+      "label": "Demand slope",
+      "min": -3,
+      "max": -0.25,
+      "step": 0.05,
+      "default": -1
+     },
+     "a3": {
+      "tex": "\\alpha_3",
+      "label": "Effect of income on demand",
+      "min": 0,
+      "max": 2,
+      "step": 0.1,
+      "default": 1
+     },
+     "b1": {
+      "tex": "\\beta_1",
+      "label": "Supply intercept",
+      "min": -5,
+      "max": 5,
+      "step": 0.5,
+      "default": 0
+     },
+     "b2": {
+      "tex": "\\beta_2",
+      "label": "Supply slope",
+      "min": 0.25,
+      "max": 3,
+      "step": 0.05,
+      "default": 1
+     },
+     "X": {
+      "tex": "X",
+      "label": "Income",
+      "min": 0,
+      "max": 6,
+      "step": 0.5,
+      "default": 0
+     }
+    },
+    "vars": {
+     "Q": {
+      "tex": "Q",
+      "label": "Quantity"
+     }
+    },
+    "derived": {
+     "Pstar": "(b1 - a1 - a3*X)/(a2 - b2)",
+     "Qstar": "b1 + b2*(b1 - a1 - a3*X)/(a2 - b2)",
+     "P0": "(b1 - a1)/(a2 - b2)",
+     "Q0": "b1 + b2*(b1 - a1)/(a2 - b2)",
+     "pi11": "a3/(b2 - a2)",
+     "pi21": "b2*a3/(b2 - a2)"
+    },
+    "equations": {
+     "demand": "(Q - a1 - a3*X)/a2",
+     "demand0": "(Q - a1)/a2",
+     "supply": "(Q - b1)/b2"
+    },
+    "panels": [],
+    "tests": [
+     {
+      "params": {
+       "a1": 10,
+       "a2": -1,
+       "a3": 1,
+       "b1": 0,
+       "b2": 1,
+       "X": 0
+      },
+      "at": {
+       "Q": 5
+      },
+      "expect": {
+       "Pstar": 5,
+       "Qstar": 5,
+       "P0": 5,
+       "Q0": 5,
+       "pi11": 0.5,
+       "pi21": 0.5,
+       "demand": 5,
+       "supply": 5
+      },
+      "tol": 1e-06
+     },
+     {
+      "params": {
+       "a1": 10,
+       "a2": -1,
+       "a3": 1,
+       "b1": 0,
+       "b2": 1,
+       "X": 4
+      },
+      "at": {
+       "Q": 7
+      },
+      "expect": {
+       "Pstar": 7,
+       "Qstar": 7,
+       "demand": 7,
+       "supply": 7,
+       "demand0": 3
+      },
+      "tol": 1e-06
+     }
+    ]
+   },
+   "illustrates": [
+    "simultaneous-equations-model"
+   ],
+   "notation": [
+    {
+     "tex": "$Q$, $P$",
+     "meaning": "Equilibrium quantity and price",
+     "kind": "Endogenous",
+     "typical": "—",
+     "keys": [
+      "Q",
+      "P"
+     ],
+     "from": "simultaneous-equations-model"
+    },
+    {
+     "tex": "$X$",
+     "meaning": "Demand shifter (income)",
+     "kind": "Exogenous",
+     "typical": "—",
+     "keys": [
+      "X"
+     ],
+     "from": "simultaneous-equations-model"
+    },
+    {
+     "tex": "$\\alpha_1$, $\\alpha_2$, $\\alpha_3$",
+     "meaning": "Demand intercept, price slope ($< 0$), income effect",
+     "kind": "Parameter",
+     "typical": "—",
+     "keys": [
+      "alpha"
+     ],
+     "from": "simultaneous-equations-model"
+    },
+    {
+     "tex": "$\\beta_1$, $\\beta_2$",
+     "meaning": "Supply intercept and price slope ($> 0$)",
+     "kind": "Parameter",
+     "typical": "—",
+     "keys": [
+      "beta"
+     ],
+     "from": "simultaneous-equations-model"
+    }
+   ]
+  },
+  "measurement-error-attenuation": {
+   "slug": "measurement-error-attenuation",
+   "name": "Measurement Error Attenuation",
+   "type": "panels",
+   "model": "measurement-error-attenuation-model",
+   "spec": {
+    "type": "panels",
+    "title": "The OLS slope with a noisy regressor",
+    "notation": "Classical Measurement Error",
+    "params": {
+     "beta": {
+      "tex": "\\beta",
+      "label": "True slope",
+      "min": -1,
+      "max": 1,
+      "step": 0.01,
+      "default": 0.2
+     },
+     "S": {
+      "tex": "S",
+      "label": "Variance of the true regressor",
+      "min": 0.5,
+      "max": 10,
+      "step": 0.5,
+      "default": 4
+     },
+     "su2": {
+      "tex": "\\sigma_u^2",
+      "label": "Variance of the measurement noise",
+      "min": 0,
+      "max": 10,
+      "step": 0.1,
+      "default": 1
+     }
+    },
+    "vars": {
+     "s": {
+      "tex": "\\sigma_u^2",
+      "label": "Noise variance"
+     }
+    },
+    "derived": {
+     "lambda": "S/(S + su2)",
+     "plim": "beta*S/(S + su2)",
+     "bias": "beta*S/(S + su2) - beta"
+    },
+    "equations": {
+     "plim_curve": "beta*S/(S + s)"
+    },
+    "panels": [
+     {
+      "kind": "curve",
+      "id": "atten",
+      "x": {
+       "var": "s",
+       "tex": "\\sigma_u^2",
+       "label": "Variance of the measurement noise",
+       "min": 0,
+       "max": 10
+      },
+      "y": {
+       "tex": "\\hat\\beta",
+       "label": "What the OLS slope converges to",
+       "min": -0.05,
+       "max": 0.3
+      },
+      "curves": [
+       {
+        "id": "plim_curve",
+        "expr": "plim_curve",
+        "tex": "\\lambda\\beta",
+        "label": "Probability limit of the OLS slope"
+       }
+      ],
+      "points": [
+       {
+        "id": "probe",
+        "x": "su2",
+        "y": "plim",
+        "tex": "\\sigma_u^2",
+        "label": "This noise level (drag)",
+        "drag": {
+         "x": "su2"
+        },
+        "guides": true
+       }
+      ],
+      "lines": [
+       {
+        "id": "truth",
+        "y": "beta",
+        "tex": "\\beta",
+        "label": "True slope",
+        "style": "dashed"
+       }
+      ]
+     }
+    ],
+    "readouts": [
+     {
+      "id": "lambda_out",
+      "tex": "\\lambda",
+      "label": "Reliability ratio S/(S + σu²)",
+      "expr": "lambda",
+      "format": ".3f"
+     },
+     {
+      "id": "plim_out",
+      "tex": "\\hat\\beta",
+      "label": "Limit of the OLS slope",
+      "expr": "plim",
+      "format": ".3f"
+     },
+     {
+      "id": "bias_out",
+      "label": "Inconsistency (limit minus true slope)",
+      "expr": "bias",
+      "format": ".3f"
+     }
+    ],
+    "tests": [
+     {
+      "params": {
+       "beta": 0.2,
+       "S": 4,
+       "su2": 1
+      },
+      "expect": {
+       "lambda_out": 0.8,
+       "plim_out": 0.16,
+       "bias_out": -0.04,
+       "plim_curve@0": 0.2,
+       "plim_curve@4": 0.1
+      },
+      "tol": 1e-06
+     },
+     {
+      "params": {
+       "beta": 0.2,
+       "S": 4,
+       "su2": 4
+      },
+      "expect": {
+       "lambda_out": 0.5,
+       "plim_out": 0.1
+      },
+      "tol": 1e-06
+     }
+    ]
+   },
+   "illustrates": [
+    "classical-measurement-error"
+   ],
+   "notation": [
+    {
+     "tex": "$\\sigma_u^2$",
+     "meaning": "Variance of the measurement error",
+     "kind": "Parameter",
+     "typical": "0.05 in the example",
+     "keys": [
+      "sigma"
+     ],
+     "from": "classical-measurement-error"
+    },
+    {
+     "tex": "$\\beta$",
+     "meaning": "True slope on $x^{*}$",
+     "kind": "Parameter",
+     "typical": "0.10 in the example",
+     "keys": [
+      "beta"
+     ],
+     "from": "classical-measurement-error"
+    },
+    {
+     "tex": "$\\hat\\beta$",
+     "meaning": "OLS slope using the observed $x$",
+     "kind": "Estimator",
+     "typical": "—",
+     "keys": [
+      "hat(beta)"
+     ],
+     "from": "classical-measurement-error"
+    },
+    {
+     "tex": "$\\lambda$",
+     "meaning": "Reliability ratio: share of observed variance that is signal",
+     "kind": "Parameter in (0, 1]",
+     "typical": "0.8 in the example",
+     "keys": [
+      "lambda"
+     ],
+     "from": "classical-measurement-error"
+    },
+    {
+     "tex": "$S$",
+     "meaning": "Variance of the true regressor, $\\mathrm{Var}(x^{*})$",
+     "kind": "Parameter",
+     "typical": "4 in the savings example",
+     "keys": [
+      "S"
+     ],
+     "from": "classical-measurement-error"
+    }
+   ]
+  },
+  "measurement-error-attenuation-model": {
+   "slug": "measurement-error-attenuation-model",
+   "name": "Measurement Error Attenuation Model",
+   "type": "panels",
+   "spec": {
+    "type": "panels",
+    "title": "Attenuation from measurement error in a regressor",
+    "notation": "Classical Measurement Error",
+    "params": {
+     "beta": {
+      "tex": "\\beta",
+      "label": "True slope",
+      "min": -1,
+      "max": 1,
+      "step": 0.01,
+      "default": 0.2
+     },
+     "S": {
+      "tex": "S",
+      "label": "Variance of the true regressor",
+      "min": 0.5,
+      "max": 10,
+      "step": 0.5,
+      "default": 4
+     },
+     "su2": {
+      "tex": "\\sigma_u^2",
+      "label": "Variance of the measurement noise",
+      "min": 0,
+      "max": 10,
+      "step": 0.1,
+      "default": 1
+     }
+    },
+    "vars": {
+     "s": {
+      "tex": "\\sigma_u^2",
+      "label": "Noise variance"
+     }
+    },
+    "derived": {
+     "lambda": "S/(S + su2)",
+     "plim": "beta*S/(S + su2)",
+     "bias": "beta*S/(S + su2) - beta"
+    },
+    "equations": {
+     "plim_curve": "beta*S/(S + s)"
+    },
+    "panels": [],
+    "tests": [
+     {
+      "params": {
+       "beta": 0.2,
+       "S": 4,
+       "su2": 1
+      },
+      "at": {
+       "s": 4
+      },
+      "expect": {
+       "lambda": 0.8,
+       "plim": 0.16,
+       "bias": -0.04,
+       "plim_curve": 0.1
+      },
+      "tol": 1e-06
+     },
+     {
+      "params": {
+       "beta": 0.2,
+       "S": 4,
+       "su2": 0
+      },
+      "expect": {
+       "lambda": 1,
+       "plim": 0.2
+      },
+      "tol": 1e-06
+     }
+    ]
+   },
+   "illustrates": [
+    "classical-measurement-error"
+   ],
+   "notation": [
+    {
+     "tex": "$\\sigma_u^2$",
+     "meaning": "Variance of the measurement error",
+     "kind": "Parameter",
+     "typical": "0.05 in the example",
+     "keys": [
+      "sigma"
+     ],
+     "from": "classical-measurement-error"
+    },
+    {
+     "tex": "$\\beta$",
+     "meaning": "True slope on $x^{*}$",
+     "kind": "Parameter",
+     "typical": "0.10 in the example",
+     "keys": [
+      "beta"
+     ],
+     "from": "classical-measurement-error"
+    },
+    {
+     "tex": "$S$",
+     "meaning": "Variance of the true regressor, $\\mathrm{Var}(x^{*})$",
+     "kind": "Parameter",
+     "typical": "4 in the savings example",
+     "keys": [
+      "S"
+     ],
+     "from": "classical-measurement-error"
     }
    ]
   },
@@ -44598,6 +49213,327 @@
       "alpha"
      ],
      "from": "ramsey-cass-koopmans-model"
+    }
+   ]
+  },
+  "random-effects-demeaning-weight": {
+   "slug": "random-effects-demeaning-weight",
+   "name": "Random Effects Demeaning Weight",
+   "type": "panels",
+   "model": "random-effects-weight-model",
+   "spec": {
+    "type": "panels",
+    "title": "How much of each unit's mean random effects removes",
+    "notation": "Random Effects Model",
+    "params": {
+     "T0": {
+      "tex": "T",
+      "label": "Periods per unit",
+      "min": 1,
+      "max": 30,
+      "step": 1,
+      "default": 5
+     },
+     "su2": {
+      "tex": "\\sigma_u^2",
+      "label": "Variance of the individual effect",
+      "min": 0,
+      "max": 0.5,
+      "step": 0.0001,
+      "default": 0.1083
+     },
+     "se": {
+      "tex": "\\sigma_e",
+      "label": "SD of the idiosyncratic error",
+      "min": 0.05,
+      "max": 0.5,
+      "step": 0.0001,
+      "default": 0.1951
+     }
+    },
+    "vars": {
+     "T": {
+      "tex": "T",
+      "label": "Periods per unit"
+     }
+    },
+    "derived": {
+     "alpha": "1 - se/sqrt(T0*su2 + se^2)",
+     "rho": "su2/(su2 + se^2)"
+    },
+    "equations": {
+     "alpha_curve": "1 - se/sqrt(T*su2 + se^2)"
+    },
+    "panels": [
+     {
+      "kind": "curve",
+      "id": "weight",
+      "x": {
+       "var": "T",
+       "tex": "T",
+       "label": "Periods per unit",
+       "min": 1,
+       "max": 30
+      },
+      "y": {
+       "tex": "\\alpha",
+       "label": "Share of the unit means subtracted",
+       "min": -0.05,
+       "max": 1.05
+      },
+      "curves": [
+       {
+        "id": "alpha_curve",
+        "expr": "alpha_curve",
+        "tex": "\\alpha",
+        "label": "Random effects weight"
+       }
+      ],
+      "points": [
+       {
+        "id": "probe",
+        "x": "T0",
+        "y": "alpha",
+        "tex": "T",
+        "label": "This panel (drag)",
+        "drag": {
+         "x": "T0"
+        },
+        "guides": true
+       }
+      ],
+      "lines": [
+       {
+        "id": "pooled",
+        "y": 0,
+        "label": "Pooled OLS (α = 0)",
+        "style": "dotted"
+       },
+       {
+        "id": "fixed",
+        "y": 1,
+        "label": "Fixed effects (α = 1)",
+        "style": "dashed"
+       }
+      ]
+     }
+    ],
+    "readouts": [
+     {
+      "id": "alpha_out",
+      "tex": "\\alpha",
+      "label": "Random effects weight",
+      "expr": "alpha",
+      "format": ".4f"
+     },
+     {
+      "id": "rho_out",
+      "tex": "\\rho",
+      "label": "Correlation of a unit's errors across periods",
+      "expr": "rho",
+      "format": ".3f"
+     }
+    ],
+    "tests": [
+     {
+      "params": {
+       "T0": 5,
+       "su2": 0.1083,
+       "se": 0.1951
+      },
+      "expect": {
+       "alpha_out": 0.743725,
+       "rho_out": 0.739936,
+       "alpha_curve@1": 0.490035,
+       "alpha_curve@20": 0.868585
+      },
+      "tol": 1e-06
+     },
+     {
+      "params": {
+       "T0": 20,
+       "su2": 0.1083,
+       "se": 0.1951
+      },
+      "expect": {
+       "alpha_out": 0.868585
+      },
+      "tol": 1e-06
+     },
+     {
+      "params": {
+       "T0": 5,
+       "su2": 0,
+       "se": 0.1951
+      },
+      "expect": {
+       "alpha_out": 0
+      },
+      "tol": 1e-06
+     }
+    ]
+   },
+   "illustrates": [
+    "random-effects-model"
+   ],
+   "notation": [
+    {
+     "tex": "$\\sigma_u^2$, $\\sigma_e^2$",
+     "meaning": "Variances of $u_i$ and $e_{it}$",
+     "kind": "Parameter",
+     "typical": "0.1083, 0.0381",
+     "keys": [
+      "sigma"
+     ],
+     "from": "random-effects-model"
+    },
+    {
+     "tex": "$\\rho$",
+     "meaning": "Correlation of a unit's errors in two periods",
+     "kind": "Parameter",
+     "typical": "0.74",
+     "keys": [
+      "rho"
+     ],
+     "from": "random-effects-model"
+    },
+    {
+     "tex": "$\\alpha$",
+     "meaning": "GLS demeaning weight (the share of the unit mean removed)",
+     "kind": "Parameter",
+     "typical": "0.7437",
+     "keys": [
+      "alpha"
+     ],
+     "from": "random-effects-model"
+    },
+    {
+     "tex": "$N$, $T$",
+     "meaning": "Units and periods",
+     "kind": "Index",
+     "typical": "716, 5",
+     "keys": [
+      "N",
+      "T"
+     ],
+     "from": "random-effects-model"
+    }
+   ]
+  },
+  "random-effects-weight-model": {
+   "slug": "random-effects-weight-model",
+   "name": "Random Effects Weight Model",
+   "type": "panels",
+   "spec": {
+    "type": "panels",
+    "title": "The random effects demeaning weight",
+    "notation": "Random Effects Model",
+    "params": {
+     "T0": {
+      "tex": "T",
+      "label": "Periods per unit",
+      "min": 1,
+      "max": 30,
+      "step": 1,
+      "default": 5
+     },
+     "su2": {
+      "tex": "\\sigma_u^2",
+      "label": "Variance of the individual effect",
+      "min": 0,
+      "max": 0.5,
+      "step": 0.0001,
+      "default": 0.1083
+     },
+     "se": {
+      "tex": "\\sigma_e",
+      "label": "SD of the idiosyncratic error",
+      "min": 0.05,
+      "max": 0.5,
+      "step": 0.0001,
+      "default": 0.1951
+     }
+    },
+    "vars": {
+     "T": {
+      "tex": "T",
+      "label": "Periods per unit"
+     }
+    },
+    "derived": {
+     "alpha": "1 - se/sqrt(T0*su2 + se^2)",
+     "rho": "su2/(su2 + se^2)"
+    },
+    "equations": {
+     "alpha_curve": "1 - se/sqrt(T*su2 + se^2)"
+    },
+    "panels": [],
+    "tests": [
+     {
+      "params": {
+       "T0": 5,
+       "su2": 0.1083,
+       "se": 0.1951
+      },
+      "at": {
+       "T": 20
+      },
+      "expect": {
+       "alpha": 0.743725,
+       "rho": 0.739936,
+       "alpha_curve": 0.868585
+      },
+      "tol": 1e-06
+     },
+     {
+      "params": {
+       "T0": 1,
+       "su2": 0.1083,
+       "se": 0.1951
+      },
+      "expect": {
+       "alpha": 0.490035
+      },
+      "tol": 1e-06
+     },
+     {
+      "params": {
+       "T0": 5,
+       "su2": 0,
+       "se": 0.1951
+      },
+      "expect": {
+       "alpha": 0,
+       "rho": 0
+      },
+      "tol": 1e-06
+     }
+    ]
+   },
+   "illustrates": [
+    "random-effects-model"
+   ],
+   "notation": [
+    {
+     "tex": "$\\sigma_u^2$, $\\sigma_e^2$",
+     "meaning": "Variances of $u_i$ and $e_{it}$",
+     "kind": "Parameter",
+     "typical": "0.1083, 0.0381",
+     "keys": [
+      "sigma"
+     ],
+     "from": "random-effects-model"
+    },
+    {
+     "tex": "$N$, $T$",
+     "meaning": "Units and periods",
+     "kind": "Index",
+     "typical": "716, 5",
+     "keys": [
+      "N",
+      "T"
+     ],
+     "from": "random-effects-model"
     }
    ]
   },

@@ -93,6 +93,17 @@
     "hat(sigma)"
    ],
    "from": "instrumental-variables-and-2sls"
+  },
+  {
+   "tex": "$\\hat\\beta_1$, $\\hat\\beta_2$, $b_2$",
+   "meaning": "IV estimates and the OLS slope",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "hat(beta)",
+    "b"
+   ],
+   "from": "instrumental-variables-and-2sls"
   }
  ],
  "sections": [
@@ -257,7 +268,8 @@
       "$\\gamma_0$, $\\gamma_1$",
       "$\\epsilon_{0t}$, $\\epsilon_{1t}$",
       "$t$",
-      "$w_H/w_L$"
+      "$w_H/w_L$",
+      "$\\hat\\beta_1$, $\\hat\\beta_2$, $b_2$"
      ]
     }
    ]
@@ -283,7 +295,8 @@
      "symbols": [
       "$\\sigma$",
       "$\\gamma_0$, $\\gamma_1$",
-      "$\\hat{\\sigma}$"
+      "$\\hat{\\sigma}$",
+      "$\\hat\\beta_1$, $\\hat\\beta_2$, $b_2$"
      ]
     }
    ]

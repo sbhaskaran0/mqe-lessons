@@ -1,0 +1,93 @@
+{
+ "slug": "random-effects-demeaning-weight",
+ "notation": [
+  {
+   "tex": "$\\sigma_u^2$, $\\sigma_e^2$",
+   "meaning": "Variances of $u_i$ and $e_{it}$",
+   "kind": "Parameter",
+   "typical": "0.1083, 0.0381",
+   "keys": [
+    "sigma"
+   ],
+   "from": "random-effects-model"
+  },
+  {
+   "tex": "$\\rho$",
+   "meaning": "Correlation of a unit's errors in two periods",
+   "kind": "Parameter",
+   "typical": "0.74",
+   "keys": [
+    "rho"
+   ],
+   "from": "random-effects-model"
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "GLS demeaning weight (the share of the unit mean removed)",
+   "kind": "Parameter",
+   "typical": "0.7437",
+   "keys": [
+    "alpha"
+   ],
+   "from": "random-effects-model"
+  },
+  {
+   "tex": "$N$, $T$",
+   "meaning": "Units and periods",
+   "kind": "Index",
+   "typical": "716, 5",
+   "keys": [
+    "N",
+    "T"
+   ],
+   "from": "random-effects-model"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "random-effects-demeaning-weight"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$\\sigma_u^2$, $\\sigma_e^2$",
+      "$\\rho$",
+      "$\\alpha$",
+      "$N$, $T$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Purpose.** See that random effects sits between pooled OLS and fixed effects, and moves toward fixed effects as each unit is observed more often or its individual effect is more variable. $\\rho$ does not depend on $T$, so $\\alpha$ and $\\rho$ are different things.\n- **Model.** A view of [Random Effects Weight Model](note:random-effects-weight-model).\n- **Elements.** Panel `weight`: curve `alpha_curve`; point `probe` (draggable, bound to `T0`); lines `pooled`, `fixed`. Readouts `alpha_out`, `rho_out`.\n- **Defaults.** The wage panel: $T = 5$, $\\hat\\sigma_u^2 = 0.1083$, $\\hat\\sigma_e = 0.1951$, so $\\alpha = 0.7437$ and $\\rho = 0.740$.\n- **Tests.** Python (see the model note)."
+      }
+     ],
+     "words": 85,
+     "symbols": [
+      "$\\rho$",
+      "$\\alpha$",
+      "$N$, $T$"
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -165,14 +165,15 @@
    "from": "instrumental-variables-and-2sls"
   },
   {
-   "tex": "$b_1$, $b_2$",
-   "meaning": "OLS estimates of the intercept and slope",
-   "kind": "Estimators",
+   "tex": "$\\hat\\beta_1$, $\\hat\\beta_2$, $b_2$",
+   "meaning": "IV estimates and the OLS slope",
+   "kind": "Estimator",
    "typical": "—",
    "keys": [
+    "hat(beta)",
     "b"
    ],
-   "from": "ols-estimator"
+   "from": "instrumental-variables-and-2sls"
   },
   {
    "tex": "$n$, $K$",
@@ -581,7 +582,7 @@
       "$A_L$, $A_H$",
       "$p$",
       "$a$",
-      "$b_1$, $b_2$"
+      "$\\hat\\beta_1$, $\\hat\\beta_2$, $b_2$"
      ]
     }
    ]
@@ -690,7 +691,8 @@
       "$\\beta = -1/\\sigma$",
       "$\\gamma$",
       "$\\epsilon_{0t}$, $\\epsilon_{1t}$",
-      "$t$"
+      "$t$",
+      "$\\hat\\beta_1$, $\\hat\\beta_2$, $b_2$"
      ]
     },
     {
@@ -725,7 +727,8 @@
      ],
      "words": 39,
      "symbols": [
-      "$\\hat{\\sigma}$"
+      "$\\hat{\\sigma}$",
+      "$\\hat\\beta_1$, $\\hat\\beta_2$, $b_2$"
      ]
     },
     {
@@ -773,7 +776,8 @@
      "symbols": [
       "$\\mu_{gy}$, $\\sigma^2_{gy}$",
       "$\\beta = -1/\\sigma$",
-      "$\\hat{\\sigma}$"
+      "$\\hat{\\sigma}$",
+      "$\\hat\\beta_1$, $\\hat\\beta_2$, $b_2$"
      ]
     },
     {
@@ -826,7 +830,8 @@
       "$L$, $H$",
       "$\\beta = -1/\\sigma$",
       "$\\gamma$",
-      "$\\hat{\\sigma}$"
+      "$\\hat{\\sigma}$",
+      "$\\hat\\beta_1$, $\\hat\\beta_2$, $b_2$"
      ]
     }
    ]
@@ -955,7 +960,8 @@
      ],
      "words": 89,
      "symbols": [
-      "$\\mu_{gy}$, $\\sigma^2_{gy}$"
+      "$\\mu_{gy}$, $\\sigma^2_{gy}$",
+      "$\\hat\\beta_1$, $\\hat\\beta_2$, $b_2$"
      ]
     }
    ]

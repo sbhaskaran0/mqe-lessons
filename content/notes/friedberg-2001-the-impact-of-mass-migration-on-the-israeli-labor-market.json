@@ -2,14 +2,36 @@
  "slug": "friedberg-2001-the-impact-of-mass-migration-on-the-israeli-labor-market",
  "notation": [
   {
-   "tex": "$\\beta$",
-   "meaning": "Effect of the shock on the outcome, relative to less-exposed units",
+   "tex": "$\\beta_1$, $\\beta_2$",
+   "meaning": "Intercept and slope of $y = \\beta_1 + \\beta_2x + e$",
    "kind": "Parameter",
-   "typical": "—",
+   "typical": "0.0614 on education in the wage example",
    "keys": [
     "beta"
    ],
-   "from": "research-designs-for-immigration-effects"
+   "from": "instrumental-variables-and-2sls"
+  },
+  {
+   "tex": "$r_{zx}$",
+   "meaning": "Sample correlation of $z$ and $x$",
+   "kind": "Statistic",
+   "typical": "0.39",
+   "keys": [
+    "r"
+   ],
+   "from": "instrumental-variables-and-2sls"
+  },
+  {
+   "tex": "$\\gamma_{kj}$, $\\theta_{lj}$, $v_j$",
+   "meaning": "First-stage coefficients and error",
+   "kind": "Parameter, exogenous",
+   "typical": "—",
+   "keys": [
+    "gamma",
+    "theta",
+    "v"
+   ],
+   "from": "instrumental-variables-and-2sls"
   },
   {
    "tex": "$\\alpha$",
@@ -22,17 +44,6 @@
    "from": "research-designs-for-immigration-effects"
   },
   {
-   "tex": "$\\mathbf{x}_u$, $\\gamma$",
-   "meaning": "Controls and their coefficients",
-   "kind": "Data / parameters",
-   "typical": "—",
-   "keys": [
-    "bold(x)",
-    "gamma"
-   ],
-   "from": "research-designs-for-immigration-effects"
-  },
-  {
    "tex": "$\\varepsilon_u$",
    "meaning": "Error",
    "kind": "Exogenous",
@@ -41,17 +52,6 @@
     "varepsilon"
    ],
    "from": "research-designs-for-immigration-effects"
-  },
-  {
-   "tex": "$r$, $o$",
-   "meaning": "Region (commuting zone) and occupation",
-   "kind": "Index",
-   "typical": "722 CZs × 50 occupations",
-   "keys": [
-    "r",
-    "o"
-   ],
-   "from": "tradable-and-non-tradable-occupations"
   }
  ],
  "sections": [
@@ -147,11 +147,11 @@
      ],
      "words": 60,
      "symbols": [
-      "$\\beta$",
+      "$\\beta_1$, $\\beta_2$",
+      "$r_{zx}$",
+      "$\\gamma_{kj}$, $\\theta_{lj}$, $v_j$",
       "$\\alpha$",
-      "$\\mathbf{x}_u$, $\\gamma$",
-      "$\\varepsilon_u$",
-      "$r$, $o$"
+      "$\\varepsilon_u$"
      ]
     }
    ]
@@ -180,7 +180,7 @@
      ],
      "words": 77,
      "symbols": [
-      "$r$, $o$"
+      "$r_{zx}$"
      ]
     }
    ]
@@ -218,7 +218,7 @@
      ],
      "words": 44,
      "symbols": [
-      "$r$, $o$"
+      "$r_{zx}$"
      ]
     }
    ],

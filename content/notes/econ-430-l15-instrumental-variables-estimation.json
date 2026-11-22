@@ -1,0 +1,800 @@
+{
+ "slug": "econ-430-l15-instrumental-variables-estimation",
+ "notation": [
+  {
+   "tex": "$Y$, $y_i$",
+   "meaning": "Random variable and its sample values",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "Y",
+    "y"
+   ],
+   "from": "method-of-moments"
+  },
+  {
+   "tex": "$\\mu_k$",
+   "meaning": "$k$-th population moment, $E(Y^k)$; $\\mu = \\mu_1$",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "mu"
+   ],
+   "from": "method-of-moments"
+  },
+  {
+   "tex": "$\\hat\\mu_k$",
+   "meaning": "$k$-th sample moment",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "hat(mu)"
+   ],
+   "from": "method-of-moments"
+  },
+  {
+   "tex": "$\\sigma^2$",
+   "meaning": "Variance of $Y$, or of the regression error",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "sigma"
+   ],
+   "from": "method-of-moments"
+  },
+  {
+   "tex": "$\\theta$",
+   "meaning": "Parameter vector",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "theta"
+   ],
+   "from": "method-of-moments"
+  },
+  {
+   "tex": "$\\beta_1$, $\\beta_2$",
+   "meaning": "Regression intercept and slope",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ],
+   "from": "method-of-moments"
+  },
+  {
+   "tex": "$b_1$, $b_2$",
+   "meaning": "OLS estimates",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "b"
+   ],
+   "from": "method-of-moments"
+  },
+  {
+   "tex": "$\\hat\\beta_1$, $\\hat\\beta_2$",
+   "meaning": "IV (method of moments) estimates",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "hat(beta)"
+   ],
+   "from": "method-of-moments"
+  },
+  {
+   "tex": "$x$, $z$",
+   "meaning": "Regressor and instrument",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "x",
+    "z"
+   ],
+   "from": "method-of-moments"
+  },
+  {
+   "tex": "$e$",
+   "meaning": "Regression error",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "e"
+   ],
+   "from": "method-of-moments"
+  },
+  {
+   "tex": "$N$",
+   "meaning": "Sample size",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "N"
+   ],
+   "from": "method-of-moments"
+  },
+  {
+   "tex": "$\\hat{x}$",
+   "meaning": "First-stage fitted values: the part of $x$ driven by $z$",
+   "kind": "Computed",
+   "typical": "—",
+   "keys": [
+    "hat(x)"
+   ],
+   "from": "instrumental-variables-and-2sls"
+  },
+  {
+   "tex": "$\\hat{\\sigma}$",
+   "meaning": "Estimated elasticity of substitution in the example",
+   "kind": "Statistic",
+   "typical": "2.28 (OLS), 2.58 (2SLS)",
+   "keys": [
+    "hat(sigma)"
+   ],
+   "from": "instrumental-variables-and-2sls"
+  },
+  {
+   "tex": "$r_{zx}$",
+   "meaning": "Sample correlation of $z$ and $x$",
+   "kind": "Statistic",
+   "typical": "0.39",
+   "keys": [
+    "r"
+   ],
+   "from": "instrumental-variables-and-2sls"
+  },
+  {
+   "tex": "$G$, $B$, $L$",
+   "meaning": "Numbers of exogenous regressors, endogenous regressors and instruments",
+   "kind": "Index",
+   "typical": "3, 1, 2",
+   "keys": [
+    "G",
+    "B",
+    "L"
+   ],
+   "from": "instrumental-variables-and-2sls"
+  },
+  {
+   "tex": "$\\gamma_{kj}$, $\\theta_{lj}$, $v_j$",
+   "meaning": "First-stage coefficients and error",
+   "kind": "Parameter, exogenous",
+   "typical": "—",
+   "keys": [
+    "gamma",
+    "theta",
+    "v"
+   ],
+   "from": "instrumental-variables-and-2sls"
+  },
+  {
+   "tex": "$\\chi^2$",
+   "meaning": "Chi-square distribution of Wald tests",
+   "kind": "Distribution",
+   "typical": "—",
+   "keys": [
+    "chi"
+   ],
+   "from": "instrumental-variables-and-2sls"
+  },
+  {
+   "tex": "$F$",
+   "meaning": "First-stage $F$ statistic for $\\theta_1 = \\cdots = \\theta_L = 0$",
+   "kind": "Statistic",
+   "typical": "55.4 in the example",
+   "keys": [
+    "F"
+   ],
+   "from": "weak-instruments"
+  },
+  {
+   "tex": "$\\bar{x}$, $\\bar{y}$",
+   "meaning": "Sample means",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "bar(x)",
+    "bar(y)"
+   ],
+   "from": "ols-estimator"
+  },
+  {
+   "tex": "$D_{ji}$",
+   "meaning": "Dummy equal to 1 when $i = j$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "D"
+   ],
+   "from": "fixed-effects-regression"
+  },
+  {
+   "tex": "$N$, $T$, $K$",
+   "meaning": "Units, periods, coefficients in the LSDV model",
+   "kind": "Index",
+   "typical": "10, 5, 15",
+   "keys": [
+    "N",
+    "T",
+    "K"
+   ],
+   "from": "fixed-effects-regression"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Least squares can be derived by asking the residuals to mimic two population facts: the error averages zero and is uncorrelated with $x$. When $x$ is endogenous, the second fact is false, so swap it for a variable $z$ that the error *is* uncorrelated with: an instrument. That gives the instrumental variables estimator, and with several instruments two-stage least squares. For 428 working women, instrumenting education with their parents' schooling cuts the estimated return from 10.75% to 6.14% a year, at the cost of a standard error more than twice as large.**"
+      }
+     ],
+     "words": 91,
+     "symbols": [
+      "$x$, $z$"
+     ]
+    },
+    {
+     "id": "intro-2",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "info",
+       "title": "Source",
+       "md": "Section 3 of `Regression_Lecture3.ipynb`, its \"additional examples\" (return to education, college proximity, job training), and sections 3.1 to 3.5 of the mathematical appendix (see [Econ 430 L13 Linear Regression with Random Regressors](note:econ-430-l13-linear-regression-with-random-regressors) for how the notebook maps to lectures).",
+       "folded": false
+      }
+     ],
+     "words": 44,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "1-the-method-of-moments",
+   "heading": "1. The method of moments",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-the-method-of-moments-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The $k$-th moment of $Y$ is $E(Y^k) = \\mu_k$, estimated consistently by $\\frac{1}{N}\\sum_i y_i^k$. The [Method of Moments](note:method-of-moments) equates $m$ population moments to $m$ sample moments to estimate $m$ parameters: from $E(Y) = \\mu$ and $E(Y^2) = \\mu_2$, $\\hat\\mu = \\bar y$ and $\\hat\\sigma^2 = \\frac{1}{N}\\sum (y_i - \\bar y)^2$."
+      },
+      {
+       "t": "prose",
+       "md": "In $y = \\beta_1 + \\beta_2x + e$, the assumptions $E(e) = 0$ and, for exogenous $x$, $E(xe) = 0$ have the sample analogues"
+      },
+      {
+       "t": "math",
+       "tex": "\\frac{1}{N}\\sum_i (y_i - b_1 - b_2x_i) = 0, \\qquad \\frac{1}{N}\\sum_i (y_i - b_1 - b_2x_i)\\,x_i = 0 ,"
+      },
+      {
+       "t": "prose",
+       "md": "which are the least squares normal equations. Under nice assumptions the method of moments *is* least squares ([OLS Estimator](note:ols-estimator))."
+      }
+     ],
+     "words": 53,
+     "symbols": [
+      "$Y$, $y_i$",
+      "$\\mu_k$",
+      "$\\hat\\mu_k$",
+      "$\\beta_1$, $\\beta_2$",
+      "$b_1$, $b_2$",
+      "$x$, $z$",
+      "$e$",
+      "$N$",
+      "$\\hat{\\sigma}$",
+      "$\\bar{x}$, $\\bar{y}$"
+     ]
+    },
+    {
+     "id": "1-the-method-of-moments-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "A sample has $\\frac{1}{N}\\sum y_i = 3$ and $\\frac{1}{N}\\sum y_i^2 = 13$. What is the method-of-moments estimate of $\\mathrm{Var}(Y)$?",
+       "answer": 4.0,
+       "tol": 0.001,
+       "wrong": [
+        {
+         "answer": 10.0,
+         "tol": 0.0,
+         "md": "that subtracts the mean, not its square: $\\hat\\sigma^2 = \\hat\\mu_2 - \\hat\\mu^2$"
+        },
+        {
+         "answer": 13.0,
+         "tol": 0.0,
+         "md": "that is the second moment $E(Y^2)$, not the variance"
+        }
+       ],
+       "why": "$\\sigma^2 = E(Y^2) - \\mu^2$, so $\\hat\\sigma^2 = 13 - 3^2 = 4$.",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 10,
+     "symbols": [
+      "$Y$, $y_i$",
+      "$\\mu_k$",
+      "$\\hat\\mu_k$",
+      "$\\sigma^2$",
+      "$N$",
+      "$\\hat{\\sigma}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "2-instruments-and-the-iv-estimator",
+   "heading": "2. Instruments and the IV estimator",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-instruments-and-the-iv-estimator-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Suppose a variable $z$ (1) has no direct effect on $y$, so it does not belong in the model; (2) is uncorrelated with the error $e$, i.e. exogenous; and (3) is strongly correlated with the endogenous $x$. Then $z$ is an **instrumental variable**, and $E(ze) = 0$ replaces $E(xe) = 0$ ([Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls))."
+      }
+     ],
+     "words": 45,
+     "symbols": [
+      "$Y$, $y_i$",
+      "$x$, $z$",
+      "$e$"
+     ]
+    },
+    {
+     "id": "2-instruments-and-the-iv-estimator-2",
+     "blocks": [
+      {
+       "t": "derive",
+       "title": "Derive the IV slope from the two moment conditions",
+       "goal": "The conditions $E(e) = 0$ and $E(ze) = 0$ give two equations in $\\beta_1$ and $\\beta_2$. Writing $m_y$, $m_x$, $m_z$ for the means of $y$, $x$, $z$ and $m_{zy}$, $m_{zx}$ for $E(zy)$ and $E(zx)$, solve for $\\beta_2$. Replacing each moment by its sample average gives the IV estimator.",
+       "objectives": [
+        2
+       ],
+       "symbols": [
+        "m_y",
+        "m_x",
+        "m_z",
+        "m_{zy}",
+        "m_{zx}"
+       ],
+       "inherited": [
+        {
+         "tex": "$\\beta_1$, $\\beta_2$",
+         "typical": "—",
+         "from": "method-of-moments"
+        }
+       ],
+       "unknowns": [
+        "$\\beta_1$",
+        "$\\beta_2$"
+       ],
+       "dims": [],
+       "data": [],
+       "matrices": [],
+       "define": [],
+       "given": [
+        "m_y = \\beta_1 + \\beta_2m_x",
+        "m_{zy} = \\beta_1m_z + \\beta_2m_{zx}"
+       ],
+       "steps": [
+        {
+         "md": "The first condition fixes the intercept: $\\beta_1 = m_y - \\beta_2m_x$",
+         "tex": "\\beta_1 = m_y - \\beta_2m_x"
+        },
+        {
+         "md": "Substitute into the second and collect the $\\beta_2$ terms: $\\beta_2 = \\frac{m_{zy} - m_zm_y}{m_{zx} - m_zm_x}$",
+         "tex": "\\beta_2 = \\frac{m_{zy} - m_zm_y}{m_{zx} - m_zm_x}",
+         "hint": "$m_{zy} = (m_y - \\beta_2m_x)m_z + \\beta_2m_{zx}$, so $\\beta_2(m_{zx} - m_zm_x) = m_{zy} - m_zm_y$."
+        }
+       ],
+       "accept": [
+        "\\beta_2(m_{zx} - m_zm_x) = m_{zy} - m_zm_y"
+       ],
+       "reject": [
+        {
+         "tex": "\\beta_2 = \\frac{m_{zy}}{m_{zx}}",
+         "md": "that ignores the intercept; it is right only if the means are zero"
+        },
+        {
+         "tex": "\\beta_2 = \\frac{m_{zx} - m_zm_x}{m_{zy} - m_zm_y}",
+         "md": "upside down: the covariance of $z$ with $y$ goes on top"
+        },
+        {
+         "tex": "\\beta_2 = \\frac{m_{zy} - m_zm_y}{m_{zx} - m_zm_y}",
+         "md": "the denominator is the covariance of $z$ with $x$, so it subtracts $m_zm_x$"
+        }
+       ]
+      }
+     ],
+     "words": 23,
+     "symbols": [
+      "$Y$, $y_i$",
+      "$\\beta_1$, $\\beta_2$",
+      "$x$, $z$"
+     ]
+    },
+    {
+     "id": "2-instruments-and-the-iv-estimator-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The numerator and denominator are $\\mathrm{Cov}(z, y)$ and $\\mathrm{Cov}(z, x)$, so in the sample"
+      },
+      {
+       "t": "math",
+       "tex": "\\hat\\beta_2 = \\frac{\\sum_i (z_i - \\bar z)(y_i - \\bar y)}{\\sum_i (z_i - \\bar z)(x_i - \\bar x)}, \\qquad \\hat\\beta_1 = \\bar y - \\hat\\beta_2\\bar x ."
+      },
+      {
+       "t": "prose",
+       "md": "**Properties.** IV is consistent if $E(ze) = 0$ and approximately normal in large samples, with"
+      },
+      {
+       "t": "math",
+       "tex": "\\mathrm{Var}(\\hat\\beta_2) = \\frac{\\sigma^2}{r_{zx}^2\\sum_i (x_i - \\bar x)^2} = \\frac{\\mathrm{Var}(b_2)}{r_{zx}^2} ."
+      },
+      {
+       "t": "prose",
+       "md": "Because $r_{zx}^2 < 1$, IV is less efficient than least squares, and much less if the instrument is weak ([Weak Instruments](note:weak-instruments)). The error variance is estimated from the IV residuals of the original equation, $\\hat\\sigma^2_{IV} = \\frac{1}{N-2}\\sum (y_i - \\hat\\beta_1 - \\hat\\beta_2x_i)^2$."
+      },
+      {
+       "t": "prose",
+       "md": "The additional example computes this by hand: wage on education with the father's schooling as the instrument gives $\\widehat{\\mathrm{Cov}}(z, y)/\\widehat{\\mathrm{Cov}}(z, x) = 0.0592$ against the OLS $\\widehat{\\mathrm{Cov}}(x, y)/\\widehat{\\mathrm{Var}}(x) = 0.1086$, matching the packaged routines."
+      }
+     ],
+     "words": 78,
+     "symbols": [
+      "$Y$, $y_i$",
+      "$\\sigma^2$",
+      "$b_1$, $b_2$",
+      "$\\hat\\beta_1$, $\\hat\\beta_2$",
+      "$x$, $z$",
+      "$e$",
+      "$N$",
+      "$\\hat{\\sigma}$",
+      "$r_{zx}$",
+      "$\\bar{x}$, $\\bar{y}$"
+     ]
+    },
+    {
+     "id": "2-instruments-and-the-iv-estimator-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "Among the 428 women, education and the mother's education have sample correlation 0.387. Using the mother's education as the only instrument, by roughly what factor should the variance of the education coefficient rise relative to OLS (for the same error variance)?",
+       "answer": 6.68,
+       "tol": 0.1,
+       "wrong": [
+        {
+         "answer": 2.58,
+         "tol": 0.05,
+         "md": "that is $1/r_{zx}$, the factor for the standard error, not the variance"
+        },
+        {
+         "answer": 0.15,
+         "tol": 0.01,
+         "md": "that is $r_{zx}^2$; the variance is *divided* by it"
+        }
+       ],
+       "why": "$1/r_{zx}^2 = 1/0.387^2 = 6.68$. In the notebook the standard error goes from 0.0141 (OLS) to 0.0374 (IV), a variance ratio of $(0.0374/0.0141)^2 = 7.0$: close, the gap reflecting the other regressors and the different error variance estimates.",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 42,
+     "symbols": [
+      "$r_{zx}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "3-multiple-regression-two-stage-least-squares-and-identification",
+   "heading": "3. Multiple regression, two-stage least squares and identification",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "3-multiple-regression-two-stage-least-squares-and-identification-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With $y = \\beta_1 + \\beta_2x_2 + \\cdots + \\beta_Kx_K + e$ and $x_K$ endogenous, the other regressors are *included* instruments. In two steps:"
+      },
+      {
+       "t": "prose",
+       "md": "1. **First stage:** regress $x_K$ on *all* exogenous variables and the instruments, $x_K = \\gamma_1 + \\gamma_2x_2 + \\cdots + \\gamma_{K-1}x_{K-1} + \\theta_1z_1 + \\cdots + \\theta_Lz_L + v_K$, and keep $\\hat x_K$.\n2. **Second stage:** regress $y$ on $x_2, \\dots, x_{K-1}$ and $\\hat x_K$. The coefficients are the IV, or **two-stage least squares**, estimates."
+      },
+      {
+       "t": "prose",
+       "md": "With one regressor and $L$ instruments, the moment conditions $\\sum (y_i - \\hat\\beta_1 - \\hat\\beta_2x_i) = 0$ and $\\sum (y_i - \\hat\\beta_1 - \\hat\\beta_2x_i)\\hat x_i = 0$ give $\\hat\\beta_2 = \\sum (\\hat x_i - \\bar x)(y_i - \\bar y)/\\sum (\\hat x_i - \\bar x)(x_i - \\bar x)$, since $\\hat x$ has the same mean as $x$. Surplus instruments add moment conditions such as $E(z_2e) = 0$ that cannot all hold exactly in the sample."
+      },
+      {
+       "t": "prose",
+       "md": "The notebook's mnemonic: $G$ \"good\" exogenous variables, $B$ \"bad\" endogenous ones, $L$ \"lucky\" instruments. IV requires $L \\ge B$: $L = B$ is **exactly identified**, $L > B$ **overidentified**. The first stage is where instrument strength is judged, and at least one instrument must be strong."
+      }
+     ],
+     "words": 106,
+     "symbols": [
+      "$Y$, $y_i$",
+      "$\\theta$",
+      "$\\beta_1$, $\\beta_2$",
+      "$\\hat\\beta_1$, $\\hat\\beta_2$",
+      "$x$, $z$",
+      "$e$",
+      "$\\hat{x}$",
+      "$G$, $B$, $L$",
+      "$\\gamma_{kj}$, $\\theta_{lj}$, $v_j$",
+      "$\\bar{x}$, $\\bar{y}$"
+     ]
+    },
+    {
+     "id": "3-multiple-regression-two-stage-least-squares-and-identification-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "A wage equation has education and experience as regressors (with the constant). Education is endogenous; the instruments are the mother's and father's schooling, and the father's schooling also appears in the wage equation as a control. How many *excluded* instruments are there, and is education identified?",
+       "options": [
+        {
+         "md": "Two; overidentified",
+         "correct": false,
+         "feedback": "The father's schooling is in the equation, so it is an included exogenous variable, not an excluded instrument."
+        },
+        {
+         "md": "One (the mother's schooling); exactly identified",
+         "correct": true
+        },
+        {
+         "md": "Zero; not identified",
+         "correct": false,
+         "feedback": "The mother's schooling is excluded from the wage equation and can instrument education."
+        },
+        {
+         "md": "Three, counting experience and the constant",
+         "correct": false,
+         "feedback": "Included exogenous variables instrument themselves; they do not count toward $L$."
+        }
+       ],
+       "why": "Only variables left *out* of the structural equation can serve as instruments for the endogenous one. Here $B = 1$ and $L = 1$, so $L = B$: exactly identified, and no overidentification test is possible.",
+       "objectives": [
+        4
+       ]
+      }
+     ],
+     "words": 63,
+     "symbols": [
+      "$G$, $B$, $L$"
+     ]
+    },
+    {
+     "id": "3-multiple-regression-two-stage-least-squares-and-identification-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Inference is large-sample: $t = (\\hat\\beta_k - c)/se(\\hat\\beta_k)$ is approximately normal (software often uses $t$ critical values, which do better in modest samples), and joint hypotheses use Wald, LR or LM $\\chi^2$ tests with $J$ degrees of freedom. **$R^2$ can be negative** with IV residuals, so it should not be used outside least squares."
+      }
+     ],
+     "words": 45,
+     "symbols": [
+      "$\\hat\\beta_1$, $\\hat\\beta_2$",
+      "$e$",
+      "$\\chi^2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "4-returns-to-education-for-married-women",
+   "heading": "4. Returns to education for married women",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "4-returns-to-education-for-married-women-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "First stage, mother's schooling only:"
+      },
+      {
+       "t": "math",
+       "tex": "\\widehat{EDUC} = \\underset{(0.425)}{9.775} + \\underset{(0.0427)}{0.0489}\\,EXPER - \\underset{(0.0012)}{0.0013}\\,EXPER^2 + \\underset{(0.0311)}{0.2677}\\,MOTHEREDUC ."
+      },
+      {
+       "t": "table",
+       "md": "| Estimator | Instruments | $EDUC$ (se) | $EXPER$ (se) |\n| --- | --- | --- | --- |\n| OLS | — | 0.1075 (0.0141) | 0.0416 (0.0132) |\n| IV | Mother's education | 0.0493 (0.0374) | 0.0449 (0.0136) |\n| IV | Father's education | 0.0702 (0.0343) | — |\n| 2SLS | Both | 0.0614 (0.0314) | 0.0442 (0.0134) |"
+      },
+      {
+       "t": "prose",
+       "md": "The return falls from 10.75% to between 4.9% and 7.0%, as ability bias in OLS would predict, but the IV standard errors are 2.5 times as large. With both parents, the first stage is $\\widehat{EDUC} = 9.103 + 0.0452EXPER - 0.0010EXPER^2 + 0.1576MOTHEREDUC + 0.1895FATHEREDUC$."
+      }
+     ],
+     "words": 88,
+     "symbols": [
+      "$F$",
+      "$D_{ji}$",
+      "$N$, $T$, $K$"
+     ]
+    },
+    {
+     "id": "4-returns-to-education-for-married-women-2",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "warning",
+       "title": "Corrections to the lecture notebook",
+       "md": "- The text writing the two-instrument estimates shows $0.481 + 0.0614\\,EDUC$ (se 0.0374) $+ 0.0136\\,EXPER$ (se 0.0442). The notebook's own output is intercept 0.0481 (se 0.4003), education 0.0614 (se 0.0314), experience 0.0442 (se 0.0134): the digits were shifted between cells. The first stage introduced as \"using $FATHEREDUC$\" includes both parents.\n- The method-of-moments intercept is written \"$\\hat\\beta_2 = \\bar y - \\hat\\beta_2\\bar x$\"; it is $\\hat\\beta_1$.\n- The IV error variance appears as $\\sum (y - \\hat\\beta_1 + \\hat\\beta_2x_2 - \\cdots)^2/(N - K)$; the sign before $\\hat\\beta_2x_2$ should be minus.",
+       "folded": false
+      }
+     ],
+     "words": 78,
+     "symbols": [
+      "$Y$, $y_i$",
+      "$\\hat\\beta_1$, $\\hat\\beta_2$",
+      "$x$, $z$",
+      "$N$",
+      "$F$",
+      "$\\bar{x}$, $\\bar{y}$",
+      "$D_{ji}$",
+      "$N$, $T$, $K$"
+     ]
+    },
+    {
+     "id": "4-returns-to-education-for-married-women-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "The notebook also runs 2SLS by hand: it regresses education on the instruments, then $\\ln(WAGE)$ on the fitted education and experience. The coefficient is 0.0614 with se 0.0330; the IV routine reports 0.0614 with se 0.0314. Which is right?",
+       "options": [
+        {
+         "md": "The by-hand 0.0330, because it is computed from the actual second-stage regression",
+         "correct": false,
+         "feedback": "That regression's residuals use the *fitted* education, so its $\\hat\\sigma^2$ is not the variance of the structural error."
+        },
+        {
+         "md": "The routine's 0.0314: the standard error must use residuals computed with actual education, which the two-step OLS does not",
+         "correct": true
+        },
+        {
+         "md": "Both, since the coefficients agree",
+         "correct": false,
+         "feedback": "Agreement of the coefficients says nothing about the variance estimate."
+        },
+        {
+         "md": "Neither: IV standard errors cannot be computed with homoskedastic errors",
+         "correct": false,
+         "feedback": "The usual IV formula assumes homoskedasticity; it is what the routine uses here."
+        }
+       ],
+       "why": "$\\hat\\sigma^2_{IV}$ must come from $y - \\hat\\beta_1 - \\hat\\beta_2EDUC - \\cdots$, with the real regressor. The second-stage OLS plugs in $\\widehat{EDUC}$ instead, so its residuals, and hence its standard errors, are wrong; here it happens to overstate the standard error.",
+       "objectives": [
+        5
+       ]
+      }
+     ],
+     "words": 90,
+     "symbols": [
+      "$Y$, $y_i$",
+      "$\\hat\\beta_1$, $\\hat\\beta_2$",
+      "$\\hat{\\sigma}$",
+      "$G$, $B$, $L$",
+      "$D_{ji}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "5-two-more-examples",
+   "heading": "5. Two more examples",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "5-two-more-examples-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**College proximity (Card).** For 3,010 men, growing up near a four-year college ($nearc4$) instruments education, with experience, race, metropolitan, southern and regional controls. First stage: $nearc4$ raises schooling by 0.320 years ($t = 3.64$). OLS gives a return of 0.0747 (se 0.0035); IV gives **0.1315** (se 0.0550), *larger* than OLS but with a standard error 16 times as large, so the two are not statistically distinguishable."
+      }
+     ],
+     "words": 67,
+     "symbols": [
+      "$e$",
+      "$r_{zx}$"
+     ]
+    },
+    {
+     "id": "5-two-more-examples-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Job training (panel).** For manufacturing firms in 1987–1988, the change in log scrap rates is regressed on the change in training hours per employee, instrumented by the change in grant receipt (first differences remove firm effects; see [Fixed Effects Regression](note:fixed-effects-regression)). IV: $-0.0129$ per hour (se 0.0093, $p = 0.18$): more training goes with less scrap, but imprecisely."
+      }
+     ],
+     "words": 55,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "math-refresher",
+   "heading": "Math refresher",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "math-refresher-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Math Prep L8 Integration for Probability](note:math-prep-l8-integration-for-probability) — moments as expectations"
+      }
+     ],
+     "words": 10,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Write moment conditions for a parameter and solve them, including the mean and variance.\n2. Derive the IV estimator from $E(e) = 0$ and $E(ze) = 0$, and state the three properties of an instrument.\n3. Compare the IV and OLS variances through $r_{zx}^2$.\n4. Set up the first and second stages of 2SLS, count $G$, $B$ and $L$, and classify an equation as exactly or overidentified.\n5. Explain why two-step OLS gives wrong standard errors and why $R^2$ is not reported for IV, and interpret IV estimates of the return to education against OLS."
+      }
+     ],
+     "words": 85,
+     "symbols": [
+      "$x$, $z$",
+      "$e$",
+      "$r_{zx}$",
+      "$G$, $B$, $L$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "method-of-moments",
+        "instrumental-variables-and-2sls",
+        "weak-instruments",
+        "ols-estimator",
+        "consistency-and-probability-limits"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

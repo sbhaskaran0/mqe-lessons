@@ -1,0 +1,366 @@
+{
+ "slug": "hausman-test",
+ "notation": [
+  {
+   "tex": "$\\hat\\beta_C$",
+   "meaning": "Estimator consistent under both hypotheses (IV, fixed effects)",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "hat(beta)"
+   ]
+  },
+  {
+   "tex": "$\\hat\\beta_E$",
+   "meaning": "Estimator efficient under $H_0$ (OLS, random effects)",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "hat(beta)"
+   ]
+  },
+  {
+   "tex": "$H$",
+   "meaning": "Hausman statistic",
+   "kind": "Statistic",
+   "typical": "36.2 in the wage example",
+   "keys": [
+    "H"
+   ]
+  },
+  {
+   "tex": "$\\chi^2_{(J)}$",
+   "meaning": "Chi-square distribution with $J$ degrees of freedom",
+   "kind": "Distribution",
+   "typical": "—",
+   "keys": [
+    "chi"
+   ]
+  },
+  {
+   "tex": "$J$",
+   "meaning": "Number of coefficients compared",
+   "kind": "Index",
+   "typical": "6 in the wage example",
+   "keys": [
+    "J"
+   ]
+  },
+  {
+   "tex": "$t$",
+   "meaning": "Single-coefficient Hausman statistic",
+   "kind": "Statistic",
+   "typical": "2.31 in the example",
+   "keys": [
+    "t"
+   ]
+  },
+  {
+   "tex": "$x$",
+   "meaning": "Regressor tested for endogeneity",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "x"
+   ]
+  },
+  {
+   "tex": "$z_1$, $z_2$",
+   "meaning": "Instruments",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "z"
+   ]
+  },
+  {
+   "tex": "$\\gamma_1$, $\\theta_1$, $\\theta_2$",
+   "meaning": "First-stage coefficients",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "gamma",
+    "theta"
+   ]
+  },
+  {
+   "tex": "$v$, $\\hat v$",
+   "meaning": "First-stage error and residual",
+   "kind": "Exogenous, statistic",
+   "typical": "—",
+   "keys": [
+    "v",
+    "hat(v)"
+   ]
+  },
+  {
+   "tex": "$\\beta_1$, $\\beta_2$",
+   "meaning": "Structural coefficients",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$\\delta$",
+   "meaning": "Coefficient on $\\hat v$ in the artificial regression",
+   "kind": "Parameter",
+   "typical": "0.058 in the example",
+   "keys": [
+    "delta"
+   ]
+  },
+  {
+   "tex": "$e$",
+   "meaning": "Structural error",
+   "kind": "Exogenous under $H_0$",
+   "typical": "—",
+   "keys": [
+    "e"
+   ]
+  },
+  {
+   "tex": "$y$",
+   "meaning": "Outcome",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "y"
+   ],
+   "from": "instrumental-variables-and-2sls"
+  },
+  {
+   "tex": "$\\hat\\beta_1$, $\\hat\\beta_2$, $b_2$",
+   "meaning": "IV estimates and the OLS slope",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "hat(beta)",
+    "b"
+   ],
+   "from": "instrumental-variables-and-2sls"
+  },
+  {
+   "tex": "$N$, $T$",
+   "meaning": "Units and periods",
+   "kind": "Index",
+   "typical": "716, 5",
+   "keys": [
+    "N",
+    "T"
+   ],
+   "from": "random-effects-model"
+  },
+  {
+   "tex": "$F$",
+   "meaning": "First-stage $F$ statistic for $\\theta_1 = \\cdots = \\theta_L = 0$",
+   "kind": "Statistic",
+   "typical": "55.4 in the example",
+   "keys": [
+    "F"
+   ],
+   "from": "weak-instruments"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Suppose you have two ways to estimate the same effect. One is safe: it gives the right answer whether or not a worrying problem is present, but it is noisy. The other is sharp but trusts that the problem is absent. If the problem really is absent, both should land in roughly the same place; if they land far apart, the sharp one has been misled. The Hausman test turns this comparison into a formal test. It decides whether a regressor is tangled up with the error (comparing least squares with instrumental variables) and whether individual effects in panel data are unrelated to the regressors (comparing random effects with fixed effects)."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It tells you when you can use the more precise estimator and when you must pay for the robust one.",
+       "folded": false
+      }
+     ],
+     "words": 134,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Let $\\hat\\beta_C$ be consistent under $H_0$ and $H_1$, and $\\hat\\beta_E$ consistent and efficient under $H_0$ but inconsistent under $H_1$. Under $H_0$, $\\mathrm{Cov}(\\hat\\beta_C, \\hat\\beta_E) = \\mathrm{Var}(\\hat\\beta_E)$, so"
+      },
+      {
+       "t": "math",
+       "tex": "H = (\\hat\\beta_C - \\hat\\beta_E)'\\big[\\widehat{\\mathrm{Var}}(\\hat\\beta_C) - \\widehat{\\mathrm{Var}}(\\hat\\beta_E)\\big]^{-1}(\\hat\\beta_C - \\hat\\beta_E) \\;\\sim\\; \\chi^2_{(J)}"
+      },
+      {
+       "t": "prose",
+       "md": "for $J$ compared coefficients. For one coefficient, $t = (\\hat\\beta_{C,k} - \\hat\\beta_{E,k})/\\sqrt{se(\\hat\\beta_{C,k})^2 - se(\\hat\\beta_{E,k})^2}$ is approximately $N(0, 1)$."
+      }
+     ],
+     "words": 23,
+     "symbols": [
+      "$\\hat\\beta_C$",
+      "$\\hat\\beta_E$",
+      "$H$",
+      "$\\chi^2_{(J)}$",
+      "$J$",
+      "$t$",
+      "$e$",
+      "$N$, $T$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "derivation-of-the-variance-of-the-difference",
+   "heading": "Derivation of the variance of the difference",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "derivation-of-the-variance-of-the-difference-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "\\mathrm{Var}(\\hat\\beta_C - \\hat\\beta_E) = \\mathrm{Var}(\\hat\\beta_C) + \\mathrm{Var}(\\hat\\beta_E) - 2\\,\\mathrm{Cov}(\\hat\\beta_C, \\hat\\beta_E) = \\mathrm{Var}(\\hat\\beta_C) - \\mathrm{Var}(\\hat\\beta_E),"
+      },
+      {
+       "t": "prose",
+       "md": "using Hausman's result that an efficient estimator has zero covariance with its difference from any other consistent estimator, i.e. $\\mathrm{Cov}(\\hat\\beta_C, \\hat\\beta_E) = \\mathrm{Var}(\\hat\\beta_E)$ under $H_0$. The difference of variances is positive (semi)definite because $\\hat\\beta_E$ is efficient. With cluster-robust standard errors the efficiency argument fails, and this simple form is not valid."
+      }
+     ],
+     "words": 47,
+     "symbols": [
+      "$\\hat\\beta_C$",
+      "$\\hat\\beta_E$",
+      "$H$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "use-1-is-a-regressor-endogenous-regression-form",
+   "heading": "Use 1: is a regressor endogenous? (regression form)",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "use-1-is-a-regressor-endogenous-regression-form-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$H_0\\!: \\mathrm{Cov}(x, e) = 0$ (OLS and IV both consistent; OLS efficient) against $H_1\\!: \\mathrm{Cov}(x, e) \\ne 0$ (only IV consistent)."
+      },
+      {
+       "t": "prose",
+       "md": "1. Regress $x$ on all exogenous variables and instruments, $x = \\gamma_1 + \\theta_1z_1 + \\theta_2z_2 + v$; keep $\\hat v$.\n2. Add $\\hat v$ to the structural equation, $y = \\beta_1 + \\beta_2x + \\delta\\hat v + e$, and estimate by OLS.\n3. Test $\\delta = 0$ with a $t$ test (one suspect regressor) or an $F$ test (several, one residual each)."
+      },
+      {
+       "t": "prose",
+       "md": "The coefficients on $x$ in step 2 equal the IV estimates. **Example:** wage equation, education instrumented by the parents' schooling: $\\hat\\delta = 0.0582$, $t = 1.67$, $p = 0.095$. Endogeneity is suggested at 10% but not established at 5%. (Software reports this as the Wu-Hausman $F(1, 423) \\approx 2.8$; $1.67^2 = 2.79$.)"
+      }
+     ],
+     "words": 80,
+     "symbols": [
+      "$H$",
+      "$t$",
+      "$x$",
+      "$z_1$, $z_2$",
+      "$\\gamma_1$, $\\theta_1$, $\\theta_2$",
+      "$v$, $\\hat v$",
+      "$\\beta_1$, $\\beta_2$",
+      "$\\delta$",
+      "$e$",
+      "$y$",
+      "$F$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "use-2-random-or-fixed-effects",
+   "heading": "Use 2: random or fixed effects?",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "use-2-random-or-fixed-effects-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$H_0$: the individual effect is uncorrelated with the regressors, so random effects (efficient GLS) and fixed effects are both consistent. $H_1$: it is correlated, so only fixed effects is consistent ([Random Effects Model](note:random-effects-model), [Fixed Effects Regression](note:fixed-effects-regression))."
+      },
+      {
+       "t": "prose",
+       "md": "**Example:** wage panel of 716 women over 5 years; for $SOUTH$, $b_{FE} = -0.01632$ (se 0.03615), $b_{RE} = -0.08181$ (se 0.02241):"
+      },
+      {
+       "t": "math",
+       "tex": "t = \\frac{-0.01632 - (-0.08181)}{\\sqrt{0.03615^2 - 0.02241^2}} = 2.31 > 1.96 ."
+      },
+      {
+       "t": "prose",
+       "md": "Jointly over six coefficients, $\\chi^2_{(6)} = 36.2$, $p = 2.5\\times10^{-6}$: random effects is rejected. For an airline cost panel the same test gives $\\chi^2_{(4)} = 5.62$, $p = 0.23$: random effects is not rejected."
+      }
+     ],
+     "words": 72,
+     "symbols": [
+      "$H$",
+      "$\\chi^2_{(J)}$",
+      "$t$",
+      "$\\hat\\beta_1$, $\\hat\\beta_2$, $b_2$",
+      "$N$, $T$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Reading a non-rejection as proof of exogeneity; with weak instruments the IV estimate is so noisy that the test has little power.\n- Forgetting the direction: rejecting $H_0$ means use the robust estimator (IV, fixed effects).\n- Computing the statistic with cluster-robust variances in the simple formula; the difference need not be positive definite."
+      }
+     ],
+     "words": 54,
+     "symbols": [
+      "$H$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls) · [Random Effects Model](note:random-effects-model) · [Fixed Effects Regression](note:fixed-effects-regression) · [Weak Instruments](note:weak-instruments) · [Hausman-Taylor Estimator](note:hausman-taylor-estimator)"
+      }
+     ],
+     "words": 15,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

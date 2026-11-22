@@ -1,0 +1,432 @@
+{
+ "slug": "econ-430-l24-the-pooled-panel-model",
+ "notation": [
+  {
+   "tex": "$N$",
+   "meaning": "Number of units",
+   "kind": "Index",
+   "typical": "716 women",
+   "keys": [
+    "N"
+   ],
+   "from": "panel-data"
+  },
+  {
+   "tex": "$T$",
+   "meaning": "Number of periods",
+   "kind": "Index",
+   "typical": "5",
+   "keys": [
+    "T"
+   ],
+   "from": "panel-data"
+  },
+  {
+   "tex": "$i$, $t$, $s$",
+   "meaning": "Unit and period indices",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "i",
+    "t",
+    "s"
+   ],
+   "from": "panel-data"
+  },
+  {
+   "tex": "$y_{it}$",
+   "meaning": "Outcome of unit $i$ in period $t$",
+   "kind": "Data",
+   "typical": "Log wage",
+   "keys": [
+    "y"
+   ],
+   "from": "panel-data"
+  },
+  {
+   "tex": "$x_{2it}$, $x_{3it}$",
+   "meaning": "Regressors",
+   "kind": "Data",
+   "typical": "Education, experience",
+   "keys": [
+    "x"
+   ],
+   "from": "panel-data"
+  },
+  {
+   "tex": "$\\beta_1$, $\\beta_2$, $\\beta_3$",
+   "meaning": "Common coefficients",
+   "kind": "Parameter",
+   "typical": "0.0714 on education",
+   "keys": [
+    "beta"
+   ],
+   "from": "panel-data"
+  },
+  {
+   "tex": "$e_{it}$",
+   "meaning": "Error",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "e"
+   ],
+   "from": "panel-data"
+  },
+  {
+   "tex": "$\\sigma_e^2$",
+   "meaning": "Error variance under the pooled assumptions",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "sigma"
+   ],
+   "from": "panel-data"
+  },
+  {
+   "tex": "$\\psi_{ts}$",
+   "meaning": "Covariance of a unit's errors in periods $t$ and $s$",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "psi"
+   ],
+   "from": "panel-data"
+  },
+  {
+   "tex": "$g$, $G$",
+   "meaning": "Cluster index and number of clusters",
+   "kind": "Index / data",
+   "typical": "27 states; 3-digit industries",
+   "keys": [
+    "g",
+    "G"
+   ],
+   "from": "clustered-standard-errors"
+  },
+  {
+   "tex": "$X$, $X_g$",
+   "meaning": "Regressor matrix, and its rows for cluster $g$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "X"
+   ],
+   "from": "clustered-standard-errors"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**The simplest panel regression ignores the panel: it stacks every person-year and fits one equation. That is consistent if the regressors are uncorrelated with the errors, but it treats five interviews of the same woman as five independent pieces of information. Her errors are correlated across years, so the usual standard errors are too small; clustering by person fixes them. In the wage panel the standard error on education doubles. Plots of mean wages by year and by person show the heterogeneity that pooling ignores.**"
+      }
+     ],
+     "words": 85,
+     "symbols": []
+    },
+    {
+     "id": "intro-2",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "info",
+       "title": "Source",
+       "md": "Section 3 of `Regression_Lecture5.ipynb` and section 2 of its mathematical appendix (see [Econ 430 L23 Panel Data and Microeconomic Panels](note:econ-430-l23-panel-data-and-microeconomic-panels) for how the notebook maps to lectures). The data are the National Longitudinal Survey panel `nls_panel` from *Principles of Econometrics*: 716 young women, 5 waves from 1982 to 1988, 3,580 observations.",
+       "folded": false
+      }
+     ],
+     "words": 56,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "1-the-pooled-model-and-its-assumptions",
+   "heading": "1. The pooled model and its assumptions",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-the-pooled-model-and-its-assumptions-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A **pooled model** puts the data on different individuals together with no provision for individual differences:"
+      },
+      {
+       "t": "math",
+       "tex": "y_{it} = \\beta_1 + \\beta_2x_{2it} + \\beta_3x_{3it} + e_{it} ,"
+      },
+      {
+       "t": "prose",
+       "md": "with no $i$ or $t$ subscripts on the coefficients. Estimating it by OLS is **pooled least squares** ([Panel Data](note:panel-data)). For it to be consistent, and for the usual $t$ and $F$ statistics to be valid, the errors must satisfy"
+      },
+      {
+       "t": "math",
+       "tex": "E(e_{it}) = 0, \\quad \\mathrm{Var}(e_{it}) = \\sigma_e^2, \\quad \\mathrm{Cov}(e_{it}, e_{js}) = 0 \\text{ for } i \\ne j \\text{ or } t \\ne s, \\quad \\mathrm{Cov}(e_{it}, x_{kit}) = 0 ."
+      },
+      {
+       "t": "prose",
+       "md": "Pooling also imposes a relationship between $x$ and $y$ that is the same in every period and for every unit."
+      }
+     ],
+     "words": 69,
+     "symbols": [
+      "$i$, $t$, $s$",
+      "$y_{it}$",
+      "$x_{2it}$, $x_{3it}$",
+      "$\\beta_1$, $\\beta_2$, $\\beta_3$",
+      "$e_{it}$",
+      "$\\sigma_e^2$"
+     ]
+    },
+    {
+     "id": "1-the-pooled-model-and-its-assumptions-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The unrealistic assumption is the third: errors of the *same* individual in different years are unlikely to be uncorrelated. Relax it to $\\mathrm{Cov}(e_{it}, e_{is}) = \\psi_{ts}$, which also allows the variance $\\psi_{tt}$ to change over time, while keeping $\\mathrm{Cov}(e_{it}, e_{js}) = 0$ for different individuals. Then:"
+      },
+      {
+       "t": "prose",
+       "md": "- pooled least squares is **still consistent**;\n- its usual standard errors are **incorrect**, typically too small, overstating precision;\n- **cluster-robust** (panel-robust) standard errors, with each individual's observations as a cluster, are valid ([Clustered Standard Errors](note:clustered-standard-errors))."
+      }
+     ],
+     "words": 73,
+     "symbols": [
+      "$e_{it}$",
+      "$\\psi_{ts}$"
+     ]
+    },
+    {
+     "id": "1-the-pooled-model-and-its-assumptions-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "In a pooled wage regression, each woman's errors are positively correlated across her five interviews, and errors of different women are independent. What does that do to pooled OLS?",
+       "options": [
+        {
+         "md": "It becomes inconsistent",
+         "correct": false,
+         "feedback": "Correlation within a person's errors does not create correlation between the regressors and the errors; consistency survives."
+        },
+        {
+         "md": "It stays consistent, but the usual standard errors are too small; cluster by woman",
+         "correct": true
+        },
+        {
+         "md": "Nothing: the usual standard errors are still valid",
+         "correct": false,
+         "feedback": "They assume every observation brings independent information, which five correlated interviews do not."
+        },
+        {
+         "md": "The coefficients change when the standard errors are clustered",
+         "correct": false,
+         "feedback": "Clustering changes only the standard errors; the point estimates are the same."
+        }
+       ],
+       "why": "With positively correlated errors within a cluster, the effective number of independent observations is smaller than 3,580, so the true sampling variance is larger than the usual formula says.",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 63,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "2-the-wage-equation",
+   "heading": "2. The wage equation",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-the-wage-equation-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$\\ln(WAGE)$ on education, experience and its square, tenure and its square, and indicators for black, south and union membership:"
+      },
+      {
+       "t": "table",
+       "md": "| | Coefficient | Usual se | Cluster-robust se |\n| --- | --- | --- | --- |\n| $EDUC$ | 0.0714 | 0.0027 | 0.0055 |\n| $EXPER$ | 0.0557 | 0.0086 | 0.0113 |\n| $TENURE$ | 0.0150 | 0.0044 | 0.0071 |\n| $BLACK$ | $-0.1167$ | 0.0157 | 0.0281 |\n| $SOUTH$ | $-0.1060$ | 0.0142 | 0.0270 |\n| $UNION$ | 0.1322 | 0.0150 | 0.0271 |"
+      },
+      {
+       "t": "prose",
+       "md": "$R^2 = 0.326$. The estimates are identical; every standard error rises when clustered, by between 30% (experience) and 100% (education). $TENURE^2$ goes from significant at 10% ($p = 0.059$) to insignificant ($p = 0.24$), and the overall robust $F$ falls from 215.5 to 79.4."
+      }
+     ],
+     "words": 94,
+     "symbols": [
+      "$N$",
+      "$T$",
+      "$g$, $G$",
+      "$X$, $X_g$"
+     ]
+    },
+    {
+     "id": "2-the-wage-equation-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "With the usual standard error the $t$ statistic on education is $0.0714/0.0027 = 26.4$ (26.6 before rounding). What is it with the cluster-robust standard error of 0.0055?",
+       "answer": 13.0,
+       "tol": 0.1,
+       "wrong": [
+        {
+         "answer": 26.4,
+         "tol": 0.2,
+         "md": "that is the $t$ statistic with the usual standard error"
+        },
+        {
+         "answer": 52.9,
+         "tol": 0.5,
+         "md": "that doubles the $t$ statistic; a standard error twice as large halves it"
+        }
+       ],
+       "why": "$0.0714/0.0055 = 13.0$. Education remains highly significant, but the precision was overstated by a factor of two in standard-error terms, four in variance.",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 25,
+     "symbols": [
+      "$i$, $t$, $s$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "3-looking-for-heterogeneity",
+   "heading": "3. Looking for heterogeneity",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "3-looking-for-heterogeneity-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Before modelling individual differences the notebook plots them. Mean log wages rise steadily from 1.82 in 1982 to about 2.00 in 1988: a common time pattern. Across the first ten women, mean log wages range from about 1.8 to 2.6, with wide year-to-year spreads for some: individual levels differ a lot."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/NLS wage panel - mean log wage by year.png",
+       "alt": "NLS wage panel - mean log wage by year"
+      }
+     ],
+     "words": 55,
+     "symbols": []
+    },
+    {
+     "id": "3-looking-for-heterogeneity-2",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/NLS wage panel - mean log wage for ten women.png",
+       "alt": "NLS wage panel - mean log wage for ten women"
+      },
+      {
+       "t": "prose",
+       "md": "Pooling gives every woman the same intercept. If the permanent differences visible in the second plot are related to the regressors (education, union status), pooled OLS is not just imprecise but biased, which motivates [Econ 430 L25 The Fixed Effects Model](note:econ-430-l25-the-fixed-effects-model)."
+      }
+     ],
+     "words": 41,
+     "symbols": []
+    },
+    {
+     "id": "3-looking-for-heterogeneity-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "The plot of mean log wage by woman shows large, persistent differences between women. Which assumption of pooled OLS does that most threaten?",
+       "options": [
+        {
+         "md": "Normality of the errors",
+         "correct": false,
+         "feedback": "Normality is not needed for consistency, and the plot is about levels by person, not the shape of the error distribution."
+        },
+        {
+         "md": "That a woman's errors are uncorrelated over time and, if her persistent level is related to the regressors, that $\\mathrm{Cov}(e_{it}, x_{kit}) = 0$",
+         "correct": true
+        },
+        {
+         "md": "That the panel is balanced",
+         "correct": false,
+         "feedback": "The panel is balanced (5 waves for everyone); the plot does not bear on that."
+        },
+        {
+         "md": "That the coefficients are the same every year",
+         "correct": false,
+         "feedback": "The plot compares individuals, not years."
+        }
+       ],
+       "why": "A persistent individual level sits in every one of her errors, correlating them over time (a standard-error problem, fixed by clustering). If that level also goes with education or union status, it biases the coefficients (a consistency problem, fixed by fixed effects).",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 59,
+     "symbols": [
+      "$x_{2it}$, $x_{3it}$",
+      "$e_{it}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Write the pooled model, and explain what correlation of a unit's errors over time does to pooled OLS and how cluster-robust standard errors fix it.\n2. Compare usual and clustered results and recompute $t$ statistics.\n3. Read means plots by period and by unit as evidence of heterogeneity, and say which assumptions it threatens."
+      }
+     ],
+     "words": 54,
+     "symbols": [
+      "$i$, $t$, $s$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "panel-data",
+        "clustered-standard-errors"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

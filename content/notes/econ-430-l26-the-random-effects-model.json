@@ -1,0 +1,652 @@
+{
+ "slug": "econ-430-l26-the-random-effects-model",
+ "notation": [
+  {
+   "tex": "$y_{it}$, $x_{kit}$",
+   "meaning": "Outcome and regressors",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "y",
+    "x"
+   ],
+   "from": "random-effects-model"
+  },
+  {
+   "tex": "$\\beta_{1i}$",
+   "meaning": "Unit $i$'s intercept",
+   "kind": "Parameter (random)",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ],
+   "from": "random-effects-model"
+  },
+  {
+   "tex": "$\\bar\\beta_1$",
+   "meaning": "Population mean intercept",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "bar(beta)"
+   ],
+   "from": "random-effects-model"
+  },
+  {
+   "tex": "$u_i$",
+   "meaning": "Random individual effect",
+   "kind": "Exogenous (random)",
+   "typical": "—",
+   "keys": [
+    "u"
+   ],
+   "from": "random-effects-model"
+  },
+  {
+   "tex": "$e_{it}$",
+   "meaning": "Idiosyncratic error",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "e"
+   ],
+   "from": "random-effects-model"
+  },
+  {
+   "tex": "$v_{it}$",
+   "meaning": "Combined error $u_i + e_{it}$",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "v"
+   ],
+   "from": "random-effects-model"
+  },
+  {
+   "tex": "$\\sigma_u^2$, $\\sigma_e^2$",
+   "meaning": "Variances of $u_i$ and $e_{it}$",
+   "kind": "Parameter",
+   "typical": "0.1083, 0.0381",
+   "keys": [
+    "sigma"
+   ],
+   "from": "random-effects-model"
+  },
+  {
+   "tex": "$\\rho$",
+   "meaning": "Correlation of a unit's errors in two periods",
+   "kind": "Parameter",
+   "typical": "0.74",
+   "keys": [
+    "rho"
+   ],
+   "from": "random-effects-model"
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "GLS demeaning weight (the share of the unit mean removed)",
+   "kind": "Parameter",
+   "typical": "0.7437",
+   "keys": [
+    "alpha"
+   ],
+   "from": "random-effects-model"
+  },
+  {
+   "tex": "$\\bar y_i$, $\\bar x_{ki}$",
+   "meaning": "Unit means over time",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "bar(y)",
+    "bar(x)"
+   ],
+   "from": "random-effects-model"
+  },
+  {
+   "tex": "$N$, $T$",
+   "meaning": "Units and periods",
+   "kind": "Index",
+   "typical": "716, 5",
+   "keys": [
+    "N",
+    "T"
+   ],
+   "from": "random-effects-model"
+  },
+  {
+   "tex": "$\\chi^2_{(1)}$",
+   "meaning": "Chi-square distribution with one degree of freedom",
+   "kind": "Distribution",
+   "typical": "—",
+   "keys": [
+    "chi"
+   ],
+   "from": "random-effects-model"
+  },
+  {
+   "tex": "$LM$",
+   "meaning": "Breusch-Pagan statistic for $\\sigma_u^2 = 0$",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "~LM"
+   ],
+   "from": "random-effects-model"
+  },
+  {
+   "tex": "$\\sigma_i^2$, $\\widehat{\\sigma}_i^2$",
+   "meaning": "Variance of $e_i$ and its estimate",
+   "kind": "Parameter / estimator",
+   "typical": "—",
+   "keys": [
+    "sigma",
+    "hat(sigma)"
+   ],
+   "from": "generalized-least-squares"
+  },
+  {
+   "tex": "$y_i^{*}$, $x_{i1}^{*}$, $x_{i2}^{*}$, $e_i^{*}$",
+   "meaning": "Transformed outcome, regressors and error",
+   "kind": "Computed",
+   "typical": "—",
+   "keys": [
+    "y*",
+    "x*",
+    "e*"
+   ],
+   "from": "generalized-least-squares"
+  },
+  {
+   "tex": "$\\widehat{e}_i$",
+   "meaning": "OLS residual",
+   "kind": "Computed",
+   "typical": "—",
+   "keys": [
+    "hat(e)"
+   ],
+   "from": "generalized-least-squares"
+  },
+  {
+   "tex": "$\\psi_{ts}$",
+   "meaning": "Covariance of a unit's errors in periods $t$ and $s$",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "psi"
+   ],
+   "from": "panel-data"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**If the individuals in a panel are a random sample from a population, their intercepts can be treated as random draws too. Each person's intercept becomes an average plus a personal random effect, which joins the regression error. The combined error is correlated over time for the same person, by a constant amount that does not fade with distance, and generalized least squares accounts for that by subtracting only part of each person's average from her data. In the wage panel that fraction is 0.74, so random effects sits closer to fixed effects than to pooled OLS.**"
+      }
+     ],
+     "words": 98,
+     "symbols": []
+    },
+    {
+     "id": "intro-2",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "info",
+       "title": "Source",
+       "md": "Section 5 of `Regression_Lecture5.ipynb` and sections 4 and 6 of its mathematical appendix (see [Econ 430 L23 Panel Data and Microeconomic Panels](note:econ-430-l23-panel-data-and-microeconomic-panels) for how the notebook maps to lectures).",
+       "folded": false
+      }
+     ],
+     "words": 32,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "1-random-intercepts-and-error-components",
+   "heading": "1. Random intercepts and error components",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-random-intercepts-and-error-components-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "As in fixed effects, all individual differences are captured by the intercept, but the individuals were randomly selected, so the differences are treated as random ([Random Effects Model](note:random-effects-model)):"
+      },
+      {
+       "t": "math",
+       "tex": "\\beta_{1i} = \\bar\\beta_1 + u_i, \\qquad E(u_i) = 0,\\ \\mathrm{Cov}(u_i, u_j) = 0,\\ \\mathrm{Var}(u_i) = \\sigma_u^2 ."
+      },
+      {
+       "t": "prose",
+       "md": "Substituting into the fixed effects model and rearranging,"
+      },
+      {
+       "t": "math",
+       "tex": "y_{it} = \\bar\\beta_1 + \\beta_2x_{2it} + \\beta_3x_{3it} + v_{it}, \\qquad v_{it} = u_i + e_{it} ."
+      },
+      {
+       "t": "prose",
+       "md": "The combined error has an individual component $u_i$ and a regression component $e_{it}$, hence the name **error components model**. It has mean zero and constant variance $\\sigma_v^2 = \\sigma_u^2 + \\sigma_e^2$ (the covariance term vanishes because $u_i$ and $e_{it}$ are uncorrelated)."
+      }
+     ],
+     "words": 68,
+     "symbols": [
+      "$y_{it}$, $x_{kit}$",
+      "$\\beta_{1i}$",
+      "$\\bar\\beta_1$",
+      "$u_i$",
+      "$e_{it}$",
+      "$v_{it}$",
+      "$\\sigma_u^2$, $\\sigma_e^2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "2-which-errors-are-correlated",
+   "heading": "2. Which errors are correlated",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-which-errors-are-correlated-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Expanding the products of $u_i + e_{it}$:"
+      },
+      {
+       "t": "table",
+       "md": "| Pair of errors | Covariance |\n| --- | --- |\n| Two individuals, same period: $v_{it}$, $v_{jt}$ | 0 |\n| Same individual, different periods: $v_{it}$, $v_{is}$ | $E(u_i^2) = \\sigma_u^2$ |\n| Different individuals, different periods: $v_{it}$, $v_{js}$ | 0 |"
+      },
+      {
+       "t": "prose",
+       "md": "So errors are correlated over time for a given individual and otherwise uncorrelated. The correlation comes from $u_i$, common to all her periods, and unlike AR(1) errors it does not decline as the observations get further apart."
+      }
+     ],
+     "words": 61,
+     "symbols": [
+      "$u_i$",
+      "$e_{it}$",
+      "$v_{it}$",
+      "$\\sigma_u^2$, $\\sigma_e^2$"
+     ]
+    },
+    {
+     "id": "2-which-errors-are-correlated-2",
+     "blocks": [
+      {
+       "t": "derive",
+       "title": "Find the correlation between one person's errors in two different years",
+       "goal": "For $t \\ne s$, the covariance of $v_{it}$ and $v_{is}$ is $C = \\sigma_u^2$ and each has variance $V = \\sigma_u^2 + \\sigma_e^2$. Find the correlation $\\rho$ in terms of $\\sigma_u$ and $\\sigma_e$. It measures how much of the error is the person's permanent component.",
+       "objectives": [
+        1
+       ],
+       "symbols": [
+        "\\sigma_u",
+        "\\sigma_e"
+       ],
+       "inherited": [
+        {
+         "tex": "$\\sigma_u^2$, $\\sigma_e^2$",
+         "typical": "0.1083, 0.0381",
+         "from": "random-effects-model"
+        },
+        {
+         "tex": "$\\rho$",
+         "typical": "0.74",
+         "from": "random-effects-model"
+        }
+       ],
+       "unknowns": [
+        "$\\rho$",
+        "$C$",
+        "$V$"
+       ],
+       "dims": [],
+       "data": [],
+       "matrices": [],
+       "define": [],
+       "given": [
+        "C = \\sigma_u^2",
+        "V = \\sigma_u^2 + \\sigma_e^2",
+        "\\rho = \\frac{C}{\\sqrt{V \\cdot V}}"
+       ],
+       "steps": [
+        {
+         "md": "The two variances are equal, so the square root of their product is $V$: $\\rho = \\frac{\\sigma_u^2}{\\sigma_u^2 + \\sigma_e^2}$",
+         "tex": "\\rho = \\frac{\\sigma_u^2}{\\sigma_u^2 + \\sigma_e^2}"
+        }
+       ],
+       "accept": [],
+       "reject": [
+        {
+         "tex": "\\rho = \\frac{\\sigma_u^2}{\\sigma_e^2}",
+         "md": "the denominator is the *total* error variance, which includes $\\sigma_u^2$"
+        },
+        {
+         "tex": "\\rho = \\frac{\\sigma_u}{\\sqrt{\\sigma_u^2 + \\sigma_e^2}}",
+         "md": "the numerator is a covariance, $\\sigma_u^2$, not a standard deviation"
+        },
+        {
+         "tex": "\\rho = \\frac{\\sigma_e^2}{\\sigma_u^2 + \\sigma_e^2}",
+         "md": "that is the share of the idiosyncratic error; the correlation over time comes from $u_i$"
+        }
+       ]
+      }
+     ],
+     "words": 24,
+     "symbols": [
+      "$u_i$",
+      "$\\sigma_u^2$, $\\sigma_e^2$",
+      "$\\rho$"
+     ]
+    },
+    {
+     "id": "2-which-errors-are-correlated-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "In the notation of cluster-robust standard errors, $\\psi_{tt} = \\sigma_u^2 + \\sigma_e^2$ and $\\psi_{ts} = \\sigma_u^2$: random effects imposes a specific, equicorrelated structure on what clustering leaves free. The full set of assumptions adds that both $e_{it}$ and $u_i$ are uncorrelated with the regressors; the second is the crucial one ([Econ 430 L27 Comparing Fixed and Random Effects](note:econ-430-l27-comparing-fixed-and-random-effects))."
+      }
+     ],
+     "words": 48,
+     "symbols": [
+      "$u_i$",
+      "$e_{it}$",
+      "$\\sigma_u^2$, $\\sigma_e^2$",
+      "$\\psi_{ts}$"
+     ]
+    },
+    {
+     "id": "2-which-errors-are-correlated-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "In the wage panel, $\\hat\\sigma_u^2 = 0.1083$ and $\\hat\\sigma_e^2 = 0.0381$. What is the estimated correlation between a woman's errors in two different years?",
+       "answer": 0.74,
+       "tol": 0.003,
+       "wrong": [
+        {
+         "answer": 2.84,
+         "tol": 0.02,
+         "md": "that is $\\sigma_u^2/\\sigma_e^2$; the denominator must be the total variance"
+        },
+        {
+         "answer": 0.26,
+         "tol": 0.003,
+         "md": "that is the idiosyncratic share, $\\sigma_e^2/(\\sigma_u^2 + \\sigma_e^2)$"
+        }
+       ],
+       "why": "$\\rho = 0.1083/(0.1083 + 0.0381) = 0.740$: about three-quarters of the unexplained variation in log wages is a permanent personal component, shared by all five of her years.",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 18,
+     "symbols": [
+      "$\\sigma_u^2$, $\\sigma_e^2$",
+      "$\\rho$",
+      "$\\sigma_i^2$, $\\widehat{\\sigma}_i^2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "3-testing-for-random-effects",
+   "heading": "3. Testing for random effects",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "3-testing-for-random-effects-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$H_0\\!: \\sigma_u^2 = 0$ (no random individual differences) against $H_1\\!: \\sigma_u^2 > 0$. Under $H_0$ the model reduces to the pooled one, so the test uses the pooled OLS residuals $\\hat e_{it}$. For a balanced panel the Lagrange multiplier statistic is"
+      },
+      {
+       "t": "math",
+       "tex": "LM = \\sqrt{\\frac{NT}{2(T-1)}}\\left(\\frac{\\sum_{i=1}^N\\left(\\sum_{t=1}^T\\hat e_{it}\\right)^2}{\\sum_{i=1}^N\\sum_{t=1}^T\\hat e_{it}^2} - 1\\right) \\sim N(0, 1) ,"
+      },
+      {
+       "t": "prose",
+       "md": "a one-tail test: reject at 5% if $LM > 1.645$. The appendix gives the equivalent squared form, compared with $\\chi^2_{(1)}$ (3.84). Rejection means random effects are present, so pooled OLS is inefficient and its standard errors are wrong."
+      }
+     ],
+     "words": 65,
+     "symbols": [
+      "$\\sigma_u^2$, $\\sigma_e^2$",
+      "$N$, $T$",
+      "$\\chi^2_{(1)}$",
+      "$LM$",
+      "$\\widehat{e}_i$"
+     ]
+    },
+    {
+     "id": "3-testing-for-random-effects-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Why does $LM$ grow when individuals have random effects?",
+       "options": [
+        {
+         "md": "A person's residuals then tend to share a sign, so the square of their sum is large relative to the sum of their squares",
+         "correct": true
+        },
+        {
+         "md": "Because the residuals become larger on average",
+         "correct": false,
+         "feedback": "A larger error variance scales the numerator and denominator alike; it is the *correlation* within a person that matters."
+        },
+        {
+         "md": "Because random effects make the residuals heteroskedastic",
+         "correct": false,
+         "feedback": "Under random effects the error variance is constant, $\\sigma_u^2 + \\sigma_e^2$."
+        },
+        {
+         "md": "It does not; LM tests normality",
+         "correct": false,
+         "feedback": "This LM statistic tests $\\sigma_u^2 = 0$."
+        }
+       ],
+       "why": "With uncorrelated residuals, $E[(\\sum_t\\hat e_{it})^2] \\approx \\sum_t E[\\hat e_{it}^2]$ and the ratio is near 1, so $LM \\approx 0$. A shared $u_i$ adds cross-products $2\\sum_{t<s}\\hat e_{it}\\hat e_{is}$ that are positive on average.",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 52,
+     "symbols": [
+      "$u_i$",
+      "$\\sigma_u^2$, $\\sigma_e^2$",
+      "$LM$",
+      "$\\widehat{e}_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "4-estimation-gls-by-partial-demeaning",
+   "heading": "4. Estimation: GLS by partial demeaning",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "4-estimation-gls-by-partial-demeaning-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Generalized least squares applies OLS to the transformed model ([Generalized Least Squares](note:generalized-least-squares))"
+      },
+      {
+       "t": "math",
+       "tex": "y_{it}^{*} = y_{it} - \\alpha\\bar y_i, \\quad x_{1it}^{*} = 1 - \\alpha, \\quad x_{kit}^{*} = x_{kit} - \\alpha\\bar x_{ki}, \\qquad \\alpha = 1 - \\frac{\\sigma_e}{\\sqrt{T\\sigma_u^2 + \\sigma_e^2}} ."
+      },
+      {
+       "t": "prose",
+       "md": "- $\\alpha = 0$: random effects is identical to pooled OLS.\n- $\\alpha = 1$: it is identical to fixed effects.\n- $0 < \\hat\\alpha < 1$: it is a matrix-weighted average of the fixed effects and the between estimators."
+      },
+      {
+       "t": "interactive",
+       "widget": "random-effects-demeaning-weight",
+       "state": {
+        "T0": 20,
+        "su2": 0.1083,
+        "se": 0.1951
+       },
+       "lock": [
+        "su2",
+        "se"
+       ],
+       "prompt": "Change the number of waves and see where random effects sits between pooled OLS and fixed effects",
+       "predict": {
+        "hide": [
+         "probe",
+         "alpha_out"
+        ],
+        "ask": "The wage panel has 5 waves and $\\hat\\alpha = 0.74$. With the same variance components but 20 waves per woman, what would $\\alpha$ be?",
+        "options": [
+         "Higher, about 0.87: closer to fixed effects",
+         "Lower, closer to pooled OLS",
+         "Unchanged, 0.74"
+        ],
+        "answer": 0,
+        "feedback": [
+         null,
+         "More periods make each woman's mean a more precise measure of her individual effect, so GLS removes more of it: $\\alpha$ rises with $T$.",
+         "That is $\\rho$, which does not depend on $T$; $\\alpha = 1 - \\sigma_e/\\sqrt{T\\sigma_u^2 + \\sigma_e^2}$ does."
+        ]
+       },
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 58,
+     "symbols": [
+      "$y_{it}$, $x_{kit}$",
+      "$\\sigma_u^2$, $\\sigma_e^2$",
+      "$\\rho$",
+      "$\\alpha$",
+      "$\\bar y_i$, $\\bar x_{ki}$",
+      "$N$, $T$",
+      "$y_i^{*}$, $x_{i1}^{*}$, $x_{i2}^{*}$, $e_i^{*}$"
+     ]
+    },
+    {
+     "id": "4-estimation-gls-by-partial-demeaning-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "For the wage panel, $T = 5$, $\\hat\\sigma_e = 0.1951$ and $\\hat\\sigma_u^2 = 0.1083$. Compute $\\hat\\alpha$.",
+       "answer": 0.7437,
+       "tol": 0.001,
+       "wrong": [
+        {
+         "answer": 0.4901,
+         "tol": 0.002,
+         "md": "that leaves out $T$: $1 - 0.1951/\\sqrt{0.1083 + 0.0381}$"
+        },
+        {
+         "answer": 0.2563,
+         "tol": 0.001,
+         "md": "that is $\\sigma_e/\\sqrt{T\\sigma_u^2 + \\sigma_e^2}$; $\\alpha$ is one minus it"
+        }
+       ],
+       "why": "$\\sqrt{5 \\times 0.1083 + 0.0381} = \\sqrt{0.5796} = 0.7613$, and $1 - 0.1951/0.7613 = 0.7437$. Random effects subtracts 74% of each woman's means from her data: closer to fixed effects (100%) than to pooled OLS (0%).",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 6,
+     "symbols": [
+      "$\\sigma_u^2$, $\\sigma_e^2$",
+      "$\\alpha$",
+      "$N$, $T$",
+      "$\\sigma_i^2$, $\\widehat{\\sigma}_i^2$"
+     ]
+    },
+    {
+     "id": "4-estimation-gls-by-partial-demeaning-3",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "warning",
+       "title": "Correction to the lecture notebook",
+       "md": "The notebook describes $\\alpha$ as \"the fraction of the total variance due to individual heterogeneity\". That fraction is $\\rho = \\sigma_u^2/(\\sigma_u^2 + \\sigma_e^2) = 0.740$; $\\alpha$ is the demeaning weight, which also rises with $T$ (with $T = 1$ the same variances would give $\\alpha = 0.49$). The two happen to be close here. In the third covariance derivation, $E[(u_i + e_{it})(u_j + e_{is})]$ should read $e_{js}$.",
+       "folded": false
+      }
+     ],
+     "words": 50,
+     "symbols": [
+      "$u_i$",
+      "$e_{it}$",
+      "$\\sigma_u^2$, $\\sigma_e^2$",
+      "$\\rho$",
+      "$\\alpha$",
+      "$N$, $T$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Write the random effects model and derive the covariances of the combined error and the within-person correlation $\\rho$.\n2. Compute and interpret the LM test for random effects.\n3. Compute the GLS weight $\\alpha$ and explain its limits $\\alpha = 0$ and $\\alpha = 1$."
+      }
+     ],
+     "words": 38,
+     "symbols": [
+      "$\\rho$",
+      "$\\alpha$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "random-effects-model",
+        "generalized-least-squares",
+        "panel-data",
+        "clustered-standard-errors"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

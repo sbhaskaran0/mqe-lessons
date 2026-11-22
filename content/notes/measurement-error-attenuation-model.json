@@ -1,0 +1,142 @@
+{
+ "slug": "measurement-error-attenuation-model",
+ "notation": [
+  {
+   "tex": "$x^{*}$",
+   "meaning": "True value (e.g. true log wage)",
+   "kind": "Data (unobserved)",
+   "typical": "—",
+   "keys": [
+    "x*"
+   ],
+   "from": "classical-measurement-error"
+  },
+  {
+   "tex": "$u$",
+   "meaning": "Measurement error",
+   "kind": "Exogenous noise",
+   "typical": "Mean 0",
+   "keys": [
+    "u"
+   ],
+   "from": "classical-measurement-error"
+  },
+  {
+   "tex": "$x$",
+   "meaning": "Observed value",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "x"
+   ],
+   "from": "classical-measurement-error"
+  },
+  {
+   "tex": "$\\sigma_u^2$",
+   "meaning": "Variance of the measurement error",
+   "kind": "Parameter",
+   "typical": "0.05 in the example",
+   "keys": [
+    "sigma"
+   ],
+   "from": "classical-measurement-error"
+  },
+  {
+   "tex": "$\\beta$",
+   "meaning": "True slope on $x^{*}$",
+   "kind": "Parameter",
+   "typical": "0.10 in the example",
+   "keys": [
+    "beta"
+   ],
+   "from": "classical-measurement-error"
+  },
+  {
+   "tex": "$\\hat\\beta$",
+   "meaning": "OLS slope using the observed $x$",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "hat(beta)"
+   ],
+   "from": "classical-measurement-error"
+  },
+  {
+   "tex": "$\\lambda$",
+   "meaning": "Reliability ratio: share of observed variance that is signal",
+   "kind": "Parameter in (0, 1]",
+   "typical": "0.8 in the example",
+   "keys": [
+    "lambda"
+   ],
+   "from": "classical-measurement-error"
+  },
+  {
+   "tex": "$S$",
+   "meaning": "Variance of the true regressor, $\\mathrm{Var}(x^{*})$",
+   "kind": "Parameter",
+   "typical": "4 in the savings example",
+   "keys": [
+    "S"
+   ],
+   "from": "classical-measurement-error"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "measurement-error-attenuation"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$\\sigma_u^2$",
+      "$\\beta$",
+      "$\\hat\\beta$",
+      "$\\lambda$",
+      "$S$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The model behind [Measurement Error Attenuation](note:measurement-error-attenuation). Place that view, not this note."
+      },
+      {
+       "t": "prose",
+       "md": "- **Model.** [Classical Measurement Error](note:classical-measurement-error): observed $x = x^{*} + u$, so $\\operatorname{plim}\\hat\\beta = \\lambda\\beta$ with $\\lambda = S/(S + \\sigma_u^2)$, $S = \\mathrm{Var}(x^{*})$.\n- **Tests.** Exact arithmetic: $0.2 \\times 4/5 = 0.16$; $0.2 \\times 4/8 = 0.1$."
+      }
+     ],
+     "words": 24,
+     "symbols": [
+      "$x^{*}$",
+      "$u$",
+      "$x$",
+      "$\\sigma_u^2$",
+      "$\\beta$",
+      "$\\hat\\beta$",
+      "$\\lambda$",
+      "$S$"
+     ]
+    }
+   ]
+  }
+ ]
+}

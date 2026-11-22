@@ -1,0 +1,406 @@
+{
+ "slug": "econ-430-l21-truffle-supply-and-demand",
+ "notation": [
+  {
+   "tex": "$Q$, $P$",
+   "meaning": "Equilibrium quantity and price",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "Q",
+    "P"
+   ],
+   "from": "simultaneous-equations-model"
+  },
+  {
+   "tex": "$\\alpha_1$, $\\alpha_2$, $\\alpha_3$",
+   "meaning": "Demand intercept, price slope ($< 0$), income effect",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "alpha"
+   ],
+   "from": "simultaneous-equations-model"
+  },
+  {
+   "tex": "$\\beta_1$, $\\beta_2$",
+   "meaning": "Supply intercept and price slope ($> 0$)",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ],
+   "from": "simultaneous-equations-model"
+  },
+  {
+   "tex": "$e_d$, $e_s$",
+   "meaning": "Demand and supply errors",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "e"
+   ],
+   "from": "simultaneous-equations-model"
+  },
+  {
+   "tex": "$M$",
+   "meaning": "Number of equations (= endogenous variables) in the system",
+   "kind": "Index",
+   "typical": "2 for supply and demand",
+   "keys": [
+    "M"
+   ],
+   "from": "identification-in-simultaneous-equations"
+  },
+  {
+   "tex": "$y$",
+   "meaning": "Outcome",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "y"
+   ],
+   "from": "instrumental-variables-and-2sls"
+  },
+  {
+   "tex": "$x$",
+   "meaning": "Endogenous explanatory variable",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "x"
+   ],
+   "from": "instrumental-variables-and-2sls"
+  },
+  {
+   "tex": "$\\hat\\beta_1$, $\\hat\\beta_2$, $b_2$",
+   "meaning": "IV estimates and the OLS slope",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "hat(beta)",
+    "b"
+   ],
+   "from": "instrumental-variables-and-2sls"
+  },
+  {
+   "tex": "$r_{zx}$",
+   "meaning": "Sample correlation of $z$ and $x$",
+   "kind": "Statistic",
+   "typical": "0.39",
+   "keys": [
+    "r"
+   ],
+   "from": "instrumental-variables-and-2sls"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**The truffle market puts the whole method to work. Demand depends on price, the price of a substitute and income; supply depends on price and the price of a factor of production. Each curve leaves out a variable that shifts the other, so both are identified, and two-stage least squares estimates a downward-sloping demand curve and an upward-sloping supply curve.**"
+      },
+      {
+       "t": "callout",
+       "kind": "info",
+       "title": "Source",
+       "md": "Section 7 of `Regression_Lecture4.ipynb` (see [Econ 430 L17 Simultaneous Equations and Supply and Demand](note:econ-430-l17-simultaneous-equations-and-supply-and-demand) for how the notebook maps to lectures). The data are the `truffles` file from *Principles of Econometrics*: 30 observations on the market for truffles.",
+       "folded": false
+      }
+     ],
+     "words": 101,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "1-the-model-and-its-identification",
+   "heading": "1. The model and its identification",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-the-model-and-its-identification-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "\\text{Demand: } Q_i = \\alpha_1 + \\alpha_2P_i + \\alpha_3PS_i + \\alpha_4DI_i + e_{di}"
+      },
+      {
+       "t": "math",
+       "tex": "\\text{Supply: } Q_i = \\beta_1 + \\beta_2P_i + \\beta_3PF_i + e_{si}"
+      },
+      {
+       "t": "prose",
+       "md": "$Q$ is the quantity traded (ounces) and $P$ the market price per ounce, both endogenous. The exogenous variables are $PS$, the price of a substitute for truffles, and $DI$, per-capita disposable income, which shift demand, and $PF$, the price of a factor of production, which shifts supply. Demand should slope down ($\\alpha_2 < 0$); a dearer substitute and higher income raise demand ($\\alpha_3, \\alpha_4 > 0$); a dearer factor reduces supply ($\\beta_3 < 0$)."
+      },
+      {
+       "t": "prose",
+       "md": "With $M = 2$, each equation needs at least one exclusion ([Identification in Simultaneous Equations](note:identification-in-simultaneous-equations)). Demand excludes $PF$: exactly identified. Supply excludes $PS$ and $DI$: overidentified."
+      }
+     ],
+     "words": 79,
+     "symbols": [
+      "$Q$, $P$",
+      "$\\alpha_1$, $\\alpha_2$, $\\alpha_3$",
+      "$\\beta_1$, $\\beta_2$",
+      "$e_d$, $e_s$",
+      "$M$"
+     ]
+    },
+    {
+     "id": "1-the-model-and-its-identification-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Which variable lets you estimate the *demand* curve for truffles, and why?",
+       "options": [
+        {
+         "md": "$PS$, because it appears in the demand equation",
+         "correct": false,
+         "feedback": "Variables in the demand equation instrument themselves; the endogenous price needs an excluded variable."
+        },
+        {
+         "md": "$PF$: it shifts supply but not demand, so as it varies the equilibrium moves along the demand curve",
+         "correct": true
+        },
+        {
+         "md": "$DI$, because income is the main driver of demand",
+         "correct": false,
+         "feedback": "Income shifts demand itself, which traces out the *supply* curve."
+        },
+        {
+         "md": "None: demand is not identified",
+         "correct": false,
+         "feedback": "It excludes $PF$, one exclusion, which is exactly the $M - 1 = 1$ needed."
+        }
+       ],
+       "why": "A shifter of the other curve is what traces out a curve. $PF$ moves supply, so price changes driven by $PF$ are movements along demand: $PF$ is the instrument for price in the demand equation.",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 49,
+     "symbols": [
+      "$Q$, $P$",
+      "$M$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "2-the-reduced-form-for-price",
+   "heading": "2. The reduced form for price",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-the-reduced-form-for-price-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The first stage of 2SLS regresses price on all three exogenous variables:"
+      },
+      {
+       "t": "math",
+       "tex": "\\hat P = -32.512 + 1.708\\,PS + 7.603\\,DI + 1.354\\,PF ."
+      },
+      {
+       "t": "prose",
+       "md": "All three shift the equilibrium price in the expected direction: a dearer substitute and higher income raise demand and so price; a dearer factor reduces supply and so raises price ([Simultaneous Equations Model](note:simultaneous-equations-model)). Strength matters here as in [Econ 430 L16 Specification Tests for Instrumental Variables](note:econ-430-l16-specification-tests-for-instrumental-variables): $PF$ must be significant in this equation for the demand curve to be estimated reliably."
+      }
+     ],
+     "words": 72,
+     "symbols": [
+      "$Q$, $P$"
+     ]
+    },
+    {
+     "id": "2-the-reduced-form-for-price-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "Using the estimated reduced form, what is the predicted truffle price when $PS = 22$, $DI = 3.5$ and $PF = 23$?",
+       "answer": 62.82,
+       "tol": 0.05,
+       "wrong": [
+        {
+         "answer": 95.33,
+         "tol": 0.05,
+         "md": "that leaves out the intercept, $-32.512$"
+        },
+        {
+         "answer": 31.68,
+         "tol": 0.05,
+         "md": "that drops the factor-price term, $1.354 \\times 23 = 31.14$"
+        }
+       ],
+       "why": "$-32.512 + 1.708 \\times 22 + 7.603 \\times 3.5 + 1.354 \\times 23 = -32.512 + 37.576 + 26.611 + 31.142 = 62.82$.",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 13,
+     "symbols": [
+      "$Q$, $P$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "3-2sls-estimates",
+   "heading": "3. 2SLS estimates",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "3-2sls-estimates-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "\\text{Demand: } \\hat Q = -4.279 - 0.3745\\,P + 1.296\\,PS + 5.014\\,DI"
+      },
+      {
+       "t": "math",
+       "tex": "\\text{Supply: } \\hat Q = 20.033 + 0.338\\,P - 1.001\\,PF"
+      },
+      {
+       "t": "prose",
+       "md": "Every sign matches theory. A $1 rise in the price per ounce lowers the quantity demanded by 0.37 ounces and raises the quantity supplied by 0.34 ounces, holding the shifters fixed. Higher income and a dearer substitute raise demand; a dearer factor cuts supply by about one ounce per $1."
+      }
+     ],
+     "words": 6,
+     "symbols": [
+      "$Q$, $P$",
+      "$e_d$, $e_s$",
+      "$y$",
+      "$x$",
+      "$\\hat\\beta_1$, $\\hat\\beta_2$, $b_2$",
+      "$r_{zx}$"
+     ]
+    },
+    {
+     "id": "3-2sls-estimates-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "In the 2SLS supply equation $\\hat Q = 20.033 + 0.338P - 1.001PF$, the factor price rises by $2 with the market price unchanged. What happens to the quantity supplied?",
+       "answer": -2.002,
+       "tol": 0.005,
+       "wrong": [
+        {
+         "answer": 0.676,
+         "tol": 0.005,
+         "md": "that is the effect of a $2 rise in the *market* price"
+        },
+        {
+         "answer": 2.002,
+         "tol": 0.005,
+         "md": "the sign: a dearer input reduces supply"
+        }
+       ],
+       "why": "$\\Delta Q = -1.0009 \\times 2 = -2.002$ ounces: the supply curve shifts left by about 2 ounces at every price. In equilibrium the price would also rise (the reduced form's $+1.354$ per dollar), which partly offsets the fall.",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 22,
+     "symbols": [
+      "$Q$, $P$"
+     ]
+    },
+    {
+     "id": "3-2sls-estimates-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Why should these demand and supply equations not be estimated by OLS?",
+       "options": [
+        {
+         "md": "Because 30 observations is too few for OLS",
+         "correct": false,
+         "feedback": "Sample size is not the issue; OLS would be inconsistent with any sample size."
+        },
+        {
+         "md": "Because price is jointly determined with quantity, so it is correlated with both equations' errors, biasing OLS",
+         "correct": true
+        },
+        {
+         "md": "Because the errors are heteroskedastic",
+         "correct": false,
+         "feedback": "Heteroskedasticity affects standard errors, not consistency."
+        },
+        {
+         "md": "Because OLS cannot handle more than two regressors",
+         "correct": false,
+         "feedback": "It can; the problem is the endogenous price."
+        }
+       ],
+       "why": "A demand shock raises both price and quantity, so $\\mathrm{Cov}(P, e_d) > 0$ and the OLS demand slope is biased toward zero (it can even come out positive). 2SLS uses only the price movements driven by the excluded shifters.",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 50,
+     "symbols": [
+      "$Q$, $P$",
+      "$e_d$, $e_s$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Write down a two-equation market with demand and supply shifters and check each equation's identification.\n2. Read the first-stage (reduced-form) equation for price and predict from it.\n3. Interpret 2SLS coefficients, distinguishing a movement along a curve from a shift of it."
+      }
+     ],
+     "words": 43,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "simultaneous-equations-model",
+        "identification-in-simultaneous-equations",
+        "instrumental-variables-and-2sls"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

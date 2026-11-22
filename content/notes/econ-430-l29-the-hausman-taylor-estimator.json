@@ -1,0 +1,430 @@
+{
+ "slug": "econ-430-l29-the-hausman-taylor-estimator",
+ "notation": [
+  {
+   "tex": "$y_{it}$",
+   "meaning": "Outcome",
+   "kind": "Data",
+   "typical": "Log wage",
+   "keys": [
+    "y"
+   ],
+   "from": "hausman-taylor-estimator"
+  },
+  {
+   "tex": "$x_{it,exog}$, $x_{it,endog}$",
+   "meaning": "Time-varying regressors, exogenous or endogenous",
+   "kind": "Data",
+   "typical": "Experience, tenure, union; south",
+   "keys": [
+    "x"
+   ],
+   "from": "hausman-taylor-estimator"
+  },
+  {
+   "tex": "$w_{i,exog}$, $w_{i,endog}$",
+   "meaning": "Time-invariant regressors, exogenous or endogenous",
+   "kind": "Data",
+   "typical": "Black; education",
+   "keys": [
+    "w"
+   ],
+   "from": "hausman-taylor-estimator"
+  },
+  {
+   "tex": "$\\beta_1, \\dots, \\beta_5$",
+   "meaning": "Coefficients",
+   "kind": "Parameter",
+   "typical": "0.1705 on education",
+   "keys": [
+    "beta"
+   ],
+   "from": "hausman-taylor-estimator"
+  },
+  {
+   "tex": "$u_i$",
+   "meaning": "Individual effect",
+   "kind": "Random",
+   "typical": "—",
+   "keys": [
+    "u"
+   ],
+   "from": "hausman-taylor-estimator"
+  },
+  {
+   "tex": "$e_{it}$",
+   "meaning": "Idiosyncratic error",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "e"
+   ],
+   "from": "hausman-taylor-estimator"
+  },
+  {
+   "tex": "$\\sigma_e^2$, $\\sigma_u^2$",
+   "meaning": "Variances of $e_{it}$ and $u_i$",
+   "kind": "Parameter",
+   "typical": "0.0380, 0.2024",
+   "keys": [
+    "sigma"
+   ],
+   "from": "hausman-taylor-estimator"
+  },
+  {
+   "tex": "$N$, $T$",
+   "meaning": "Units and periods",
+   "kind": "Index",
+   "typical": "716, 5",
+   "keys": [
+    "N",
+    "T"
+   ],
+   "from": "random-effects-model"
+  },
+  {
+   "tex": "$D_{ji}$",
+   "meaning": "Dummy equal to 1 when $i = j$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "D"
+   ],
+   "from": "fixed-effects-regression"
+  },
+  {
+   "tex": "$N$, $T$, $K$",
+   "meaning": "Units, periods, coefficients in the LSDV model",
+   "kind": "Index",
+   "typical": "10, 5, 15",
+   "keys": [
+    "N",
+    "T",
+    "K"
+   ],
+   "from": "fixed-effects-regression"
+  },
+  {
+   "tex": "$z$",
+   "meaning": "Instrument: correlated with $x$, uncorrelated with the error",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "z"
+   ],
+   "from": "instrumental-variables-and-2sls"
+  },
+  {
+   "tex": "$\\hat{\\sigma}$",
+   "meaning": "Estimated elasticity of substitution in the example",
+   "kind": "Statistic",
+   "typical": "2.28 (OLS), 2.58 (2SLS)",
+   "keys": [
+    "hat(sigma)"
+   ],
+   "from": "instrumental-variables-and-2sls"
+  },
+  {
+   "tex": "$G$, $B$, $L$",
+   "meaning": "Numbers of exogenous regressors, endogenous regressors and instruments",
+   "kind": "Index",
+   "typical": "3, 1, 2",
+   "keys": [
+    "G",
+    "B",
+    "L"
+   ],
+   "from": "instrumental-variables-and-2sls"
+  },
+  {
+   "tex": "$\\gamma_{kj}$, $\\theta_{lj}$, $v_j$",
+   "meaning": "First-stage coefficients and error",
+   "kind": "Parameter, exogenous",
+   "typical": "—",
+   "keys": [
+    "gamma",
+    "theta",
+    "v"
+   ],
+   "from": "instrumental-variables-and-2sls"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**The Hausman test rejected random effects for the wage panel, and fixed effects cannot estimate the effect of education, which never changes within a woman's panel. Hausman and Taylor's estimator keeps the random effects framework but treats the regressors correlated with the individual effect as endogenous, instrumenting them with the exogenous variables' own variation. It estimates a return to education of 17% a year, much larger than pooled OLS.**"
+      },
+      {
+       "t": "callout",
+       "kind": "info",
+       "title": "Source",
+       "md": "Section 8 of `Regression_Lecture5.ipynb` and its closing guide \"When to use the Hausman–Taylor estimator\" (see [Econ 430 L23 Panel Data and Microeconomic Panels](note:econ-430-l23-panel-data-and-microeconomic-panels) for how the notebook maps to lectures). The estimate is computed in R (`plm`), since the Python packages lack the estimator.",
+       "folded": false
+      }
+     ],
+     "words": 117,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "1-the-model",
+   "heading": "1. The model",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-the-model-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The Hausman-Taylor estimator is an instrumental variables estimator applied to the random effects model, to overcome the inconsistency caused by correlation between the random effects and some regressors ([Hausman-Taylor Estimator](note:hausman-taylor-estimator)):"
+      },
+      {
+       "t": "math",
+       "tex": "y_{it} = \\beta_1 + \\beta_2x_{it,exog} + \\beta_3x_{it,endog} + \\beta_4w_{i,exog} + \\beta_5w_{i,endog} + u_i + e_{it} ,"
+      },
+      {
+       "t": "prose",
+       "md": "where $x$ variables vary over time and individuals, $w$ variables are time-invariant, \"exog\" means uncorrelated with $u_i$ and \"endog\" correlated with it. The estimator applies IV to the GLS-transformed (partially demeaned) model of [Econ 430 L26 The Random Effects Model](note:econ-430-l26-the-random-effects-model). Its instruments come from inside the data: the deviations of the time-varying variables from their individual means (uncorrelated with $u_i$ by construction), and the individual means of the exogenous time-varying variables together with $w_{i,exog}$."
+      }
+     ],
+     "words": 99,
+     "symbols": [
+      "$y_{it}$",
+      "$x_{it,exog}$, $x_{it,endog}$",
+      "$w_{i,exog}$, $w_{i,endog}$",
+      "$\\beta_1, \\dots, \\beta_5$",
+      "$u_i$",
+      "$e_{it}$"
+     ]
+    },
+    {
+     "id": "1-the-model-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "In the wage example, which variable is classified as time-invariant and endogenous, and why might it be?",
+       "options": [
+        {
+         "md": "Union membership, because it changes over time",
+         "correct": false,
+         "feedback": "It is time-varying and classified as exogenous."
+        },
+        {
+         "md": "Education: it does not change across the waves, and it is plausibly correlated with unmeasured ability in $u_i$",
+         "correct": true
+        },
+        {
+         "md": "Race, because it does not change over time",
+         "correct": false,
+         "feedback": "Race is time-invariant but treated as exogenous: uncorrelated with $u_i$."
+        },
+        {
+         "md": "South, because people move",
+         "correct": false,
+         "feedback": "South is treated as time-varying and endogenous, not time-invariant."
+        }
+       ],
+       "why": "The classification is a modelling judgement. Ability raises wages and goes with schooling, so education is the natural endogenous time-invariant variable; fixed effects would drop it altogether.",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 53,
+     "symbols": [
+      "$u_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "2-the-wage-equation",
+   "heading": "2. The wage equation",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-the-wage-equation-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The classification:"
+      },
+      {
+       "t": "table",
+       "md": "| Variable | Varies over time | Correlated with $u_i$ |\n| --- | --- | --- |\n| Experience, tenure (and squares), union | Yes | No |\n| South | Yes | Yes |\n| Black | No | No |\n| Education | No | Yes |"
+      },
+      {
+       "t": "table",
+       "md": "| | Hausman-Taylor | Pooled OLS (L24) |\n| --- | --- | --- |\n| $EDUC$ | **0.1705** (0.0445) | 0.0714 |\n| $EXPER$ | 0.0399 | 0.0557 |\n| $TENURE$ | 0.0143 | 0.0150 |\n| $BLACK$ | $-0.0359$ (0.0601) | $-0.1167$ |\n| $SOUTH$ | $-0.0317$ (0.0348) | $-0.1060$ |\n| $UNION$ | 0.0720 | 0.1322 |"
+      },
+      {
+       "t": "prose",
+       "md": "The variance components are $\\hat\\sigma_e^2 = 0.0380$ and $\\hat\\sigma_u^2 = 0.2024$, so 84% of the error variance is individual, and the demeaning weight is $\\hat\\alpha = 0.810$. The return to education more than doubles relative to pooled OLS and is significant ($z = 3.83$); the race and south differentials shrink and become insignificant."
+      }
+     ],
+     "words": 97,
+     "symbols": [
+      "$u_i$",
+      "$N$, $T$",
+      "$D_{ji}$",
+      "$N$, $T$, $K$",
+      "$z$",
+      "$\\hat{\\sigma}$",
+      "$G$, $B$, $L$"
+     ]
+    },
+    {
+     "id": "2-the-wage-equation-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "With $\\hat\\sigma_e^2 = 0.03799$, $\\hat\\sigma_u^2 = 0.20238$ and $T = 5$, compute the demeaning weight $\\hat\\alpha = 1 - \\sigma_e/\\sqrt{T\\sigma_u^2 + \\sigma_e^2}$ reported by the software (as $\\theta$).",
+       "answer": 0.81,
+       "tol": 0.002,
+       "wrong": [
+        {
+         "answer": 0.842,
+         "tol": 0.002,
+         "md": "that is the individual share of the error variance, $\\sigma_u^2/(\\sigma_u^2 + \\sigma_e^2)$"
+        },
+        {
+         "answer": 0.963,
+         "tol": 0.002,
+         "md": "that uses the variance $\\sigma_e^2$ instead of the standard deviation $\\sigma_e$ in the numerator"
+        }
+       ],
+       "why": "$\\sqrt{5 \\times 0.20238 + 0.03799} = \\sqrt{1.04989} = 1.0246$, and $1 - 0.19491/1.0246 = 0.810$.",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 11,
+     "symbols": [
+      "$\\sigma_e^2$, $\\sigma_u^2$",
+      "$N$, $T$",
+      "$\\hat{\\sigma}$",
+      "$\\gamma_{kj}$, $\\theta_{lj}$, $v_j$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "3-when-to-use-hausman-taylor",
+   "heading": "3. When to use Hausman-Taylor",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "3-when-to-use-hausman-taylor-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Use it when | Avoid it when |\n| --- | --- |\n| Time-invariant regressors (geography, gender, institutions, schooling) matter for the question | You cannot justify which variables are endogenous or exogenous: a wrong classification invalidates the estimates |\n| Some regressors are correlated with the individual effect, so random effects fails | The within or between variation of the exogenous variables is small: the internal instruments are weak |\n| The data supply internal instruments: within variation of exogenous variables for the endogenous time-varying ones, between variation for the endogenous time-invariant ones | $T$ is very small |"
+      },
+      {
+       "t": "prose",
+       "md": "The intuition across the three estimators: fixed effects assumes **no** regressor is exogenous with respect to $u_i$; random effects assumes **all** are; Hausman-Taylor assumes **some** are and uses them as internal instruments for the rest."
+      }
+     ],
+     "words": 120,
+     "symbols": [
+      "$u_i$",
+      "$N$, $T$"
+     ]
+    },
+    {
+     "id": "3-when-to-use-hausman-taylor-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "A researcher wants the effect of a country's colonial origin (fixed over time) on growth, using a country panel. A Hausman test rejects random effects. Which estimator suits the question?",
+       "options": [
+        {
+         "md": "Fixed effects, since random effects was rejected",
+         "correct": false,
+         "feedback": "Fixed effects would absorb colonial origin into the country effects and could not estimate it."
+        },
+        {
+         "md": "Hausman-Taylor, if some time-varying regressors can credibly be classified as uncorrelated with the country effects to serve as instruments",
+         "correct": true
+        },
+        {
+         "md": "Random effects anyway, because it estimates time-invariant effects",
+         "correct": false,
+         "feedback": "It does so inconsistently when the country effect is correlated with the regressors, which the test indicates."
+        },
+        {
+         "md": "Pooled OLS with clustered standard errors",
+         "correct": false,
+         "feedback": "Clustering fixes standard errors, not the correlation between regressors and the country effect."
+        }
+       ],
+       "why": "The question needs a time-invariant coefficient, and the data reject the exogeneity random effects needs. Hausman-Taylor fits exactly this case, provided the exogeneity classification is defensible and the internal instruments are strong.",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 70,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Classify regressors as time-varying or time-invariant and exogenous or endogenous with respect to $u_i$, and explain where Hausman-Taylor's instruments come from.\n2. Interpret Hausman-Taylor estimates against pooled and fixed effects results, and compute its demeaning weight.\n3. Decide when Hausman-Taylor is appropriate, and when it is not."
+      }
+     ],
+     "words": 47,
+     "symbols": [
+      "$u_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "hausman-taylor-estimator",
+        "random-effects-model",
+        "fixed-effects-regression",
+        "instrumental-variables-and-2sls"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

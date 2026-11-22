@@ -22,6 +22,18 @@
    "from": "classical-measurement-error"
   },
   {
+   "tex": "$\\gamma_{kj}$, $\\theta_{lj}$, $v_j$",
+   "meaning": "First-stage coefficients and error",
+   "kind": "Parameter, exogenous",
+   "typical": "—",
+   "keys": [
+    "gamma",
+    "theta",
+    "v"
+   ],
+   "from": "instrumental-variables-and-2sls"
+  },
+  {
    "tex": "$w^{p}_{jt}$, $w_{st}(p)$",
    "meaning": "Log wage at percentile $p$ in state $j$ (or $s$), year $t$",
    "kind": "Data",
@@ -39,17 +51,6 @@
    "typical": "—",
    "keys": [
     "~w^m_st"
-   ],
-   "from": "effective-minimum-wage"
-  },
-  {
-   "tex": "$\\beta$, $\\gamma$",
-   "meaning": "Linear and quadratic coefficients on $mw$",
-   "kind": "Parameters",
-   "typical": "1.494, 0.634 (Lee, trimmed mean)",
-   "keys": [
-    "beta",
-    "gamma"
    ],
    "from": "effective-minimum-wage"
   },
@@ -152,9 +153,9 @@
      "symbols": [
       "$\\sigma_u^2$",
       "$\\beta$",
+      "$\\gamma_{kj}$, $\\theta_{lj}$, $v_j$",
       "$w^{p}_{jt}$, $w_{st}(p)$",
       "$w^m_{st}$",
-      "$\\beta$, $\\gamma$",
       "$u_{jt}$, $\\varepsilon_{st}(p)$",
       "$p$"
      ]

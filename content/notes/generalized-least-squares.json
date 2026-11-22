@@ -132,6 +132,16 @@
     "R"
    ],
    "from": "heteroskedasticity-tests"
+  },
+  {
+   "tex": "$M$",
+   "meaning": "Number of equations",
+   "kind": "Index",
+   "typical": "2",
+   "keys": [
+    "M"
+   ],
+   "from": "seemingly-unrelated-regressions"
   }
  ],
  "sections": [
@@ -229,7 +239,8 @@
       "$h_i$",
       "$\\gamma$",
       "$N$",
-      "$R^2$"
+      "$R^2$",
+      "$M$"
      ]
     }
    ]
@@ -265,10 +276,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "- [Homoskedasticity](note:homoskedasticity) · [Heteroskedasticity Tests](note:heteroskedasticity-tests) · [Heteroskedasticity-Consistent Standard Errors](note:heteroskedasticity-consistent-standard-errors) · [Gauss-Markov Theorem](note:gauss-markov-theorem)"
+       "md": "- [Homoskedasticity](note:homoskedasticity) · [Heteroskedasticity Tests](note:heteroskedasticity-tests) · [Heteroskedasticity-Consistent Standard Errors](note:heteroskedasticity-consistent-standard-errors) · [Gauss-Markov Theorem](note:gauss-markov-theorem)\n- [Random Effects Model](note:random-effects-model) — GLS for error components · [Seemingly Unrelated Regressions](note:seemingly-unrelated-regressions) — GLS for a system of equations"
       }
      ],
-     "words": 9,
+     "words": 26,
      "symbols": []
     }
    ]

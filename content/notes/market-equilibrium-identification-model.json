@@ -1,0 +1,110 @@
+{
+ "slug": "market-equilibrium-identification-model",
+ "notation": [
+  {
+   "tex": "$Q$, $P$",
+   "meaning": "Equilibrium quantity and price",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "Q",
+    "P"
+   ],
+   "from": "simultaneous-equations-model"
+  },
+  {
+   "tex": "$X$",
+   "meaning": "Demand shifter (income)",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "X"
+   ],
+   "from": "simultaneous-equations-model"
+  },
+  {
+   "tex": "$\\alpha_1$, $\\alpha_2$, $\\alpha_3$",
+   "meaning": "Demand intercept, price slope ($< 0$), income effect",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "alpha"
+   ],
+   "from": "simultaneous-equations-model"
+  },
+  {
+   "tex": "$\\beta_1$, $\\beta_2$",
+   "meaning": "Supply intercept and price slope ($> 0$)",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ],
+   "from": "simultaneous-equations-model"
+  },
+  {
+   "tex": "$\\pi_{10}$, $\\pi_{11}$",
+   "meaning": "Reduced-form intercept and slope for $P$",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "pi"
+   ],
+   "from": "simultaneous-equations-model"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "market-equilibrium-and-identification"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$Q$, $P$",
+      "$X$",
+      "$\\alpha_1$, $\\alpha_2$, $\\alpha_3$",
+      "$\\beta_1$, $\\beta_2$",
+      "$\\pi_{10}$, $\\pi_{11}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The model behind [Market Equilibrium and Identification](note:market-equilibrium-and-identification). Place that view, not this note."
+      },
+      {
+       "t": "prose",
+       "md": "- **Model.** [Simultaneous Equations Model](note:simultaneous-equations-model): equilibrium $P^{*} = (\\beta_1 - \\alpha_1 - \\alpha_3X)/(\\alpha_2 - \\beta_2)$, $Q^{*} = \\beta_1 + \\beta_2P^{*}$; reduced-form income effects $\\pi_{11} = \\alpha_3/(\\beta_2 - \\alpha_2)$ and $\\pi_{21} = \\beta_2\\alpha_3/(\\beta_2 - \\alpha_2)$.\n- **Equations.** Price as a function of quantity on each curve (the diagram puts $P$ on the vertical axis): `demand` at the current income, `demand0` at $X = 0$, `supply`.\n- **Tests.** Exact arithmetic: with $\\alpha_1 = 10$, $\\alpha_2 = -1$, $\\alpha_3 = 1$, $\\beta_1 = 0$, $\\beta_2 = 1$, the equilibrium is $(5, 5)$ at $X = 0$ and $(7, 7)$ at $X = 4$."
+      }
+     ],
+     "words": 60,
+     "symbols": [
+      "$Q$, $P$",
+      "$X$",
+      "$\\alpha_1$, $\\alpha_2$, $\\alpha_3$",
+      "$\\beta_1$, $\\beta_2$",
+      "$\\pi_{10}$, $\\pi_{11}$"
+     ]
+    }
+   ]
+  }
+ ]
+}

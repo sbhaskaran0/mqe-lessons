@@ -105,12 +105,24 @@
    "from": "multiple-regression-model"
   },
   {
-   "tex": "$\\ln L$",
-   "meaning": "Maximized log-likelihood",
-   "kind": "Statistic",
-   "typical": "—",
+   "tex": "$G$, $B$, $L$",
+   "meaning": "Numbers of exogenous regressors, endogenous regressors and instruments",
+   "kind": "Index",
+   "typical": "3, 1, 2",
    "keys": [
+    "G",
+    "B",
     "L"
+   ],
+   "from": "instrumental-variables-and-2sls"
+  },
+  {
+   "tex": "$C_p$",
+   "meaning": "Mallows' statistic",
+   "kind": "Statistic",
+   "typical": "2.32",
+   "keys": [
+    "C"
    ],
    "from": "model-selection-criteria"
   }
@@ -215,7 +227,7 @@
       "$b_2$, $b_3$",
       "$\\widehat{\\delta}$",
       "$K$",
-      "$\\ln L$"
+      "$G$, $B$, $L$"
      ]
     },
     {
@@ -229,6 +241,32 @@
      "words": 66,
      "symbols": [
       "$R_k^2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "as-an-endogeneity-problem",
+   "heading": "As an endogeneity problem",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "as-an-endogeneity-problem-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The omitted variable sits in the error, so the included regressor is correlated with it. In large samples, $\\operatorname{plim} b_2^{*} = \\beta_2 + \\beta_3\\,\\mathrm{Cov}(x_2, x_3)/\\mathrm{Var}(x_2)$ when $x_2$ is uncorrelated with $e$: the bias formula is also the inconsistency ([Consistency and Probability Limits](note:consistency-and-probability-limits)). **Example:** in $\\ln(WAGE) = \\beta_1 + \\beta_2EDUC + \\cdots + e$, unmeasured ability raises wages and goes with more schooling, so the OLS return to education (0.1075 for 428 working women) is expected to be too high; instrumenting education gives 0.0614 ([Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls))."
+      }
+     ],
+     "words": 71,
+     "symbols": [
+      "$x_2$, $x_3$",
+      "$\\beta_1, \\beta_2, \\beta_3$",
+      "$b_2^{*}$",
+      "$e$, $v$",
+      "$x_4$, $\\beta_4$",
+      "$G$, $B$, $L$",
+      "$C_p$"
      ]
     }
    ]

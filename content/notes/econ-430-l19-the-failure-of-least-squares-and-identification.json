@@ -1,0 +1,527 @@
+{
+ "slug": "econ-430-l19-the-failure-of-least-squares-and-identification",
+ "notation": [
+  {
+   "tex": "$Q$, $P$",
+   "meaning": "Equilibrium quantity and price",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "Q",
+    "P"
+   ],
+   "from": "simultaneous-equations-model"
+  },
+  {
+   "tex": "$X$",
+   "meaning": "Demand shifter (income)",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "X"
+   ],
+   "from": "simultaneous-equations-model"
+  },
+  {
+   "tex": "$\\alpha_1$, $\\alpha_2$, $\\alpha_3$",
+   "meaning": "Demand intercept, price slope ($< 0$), income effect",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "alpha"
+   ],
+   "from": "simultaneous-equations-model"
+  },
+  {
+   "tex": "$\\beta_1$, $\\beta_2$",
+   "meaning": "Supply intercept and price slope ($> 0$)",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ],
+   "from": "simultaneous-equations-model"
+  },
+  {
+   "tex": "$e_d$, $e_s$",
+   "meaning": "Demand and supply errors",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "e"
+   ],
+   "from": "simultaneous-equations-model"
+  },
+  {
+   "tex": "$\\sigma_d^2$, $\\sigma_s^2$",
+   "meaning": "Variances of $e_d$ and $e_s$",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "sigma"
+   ],
+   "from": "simultaneous-equations-model"
+  },
+  {
+   "tex": "$\\pi_{10}$, $\\pi_{11}$",
+   "meaning": "Reduced-form intercept and slope for $P$",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "pi"
+   ],
+   "from": "simultaneous-equations-model"
+  },
+  {
+   "tex": "$v_1$, $v_2$",
+   "meaning": "Reduced-form errors",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "v"
+   ],
+   "from": "simultaneous-equations-model"
+  },
+  {
+   "tex": "$\\hat\\alpha_2$",
+   "meaning": "OLS estimate of the demand slope",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "hat(alpha)"
+   ],
+   "from": "simultaneous-equations-model"
+  },
+  {
+   "tex": "$M$",
+   "meaning": "Number of equations (= endogenous variables) in the system",
+   "kind": "Index",
+   "typical": "2 for supply and demand",
+   "keys": [
+    "M"
+   ],
+   "from": "identification-in-simultaneous-equations"
+  },
+  {
+   "tex": "$\\boldsymbol{\\varepsilon}$, $y$",
+   "meaning": "Error and outcome",
+   "kind": "—",
+   "typical": "—",
+   "keys": [
+    "bold(varepsilon)",
+    "y"
+   ],
+   "from": "full-rank-and-identification"
+  },
+  {
+   "tex": "$y$, $x$",
+   "meaning": "Outcome and regressor, both random under random sampling",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "y",
+    "x"
+   ],
+   "from": "consistency-and-probability-limits"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Least squares on a structural equation is not just imprecise but wrong in a predictable direction: on the demand curve its slope is pulled toward zero by an amount that depends on how much demand shocks dominate supply shocks. Whether a structural equation can be estimated at all is a separate question, settled by counting: in a system of $M$ equations, an equation must leave out at least $M - 1$ of the system's variables. The supply curve passes; the demand curve, which excludes nothing, does not.**"
+      }
+     ],
+     "words": 83,
+     "symbols": [
+      "$M$"
+     ]
+    },
+    {
+     "id": "intro-2",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "info",
+       "title": "Source",
+       "md": "Sections 4 and 5 of `Regression_Lecture4.ipynb` (the failure of least squares; identification) and sections 4.1 to 4.3 of its mathematical appendix (see [Econ 430 L17 Simultaneous Equations and Supply and Demand](note:econ-430-l17-simultaneous-equations-and-supply-and-demand) for how the notebook maps to lectures).",
+       "folded": false
+      }
+     ],
+     "words": 43,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "1-the-failure-of-least-squares",
+   "heading": "1. The failure of least squares",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-the-failure-of-least-squares-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "In the demand equation $Q = \\alpha_1 + \\alpha_2P + \\alpha_3X + e_d$, the OLS slope on $P$ is a regression on the part of $P$ not explained by $X$, $\\tilde P$, which is approximately the reduced-form error $v_1 = (e_s - e_d)/(\\alpha_2 - \\beta_2)$ ([Econ 430 L18 Reduced-Form Equations](note:econ-430-l18-reduced-form-equations)). So"
+      },
+      {
+       "t": "math",
+       "tex": "\\operatorname{plim}\\hat\\alpha_2 = \\alpha_2 + \\frac{\\mathrm{Cov}(\\tilde P, e_d)}{\\mathrm{Var}(\\tilde P)}, \\qquad \\mathrm{Cov}(\\tilde P, e_d) = \\frac{-\\sigma_d^2}{\\alpha_2 - \\beta_2}, \\quad \\mathrm{Var}(\\tilde P) = \\frac{\\sigma_s^2 + \\sigma_d^2}{(\\alpha_2 - \\beta_2)^2} ."
+      }
+     ],
+     "words": 30,
+     "symbols": [
+      "$Q$, $P$",
+      "$X$",
+      "$\\alpha_1$, $\\alpha_2$, $\\alpha_3$",
+      "$\\beta_1$, $\\beta_2$",
+      "$e_d$, $e_s$",
+      "$\\sigma_d^2$, $\\sigma_s^2$",
+      "$v_1$, $v_2$",
+      "$\\hat\\alpha_2$"
+     ]
+    },
+    {
+     "id": "1-the-failure-of-least-squares-2",
+     "blocks": [
+      {
+       "t": "derive",
+       "title": "Find the inconsistency of the OLS demand slope",
+       "goal": "Writing $B$ for the asymptotic bias $\\operatorname{plim}\\hat\\alpha_2 - \\alpha_2$, $C$ for $\\mathrm{Cov}(\\tilde P, e_d)$ and $V$ for $\\mathrm{Var}(\\tilde P)$, express $B$ in terms of $\\alpha_2$, $\\beta_2$ and the shock variances $\\sigma_d^2$, $\\sigma_s^2$, then read off its sign.",
+       "objectives": [
+        1
+       ],
+       "symbols": [
+        "\\alpha_2 \\in (-2, -0.2)",
+        "\\beta_2 \\in (0.2, 2)",
+        "\\sigma_d",
+        "\\sigma_s"
+       ],
+       "inherited": [
+        {
+         "tex": "$\\alpha_1$, $\\alpha_2$, $\\alpha_3$",
+         "typical": "—",
+         "from": "simultaneous-equations-model"
+        },
+        {
+         "tex": "$\\beta_1$, $\\beta_2$",
+         "typical": "—",
+         "from": "simultaneous-equations-model"
+        },
+        {
+         "tex": "$\\sigma_d^2$, $\\sigma_s^2$",
+         "typical": "—",
+         "from": "simultaneous-equations-model"
+        }
+       ],
+       "unknowns": [
+        "$B$",
+        "$C$",
+        "$V$"
+       ],
+       "dims": [],
+       "data": [],
+       "matrices": [],
+       "define": [],
+       "given": [
+        "B = \\frac{C}{V}",
+        "C = \\frac{-\\sigma_d^2}{\\alpha_2 - \\beta_2}",
+        "V = \\frac{\\sigma_s^2 + \\sigma_d^2}{(\\alpha_2 - \\beta_2)^2}"
+       ],
+       "steps": [
+        {
+         "md": "Divide the covariance by the variance; one factor of $\\alpha_2 - \\beta_2$ cancels: $B = \\frac{-\\sigma_d^2(\\alpha_2 - \\beta_2)}{\\sigma_s^2 + \\sigma_d^2}$",
+         "tex": "B = \\frac{-\\sigma_d^2(\\alpha_2 - \\beta_2)}{\\sigma_s^2 + \\sigma_d^2}",
+         "hint": "Dividing by $\\frac{\\sigma_s^2 + \\sigma_d^2}{(\\alpha_2 - \\beta_2)^2}$ multiplies by $\\frac{(\\alpha_2 - \\beta_2)^2}{\\sigma_s^2 + \\sigma_d^2}$."
+        },
+        {
+         "md": "Sign it with $\\alpha_2 < 0 < \\beta_2$: $B = \\frac{-\\sigma_d^2(\\alpha_2 - \\beta_2)}{\\sigma_s^2 + \\sigma_d^2}$",
+         "tex": "B = \\frac{-\\sigma_d^2(\\alpha_2 - \\beta_2)}{\\sigma_s^2 + \\sigma_d^2}",
+         "justify": {
+          "prompt": "What is the sign of $B$, and what does it do to the estimated demand slope?",
+          "options": [
+           {
+            "md": "Positive: $\\alpha_2 - \\beta_2 < 0$, so OLS makes demand look flatter (less negative) than it is",
+            "correct": true
+           },
+           {
+            "md": "Negative: OLS makes demand look steeper than it is",
+            "correct": false
+           },
+           {
+            "md": "Zero, because $\\mathrm{Cov}(e_d, e_s) = 0$",
+            "correct": false
+           }
+          ]
+         }
+        }
+       ],
+       "accept": [
+        "B(\\sigma_s^2 + \\sigma_d^2) = -\\sigma_d^2(\\alpha_2 - \\beta_2)"
+       ],
+       "reject": [
+        {
+         "tex": "B = \\frac{-\\sigma_d^2}{(\\alpha_2 - \\beta_2)(\\sigma_s^2 + \\sigma_d^2)}",
+         "md": "dividing by $V$ multiplies by $(\\alpha_2 - \\beta_2)^2$, leaving one factor in the numerator, not the denominator"
+        },
+        {
+         "tex": "B = \\frac{-\\sigma_d^2(\\alpha_2 - \\beta_2)}{\\sigma_d^2}",
+         "md": "the variance of $\\tilde P$ contains both shocks, $\\sigma_s^2 + \\sigma_d^2$"
+        },
+        {
+         "tex": "B = \\frac{\\sigma_d^2(\\alpha_2 - \\beta_2)}{\\sigma_s^2 + \\sigma_d^2}",
+         "md": "the covariance of price with the demand error carries a minus sign"
+        }
+       ]
+      }
+     ],
+     "words": 21,
+     "symbols": [
+      "$\\alpha_1$, $\\alpha_2$, $\\alpha_3$",
+      "$\\beta_1$, $\\beta_2$",
+      "$e_d$, $e_s$",
+      "$\\sigma_d^2$, $\\sigma_s^2$"
+     ]
+    },
+    {
+     "id": "1-the-failure-of-least-squares-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "OLS **underestimates the magnitude** of the demand slope, and the bias does not shrink with the sample: least squares is inconsistent ([Consistency and Probability Limits](note:consistency-and-probability-limits)). The bias is small only when supply shocks dominate ($\\sigma_s^2 \\gg \\sigma_d^2$), since then the observed points mostly trace the demand curve."
+      }
+     ],
+     "words": 44,
+     "symbols": [
+      "$\\sigma_d^2$, $\\sigma_s^2$"
+     ]
+    },
+    {
+     "id": "1-the-failure-of-least-squares-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "Demand slope $\\alpha_2 = -1$, supply slope $\\beta_2 = 1$, and the two shocks have equal variance, $\\sigma_d^2 = \\sigma_s^2 = 1$. What does the OLS estimate of the demand slope converge to?",
+       "answer": 0.0,
+       "tol": 0.001,
+       "wrong": [
+        {
+         "answer": -1.0,
+         "tol": 0.0,
+         "md": "that is the true slope; OLS is inconsistent here"
+        },
+        {
+         "answer": 1.0,
+         "tol": 0.0,
+         "md": "that is the bias, $-1 \\times (-2)/2 = 1$; the limit is the true slope plus the bias"
+        },
+        {
+         "answer": -2.0,
+         "tol": 0.0,
+         "md": "the bias is positive, toward zero, not away from it"
+        }
+       ],
+       "why": "$B = -1 \\times (-1 - 1)/(1 + 1) = 1$, so $\\operatorname{plim}\\hat\\alpha_2 = -1 + 1 = 0$. With equal shocks the cloud of equilibria has no tilt at all: OLS finds a flat \"demand curve\" although demand slopes down.",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 22,
+     "symbols": [
+      "$\\alpha_1$, $\\alpha_2$, $\\alpha_3$",
+      "$\\beta_1$, $\\beta_2$",
+      "$\\sigma_d^2$, $\\sigma_s^2$",
+      "$\\hat\\alpha_2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "2-the-identification-problem",
+   "heading": "2. The identification problem",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-the-identification-problem-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "An equation is **identified** if its structural parameters can be uniquely determined from the reduced-form parameters ([Identification in Simultaneous Equations](note:identification-in-simultaneous-equations))."
+      },
+      {
+       "t": "prose",
+       "md": "**Order condition (necessary).** In a system of $M$ simultaneous equations, an equation is identified only if at least $M - 1$ variables that appear in the system are excluded from it. The excluded variables serve as instruments for the endogenous right-hand-side variables."
+      },
+      {
+       "t": "table",
+       "md": "| Exclusions | Status |\n| --- | --- |\n| Fewer than $M - 1$ | Unidentified: the parameters cannot be estimated |\n| Exactly $M - 1$ | Exactly identified |\n| More than $M - 1$ | Overidentified |"
+      },
+      {
+       "t": "prose",
+       "md": "In the market, $M = 2$. Demand contains $Q$, $P$ and $X$ and excludes nothing: **not identified**. Supply contains $Q$ and $P$ and excludes $X$: **exactly identified**, matching $\\beta_2 = \\pi_{21}/\\pi_{11}$."
+      }
+     ],
+     "words": 95,
+     "symbols": [
+      "$Q$, $P$",
+      "$X$",
+      "$\\beta_1$, $\\beta_2$",
+      "$\\pi_{10}$, $\\pi_{11}$",
+      "$M$"
+     ]
+    },
+    {
+     "id": "2-the-identification-problem-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "A three-equation system has endogenous $y_1$, $y_2$, $y_3$ and exogenous $x_1$ to $x_4$. Equation 1 is $y_1 = \\alpha_2y_2 + \\alpha_3y_3 + \\beta_1x_1 + \\beta_2x_2 + e_1$. What does the order condition say?",
+       "options": [
+        {
+         "md": "Not identified: it excludes only one variable",
+         "correct": false,
+         "feedback": "It excludes two variables, $x_3$ and $x_4$."
+        },
+        {
+         "md": "Exactly identified: it excludes $x_3$ and $x_4$, exactly $M - 1 = 2$, one for each right-hand endogenous variable",
+         "correct": true
+        },
+        {
+         "md": "Overidentified, because the system has four exogenous variables",
+         "correct": false,
+         "feedback": "What counts is how many are *excluded* from this equation (two), against $M - 1 = 2$."
+        },
+        {
+         "md": "Identified only if $y_2$ and $y_3$ are dropped",
+         "correct": false,
+         "feedback": "Endogenous regressors are allowed; they need excluded exogenous variables as instruments, which this equation has."
+        }
+       ],
+       "why": "$M = 3$, so at least 2 exclusions are needed. Equation 1 leaves out $x_3$ and $x_4$ (two), and has two right-hand endogenous variables to instrument. If the rank condition also holds, 2SLS estimates it.",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 50,
+     "symbols": [
+      "$\\alpha_1$, $\\alpha_2$, $\\alpha_3$",
+      "$\\beta_1$, $\\beta_2$",
+      "$e_d$, $e_s$",
+      "$M$",
+      "$\\boldsymbol{\\varepsilon}$, $y$",
+      "$y$, $x$"
+     ]
+    },
+    {
+     "id": "2-the-identification-problem-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Rank condition (necessary and sufficient).** The excluded exogenous variables must also move the included right-hand endogenous variables in independent ways: the matrix of their reduced-form coefficients must have rank $M_1 - 1$, where $M_1$ is the number of endogenous variables in the equation. If the order condition holds and the excluded variables are not perfectly collinear (and actually enter the reduced forms), the rank condition usually holds ([Full Rank and Identification](note:full-rank-and-identification))."
+      }
+     ],
+     "words": 67,
+     "symbols": [
+      "$M$"
+     ]
+    },
+    {
+     "id": "2-the-identification-problem-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "In the market model, suppose income has no effect on demand at all ($\\alpha_3 = 0$). The supply equation still excludes $X$. Is supply identified?",
+       "options": [
+        {
+         "md": "Yes: the order condition holds, which is enough",
+         "correct": false,
+         "feedback": "The order condition is only necessary."
+        },
+        {
+         "md": "No: with $\\alpha_3 = 0$, income does not enter the price reduced form ($\\pi_{11} = 0$), so it cannot instrument price; the rank condition fails",
+         "correct": true
+        },
+        {
+         "md": "Yes, because $\\beta_2 = \\pi_{21}/\\pi_{11}$ still holds",
+         "correct": false,
+         "feedback": "With $\\pi_{11} = 0$ (and $\\pi_{21} = 0$) the ratio is undefined."
+        },
+        {
+         "md": "No, because demand is not identified either",
+         "correct": false,
+         "feedback": "Each equation's identification is judged on its own."
+        }
+       ],
+       "why": "An excluded variable identifies an equation only if it moves the endogenous regressor. Income that does not shift demand never moves price, so it traces out nothing.",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 59,
+     "symbols": [
+      "$X$",
+      "$\\alpha_1$, $\\alpha_2$, $\\alpha_3$",
+      "$\\beta_1$, $\\beta_2$",
+      "$\\pi_{10}$, $\\pi_{11}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Derive the asymptotic bias of OLS on a structural demand equation, sign it, and say when it is small.\n2. Apply the order condition to classify an equation as unidentified, exactly identified or overidentified.\n3. State the rank condition and give an example where the order condition holds but the rank condition fails."
+      }
+     ],
+     "words": 54,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "simultaneous-equations-model",
+        "identification-in-simultaneous-equations",
+        "full-rank-and-identification",
+        "consistency-and-probability-limits"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

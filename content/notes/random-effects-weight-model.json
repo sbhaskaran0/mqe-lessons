@@ -1,0 +1,98 @@
+{
+ "slug": "random-effects-weight-model",
+ "notation": [
+  {
+   "tex": "$\\sigma_u^2$, $\\sigma_e^2$",
+   "meaning": "Variances of $u_i$ and $e_{it}$",
+   "kind": "Parameter",
+   "typical": "0.1083, 0.0381",
+   "keys": [
+    "sigma"
+   ],
+   "from": "random-effects-model"
+  },
+  {
+   "tex": "$\\rho$",
+   "meaning": "Correlation of a unit's errors in two periods",
+   "kind": "Parameter",
+   "typical": "0.74",
+   "keys": [
+    "rho"
+   ],
+   "from": "random-effects-model"
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "GLS demeaning weight (the share of the unit mean removed)",
+   "kind": "Parameter",
+   "typical": "0.7437",
+   "keys": [
+    "alpha"
+   ],
+   "from": "random-effects-model"
+  },
+  {
+   "tex": "$N$, $T$",
+   "meaning": "Units and periods",
+   "kind": "Index",
+   "typical": "716, 5",
+   "keys": [
+    "N",
+    "T"
+   ],
+   "from": "random-effects-model"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "random-effects-demeaning-weight"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$\\sigma_u^2$, $\\sigma_e^2$",
+      "$\\rho$",
+      "$\\alpha$",
+      "$N$, $T$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The model behind [Random Effects Demeaning Weight](note:random-effects-demeaning-weight). Place that view, not this note."
+      },
+      {
+       "t": "prose",
+       "md": "- **Model.** [Random Effects Model](note:random-effects-model): GLS subtracts $\\alpha$ times each unit's means, $\\alpha = 1 - \\sigma_e/\\sqrt{T\\sigma_u^2 + \\sigma_e^2}$; $\\rho = \\sigma_u^2/(\\sigma_u^2 + \\sigma_e^2)$.\n- **Tests.** Python: the wage panel ($\\hat\\sigma_u^2 = 0.1083$, $\\hat\\sigma_e = 0.1951$) gives $\\alpha = 0.7437$ at $T = 5$, 0.4900 at $T = 1$, 0.8686 at $T = 20$; $\\rho = 0.7399$."
+      }
+     ],
+     "words": 38,
+     "symbols": [
+      "$\\sigma_u^2$, $\\sigma_e^2$",
+      "$\\rho$",
+      "$\\alpha$",
+      "$N$, $T$"
+     ]
+    }
+   ]
+  }
+ ]
+}

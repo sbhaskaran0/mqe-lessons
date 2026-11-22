@@ -1,0 +1,425 @@
+{
+ "slug": "econ-430-l28-pooled-fixed-and-random-effects-in-practice",
+ "notation": [
+  {
+   "tex": "$D_{ji}$",
+   "meaning": "Dummy equal to 1 when $i = j$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "D"
+   ],
+   "from": "fixed-effects-regression"
+  },
+  {
+   "tex": "$SSE_R$, $SSE_U$",
+   "meaning": "Sums of squared residuals, pooled and LSDV",
+   "kind": "Statistic",
+   "typical": "5.50, 2.67",
+   "keys": [
+    "~SSE_R",
+    "~SSE_U"
+   ],
+   "from": "fixed-effects-regression"
+  },
+  {
+   "tex": "$N$, $T$, $K$",
+   "meaning": "Units, periods, coefficients in the LSDV model",
+   "kind": "Index",
+   "typical": "10, 5, 15",
+   "keys": [
+    "N",
+    "T",
+    "K"
+   ],
+   "from": "fixed-effects-regression"
+  },
+  {
+   "tex": "$\\chi^2_{(1)}$",
+   "meaning": "Chi-square distribution with one degree of freedom",
+   "kind": "Distribution",
+   "typical": "—",
+   "keys": [
+    "chi"
+   ],
+   "from": "random-effects-model"
+  },
+  {
+   "tex": "$H$",
+   "meaning": "Hausman statistic",
+   "kind": "Statistic",
+   "typical": "36.2 in the wage example",
+   "keys": [
+    "H"
+   ],
+   "from": "hausman-test"
+  },
+  {
+   "tex": "$F$",
+   "meaning": "Test statistic",
+   "kind": "Statistic",
+   "typical": "14.20",
+   "keys": [
+    "F"
+   ],
+   "from": "f-test-of-joint-hypotheses"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**A cost function for six US airlines over 15 years runs the whole panel toolkit. $F$ tests compare the pooled model with models that add firm effects, year effects or both: firm effects matter enormously, and year effects matter once firms are controlled for. Comparing fixed and random firm effects with a Hausman test does not reject random effects, unlike the wage panel, so here the more efficient estimator is acceptable.**"
+      }
+     ],
+     "words": 70,
+     "symbols": [
+      "$F$"
+     ]
+    },
+    {
+     "id": "intro-2",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "info",
+       "title": "Source",
+       "md": "Section 7 of `Regression_Lecture5.ipynb` (see [Econ 430 L23 Panel Data and Microeconomic Panels](note:econ-430-l23-panel-data-and-microeconomic-panels) for how the notebook maps to lectures). The data are the `USAirlines` panel (Greene): 6 firms, 1970–1984, 90 observations, with cost, output (revenue passenger miles, as an index), fuel price and load factor (average capacity utilisation).",
+       "folded": false
+      }
+     ],
+     "words": 53,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "1-four-fixed-effects-models",
+   "heading": "1. Four fixed effects models",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-four-fixed-effects-models-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The response is $\\ln(COST)$; the inputs are $\\ln(OUTPUT)$, its square, $\\ln(PRICE)$ and the load factor $LOAD$. Four models differ in their effects ([Fixed Effects Regression](note:fixed-effects-regression)):"
+      },
+      {
+       "t": "table",
+       "md": "| Model | Effects | Residual df | SSE |\n| --- | --- | --- | --- |\n| Pooled | none | 85 | 1.2749 |\n| Time | 14 year dummies | 71 | 1.0347 |\n| Firm | 5 firm dummies | 80 | 0.2682 |\n| Full | year and firm | 66 | 0.1726 |"
+      },
+      {
+       "t": "prose",
+       "md": "Each restricted model is tested against the full one with an $F$ test ([F Test of Joint Hypotheses](note:f-test-of-joint-hypotheses)):"
+      },
+      {
+       "t": "table",
+       "md": "| Comparison | Tests | $F$ | $p$ |\n| --- | --- | --- | --- |\n| Full vs pooled | Year and firm effects jointly (19 restrictions) | 22.19 | $\\approx 0$ |\n| Full vs time only | Firm effects, given year effects (5) | 65.95 | $\\approx 0$ |\n| Full vs firm only | Year effects, given firm effects (14) | 2.61 | 0.0046 |"
+      }
+     ],
+     "words": 117,
+     "symbols": [
+      "$D_{ji}$",
+      "$N$, $T$, $K$",
+      "$F$"
+     ]
+    },
+    {
+     "id": "1-four-fixed-effects-models-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Both sets of effects belong in the model."
+      }
+     ],
+     "words": 8,
+     "symbols": []
+    },
+    {
+     "id": "1-four-fixed-effects-models-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "Compute the $F$ statistic for year effects given firm effects, from $SSE_R = 0.268154$ (firm effects only, 80 residual df) and $SSE_U = 0.172570$ (both, 66 df).",
+       "answer": 2.611,
+       "tol": 0.005,
+       "wrong": [
+        {
+         "answer": 36.56,
+         "tol": 0.05,
+         "md": "that forgets to divide the numerator by the 14 restrictions"
+        },
+        {
+         "answer": 3.165,
+         "tol": 0.005,
+         "md": "that divides $SSE_U$ by the restricted model's 80 degrees of freedom; the denominator uses the unrestricted model's 66"
+        }
+       ],
+       "why": "$F = \\frac{(0.268154 - 0.172570)/14}{0.172570/66} = \\frac{0.006827}{0.002615} = 2.61$, with $p = 0.0046$ on $F(14, 66)$.",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 20,
+     "symbols": [
+      "$SSE_R$, $SSE_U$",
+      "$F$"
+     ]
+    },
+    {
+     "id": "1-four-fixed-effects-models-4",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The notebook repeats the tests with the panel package's \"pooled $F$\" for each model, which tests that model's effects against no effects at all: year effects alone (without firm controls) give $F(14, 71) = 1.18$, $p = 0.31$, and firm effects alone $F(5, 80) = 60.07$. Year effects look unimportant until firm differences are removed, because the large firm differences swamp the common year pattern."
+      }
+     ],
+     "words": 53,
+     "symbols": [
+      "$F$"
+     ]
+    },
+    {
+     "id": "1-four-fixed-effects-models-5",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Year effects are insignificant on their own ($F = 1.18$, $p = 0.31$) but significant once firm effects are included ($F = 2.61$, $p = 0.005$). Why?",
+       "options": [
+        {
+         "md": "The second test has more observations",
+         "correct": false,
+         "feedback": "Both use the same 90 observations."
+        },
+        {
+         "md": "Without firm effects, the large permanent cost differences between airlines stay in the error, inflating it and hiding the smaller common year pattern",
+         "correct": true
+        },
+        {
+         "md": "Firm and year dummies are perfectly collinear",
+         "correct": false,
+         "feedback": "If they were, the full model could not be estimated."
+        },
+        {
+         "md": "Year effects are only identified with firm effects",
+         "correct": false,
+         "feedback": "They are identified either way; what changes is the noise they are judged against."
+        }
+       ],
+       "why": "The $F$ statistic scales by the residual variance. Removing firm differences cuts the residual sum of squares from 1.03 (time-only model) to 0.17 (full model), so the same year pattern stands out.",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 59,
+     "symbols": [
+      "$F$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "2-reading-the-effects",
+   "heading": "2. Reading the effects",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-reading-the-effects-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The estimates with both effects show year effects rising steadily from 0.055 in 1971 to about 0.73 by 1981–1984, relative to 1970: costs rose about 73 log points over the period for reasons common to all airlines, beyond output, fuel prices and load. The firm effects, relative to firm 1, range from $-0.24$ (firm 3) to $+0.11$ (firm 4), most with intervals that include zero."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Airline costs - year effects with 95 percent intervals.png",
+       "alt": "Airline costs - year effects with 95 percent intervals"
+      }
+     ],
+     "words": 66,
+     "symbols": []
+    },
+    {
+     "id": "2-reading-the-effects-2",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Airline costs - firm effects with 95 percent intervals.png",
+       "alt": "Airline costs - firm effects with 95 percent intervals"
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    },
+    {
+     "id": "2-reading-the-effects-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Plots of the data show why firm effects matter so much: the firms differ greatly in size, and each firm's cost-output points lie on its own band."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Airline costs - log cost against log output by firm.png",
+       "alt": "Airline costs - log cost against log output by firm"
+      },
+      {
+       "t": "prose",
+       "md": "Across models the coefficient on fuel price is unstable: 0.40 with firm effects only, 0.13 (insignificant) with both effects, $-0.46$ with year effects only. Fuel prices move mostly over time and are common to all airlines, so year dummies absorb most of their variation."
+      }
+     ],
+     "words": 72,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "3-fixed-or-random-firm-effects",
+   "heading": "3. Fixed or random firm effects?",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "3-fixed-or-random-firm-effects-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With firm effects only, fixed and random effects estimates are close:"
+      },
+      {
+       "t": "table",
+       "md": "| | Fixed effects | Random effects |\n| --- | --- | --- |\n| $\\ln(OUTPUT)$ | 1.045 | 0.949 |\n| $\\ln(OUTPUT)^2$ | 0.026 | 0.015 |\n| $\\ln(PRICE)$ | 0.398 | 0.424 |\n| $LOAD$ | $-1.104$ | $-1.060$ |"
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Airline costs - fixed and random effects coefficients.png",
+       "alt": "Airline costs - fixed and random effects coefficients"
+      },
+      {
+       "t": "prose",
+       "md": "The Hausman test ([Hausman Test](note:hausman-test)) gives $\\chi^2_{(4)} = 5.62$, $p = 0.23$: random effects is not rejected and, being more efficient, is used ([Random Effects Model](note:random-effects-model))."
+      }
+     ],
+     "words": 50,
+     "symbols": [
+      "$D_{ji}$",
+      "$N$, $T$, $K$",
+      "$\\chi^2_{(1)}$"
+     ]
+    },
+    {
+     "id": "3-fixed-or-random-firm-effects-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "For the airlines, Hausman $\\chi^2_{(4)} = 5.62$ with $p = 0.23$. What should you conclude?",
+       "options": [
+        {
+         "md": "No evidence that the firm effects are correlated with the regressors; random effects is consistent and more efficient here",
+         "correct": true
+        },
+        {
+         "md": "Fixed effects, because $p > 0.05$",
+         "correct": false,
+         "feedback": "A large $p$-value means *not* rejecting $H_0$, which favours random effects."
+        },
+        {
+         "md": "The firm effects are zero",
+         "correct": false,
+         "feedback": "The Hausman test compares two estimators; the $F$ test already showed the firm effects are large."
+        },
+        {
+         "md": "The test is invalid because there are only four coefficients",
+         "correct": false,
+         "feedback": "The degrees of freedom simply equal the number of compared coefficients."
+        }
+       ],
+       "why": "The two estimators differ by little relative to their sampling variability, as $H_0$ predicts. A caution: with only six firms, the variance of the random firm effect is estimated from six draws, so \"random effects\" rests on thin evidence about the population of firms.",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 46,
+     "symbols": [
+      "$\\chi^2_{(1)}$",
+      "$H$",
+      "$F$"
+     ]
+    },
+    {
+     "id": "3-fixed-or-random-firm-effects-3",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "warning",
+       "title": "Correction to the lecture notebook",
+       "md": "The cell that plots the firm effects is commented \"Visualizing year effects\". The comments on the panel-package tests (\"Case 2: only time effects (not controlled for firm)\") describe tests of each kind of effect *without* the other, which is why they differ from the ANOVA comparisons above, which control for the other effect.",
+       "folded": false
+      }
+     ],
+     "words": 58,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Set up pooled, time, firm and two-way fixed effects models and test each kind of effect with an $F$ test.\n2. Explain why a test of one kind of effect depends on whether the other is controlled for, and read year and firm effect plots.\n3. Choose between fixed and random firm effects with a Hausman test."
+      }
+     ],
+     "words": 57,
+     "symbols": [
+      "$F$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "fixed-effects-regression",
+        "random-effects-model",
+        "hausman-test",
+        "f-test-of-joint-hypotheses",
+        "panel-data",
+        "indicator-variables"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

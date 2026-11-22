@@ -177,6 +177,18 @@
    "from": "endogenous-and-exogenous-variables"
   },
   {
+   "tex": "$G$, $B$, $L$",
+   "meaning": "Numbers of exogenous regressors, endogenous regressors and instruments",
+   "kind": "Index",
+   "typical": "3, 1, 2",
+   "keys": [
+    "G",
+    "B",
+    "L"
+   ],
+   "from": "instrumental-variables-and-2sls"
+  },
+  {
    "tex": "$X$",
    "meaning": "Size of an initial spending increase or tax cut",
    "kind": "Policy",
@@ -658,7 +670,8 @@
       "$AIC$, $BIC$",
       "$\\ln L$",
       "$C_p$",
-      "$A$, $L$, $K$"
+      "$A$, $L$, $K$",
+      "$G$, $B$, $L$"
      ]
     },
     {

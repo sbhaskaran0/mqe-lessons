@@ -353,10 +353,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "- Math background: [Linear Independence and Rank](note:linear-independence-and-rank) · [Invertibility and Determinants](note:invertibility-and-determinants)\n- [OLS in Matrix Form](note:ols-in-matrix-form) — where the inverse appears\n- [Projection Matrix and Residual Maker](note:projection-matrix-and-residual-maker)\n- [SR Assumptions](note:sr-assumptions)"
+       "md": "- Math background: [Linear Independence and Rank](note:linear-independence-and-rank) · [Invertibility and Determinants](note:invertibility-and-determinants)\n- [OLS in Matrix Form](note:ols-in-matrix-form) — where the inverse appears\n- [Projection Matrix and Residual Maker](note:projection-matrix-and-residual-maker)\n- [SR Assumptions](note:sr-assumptions)\n- [Identification in Simultaneous Equations](note:identification-in-simultaneous-equations) — the order and rank conditions for an equation in a system"
       }
      ],
-     "words": 28,
+     "words": 44,
      "symbols": []
     }
    ]

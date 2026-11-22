@@ -1,0 +1,465 @@
+{
+ "slug": "econ-430-l17-simultaneous-equations-and-supply-and-demand",
+ "notation": [
+  {
+   "tex": "$Q$, $P$",
+   "meaning": "Equilibrium quantity and price",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "Q",
+    "P"
+   ],
+   "from": "simultaneous-equations-model"
+  },
+  {
+   "tex": "$X$",
+   "meaning": "Demand shifter (income)",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "X"
+   ],
+   "from": "simultaneous-equations-model"
+  },
+  {
+   "tex": "$\\alpha_1$, $\\alpha_2$, $\\alpha_3$",
+   "meaning": "Demand intercept, price slope ($< 0$), income effect",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "alpha"
+   ],
+   "from": "simultaneous-equations-model"
+  },
+  {
+   "tex": "$\\beta_1$, $\\beta_2$",
+   "meaning": "Supply intercept and price slope ($> 0$)",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ],
+   "from": "simultaneous-equations-model"
+  },
+  {
+   "tex": "$e_d$, $e_s$",
+   "meaning": "Demand and supply errors",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "e"
+   ],
+   "from": "simultaneous-equations-model"
+  },
+  {
+   "tex": "$\\sigma_d^2$, $\\sigma_s^2$",
+   "meaning": "Variances of $e_d$ and $e_s$",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "sigma"
+   ],
+   "from": "simultaneous-equations-model"
+  },
+  {
+   "tex": "$N$",
+   "meaning": "Sample size",
+   "kind": "Data",
+   "typical": "428 in the wage example",
+   "keys": [
+    "N"
+   ],
+   "from": "consistency-and-probability-limits"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Some economic variables are settled together: in a market, the price and the quantity traded are both outcomes of supply meeting demand. A model of such a system has several equations, and a variable that is an outcome of one can sit on the right-hand side of another. The lecture's two-equation market shows the consequence: the equilibrium price contains both the demand and the supply shocks, so it is correlated with each equation's error, and least squares is inconsistent for both curves.**"
+      }
+     ],
+     "words": 82,
+     "symbols": []
+    },
+    {
+     "id": "intro-2",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "info",
+       "title": "Source",
+       "md": "The introduction and section 2 of `Regression_Lecture4.ipynb` (Simultaneous Equations Models) and sections 1 and 2 of its mathematical appendix. The notebook becomes six lectures, one per major heading: this one, [Econ 430 L18 Reduced-Form Equations](note:econ-430-l18-reduced-form-equations), [Econ 430 L19 The Failure of Least Squares and Identification](note:econ-430-l19-the-failure-of-least-squares-and-identification), [Econ 430 L20 Two-Stage Least Squares for Simultaneous Equations](note:econ-430-l20-two-stage-least-squares-for-simultaneous-equations), [Econ 430 L21 Truffle Supply and Demand](note:econ-430-l21-truffle-supply-and-demand) and [Econ 430 L22 The Fulton Fish Market](note:econ-430-l22-the-fulton-fish-market). The notebook's figures are image files that were not supplied, so the diagrams are described in words.",
+       "folded": false
+      }
+     ],
+     "words": 89,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "1-simultaneous-equations-vocabulary",
+   "heading": "1. Simultaneous equations: vocabulary",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-simultaneous-equations-vocabulary-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A single-equation model has one dependent variable on the left and explanatory variables on the right. A **simultaneous equations model** has several jointly determined dependent variables and a system of equations that determines them together, and the right-hand side of one equation may include the dependent variable of another ([Simultaneous Equations Model](note:simultaneous-equations-model))."
+      }
+     ],
+     "words": 52,
+     "symbols": []
+    },
+    {
+     "id": "1-simultaneous-equations-vocabulary-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Endogenous** variables are determined within the system (jointly dependent): here price and quantity.\n- **Exogenous** variables are determined outside it: here income.\n- **Predetermined** variables are the exogenous ones plus lagged endogenous variables: their values are fixed before the current period's equations operate.\n- **Structural equations** describe behaviour (a demand curve, a supply curve); **reduced-form equations** express each endogenous variable in terms of exogenous variables only ([Econ 430 L18 Reduced-Form Equations](note:econ-430-l18-reduced-form-equations))."
+      }
+     ],
+     "words": 72,
+     "symbols": []
+    },
+    {
+     "id": "1-simultaneous-equations-vocabulary-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "In a model of the wheat market this year, which variables are predetermined?",
+       "options": [
+        {
+         "md": "This year's wheat price and quantity",
+         "correct": false,
+         "feedback": "These are determined jointly by this year's supply and demand: endogenous."
+        },
+        {
+         "md": "This year's rainfall and last year's wheat price",
+         "correct": true
+        },
+        {
+         "md": "Only this year's rainfall",
+         "correct": false,
+         "feedback": "Lagged endogenous variables are also predetermined: last year's price is already known when this year's market clears."
+        },
+        {
+         "md": "Every variable in the model",
+         "correct": false,
+         "feedback": "Current price and quantity are determined inside the system, so they are not predetermined."
+        }
+       ],
+       "why": "Predetermined = exogenous (rainfall) plus lagged endogenous (last year's price). Both are fixed before this year's equilibrium forms, so both are uncorrelated with this year's errors and can serve as instruments.",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 36,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "2-a-supply-and-demand-model",
+   "heading": "2. A supply and demand model",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-a-supply-and-demand-model-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "\\text{Demand: } Q = \\alpha_1 + \\alpha_2P + \\alpha_3X + e_d, \\qquad \\text{Supply: } Q = \\beta_1 + \\beta_2P + e_s ,"
+      },
+      {
+       "t": "prose",
+       "md": "with $Q$ and $P$ endogenous, income $X$ exogenous, and errors with $E(e_d) = E(e_s) = 0$ and $\\mathrm{Cov}(e_d, e_s) = 0$. Demand slopes down ($\\alpha_2 < 0$) and supply up ($\\beta_2 > 0$). The two equations hold at once: the observed $(P, Q)$ is where the curves cross. Solving for the price that clears the market shows what drives it."
+      }
+     ],
+     "words": 40,
+     "symbols": [
+      "$Q$, $P$",
+      "$X$",
+      "$\\alpha_1$, $\\alpha_2$, $\\alpha_3$",
+      "$\\beta_1$, $\\beta_2$",
+      "$e_d$, $e_s$"
+     ]
+    },
+    {
+     "id": "2-a-supply-and-demand-model-2",
+     "blocks": [
+      {
+       "t": "derive",
+       "title": "Solve the two equations for the equilibrium price",
+       "goal": "Find the equilibrium price $P$ in terms of the parameters, income $X$ and the two errors, by using the fact that the observed quantity satisfies both equations. The answer shows which shocks move price.",
+       "objectives": [
+        2
+       ],
+       "symbols": [
+        "\\alpha_1",
+        "\\alpha_2 \\in (-2, -0.2)",
+        "\\alpha_3",
+        "\\beta_1",
+        "\\beta_2 \\in (0.2, 2)",
+        "X",
+        "e_d",
+        "e_s"
+       ],
+       "inherited": [
+        {
+         "tex": "$Q$, $P$",
+         "typical": "—",
+         "from": "simultaneous-equations-model"
+        },
+        {
+         "tex": "$X$",
+         "typical": "—",
+         "from": "simultaneous-equations-model"
+        },
+        {
+         "tex": "$\\alpha_1$, $\\alpha_2$, $\\alpha_3$",
+         "typical": "—",
+         "from": "simultaneous-equations-model"
+        },
+        {
+         "tex": "$\\beta_1$, $\\beta_2$",
+         "typical": "—",
+         "from": "simultaneous-equations-model"
+        },
+        {
+         "tex": "$e_d$, $e_s$",
+         "typical": "—",
+         "from": "simultaneous-equations-model"
+        }
+       ],
+       "unknowns": [
+        "$P$",
+        "$Q$"
+       ],
+       "dims": [],
+       "data": [],
+       "matrices": [],
+       "define": [],
+       "given": [
+        "Q = \\alpha_1 + \\alpha_2P + \\alpha_3X + e_d",
+        "Q = \\beta_1 + \\beta_2P + e_s"
+       ],
+       "steps": [
+        {
+         "md": "Set demand equal to supply, collect the price terms on the left and divide by their coefficient: $P = \\frac{\\beta_1 - \\alpha_1 - \\alpha_3X + e_s - e_d}{\\alpha_2 - \\beta_2}$",
+         "tex": "P = \\frac{\\beta_1 - \\alpha_1 - \\alpha_3X + e_s - e_d}{\\alpha_2 - \\beta_2}",
+         "hint": "$\\alpha_1 + \\alpha_2P + \\alpha_3X + e_d = \\beta_1 + \\beta_2P + e_s$ gives $(\\alpha_2 - \\beta_2)P = \\beta_1 - \\alpha_1 - \\alpha_3X + e_s - e_d$."
+        }
+       ],
+       "accept": [
+        "(\\alpha_2 - \\beta_2)P = \\beta_1 - \\alpha_1 - \\alpha_3X + e_s - e_d"
+       ],
+       "reject": [
+        {
+         "tex": "P = \\frac{\\beta_1 - \\alpha_1 - \\alpha_3X + e_s - e_d}{\\alpha_2 + \\beta_2}",
+         "md": "moving $\\beta_2P$ to the left subtracts it: the coefficient is $\\alpha_2 - \\beta_2$"
+        },
+        {
+         "tex": "P = \\frac{\\beta_1 - \\alpha_1 - \\alpha_3X}{\\alpha_2 - \\beta_2}",
+         "md": "that drops the errors; the point is that both $e_d$ and $e_s$ end up in the price"
+        },
+        {
+         "tex": "P = \\frac{\\alpha_1 - \\beta_1 + \\alpha_3X + e_d - e_s}{\\alpha_2 - \\beta_2}",
+         "md": "the signs are reversed: that would be $P$ divided by $\\beta_2 - \\alpha_2$, not $\\alpha_2 - \\beta_2$"
+        }
+       ]
+      }
+     ],
+     "words": 25,
+     "symbols": [
+      "$Q$, $P$",
+      "$X$",
+      "$\\alpha_1$, $\\alpha_2$, $\\alpha_3$",
+      "$\\beta_1$, $\\beta_2$",
+      "$e_d$, $e_s$"
+     ]
+    },
+    {
+     "id": "2-a-supply-and-demand-model-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Price depends on **both** errors. In the demand equation, then, $P$ is correlated with $e_d$:"
+      },
+      {
+       "t": "math",
+       "tex": "\\mathrm{Cov}(P, e_d) = \\frac{1}{\\alpha_2 - \\beta_2}E\\big[(e_s - e_d)\\,e_d\\big] = \\frac{-\\sigma_d^2}{\\alpha_2 - \\beta_2} > 0 ,"
+      },
+      {
+       "t": "prose",
+       "md": "positive because $\\alpha_2 - \\beta_2 < 0$: a positive demand shock raises quantity demanded *and* the price. Similarly $\\mathrm{Cov}(P, e_s) < 0$ in the supply equation. So OLS is biased and inconsistent for both curves ([Consistency and Probability Limits](note:consistency-and-probability-limits))."
+      }
+     ],
+     "words": 43,
+     "symbols": [
+      "$Q$, $P$",
+      "$\\alpha_1$, $\\alpha_2$, $\\alpha_3$",
+      "$\\beta_1$, $\\beta_2$",
+      "$e_d$, $e_s$",
+      "$\\sigma_d^2$, $\\sigma_s^2$"
+     ]
+    },
+    {
+     "id": "2-a-supply-and-demand-model-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "With demand slope $\\alpha_2 = -1$, supply slope $\\beta_2 = 1$ and demand-shock variance $\\sigma_d^2 = 2$, what is $\\mathrm{Cov}(P, e_d)$?",
+       "answer": 1.0,
+       "tol": 0.001,
+       "wrong": [
+        {
+         "answer": -1.0,
+         "tol": 0.0,
+         "md": "the sign: $\\alpha_2 - \\beta_2 = -2$ is negative, so $-\\sigma_d^2/(\\alpha_2 - \\beta_2)$ is positive"
+        },
+        {
+         "answer": 2.0,
+         "tol": 0.0,
+         "md": "that is $\\sigma_d^2$ itself; it is divided by $\\alpha_2 - \\beta_2$"
+        },
+        {
+         "answer": 0.0,
+         "tol": 0.0,
+         "md": "that would need $e_d$ to be absent from the price, but $P$ contains $-e_d/(\\alpha_2 - \\beta_2)$"
+        }
+       ],
+       "why": "$\\mathrm{Cov}(P, e_d) = -2/(-1 - 1) = 1$. A demand shock of one unit raises the price by $1/(\\beta_2 - \\alpha_2) = 0.5$, and $0.5 \\times \\mathrm{Var}(e_d) = 1$.",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 10,
+     "symbols": [
+      "$Q$, $P$",
+      "$\\alpha_1$, $\\alpha_2$, $\\alpha_3$",
+      "$\\beta_1$, $\\beta_2$",
+      "$e_d$, $e_s$",
+      "$\\sigma_d^2$, $\\sigma_s^2$"
+     ]
+    },
+    {
+     "id": "2-a-supply-and-demand-model-5",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "A researcher regresses quantity on price using market data and calls the slope \"the demand curve\". What is wrong?",
+       "options": [
+        {
+         "md": "Nothing, as long as the sample is large",
+         "correct": false,
+         "feedback": "The correlation between price and the error does not shrink with $N$; OLS is inconsistent."
+        },
+        {
+         "md": "Each point is an intersection of supply and demand; price is correlated with the demand error, so the slope mixes the two curves and estimates neither",
+         "correct": true
+        },
+        {
+         "md": "Quantity should be on the right-hand side",
+         "correct": false,
+         "feedback": "Flipping the regression does not remove the simultaneity: price would still be correlated with the error."
+        },
+        {
+         "md": "The slope is the supply curve instead",
+         "correct": false,
+         "feedback": "Only if demand shifted and supply never did; in general the slope is a blend of both."
+        }
+       ],
+       "why": "With both curves shifting, the cloud of equilibria traces neither curve. To trace one, you need a variable that shifts only the *other* curve ([Identification in Simultaneous Equations](note:identification-in-simultaneous-equations)).",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 67,
+     "symbols": [
+      "$N$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "math-refresher",
+   "heading": "Math refresher",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "math-refresher-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Math Prep L8 Integration for Probability](note:math-prep-l8-integration-for-probability) — covariance algebra"
+      }
+     ],
+     "words": 9,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Classify the variables of a system as endogenous, exogenous or predetermined, and distinguish structural from reduced-form equations.\n2. Solve a two-equation market for the equilibrium price, and derive and sign $\\mathrm{Cov}(P, e_d)$ and $\\mathrm{Cov}(P, e_s)$.\n3. Explain why a regression of quantity on price estimates neither curve."
+      }
+     ],
+     "words": 44,
+     "symbols": [
+      "$Q$, $P$",
+      "$e_d$, $e_s$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "simultaneous-equations-model",
+        "endogenous-and-exogenous-variables",
+        "consistency-and-probability-limits"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

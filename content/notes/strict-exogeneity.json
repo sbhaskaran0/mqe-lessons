@@ -277,10 +277,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "- [SR Assumptions](note:sr-assumptions)\n- [Full Rank and Identification](note:full-rank-and-identification)"
+       "md": "- [SR Assumptions](note:sr-assumptions)\n- [Full Rank and Identification](note:full-rank-and-identification)\n- [Consistency and Probability Limits](note:consistency-and-probability-limits) — what fails, and what survives, with random regressors"
       }
      ],
-     "words": 8,
+     "words": 21,
      "symbols": []
     }
    ]

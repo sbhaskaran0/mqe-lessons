@@ -1,0 +1,354 @@
+{
+ "slug": "weak-instruments",
+ "notation": [
+  {
+   "tex": "$x_K$",
+   "meaning": "Endogenous regressor",
+   "kind": "Data",
+   "typical": "Education",
+   "keys": [
+    "x"
+   ]
+  },
+  {
+   "tex": "$x_2, \\dots, x_{K-1}$",
+   "meaning": "Exogenous regressors (included instruments)",
+   "kind": "Data",
+   "typical": "Experience, its square",
+   "keys": [
+    "x"
+   ]
+  },
+  {
+   "tex": "$z_1, \\dots, z_L$",
+   "meaning": "Excluded instruments",
+   "kind": "Data",
+   "typical": "Parents' schooling",
+   "keys": [
+    "z"
+   ]
+  },
+  {
+   "tex": "$\\gamma_k$",
+   "meaning": "First-stage coefficients on the exogenous regressors",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "gamma"
+   ]
+  },
+  {
+   "tex": "$\\theta_l$",
+   "meaning": "First-stage coefficients on the instruments",
+   "kind": "Parameter",
+   "typical": "0.158, 0.190 in the example",
+   "keys": [
+    "theta"
+   ]
+  },
+  {
+   "tex": "$v_K$",
+   "meaning": "First-stage error",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "v"
+   ]
+  },
+  {
+   "tex": "$F$",
+   "meaning": "First-stage $F$ statistic for $\\theta_1 = \\cdots = \\theta_L = 0$",
+   "kind": "Statistic",
+   "typical": "55.4 in the example",
+   "keys": [
+    "F"
+   ]
+  },
+  {
+   "tex": "$r_{zx}$",
+   "meaning": "Sample correlation of instrument and regressor",
+   "kind": "Statistic",
+   "typical": "0.39 in the example",
+   "keys": [
+    "r"
+   ]
+  },
+  {
+   "tex": "$\\rho_{zx}$",
+   "meaning": "Population correlation of instrument and regressor",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "rho"
+   ]
+  },
+  {
+   "tex": "$\\sigma^2$",
+   "meaning": "Error variance",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "sigma"
+   ]
+  },
+  {
+   "tex": "$\\beta_2$, $\\hat\\beta_2$, $b_2$",
+   "meaning": "Slope, its IV estimate and its OLS estimate",
+   "kind": "Parameter, estimator",
+   "typical": "—",
+   "keys": [
+    "beta",
+    "hat(beta)",
+    "b"
+   ]
+  },
+  {
+   "tex": "$\\pi$",
+   "meaning": "First-stage slope in the simulation, $x = \\pi z + v$",
+   "kind": "Parameter",
+   "typical": "0.5",
+   "keys": [
+    "pi"
+   ]
+  },
+  {
+   "tex": "$\\rho$",
+   "meaning": "Correlation of the first-stage error with the structural error in the simulation",
+   "kind": "Parameter",
+   "typical": "0.5",
+   "keys": [
+    "rho"
+   ]
+  },
+  {
+   "tex": "$N$",
+   "meaning": "Sample size",
+   "kind": "Data",
+   "typical": "428",
+   "keys": [
+    "N"
+   ]
+  },
+  {
+   "tex": "$e$",
+   "meaning": "Structural error",
+   "kind": "Correlated with $x$",
+   "typical": "—",
+   "keys": [
+    "e"
+   ],
+   "from": "instrumental-variables-and-2sls"
+  },
+  {
+   "tex": "$H_0$",
+   "meaning": "The $J$ restrictions, all true",
+   "kind": "—",
+   "typical": "$\\delta_1 = \\delta_2 = \\gamma = 0$",
+   "keys": [
+    "H"
+   ],
+   "from": "f-test-of-joint-hypotheses"
+  },
+  {
+   "tex": "$t$",
+   "meaning": "$t$ statistic for a single restriction",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "t"
+   ],
+   "from": "f-test-of-joint-hypotheses"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "An instrument works by nudging the troublesome explanatory variable. If the nudge is tiny, two things go wrong. First, the estimate becomes very noisy, because it is built from a sliver of variation: like judging how much a thermostat heats a room from a dial that barely turns. Second, in samples of realistic size, that sliver is swamped by chance, so the estimate drifts back toward the very least squares answer the instrument was meant to correct. The cure is to check, before trusting an instrumental variables estimate, that the instruments really do move the explanatory variable once the other controls are accounted for."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "A weak instrument can make an instrumental variables estimate both imprecise and biased, so instrument strength is the first test to run.",
+       "folded": false
+      }
+     ],
+     "words": 129,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "In the first-stage regression of the endogenous $x_K$ on the exogenous regressors and the instruments,"
+      },
+      {
+       "t": "math",
+       "tex": "x_K = \\gamma_1 + \\gamma_2x_2 + \\cdots + \\gamma_{K-1}x_{K-1} + \\theta_1z_1 + \\cdots + \\theta_Lz_L + v_K ,"
+      },
+      {
+       "t": "prose",
+       "md": "the instruments are **weak** if they explain little of $x_K$ *after* the other exogenous variables. Test $H_0\\!: \\theta_1 = \\cdots = \\theta_L = 0$ with an $F$ test; the rule of thumb (Staiger and Stock) calls the instruments weak if $F < 10$. At least one instrument must be strong."
+      }
+     ],
+     "words": 51,
+     "symbols": [
+      "$x_K$",
+      "$x_2, \\dots, x_{K-1}$",
+      "$z_1, \\dots, z_L$",
+      "$\\gamma_k$",
+      "$\\theta_l$",
+      "$v_K$",
+      "$F$",
+      "$H_0$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "variance-the-precision-cost",
+   "heading": "Variance: the precision cost",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "variance-the-precision-cost-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "In simple regression the IV estimator is approximately normal with"
+      },
+      {
+       "t": "math",
+       "tex": "\\mathrm{Var}(\\hat\\beta_2) = \\frac{\\sigma^2}{r_{zx}^2\\sum_i (x_i - \\bar x)^2} = \\frac{\\mathrm{Var}(b_2)}{r_{zx}^2} ."
+      },
+      {
+       "t": "prose",
+       "md": "Since $r_{zx}^2 < 1$, IV is always less precise than OLS would be; as $r_{zx} \\to 0$ the variance explodes. Its derivation: $\\sqrt N(\\hat\\beta_2 - \\beta_2) \\to N\\big(0, \\sigma^2\\mathrm{Var}(z)/\\mathrm{Cov}(z, x)^2\\big)$, and $\\mathrm{Cov}(z, x)^2 = \\rho_{zx}^2\\mathrm{Var}(z)\\mathrm{Var}(x)$."
+      },
+      {
+       "t": "prose",
+       "md": "**Example.** For 428 working women, education and the mother's schooling correlate $r = 0.387$, so $1/r^2 = 6.7$: using her schooling alone as the instrument should multiply the variance of the education coefficient about 6.7 times. The standard error rises from 0.0141 (OLS) to 0.0374 (IV), a variance ratio of 7.0."
+      }
+     ],
+     "words": 76,
+     "symbols": [
+      "$x_K$",
+      "$x_2, \\dots, x_{K-1}$",
+      "$z_1, \\dots, z_L$",
+      "$r_{zx}$",
+      "$\\rho_{zx}$",
+      "$\\sigma^2$",
+      "$\\beta_2$, $\\hat\\beta_2$, $b_2$",
+      "$\\rho$",
+      "$N$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bias-the-finite-sample-cost",
+   "heading": "Bias: the finite-sample cost",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "bias-the-finite-sample-cost-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "IV is consistent, but $\\hat\\beta_2 - \\beta_2 = \\sum (z_i - \\bar z)e_i / \\sum (z_i - \\bar z)(x_i - \\bar x)$. In a finite sample the numerator is not exactly zero, and a weak instrument makes the denominator small, so chance correlation is magnified. Weak-instrument theory shows the bias of IV is roughly the OLS bias divided by the first-stage $F$ (more precisely by $F + 1$ in the usual approximation): with $F \\ge 10$ the IV bias is at most about a tenth of the OLS bias, which is where the threshold comes from (Stock and Yogo)."
+      }
+     ],
+     "words": 74,
+     "symbols": [
+      "$x_K$",
+      "$x_2, \\dots, x_{K-1}$",
+      "$z_1, \\dots, z_L$",
+      "$F$",
+      "$\\beta_2$, $\\hat\\beta_2$, $b_2$",
+      "$e$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Wage equation, education instrumented by both parents' schooling: first-stage coefficients 0.158 ($t = 4.39$) and 0.190 ($t = 5.62$); joint $F(2, 423) = 55.4$ (55.1 to 56.1 depending on the degrees-of-freedom convention). Far above 10: not weak."
+      },
+      {
+       "t": "prose",
+       "md": "Cigarette demand across 48 US states in 1995, log real price instrumented by the real sales tax and the cigarette-specific tax: first-stage $F = 245$ (209 with robust errors). Strong."
+      }
+     ],
+     "words": 58,
+     "symbols": [
+      "$F$",
+      "$t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Testing relevance in the wrong regression. Strength is about the **first stage** (endogenous regressor on instruments and controls), not the outcome equation.\n- Using the instruments' simple correlation with $x$ instead of their partial contribution after the other exogenous variables.\n- Reading a large IV standard error as evidence of no effect when the instrument is weak."
+      }
+     ],
+     "words": 57,
+     "symbols": [
+      "$x_K$",
+      "$x_2, \\dots, x_{K-1}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls) · [F Test of Joint Hypotheses](note:f-test-of-joint-hypotheses) · [Hausman Test](note:hausman-test) · [Overidentifying Restrictions Test](note:overidentifying-restrictions-test)"
+      }
+     ],
+     "words": 15,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

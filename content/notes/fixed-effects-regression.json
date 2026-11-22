@@ -75,14 +75,96 @@
    ]
   },
   {
-   "tex": "$x$",
-   "meaning": "Observed value",
+   "tex": "$\\beta_{1i}$, $b_{1i}$",
+   "meaning": "Unit $i$'s intercept and its estimate (the LSDV notation for $\\alpha_i$)",
+   "kind": "Parameter, estimator",
+   "typical": "—",
+   "keys": [
+    "beta",
+    "b"
+   ]
+  },
+  {
+   "tex": "$\\beta_2$, $\\beta_3$, $b_k$",
+   "meaning": "Slopes and their estimates",
+   "kind": "Parameter, estimator",
+   "typical": "—",
+   "keys": [
+    "beta",
+    "b"
+   ]
+  },
+  {
+   "tex": "$D_{ji}$",
+   "meaning": "Dummy equal to 1 when $i = j$",
    "kind": "Data",
    "typical": "—",
    "keys": [
+    "D"
+   ]
+  },
+  {
+   "tex": "$SSE_R$, $SSE_U$",
+   "meaning": "Sums of squared residuals, pooled and LSDV",
+   "kind": "Statistic",
+   "typical": "5.50, 2.67",
+   "keys": [
+    "~SSE_R",
+    "~SSE_U"
+   ]
+  },
+  {
+   "tex": "$N$, $T$, $K$",
+   "meaning": "Units, periods, coefficients in the LSDV model",
+   "kind": "Index",
+   "typical": "10, 5, 15",
+   "keys": [
+    "N",
+    "T",
+    "K"
+   ]
+  },
+  {
+   "tex": "$\\sigma_e^2$",
+   "meaning": "Error variance",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "sigma"
+   ]
+  },
+  {
+   "tex": "$e$, $\\varepsilon$",
+   "meaning": "Error term",
+   "kind": "Unobserved",
+   "typical": "—",
+   "keys": [
+    "e",
+    "varepsilon"
+   ],
+   "from": "indicator-variables"
+  },
+  {
+   "tex": "$i$, $t$, $s$",
+   "meaning": "Unit and period indices",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "i",
+    "t",
+    "s"
+   ],
+   "from": "panel-data"
+  },
+  {
+   "tex": "$x_{2it}$, $x_{3it}$",
+   "meaning": "Regressors",
+   "kind": "Data",
+   "typical": "Education, experience",
+   "keys": [
     "x"
    ],
-   "from": "classical-measurement-error"
+   "from": "panel-data"
   },
   {
    "tex": "$\\hat\\beta$",
@@ -93,6 +175,38 @@
     "hat(beta)"
    ],
    "from": "classical-measurement-error"
+  },
+  {
+   "tex": "$S$",
+   "meaning": "Variance of the true regressor, $\\mathrm{Var}(x^{*})$",
+   "kind": "Parameter",
+   "typical": "4 in the savings example",
+   "keys": [
+    "S"
+   ],
+   "from": "classical-measurement-error"
+  },
+  {
+   "tex": "$g$, $G$",
+   "meaning": "Cluster index and number of clusters",
+   "kind": "Index / data",
+   "typical": "27 states; 3-digit industries",
+   "keys": [
+    "g",
+    "G"
+   ],
+   "from": "clustered-standard-errors"
+  },
+  {
+   "tex": "$\\bar y_i$, $\\bar x_{ki}$",
+   "meaning": "Unit means over time",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "bar(y)",
+    "bar(x)"
+   ],
+   "from": "random-effects-model"
   }
  ],
  "sections": [
@@ -156,6 +270,8 @@
       "$\\varepsilon_{it}$",
       "$\\bar{y}_i$",
       "$\\ddot{y}_{it}$, $\\ddot{\\mathbf{x}}_{it}$",
+      "$\\beta_{1i}$, $b_{1i}$",
+      "$\\beta_2$, $\\beta_3$, $b_k$",
       "$\\hat\\beta$"
      ]
     }
@@ -185,7 +301,90 @@
      "words": 83,
      "symbols": [
       "$y_{it}$",
-      "$x$"
+      "$x_{2it}$, $x_{3it}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "least-squares-dummy-variables-and-the-within-estimator",
+   "heading": "Least squares dummy variables and the within estimator",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "least-squares-dummy-variables-and-the-within-estimator-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Write the model with an intercept for each unit, $y_{it} = \\beta_{1i} + \\beta_2x_{2it} + \\beta_3x_{3it} + e_{it}$."
+      },
+      {
+       "t": "prose",
+       "md": "**LSDV.** Include a dummy $D_{ji}$ for every unit (and no common intercept) and run OLS. Whether the intercepts differ is an $F$ test of the $N - 1$ restrictions $\\beta_{11} = \\cdots = \\beta_{1N}$; the restricted model is the pooled one ([Panel Data](note:panel-data)):"
+      },
+      {
+       "t": "math",
+       "tex": "F = \\frac{(SSE_R - SSE_U)/(N - 1)}{SSE_U/(NT - K)} ."
+      },
+      {
+       "t": "prose",
+       "md": "With $N$ in the thousands LSDV is impractical, so use the within transformation instead."
+      },
+      {
+       "t": "prose",
+       "md": "**Within.** Average unit $i$'s equation over time, $\\bar y_i = \\beta_{1i} + \\beta_2\\bar x_{2i} + \\beta_3\\bar x_{3i} + \\bar e_i$, and subtract: $\\beta_{1i}$ drops out,"
+      },
+      {
+       "t": "math",
+       "tex": "y_{it} - \\bar y_i = \\beta_2(x_{2it} - \\bar x_{2i}) + \\beta_3(x_{3it} - \\bar x_{3i}) + (e_{it} - \\bar e_i) ."
+      },
+      {
+       "t": "prose",
+       "md": "OLS on the deviations gives the same slopes as LSDV, with $\\mathrm{Var}(b_k) = \\sigma_e^2/\\sum_i\\sum_t (x_{kit} - \\bar x_{ki})^2$ (the standard errors need the $N$ lost degrees of freedom; packaged routines handle this). The unit effects are recovered from the means, since the fit passes through each unit's mean point:"
+      },
+      {
+       "t": "math",
+       "tex": "b_{1i} = \\bar y_i - b_2\\bar x_{2i} - b_3\\bar x_{3i} ."
+      }
+     ],
+     "words": 107,
+     "symbols": [
+      "$y_{it}$",
+      "$\\beta$",
+      "$\\bar{y}_i$",
+      "$\\beta_{1i}$, $b_{1i}$",
+      "$\\beta_2$, $\\beta_3$, $b_k$",
+      "$D_{ji}$",
+      "$SSE_R$, $SSE_U$",
+      "$N$, $T$, $K$",
+      "$\\sigma_e^2$",
+      "$e$, $\\varepsilon$",
+      "$i$, $t$, $s$",
+      "$x_{2it}$, $x_{3it}$",
+      "$S$",
+      "$\\bar y_i$, $\\bar x_{ki}$"
+     ]
+    },
+    {
+     "id": "least-squares-dummy-variables-and-the-within-estimator-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A regressor that never changes within a unit has $x_{kit} - \\bar x_{ki} = 0$ for every observation, which is why its coefficient cannot be estimated."
+      },
+      {
+       "t": "prose",
+       "md": "**Example (NLS wage panel).** For the first 10 women ($NT = 50$, $K = 15$), $\\ln(WAGE)$ on experience, tenure (with squares) and union: $SSE_R = 5.5025$ (pooled), $SSE_U = 2.6672$ (LSDV), so $F = \\frac{(5.5025 - 2.6672)/9}{2.6672/35} = 4.13$, $p = 0.0011$: the intercepts differ. On all 716 women the same test gives $F(715, 2859) = 20.87$."
+      }
+     ],
+     "words": 50,
+     "symbols": [
+      "$SSE_R$, $SSE_U$",
+      "$N$, $T$, $K$",
+      "$x_{2it}$, $x_{3it}$",
+      "$S$",
+      "$g$, $G$",
+      "$\\bar y_i$, $\\bar x_{ki}$"
      ]
     }
    ]
@@ -207,7 +406,7 @@
      "symbols": [
       "$\\alpha_i$",
       "$\\delta_t$",
-      "$x$"
+      "$x_{2it}$, $x_{3it}$"
      ]
     }
    ]
@@ -258,10 +457,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "- [Frisch-Waugh-Lovell Theorem](note:frisch-waugh-lovell-theorem) · [Indicator Variables](note:indicator-variables) · [Difference-in-Differences](note:difference-in-differences) · [Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls)"
+       "md": "- [Frisch-Waugh-Lovell Theorem](note:frisch-waugh-lovell-theorem) · [Indicator Variables](note:indicator-variables) · [Difference-in-Differences](note:difference-in-differences) · [Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls)\n- [Panel Data](note:panel-data) · [Random Effects Model](note:random-effects-model) · [Hausman Test](note:hausman-test) · [Hausman-Taylor Estimator](note:hausman-taylor-estimator)"
       }
      ],
-     "words": 10,
+     "words": 20,
      "symbols": []
     }
    ]

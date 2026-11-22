@@ -1,0 +1,106 @@
+{
+ "slug": "market-equilibrium-and-identification",
+ "notation": [
+  {
+   "tex": "$Q$, $P$",
+   "meaning": "Equilibrium quantity and price",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "Q",
+    "P"
+   ],
+   "from": "simultaneous-equations-model"
+  },
+  {
+   "tex": "$X$",
+   "meaning": "Demand shifter (income)",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "X"
+   ],
+   "from": "simultaneous-equations-model"
+  },
+  {
+   "tex": "$\\alpha_1$, $\\alpha_2$, $\\alpha_3$",
+   "meaning": "Demand intercept, price slope ($< 0$), income effect",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "alpha"
+   ],
+   "from": "simultaneous-equations-model"
+  },
+  {
+   "tex": "$\\beta_1$, $\\beta_2$",
+   "meaning": "Supply intercept and price slope ($> 0$)",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ],
+   "from": "simultaneous-equations-model"
+  },
+  {
+   "tex": "$\\pi_{10}$, $\\pi_{11}$",
+   "meaning": "Reduced-form intercept and slope for $P$",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "pi"
+   ],
+   "from": "simultaneous-equations-model"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "market-equilibrium-and-identification"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$Q$, $P$",
+      "$X$",
+      "$\\alpha_1$, $\\alpha_2$, $\\alpha_3$",
+      "$\\beta_1$, $\\beta_2$",
+      "$\\pi_{10}$, $\\pi_{11}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Purpose.** See identification: income shifts only demand, so the equilibria for different incomes all lie on the supply curve. Their slope is $\\beta_2 = \\pi_{21}/\\pi_{11}$, whatever the demand slope; the demand slope cannot be read from them.\n- **Model.** A view of [Market Equilibrium Identification Model](note:market-equilibrium-identification-model) ($\\alpha_1 = 10$, $\\alpha_3 = 1$, $\\beta_1 = 0$ at their defaults).\n- **Elements.** Panel `market`: curves `supply`, `demand`, `demand0` (dashed, income 0); points `eq`, `eq0`. Readouts `P_out`, `Q_out`, `ratio_out`.\n- **Defaults.** At $X = 0$ the equilibrium is $(Q, P) = (5, 5)$; at $X = 4$ it is $(7, 7)$: quantity and price both rise by 2, a slope of 1, the supply slope. With a steeper demand slope ($\\alpha_2 = -2$) the equilibrium at $X = 4$ is $(4.67, 4.67)$, still on the same supply curve, and the ratio is still 1.\n- **Tests.** Exact arithmetic ($P^{*} = (0 - 10 - 4)/(-2 - 1) = 4.667$)."
+      }
+     ],
+     "words": 116,
+     "symbols": [
+      "$Q$, $P$",
+      "$X$",
+      "$\\alpha_1$, $\\alpha_2$, $\\alpha_3$",
+      "$\\beta_1$, $\\beta_2$",
+      "$\\pi_{10}$, $\\pi_{11}$"
+     ]
+    }
+   ]
+  }
+ ]
+}

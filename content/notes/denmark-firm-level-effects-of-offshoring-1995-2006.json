@@ -10,6 +10,16 @@
     "s"
    ],
    "from": "shift-share-instrument"
+  },
+  {
+   "tex": "$D_{ji}$",
+   "meaning": "Dummy equal to 1 when $i = j$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "D"
+   ],
+   "from": "fixed-effects-regression"
   }
  ],
  "sections": [
@@ -72,7 +82,8 @@
      ],
      "words": 94,
      "symbols": [
-      "$s_{ri,0}$"
+      "$s_{ri,0}$",
+      "$D_{ji}$"
      ]
     }
    ]

@@ -152,6 +152,24 @@
    ]
   },
   {
+   "id": "panel-example",
+   "heading": "Panel example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "panel-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "In a panel, each unit's observations over time form a cluster: its errors are correlated across years ([Panel Data](note:panel-data)). Pooled OLS on 716 women observed 5 times: the education coefficient is 0.0714 with usual se 0.0027 but cluster-robust se 0.0055; the union premium 0.1322 has se 0.0150 against 0.0271. Treating 3,580 observations as independent overstated the precision of the education estimate fourfold in variance terms."
+      }
+     ],
+     "words": 72,
+     "symbols": []
+    }
+   ]
+  },
+  {
    "id": "choosing-the-cluster-level",
    "heading": "Choosing the cluster level",
    "role": "depth",

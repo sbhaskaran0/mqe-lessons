@@ -1,0 +1,243 @@
+{
+ "slug": "econ-430-l23-panel-data-and-microeconomic-panels",
+ "notation": [
+  {
+   "tex": "$N$",
+   "meaning": "Number of units",
+   "kind": "Index",
+   "typical": "716 women",
+   "keys": [
+    "N"
+   ],
+   "from": "panel-data"
+  },
+  {
+   "tex": "$T$",
+   "meaning": "Number of periods",
+   "kind": "Index",
+   "typical": "5",
+   "keys": [
+    "T"
+   ],
+   "from": "panel-data"
+  },
+  {
+   "tex": "$y_{it}$",
+   "meaning": "Outcome of unit $i$ in period $t$",
+   "kind": "Data",
+   "typical": "Log wage",
+   "keys": [
+    "y"
+   ],
+   "from": "panel-data"
+  },
+  {
+   "tex": "$x_{2it}$, $x_{3it}$",
+   "meaning": "Regressors",
+   "kind": "Data",
+   "typical": "Education, experience",
+   "keys": [
+    "x"
+   ],
+   "from": "panel-data"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**A panel follows the same people, firms or countries over time, which lets a regression compare each unit with itself. Panels differ in shape (many units over a few years, or a few units over many years) and in completeness: in micro surveys people miss interviews, leaving an unbalanced panel. The shape decides which of the methods in the next lectures is practical.**"
+      }
+     ],
+     "words": 63,
+     "symbols": []
+    },
+    {
+     "id": "intro-2",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "info",
+       "title": "Source",
+       "md": "Sections 1 and 2 of `Regression_Lecture5.ipynb` (Panel Data Models) and section 1 of its mathematical appendix. The notebook becomes eight lectures, one per major heading (the two short opening sections are combined here): this one, [Econ 430 L24 The Pooled Panel Model](note:econ-430-l24-the-pooled-panel-model), [Econ 430 L25 The Fixed Effects Model](note:econ-430-l25-the-fixed-effects-model), [Econ 430 L26 The Random Effects Model](note:econ-430-l26-the-random-effects-model), [Econ 430 L27 Comparing Fixed and Random Effects](note:econ-430-l27-comparing-fixed-and-random-effects), [Econ 430 L28 Pooled, Fixed and Random Effects in Practice](note:econ-430-l28-pooled-fixed-and-random-effects-in-practice), [Econ 430 L29 The Hausman-Taylor Estimator](note:econ-430-l29-the-hausman-taylor-estimator) and [Econ 430 L30 Sets of Regression Equations](note:econ-430-l30-sets-of-regression-equations). The notebook recommends the `linearmodels` panel examples as a further resource.",
+       "folded": false
+      }
+     ],
+     "words": 102,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "1-what-a-panel-is",
+   "heading": "1. What a panel is",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-what-a-panel-is-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A panel consists of a group of cross-sectional units (people, households, firms, states, countries) observed over time ([Panel Data](note:panel-data)). Write $N$ for the number of units and $T$ for the number of periods; an observation is $(y_{it}, x_{it})$. Panels come in three shapes:"
+      },
+      {
+       "t": "table",
+       "md": "| Shape | $N$ and $T$ | Example |\n| --- | --- | --- |\n| Long and narrow | Long time dimension, few units | Two firms' investment over 20 years |\n| Short and wide | Many units, few periods | 716 women interviewed 5 times |\n| Long and wide | Both large | Many countries over many decades |"
+      },
+      {
+       "t": "prose",
+       "md": "Data can combine cross sections and time without being a panel: a survey that samples a fresh set of people each year is a set of **repeated cross sections**, because the individuals are not the same in each period."
+      }
+     ],
+     "words": 120,
+     "symbols": [
+      "$N$",
+      "$T$",
+      "$y_{it}$",
+      "$x_{2it}$, $x_{3it}$"
+     ]
+    },
+    {
+     "id": "1-what-a-panel-is-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "A labour survey interviews a new random sample of 5,000 adults every year for ten years. Is this a panel?",
+       "options": [
+        {
+         "md": "Yes, a short and wide panel with $N = 5{,}000$ and $T = 10$",
+         "correct": false,
+         "feedback": "A panel needs the *same* units in each period; here each year's people are different."
+        },
+        {
+         "md": "No: it is a set of repeated cross sections, since no person is observed twice",
+         "correct": true
+        },
+        {
+         "md": "Yes, a long and narrow panel",
+         "correct": false,
+         "feedback": "The shape labels apply only to panels, and this is not one."
+        },
+        {
+         "md": "Only if it is balanced",
+         "correct": false,
+         "feedback": "Balance is a property of panels; this data set does not follow individuals at all."
+        }
+       ],
+       "why": "The defining feature of a panel is repeated observation of the same unit, which is what lets a model compare each unit with itself. Repeated cross sections can track averages over time but not individuals.",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 55,
+     "symbols": [
+      "$N$",
+      "$T$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "2-microeconomic-panels-balanced-and-unbalanced",
+   "heading": "2. Microeconomic panels: balanced and unbalanced",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-microeconomic-panels-balanced-and-unbalanced-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "In microeconomic panels individuals are not always interviewed the same number of times, which gives an **unbalanced panel**, with different numbers of time-series observations across individuals. In a **balanced panel** each individual has the same number of observations, $NT$ in total. The wage panel used in the following lectures is balanced: 716 women, each observed in 1982, 1983, 1985, 1987 and 1988, for 3,580 observations."
+      }
+     ],
+     "words": 65,
+     "symbols": [
+      "$N$",
+      "$T$"
+     ]
+    },
+    {
+     "id": "2-microeconomic-panels-balanced-and-unbalanced-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "A firm panel has 200 firms; 150 are observed in all 8 years and 50 in only 6. How many observations are there?",
+       "answer": 1500.0,
+       "tol": 0.5,
+       "wrong": [
+        {
+         "answer": 1600.0,
+         "tol": 0.0,
+         "md": "that assumes a balanced panel, $NT = 200 \\times 8$"
+        },
+        {
+         "answer": 1200.0,
+         "tol": 0.0,
+         "md": "that uses 6 years for every firm"
+        }
+       ],
+       "why": "$150 \\times 8 + 50 \\times 6 = 1{,}200 + 300 = 1{,}500$. The panel is unbalanced, so the total is not $N \\times T$.",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 23,
+     "symbols": [
+      "$N$",
+      "$T$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Define a panel, distinguish it from repeated cross sections, and classify its shape (long and narrow, short and wide, long and wide).\n2. Distinguish balanced from unbalanced panels and count their observations."
+      }
+     ],
+     "words": 33,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "panel-data"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

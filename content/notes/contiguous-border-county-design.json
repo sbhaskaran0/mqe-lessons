@@ -92,6 +92,18 @@
    ]
   },
   {
+   "tex": "$N$, $T$, $K$",
+   "meaning": "Units, periods, coefficients in the LSDV model",
+   "kind": "Index",
+   "typical": "10, 5, 15",
+   "keys": [
+    "N",
+    "T",
+    "K"
+   ],
+   "from": "fixed-effects-regression"
+  },
+  {
    "tex": "$p$",
    "meaning": "Output price",
    "kind": "Parameter",
@@ -161,6 +173,7 @@
       "$\\alpha$",
       "$\\delta$",
       "$\\varepsilon_{ipt}$",
+      "$N$, $T$, $K$",
       "$p$"
      ]
     }

@@ -1,0 +1,347 @@
+{
+ "slug": "econ-430-l22-the-fulton-fish-market",
+ "notation": [
+  {
+   "tex": "$Q$, $P$",
+   "meaning": "Equilibrium quantity and price",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "Q",
+    "P"
+   ],
+   "from": "simultaneous-equations-model"
+  },
+  {
+   "tex": "$\\alpha_1$, $\\alpha_2$, $\\alpha_3$",
+   "meaning": "Demand intercept, price slope ($< 0$), income effect",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "alpha"
+   ],
+   "from": "simultaneous-equations-model"
+  },
+  {
+   "tex": "$\\beta_1$, $\\beta_2$",
+   "meaning": "Supply intercept and price slope ($> 0$)",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ],
+   "from": "simultaneous-equations-model"
+  },
+  {
+   "tex": "$e_d$, $e_s$",
+   "meaning": "Demand and supply errors",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "e"
+   ],
+   "from": "simultaneous-equations-model"
+  },
+  {
+   "tex": "$M$",
+   "meaning": "Number of equations (= endogenous variables) in the system",
+   "kind": "Index",
+   "typical": "2 for supply and demand",
+   "keys": [
+    "M"
+   ],
+   "from": "identification-in-simultaneous-equations"
+  },
+  {
+   "tex": "$N$",
+   "meaning": "Sample size",
+   "kind": "Data",
+   "typical": "428",
+   "keys": [
+    "N"
+   ],
+   "from": "weak-instruments"
+  },
+  {
+   "tex": "$T$",
+   "meaning": "Periods",
+   "kind": "Index",
+   "typical": "20",
+   "keys": [
+    "T"
+   ],
+   "from": "seemingly-unrelated-regressions"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**The second worked example is a real market with a natural experiment: daily sales of whiting at New York's Fulton Fish Market. Stormy weather at sea cuts the catch, shifting supply but not consumers' demand, so it identifies the demand curve. Two-stage least squares gives a price elasticity of demand of about $-1.12$. The supply curve is identified in principle by weekday demand shifts, but they barely move price, so its estimate (essentially zero) cannot be trusted.**"
+      }
+     ],
+     "words": 76,
+     "symbols": []
+    },
+    {
+     "id": "intro-2",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "info",
+       "title": "Source",
+       "md": "Section 8 of `Regression_Lecture4.ipynb` (see [Econ 430 L17 Simultaneous Equations and Supply and Demand](note:econ-430-l17-simultaneous-equations-and-supply-and-demand) for how the notebook maps to lectures). The data are the `fultonfish` file from *Principles of Econometrics*, from Kathryn Graddy's study of the market: daily observations on the quantity of whiting sold and its average price.",
+       "folded": false
+      }
+     ],
+     "words": 53,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "1-the-model",
+   "heading": "1. The model",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-the-model-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "In logs, so that the slopes are elasticities:"
+      },
+      {
+       "t": "math",
+       "tex": "\\text{Demand: } \\ln(QUAN_t) = \\alpha_1 + \\alpha_2\\ln(PRICE_t) + \\alpha_3MON_t + \\alpha_4TUE_t + \\alpha_5WED_t + \\alpha_6THU_t + e_{dt}"
+      },
+      {
+       "t": "math",
+       "tex": "\\text{Supply: } \\ln(QUAN_t) = \\beta_1 + \\beta_2\\ln(PRICE_t) + \\beta_3STORMY_t + e_{st}"
+      },
+      {
+       "t": "prose",
+       "md": "Demand varies by day of the week (Friday is the base), as restaurants and shops buy for different days. Supply depends on the weather at sea: $STORMY = 1$ when wave heights and wind speeds were high on the previous days, which reduces the catch. Demand excludes $STORMY$ and supply excludes the four day dummies, so with $M = 2$ demand is exactly identified and supply overidentified ([Identification in Simultaneous Equations](note:identification-in-simultaneous-equations))."
+      }
+     ],
+     "words": 72,
+     "symbols": [
+      "$Q$, $P$",
+      "$\\alpha_1$, $\\alpha_2$, $\\alpha_3$",
+      "$\\beta_1$, $\\beta_2$",
+      "$e_d$, $e_s$",
+      "$M$",
+      "$N$",
+      "$T$"
+     ]
+    },
+    {
+     "id": "1-the-model-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "In the Fulton fish model, a stormy day is like which experiment?",
+       "options": [
+        {
+         "md": "A supply shift with demand unchanged, so the price change it causes traces out the demand curve",
+         "correct": true
+        },
+        {
+         "md": "A demand shift, tracing out the supply curve",
+         "correct": false,
+         "feedback": "Consumers' demand does not depend on the weather at sea; boats and catches do."
+        },
+        {
+         "md": "A shift of both curves, so it identifies nothing",
+         "correct": false,
+         "feedback": "The model assumes weather enters supply only; that exclusion is what makes it an instrument for demand."
+        },
+        {
+         "md": "A movement along the supply curve",
+         "correct": false,
+         "feedback": "The weather shifts the supply curve itself."
+        }
+       ],
+       "why": "An instrument for the price in the demand equation must move price without entering demand. Storms reduce the catch, shift supply left and raise price, so the resulting changes in quantity are movements along demand.",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 52,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "2-the-reduced-form-and-instrument-strength",
+   "heading": "2. The reduced form and instrument strength",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-the-reduced-form-and-instrument-strength-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The first stage for $\\ln(PRICE)$ regresses it on every exogenous variable: the four day dummies and $STORMY$. The storm indicator is strongly significant and positive (stormy weather raises the price), so the demand equation is well identified. The day dummies, individually and jointly, have little explanatory power for price. The supply equation therefore satisfies the order condition but not, in practice, the rank condition: its instruments are weak ([Weak Instruments](note:weak-instruments))."
+      }
+     ],
+     "words": 68,
+     "symbols": [
+      "$Q$, $P$",
+      "$M$",
+      "$T$"
+     ]
+    },
+    {
+     "id": "2-the-reduced-form-and-instrument-strength-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "The day-of-week dummies are jointly insignificant in the reduced form for price. What does that mean for the supply equation?",
+       "options": [
+        {
+         "md": "Nothing: the order condition counts exclusions, and supply excludes four dummies",
+         "correct": false,
+         "feedback": "The order condition is only necessary. The excluded variables also have to move price."
+        },
+        {
+         "md": "Supply is identified only on paper: its instruments are weak, so its 2SLS estimate is unreliable",
+         "correct": true
+        },
+        {
+         "md": "The demand equation is not identified",
+         "correct": false,
+         "feedback": "Demand is identified by $STORMY$, which is strong."
+        },
+        {
+         "md": "Price is exogenous in the supply equation",
+         "correct": false,
+         "feedback": "Weak instruments say nothing about exogeneity; price is still determined jointly with quantity."
+        }
+       ],
+       "why": "Instrument strength is judged in the first stage. Weak instruments make 2SLS imprecise and biased toward OLS.",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 60,
+     "symbols": [
+      "$M$",
+      "$T$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "3-estimates",
+   "heading": "3. Estimates",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "3-estimates-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| | 2SLS | 3SLS |\n| --- | --- | --- |\n| Demand: $\\ln(PRICE)$ | $-1.119$ | $-1.067$ |\n| Supply: $\\ln(PRICE)$ | 0.001 | — |"
+      },
+      {
+       "t": "prose",
+       "md": "The demand elasticity is about $-1.12$: a 10% higher price lowers the quantity of whiting demanded by about 11%, holding the day of the week fixed. Demand is slightly elastic. The supply estimate is essentially zero, as the weak-instrument diagnosis warned: it says nothing reliable about how supply responds to price. Estimating the system by 3SLS ([Seemingly Unrelated Regressions](note:seemingly-unrelated-regressions)) moves the demand elasticity only slightly, to $-1.07$."
+      }
+     ],
+     "words": 74,
+     "symbols": [
+      "$Q$, $P$"
+     ]
+    },
+    {
+     "id": "3-estimates-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "With a demand elasticity of $-1.1194$, by roughly how many percent does the quantity of whiting demanded rise when the price falls by 5%?",
+       "answer": 5.6,
+       "tol": 0.05,
+       "wrong": [
+        {
+         "answer": -5.6,
+         "tol": 0.05,
+         "md": "the sign: a price *fall* raises the quantity demanded"
+        },
+        {
+         "answer": 1.12,
+         "tol": 0.01,
+         "md": "that is the elasticity itself, the response to a 1% change"
+        }
+       ],
+       "why": "In a log-log equation, $\\%\\Delta Q \\approx \\alpha_2 \\times \\%\\Delta P = -1.1194 \\times (-5) = 5.6$%.",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 23,
+     "symbols": [
+      "$Q$, $P$",
+      "$\\alpha_1$, $\\alpha_2$, $\\alpha_3$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Explain how a weather shock identifies a demand curve, and write the market as a two-equation system in logs.\n2. Use the reduced form to judge whether each equation's instruments are strong.\n3. Interpret a log-log 2SLS coefficient as an elasticity, and compare 2SLS with 3SLS."
+      }
+     ],
+     "words": 47,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "simultaneous-equations-model",
+        "identification-in-simultaneous-equations",
+        "weak-instruments",
+        "instrumental-variables-and-2sls",
+        "seemingly-unrelated-regressions"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

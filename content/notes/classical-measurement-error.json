@@ -92,6 +92,15 @@
    ]
   },
   {
+   "tex": "$S$",
+   "meaning": "Variance of the true regressor, $\\mathrm{Var}(x^{*})$",
+   "kind": "Parameter",
+   "typical": "4 in the savings example",
+   "keys": [
+    "S"
+   ]
+  },
+  {
    "tex": "$y_i$, $x_i$",
    "meaning": "Outcome and explanatory variable for observation $i$",
    "kind": "Data",
@@ -191,6 +200,43 @@
       "$e$",
       "$\\lambda$",
       "$n$",
+      "$y_i$, $x_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "the-composite-error-view",
+   "heading": "The composite-error view",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "the-composite-error-view-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Substituting $x^{*} = x - u$ into $y = \\alpha + \\beta x^{*} + e$ gives $y = \\alpha + \\beta x + (e - \\beta u)$. The observed regressor contains $u$ and so does the new error, so"
+      },
+      {
+       "t": "math",
+       "tex": "\\mathrm{Cov}(x, e - \\beta u) = \\mathrm{Cov}(x^{*} + u,\\ e - \\beta u) = -\\beta\\sigma_u^2 \\ne 0 :"
+      },
+      {
+       "t": "prose",
+       "md": "the mismeasured regressor is endogenous, and $\\operatorname{plim}\\hat\\beta = \\beta - \\beta\\sigma_u^2/(\\mathrm{Var}(x^{*}) + \\sigma_u^2) = \\lambda\\beta$, the same attenuation. **Example:** savings depend on permanent income, but data record current income, a noisy proxy for it; the estimated propensity to save out of permanent income is biased toward zero ([Consistency and Probability Limits](note:consistency-and-probability-limits))."
+      }
+     ],
+     "words": 56,
+     "symbols": [
+      "$x^{*}$",
+      "$u$",
+      "$x$",
+      "$\\sigma_u^2$",
+      "$\\alpha$",
+      "$\\beta$",
+      "$e$",
+      "$\\hat\\beta$",
+      "$\\lambda$",
       "$y_i$, $x_i$"
      ]
     }

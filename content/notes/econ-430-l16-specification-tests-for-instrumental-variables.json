@@ -1,0 +1,723 @@
+{
+ "slug": "econ-430-l16-specification-tests-for-instrumental-variables",
+ "notation": [
+  {
+   "tex": "$x_K$",
+   "meaning": "Endogenous regressor",
+   "kind": "Data",
+   "typical": "Education",
+   "keys": [
+    "x"
+   ],
+   "from": "weak-instruments"
+  },
+  {
+   "tex": "$z_1, \\dots, z_L$",
+   "meaning": "Excluded instruments",
+   "kind": "Data",
+   "typical": "Parents' schooling",
+   "keys": [
+    "z"
+   ],
+   "from": "weak-instruments"
+  },
+  {
+   "tex": "$\\gamma_k$",
+   "meaning": "First-stage coefficients on the exogenous regressors",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "gamma"
+   ],
+   "from": "weak-instruments"
+  },
+  {
+   "tex": "$\\theta_l$",
+   "meaning": "First-stage coefficients on the instruments",
+   "kind": "Parameter",
+   "typical": "0.158, 0.190 in the example",
+   "keys": [
+    "theta"
+   ],
+   "from": "weak-instruments"
+  },
+  {
+   "tex": "$v_K$",
+   "meaning": "First-stage error",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "v"
+   ],
+   "from": "weak-instruments"
+  },
+  {
+   "tex": "$F$",
+   "meaning": "First-stage $F$ statistic for $\\theta_1 = \\cdots = \\theta_L = 0$",
+   "kind": "Statistic",
+   "typical": "55.4 in the example",
+   "keys": [
+    "F"
+   ],
+   "from": "weak-instruments"
+  },
+  {
+   "tex": "$r_{zx}$",
+   "meaning": "Sample correlation of instrument and regressor",
+   "kind": "Statistic",
+   "typical": "0.39 in the example",
+   "keys": [
+    "r"
+   ],
+   "from": "weak-instruments"
+  },
+  {
+   "tex": "$\\rho_{zx}$",
+   "meaning": "Population correlation of instrument and regressor",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "rho"
+   ],
+   "from": "weak-instruments"
+  },
+  {
+   "tex": "$\\beta_2$, $\\hat\\beta_2$, $b_2$",
+   "meaning": "Slope, its IV estimate and its OLS estimate",
+   "kind": "Parameter, estimator",
+   "typical": "—",
+   "keys": [
+    "beta",
+    "hat(beta)",
+    "b"
+   ],
+   "from": "weak-instruments"
+  },
+  {
+   "tex": "$\\pi$",
+   "meaning": "First-stage slope in the simulation, $x = \\pi z + v$",
+   "kind": "Parameter",
+   "typical": "0.5",
+   "keys": [
+    "pi"
+   ],
+   "from": "weak-instruments"
+  },
+  {
+   "tex": "$N$",
+   "meaning": "Sample size",
+   "kind": "Data",
+   "typical": "428",
+   "keys": [
+    "N"
+   ],
+   "from": "weak-instruments"
+  },
+  {
+   "tex": "$H$",
+   "meaning": "Hausman statistic",
+   "kind": "Statistic",
+   "typical": "36.2 in the wage example",
+   "keys": [
+    "H"
+   ],
+   "from": "hausman-test"
+  },
+  {
+   "tex": "$\\chi^2_{(J)}$",
+   "meaning": "Chi-square distribution with $J$ degrees of freedom",
+   "kind": "Distribution",
+   "typical": "—",
+   "keys": [
+    "chi"
+   ],
+   "from": "hausman-test"
+  },
+  {
+   "tex": "$J$",
+   "meaning": "Number of coefficients compared",
+   "kind": "Index",
+   "typical": "6 in the wage example",
+   "keys": [
+    "J"
+   ],
+   "from": "hausman-test"
+  },
+  {
+   "tex": "$t$",
+   "meaning": "Single-coefficient Hausman statistic",
+   "kind": "Statistic",
+   "typical": "2.31 in the example",
+   "keys": [
+    "t"
+   ],
+   "from": "hausman-test"
+  },
+  {
+   "tex": "$v$, $\\hat v$",
+   "meaning": "First-stage error and residual",
+   "kind": "Exogenous, statistic",
+   "typical": "—",
+   "keys": [
+    "v",
+    "hat(v)"
+   ],
+   "from": "hausman-test"
+  },
+  {
+   "tex": "$\\delta$",
+   "meaning": "Coefficient on $\\hat v$ in the artificial regression",
+   "kind": "Parameter",
+   "typical": "0.058 in the example",
+   "keys": [
+    "delta"
+   ],
+   "from": "hausman-test"
+  },
+  {
+   "tex": "$e$",
+   "meaning": "Structural error",
+   "kind": "Exogenous under $H_0$",
+   "typical": "—",
+   "keys": [
+    "e"
+   ],
+   "from": "hausman-test"
+  },
+  {
+   "tex": "$y$",
+   "meaning": "Outcome",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "y"
+   ],
+   "from": "overidentifying-restrictions-test"
+  },
+  {
+   "tex": "$G$, $B$, $L$, $K$",
+   "meaning": "Counts of exogenous, endogenous, instrument and total regressors",
+   "kind": "Index",
+   "typical": "$B = 1$, $L = 2$",
+   "keys": [
+    "G",
+    "B",
+    "L",
+    "K"
+   ],
+   "from": "overidentifying-restrictions-test"
+  },
+  {
+   "tex": "$e$, $\\hat e$",
+   "meaning": "Structural error and IV residual",
+   "kind": "Exogenous, statistic",
+   "typical": "—",
+   "keys": [
+    "e",
+    "hat(e)"
+   ],
+   "from": "overidentifying-restrictions-test"
+  },
+  {
+   "tex": "$R^2$",
+   "meaning": "$R^2$ of the residual regression",
+   "kind": "Statistic",
+   "typical": "0.00088",
+   "keys": [
+    "R"
+   ],
+   "from": "overidentifying-restrictions-test"
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "Significance level (not a regression coefficient here)",
+   "kind": "Constant",
+   "typical": "0.05",
+   "keys": [
+    "alpha"
+   ],
+   "from": "overidentifying-restrictions-test"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**An instrumental variables estimate is only as good as its instruments, so three tests come with it. Are the instruments strong (first-stage $F$ above 10)? Is the regressor really endogenous, or could least squares be used after all (Hausman)? And, when there are spare instruments, are they consistent with each other (the overidentification test)? For the wage equation with both parents' schooling as instruments, the answers are: strong ($F = 55$), endogeneity suggested only at 10% ($p = 0.095$), and no evidence against the instruments ($p = 0.54$).**"
+      }
+     ],
+     "words": 78,
+     "symbols": [
+      "$F$"
+     ]
+    },
+    {
+     "id": "intro-2",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "info",
+       "title": "Source",
+       "md": "Section 4 of `Regression_Lecture3.ipynb`, its cigarette-demand code example, the additional examples on testing exogeneity and overidentifying restrictions, and section 4 of the mathematical appendix (see [Econ 430 L13 Linear Regression with Random Regressors](note:econ-430-l13-linear-regression-with-random-regressors) for how the notebook maps to lectures).",
+       "folded": false
+      }
+     ],
+     "words": 43,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "1-weak-instruments",
+   "heading": "1. Weak instruments",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-weak-instruments-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The first test checks that the instruments move the endogenous variable once the other exogenous variables are controlled for: test the instruments' coefficients in the **first-stage** regression with an $F$ test. By the rule of thumb, the instruments are weak if $F < 10$, and estimation should not proceed ([Weak Instruments](note:weak-instruments)). With weak instruments IV is not only imprecise: in finite samples it is biased toward OLS, roughly by the OLS bias divided by $F$."
+      },
+      {
+       "t": "prose",
+       "md": "For the wage equation the first stage (education on experience, its square, and both parents' schooling) gives coefficients 0.158 ($t = 4.42$) on the mother's and 0.190 ($t = 5.65$) on the father's schooling, partial $R^2 = 0.208$, and partial $F = 56.1$ on $F(2, 423)$ (55.4 with the small-sample degrees-of-freedom convention). Far above 10: the instruments are strong."
+      },
+      {
+       "t": "interactive",
+       "widget": "iv-and-ols-sampling-distributions",
+       "state": {
+        "pi": 0.15,
+        "rho": 0.5,
+        "N": 100,
+        "R": 2000
+       },
+       "lock": [
+        "rho",
+        "N",
+        "R"
+       ],
+       "prompt": "Compare OLS and IV across many samples, then weaken the instrument",
+       "predict": {
+        "hide": [
+         "iv_hist",
+         "iv_out",
+         "iqr_out"
+        ],
+        "ask": "Each sample has $N = 100$ and the true slope is 1; OLS centres on 1.49 because $x$ is endogenous. The instrument is weak: $\\pi = 0.15$, so the first-stage $F$ is about 2. What does the IV histogram look like?",
+        "options": [
+         "Very spread out, with its centre pulled from 1 toward the OLS value",
+         "Tightly centred on the true slope 1",
+         "Identical to the OLS histogram",
+         "Centred on zero"
+        ],
+        "answer": 0,
+        "feedback": [
+         null,
+         "That is what IV looks like with a strong instrument (try $\\pi = 0.5$, $F \\approx 25$); with $F \\approx 2$ the instrument barely moves $x$.",
+         "IV still uses only the variation in $x$ driven by $z$, so it is not OLS; but chance correlation in that sliver pulls it toward OLS.",
+         "A weak instrument does not push the estimate to zero; its bias points toward the OLS value, 1.49 here."
+        ]
+       },
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 129,
+     "symbols": [
+      "$x_K$",
+      "$z_1, \\dots, z_L$",
+      "$F$",
+      "$\\rho_{zx}$",
+      "$\\beta_2$, $\\hat\\beta_2$, $b_2$",
+      "$\\pi$",
+      "$N$",
+      "$t$",
+      "$R^2$"
+     ]
+    },
+    {
+     "id": "1-weak-instruments-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "The notebook's comment reads \"$H_0$: instruments are weak; RESULT: partial $F = 56.055 > 10$, reject $H_0$\". What does the partial $F$ statistic actually test, and what should you conclude?",
+       "options": [
+        {
+         "md": "It tests $H_0$: the instruments are valid; reject, so they are valid",
+         "correct": false,
+         "feedback": "Validity (no correlation with the error) is what the overidentification test probes; the first-stage $F$ is about relevance."
+        },
+        {
+         "md": "It tests that both instruments' first-stage coefficients are zero; $F = 56$ is far above the rule-of-thumb 10, so the instruments are strong",
+         "correct": true
+        },
+        {
+         "md": "It tests whether education is endogenous; reject, so use IV",
+         "correct": false,
+         "feedback": "That is the Hausman test, a separate question."
+        },
+        {
+         "md": "It tests whether the wage equation fits; reject, so the model is good",
+         "correct": false,
+         "feedback": "It is computed from the first stage, education on the instruments, not the wage equation."
+        }
+       ],
+       "why": "Formally the $F$ statistic tests $\\theta_1 = \\theta_2 = 0$ (irrelevance). \"Weak\" is a stricter worry than irrelevance, which is why the threshold is 10 rather than the 5% critical value of about 3.",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 76,
+     "symbols": [
+      "$\\theta_l$",
+      "$F$",
+      "$H$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "2-testing-for-endogeneity-the-hausman-test",
+   "heading": "2. Testing for endogeneity: the Hausman test",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-testing-for-endogeneity-the-hausman-test-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$H_0\\!: \\mathrm{Cov}(x, e) = 0$ against $H_1\\!: \\mathrm{Cov}(x, e) \\ne 0$. Under $H_0$ both OLS and IV are consistent and OLS is more efficient, so use it; under $H_1$ only IV is consistent ([Hausman Test](note:hausman-test)). The regression version for $y = \\beta_1 + \\beta_2x + e$ with instruments $z_1$, $z_2$:"
+      },
+      {
+       "t": "prose",
+       "md": "1. Estimate the first stage $x = \\gamma_1 + \\theta_1z_1 + \\theta_2z_2 + v$ by least squares and keep the residuals $\\hat v$ (one regression per suspect variable, each with all instruments).\n2. Add $\\hat v$ to the original equation, $y = \\beta_1 + \\beta_2x + \\delta\\hat v + e$, estimate by least squares, and test $\\delta = 0$ with a $t$ test.\n3. With several suspect variables, test their residuals jointly with an $F$ test."
+      },
+      {
+       "t": "prose",
+       "md": "For the wage equation, $\\hat\\delta = 0.0582$ (se 0.0348), $t = 1.67$, $p = 0.095$ (the routine's Wu-Hausman statistic is $F(1, 423) = 2.80$, $p = 0.095$). The coefficient on education in this artificial regression is 0.0614, the IV estimate."
+      }
+     ],
+     "words": 103,
+     "symbols": [
+      "$x_K$",
+      "$z_1, \\dots, z_L$",
+      "$\\gamma_k$",
+      "$\\theta_l$",
+      "$v_K$",
+      "$F$",
+      "$\\beta_2$, $\\hat\\beta_2$, $b_2$",
+      "$H$",
+      "$t$",
+      "$v$, $\\hat v$",
+      "$\\delta$",
+      "$e$",
+      "$y$"
+     ]
+    },
+    {
+     "id": "2-testing-for-endogeneity-the-hausman-test-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "In the wage equation's Hausman regression the coefficient on the first-stage residual has $t = 1.67$, $p = 0.095$. What follows at the 5% and 10% levels?",
+       "options": [
+        {
+         "md": "At 5% exogeneity is not rejected, so OLS is defensible; at 10% it is rejected, favouring IV. The evidence of endogeneity is weak",
+         "correct": true
+        },
+        {
+         "md": "Education is exogenous, so IV was a mistake",
+         "correct": false,
+         "feedback": "Failing to reject at 5% is not proof of exogeneity; with $p = 0.095$ the evidence is borderline."
+        },
+        {
+         "md": "Education is endogenous at every conventional level",
+         "correct": false,
+         "feedback": "$p = 0.095$ exceeds 0.05, so the 5% test does not reject."
+        },
+        {
+         "md": "The instruments are invalid",
+         "correct": false,
+         "feedback": "The Hausman test assumes valid instruments; validity is checked by the overidentification test."
+        }
+       ],
+       "why": "The test asks whether the part of education not explained by the instruments ($\\hat v$) helps predict wages. If it does, education carries information correlated with the error. Here it is significant only at 10%; the estimates (0.1075 versus 0.0614) differ by a lot, but the IV estimate is imprecise.",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 63,
+     "symbols": [
+      "$t$",
+      "$v$, $\\hat v$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "3-testing-the-surplus-instruments",
+   "heading": "3. Testing the surplus instruments",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "3-testing-the-surplus-instruments-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "When $L > B$, the surplus moment conditions can be tested ([Overidentifying Restrictions Test](note:overidentifying-restrictions-test)):"
+      },
+      {
+       "t": "prose",
+       "md": "1. Compute the IV estimates using all instruments, including the $G$ exogenous variables.\n2. Obtain the residuals $\\hat e = y - \\hat\\beta_1 - \\hat\\beta_2x_2 - \\cdots - \\hat\\beta_Kx_K$.\n3. Regress $\\hat e$ on all exogenous variables and all instruments.\n4. Compute $NR^2$.\n5. If all surplus moment conditions are valid, $NR^2 \\sim \\chi^2_{(L-B)}$; a value above the $100(1-\\alpha)$ percentile means at least one is invalid."
+      },
+      {
+       "t": "prose",
+       "md": "Wage equation: $R^2 = 0.000883$, $N = 428$, so $NR^2 = 0.378$; with $L - B = 1$, $p = 0.539$. No evidence against the parents' schooling as instruments (the routine's Sargan statistic is the same 0.378)."
+      }
+     ],
+     "words": 78,
+     "symbols": [
+      "$x_K$",
+      "$\\beta_2$, $\\hat\\beta_2$, $b_2$",
+      "$N$",
+      "$\\chi^2_{(J)}$",
+      "$y$",
+      "$G$, $B$, $L$, $K$",
+      "$e$, $\\hat e$",
+      "$R^2$",
+      "$\\alpha$"
+     ]
+    },
+    {
+     "id": "3-testing-the-surplus-instruments-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "With both parents' schooling as instruments for education, the auxiliary regression of the IV residuals has $R^2 = 0.000883$ and $N = 428$. What is the test statistic, and on how many degrees of freedom?",
+       "answer": 0.378,
+       "tol": 0.002,
+       "wrong": [
+        {
+         "answer": 0.000883,
+         "tol": 0.0,
+         "md": "that is the $R^2$ itself; the statistic multiplies it by $N$"
+        },
+        {
+         "answer": 0.189,
+         "tol": 0.002,
+         "md": "that divides by the two instruments; the statistic is $NR^2$, compared with $\\chi^2_{(L-B)} = \\chi^2_{(1)}$"
+        }
+       ],
+       "why": "$NR^2 = 428 \\times 0.000883 = 0.378$, on $L - B = 2 - 1 = 1$ degree of freedom. The 5% critical value is 3.84, so the overidentifying restriction is not rejected ($p = 0.54$).",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 29,
+     "symbols": [
+      "$N$",
+      "$\\chi^2_{(J)}$",
+      "$G$, $B$, $L$, $K$",
+      "$R^2$"
+     ]
+    },
+    {
+     "id": "3-testing-the-surplus-instruments-3",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "warning",
+       "title": "Correction to the lecture notebook",
+       "md": "The comments on the Sargan output say \"$H_0$: model is not overidentified\" (the label the software prints) and \"if $H_0$ is rejected, we don't need the extra instruments\". The null is that the surplus moment conditions hold; a rejection means **at least one instrument is correlated with the error**, not that the extra instruments are unnecessary. The comment \"$H_0$: extra instruments are valid\" in the same cell is the right one.",
+       "folded": false
+      }
+     ],
+     "words": 73,
+     "symbols": [
+      "$H$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "4-example-cigarette-demand",
+   "heading": "4. Example: cigarette demand",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "4-example-cigarette-demand-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The notebook estimates the price elasticity of cigarette demand across 48 US states in 1995: $\\ln(packs)$ on $\\ln(\\text{real price})$ and $\\ln(\\text{real income})$, with price endogenous and the real general sales tax ($salestax$) and the real cigarette-specific tax ($cigtax$) as instruments."
+      },
+      {
+       "t": "table",
+       "md": "| Instruments | Price elasticity (robust se) | Income elasticity |\n| --- | --- | --- |\n| $salestax$ | $-1.143$ (0.361) | 0.215 |\n| $salestax$, $cigtax$ | $-1.277$ (0.242) | 0.280 |"
+      },
+      {
+       "t": "prose",
+       "md": "Demand is elastic: a 10% price rise cuts packs per person by about 11–13%."
+      }
+     ],
+     "words": 66,
+     "symbols": [
+      "$x_K$",
+      "$t$",
+      "$e$"
+     ]
+    },
+    {
+     "id": "4-example-cigarette-demand-2",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "warning",
+       "title": "Corrections to the lecture notebook",
+       "md": "- **Relevance is checked in the wrong regression.** The \"instrument relevance\" cells regress $\\ln(packs)$ on price, income and the taxes, and find the taxes insignificant ($F = 1.18$, 0.92 and 1.85). Relevance concerns the **first stage**, $\\ln(\\text{price})$ on income and the taxes: there $F = 44.7$ for $salestax$ alone and $F = 210$ for both (robust; 245 with the usual errors). Both instruments are strong.\n- **The cell labelled \"IV1 = salestax, IV2 = cigtax\" uses $salestax$ only**; its estimate ($-1.143$) is the first row of the table. The two-instrument estimate is $-1.277$.\n- **The $J$ test uses the wrong residuals and degrees of freedom.** It regresses the residuals of the just-identified fit on income and both taxes and tests the two tax coefficients with a $\\chi^2_{(2)}$ Wald test (0.555, $p = 0.76$). The test should use the residuals of the overidentified fit and compare $NR^2$ with $\\chi^2_{(L-B)} = \\chi^2_{(1)}$: $NR^2 = 0.333$, $p = 0.56$. The conclusion (no evidence against the instruments) is unchanged.\nRecomputed in Python from the `CigarettesSW` data (AER).",
+       "folded": false
+      }
+     ],
+     "words": 149,
+     "symbols": [
+      "$x_K$",
+      "$F$",
+      "$N$",
+      "$\\chi^2_{(J)}$",
+      "$J$",
+      "$t$",
+      "$e$",
+      "$R^2$"
+     ]
+    },
+    {
+     "id": "4-example-cigarette-demand-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "To check whether the sales tax is a relevant instrument for the price of cigarettes, which regression should you run?",
+       "options": [
+        {
+         "md": "$\\ln(packs)$ on $\\ln(price)$, $\\ln(income)$ and $salestax$, testing $salestax$",
+         "correct": false,
+         "feedback": "That tests whether the tax affects consumption *directly*, given price; under the exclusion restriction it should not."
+        },
+        {
+         "md": "$\\ln(price)$ on $\\ln(income)$ and $salestax$, testing $salestax$",
+         "correct": true
+        },
+        {
+         "md": "$\\ln(packs)$ on $salestax$ alone",
+         "correct": false,
+         "feedback": "That is a reduced form for consumption; strength is judged in the equation for the endogenous variable."
+        },
+        {
+         "md": "$salestax$ on $\\ln(price)$ and $\\ln(income)$",
+         "correct": false,
+         "feedback": "The instrument is on the right-hand side of the first stage, not the left."
+        }
+       ],
+       "why": "Relevance means the instrument moves the endogenous regressor after the other exogenous variables. The first stage gives $F = 44.7$: strong. The regression in the first option tests something else, and a significant tax there would actually cast doubt on the exclusion restriction.",
+       "objectives": [
+        4
+       ]
+      }
+     ],
+     "words": 30,
+     "symbols": [
+      "$x_K$",
+      "$F$",
+      "$r_{zx}$",
+      "$t$",
+      "$e$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "math-refresher",
+   "heading": "Math refresher",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "math-refresher-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Math Prep L8 Integration for Probability](note:math-prep-l8-integration-for-probability) — the $F$ and $\\chi^2$ distributions behind the tests"
+      }
+     ],
+     "words": 13,
+     "symbols": [
+      "$F$",
+      "$\\chi^2_{(J)}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Run and interpret the first-stage $F$ test of instrument strength, in the right regression.\n2. Carry out the regression-based Hausman test and decide between OLS and IV.\n3. Compute $NR^2$ for the overidentification test, choose its degrees of freedom, and state what a rejection means.\n4. Spot the errors in a misapplied relevance check or $J$ test, and interpret IV estimates of a demand elasticity."
+      }
+     ],
+     "words": 63,
+     "symbols": [
+      "$F$",
+      "$N$",
+      "$J$",
+      "$R^2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "weak-instruments",
+        "hausman-test",
+        "overidentifying-restrictions-test",
+        "instrumental-variables-and-2sls",
+        "f-test-of-joint-hypotheses"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

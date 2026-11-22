@@ -1,0 +1,479 @@
+{
+ "slug": "econ-430-l13-linear-regression-with-random-regressors",
+ "notation": [
+  {
+   "tex": "$N$",
+   "meaning": "Sample size",
+   "kind": "Data",
+   "typical": "428 in the wage example",
+   "keys": [
+    "N"
+   ],
+   "from": "consistency-and-probability-limits"
+  },
+  {
+   "tex": "$y$, $x$",
+   "meaning": "Outcome and regressor, both random under random sampling",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "y",
+    "x"
+   ],
+   "from": "consistency-and-probability-limits"
+  },
+  {
+   "tex": "$e$",
+   "meaning": "Regression error",
+   "kind": "Exogenous or not: the question",
+   "typical": "—",
+   "keys": [
+    "e"
+   ],
+   "from": "consistency-and-probability-limits"
+  },
+  {
+   "tex": "$\\beta_1$, $\\beta_2$",
+   "meaning": "Intercept and slope",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ],
+   "from": "consistency-and-probability-limits"
+  },
+  {
+   "tex": "$b_2$",
+   "meaning": "OLS slope",
+   "kind": "Estimator",
+   "typical": "0.1075 in the wage example",
+   "keys": [
+    "b"
+   ],
+   "from": "consistency-and-probability-limits"
+  },
+  {
+   "tex": "$\\sigma^2$",
+   "meaning": "Error variance, $\\mathrm{Var}(e \\mid x)$",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "sigma"
+   ],
+   "from": "consistency-and-probability-limits"
+  },
+  {
+   "tex": "$\\widehat{\\sigma}^2$",
+   "meaning": "Estimate of $\\sigma^2$: residual sum of squares over $N - K$",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "hat(sigma)"
+   ],
+   "from": "sampling-distribution-of-ols"
+  },
+  {
+   "tex": "$t$",
+   "meaning": "Test statistic $(b_k - \\beta_k)/se(b_k)$",
+   "kind": "Statistic",
+   "typical": "≈ ±2 is the 5% threshold in large samples",
+   "keys": [
+    "t"
+   ],
+   "from": "sampling-distribution-of-ols"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**In survey data the explanatory variable is as random as the outcome, so the course drops the assumption that $x$ is fixed. Nothing changes as long as the data come from random sampling and the error has mean zero given $x$. What matters is whether $x$ and the error are correlated: if they are, least squares is biased and stays wrong however large the sample, which sets up the rest of the instrumental variables lecture.**"
+      }
+     ],
+     "words": 72,
+     "symbols": [
+      "$y$, $x$"
+     ]
+    },
+    {
+     "id": "intro-2",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "info",
+       "title": "Source",
+       "md": "Section 1 of `Regression_Lecture3.ipynb` (Instrumental Variables) and section 1 of its mathematical appendix. The notebook becomes four lectures, one per major heading: this one, [Econ 430 L14 When x and e Are Correlated](note:econ-430-l14-when-x-and-e-are-correlated), [Econ 430 L15 Instrumental Variables Estimation](note:econ-430-l15-instrumental-variables-estimation) and [Econ 430 L16 Specification Tests for Instrumental Variables](note:econ-430-l16-specification-tests-for-instrumental-variables).",
+       "folded": false
+      }
+     ],
+     "words": 51,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "1-modified-assumptions-for-random-regressors",
+   "heading": "1. Modified assumptions for random regressors",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-modified-assumptions-for-random-regressors-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The simple regression assumptions are restated for random $x$ ([Consistency and Probability Limits](note:consistency-and-probability-limits)):"
+      },
+      {
+       "t": "prose",
+       "md": "1. $y_i = \\beta_1 + \\beta_2x_i + e_i$ describes the population.\n2. The pairs $(x_i, y_i)$ are obtained by **random sampling**: independent and identically distributed (*iid*). This is the only new assumption.\n3. $E(e \\mid x) = 0$. Then $x$ and $e$ are uncorrelated, $\\mathrm{Cov}(x, e) = 0$, and $x$ is called **exogenous**; if $\\mathrm{Cov}(x, e) \\ne 0$, then $E(e \\mid x) \\ne 0$ and $x$ is **endogenous** ([Endogenous and Exogenous Variables](note:endogenous-and-exogenous-variables)).\n4. $x$ takes at least two values in the sample.\n5. $\\mathrm{Var}(e \\mid x) = \\sigma^2$.\n6. $e$ is normal."
+      }
+     ],
+     "words": 66,
+     "symbols": [
+      "$y$, $x$",
+      "$e$",
+      "$\\beta_1$, $\\beta_2$",
+      "$\\sigma^2$"
+     ]
+    },
+    {
+     "id": "1-modified-assumptions-for-random-regressors-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Under 1–6 the familiar results hold unchanged: OLS is unbiased and BLUE, $\\hat\\sigma^2$ is unbiased, the estimators are normal conditional on the $x$'s, and the usual intervals and tests are valid ([Gauss-Markov Theorem](note:gauss-markov-theorem), [Sampling Distribution of OLS](note:sampling-distribution-of-ols)). These are **finite-sample** results: they do not depend on $N$. So random $x$ by itself requires no change in method."
+      }
+     ],
+     "words": 55,
+     "symbols": [
+      "$N$",
+      "$y$, $x$",
+      "$\\widehat{\\sigma}^2$"
+     ]
+    },
+    {
+     "id": "1-modified-assumptions-for-random-regressors-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "A researcher's regressor is a random draw from a survey rather than a value she chose. Under random sampling, $E(e \\mid x) = 0$, constant variance and normal errors, what changes in how she estimates and tests the model?",
+       "options": [
+        {
+         "md": "Nothing: OLS is still unbiased and BLUE, and the usual $t$ and $F$ procedures are valid",
+         "correct": true
+        },
+        {
+         "md": "She must switch to instrumental variables, because a random regressor is endogenous",
+         "correct": false,
+         "feedback": "Random is not the same as endogenous; endogeneity means correlation with the error, which $E(e \\mid x) = 0$ rules out."
+        },
+        {
+         "md": "OLS is still unbiased, but only large-sample tests are valid",
+         "correct": false,
+         "feedback": "With normal errors the usual tests are exact conditional on the $x$'s, whatever the sample size."
+        },
+        {
+         "md": "OLS becomes biased but consistent",
+         "correct": false,
+         "feedback": "With $E(e \\mid x) = 0$ it is unbiased; bias arises only if $x$ and $e$ are related."
+        }
+       ],
+       "why": "Random sampling is the only new assumption, and with it every finite-sample result for fixed $x$ carries over conditional on the sampled $x$'s. Random $x$ becomes a problem only when it is correlated with the error.",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 75,
+     "symbols": [
+      "$y$, $x$",
+      "$e$",
+      "$t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "2-large-sample-properties-consistency",
+   "heading": "2. Large-sample properties: consistency",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-large-sample-properties-consistency-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "For a large-sample analysis it is convenient to weaken assumption 3 to **(3′)**: $E(e) = 0$ and $\\mathrm{Cov}(x, e) = 0$. Under 1, 2, (3′), 4 and 5 the least squares estimators"
+      },
+      {
+       "t": "prose",
+       "md": "1. are **consistent**: they converge in probability to the true values as $N \\to \\infty$;\n2. are approximately normal in large samples, whether or not the errors are normal, so the usual intervals and tests are valid if the sample is large."
+      },
+      {
+       "t": "prose",
+       "md": "The appendix proves that assumption 3 implies (3′) by the [Law of Iterated Expectations](note:law-of-iterated-expectations); the converse fails, because zero covariance only rules out a linear relation ([Strict Exogeneity](note:strict-exogeneity))."
+      }
+     ],
+     "words": 92,
+     "symbols": [
+      "$N$",
+      "$y$, $x$",
+      "$e$"
+     ]
+    },
+    {
+     "id": "2-large-sample-properties-consistency-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Which statement about $E(e \\mid x) = 0$ and $\\mathrm{Cov}(x, e) = 0$ is right?",
+       "options": [
+        {
+         "md": "They are equivalent",
+         "correct": false,
+         "feedback": "Only one direction holds: zero covariance rules out a linear relation, not, for example, $E(e \\mid x) = x^2 - 1$ with $x$ standard normal."
+        },
+        {
+         "md": "$E(e \\mid x) = 0$ implies $\\mathrm{Cov}(x, e) = 0$, but not the reverse; (3′) is the weaker assumption, enough for consistency",
+         "correct": true
+        },
+        {
+         "md": "$\\mathrm{Cov}(x, e) = 0$ implies $E(e \\mid x) = 0$, but not the reverse",
+         "correct": false,
+         "feedback": "That reverses the direction: the conditional-mean assumption is the stronger one."
+        },
+        {
+         "md": "Neither implies the other",
+         "correct": false,
+         "feedback": "By iterated expectations, $\\mathrm{Cov}(x, e) = E[(x - Ex)E(e \\mid x)] = 0$ when $E(e \\mid x) = 0$."
+        }
+       ],
+       "why": "$\\mathrm{Cov}(x, e) = E[(x - Ex)\\,E(e \\mid x)]$ is zero when the conditional mean is zero. But with $x \\sim N(0, 1)$ and $E(e \\mid x) = x^2 - 1$, $\\mathrm{Cov}(x, e) = E(x^3) - E(x) = 0$ while the conditional mean is not zero.",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 31,
+     "symbols": [
+      "$N$",
+      "$y$, $x$",
+      "$e$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "3-when-x-and-e-are-correlated-inconsistency",
+   "heading": "3. When x and e are correlated: inconsistency",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "3-when-x-and-e-are-correlated-inconsistency-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "If (3′) fails, $\\mathrm{Cov}(x, e) \\ne 0$, the least squares estimators are **biased and inconsistent**: they do not converge to the true values even in very large samples, and none of the usual tests or intervals is valid. The appendix shows why."
+      },
+      {
+       "t": "prose",
+       "md": "Write the OLS slope as the true slope plus a ratio of sample moments:"
+      },
+      {
+       "t": "math",
+       "tex": "b_2 = \\beta_2 + \\frac{\\frac{1}{N}\\sum (x_i - \\bar x)\\,e_i}{\\frac{1}{N}\\sum (x_i - \\bar x)^2} ."
+      }
+     ],
+     "words": 52,
+     "symbols": [
+      "$N$",
+      "$y$, $x$",
+      "$e$",
+      "$\\beta_1$, $\\beta_2$",
+      "$b_2$"
+     ]
+    },
+    {
+     "id": "3-when-x-and-e-are-correlated-inconsistency-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Why does the second term of $b_2$ converge to $\\mathrm{Cov}(x, e)/\\mathrm{Var}(x)$ as $N$ grows?",
+       "options": [
+        {
+         "md": "Under random sampling the pairs are iid, so the law of large numbers sends the sample covariance to $\\mathrm{Cov}(x, e)$ and the sample variance to $\\mathrm{Var}(x) > 0$, and the plim of a ratio is the ratio of the plims",
+         "correct": true
+        },
+        {
+         "md": "Because $E(e \\mid x) = 0$ makes both averages zero",
+         "correct": false,
+         "feedback": "Only the numerator involves $e$, and the point here is to allow $\\mathrm{Cov}(x, e) \\ne 0$; the denominator converges to $\\mathrm{Var}(x) > 0$."
+        },
+        {
+         "md": "Because the errors are normally distributed",
+         "correct": false,
+         "feedback": "Normality plays no role in the law of large numbers."
+        },
+        {
+         "md": "Because the central limit theorem makes the ratio normal",
+         "correct": false,
+         "feedback": "The CLT gives the shape of the sampling distribution around the limit; the limit itself comes from the law of large numbers."
+        }
+       ],
+       "why": "Each average is a sample moment of iid draws, so it converges to its population counterpart; the limit of the slope is therefore $\\beta_2 + \\mathrm{Cov}(x, e)/\\mathrm{Var}(x)$, consistent only when the covariance is zero.",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 65,
+     "symbols": [
+      "$N$",
+      "$y$, $x$",
+      "$e$",
+      "$\\beta_1$, $\\beta_2$",
+      "$b_2$"
+     ]
+    },
+    {
+     "id": "3-when-x-and-e-are-correlated-inconsistency-3",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "\\operatorname{plim} b_2 = \\beta_2 + \\frac{\\mathrm{Cov}(x, e)}{\\mathrm{Var}(x)}"
+      },
+      {
+       "t": "prose",
+       "md": "The bias term has the sign of $\\mathrm{Cov}(x, e)$, and nothing in it shrinks with $N$. The notebook's figure (not included in the files) contrasts the true regression line with a fitted line pulled toward the correlation between $x$ and $e$."
+      }
+     ],
+     "words": 36,
+     "symbols": [
+      "$N$",
+      "$y$, $x$",
+      "$e$",
+      "$\\beta_1$, $\\beta_2$",
+      "$b_2$"
+     ]
+    },
+    {
+     "id": "3-when-x-and-e-are-correlated-inconsistency-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "In $y = 1 + 2x + e$, suppose $\\mathrm{Var}(x) = 4$ and $\\mathrm{Cov}(x, e) = 1$. What does the OLS slope converge to as the sample grows?",
+       "answer": 2.25,
+       "tol": 0.005,
+       "wrong": [
+        {
+         "answer": 2.0,
+         "tol": 0.0,
+         "md": "that is the true slope; with $\\mathrm{Cov}(x, e) \\ne 0$ OLS does not converge to it"
+        },
+        {
+         "answer": 6.0,
+         "tol": 0.0,
+         "md": "that adds $\\mathrm{Var}(x)/\\mathrm{Cov}(x, e) = 4$ instead of $\\mathrm{Cov}(x, e)/\\mathrm{Var}(x)$"
+        },
+        {
+         "answer": 3.0,
+         "tol": 0.0,
+         "md": "that adds the covariance unscaled"
+        }
+       ],
+       "why": "$\\operatorname{plim} b_2 = \\beta_2 + \\mathrm{Cov}(x, e)/\\mathrm{Var}(x) = 2 + 1/4 = 2.25$. A million observations would pin the estimate at 2.25, not 2.",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 14,
+     "symbols": [
+      "$y$, $x$",
+      "$e$",
+      "$\\beta_1$, $\\beta_2$",
+      "$b_2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "math-refresher",
+   "heading": "Math refresher",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "math-refresher-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Math Prep L8 Integration for Probability](note:math-prep-l8-integration-for-probability) — expectations, conditional expectations and the law of iterated expectations"
+      }
+     ],
+     "words": 16,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. State the regression assumptions for random regressors and say which one is new.\n2. Distinguish $E(e \\mid x) = 0$ from $\\mathrm{Cov}(x, e) = 0$, and say what each delivers (finite-sample versus large-sample properties).\n3. Derive $\\operatorname{plim} b_2 = \\beta_2 + \\mathrm{Cov}(x, e)/\\mathrm{Var}(x)$, use it to sign the inconsistency, and explain why no usual interval or test is then valid in any sample size."
+      }
+     ],
+     "words": 49,
+     "symbols": [
+      "$y$, $x$",
+      "$e$",
+      "$\\beta_1$, $\\beta_2$",
+      "$b_2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "consistency-and-probability-limits",
+        "endogenous-and-exogenous-variables",
+        "strict-exogeneity",
+        "law-of-iterated-expectations",
+        "gauss-markov-theorem",
+        "sampling-distribution-of-ols"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

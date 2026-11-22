@@ -54,15 +54,187 @@
    "keys": []
   },
   {
-   "tex": "$H_t$, $L_t$",
-   "meaning": "Supply of college and non-college labor in efficiency units",
-   "kind": "Exogenous (inelastic supply)",
+   "tex": "$\\beta_1$, $\\beta_2$",
+   "meaning": "Intercept and slope of $y = \\beta_1 + \\beta_2x + e$",
+   "kind": "Parameter",
+   "typical": "0.0614 on education in the wage example",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$\\hat\\beta_1$, $\\hat\\beta_2$, $b_2$",
+   "meaning": "IV estimates and the OLS slope",
+   "kind": "Estimator",
    "typical": "—",
    "keys": [
-    "H",
+    "hat(beta)",
+    "b"
+   ]
+  },
+  {
+   "tex": "$e$",
+   "meaning": "Structural error",
+   "kind": "Correlated with $x$",
+   "typical": "—",
+   "keys": [
+    "e"
+   ]
+  },
+  {
+   "tex": "$\\sigma^2$",
+   "meaning": "Error variance (not the elasticity $\\hat{\\sigma}$ of the example)",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "sigma"
+   ]
+  },
+  {
+   "tex": "$r_{zx}$",
+   "meaning": "Sample correlation of $z$ and $x$",
+   "kind": "Statistic",
+   "typical": "0.39",
+   "keys": [
+    "r"
+   ]
+  },
+  {
+   "tex": "$G$, $B$, $L$",
+   "meaning": "Numbers of exogenous regressors, endogenous regressors and instruments",
+   "kind": "Index",
+   "typical": "3, 1, 2",
+   "keys": [
+    "G",
+    "B",
     "L"
+   ]
+  },
+  {
+   "tex": "$\\gamma_{kj}$, $\\theta_{lj}$, $v_j$",
+   "meaning": "First-stage coefficients and error",
+   "kind": "Parameter, exogenous",
+   "typical": "—",
+   "keys": [
+    "gamma",
+    "theta",
+    "v"
+   ]
+  },
+  {
+   "tex": "$\\mathbf{W}$, $\\mathbf{X}$, $\\mathbf{P}_X$, $\\boldsymbol\\delta$",
+   "meaning": "Included regressors, all exogenous variables, projection onto $\\mathbf{X}$, coefficients",
+   "kind": "Matrix",
+   "typical": "—",
+   "keys": [
+    "bold(W)",
+    "bold(X)",
+    "bold(P)",
+    "bold(delta)"
+   ]
+  },
+  {
+   "tex": "$\\chi^2$",
+   "meaning": "Chi-square distribution of Wald tests",
+   "kind": "Distribution",
+   "typical": "—",
+   "keys": [
+    "chi"
+   ]
+  },
+  {
+   "tex": "$\\bar{x}$, $\\bar{y}$",
+   "meaning": "Sample means",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "bar(x)",
+    "bar(y)"
+   ],
+   "from": "ols-estimator"
+  },
+  {
+   "tex": "$N$",
+   "meaning": "Number of observations",
+   "kind": "Count",
+   "typical": "—",
+   "keys": [
+    "N"
+   ],
+   "from": "ols-estimator"
+  },
+  {
+   "tex": "$F$",
+   "meaning": "First-stage $F$ statistic for $\\theta_1 = \\cdots = \\theta_L = 0$",
+   "kind": "Statistic",
+   "typical": "55.4 in the example",
+   "keys": [
+    "F"
+   ],
+   "from": "weak-instruments"
+  },
+  {
+   "tex": "$H$",
+   "meaning": "Hausman statistic",
+   "kind": "Statistic",
+   "typical": "36.2 in the wage example",
+   "keys": [
+    "H"
+   ],
+   "from": "hausman-test"
+  },
+  {
+   "tex": "$t$",
+   "meaning": "Single-coefficient Hausman statistic",
+   "kind": "Statistic",
+   "typical": "2.31 in the example",
+   "keys": [
+    "t"
+   ],
+   "from": "hausman-test"
+  },
+  {
+   "tex": "$G$, $B$, $L$, $K$",
+   "meaning": "Counts of exogenous, endogenous, instrument and total regressors",
+   "kind": "Index",
+   "typical": "$B = 1$, $L = 2$",
+   "keys": [
+    "G",
+    "B",
+    "L",
+    "K"
+   ],
+   "from": "overidentifying-restrictions-test"
+  },
+  {
+   "tex": "$R^2$",
+   "meaning": "$R^2$ of the residual regression",
+   "kind": "Statistic",
+   "typical": "0.00088",
+   "keys": [
+    "R"
+   ],
+   "from": "overidentifying-restrictions-test"
+  },
+  {
+   "tex": "$A_{Ht}$, $A_{Lt}$",
+   "meaning": "Productivity of each type of labor (technology)",
+   "kind": "Unobserved, exogenous",
+   "typical": "—",
+   "keys": [
+    "A"
    ],
    "from": "canonical-model-of-the-skill-premium"
+  },
+  {
+   "tex": "$p$",
+   "meaning": "Percentile of the wage distribution",
+   "kind": "Index",
+   "typical": "5 to 95",
+   "keys": [
+    "p"
+   ],
+   "from": "effective-minimum-wage"
   }
  ],
  "sections": [
@@ -145,6 +317,137 @@
    ]
   },
   {
+   "id": "as-a-method-of-moments-estimator",
+   "heading": "As a method of moments estimator",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "as-a-method-of-moments-estimator-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With $y = \\beta_1 + \\beta_2x + e$ and an instrument $z$, the sample analogues of $E(e) = 0$ and $E(ze) = 0$ give"
+      },
+      {
+       "t": "math",
+       "tex": "\\hat\\beta_2 = \\frac{\\sum_i (z_i - \\bar z)(y_i - \\bar y)}{\\sum_i (z_i - \\bar z)(x_i - \\bar x)}, \\qquad \\hat\\beta_1 = \\bar y - \\hat\\beta_2\\bar x"
+      },
+      {
+       "t": "prose",
+       "md": "([Method of Moments](note:method-of-moments)). It is consistent if $E(ze) = 0$ and approximately normal in large samples, with $\\mathrm{Var}(\\hat\\beta_2) = \\sigma^2/\\big(r_{zx}^2\\sum (x_i - \\bar x)^2\\big) = \\mathrm{Var}(b_2)/r_{zx}^2$: always less precise than OLS, and badly so when $z$ is weak ([Weak Instruments](note:weak-instruments))."
+      }
+     ],
+     "words": 37,
+     "symbols": [
+      "$y$",
+      "$x$",
+      "$z$",
+      "$\\beta_1$, $\\beta_2$",
+      "$\\hat\\beta_1$, $\\hat\\beta_2$, $b_2$",
+      "$e$",
+      "$\\sigma^2$",
+      "$r_{zx}$",
+      "$\\bar{x}$, $\\bar{y}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "several-regressors-and-several-instruments",
+   "heading": "Several regressors and several instruments",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "several-regressors-and-several-instruments-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Split the regressors into $G$ exogenous (\"good\", including the constant) and $B$ endogenous (\"bad\"), with $L$ excluded instruments (\"lucky\"). IV needs $L \\ge B$: $L = B$ is **exactly identified**, $L > B$ **overidentified**."
+      },
+      {
+       "t": "prose",
+       "md": "1. **First stage.** Regress each endogenous regressor on *all* exogenous regressors and *all* instruments, $x_{G+j} = \\gamma_{1j} + \\gamma_{2j}x_2 + \\cdots + \\gamma_{Gj}x_G + \\theta_{1j}z_1 + \\cdots + \\theta_{Lj}z_L + v_j$, and keep the fitted values.\n2. **Second stage.** Regress $y$ on the exogenous regressors and the fitted values."
+      },
+      {
+       "t": "prose",
+       "md": "The error variance is estimated from the residuals of the **original** equation, with the actual endogenous regressors:"
+      },
+      {
+       "t": "math",
+       "tex": "\\hat\\sigma^2_{IV} = \\frac{\\sum_i \\big(y_i - \\hat\\beta_1 - \\hat\\beta_2x_{2i} - \\cdots - \\hat\\beta_Kx_{Ki}\\big)^2}{N - K} ."
+      },
+      {
+       "t": "prose",
+       "md": "Running the two stages by hand gives the right coefficients but the **wrong standard errors**: the second-stage residuals use the fitted values. Large-sample $t$ tests (often with $t$ critical values) and Wald $\\chi^2$ tests are valid. $R^2$ computed from IV residuals can be negative and should not be reported as a fit measure."
+      }
+     ],
+     "words": 119,
+     "symbols": [
+      "$y$",
+      "$x$",
+      "$z$",
+      "$\\hat{\\sigma}$",
+      "$\\hat\\beta_1$, $\\hat\\beta_2$, $b_2$",
+      "$G$, $B$, $L$",
+      "$\\gamma_{kj}$, $\\theta_{lj}$, $v_j$",
+      "$\\chi^2$",
+      "$N$",
+      "$t$",
+      "$G$, $B$, $L$, $K$",
+      "$R^2$"
+     ]
+    },
+    {
+     "id": "several-regressors-and-several-instruments-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "In matrix form, with $\\mathbf{W}$ the included regressors and $\\mathbf{X}$ all exogenous variables, $\\hat{\\boldsymbol\\delta}_{2SLS} = (\\mathbf{W}'\\mathbf{P}_X\\mathbf{W})^{-1}\\mathbf{W}'\\mathbf{P}_X\\mathbf{y}$, consistent because $\\operatorname{plim}\\frac{1}{N}\\mathbf{X}'\\mathbf{e} = \\mathbf{0}$."
+      }
+     ],
+     "words": 13,
+     "symbols": [
+      "$\\mathbf{W}$, $\\mathbf{X}$, $\\mathbf{P}_X$, $\\boldsymbol\\delta$",
+      "$N$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "example-returns-to-education-for-married-women",
+   "heading": "Example — returns to education for married women",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "example-returns-to-education-for-married-women-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "428 working women, $\\ln(WAGE)$ on education, experience and experience squared; education instrumented by the parents' years of schooling."
+      },
+      {
+       "t": "table",
+       "md": "| Estimator | Instruments | Education coefficient (se) |\n| --- | --- | --- |\n| OLS | — | 0.1075 (0.0141) |\n| IV | Mother's education | 0.0493 (0.0374) |\n| IV | Father's education | 0.0702 (0.0343) |\n| 2SLS | Both | 0.0614 (0.0314) |"
+      },
+      {
+       "t": "prose",
+       "md": "The IV estimates are about half the OLS one, consistent with ability bias in OLS, and over twice as imprecise. Diagnostics for the 2SLS fit: first-stage $F = 55.4$ (strong), regression-based Hausman $t = 1.67$, $p = 0.095$ ([Hausman Test](note:hausman-test)), Sargan $NR^2 = 0.378$, $p = 0.54$ ([Overidentifying Restrictions Test](note:overidentifying-restrictions-test)). Doing the second stage by hand gives the same 0.0614 but a standard error of 0.0330 instead of 0.0314."
+      }
+     ],
+     "words": 107,
+     "symbols": [
+      "$G$, $B$, $L$",
+      "$N$",
+      "$F$",
+      "$t$",
+      "$R^2$",
+      "$A_{Ht}$, $A_{Lt}$",
+      "$p$"
+     ]
+    }
+   ]
+  },
+  {
    "id": "example-the-canonical-model",
    "heading": "Example — the canonical model",
    "role": "depth",
@@ -164,7 +467,8 @@
      "words": 74,
      "symbols": [
       "$\\hat{\\sigma}$",
-      "$H_t$, $L_t$"
+      "$G$, $B$, $L$",
+      "$H$"
      ]
     }
    ]
@@ -217,10 +521,10 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "- [Canonical Model of the Skill Premium](note:canonical-model-of-the-skill-premium)\n- [OLS Estimator](note:ols-estimator)\n- [Shift-Share Instrument](note:shift-share-instrument) — instruments built from base-period shares × external shocks\n- Paper: [Friedberg 2001 - The Impact of Mass Migration on the Israeli Labor Market](note:friedberg-2001-the-impact-of-mass-migration-on-the-israeli-labor-market)\n- Paper: [Monras 2020 - Immigration and Wage Dynamics](note:monras-2020-immigration-and-wage-dynamics)\n- [Effective Minimum Wage](note:effective-minimum-wage) — instrumenting the effective minimum with the real minimum wage to remove measurement-error bias\n- Paper: [Autor, Manning and Smith 2016 - The Contribution of the Minimum Wage to US Wage Inequality](note:autor-manning-and-smith-2016-the-contribution-of-the-minimum-wage-to-us-wage-inequality)"
+       "md": "- [Canonical Model of the Skill Premium](note:canonical-model-of-the-skill-premium)\n- [OLS Estimator](note:ols-estimator)\n- [Shift-Share Instrument](note:shift-share-instrument) — instruments built from base-period shares × external shocks\n- Paper: [Friedberg 2001 - The Impact of Mass Migration on the Israeli Labor Market](note:friedberg-2001-the-impact-of-mass-migration-on-the-israeli-labor-market)\n- Paper: [Monras 2020 - Immigration and Wage Dynamics](note:monras-2020-immigration-and-wage-dynamics)\n- [Effective Minimum Wage](note:effective-minimum-wage) — instrumenting the effective minimum with the real minimum wage to remove measurement-error bias\n- Paper: [Autor, Manning and Smith 2016 - The Contribution of the Minimum Wage to US Wage Inequality](note:autor-manning-and-smith-2016-the-contribution-of-the-minimum-wage-to-us-wage-inequality)\n- [Method of Moments](note:method-of-moments) · [Weak Instruments](note:weak-instruments) · [Hausman Test](note:hausman-test) · [Overidentifying Restrictions Test](note:overidentifying-restrictions-test) · [Simultaneous Equations Model](note:simultaneous-equations-model) · [Consistency and Probability Limits](note:consistency-and-probability-limits)"
       }
      ],
-     "words": 79,
+     "words": 97,
      "symbols": []
     }
    ]

@@ -1,0 +1,519 @@
+{
+ "slug": "econ-430-l25-the-fixed-effects-model",
+ "notation": [
+  {
+   "tex": "$y_{it}$",
+   "meaning": "Outcome for unit $i$ in period $t$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "y"
+   ],
+   "from": "fixed-effects-regression"
+  },
+  {
+   "tex": "$\\beta$",
+   "meaning": "Coefficients of interest",
+   "kind": "Parameter",
+   "typical": "2 in the example",
+   "keys": [
+    "beta"
+   ],
+   "from": "fixed-effects-regression"
+  },
+  {
+   "tex": "$\\bar{y}_i$",
+   "meaning": "Unit $i$'s average over time",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "bar(y)"
+   ],
+   "from": "fixed-effects-regression"
+  },
+  {
+   "tex": "$\\beta_{1i}$, $b_{1i}$",
+   "meaning": "Unit $i$'s intercept and its estimate (the LSDV notation for $\\alpha_i$)",
+   "kind": "Parameter, estimator",
+   "typical": "—",
+   "keys": [
+    "beta",
+    "b"
+   ],
+   "from": "fixed-effects-regression"
+  },
+  {
+   "tex": "$D_{ji}$",
+   "meaning": "Dummy equal to 1 when $i = j$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "D"
+   ],
+   "from": "fixed-effects-regression"
+  },
+  {
+   "tex": "$SSE_R$, $SSE_U$",
+   "meaning": "Sums of squared residuals, pooled and LSDV",
+   "kind": "Statistic",
+   "typical": "5.50, 2.67",
+   "keys": [
+    "~SSE_R",
+    "~SSE_U"
+   ],
+   "from": "fixed-effects-regression"
+  },
+  {
+   "tex": "$N$, $T$, $K$",
+   "meaning": "Units, periods, coefficients in the LSDV model",
+   "kind": "Index",
+   "typical": "10, 5, 15",
+   "keys": [
+    "N",
+    "T",
+    "K"
+   ],
+   "from": "fixed-effects-regression"
+  },
+  {
+   "tex": "$i$, $t$, $s$",
+   "meaning": "Unit and period indices",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "i",
+    "t",
+    "s"
+   ],
+   "from": "panel-data"
+  },
+  {
+   "tex": "$x_{2it}$, $x_{3it}$",
+   "meaning": "Regressors",
+   "kind": "Data",
+   "typical": "Education, experience",
+   "keys": [
+    "x"
+   ],
+   "from": "panel-data"
+  },
+  {
+   "tex": "$e_{it}$",
+   "meaning": "Error",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "e"
+   ],
+   "from": "panel-data"
+  },
+  {
+   "tex": "$H_0$",
+   "meaning": "The $J$ restrictions, all true",
+   "kind": "—",
+   "typical": "$\\delta_1 = \\delta_2 = \\gamma = 0$",
+   "keys": [
+    "H"
+   ],
+   "from": "f-test-of-joint-hypotheses"
+  },
+  {
+   "tex": "$J$",
+   "meaning": "Number of restrictions",
+   "kind": "Count",
+   "typical": "3",
+   "keys": [
+    "J"
+   ],
+   "from": "f-test-of-joint-hypotheses"
+  },
+  {
+   "tex": "$F$",
+   "meaning": "Test statistic",
+   "kind": "Statistic",
+   "typical": "14.20",
+   "keys": [
+    "F"
+   ],
+   "from": "f-test-of-joint-hypotheses"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Fixed effects lets every individual have her own intercept while the slopes stay common, so all permanent, unmeasured differences between people are controlled for. It can be estimated by adding a dummy for each person, or, more practically, by subtracting each person's own averages from her data, which removes the intercepts altogether. Both give the same slopes. An $F$ test of equal intercepts strongly rejects pooling in the wage panel.**"
+      },
+      {
+       "t": "callout",
+       "kind": "info",
+       "title": "Source",
+       "md": "Section 4 of `Regression_Lecture5.ipynb` and section 3 of its mathematical appendix (see [Econ 430 L23 Panel Data and Microeconomic Panels](note:econ-430-l23-panel-data-and-microeconomic-panels) for how the notebook maps to lectures). Data: the NLS wage panel of [Econ 430 L24 The Pooled Panel Model](note:econ-430-l24-the-pooled-panel-model).",
+       "folded": false
+      }
+     ],
+     "words": 112,
+     "symbols": [
+      "$F$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1-individual-intercepts",
+   "heading": "1. Individual intercepts",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-individual-intercepts-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The most general model lets every coefficient differ by individual, $y_{it} = \\beta_{1i} + \\beta_{2i}x_{2it} + \\beta_{3i}x_{3it} + e_{it}$. The popular simplification keeps the slopes common and lets only the intercepts differ:"
+      },
+      {
+       "t": "math",
+       "tex": "y_{it} = \\beta_{1i} + \\beta_2x_{2it} + \\beta_3x_{3it} + e_{it} ."
+      },
+      {
+       "t": "prose",
+       "md": "All behavioural differences between individuals, *individual heterogeneity*, are captured by the intercept, which controls for individual-specific, time-invariant characteristics. This is the **fixed effects model**, and the $\\beta_{1i}$ are the fixed effects ([Fixed Effects Regression](note:fixed-effects-regression))."
+      }
+     ],
+     "words": 56,
+     "symbols": [
+      "$y_{it}$",
+      "$\\beta$",
+      "$x_{2it}$, $x_{3it}$",
+      "$e_{it}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "2-the-least-squares-dummy-variable-estimator",
+   "heading": "2. The least squares dummy variable estimator",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-the-least-squares-dummy-variable-estimator-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Define a dummy $D_{ji} = 1$ if $i = j$ for each of the $N$ individuals and estimate, with no common intercept,"
+      },
+      {
+       "t": "math",
+       "tex": "y_{it} = \\beta_{11}D_{1i} + \\beta_{12}D_{2i} + \\cdots + \\beta_{1N}D_{Ni} + \\beta_2x_{2it} + \\beta_3x_{3it} + e_{it}"
+      },
+      {
+       "t": "prose",
+       "md": "by OLS: the **least squares dummy variable (LSDV)** estimator. Whether the intercepts differ is the joint test $H_0\\!: \\beta_{11} = \\cdots = \\beta_{1N}$, $N - 1$ restrictions; the restricted model is the pooled one ([F Test of Joint Hypotheses](note:f-test-of-joint-hypotheses)):"
+      },
+      {
+       "t": "math",
+       "tex": "F = \\frac{(SSE_R - SSE_U)/J}{SSE_U/(NT - K)} ."
+      },
+      {
+       "t": "prose",
+       "md": "For the first 10 women ($NT = 50$), $\\ln(WAGE)$ on experience, tenure (each with its square) and union: $SSE_R = 5.5025$, $SSE_U = 2.6672$, $J = 9$ and $NT - K = 50 - 15 = 35$."
+      }
+     ],
+     "words": 60,
+     "symbols": [
+      "$y_{it}$",
+      "$\\beta$",
+      "$D_{ji}$",
+      "$SSE_R$, $SSE_U$",
+      "$N$, $T$, $K$",
+      "$i$, $t$, $s$",
+      "$x_{2it}$, $x_{3it}$",
+      "$e_{it}$",
+      "$H_0$",
+      "$J$",
+      "$F$"
+     ]
+    },
+    {
+     "id": "2-the-least-squares-dummy-variable-estimator-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "Compute the $F$ statistic for equal intercepts across the 10 women.",
+       "answer": 4.134,
+       "tol": 0.005,
+       "wrong": [
+        {
+         "answer": 37.21,
+         "tol": 0.05,
+         "md": "that leaves out the division by $J = 9$ in the numerator"
+        },
+        {
+         "answer": 1.063,
+         "tol": 0.005,
+         "md": "that is the ratio $SSE_R/SSE_U - 1$, without the degrees-of-freedom scaling"
+        }
+       ],
+       "why": "$F = \\frac{(5.5025 - 2.6672)/9}{2.6672/35} = \\frac{0.3150}{0.0762} = 4.134$, with $p = 0.0011$ on $F(9, 35)$: the intercepts differ, and the data should not be pooled into one model with a common intercept.",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 10,
+     "symbols": [
+      "$SSE_R$, $SSE_U$",
+      "$J$",
+      "$F$"
+     ]
+    },
+    {
+     "id": "2-the-least-squares-dummy-variable-estimator-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "To see the dummies at work, the notebook fits the simpler $\\ln(WAGE) = \\beta_{1i} + \\beta_2EXPER + e$ for the same 10 women: a common slope of 0.049 per year of experience, and intercepts from 1.25 to 1.98. Each woman gets a parallel line; the single pooled line (black) cuts across them."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/NLS wage panel - dummy variable fits for ten women.png",
+       "alt": "NLS wage panel - dummy variable fits for ten women"
+      },
+      {
+       "t": "callout",
+       "kind": "warning",
+       "title": "Correction to the lecture notebook",
+       "md": "In the text of the LSDV example the restricted model reads $\\ldots + \\beta_4TENURE + \\beta_3TENURE^2 + \\beta_6UNION$; the tenure-squared coefficient is $\\beta_5$. The unrestricted model's \"$\\beta_{1N}\\sum_{N=1}^{10}D_{Ni}$\" stands for the ten separate terms $\\beta_{11}D_{1i} + \\cdots + \\beta_{1,10}D_{10,i}$, each with its own coefficient.",
+       "folded": false
+      }
+     ],
+     "words": 82,
+     "symbols": [
+      "$\\beta$",
+      "$D_{ji}$",
+      "$N$, $T$, $K$",
+      "$e_{it}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "3-the-fixed-effects-within-estimator",
+   "heading": "3. The fixed effects (within) estimator",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "3-the-fixed-effects-within-estimator-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With thousands of individuals, LSDV needs thousands of dummies. Instead, average individual $i$'s equation over her $T$ periods (the parameters do not change over time):"
+      },
+      {
+       "t": "math",
+       "tex": "\\bar y_i = \\beta_{1i} + \\beta_2\\bar x_{2i} + \\beta_3\\bar x_{3i} + \\bar e_i ,"
+      },
+      {
+       "t": "prose",
+       "md": "and subtract it from the original, term by term. The intercept cancels:"
+      },
+      {
+       "t": "math",
+       "tex": "\\tilde y_{it} = y_{it} - \\bar y_i = \\beta_2\\tilde x_{2it} + \\beta_3\\tilde x_{3it} + \\tilde e_{it} ."
+      },
+      {
+       "t": "prose",
+       "md": "OLS on these deviations from individual means is the **fixed effects (within) estimator**; it gives the same slopes as LSDV. The intercepts are recovered afterwards, because the fitted regression passes through each individual's means:"
+      },
+      {
+       "t": "math",
+       "tex": "b_{1i} = \\bar y_i - b_2\\bar x_{2i} - b_3\\bar x_{3i}, \\qquad i = 1, \\dots, N ."
+      },
+      {
+       "t": "prose",
+       "md": "For the 10 women the within estimator reproduces the LSDV slopes exactly (experience 0.238, tenure $-0.012$, union 0.114) and the estimated effects equal the dummy coefficients (0.152 for woman 1, 0.187 for woman 2, $-0.063$ for woman 3)."
+      }
+     ],
+     "words": 110,
+     "symbols": [
+      "$y_{it}$",
+      "$\\beta$",
+      "$\\bar{y}_i$",
+      "$\\beta_{1i}$, $b_{1i}$",
+      "$N$, $T$, $K$",
+      "$i$, $t$, $s$"
+     ]
+    },
+    {
+     "id": "3-the-fixed-effects-within-estimator-2",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "warning",
+       "title": "Correction to the lecture notebook",
+       "md": "The recovered effect is written $b_{1i} = \\bar y - b_2\\bar x_{2i} - b_3\\bar x_{3i}$; the first term is the individual's own mean $\\bar y_i$, not the overall mean.",
+       "folded": false
+      }
+     ],
+     "words": 22,
+     "symbols": [
+      "$\\bar{y}_i$",
+      "$\\beta_{1i}$, $b_{1i}$"
+     ]
+    },
+    {
+     "id": "3-the-fixed-effects-within-estimator-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "In the NLS wage panel, a woman's race (black) and her years of schooling do not change across the five waves. What happens to their coefficients in the within estimator?",
+       "options": [
+        {
+         "md": "They are estimated as usual",
+         "correct": false,
+         "feedback": "Their deviations from the individual means are zero in every period, so they carry no within variation."
+        },
+        {
+         "md": "They cannot be estimated: demeaning turns them into columns of zeros, and their effects are absorbed into the fixed effects",
+         "correct": true
+        },
+        {
+         "md": "They are estimated, but with larger standard errors",
+         "correct": false,
+         "feedback": "There is no variation at all to estimate them from, not just less."
+        },
+        {
+         "md": "They become the intercepts $b_{1i}$",
+         "correct": false,
+         "feedback": "The intercepts absorb their effects along with every other permanent difference, but cannot separate them."
+        }
+       ],
+       "why": "$x_{kit} - \\bar x_{ki} = 0$ whenever $x_{ki}$ is constant over time. Fixed effects controls for every time-invariant trait, measured or not, at the price of not estimating any of their effects ([Econ 430 L29 The Hausman-Taylor Estimator](note:econ-430-l29-the-hausman-taylor-estimator) addresses this).",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 67,
+     "symbols": [
+      "$\\beta_{1i}$, $b_{1i}$",
+      "$x_{2it}$, $x_{3it}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "4-are-the-fixed-effects-needed",
+   "heading": "4. Are the fixed effects needed?",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "4-are-the-fixed-effects-needed-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "On all 716 women, the test of equal intercepts (the \"pooled $F$\" of the within regression) gives $F = 20.87$ on $F(715, 2859)$, $p \\approx 0$: fixed effects add a great deal beyond pooled OLS."
+      }
+     ],
+     "words": 26,
+     "symbols": [
+      "$F$"
+     ]
+    },
+    {
+     "id": "4-are-the-fixed-effects-needed-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "Where do the degrees of freedom $F(715, 2859)$ come from in the full-panel test?",
+       "options": [
+        {
+         "md": "$715 = N - 1$ restrictions; $2859 = NT - N - 5$ residual degrees of freedom for 716 intercepts and 5 slopes",
+         "correct": true
+        },
+        {
+         "md": "$715 = T - 1$ and $2859 = N - T$",
+         "correct": false,
+         "feedback": "$T = 5$, so $T - 1 = 4$; the restrictions equate the 716 individual intercepts."
+        },
+        {
+         "md": "$715$ is the number of regressors and $2859$ the number of observations",
+         "correct": false,
+         "feedback": "There are 3,580 observations and 5 slopes; the numerator counts restrictions."
+        },
+        {
+         "md": "Both come from the pooled model",
+         "correct": false,
+         "feedback": "The denominator uses the unrestricted (fixed effects) model's residuals."
+        }
+       ],
+       "why": "Equal intercepts for 716 women is 715 restrictions. The fixed effects model estimates 716 intercepts and 5 slopes from 3,580 observations: $3{,}580 - 716 - 5 = 2{,}859$.",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 40,
+     "symbols": [
+      "$N$, $T$, $K$",
+      "$F$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Write the fixed effects model, estimate it by LSDV and test for equal intercepts with an $F$ test.\n2. Derive the within transformation, recover the individual effects, and explain why time-invariant regressors cannot be estimated.\n3. Work out the degrees of freedom of the full-panel test of equal intercepts."
+      }
+     ],
+     "words": 49,
+     "symbols": [
+      "$F$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "fixed-effects-regression",
+        "panel-data",
+        "indicator-variables",
+        "f-test-of-joint-hypotheses"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

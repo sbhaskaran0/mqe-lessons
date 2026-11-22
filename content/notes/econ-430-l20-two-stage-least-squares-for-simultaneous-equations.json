@@ -1,0 +1,487 @@
+{
+ "slug": "econ-430-l20-two-stage-least-squares-for-simultaneous-equations",
+ "notation": [
+  {
+   "tex": "$y$",
+   "meaning": "Outcome",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "y"
+   ],
+   "from": "instrumental-variables-and-2sls"
+  },
+  {
+   "tex": "$x$",
+   "meaning": "Endogenous explanatory variable",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "x"
+   ],
+   "from": "instrumental-variables-and-2sls"
+  },
+  {
+   "tex": "$\\hat{\\sigma}$",
+   "meaning": "Estimated elasticity of substitution in the example",
+   "kind": "Statistic",
+   "typical": "2.28 (OLS), 2.58 (2SLS)",
+   "keys": [
+    "hat(sigma)"
+   ],
+   "from": "instrumental-variables-and-2sls"
+  },
+  {
+   "tex": "$\\beta_1$, $\\beta_2$",
+   "meaning": "Intercept and slope of $y = \\beta_1 + \\beta_2x + e$",
+   "kind": "Parameter",
+   "typical": "0.0614 on education in the wage example",
+   "keys": [
+    "beta"
+   ],
+   "from": "instrumental-variables-and-2sls"
+  },
+  {
+   "tex": "$e$",
+   "meaning": "Structural error",
+   "kind": "Correlated with $x$",
+   "typical": "—",
+   "keys": [
+    "e"
+   ],
+   "from": "instrumental-variables-and-2sls"
+  },
+  {
+   "tex": "$G$, $B$, $L$",
+   "meaning": "Numbers of exogenous regressors, endogenous regressors and instruments",
+   "kind": "Index",
+   "typical": "3, 1, 2",
+   "keys": [
+    "G",
+    "B",
+    "L"
+   ],
+   "from": "instrumental-variables-and-2sls"
+  },
+  {
+   "tex": "$\\mathbf{W}$, $\\mathbf{X}$, $\\mathbf{P}_X$, $\\boldsymbol\\delta$",
+   "meaning": "Included regressors, all exogenous variables, projection onto $\\mathbf{X}$, coefficients",
+   "kind": "Matrix",
+   "typical": "—",
+   "keys": [
+    "bold(W)",
+    "bold(X)",
+    "bold(P)",
+    "bold(delta)"
+   ],
+   "from": "instrumental-variables-and-2sls"
+  },
+  {
+   "tex": "$Q$, $P$",
+   "meaning": "Equilibrium quantity and price",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "Q",
+    "P"
+   ],
+   "from": "simultaneous-equations-model"
+  },
+  {
+   "tex": "$X$",
+   "meaning": "Demand shifter (income)",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "X"
+   ],
+   "from": "simultaneous-equations-model"
+  },
+  {
+   "tex": "$\\alpha_1$, $\\alpha_2$, $\\alpha_3$",
+   "meaning": "Demand intercept, price slope ($< 0$), income effect",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "alpha"
+   ],
+   "from": "simultaneous-equations-model"
+  },
+  {
+   "tex": "$K_i$",
+   "meaning": "Coefficients in equation $i$",
+   "kind": "Index",
+   "typical": "3",
+   "keys": [
+    "K"
+   ],
+   "from": "seemingly-unrelated-regressions"
+  },
+  {
+   "tex": "$\\mathbf{y}$, $\\hat{\\mathbf{y}}$",
+   "meaning": "Outcome and fitted values",
+   "kind": "Data / computed",
+   "typical": "—",
+   "keys": [
+    "bold(y)",
+    "hat(bold(y))"
+   ],
+   "from": "projection-matrix-and-residual-maker"
+  },
+  {
+   "tex": "$\\mathbf{e}$",
+   "meaning": "Residuals",
+   "kind": "Computed",
+   "typical": "—",
+   "keys": [
+    "bold(e)"
+   ],
+   "from": "projection-matrix-and-residual-maker"
+  },
+  {
+   "tex": "$H$",
+   "meaning": "Hausman statistic",
+   "kind": "Statistic",
+   "typical": "36.2 in the wage example",
+   "keys": [
+    "H"
+   ],
+   "from": "hausman-test"
+  },
+  {
+   "tex": "$v$, $\\hat v$",
+   "meaning": "First-stage error and residual",
+   "kind": "Exogenous, statistic",
+   "typical": "—",
+   "keys": [
+    "v",
+    "hat(v)"
+   ],
+   "from": "hausman-test"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**An identified equation of a system is estimated by two-stage least squares: first regress each endogenous right-hand variable on every exogenous variable in the system, then replace it by its fitted value and run least squares. The fitted values are exogenous by construction, so the estimates are consistent; standard errors must come from the original equation's residuals. Three-stage least squares goes one step further and uses the correlation between the equations' errors. In a labour-supply system for married women, 2SLS puts the wage effect on hours at about 1,640 hours per log point, where OLS cannot be trusted.**"
+      }
+     ],
+     "words": 99,
+     "symbols": []
+    },
+    {
+     "id": "intro-2",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "info",
+       "title": "Source",
+       "md": "Section 6 of `Regression_Lecture4.ipynb`, its 2SLS and 3SLS labour-supply examples, and sections 5 and 6 of the mathematical appendix (see [Econ 430 L17 Simultaneous Equations and Supply and Demand](note:econ-430-l17-simultaneous-equations-and-supply-and-demand) for how the notebook maps to lectures).",
+       "folded": false
+      }
+     ],
+     "words": 39,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "1-the-procedure",
+   "heading": "1. The procedure",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-the-procedure-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Take the identified structural equation $y_1 = \\alpha_2y_2 + \\alpha_3y_3 + \\beta_1x_1 + \\beta_2x_2 + e_1$, with $y_2$ and $y_3$ endogenous and $x_1, \\dots, x_K$ the exogenous variables of the whole system."
+      },
+      {
+       "t": "prose",
+       "md": "1. **Stage 1 (reduced forms).** Regress $y_2$ and $y_3$ each on **all** $K$ exogenous variables and keep $\\hat y_2$, $\\hat y_3$. They are linear combinations of exogenous variables, so exogenous by construction.\n2. **Stage 2.** Regress $y_1$ on $\\hat y_2$, $\\hat y_3$, $x_1$, $x_2$ by OLS. The error of this regression is $e_1 + \\alpha_2\\hat v_2 + \\alpha_3\\hat v_3$, and every regressor is uncorrelated with it ($\\hat y$ with $e_1$ by exogeneity, with $\\hat v$ by OLS orthogonality), so the estimates are consistent."
+      },
+      {
+       "t": "prose",
+       "md": "In matrix form, with $\\mathbf{W} = [\\mathbf{Y}\\ \\mathbf{X}_1]$ the included variables and $\\mathbf{P}_X = \\mathbf{X}(\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'$ the projection on all exogenous variables,"
+      },
+      {
+       "t": "math",
+       "tex": "\\hat{\\boldsymbol\\delta}_{2SLS} = (\\mathbf{W}'\\mathbf{P}_X\\mathbf{W})^{-1}\\mathbf{W}'\\mathbf{P}_X\\mathbf{y}_1 = \\boldsymbol\\delta + (\\mathbf{W}'\\mathbf{P}_X\\mathbf{W})^{-1}\\mathbf{W}'\\mathbf{P}_X\\mathbf{e}_1 ,"
+      },
+      {
+       "t": "prose",
+       "md": "and since $\\operatorname{plim}\\frac{1}{N}\\mathbf{X}'\\mathbf{e}_1 = \\mathbf{0}$ the second term vanishes: **2SLS is consistent**. It is the IV estimator with all the system's exogenous variables as instruments ([Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls), [Projection Matrix and Residual Maker](note:projection-matrix-and-residual-maker))."
+      }
+     ],
+     "words": 118,
+     "symbols": [
+      "$y$",
+      "$x$",
+      "$\\beta_1$, $\\beta_2$",
+      "$e$",
+      "$\\mathbf{W}$, $\\mathbf{X}$, $\\mathbf{P}_X$, $\\boldsymbol\\delta$",
+      "$\\alpha_1$, $\\alpha_2$, $\\alpha_3$",
+      "$K_i$",
+      "$\\mathbf{y}$, $\\hat{\\mathbf{y}}$",
+      "$\\mathbf{e}$",
+      "$v$, $\\hat v$"
+     ]
+    },
+    {
+     "id": "1-the-procedure-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "In stage 1 of 2SLS for the supply equation of a market, which regressors go in the regression for price?",
+       "options": [
+        {
+         "md": "Only the variables in the supply equation",
+         "correct": false,
+         "feedback": "The excluded exogenous variables are the instruments; they must be in the first stage."
+        },
+        {
+         "md": "Only the variables excluded from the supply equation",
+         "correct": false,
+         "feedback": "The included exogenous variables belong in the first stage too, or the fitted values would be correlated with the second-stage error."
+        },
+        {
+         "md": "Every exogenous variable in the system, included in supply or not",
+         "correct": true
+        },
+        {
+         "md": "Quantity and every exogenous variable",
+         "correct": false,
+         "feedback": "Quantity is endogenous; putting it in the first stage would bring its error into the fitted price."
+        }
+       ],
+       "why": "The first stage is the reduced form for price, which by definition has all the system's exogenous variables on the right.",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 51,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "2-standard-errors-and-the-case-for-2sls",
+   "heading": "2. Standard errors and the case for 2SLS",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-standard-errors-and-the-case-for-2sls-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$\\sqrt N(\\hat{\\boldsymbol\\delta}_{2SLS} - \\boldsymbol\\delta)$ is asymptotically normal with estimated variance $\\hat\\sigma^2(\\mathbf{W}'\\mathbf{P}_X\\mathbf{W})^{-1}$, where $\\hat\\sigma^2$ comes from the residuals of the **original** equation, using the actual $y_2$ and $y_3$. Running the second stage by hand reports standard errors that treat $\\hat y_2$, $\\hat y_3$ as data and use the wrong residuals; they are invalid, so use a 2SLS routine."
+      },
+      {
+       "t": "prose",
+       "md": "Why not always use 2SLS? If the right-hand variables are in fact exogenous, OLS is consistent and more efficient, while 2SLS throws away the variation in $y_2$ not explained by the instruments and has a larger variance. If they are endogenous, only 2SLS is consistent. Test first ([Hausman Test](note:hausman-test)); consistency comes before efficiency."
+      }
+     ],
+     "words": 97,
+     "symbols": [
+      "$y$",
+      "$\\hat{\\sigma}$",
+      "$\\mathbf{W}$, $\\mathbf{X}$, $\\mathbf{P}_X$, $\\boldsymbol\\delta$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "3-three-stage-least-squares",
+   "heading": "3. Three-stage least squares",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "3-three-stage-least-squares-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "2SLS estimates each equation separately and ignores correlation between the equations' errors, $E(e_{di}e_{si}) \\ne 0$. **3SLS** adds a third stage: estimate the cross-equation covariances from the 2SLS residuals, $\\hat\\sigma_{ij} = \\frac{1}{N}\\sum_t \\hat e_{it}\\hat e_{jt}$, and re-estimate the whole system by generalized least squares ([Seemingly Unrelated Regressions](note:seemingly-unrelated-regressions)). It is consistent and asymptotically more efficient when the errors are correlated, but less robust: a misspecified equation contaminates every equation's estimates, and it can be unstable in small samples. Prefer 3SLS when confident of the whole specification and the sample is large; 2SLS otherwise."
+      }
+     ],
+     "words": 82,
+     "symbols": [
+      "$\\hat{\\sigma}$",
+      "$e$"
+     ]
+    },
+    {
+     "id": "3-three-stage-least-squares-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "A system has two well-identified equations whose 2SLS residuals correlate at $-0.90$, but you suspect the second equation omits an important variable. Which estimator should you use for the first equation?",
+       "options": [
+        {
+         "md": "3SLS, because the strong error correlation makes it much more efficient",
+         "correct": false,
+         "feedback": "Efficiency gains come with a cost: 3SLS imports the second equation's misspecification into the first."
+        },
+        {
+         "md": "2SLS: it is consistent for the first equation whatever is wrong with the second",
+         "correct": true
+        },
+        {
+         "md": "OLS, because 2SLS ignores the error correlation",
+         "correct": false,
+         "feedback": "OLS is inconsistent for a structural equation with endogenous regressors."
+        },
+        {
+         "md": "Either; they give identical estimates",
+         "correct": false,
+         "feedback": "They coincide only when the error correlations are zero (or every equation is exactly identified)."
+        }
+       ],
+       "why": "3SLS uses every equation's specification to build its GLS weights. With a doubtful equation in the system, the robustness of equation-by-equation 2SLS is worth more than the efficiency gain.",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 67,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "4-example-labour-supply-of-married-women",
+   "heading": "4. Example: labour supply of married women",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "4-example-labour-supply-of-married-women-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "For the 428 working women, hours and the log wage are determined jointly:"
+      },
+      {
+       "t": "math",
+       "tex": "HOURS = \\alpha_1 + \\alpha_2\\ln(WAGE) + \\alpha_3EDUC + \\alpha_4AGE + \\alpha_5KIDSL6 + \\alpha_6NWIFEINC + e_1 ,"
+      },
+      {
+       "t": "math",
+       "tex": "\\ln(WAGE) = \\beta_1 + \\beta_2HOURS + \\beta_3EDUC + \\beta_4EXPER + \\beta_5EXPER^2 + e_2 ."
+      },
+      {
+       "t": "prose",
+       "md": "The hours equation excludes experience and its square (two instruments for one endogenous variable: overidentified); the wage equation excludes age, young children and other income (three instruments: overidentified)."
+      },
+      {
+       "t": "table",
+       "md": "| Hours equation | 2SLS | 3SLS |\n| --- | --- | --- |\n| $\\ln(WAGE)$ | 1,639.6 (se ≈ 470) | 1,781.8 |\n| $EDUC$ | $-183.8$ | $-212.8$ |\n| $KIDSL6$ | $-198.2$ | $-192.3$ |\n| $NWIFEINC$ | $-10.2$ | $-0.19$ |"
+      },
+      {
+       "t": "prose",
+       "md": "The 2SLS residuals of the two equations correlate at $-0.904$, which is why 3SLS moves the estimates. A 10% higher wage (0.1 log points) raises annual hours by about 164; at the sample mean of about 1,303 hours that is an elasticity of roughly $1{,}640/1{,}303 = 1.26$."
+      }
+     ],
+     "words": 101,
+     "symbols": [
+      "$\\beta_1$, $\\beta_2$",
+      "$e$",
+      "$G$, $B$, $L$",
+      "$Q$, $P$",
+      "$X$",
+      "$\\alpha_1$, $\\alpha_2$, $\\alpha_3$",
+      "$K_i$",
+      "$H$"
+     ]
+    },
+    {
+     "id": "4-example-labour-supply-of-married-women-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "In the 2SLS hours equation the coefficient on $\\ln(WAGE)$ is 1,639.56. By how many hours a year does a 5% wage increase raise hours?",
+       "answer": 82.0,
+       "tol": 1.0,
+       "wrong": [
+        {
+         "answer": 8198.0,
+         "tol": 5.0,
+         "md": "that multiplies by 5 instead of 0.05: a 5% rise is 0.05 log points"
+        },
+        {
+         "answer": 1640.0,
+         "tol": 1.0,
+         "md": "that is the effect of a one-log-point (about 172%) wage rise"
+        }
+       ],
+       "why": "In a level-log equation, $\\Delta HOURS = \\alpha_2\\,\\Delta\\ln(WAGE) \\approx 1{,}639.56 \\times 0.05 = 82$ hours.",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 25,
+     "symbols": [
+      "$G$, $B$, $L$",
+      "$\\alpha_1$, $\\alpha_2$, $\\alpha_3$",
+      "$H$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Carry out 2SLS for an identified equation (which variables go in each stage, and why the fitted values are exogenous), show it is consistent, and explain why second-stage OLS standard errors are wrong.\n2. Weigh 2SLS against OLS (consistency versus efficiency) and against 3SLS (efficiency versus robustness).\n3. Interpret a level-log structural coefficient and compute the implied elasticity."
+      }
+     ],
+     "words": 59,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "instrumental-variables-and-2sls",
+        "simultaneous-equations-model",
+        "seemingly-unrelated-regressions",
+        "projection-matrix-and-residual-maker",
+        "hausman-test"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

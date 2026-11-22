@@ -13,6 +13,16 @@
    "from": "skewness-and-kurtosis"
   },
   {
+   "tex": "$e_i$",
+   "meaning": "Error: everything else affecting $y_i$",
+   "kind": "Unobserved",
+   "typical": "Mean zero",
+   "keys": [
+    "e"
+   ],
+   "from": "simple-linear-regression-model"
+  },
+  {
    "tex": "$\\mathbf{X}$",
    "meaning": "All regressors for all observations",
    "kind": "Data",
@@ -96,14 +106,36 @@
      "blocks": [
       {
        "t": "prose",
-       "md": "1. [Econ 430 L1 Univariate Characterizations](note:econ-430-l1-univariate-characterizations)\n2. [Econ 430 L2 Bivariate Characterizations](note:econ-430-l2-bivariate-characterizations)\n3. [Econ 430 L3 The Method of Least Squares](note:econ-430-l3-the-method-of-least-squares)\n4. [Econ 430 L4 Cross-Validation and the Bootstrap](note:econ-430-l4-cross-validation-and-the-bootstrap)\n5. [Econ 430 L5 Estimating Nonlinear Relationships](note:econ-430-l5-estimating-nonlinear-relationships)\n6. [Econ 430 L6 Indicator Variables and the OLS Workflow](note:econ-430-l6-indicator-variables-and-the-ols-workflow)\n7. [Econ 430 L7 The Classical Linear Regression Model](note:econ-430-l7-the-classical-linear-regression-model)\n8. [Econ 430 L8 Building Multiple Regression Models](note:econ-430-l8-building-multiple-regression-models)\n9. [Econ 430 L9 Bootstrapping Regression Models](note:econ-430-l9-bootstrapping-regression-models)\n10. [Econ 430 L10 Modeling Issues in Multiple Regression](note:econ-430-l10-modeling-issues-in-multiple-regression)\n11. [Econ 430 L11 Heteroskedasticity](note:econ-430-l11-heteroskedasticity)\n12. [Econ 430 L12 Missing Data and the Regression Workflow](note:econ-430-l12-missing-data-and-the-regression-workflow)"
-      },
-      {
-       "t": "prose",
-       "md": "L1 to L7 come from one notebook, `Regression_Lecture1_Adv.ipynb`, and L8 to L12 from a second, `Regression_Lecture2.ipynb`: one lecture per major heading."
+       "md": "1. [Econ 430 L1 Univariate Characterizations](note:econ-430-l1-univariate-characterizations)\n2. [Econ 430 L2 Bivariate Characterizations](note:econ-430-l2-bivariate-characterizations)\n3. [Econ 430 L3 The Method of Least Squares](note:econ-430-l3-the-method-of-least-squares)\n4. [Econ 430 L4 Cross-Validation and the Bootstrap](note:econ-430-l4-cross-validation-and-the-bootstrap)\n5. [Econ 430 L5 Estimating Nonlinear Relationships](note:econ-430-l5-estimating-nonlinear-relationships)\n6. [Econ 430 L6 Indicator Variables and the OLS Workflow](note:econ-430-l6-indicator-variables-and-the-ols-workflow)\n7. [Econ 430 L7 The Classical Linear Regression Model](note:econ-430-l7-the-classical-linear-regression-model)\n8. [Econ 430 L8 Building Multiple Regression Models](note:econ-430-l8-building-multiple-regression-models)\n9. [Econ 430 L9 Bootstrapping Regression Models](note:econ-430-l9-bootstrapping-regression-models)\n10. [Econ 430 L10 Modeling Issues in Multiple Regression](note:econ-430-l10-modeling-issues-in-multiple-regression)\n11. [Econ 430 L11 Heteroskedasticity](note:econ-430-l11-heteroskedasticity)\n12. [Econ 430 L12 Missing Data and the Regression Workflow](note:econ-430-l12-missing-data-and-the-regression-workflow)\n13. [Econ 430 L13 Linear Regression with Random Regressors](note:econ-430-l13-linear-regression-with-random-regressors)\n14. [Econ 430 L14 When x and e Are Correlated](note:econ-430-l14-when-x-and-e-are-correlated)\n15. [Econ 430 L15 Instrumental Variables Estimation](note:econ-430-l15-instrumental-variables-estimation)"
       }
      ],
      "words": 120,
+     "symbols": []
+    },
+    {
+     "id": "lectures-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "16. [Econ 430 L16 Specification Tests for Instrumental Variables](note:econ-430-l16-specification-tests-for-instrumental-variables)\n17. [Econ 430 L17 Simultaneous Equations and Supply and Demand](note:econ-430-l17-simultaneous-equations-and-supply-and-demand)\n18. [Econ 430 L18 Reduced-Form Equations](note:econ-430-l18-reduced-form-equations)\n19. [Econ 430 L19 The Failure of Least Squares and Identification](note:econ-430-l19-the-failure-of-least-squares-and-identification)\n20. [Econ 430 L20 Two-Stage Least Squares for Simultaneous Equations](note:econ-430-l20-two-stage-least-squares-for-simultaneous-equations)\n21. [Econ 430 L21 Truffle Supply and Demand](note:econ-430-l21-truffle-supply-and-demand)\n22. [Econ 430 L22 The Fulton Fish Market](note:econ-430-l22-the-fulton-fish-market)\n23. [Econ 430 L23 Panel Data and Microeconomic Panels](note:econ-430-l23-panel-data-and-microeconomic-panels)\n24. [Econ 430 L24 The Pooled Panel Model](note:econ-430-l24-the-pooled-panel-model)\n25. [Econ 430 L25 The Fixed Effects Model](note:econ-430-l25-the-fixed-effects-model)\n26. [Econ 430 L26 The Random Effects Model](note:econ-430-l26-the-random-effects-model)\n27. [Econ 430 L27 Comparing Fixed and Random Effects](note:econ-430-l27-comparing-fixed-and-random-effects)\n28. [Econ 430 L28 Pooled, Fixed and Random Effects in Practice](note:econ-430-l28-pooled-fixed-and-random-effects-in-practice)"
+      }
+     ],
+     "words": 115,
+     "symbols": []
+    },
+    {
+     "id": "lectures-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "29. [Econ 430 L29 The Hausman-Taylor Estimator](note:econ-430-l29-the-hausman-taylor-estimator)\n30. [Econ 430 L30 Sets of Regression Equations](note:econ-430-l30-sets-of-regression-equations)"
+      },
+      {
+       "t": "prose",
+       "md": "L1 to L7 come from one notebook, `Regression_Lecture1_Adv.ipynb`, L8 to L12 from a second, `Regression_Lecture2.ipynb`, L13 to L16 from `Regression_Lecture3.ipynb` (instrumental variables), L17 to L22 from `Regression_Lecture4.ipynb` (simultaneous equations) and L23 to L30 from `Regression_Lecture5.ipynb` (panel data): one lecture per major heading, with a mathematical appendix for each of the last three."
+      }
+     ],
+     "words": 78,
      "symbols": []
     }
    ]
@@ -158,6 +190,42 @@
      ],
      "words": 142,
      "symbols": []
+    },
+    {
+     "id": "course-arc-so-far-5",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The third notebook turns to **endogeneity**. [Econ 430 L13 Linear Regression with Random Regressors](note:econ-430-l13-linear-regression-with-random-regressors) lets $x$ be random and shows that what matters is $\\mathrm{Cov}(x, e)$: zero gives [consistency](note:consistency-and-probability-limits), nonzero gives an inconsistent OLS. [Econ 430 L14 When x and e Are Correlated](note:econ-430-l14-when-x-and-e-are-correlated) lists the three causes, [Classical Measurement Error](note:classical-measurement-error), simultaneity and [Omitted Variable Bias](note:omitted-variable-bias) (ability in a wage equation). [Econ 430 L15 Instrumental Variables Estimation](note:econ-430-l15-instrumental-variables-estimation) derives IV from the [Method of Moments](note:method-of-moments) and generalizes it to [Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls); parents' schooling cuts the return to education from 10.75% to 6.14%. [Econ 430 L16 Specification Tests for Instrumental Variables](note:econ-430-l16-specification-tests-for-instrumental-variables) tests [Weak Instruments](note:weak-instruments), endogeneity ([Hausman Test](note:hausman-test)) and instrument validity ([Overidentifying Restrictions Test](note:overidentifying-restrictions-test))."
+      }
+     ],
+     "words": 111,
+     "symbols": [
+      "$X$, $x_i$",
+      "$e_i$"
+     ]
+    },
+    {
+     "id": "course-arc-so-far-6",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The fourth notebook covers **simultaneous equations**. [Econ 430 L17 Simultaneous Equations and Supply and Demand](note:econ-430-l17-simultaneous-equations-and-supply-and-demand) shows why price is correlated with both errors of a market ([Simultaneous Equations Model](note:simultaneous-equations-model)); [Econ 430 L18 Reduced-Form Equations](note:econ-430-l18-reduced-form-equations) solves for the reduced form and recovers the supply slope from it; [Econ 430 L19 The Failure of Least Squares and Identification](note:econ-430-l19-the-failure-of-least-squares-and-identification) signs the OLS bias and states the order and rank conditions ([Identification in Simultaneous Equations](note:identification-in-simultaneous-equations)); [Econ 430 L20 Two-Stage Least Squares for Simultaneous Equations](note:econ-430-l20-two-stage-least-squares-for-simultaneous-equations) estimates identified equations by 2SLS and 3SLS; [Econ 430 L21 Truffle Supply and Demand](note:econ-430-l21-truffle-supply-and-demand) and [Econ 430 L22 The Fulton Fish Market](note:econ-430-l22-the-fulton-fish-market) are worked examples."
+      }
+     ],
+     "words": 105,
+     "symbols": []
+    },
+    {
+     "id": "course-arc-so-far-7",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The fifth notebook covers **panel data**. [Econ 430 L23 Panel Data and Microeconomic Panels](note:econ-430-l23-panel-data-and-microeconomic-panels) defines [Panel Data](note:panel-data); [Econ 430 L24 The Pooled Panel Model](note:econ-430-l24-the-pooled-panel-model) pools it with [Clustered Standard Errors](note:clustered-standard-errors); [Econ 430 L25 The Fixed Effects Model](note:econ-430-l25-the-fixed-effects-model) and [Econ 430 L26 The Random Effects Model](note:econ-430-l26-the-random-effects-model) model individual heterogeneity ([Fixed Effects Regression](note:fixed-effects-regression), [Random Effects Model](note:random-effects-model)); [Econ 430 L27 Comparing Fixed and Random Effects](note:econ-430-l27-comparing-fixed-and-random-effects) chooses between them with the Hausman test; [Econ 430 L28 Pooled, Fixed and Random Effects in Practice](note:econ-430-l28-pooled-fixed-and-random-effects-in-practice) runs everything on an airline cost panel; [Econ 430 L29 The Hausman-Taylor Estimator](note:econ-430-l29-the-hausman-taylor-estimator) recovers time-invariant effects ([Hausman-Taylor Estimator](note:hausman-taylor-estimator)); [Econ 430 L30 Sets of Regression Equations](note:econ-430-l30-sets-of-regression-equations) estimates one equation per firm with [Seemingly Unrelated Regressions](note:seemingly-unrelated-regressions)."
+      }
+     ],
+     "words": 113,
+     "symbols": []
     }
    ]
   },
@@ -171,10 +239,10 @@
      "blocks": [
       {
        "t": "table",
-       "md": "| Block | Lecture | Topics | Weight |\n| --- | --- | --- | --- |\n| Looking at data | L1, L2 | [EDA for Regression](note:eda-for-regression), [Q-Q Plot](note:q-q-plot), [Skewness and Kurtosis](note:skewness-and-kurtosis), [Lowess Smoother](note:lowess-smoother) | Low to medium |\n| Model and OLS | L3 | [SR Assumptions](note:sr-assumptions), [OLS Estimator](note:ols-estimator), [Gauss-Markov Theorem](note:gauss-markov-theorem), [Sampling Distribution of OLS](note:sampling-distribution-of-ols), [Hypothesis Tests on Regression Coefficients](note:hypothesis-tests-on-regression-coefficients), [Coefficient of Determination](note:coefficient-of-determination), [Confidence vs Prediction Intervals](note:confidence-vs-prediction-intervals) | **Highest** |\n| Resampling | L4 | [Cross-Validation](note:cross-validation), [Bootstrapping OLS](note:bootstrapping-ols) | Medium |\n| Transformations | L5 | [Functional Forms and Elasticities](note:functional-forms-and-elasticities), [Box-Cox and Power Transformations](note:box-cox-and-power-transformations) | **High** |\n| Categorical and diagnostics | L6 | [Indicator Variables](note:indicator-variables), [Regression Diagnostics](note:regression-diagnostics) | Medium |\n| Matrix theory | L7 | [OLS in Matrix Form](note:ols-in-matrix-form), [Projection Matrix and Residual Maker](note:projection-matrix-and-residual-maker), [Conditional Mean vs Linear Projection](note:conditional-mean-vs-linear-projection), [Full Rank and Identification](note:full-rank-and-identification) | **High** |\n| Building multiple regressions | L8 | [Marginal Effects](note:marginal-effects), [Delta Method](note:delta-method), [Interaction Terms](note:interaction-terms), [F Test of Joint Hypotheses](note:f-test-of-joint-hypotheses), [Analysis of Variance](note:analysis-of-variance) | **High** |\n| Bootstrapping regressions | L9 | [Bootstrapping OLS](note:bootstrapping-ols) | Low |\n| Specification and model choice | L10 | [Omitted Variable Bias](note:omitted-variable-bias), [Multicollinearity](note:multicollinearity), [Ramsey RESET](note:ramsey-reset), [Model Selection Criteria](note:model-selection-criteria), [Variable Selection](note:variable-selection) | **High** |\n| Heteroskedasticity | L11 | [Heteroskedasticity Tests](note:heteroskedasticity-tests), [Heteroskedasticity-Consistent Standard Errors](note:heteroskedasticity-consistent-standard-errors), [Generalized Least Squares](note:generalized-least-squares) | Medium to high |\n| Missing data and workflow | L12 | [Missing Data and Imputation](note:missing-data-and-imputation), [Regression Diagnostics](note:regression-diagnostics) | Low to medium |"
+       "md": "| Block | Lecture | Topics | Weight |\n| --- | --- | --- | --- |\n| Looking at data | L1, L2 | [EDA for Regression](note:eda-for-regression), [Q-Q Plot](note:q-q-plot), [Skewness and Kurtosis](note:skewness-and-kurtosis), [Lowess Smoother](note:lowess-smoother) | Low to medium |\n| Model and OLS | L3 | [SR Assumptions](note:sr-assumptions), [OLS Estimator](note:ols-estimator), [Gauss-Markov Theorem](note:gauss-markov-theorem), [Sampling Distribution of OLS](note:sampling-distribution-of-ols), [Hypothesis Tests on Regression Coefficients](note:hypothesis-tests-on-regression-coefficients), [Coefficient of Determination](note:coefficient-of-determination), [Confidence vs Prediction Intervals](note:confidence-vs-prediction-intervals) | **Highest** |\n| Resampling | L4 | [Cross-Validation](note:cross-validation), [Bootstrapping OLS](note:bootstrapping-ols) | Medium |\n| Transformations | L5 | [Functional Forms and Elasticities](note:functional-forms-and-elasticities), [Box-Cox and Power Transformations](note:box-cox-and-power-transformations) | **High** |\n| Categorical and diagnostics | L6 | [Indicator Variables](note:indicator-variables), [Regression Diagnostics](note:regression-diagnostics) | Medium |\n| Matrix theory | L7 | [OLS in Matrix Form](note:ols-in-matrix-form), [Projection Matrix and Residual Maker](note:projection-matrix-and-residual-maker), [Conditional Mean vs Linear Projection](note:conditional-mean-vs-linear-projection), [Full Rank and Identification](note:full-rank-and-identification) | **High** |\n| Building multiple regressions | L8 | [Marginal Effects](note:marginal-effects), [Delta Method](note:delta-method), [Interaction Terms](note:interaction-terms), [F Test of Joint Hypotheses](note:f-test-of-joint-hypotheses), [Analysis of Variance](note:analysis-of-variance) | **High** |\n| Bootstrapping regressions | L9 | [Bootstrapping OLS](note:bootstrapping-ols) | Low |\n| Specification and model choice | L10 | [Omitted Variable Bias](note:omitted-variable-bias), [Multicollinearity](note:multicollinearity), [Ramsey RESET](note:ramsey-reset), [Model Selection Criteria](note:model-selection-criteria), [Variable Selection](note:variable-selection) | **High** |\n| Heteroskedasticity | L11 | [Heteroskedasticity Tests](note:heteroskedasticity-tests), [Heteroskedasticity-Consistent Standard Errors](note:heteroskedasticity-consistent-standard-errors), [Generalized Least Squares](note:generalized-least-squares) | Medium to high |\n| Missing data and workflow | L12 | [Missing Data and Imputation](note:missing-data-and-imputation), [Regression Diagnostics](note:regression-diagnostics) | Low to medium |\n| Endogeneity and IV | L13–L16 | [Consistency and Probability Limits](note:consistency-and-probability-limits), [Method of Moments](note:method-of-moments), [Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls), [Weak Instruments](note:weak-instruments), [Hausman Test](note:hausman-test), [Overidentifying Restrictions Test](note:overidentifying-restrictions-test) | Weight to confirm |\n| Simultaneous equations | L17–L22 | [Simultaneous Equations Model](note:simultaneous-equations-model), [Identification in Simultaneous Equations](note:identification-in-simultaneous-equations), [Seemingly Unrelated Regressions](note:seemingly-unrelated-regressions) | Weight to confirm |\n| Panel data | L23–L30 | [Panel Data](note:panel-data), [Fixed Effects Regression](note:fixed-effects-regression), [Random Effects Model](note:random-effects-model), [Hausman Test](note:hausman-test), [Hausman-Taylor Estimator](note:hausman-taylor-estimator), [Seemingly Unrelated Regressions](note:seemingly-unrelated-regressions) | Weight to confirm |"
       }
      ],
-     "words": 170,
+     "words": 235,
      "symbols": []
     },
     {

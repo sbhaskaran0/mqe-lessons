@@ -1,0 +1,261 @@
+{
+ "slug": "panel-data",
+ "notation": [
+  {
+   "tex": "$N$",
+   "meaning": "Number of units",
+   "kind": "Index",
+   "typical": "716 women",
+   "keys": [
+    "N"
+   ]
+  },
+  {
+   "tex": "$T$",
+   "meaning": "Number of periods",
+   "kind": "Index",
+   "typical": "5",
+   "keys": [
+    "T"
+   ]
+  },
+  {
+   "tex": "$i$, $t$, $s$",
+   "meaning": "Unit and period indices",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "i",
+    "t",
+    "s"
+   ]
+  },
+  {
+   "tex": "$y_{it}$",
+   "meaning": "Outcome of unit $i$ in period $t$",
+   "kind": "Data",
+   "typical": "Log wage",
+   "keys": [
+    "y"
+   ]
+  },
+  {
+   "tex": "$x_{2it}$, $x_{3it}$",
+   "meaning": "Regressors",
+   "kind": "Data",
+   "typical": "Education, experience",
+   "keys": [
+    "x"
+   ]
+  },
+  {
+   "tex": "$\\beta_1$, $\\beta_2$, $\\beta_3$",
+   "meaning": "Common coefficients",
+   "kind": "Parameter",
+   "typical": "0.0714 on education",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$e_{it}$",
+   "meaning": "Error",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "e"
+   ]
+  },
+  {
+   "tex": "$\\sigma_e^2$",
+   "meaning": "Error variance under the pooled assumptions",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "sigma"
+   ]
+  },
+  {
+   "tex": "$\\psi_{ts}$",
+   "meaning": "Covariance of a unit's errors in periods $t$ and $s$",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "psi"
+   ]
+  },
+  {
+   "tex": "$g$, $G$",
+   "meaning": "Cluster index and number of clusters",
+   "kind": "Index / data",
+   "typical": "27 states; 3-digit industries",
+   "keys": [
+    "g",
+    "G"
+   ],
+   "from": "clustered-standard-errors"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A panel follows the same people, firms or countries over several years: the same 716 women interviewed five times, the same six airlines over fifteen years. That is different from a fresh survey each year, which mixes cross sections and time but never sees the same person twice. Following the same units lets you compare each one with itself, which strips out everything permanent about it. The simplest approach ignores this and throws every observation into one regression, called pooling. Pooling treats the five interviews of one woman as five independent people, which they are not: whatever made her wage high in one year tends to make it high in the others."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "Panels are the main source of data for separating the effect of a variable from permanent differences between units, and the choice among pooled, fixed effects and random effects models turns on that structure.",
+       "folded": false
+      }
+     ],
+     "words": 149,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A panel has $N$ cross-sectional units observed for $T$ periods: $(y_{it}, x_{2it}, x_{3it})$, $i = 1, \\dots, N$, $t = 1, \\dots, T$. **Balanced**: every unit observed $T$ times; **unbalanced**: the number of observations differs across units (common in micro panels, where people miss interviews). Shapes: *long and narrow* ($T$ large, $N$ small), *short and wide* ($N$ large, $T$ small), *long and wide* (both large)."
+      },
+      {
+       "t": "prose",
+       "md": "The **pooled model** has no unit or time subscripts on the coefficients:"
+      },
+      {
+       "t": "math",
+       "tex": "y_{it} = \\beta_1 + \\beta_2x_{2it} + \\beta_3x_{3it} + e_{it} ."
+      }
+     ],
+     "words": 57,
+     "symbols": [
+      "$N$",
+      "$T$",
+      "$i$, $t$, $s$",
+      "$y_{it}$",
+      "$x_{2it}$, $x_{3it}$",
+      "$\\beta_1$, $\\beta_2$, $\\beta_3$",
+      "$e_{it}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "pooled-least-squares",
+   "heading": "Pooled least squares",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "pooled-least-squares-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The usual OLS standard errors are valid if"
+      },
+      {
+       "t": "math",
+       "tex": "E(e_{it}) = 0,\\quad \\mathrm{Var}(e_{it}) = \\sigma_e^2,\\quad \\mathrm{Cov}(e_{it}, e_{js}) = 0 \\text{ unless } i = j,\\ t = s,\\quad \\mathrm{Cov}(e_{it}, x_{kit}) = 0 ."
+      },
+      {
+       "t": "prose",
+       "md": "The third assumption is unrealistic: a unit's errors are correlated over time. Relaxing it to $\\mathrm{Cov}(e_{it}, e_{is}) = \\psi_{ts}$ (which also allows $\\mathrm{Var}(e_{it}) = \\psi_{tt}$ to vary by period), while keeping errors of different units uncorrelated:"
+      },
+      {
+       "t": "prose",
+       "md": "- Pooled OLS is **still consistent** (if the regressors are exogenous).\n- Its usual standard errors are **wrong**, typically too small.\n- [Clustered Standard Errors](note:clustered-standard-errors) (panel-robust, with each unit a cluster) fix them."
+      },
+      {
+       "t": "prose",
+       "md": "Pooling also assumes the relationship is the same for every unit and every period. Unobserved, permanent differences between units that are correlated with the regressors make it inconsistent: that is what [Fixed Effects Regression](note:fixed-effects-regression) removes. Treating those differences as random gives the [Random Effects Model](note:random-effects-model)."
+      }
+     ],
+     "words": 115,
+     "symbols": [
+      "$i$, $t$, $s$",
+      "$x_{2it}$, $x_{3it}$",
+      "$e_{it}$",
+      "$\\sigma_e^2$",
+      "$\\psi_{ts}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "NLS panel of 716 women, 1982–1988 (5 waves, 3,580 observations), $\\ln(WAGE)$ on education, experience, tenure (with squares), and indicators for black, south and union. Pooled OLS: education 0.0714. Usual se 0.0027; cluster-robust se 0.0055, about twice as large, and the $t$ statistic falls from 26.6 to 13.0."
+      }
+     ],
+     "words": 52,
+     "symbols": [
+      "$i$, $t$, $s$",
+      "$g$, $G$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "choosing-a-model",
+   "heading": "Choosing a model",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "choosing-a-model-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Situation | Model |\n| --- | --- |\n| No unit heterogeneity (LM test of $\\sigma_u^2 = 0$ not rejected) | Pooled OLS, cluster-robust se |\n| Unit effects correlated with regressors (Hausman rejects) | [Fixed Effects Regression](note:fixed-effects-regression) |\n| Unit effects uncorrelated with regressors | [Random Effects Model](note:random-effects-model) |\n| Correlated effects, but time-invariant regressors matter | [Hausman-Taylor Estimator](note:hausman-taylor-estimator) |\n| $T$ large, $N$ small | Separate equations, [Seemingly Unrelated Regressions](note:seemingly-unrelated-regressions) |"
+      }
+     ],
+     "words": 49,
+     "symbols": [
+      "$N$",
+      "$T$",
+      "$\\sigma_e^2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Clustered Standard Errors](note:clustered-standard-errors) · [Fixed Effects Regression](note:fixed-effects-regression) · [Random Effects Model](note:random-effects-model) · [Hausman Test](note:hausman-test) · [Seemingly Unrelated Regressions](note:seemingly-unrelated-regressions)"
+      }
+     ],
+     "words": 15,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

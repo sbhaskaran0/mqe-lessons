@@ -1,0 +1,579 @@
+{
+ "slug": "econ-430-l30-sets-of-regression-equations",
+ "notation": [
+  {
+   "tex": "$y_{it}$",
+   "meaning": "Dependent variable of equation $i$ in period $t$",
+   "kind": "Data",
+   "typical": "Investment",
+   "keys": [
+    "y"
+   ],
+   "from": "seemingly-unrelated-regressions"
+  },
+  {
+   "tex": "$x_{2it}$, $x_{3it}$",
+   "meaning": "Regressors of equation $i$",
+   "kind": "Data",
+   "typical": "Firm value, capital stock",
+   "keys": [
+    "x"
+   ],
+   "from": "seemingly-unrelated-regressions"
+  },
+  {
+   "tex": "$\\beta_{ki}$",
+   "meaning": "Coefficients, free to differ by equation",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ],
+   "from": "seemingly-unrelated-regressions"
+  },
+  {
+   "tex": "$e_{it}$",
+   "meaning": "Error of equation $i$",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "e"
+   ],
+   "from": "seemingly-unrelated-regressions"
+  },
+  {
+   "tex": "$\\sigma_i^2$",
+   "meaning": "Error variance of equation $i$",
+   "kind": "Parameter",
+   "typical": "777.4 (GE), 104.3 (WE)",
+   "keys": [
+    "sigma"
+   ],
+   "from": "seemingly-unrelated-regressions"
+  },
+  {
+   "tex": "$r_{ij}$",
+   "meaning": "Estimated correlation, $\\hat\\sigma_{ij}/(\\hat\\sigma_i\\hat\\sigma_j)$",
+   "kind": "Statistic",
+   "typical": "$r^2 = 0.531$",
+   "keys": [
+    "r"
+   ],
+   "from": "seemingly-unrelated-regressions"
+  },
+  {
+   "tex": "$M$",
+   "meaning": "Number of equations",
+   "kind": "Index",
+   "typical": "2",
+   "keys": [
+    "M"
+   ],
+   "from": "seemingly-unrelated-regressions"
+  },
+  {
+   "tex": "$T$",
+   "meaning": "Periods",
+   "kind": "Index",
+   "typical": "20",
+   "keys": [
+    "T"
+   ],
+   "from": "seemingly-unrelated-regressions"
+  },
+  {
+   "tex": "$K_i$",
+   "meaning": "Coefficients in equation $i$",
+   "kind": "Index",
+   "typical": "3",
+   "keys": [
+    "K"
+   ],
+   "from": "seemingly-unrelated-regressions"
+  },
+  {
+   "tex": "$\\chi^2$",
+   "meaning": "Chi-square distribution, $M(M-1)/2$ degrees of freedom for the LM test",
+   "kind": "Distribution",
+   "typical": "—",
+   "keys": [
+    "chi"
+   ],
+   "from": "seemingly-unrelated-regressions"
+  },
+  {
+   "tex": "$LM$",
+   "meaning": "Breusch-Pagan test of no contemporaneous correlation",
+   "kind": "Statistic",
+   "typical": "10.63",
+   "keys": [
+    "~LM"
+   ],
+   "from": "seemingly-unrelated-regressions"
+  },
+  {
+   "tex": "$N$",
+   "meaning": "Number of units",
+   "kind": "Index",
+   "typical": "716 women",
+   "keys": [
+    "N"
+   ],
+   "from": "panel-data"
+  },
+  {
+   "tex": "$i$, $t$, $s$",
+   "meaning": "Unit and period indices",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "i",
+    "t",
+    "s"
+   ],
+   "from": "panel-data"
+  },
+  {
+   "tex": "$\\sigma_i^2$, $\\widehat{\\sigma}_i^2$",
+   "meaning": "Variance of $e_i$ and its estimate",
+   "kind": "Parameter / estimator",
+   "typical": "—",
+   "keys": [
+    "sigma",
+    "hat(sigma)"
+   ],
+   "from": "generalized-least-squares"
+  },
+  {
+   "tex": "$\\widehat{e}_i$",
+   "meaning": "OLS residual",
+   "kind": "Computed",
+   "typical": "—",
+   "keys": [
+    "hat(e)"
+   ],
+   "from": "generalized-least-squares"
+  },
+  {
+   "tex": "$H_0$",
+   "meaning": "The $J$ restrictions, all true",
+   "kind": "—",
+   "typical": "$\\delta_1 = \\delta_2 = \\gamma = 0$",
+   "keys": [
+    "H"
+   ],
+   "from": "f-test-of-joint-hypotheses"
+  },
+  {
+   "tex": "$SSE_R$, $SSE_U$",
+   "meaning": "Sum of squared residuals, restricted and unrestricted",
+   "kind": "Statistics",
+   "typical": "135,771 and 130,195",
+   "keys": [
+    "~SSE_R",
+    "~SSE_U"
+   ],
+   "from": "f-test-of-joint-hypotheses"
+  },
+  {
+   "tex": "$F$",
+   "meaning": "Test statistic",
+   "kind": "Statistic",
+   "typical": "14.20",
+   "keys": [
+    "F"
+   ],
+   "from": "f-test-of-joint-hypotheses"
+  },
+  {
+   "tex": "$\\delta_1$, $\\delta_2$, $\\gamma$",
+   "meaning": "Race, gender and race × gender coefficients",
+   "kind": "Parameters",
+   "typical": "—",
+   "keys": [
+    "delta",
+    "gamma"
+   ],
+   "from": "f-test-of-joint-hypotheses"
+  },
+  {
+   "tex": "$D_i$ (e.g. $UTOWN$, $FEMALE$)",
+   "meaning": "Indicator: 1 if observation $i$ is in the group, 0 otherwise",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "D",
+    "~UTOWN",
+    "~FEMALE"
+   ],
+   "from": "indicator-variables"
+  },
+  {
+   "tex": "$k$",
+   "meaning": "Number of categories",
+   "kind": "Count",
+   "typical": "Use $k - 1$ dummies",
+   "keys": [
+    "k"
+   ],
+   "from": "indicator-variables"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**When a panel is long and narrow, with many years and few units, each unit can have its own equation. The investment of General Electric and Westinghouse over 20 years asks three questions: are the two firms' coefficients the same, are their error variances the same, and are their errors correlated in the same year? A Chow test cannot reject equal coefficients, but the errors are clearly correlated, so the two equations are estimated jointly by seemingly unrelated regressions.**"
+      }
+     ],
+     "words": 79,
+     "symbols": []
+    },
+    {
+     "id": "intro-2",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "info",
+       "title": "Source",
+       "md": "Section 9 of `Regression_Lecture5.ipynb` (see [Econ 430 L23 Panel Data and Microeconomic Panels](note:econ-430-l23-panel-data-and-microeconomic-panels) for how the notebook maps to lectures). The data are the `grunfeld2` file from *Principles of Econometrics*: annual investment, market value and capital stock for General Electric and Westinghouse, 1935–1954 ($T = 20$). The notebook's table of SUR estimates is an image that was not supplied; the estimates below come from its code output.",
+       "folded": false
+      }
+     ],
+     "words": 68,
+     "symbols": [
+      "$T$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "1-separate-equations-and-the-chow-test",
+   "heading": "1. Separate equations and the Chow test",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-separate-equations-and-the-chow-test-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With $T$ large relative to $N$, separate equations $y_{it} = \\beta_{1i} + \\beta_{2i}x_{2it} + \\beta_{3i}x_{3it} + e_{it}$ can be estimated for each unit ([Panel Data](note:panel-data)). For gross investment,"
+      },
+      {
+       "t": "math",
+       "tex": "INV_{it} = \\beta_{1i} + \\beta_{2i}V_{it} + \\beta_{3i}K_{it} + e_{it}, \\qquad i = GE, WE ,"
+      },
+      {
+       "t": "prose",
+       "md": "with $V$ the stock market value of the firm and $K$ its capital stock. The choice of estimator depends on three questions: are the GE coefficients equal to the WE coefficients; do the errors have the same variance; are $e_{GE,t}$ and $e_{WE,t}$ correlated?"
+      },
+      {
+       "t": "prose",
+       "md": "If coefficients and variances are equal, the 40 observations can be stacked. With $D_i = 1$ for Westinghouse, the dummy variable model"
+      },
+      {
+       "t": "math",
+       "tex": "INV_{it} = \\beta_{1,GE} + \\delta_1D_i + \\beta_{2,GE}V_{it} + \\delta_2(D_i \\times V_{it}) + \\beta_{3,GE}K_{it} + \\delta_3(D_i \\times K_{it}) + e_{it}"
+      },
+      {
+       "t": "prose",
+       "md": "lets every coefficient differ, and the Chow test of $\\delta_1 = \\delta_2 = \\delta_3 = 0$ checks equality ([F Test of Joint Hypotheses](note:f-test-of-joint-hypotheses))."
+      }
+     ],
+     "words": 91,
+     "symbols": [
+      "$y_{it}$",
+      "$x_{2it}$, $x_{3it}$",
+      "$\\beta_{ki}$",
+      "$e_{it}$",
+      "$T$",
+      "$K_i$",
+      "$N$",
+      "$i$, $t$, $s$",
+      "$\\delta_1$, $\\delta_2$, $\\gamma$",
+      "$D_i$ (e.g. $UTOWN$, $FEMALE$)"
+     ]
+    },
+    {
+     "id": "1-separate-equations-and-the-chow-test-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "The pooled (restricted) model has $SSE_R = 16{,}563.0$ and the dummy variable model $SSE_U = 14{,}989.8$, with $NT - NK = 40 - 6 = 34$ degrees of freedom. Compute the Chow $F$ statistic.",
+       "answer": 1.189,
+       "tol": 0.005,
+       "wrong": [
+        {
+         "answer": 3.568,
+         "tol": 0.005,
+         "md": "that forgets to divide the numerator by the 3 restrictions"
+        },
+        {
+         "answer": 1.294,
+         "tol": 0.005,
+         "md": "that divides by 37 degrees of freedom (the restricted model's) instead of 34"
+        }
+       ],
+       "why": "$F = \\frac{(16{,}563.0 - 14{,}989.8)/3}{14{,}989.8/34} = \\frac{524.4}{440.9} = 1.189$, with $p = 0.328$ on $F(3, 34)$: equal coefficients are not rejected.",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 18,
+     "symbols": [
+      "$T$",
+      "$K_i$",
+      "$N$",
+      "$SSE_R$, $SSE_U$",
+      "$F$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "2-contemporaneous-correlation-and-sur",
+   "heading": "2. Contemporaneous correlation and SUR",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-contemporaneous-correlation-and-sur-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The firms face the same economy, so their errors in the same year are likely related:"
+      },
+      {
+       "t": "math",
+       "tex": "\\mathrm{Cov}(e_{GE,t}, e_{WE,t}) = \\sigma_{GE,WE} \\ne 0 ,"
+      },
+      {
+       "t": "prose",
+       "md": "*contemporaneous correlation*. The stacked dummy-variable model ignores it (and the different variances). **Seemingly unrelated regressions** estimates the equations jointly, allowing different variances and the correlation ([Seemingly Unrelated Regressions](note:seemingly-unrelated-regressions)):"
+      },
+      {
+       "t": "prose",
+       "md": "1. Estimate each equation by OLS.\n2. Use the residuals to estimate $\\sigma_{GE}^2$, $\\sigma_{WE}^2$ and $\\sigma_{GE,WE} = \\frac{1}{\\sqrt{T - K_{GE}}\\sqrt{T - K_{WE}}}\\sum_t\\hat e_{GE,t}\\hat e_{WE,t} = \\frac{1}{T - 3}\\sum_t\\hat e_{GE,t}\\hat e_{WE,t}$.\n3. Estimate the two equations jointly by generalized least squares ([Generalized Least Squares](note:generalized-least-squares))."
+      },
+      {
+       "t": "prose",
+       "md": "Estimated covariance matrix: $\\hat\\sigma_{GE}^2 = 777.45$, $\\hat\\sigma_{WE}^2 = 104.31$, $\\hat\\sigma_{GE,WE} = 207.59$. SUR estimates:"
+      },
+      {
+       "t": "math",
+       "tex": "\\widehat{INV}_{GE} = -27.72 + 0.0383\\,V + 0.1390\\,K, \\qquad \\widehat{INV}_{WE} = -1.252 + 0.0576\\,V + 0.0640\\,K ."
+      },
+      {
+       "t": "prose",
+       "md": "SUR is optimal under contemporaneous correlation, so no standard-error adjustment is needed. Separate OLS is just as good in two cases: the errors are not contemporaneously correlated (nothing links the equations), or the same explanatory variables appear in each equation."
+      }
+     ],
+     "words": 115,
+     "symbols": [
+      "$e_{it}$",
+      "$\\sigma_i^2$",
+      "$T$",
+      "$K_i$",
+      "$N$",
+      "$\\sigma_i^2$, $\\widehat{\\sigma}_i^2$",
+      "$\\widehat{e}_i$"
+     ]
+    },
+    {
+     "id": "2-contemporaneous-correlation-and-sur-2",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "warning",
+       "title": "Correction to the lecture notebook",
+       "md": "The code labels firm 1 of `grunfeld2` as \"WE\" and firm 2 as \"GE\". The estimates and variances show firm 1 is General Electric: the larger firm, with error variance 777.45 and SUR equation $-27.72 + 0.0383V + 0.1390K$. The labels above follow the data, not the code.",
+       "folded": false
+      }
+     ],
+     "words": 49,
+     "symbols": [
+      "$K_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "3-testing-for-contemporaneous-correlation",
+   "heading": "3. Testing for contemporaneous correlation",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "3-testing-for-contemporaneous-correlation-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "If the regressors differ across equations, test $H_0\\!: \\sigma_{GE,WE} = 0$ with"
+      },
+      {
+       "t": "math",
+       "tex": "r^2_{GE,WE} = \\frac{\\hat\\sigma_{GE,WE}^2}{\\hat\\sigma_{GE}^2\\hat\\sigma_{WE}^2}, \\qquad LM = T\\,r^2_{GE,WE} \\sim \\chi^2_{(1)} ."
+      },
+      {
+       "t": "prose",
+       "md": "With $M$ equations, $LM = T\\sum_{i=2}^{M}\\sum_{j=1}^{i-1}r_{ij}^2$ on $M(M-1)/2$ degrees of freedom; for three, $LM = T(r_{12}^2 + r_{13}^2 + r_{23}^2) \\sim \\chi^2_{(3)}$."
+      }
+     ],
+     "words": 16,
+     "symbols": [
+      "$\\sigma_i^2$",
+      "$r_{ij}$",
+      "$M$",
+      "$T$",
+      "$\\chi^2$",
+      "$LM$",
+      "$i$, $t$, $s$",
+      "$\\sigma_i^2$, $\\widehat{\\sigma}_i^2$",
+      "$H_0$"
+     ]
+    },
+    {
+     "id": "3-testing-for-contemporaneous-correlation-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "From $\\hat\\sigma_{GE}^2 = 777.4463$, $\\hat\\sigma_{WE}^2 = 104.3079$ and $\\hat\\sigma_{GE,WE} = 207.5871$, with $T = 20$, compute $LM$.",
+       "answer": 10.63,
+       "tol": 0.02,
+       "wrong": [
+        {
+         "answer": 0.531,
+         "tol": 0.002,
+         "md": "that is $r^2$; the statistic multiplies it by $T = 20$"
+        },
+        {
+         "answer": 14.58,
+         "tol": 0.05,
+         "md": "that uses the correlation $r = 0.729$ rather than its square"
+        }
+       ],
+       "why": "$r^2 = 207.5871^2/(777.4463 \\times 104.3079) = 0.5314$ and $LM = 20 \\times 0.5314 = 10.63 > 3.84$: reject zero correlation; joint estimation is worthwhile.",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 4,
+     "symbols": [
+      "$r_{ij}$",
+      "$M$",
+      "$T$",
+      "$LM$",
+      "$\\sigma_i^2$, $\\widehat{\\sigma}_i^2$"
+     ]
+    },
+    {
+     "id": "3-testing-for-contemporaneous-correlation-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Hypotheses that involve coefficients of **different** equations, such as $\\beta_{k,GE} = \\beta_{k,WE}$ for every $k$, must be tested within the SUR framework when contemporaneous correlation exists, with an $F$ or Wald $\\chi^2$ test, both large-sample approximations. Tests within a single equation are valid either way."
+      }
+     ],
+     "words": 39,
+     "symbols": [
+      "$\\beta_{ki}$",
+      "$\\chi^2$",
+      "$F$",
+      "$k$"
+     ]
+    },
+    {
+     "id": "3-testing-for-contemporaneous-correlation-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "The Chow test said the GE and WE coefficients could be equal, while the LM test found correlated errors. Why might the Chow conclusion need revisiting?",
+       "options": [
+        {
+         "md": "The Chow test assumes equal error variances and no contemporaneous correlation; here the variances differ (777 against 104) and the errors are correlated, so the equality test should be redone within SUR",
+         "correct": true
+        },
+        {
+         "md": "It does not: the two tests concern different hypotheses, so neither affects the other",
+         "correct": false,
+         "feedback": "The Chow $F$ is valid only under the error assumptions the LM test (and the variance estimates) reject."
+        },
+        {
+         "md": "Because the LM test shows the coefficients differ",
+         "correct": false,
+         "feedback": "The LM test is about the errors, not the coefficients."
+        },
+        {
+         "md": "Because SUR always rejects equal coefficients",
+         "correct": false,
+         "feedback": "SUR gives a valid test; its result is not predetermined."
+        }
+       ],
+       "why": "A cross-equation hypothesis needs the error covariance structure that SUR estimates. The dummy-variable $F$ test is the right tool only when the stacked errors are homoskedastic and uncorrelated.",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 86,
+     "symbols": [
+      "$F$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Decide when separate equations per unit are feasible, and set up the dummy variable model and Chow test for equal coefficients.\n2. Explain contemporaneous correlation, the steps of SUR and when it equals OLS, and compute the LM test for contemporaneous correlation.\n3. Explain why cross-equation hypotheses must be tested within SUR."
+      }
+     ],
+     "words": 53,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "seemingly-unrelated-regressions",
+        "panel-data",
+        "generalized-least-squares",
+        "f-test-of-joint-hypotheses",
+        "indicator-variables"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

@@ -235,6 +235,31 @@
    ]
   },
   {
+   "id": "three-sources-of-econometric-endogeneity",
+   "heading": "Three sources of econometric endogeneity",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "three-sources-of-econometric-endogeneity-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Source | Mechanism | Direction of the OLS bias |\n| --- | --- | --- |\n| Measurement error in $x$ | The error contains the measurement noise, scaled by minus the slope | Toward zero ([Classical Measurement Error](note:classical-measurement-error)) |\n| Simultaneity | $x$ and $y$ are determined jointly, so shocks to $y$ move $x$ | Depends on the system ([Simultaneous Equations Model](note:simultaneous-equations-model)) |\n| Omitted variables | A left-out determinant of $y$ is correlated with $x$ | Sign of its effect times its correlation with $x$ ([Omitted Variable Bias](note:omitted-variable-bias)) |"
+      },
+      {
+       "t": "prose",
+       "md": "In each case OLS is inconsistent ([Consistency and Probability Limits](note:consistency-and-probability-limits)). The fix is an instrument ([Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls)); whether it is needed can be tested ([Hausman Test](note:hausman-test))."
+      }
+     ],
+     "words": 93,
+     "symbols": [
+      "$y$",
+      "$x$"
+     ]
+    }
+   ]
+  },
+  {
    "id": "common-mistakes",
    "heading": "Common mistakes",
    "role": "depth",

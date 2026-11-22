@@ -284,6 +284,18 @@
     "N"
    ],
    "from": "classical-labor-market-model"
+  },
+  {
+   "tex": "$N$, $T$, $K$",
+   "meaning": "Units, periods, coefficients in the LSDV model",
+   "kind": "Index",
+   "typical": "10, 5, 15",
+   "keys": [
+    "N",
+    "T",
+    "K"
+   ],
+   "from": "fixed-effects-regression"
   }
  ],
  "sections": [
@@ -1117,7 +1129,8 @@
       "$y^{TOT}_{it}$",
       "$\\phi_i$",
       "$\\alpha$",
-      "$MW$"
+      "$MW$",
+      "$N$, $T$, $K$"
      ]
     },
     {

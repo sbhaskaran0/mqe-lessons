@@ -1,0 +1,702 @@
+{
+ "slug": "econ-430-l14-when-x-and-e-are-correlated",
+ "notation": [
+  {
+   "tex": "$y$",
+   "meaning": "Endogenous variables (outcomes the model solves for)",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "y"
+   ],
+   "from": "endogenous-and-exogenous-variables"
+  },
+  {
+   "tex": "$x$",
+   "meaning": "Exogenous variables (inputs given from outside, may change over time)",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "x"
+   ],
+   "from": "endogenous-and-exogenous-variables"
+  },
+  {
+   "tex": "$G(\\cdot)$",
+   "meaning": "The model's solution: outcomes as a function of inputs",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "G"
+   ],
+   "from": "endogenous-and-exogenous-variables"
+  },
+  {
+   "tex": "$A$, $L$, $K$",
+   "meaning": "Technology, labor and capital in the growth example",
+   "kind": "Exogenous, exogenous, endogenous",
+   "typical": "—",
+   "keys": [
+    "A",
+    "L",
+    "K"
+   ],
+   "from": "endogenous-and-exogenous-variables"
+  },
+  {
+   "tex": "$e$",
+   "meaning": "Regression error (econometric meaning)",
+   "kind": "Exogenous noise",
+   "typical": "—",
+   "keys": [
+    "e"
+   ],
+   "from": "endogenous-and-exogenous-variables"
+  },
+  {
+   "tex": "$\\beta_0$, $\\beta_1$",
+   "meaning": "Regression intercept and slope",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ],
+   "from": "endogenous-and-exogenous-variables"
+  },
+  {
+   "tex": "$x^{*}$",
+   "meaning": "True value (e.g. true log wage)",
+   "kind": "Data (unobserved)",
+   "typical": "—",
+   "keys": [
+    "x*"
+   ],
+   "from": "classical-measurement-error"
+  },
+  {
+   "tex": "$u$",
+   "meaning": "Measurement error",
+   "kind": "Exogenous noise",
+   "typical": "Mean 0",
+   "keys": [
+    "u"
+   ],
+   "from": "classical-measurement-error"
+  },
+  {
+   "tex": "$\\sigma_u^2$",
+   "meaning": "Variance of the measurement error",
+   "kind": "Parameter",
+   "typical": "0.05 in the example",
+   "keys": [
+    "sigma"
+   ],
+   "from": "classical-measurement-error"
+  },
+  {
+   "tex": "$\\hat\\beta$",
+   "meaning": "OLS slope using the observed $x$",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "hat(beta)"
+   ],
+   "from": "classical-measurement-error"
+  },
+  {
+   "tex": "$\\lambda$",
+   "meaning": "Reliability ratio: share of observed variance that is signal",
+   "kind": "Parameter in (0, 1]",
+   "typical": "0.8 in the example",
+   "keys": [
+    "lambda"
+   ],
+   "from": "classical-measurement-error"
+  },
+  {
+   "tex": "$S$",
+   "meaning": "Variance of the true regressor, $\\mathrm{Var}(x^{*})$",
+   "kind": "Parameter",
+   "typical": "4 in the savings example",
+   "keys": [
+    "S"
+   ],
+   "from": "classical-measurement-error"
+  },
+  {
+   "tex": "$b_2$, $b_3$",
+   "meaning": "Long-regression estimates",
+   "kind": "Estimators",
+   "typical": "3,132 and 4,523",
+   "keys": [
+    "b"
+   ],
+   "from": "omitted-variable-bias"
+  },
+  {
+   "tex": "$e$, $v$",
+   "meaning": "Errors of the true and the short model",
+   "kind": "Unobserved",
+   "typical": "—",
+   "keys": [
+    "e",
+    "v"
+   ],
+   "from": "omitted-variable-bias"
+  },
+  {
+   "tex": "$R_k^2$",
+   "meaning": "$R^2$ from regressing $x_k$ on the other regressors",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "R"
+   ],
+   "from": "omitted-variable-bias"
+  },
+  {
+   "tex": "$Q$, $P$",
+   "meaning": "Equilibrium quantity and price",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "Q",
+    "P"
+   ],
+   "from": "simultaneous-equations-model"
+  },
+  {
+   "tex": "$X$",
+   "meaning": "Demand shifter (income)",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "X"
+   ],
+   "from": "simultaneous-equations-model"
+  },
+  {
+   "tex": "$z_1$, $z_2$",
+   "meaning": "Instruments",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "z"
+   ],
+   "from": "hausman-test"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Three situations make an explanatory variable correlated with the error, so that least squares is inconsistent: the variable is measured with error, it is determined jointly with the outcome, or a variable correlated with it has been left out. The lecture's running example is the return to schooling for 428 working women: least squares says another year of education raises wages by about 10.75%, but unmeasured ability probably makes that too high.**"
+      }
+     ],
+     "words": 73,
+     "symbols": []
+    },
+    {
+     "id": "intro-2",
+     "blocks": [
+      {
+       "t": "callout",
+       "kind": "info",
+       "title": "Source",
+       "md": "Section 2 of `Regression_Lecture3.ipynb` and sections 2.1 to 2.3 of its mathematical appendix (see [Econ 430 L13 Linear Regression with Random Regressors](note:econ-430-l13-linear-regression-with-random-regressors) for how the notebook maps to lectures). The wage data are the `mroz` married-women data, restricted to the 428 women in the labour force in 1975.",
+       "folded": false
+      }
+     ],
+     "words": 53,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "1-endogeneity-and-errors-in-variables",
+   "heading": "1. Endogeneity and errors in variables",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-endogeneity-and-errors-in-variables-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "When an explanatory variable is correlated with the error it is **endogenous**, a term borrowed from simultaneous equations, where it means \"determined within the system\"; the regression is said to have an *endogeneity problem* ([Endogenous and Exogenous Variables](note:endogenous-and-exogenous-variables)). The first case is the **errors-in-variables** problem ([Classical Measurement Error](note:classical-measurement-error))."
+      },
+      {
+       "t": "prose",
+       "md": "Annual savings $y$ depend on permanent income $x^{*}$: $y_i = \\beta_1 + \\beta_2x_i^{*} + v_i$. Permanent income is unobserved; current income $x_i = x_i^{*} + u_i$ is a *proxy* for it, with random disturbance $u_i$. Substituting,"
+      },
+      {
+       "t": "math",
+       "tex": "y_i = \\beta_1 + \\beta_2x_i + (v_i - \\beta_2u_i) = \\beta_1 + \\beta_2x_i + e_i ,"
+      },
+      {
+       "t": "prose",
+       "md": "and because $u$ appears in both $x$ and $e$, $\\mathrm{Cov}(x, e) = E[(x^{*} + u)(v - \\beta_2u)] = -\\beta_2\\sigma_u^2 \\ne 0$. OLS is inconsistent, and its usual variance formula is wrong in any sample size."
+      }
+     ],
+     "words": 89,
+     "symbols": [
+      "$y$",
+      "$x$",
+      "$e$",
+      "$\\beta_0$, $\\beta_1$",
+      "$x^{*}$",
+      "$u$",
+      "$\\sigma_u^2$",
+      "$e$, $v$"
+     ]
+    },
+    {
+     "id": "1-endogeneity-and-errors-in-variables-2",
+     "blocks": [
+      {
+       "t": "derive",
+       "title": "Find the probability limit of the OLS slope on a mismeasured regressor",
+       "goal": "With current income measured with error, $C = \\mathrm{Cov}(x, e) = -\\beta_2\\sigma_u^2$ and $V = \\mathrm{Var}(x) = S + \\sigma_u^2$, where $S$ is the variance of true permanent income. Find $P = \\operatorname{plim} b_2$ in terms of $\\beta_2$, $S$ and $\\sigma_u$, and see which way it is biased.",
+       "objectives": [
+        1
+       ],
+       "symbols": [
+        "\\beta_2",
+        "S",
+        "\\sigma_u"
+       ],
+       "inherited": [
+        {
+         "tex": "$\\sigma_u^2$",
+         "typical": "0.05 in the example",
+         "from": "classical-measurement-error"
+        },
+        {
+         "tex": "$\\beta$",
+         "typical": "0.10 in the example",
+         "from": "classical-measurement-error"
+        },
+        {
+         "tex": "$S$",
+         "typical": "4 in the savings example",
+         "from": "classical-measurement-error"
+        }
+       ],
+       "unknowns": [
+        "$P$",
+        "$C$",
+        "$V$"
+       ],
+       "dims": [],
+       "data": [],
+       "matrices": [],
+       "define": [],
+       "given": [
+        "P = \\beta_2 + \\frac{C}{V}",
+        "C = -\\beta_2\\sigma_u^2",
+        "V = S + \\sigma_u^2"
+       ],
+       "steps": [
+        {
+         "md": "Why is the covariance negative when $\\beta_2 > 0$: $C = -\\beta_2\\sigma_u^2$",
+         "tex": "C = -\\beta_2\\sigma_u^2",
+         "justify": {
+          "prompt": "Expanding $\\mathrm{Cov}(x^{*} + u,\\ v - \\beta_2u)$, which term survives?",
+          "options": [
+           {
+            "md": "$-\\beta_2\\mathrm{Var}(u)$: the noise $u$ enters $x$ with a plus sign and the error with $-\\beta_2$, and every other covariance is zero",
+            "correct": true
+           },
+           {
+            "md": "$\\mathrm{Cov}(x^{*}, v)$: the true income is correlated with the model error",
+            "correct": false
+           },
+           {
+            "md": "None: classical measurement error is uncorrelated with everything, so the covariance is zero",
+            "correct": false
+           }
+          ]
+         }
+        },
+        {
+         "md": "Substitute and put the bias over the common denominator: $P = \\frac{\\beta_2 S}{S + \\sigma_u^2}$",
+         "tex": "P = \\frac{\\beta_2 S}{S + \\sigma_u^2}",
+         "hint": "$\\beta_2 - \\frac{\\beta_2\\sigma_u^2}{S + \\sigma_u^2}$; write $\\beta_2$ as $\\frac{\\beta_2(S + \\sigma_u^2)}{S + \\sigma_u^2}$."
+        }
+       ],
+       "accept": [
+        "P = \\beta_2 - \\frac{\\beta_2\\sigma_u^2}{S + \\sigma_u^2}"
+       ],
+       "reject": [
+        {
+         "tex": "P = \\beta_2 - \\frac{\\beta_2\\sigma_u^2}{S}",
+         "md": "the variance of the *observed* $x$ is $S + \\sigma_u^2$: the noise adds to it"
+        },
+        {
+         "tex": "P = \\beta_2 + \\frac{\\beta_2\\sigma_u^2}{S + \\sigma_u^2}",
+         "md": "the covariance is negative, so the bias pulls toward zero"
+        },
+        {
+         "tex": "P = \\frac{\\beta_2\\sigma_u^2}{S + \\sigma_u^2}",
+         "md": "that is the size of the bias; the limit is $\\beta_2$ minus it"
+        }
+       ]
+      }
+     ],
+     "words": 27,
+     "symbols": [
+      "$x$",
+      "$\\beta_0$, $\\beta_1$",
+      "$x^{*}$",
+      "$u$",
+      "$\\sigma_u^2$",
+      "$S$",
+      "$e$, $v$",
+      "$Q$, $P$"
+     ]
+    },
+    {
+     "id": "1-endogeneity-and-errors-in-variables-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The ratio $S/(S + \\sigma_u^2)$ is below one, so the slope is **attenuated** toward zero."
+      },
+      {
+       "t": "interactive",
+       "widget": "measurement-error-attenuation",
+       "state": {
+        "beta": 0.2,
+        "S": 4,
+        "su2": 4
+       },
+       "lock": [
+        "beta",
+        "S"
+       ],
+       "prompt": "Drag the noise variance and watch where the OLS slope ends up",
+       "predict": {
+        "hide": [
+         "plim_curve",
+         "probe",
+         "lambda_out",
+         "plim_out",
+         "bias_out"
+        ],
+        "ask": "True slope 0.2, true variance of permanent income $S = 4$, and now the noise in current income also has variance 4. What does the OLS slope converge to?",
+        "options": [
+         "Half the true slope, 0.1",
+         "The true slope, 0.2",
+         "Zero",
+         "0.16"
+        ],
+        "answer": 0,
+        "feedback": [
+         null,
+         "The noise does not average out: it sits in both $x$ and the error, so the slope is scaled by $\\lambda = 4/(4 + 4) = 0.5$.",
+         "The slope goes to zero only as the noise variance grows without bound; here half the observed variance is still signal.",
+         "That is the limit when the noise variance is 1 ($\\lambda = 0.8$); with variance 4, $\\lambda = 0.5$."
+        ]
+       },
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 24,
+     "symbols": [
+      "$x$",
+      "$\\beta_0$, $\\beta_1$",
+      "$\\sigma_u^2$",
+      "$\\hat\\beta$",
+      "$\\lambda$",
+      "$S$"
+     ]
+    },
+    {
+     "id": "1-endogeneity-and-errors-in-variables-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "The variance of true permanent income is 4 and the measurement noise in current income has variance 1. If the true marginal propensity to save out of permanent income is 0.2, what does the OLS slope on current income converge to?",
+       "answer": 0.16,
+       "tol": 0.001,
+       "wrong": [
+        {
+         "answer": 0.2,
+         "tol": 0.0,
+         "md": "that ignores the noise, which makes current income endogenous"
+        },
+        {
+         "answer": 0.15,
+         "tol": 0.0,
+         "md": "that divides by the true variance alone: $0.2 - 0.2 \\times 1/4$"
+        },
+        {
+         "answer": 0.25,
+         "tol": 0.0,
+         "md": "the bias pulls toward zero, not away from it"
+        }
+       ],
+       "why": "$\\operatorname{plim} b_2 = 0.2 \\times 4/(4 + 1) = 0.16$: a fifth of the observed variance of income is noise, so a fifth of the slope is lost.",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 42,
+     "symbols": [
+      "$b_2$, $b_3$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "2-simultaneity-and-omitted-variables",
+   "heading": "2. Simultaneity and omitted variables",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-simultaneity-and-omitted-variables-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Simultaneity.** In $Q = \\beta_1 + \\beta_2P + e$ for a market, price and quantity are determined jointly by supply and demand, so a shock in $e$ moves $P$ too: $\\mathrm{Cov}(P, e) \\ne 0$. The resulting bias is *simultaneous equations bias* ([Simultaneous Equations Model](note:simultaneous-equations-model), and [Econ 430 L17 Simultaneous Equations and Supply and Demand](note:econ-430-l17-simultaneous-equations-and-supply-and-demand))."
+      },
+      {
+       "t": "prose",
+       "md": "**Omitted variables.** When a left-out variable is correlated with an included one, it sits in the error and makes the included variable endogenous ([Omitted Variable Bias](note:omitted-variable-bias)). The appendix gives the large-sample version: if $y = \\beta_1 + \\beta_2x + \\beta_3z + v$ but $z$ is left out, $\\operatorname{plim} b_2 = \\beta_2 + \\beta_3\\,\\mathrm{Cov}(x, z)/\\mathrm{Var}(x)$. In the wage equation"
+      },
+      {
+       "t": "math",
+       "tex": "\\ln(WAGE) = \\beta_1 + \\beta_2EDUC + \\beta_3EXPER + \\beta_4EXPER^2 + e ,"
+      },
+      {
+       "t": "prose",
+       "md": "ability is omitted. If it raises wages and goes with more schooling, $\\mathrm{Cov}(EDUC, e) > 0$, so $E(b_2) > \\beta_2$ and the bias does not disappear in large samples."
+      }
+     ],
+     "words": 104,
+     "symbols": [
+      "$y$",
+      "$x$",
+      "$G(\\cdot)$",
+      "$A$, $L$, $K$",
+      "$e$",
+      "$\\beta_0$, $\\beta_1$",
+      "$b_2$, $b_3$",
+      "$e$, $v$",
+      "$R_k^2$",
+      "$Q$, $P$",
+      "$X$",
+      "$z_1$, $z_2$"
+     ]
+    },
+    {
+     "id": "2-simultaneity-and-omitted-variables-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "In the wage equation, ability raises wages ($\\beta_3 > 0$ for ability) and more able women tend to get more schooling. Which way is the OLS return to education biased?",
+       "options": [
+        {
+         "md": "Upward: part of ability's effect on wages is credited to education",
+         "correct": true
+        },
+        {
+         "md": "Downward, because ability is in the error, which has mean zero",
+         "correct": false,
+         "feedback": "The mean of the error is irrelevant; what matters is its covariance with education, which is positive here."
+        },
+        {
+         "md": "No bias, because ability is not in the model",
+         "correct": false,
+         "feedback": "Leaving out a variable that matters and is correlated with education is exactly what creates the bias."
+        },
+        {
+         "md": "It cannot be signed without the sample size",
+         "correct": false,
+         "feedback": "The sign is the sign of the ability effect times the sign of its correlation with schooling; sample size changes neither."
+        }
+       ],
+       "why": "The inconsistency is $\\beta_3\\,\\mathrm{Cov}(EDUC, ABILITY)/\\mathrm{Var}(EDUC)$, a product of two positives. Measurement error in schooling would push the other way (toward zero), so the net bias is an empirical question, which is what instrumental variables will answer.",
+       "objectives": [
+        2
+       ]
+      }
+     ],
+     "words": 66,
+     "symbols": [
+      "$A$, $L$, $K$",
+      "$\\beta_0$, $\\beta_1$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "3-the-wage-equation-by-ols",
+   "heading": "3. The wage equation by OLS",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "3-the-wage-equation-by-ols-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "For the 428 working women,"
+      },
+      {
+       "t": "math",
+       "tex": "\\widehat{\\ln(WAGE)} = \\underset{(0.199)}{-0.522} + \\underset{(0.0141)}{0.1075}\\,EDUC + \\underset{(0.0132)}{0.0416}\\,EXPER - \\underset{(0.0004)}{0.0008}\\,EXPER^2, \\qquad R^2 = 0.157 ."
+      },
+      {
+       "t": "prose",
+       "md": "An additional year of education is associated with wages about 10.75% higher, holding experience fixed. If ability has a positive effect on wages, this overstates the return. The residuals plotted against education show no pattern by eye, which is the point: a correlation between $x$ and $e$ cannot be seen in OLS residuals, because OLS forces the residuals to be uncorrelated with $x$."
+      },
+      {
+       "t": "figure",
+       "src": "assets/Attachments/Wage regression - residuals against years of education.png",
+       "alt": "Wage regression - residuals against years of education"
+      }
+     ],
+     "words": 66,
+     "symbols": [
+      "$x$",
+      "$G(\\cdot)$",
+      "$A$, $L$, $K$",
+      "$e$",
+      "$R_k^2$",
+      "$Q$, $P$",
+      "$X$"
+     ]
+    },
+    {
+     "id": "3-the-wage-equation-by-ols-2",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "The OLS residuals plotted against education show no trend. Does that show that education is exogenous?",
+       "options": [
+        {
+         "md": "Yes: an endogenous regressor would leave a sloped pattern in the residuals",
+         "correct": false,
+         "feedback": "The sloped pattern would be in the *errors*, which are unobserved; the residuals cannot show it."
+        },
+        {
+         "md": "No: OLS residuals are uncorrelated with every regressor by construction, so they look clean whether or not $\\mathrm{Cov}(EDUC, e) = 0$",
+         "correct": true
+        },
+        {
+         "md": "Yes, as long as $R^2$ is not too high",
+         "correct": false,
+         "feedback": "$R^2$ says nothing about correlation between a regressor and the error."
+        },
+        {
+         "md": "No, because the residuals are not normally distributed",
+         "correct": false,
+         "feedback": "Non-normal residuals (Jarque-Bera is large here) are a separate issue and do not bear on exogeneity."
+        }
+       ],
+       "why": "The normal equations make $\\sum (x_i - \\bar x)\\hat e_i = 0$ exactly. Testing for endogeneity needs outside information: an instrument and the [Hausman Test](note:hausman-test) ([Econ 430 L16 Specification Tests for Instrumental Variables](note:econ-430-l16-specification-tests-for-instrumental-variables)).",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 61,
+     "symbols": [
+      "$x$",
+      "$e$",
+      "$R_k^2$"
+     ]
+    },
+    {
+     "id": "3-the-wage-equation-by-ols-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The notebook also adds the mother's education as a regressor: education's coefficient rises to 0.1176 and the mother's education gets $-0.0183$ ($p = 0.086$). Adding a proxy related to family background does not reduce the return, so it does not settle the ability question; in [Econ 430 L15 Instrumental Variables Estimation](note:econ-430-l15-instrumental-variables-estimation) the mother's education is used instead as an *instrument*, excluded from the wage equation."
+      }
+     ],
+     "words": 62,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "math-refresher",
+   "heading": "Math refresher",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "math-refresher-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Math Prep L8 Integration for Probability](note:math-prep-l8-integration-for-probability) — covariance algebra and expectations"
+      }
+     ],
+     "words": 11,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. Show that measurement error in a regressor makes it endogenous, derive $\\mathrm{Cov}(x, e) = -\\beta_2\\sigma_u^2$ and the attenuation factor.\n2. Explain simultaneity bias and omitted-variable bias as correlations between a regressor and the error, and sign the OLS bias.\n3. Interpret the OLS wage equation and explain why its residuals cannot reveal endogeneity."
+      }
+     ],
+     "words": 50,
+     "symbols": [
+      "$x$",
+      "$e$",
+      "$\\beta_0$, $\\beta_1$",
+      "$\\sigma_u^2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "endogenous-and-exogenous-variables",
+        "classical-measurement-error",
+        "omitted-variable-bias",
+        "simultaneous-equations-model",
+        "consistency-and-probability-limits"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

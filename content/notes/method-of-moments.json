@@ -1,0 +1,386 @@
+{
+ "slug": "method-of-moments",
+ "notation": [
+  {
+   "tex": "$Y$, $y_i$",
+   "meaning": "Random variable and its sample values",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "Y",
+    "y"
+   ]
+  },
+  {
+   "tex": "$\\mu_k$",
+   "meaning": "$k$-th population moment, $E(Y^k)$; $\\mu = \\mu_1$",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "mu"
+   ]
+  },
+  {
+   "tex": "$\\hat\\mu_k$",
+   "meaning": "$k$-th sample moment",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "hat(mu)"
+   ]
+  },
+  {
+   "tex": "$\\sigma^2$",
+   "meaning": "Variance of $Y$, or of the regression error",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "sigma"
+   ]
+  },
+  {
+   "tex": "$g$",
+   "meaning": "Moment function, zero in expectation at the true $\\theta$",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "g"
+   ]
+  },
+  {
+   "tex": "$\\theta$",
+   "meaning": "Parameter vector",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "theta"
+   ]
+  },
+  {
+   "tex": "$\\beta_1$, $\\beta_2$",
+   "meaning": "Regression intercept and slope",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$b_1$, $b_2$",
+   "meaning": "OLS estimates",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "b"
+   ]
+  },
+  {
+   "tex": "$\\hat\\beta_1$, $\\hat\\beta_2$",
+   "meaning": "IV (method of moments) estimates",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "hat(beta)"
+   ]
+  },
+  {
+   "tex": "$x$, $z$",
+   "meaning": "Regressor and instrument",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "x",
+    "z"
+   ]
+  },
+  {
+   "tex": "$e$",
+   "meaning": "Regression error",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "e"
+   ]
+  },
+  {
+   "tex": "$N$",
+   "meaning": "Sample size",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "N"
+   ]
+  },
+  {
+   "tex": "$\\bar{x}$, $\\bar{y}$",
+   "meaning": "Sample means",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "bar(x)",
+    "bar(y)"
+   ],
+   "from": "ols-estimator"
+  },
+  {
+   "tex": "$\\hat{\\sigma}$",
+   "meaning": "Estimated elasticity of substitution in the example",
+   "kind": "Statistic",
+   "typical": "2.28 (OLS), 2.58 (2SLS)",
+   "keys": [
+    "hat(sigma)"
+   ],
+   "from": "instrumental-variables-and-2sls"
+  },
+  {
+   "tex": "$G$, $B$, $L$",
+   "meaning": "Numbers of exogenous regressors, endogenous regressors and instruments",
+   "kind": "Index",
+   "typical": "3, 1, 2",
+   "keys": [
+    "G",
+    "B",
+    "L"
+   ],
+   "from": "instrumental-variables-and-2sls"
+  },
+  {
+   "tex": "$\\hat\\theta_N$",
+   "meaning": "An estimator computed from $N$ observations",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "hat(theta)"
+   ],
+   "from": "consistency-and-probability-limits"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "A moment is an average of a random variable or of its powers: the mean is the first, the average square the second. The method of moments says: whatever the population averages must be, make the sample averages match them, and solve for the unknowns. If you know the population mean of heights is the parameter you want, estimate it with the sample mean. In a regression, the population story says the error averages zero and is unrelated to the explanatory variable; asking the residuals to do the same in the sample gives exactly least squares. Swap in a different variable that the error is unrelated to, an instrument, and the same recipe gives instrumental variables."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It shows that OLS and IV are one idea with different moment conditions, which is what makes IV easy to derive and to extend to many instruments.",
+       "folded": false
+      }
+     ],
+     "words": 146,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "The $k$-th moment of $Y$ is $\\mu_k = E(Y^k)$, estimated consistently by the sample moment $\\hat\\mu_k = \\frac{1}{N}\\sum_i y_i^k$. The method of moments equates $m$ population moments to $m$ sample moments and solves for $m$ unknown parameters."
+      },
+      {
+       "t": "math",
+       "tex": "E\\big[g(y, x;\\theta)\\big] = 0 \\quad\\Longrightarrow\\quad \\frac{1}{N}\\sum_{i=1}^N g(y_i, x_i;\\hat\\theta) = 0"
+      }
+     ],
+     "words": 26,
+     "symbols": [
+      "$Y$, $y_i$",
+      "$\\mu_k$",
+      "$\\hat\\mu_k$",
+      "$g$",
+      "$\\theta$",
+      "$x$, $z$",
+      "$N$",
+      "$\\hat\\theta_N$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mean-and-variance",
+   "heading": "Mean and variance",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "mean-and-variance-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Population: $E(Y) = \\mu$ and $E(Y^2) = \\mu_2$, with $\\sigma^2 = \\mu_2 - \\mu^2$. Matching sample moments:"
+      },
+      {
+       "t": "math",
+       "tex": "\\hat\\mu = \\bar y, \\qquad \\hat\\sigma^2 = \\hat\\mu_2 - \\hat\\mu^2 = \\frac{1}{N}\\sum_i y_i^2 - \\bar y^2 = \\frac{1}{N}\\sum_i (y_i - \\bar y)^2 ."
+      },
+      {
+       "t": "prose",
+       "md": "The method of moments divides by $N$, not $N - 1$: consistent, slightly biased."
+      }
+     ],
+     "words": 16,
+     "symbols": [
+      "$Y$, $y_i$",
+      "$\\mu_k$",
+      "$\\hat\\mu_k$",
+      "$\\sigma^2$",
+      "$N$",
+      "$\\bar{x}$, $\\bar{y}$",
+      "$\\hat{\\sigma}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "regression-ols-as-a-moment-estimator",
+   "heading": "Regression: OLS as a moment estimator",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "regression-ols-as-a-moment-estimator-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "In $y = \\beta_1 + \\beta_2 x + e$, $E(e) = 0$ and (with $x$ exogenous) $E(xe) = 0$. The sample versions"
+      },
+      {
+       "t": "math",
+       "tex": "\\frac{1}{N}\\sum_i (y_i - b_1 - b_2x_i) = 0, \\qquad \\frac{1}{N}\\sum_i (y_i - b_1 - b_2x_i)\\,x_i = 0"
+      },
+      {
+       "t": "prose",
+       "md": "are the least squares normal equations, so $b_2 = \\sum (x_i - \\bar x)(y_i - \\bar y)/\\sum (x_i - \\bar x)^2$ and $b_1 = \\bar y - b_2\\bar x$."
+      }
+     ],
+     "words": 15,
+     "symbols": [
+      "$Y$, $y_i$",
+      "$\\beta_1$, $\\beta_2$",
+      "$b_1$, $b_2$",
+      "$x$, $z$",
+      "$e$",
+      "$N$",
+      "$\\bar{x}$, $\\bar{y}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "regression-iv-as-a-moment-estimator",
+   "heading": "Regression: IV as a moment estimator",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "regression-iv-as-a-moment-estimator-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "If $x$ is endogenous, replace $E(xe) = 0$ by $E(ze) = 0$ for an instrument $z$:"
+      },
+      {
+       "t": "math",
+       "tex": "\\frac{1}{N}\\sum_i (y_i - \\hat\\beta_1 - \\hat\\beta_2x_i) = 0, \\qquad \\frac{1}{N}\\sum_i (y_i - \\hat\\beta_1 - \\hat\\beta_2x_i)\\,z_i = 0 ."
+      },
+      {
+       "t": "prose",
+       "md": "The first gives $\\hat\\beta_1 = \\bar y - \\hat\\beta_2\\bar x$; substituting into the second,"
+      },
+      {
+       "t": "math",
+       "tex": "\\hat\\beta_2 = \\frac{\\sum_i (z_i - \\bar z)(y_i - \\bar y)}{\\sum_i (z_i - \\bar z)(x_i - \\bar x)} = \\frac{\\widehat{\\mathrm{Cov}}(z, y)}{\\widehat{\\mathrm{Cov}}(z, x)} ."
+      },
+      {
+       "t": "prose",
+       "md": "With more instruments than endogenous regressors there are more equations than unknowns, and they cannot all hold exactly in a sample; 2SLS (or GMM) combines them ([Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls)), and the surplus conditions can be tested ([Overidentifying Restrictions Test](note:overidentifying-restrictions-test))."
+      }
+     ],
+     "words": 55,
+     "symbols": [
+      "$Y$, $y_i$",
+      "$\\hat\\beta_1$, $\\hat\\beta_2$",
+      "$x$, $z$",
+      "$e$",
+      "$N$",
+      "$\\bar{x}$, $\\bar{y}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Wage data on 428 working women, $\\ln(WAGE)$ on education, with the father's schooling as the instrument: $\\widehat{\\mathrm{Cov}}(EDUC, \\ln WAGE)/\\widehat{\\mathrm{Var}}(EDUC) = 0.1086$ (OLS) and $\\widehat{\\mathrm{Cov}}(z, \\ln WAGE)/\\widehat{\\mathrm{Cov}}(z, EDUC) = 0.0592$ (IV), the same numbers the regression routines report."
+      }
+     ],
+     "words": 25,
+     "symbols": [
+      "$x$, $z$",
+      "$G$, $B$, $L$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Writing the intercept as \"$\\hat\\beta_2 = \\bar y - \\hat\\beta_2\\bar x$\": it is $\\hat\\beta_1$.\n- Forgetting the constant's moment condition; without $E(e) = 0$ the slope formula would not be in deviations from means."
+      }
+     ],
+     "words": 24,
+     "symbols": [
+      "$\\hat\\beta_1$, $\\hat\\beta_2$",
+      "$e$",
+      "$\\bar{x}$, $\\bar{y}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [OLS Estimator](note:ols-estimator) · [Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls) · [Consistency and Probability Limits](note:consistency-and-probability-limits) · [Overidentifying Restrictions Test](note:overidentifying-restrictions-test)"
+      }
+     ],
+     "words": 14,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

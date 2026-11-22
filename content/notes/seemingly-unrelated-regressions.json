@@ -1,0 +1,418 @@
+{
+ "slug": "seemingly-unrelated-regressions",
+ "notation": [
+  {
+   "tex": "$y_{it}$",
+   "meaning": "Dependent variable of equation $i$ in period $t$",
+   "kind": "Data",
+   "typical": "Investment",
+   "keys": [
+    "y"
+   ]
+  },
+  {
+   "tex": "$x_{2it}$, $x_{3it}$",
+   "meaning": "Regressors of equation $i$",
+   "kind": "Data",
+   "typical": "Firm value, capital stock",
+   "keys": [
+    "x"
+   ]
+  },
+  {
+   "tex": "$\\beta_{ki}$",
+   "meaning": "Coefficients, free to differ by equation",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$e_{it}$",
+   "meaning": "Error of equation $i$",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "e"
+   ]
+  },
+  {
+   "tex": "$\\sigma_i^2$",
+   "meaning": "Error variance of equation $i$",
+   "kind": "Parameter",
+   "typical": "777.4 (GE), 104.3 (WE)",
+   "keys": [
+    "sigma"
+   ]
+  },
+  {
+   "tex": "$\\sigma_{ij}$",
+   "meaning": "Contemporaneous covariance of $e_i$ and $e_j$",
+   "kind": "Parameter",
+   "typical": "207.6",
+   "keys": [
+    "sigma"
+   ]
+  },
+  {
+   "tex": "$r_{ij}$",
+   "meaning": "Estimated correlation, $\\hat\\sigma_{ij}/(\\hat\\sigma_i\\hat\\sigma_j)$",
+   "kind": "Statistic",
+   "typical": "$r^2 = 0.531$",
+   "keys": [
+    "r"
+   ]
+  },
+  {
+   "tex": "$M$",
+   "meaning": "Number of equations",
+   "kind": "Index",
+   "typical": "2",
+   "keys": [
+    "M"
+   ]
+  },
+  {
+   "tex": "$T$",
+   "meaning": "Periods",
+   "kind": "Index",
+   "typical": "20",
+   "keys": [
+    "T"
+   ]
+  },
+  {
+   "tex": "$K_i$",
+   "meaning": "Coefficients in equation $i$",
+   "kind": "Index",
+   "typical": "3",
+   "keys": [
+    "K"
+   ]
+  },
+  {
+   "tex": "$\\chi^2$",
+   "meaning": "Chi-square distribution, $M(M-1)/2$ degrees of freedom for the LM test",
+   "kind": "Distribution",
+   "typical": "—",
+   "keys": [
+    "chi"
+   ]
+  },
+  {
+   "tex": "$LM$",
+   "meaning": "Breusch-Pagan test of no contemporaneous correlation",
+   "kind": "Statistic",
+   "typical": "10.63",
+   "keys": [
+    "~LM"
+   ]
+  },
+  {
+   "tex": "$\\sigma_i^2$, $\\widehat{\\sigma}_i^2$",
+   "meaning": "Variance of $e_i$ and its estimate",
+   "kind": "Parameter / estimator",
+   "typical": "—",
+   "keys": [
+    "sigma",
+    "hat(sigma)"
+   ],
+   "from": "generalized-least-squares"
+  },
+  {
+   "tex": "$\\widehat{e}_i$",
+   "meaning": "OLS residual",
+   "kind": "Computed",
+   "typical": "—",
+   "keys": [
+    "hat(e)"
+   ],
+   "from": "generalized-least-squares"
+  },
+  {
+   "tex": "$t_c$",
+   "meaning": "Critical $t$ value",
+   "kind": "Constant",
+   "typical": "2.024",
+   "keys": [
+    "t"
+   ],
+   "from": "generalized-least-squares"
+  },
+  {
+   "tex": "$H_0$",
+   "meaning": "The $J$ restrictions, all true",
+   "kind": "—",
+   "typical": "$\\delta_1 = \\delta_2 = \\gamma = 0$",
+   "keys": [
+    "H"
+   ],
+   "from": "f-test-of-joint-hypotheses"
+  },
+  {
+   "tex": "$N$",
+   "meaning": "Observations",
+   "kind": "Count",
+   "typical": "1,000",
+   "keys": [
+    "N"
+   ],
+   "from": "f-test-of-joint-hypotheses"
+  },
+  {
+   "tex": "$F$",
+   "meaning": "Test statistic",
+   "kind": "Statistic",
+   "typical": "14.20",
+   "keys": [
+    "F"
+   ],
+   "from": "f-test-of-joint-hypotheses"
+  },
+  {
+   "tex": "$i$, $t$, $s$",
+   "meaning": "Unit and period indices",
+   "kind": "Index",
+   "typical": "—",
+   "keys": [
+    "i",
+    "t",
+    "s"
+   ],
+   "from": "panel-data"
+  },
+  {
+   "tex": "$G$, $B$, $L$",
+   "meaning": "Numbers of exogenous regressors, endogenous regressors and instruments",
+   "kind": "Index",
+   "typical": "3, 1, 2",
+   "keys": [
+    "G",
+    "B",
+    "L"
+   ],
+   "from": "instrumental-variables-and-2sls"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Two companies' investment equations look unrelated: each has its own data and its own coefficients. But both firms live in the same economy, so in a year when something unmeasured hits one, it often hits the other too. Their errors move together. Seemingly unrelated regressions uses that link: knowing that General Electric had an unusually good year tells you something about Westinghouse's error that year, so estimating the two equations jointly gives more precise answers than estimating them one at a time. The same idea applied to a system of equations with endogenous variables is three-stage least squares."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the efficient way to estimate a set of equations, and the right framework for testing hypotheses that involve coefficients of different equations.",
+       "folded": false
+      }
+     ],
+     "words": 125,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "For equations $i = 1, \\dots, M$ observed over $t = 1, \\dots, T$,"
+      },
+      {
+       "t": "math",
+       "tex": "y_{it} = \\beta_{1i} + \\beta_{2i}x_{2it} + \\beta_{3i}x_{3it} + e_{it}, \\qquad \\mathrm{Cov}(e_{it}, e_{jt}) = \\sigma_{ij} \\ne 0,"
+      },
+      {
+       "t": "prose",
+       "md": "with errors uncorrelated across different periods. SUR is feasible GLS on the stacked system:"
+      },
+      {
+       "t": "prose",
+       "md": "1. Estimate each equation by OLS.\n2. Use the residuals to estimate $\\sigma_i^2$ and $\\sigma_{ij}$, e.g. $\\hat\\sigma_{ij} = \\frac{1}{\\sqrt{T - K_i}\\sqrt{T - K_j}}\\sum_t \\hat e_{it}\\hat e_{jt}$.\n3. Estimate all equations jointly by GLS with that covariance matrix."
+      }
+     ],
+     "words": 44,
+     "symbols": [
+      "$y_{it}$",
+      "$x_{2it}$, $x_{3it}$",
+      "$\\beta_{ki}$",
+      "$e_{it}$",
+      "$\\sigma_i^2$",
+      "$\\sigma_{ij}$",
+      "$M$",
+      "$T$",
+      "$K_i$",
+      "$\\sigma_i^2$, $\\widehat{\\sigma}_i^2$",
+      "$\\widehat{e}_i$",
+      "$t_c$",
+      "$i$, $t$, $s$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "when-sur-equals-ols",
+   "heading": "When SUR equals OLS",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "when-sur-equals-ols-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Separate OLS is just as good when (1) the errors are not contemporaneously correlated, so nothing links the equations, or (2) every equation has exactly the same regressors (the same data, not merely the same variable names)."
+      }
+     ],
+     "words": 37,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "testing-for-contemporaneous-correlation",
+   "heading": "Testing for contemporaneous correlation",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "testing-for-contemporaneous-correlation-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$H_0\\!: \\sigma_{ij} = 0$ for all pairs. With $M$ equations,"
+      },
+      {
+       "t": "math",
+       "tex": "LM = T\\sum_{i=2}^{M}\\sum_{j=1}^{i-1} r_{ij}^2 \\;\\sim\\; \\chi^2_{(M(M-1)/2)} ."
+      },
+      {
+       "t": "prose",
+       "md": "**Example (Grunfeld investment, 1935–1954, $T = 20$).** $\\hat\\sigma_{GE}^2 = 777.45$, $\\hat\\sigma_{WE}^2 = 104.31$, $\\hat\\sigma_{GE,WE} = 207.59$, so"
+      },
+      {
+       "t": "math",
+       "tex": "r^2 = \\frac{207.59^2}{777.45 \\times 104.31} = 0.531, \\qquad LM = 20 \\times 0.531 = 10.63 > 3.84 :"
+      },
+      {
+       "t": "prose",
+       "md": "the errors are correlated, and joint estimation pays."
+      },
+      {
+       "t": "prose",
+       "md": "SUR estimates: General Electric $\\widehat{INV} = -27.72 + 0.0383V + 0.1390K$; Westinghouse $\\widehat{INV} = -1.252 + 0.0576V + 0.0640K$."
+      }
+     ],
+     "words": 24,
+     "symbols": [
+      "$\\sigma_i^2$",
+      "$\\sigma_{ij}$",
+      "$r_{ij}$",
+      "$M$",
+      "$T$",
+      "$K_i$",
+      "$\\chi^2$",
+      "$LM$",
+      "$\\sigma_i^2$, $\\widehat{\\sigma}_i^2$",
+      "$H_0$",
+      "$N$",
+      "$i$, $t$, $s$",
+      "$G$, $B$, $L$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cross-equation-hypotheses",
+   "heading": "Cross-equation hypotheses",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "cross-equation-hypotheses-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Tests within one equation are valid equation by equation. Hypotheses across equations, such as equal coefficients for both firms, must be tested within the SUR framework (a Wald $\\chi^2$ or approximate $F$) when errors are contemporaneously correlated. Without that correlation and with equal variances, the dummy-variable Chow test does it: for the two firms $F = \\frac{(16{,}563.0 - 14{,}989.8)/3}{14{,}989.8/34} = 1.19$, $p = 0.33$ on $F(3, 34)$, so equal coefficients are not rejected ([F Test of Joint Hypotheses](note:f-test-of-joint-hypotheses))."
+      }
+     ],
+     "words": 64,
+     "symbols": [
+      "$\\chi^2$",
+      "$F$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "three-stage-least-squares",
+   "heading": "Three-stage least squares",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "three-stage-least-squares-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "In a [Simultaneous Equations Model](note:simultaneous-equations-model), 2SLS estimates each equation separately. 3SLS (1) estimates the reduced forms, (2) estimates each structural equation by 2SLS, and (3) uses the 2SLS residuals to estimate $\\hat\\sigma_{ij} = \\frac{1}{N}\\sum_t \\hat e_{it}\\hat e_{jt}$ and re-estimates the system by GLS. It is consistent and asymptotically more efficient than 2SLS when the structural errors are correlated, but less robust: a misspecified equation contaminates every other equation's estimates. Prefer 2SLS when unsure of the specification or with small samples."
+      }
+     ],
+     "words": 74,
+     "symbols": [
+      "$\\sigma_i^2$, $\\widehat{\\sigma}_i^2$",
+      "$\\widehat{e}_i$",
+      "$N$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Expecting gains from SUR when both equations use identical regressors.\n- Testing cross-equation equality with separate OLS standard errors.\n- Using 3SLS to \"fix\" an equation you doubt: its errors spread to the rest of the system."
+      }
+     ],
+     "words": 38,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Generalized Least Squares](note:generalized-least-squares) · [F Test of Joint Hypotheses](note:f-test-of-joint-hypotheses) · [Simultaneous Equations Model](note:simultaneous-equations-model) · [Panel Data](note:panel-data) · [Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls)"
+      }
+     ],
+     "words": 18,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

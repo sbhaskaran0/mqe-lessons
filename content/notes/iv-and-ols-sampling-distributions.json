@@ -1,0 +1,132 @@
+{
+ "slug": "iv-and-ols-sampling-distributions",
+ "notation": [
+  {
+   "tex": "$z_1, \\dots, z_L$",
+   "meaning": "Excluded instruments",
+   "kind": "Data",
+   "typical": "Parents' schooling",
+   "keys": [
+    "z"
+   ],
+   "from": "weak-instruments"
+  },
+  {
+   "tex": "$F$",
+   "meaning": "First-stage $F$ statistic for $\\theta_1 = \\cdots = \\theta_L = 0$",
+   "kind": "Statistic",
+   "typical": "55.4 in the example",
+   "keys": [
+    "F"
+   ],
+   "from": "weak-instruments"
+  },
+  {
+   "tex": "$\\rho_{zx}$",
+   "meaning": "Population correlation of instrument and regressor",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "rho"
+   ],
+   "from": "weak-instruments"
+  },
+  {
+   "tex": "$\\beta_2$, $\\hat\\beta_2$, $b_2$",
+   "meaning": "Slope, its IV estimate and its OLS estimate",
+   "kind": "Parameter, estimator",
+   "typical": "—",
+   "keys": [
+    "beta",
+    "hat(beta)",
+    "b"
+   ],
+   "from": "weak-instruments"
+  },
+  {
+   "tex": "$\\pi$",
+   "meaning": "First-stage slope in the simulation, $x = \\pi z + v$",
+   "kind": "Parameter",
+   "typical": "0.5",
+   "keys": [
+    "pi"
+   ],
+   "from": "weak-instruments"
+  },
+  {
+   "tex": "$N$",
+   "meaning": "Sample size",
+   "kind": "Data",
+   "typical": "428",
+   "keys": [
+    "N"
+   ],
+   "from": "weak-instruments"
+  }
+ ],
+ "sections": [
+  {
+   "id": "widget",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "widget-1",
+     "blocks": [
+      {
+       "t": "interactive",
+       "widget": "iv-and-ols-sampling-distributions"
+      }
+     ],
+     "words": 0,
+     "symbols": [
+      "$F$",
+      "$\\rho_{zx}$",
+      "$\\beta_2$, $\\hat\\beta_2$, $b_2$",
+      "$\\pi$",
+      "$N$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "heading": "Notes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "notes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Purpose.** See consistency and instrument strength as statements about many samples: with $\\rho > 0$ the OLS histogram sits on $1 + \\rho/(\\pi^2 + 1)$, not on the true slope 1; the IV histogram sits on 1 when the instrument is strong, but spreads out and drifts toward OLS as $\\pi$ (and the first-stage $F$) falls.\n- **Model.** A view of [IV and OLS Sampling Model](note:iv-and-ols-sampling-model). Both panels use the same seed and columns, so they fit the same samples, by OLS and by IV with $z$ as the instrument."
+      }
+     ],
+     "words": 80,
+     "symbols": [
+      "$z_1, \\dots, z_L$",
+      "$F$",
+      "$\\rho_{zx}$",
+      "$\\pi$"
+     ]
+    },
+    {
+     "id": "notes-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- **Elements.** Panels `ols_hist` (lines `truth_ols`, `plim_line`) and `iv_hist` (lines `truth_iv`, `plim_line_iv`); summaries `ols_mean`, `iv_med`, `iv_iqr`; readouts `ols_out`, `iv_out`, `iqr_out`, `F_out`. The IV centre is a median, since with a very weak instrument the IV estimator has no finite mean.\n- **Defaults.** $\\pi = 0.5$, $\\rho = 0.5$, $N = 100$: first-stage $F \\approx 25$, OLS limit 1.4, IV median 1.00 (interquartile range 0.27). At $\\pi = 0.15$: $F \\approx 2.3$, IV median 1.08 and interquartile range 0.92.\n- **Tests.** Python simulation with 20,000 samples; tolerances cover the player's own 2,000 draws."
+      }
+     ],
+     "words": 95,
+     "symbols": [
+      "$F$",
+      "$\\rho_{zx}$",
+      "$\\pi$",
+      "$N$"
+     ]
+    }
+   ]
+  }
+ ]
+}

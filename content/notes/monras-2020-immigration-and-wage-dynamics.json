@@ -32,15 +32,26 @@
    "from": "shift-share-instrument"
   },
   {
-   "tex": "$\\mathbf{x}_{it}$, $\\gamma$",
-   "meaning": "Controls and their coefficients",
-   "kind": "Data / parameters",
+   "tex": "$e$",
+   "meaning": "Structural error",
+   "kind": "Correlated with $x$",
    "typical": "—",
    "keys": [
-    "bold(x)",
-    "gamma"
+    "e"
    ],
-   "from": "difference-in-differences"
+   "from": "instrumental-variables-and-2sls"
+  },
+  {
+   "tex": "$\\gamma_{kj}$, $\\theta_{lj}$, $v_j$",
+   "meaning": "First-stage coefficients and error",
+   "kind": "Parameter, exogenous",
+   "typical": "—",
+   "keys": [
+    "gamma",
+    "theta",
+    "v"
+   ],
+   "from": "instrumental-variables-and-2sls"
   },
   {
    "tex": "$\\varepsilon_{it}$",
@@ -148,7 +159,8 @@
       "$s_{ri,0}$",
       "$x_r$",
       "$\\beta$",
-      "$\\mathbf{x}_{it}$, $\\gamma$",
+      "$e$",
+      "$\\gamma_{kj}$, $\\theta_{lj}$, $v_j$",
       "$\\varepsilon_{it}$",
       "$\\alpha$"
      ]

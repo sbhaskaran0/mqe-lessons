@@ -1,0 +1,275 @@
+{
+ "slug": "overidentifying-restrictions-test",
+ "notation": [
+  {
+   "tex": "$y$",
+   "meaning": "Outcome",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "y"
+   ]
+  },
+  {
+   "tex": "$x_2, \\dots, x_G$",
+   "meaning": "Exogenous regressors ($G$ \"good\" variables, with the constant)",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "x"
+   ]
+  },
+  {
+   "tex": "$x_{G+1}, \\dots, x_K$",
+   "meaning": "Endogenous regressors ($B$ \"bad\" variables)",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "x"
+   ]
+  },
+  {
+   "tex": "$z_1, \\dots, z_L$",
+   "meaning": "Excluded instruments ($L$ \"lucky\" variables)",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "z"
+   ]
+  },
+  {
+   "tex": "$G$, $B$, $L$, $K$",
+   "meaning": "Counts of exogenous, endogenous, instrument and total regressors",
+   "kind": "Index",
+   "typical": "$B = 1$, $L = 2$",
+   "keys": [
+    "G",
+    "B",
+    "L",
+    "K"
+   ]
+  },
+  {
+   "tex": "$\\beta_k$, $\\hat\\beta_k$",
+   "meaning": "Coefficients and their IV estimates",
+   "kind": "Parameter, estimator",
+   "typical": "—",
+   "keys": [
+    "beta",
+    "hat(beta)"
+   ]
+  },
+  {
+   "tex": "$e$, $\\hat e$",
+   "meaning": "Structural error and IV residual",
+   "kind": "Exogenous, statistic",
+   "typical": "—",
+   "keys": [
+    "e",
+    "hat(e)"
+   ]
+  },
+  {
+   "tex": "$N$",
+   "meaning": "Sample size",
+   "kind": "Data",
+   "typical": "428",
+   "keys": [
+    "N"
+   ]
+  },
+  {
+   "tex": "$R^2$",
+   "meaning": "$R^2$ of the residual regression",
+   "kind": "Statistic",
+   "typical": "0.00088",
+   "keys": [
+    "R"
+   ]
+  },
+  {
+   "tex": "$\\chi^2_{(L-B)}$",
+   "meaning": "Chi-square distribution with $L - B$ degrees of freedom",
+   "kind": "Distribution",
+   "typical": "—",
+   "keys": [
+    "chi"
+   ]
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "Significance level (not a regression coefficient here)",
+   "kind": "Constant",
+   "typical": "0.05",
+   "keys": [
+    "alpha"
+   ]
+  },
+  {
+   "tex": "$H$",
+   "meaning": "Hausman statistic",
+   "kind": "Statistic",
+   "typical": "36.2 in the wage example",
+   "keys": [
+    "H"
+   ],
+   "from": "hausman-test"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "An instrumental variables estimate rests on a belief that cannot be checked directly: that the instrument affects the outcome only through the explanatory variable. With exactly as many instruments as troublesome variables, the data cannot challenge that belief. With spare instruments, they can partly: each instrument on its own implies an answer, and if the instruments are all valid those answers should agree up to sampling noise. If one parent's schooling suggests a return to education of 5% and the other's 7%, are they telling the same story? The overidentification test asks whether the leftover errors from the joint estimate are still related to any instrument."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the only data-based check on instrument validity, and it works only when there are surplus instruments.",
+       "folded": false
+      }
+     ],
+     "words": 127,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "In $y = \\beta_1 + \\beta_2x_2 + \\cdots + \\beta_Gx_G + \\beta_{G+1}x_{G+1} + \\cdots + \\beta_Kx_K + e$ with $B = K - G$ endogenous regressors and $L$ instruments, $L > B$ gives $L - B$ surplus moment conditions $E(z_le) = 0$. The test:"
+      },
+      {
+       "t": "prose",
+       "md": "1. Estimate by IV/2SLS with all instruments; residuals $\\hat e = y - \\hat\\beta_1 - \\hat\\beta_2x_2 - \\cdots - \\hat\\beta_Kx_K$.\n2. Regress $\\hat e$ on **all** exogenous variables $1, x_2, \\dots, x_G$ and all $L$ instruments; record $R^2$.\n3. Under $H_0$ (all surplus conditions valid),"
+      },
+      {
+       "t": "math",
+       "tex": "NR^2 \\sim \\chi^2_{(L-B)} ."
+      },
+      {
+       "t": "prose",
+       "md": "Reject if $NR^2$ exceeds the $100(1-\\alpha)$ percentile: **at least one** surplus moment condition is invalid."
+      }
+     ],
+     "words": 50,
+     "symbols": [
+      "$y$",
+      "$x_2, \\dots, x_G$",
+      "$x_{G+1}, \\dots, x_K$",
+      "$z_1, \\dots, z_L$",
+      "$G$, $B$, $L$, $K$",
+      "$\\beta_k$, $\\hat\\beta_k$",
+      "$e$, $\\hat e$",
+      "$N$",
+      "$R^2$",
+      "$\\chi^2_{(L-B)}$",
+      "$\\alpha$",
+      "$H$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "identification",
+   "heading": "Identification",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "identification-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Necessary for IV: $L \\ge B$. $L = B$: **exactly identified**, and the test is impossible (the IV residuals are orthogonal to every instrument by construction, so $R^2 = 0$). $L > B$: **overidentified**, with $L - B$ testable restrictions."
+      }
+     ],
+     "words": 25,
+     "symbols": [
+      "$G$, $B$, $L$, $K$",
+      "$R^2$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-examples",
+   "heading": "Worked examples",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-examples-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Wage equation.** Education instrumented by the mother's and father's schooling ($L = 2$, $B = 1$): $R^2 = 0.000883$, $NR^2 = 428 \\times 0.000883 = 0.378$, $p = 0.539$ on $\\chi^2_{(1)}$. No evidence against the instruments."
+      },
+      {
+       "t": "prose",
+       "md": "**Cigarette demand, 48 states, 1995.** Log real price instrumented by the real sales tax and cigarette tax: $NR^2 = 0.333$, $p = 0.564$ on $\\chi^2_{(1)}$."
+      }
+     ],
+     "words": 34,
+     "symbols": [
+      "$G$, $B$, $L$, $K$",
+      "$N$",
+      "$R^2$",
+      "$\\chi^2_{(L-B)}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Reading the null as \"the model is not overidentified\" (the label some software prints). The null is that the overidentifying restrictions **hold**, i.e. the surplus instruments are valid.\n- Concluding from a rejection that \"we do not need the extra instruments\". A rejection says some instrument is correlated with the error; it does not say which one.\n- Running the auxiliary regression on the residuals of a *just-identified* fit, or omitting the exogenous regressors from it.\n- Using the wrong degrees of freedom: $L - B$, not $L$.\n- Treating a pass as proof: if all instruments share the same flaw, their implied estimates agree and the test cannot see it."
+      }
+     ],
+     "words": 109,
+     "symbols": [
+      "$G$, $B$, $L$, $K$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls) · [Method of Moments](note:method-of-moments) · [Weak Instruments](note:weak-instruments) · [Hausman Test](note:hausman-test) · [Identification in Simultaneous Equations](note:identification-in-simultaneous-equations)"
+      }
+     ],
+     "words": 16,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

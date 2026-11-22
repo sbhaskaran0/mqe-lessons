@@ -1,0 +1,534 @@
+{
+ "slug": "econ-430-l27-comparing-fixed-and-random-effects",
+ "notation": [
+  {
+   "tex": "$H$",
+   "meaning": "Hausman statistic",
+   "kind": "Statistic",
+   "typical": "36.2 in the wage example",
+   "keys": [
+    "H"
+   ],
+   "from": "hausman-test"
+  },
+  {
+   "tex": "$\\chi^2_{(J)}$",
+   "meaning": "Chi-square distribution with $J$ degrees of freedom",
+   "kind": "Distribution",
+   "typical": "—",
+   "keys": [
+    "chi"
+   ],
+   "from": "hausman-test"
+  },
+  {
+   "tex": "$t$",
+   "meaning": "Single-coefficient Hausman statistic",
+   "kind": "Statistic",
+   "typical": "2.31 in the example",
+   "keys": [
+    "t"
+   ],
+   "from": "hausman-test"
+  },
+  {
+   "tex": "$x$",
+   "meaning": "Regressor tested for endogeneity",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "x"
+   ],
+   "from": "hausman-test"
+  },
+  {
+   "tex": "$v$, $\\hat v$",
+   "meaning": "First-stage error and residual",
+   "kind": "Exogenous, statistic",
+   "typical": "—",
+   "keys": [
+    "v",
+    "hat(v)"
+   ],
+   "from": "hausman-test"
+  },
+  {
+   "tex": "$\\beta_1$, $\\beta_2$",
+   "meaning": "Structural coefficients",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ],
+   "from": "hausman-test"
+  },
+  {
+   "tex": "$e$",
+   "meaning": "Structural error",
+   "kind": "Exogenous under $H_0$",
+   "typical": "—",
+   "keys": [
+    "e"
+   ],
+   "from": "hausman-test"
+  },
+  {
+   "tex": "$y_{it}$, $x_{kit}$",
+   "meaning": "Outcome and regressors",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "y",
+    "x"
+   ],
+   "from": "random-effects-model"
+  },
+  {
+   "tex": "$\\bar\\beta_1$",
+   "meaning": "Population mean intercept",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "bar(beta)"
+   ],
+   "from": "random-effects-model"
+  },
+  {
+   "tex": "$u_i$",
+   "meaning": "Random individual effect",
+   "kind": "Exogenous (random)",
+   "typical": "—",
+   "keys": [
+    "u"
+   ],
+   "from": "random-effects-model"
+  },
+  {
+   "tex": "$\\bar y_i$, $\\bar x_{ki}$",
+   "meaning": "Unit means over time",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "bar(y)",
+    "bar(x)"
+   ],
+   "from": "random-effects-model"
+  },
+  {
+   "tex": "$N$, $T$",
+   "meaning": "Units and periods",
+   "kind": "Index",
+   "typical": "716, 5",
+   "keys": [
+    "N",
+    "T"
+   ],
+   "from": "random-effects-model"
+  },
+  {
+   "tex": "$\\beta_{1i}$, $b_{1i}$",
+   "meaning": "Unit $i$'s intercept and its estimate (the LSDV notation for $\\alpha_i$)",
+   "kind": "Parameter, estimator",
+   "typical": "—",
+   "keys": [
+    "beta",
+    "b"
+   ],
+   "from": "fixed-effects-regression"
+  },
+  {
+   "tex": "$D_{ji}$",
+   "meaning": "Dummy equal to 1 when $i = j$",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "D"
+   ],
+   "from": "fixed-effects-regression"
+  },
+  {
+   "tex": "$N$, $T$, $K$",
+   "meaning": "Units, periods, coefficients in the LSDV model",
+   "kind": "Index",
+   "typical": "10, 5, 15",
+   "keys": [
+    "N",
+    "T",
+    "K"
+   ],
+   "from": "fixed-effects-regression"
+  }
+ ],
+ "sections": [
+  {
+   "id": "intro",
+   "heading": "",
+   "role": "other",
+   "steps": [
+    {
+     "id": "intro-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Random effects has real advantages over fixed effects: it respects random sampling, estimates the effects of things that never change, and is more efficient. But it assumes the personal effect is unrelated to the regressors, and if that fails it is inconsistent. Fixed effects removes the personal effect altogether and is consistent either way. The Hausman test asks whether the two sets of estimates differ by more than sampling noise; for the wage panel they do, so fixed effects is preferred.**"
+      },
+      {
+       "t": "callout",
+       "kind": "info",
+       "title": "Source",
+       "md": "Section 6 of `Regression_Lecture5.ipynb` and section 5 of its mathematical appendix (see [Econ 430 L23 Panel Data and Microeconomic Panels](note:econ-430-l23-panel-data-and-microeconomic-panels) for how the notebook maps to lectures).",
+       "folded": false
+      }
+     ],
+     "words": 111,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "1-why-random-effects-is-attractive-and-when-it-fails",
+   "heading": "1. Why random effects is attractive, and when it fails",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "1-why-random-effects-is-attractive-and-when-it-fails-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "If random effects are present, the random effects estimator is preferred because it (1) takes into account the random sampling by which the data were obtained; (2) can estimate the effects of individually time-invariant variables, such as education or race; and (3) is a GLS estimator, whereas fixed effects is least squares on transformed data that ignores the error structure, so random effects is more efficient in large samples ([Random Effects Model](note:random-effects-model))."
+      }
+     ],
+     "words": 72,
+     "symbols": []
+    },
+    {
+     "id": "1-why-random-effects-is-attractive-and-when-it-fails-2",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "But if $v_{it} = u_i + e_{it}$ is correlated with a regressor, random effects is biased and inconsistent. The problem is common, because $u_i$ may well be correlated with the regressors: in a wage equation, the unmeasured ability in $u_i$ is likely related to education. Averaging the model over time and subtracting, as in fixed effects,"
+      },
+      {
+       "t": "math",
+       "tex": "y_{it} - \\bar y_i = \\beta_2(x_{2it} - \\bar x_{2i}) + \\beta_3(x_{3it} - \\bar x_{3i}) + (e_{it} - \\bar e_i) ,"
+      },
+      {
+       "t": "prose",
+       "md": "removes $u_i$ along with $\\bar\\beta_1$, so fixed effects is consistent whether or not $u_i$ is correlated with the regressors ([Fixed Effects Regression](note:fixed-effects-regression))."
+      }
+     ],
+     "words": 68,
+     "symbols": [
+      "$x$",
+      "$v$, $\\hat v$",
+      "$\\beta_1$, $\\beta_2$",
+      "$e$",
+      "$y_{it}$, $x_{kit}$",
+      "$\\bar\\beta_1$",
+      "$u_i$",
+      "$\\bar y_i$, $\\bar x_{ki}$"
+     ]
+    },
+    {
+     "id": "1-why-random-effects-is-attractive-and-when-it-fails-3",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "In the wage panel, suppose unmeasured ability $u_i$ is positively correlated with union membership. Which estimators of the union coefficient are consistent?",
+       "options": [
+        {
+         "md": "Both fixed and random effects, since both control for individual heterogeneity",
+         "correct": false,
+         "feedback": "Random effects treats $u_i$ as part of the error, so a correlation with a regressor biases it."
+        },
+        {
+         "md": "Fixed effects only: the within transformation removes $u_i$, while random effects leaves it in the error",
+         "correct": true
+        },
+        {
+         "md": "Random effects only, because it is efficient",
+         "correct": false,
+         "feedback": "Efficiency does not protect against correlation between a regressor and the error."
+        },
+        {
+         "md": "Neither: both need $u_i$ uncorrelated with the regressors",
+         "correct": false,
+         "feedback": "Fixed effects needs only the idiosyncratic error $e_{it}$ to be uncorrelated with the regressors."
+        }
+       ],
+       "why": "Random effects requires $\\mathrm{Cov}(u_i, x_{kit}) = 0$; fixed effects does not, because demeaning deletes $u_i$. That asymmetry is exactly what the Hausman test exploits.",
+       "objectives": [
+        1
+       ]
+      }
+     ],
+     "words": 61,
+     "symbols": [
+      "$x$",
+      "$e$",
+      "$u_i$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "2-the-hausman-test",
+   "heading": "2. The Hausman test",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "2-the-hausman-test-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "$H_0$: $u_i$ is uncorrelated with the regressors, so both estimators are consistent and random effects is preferred; $H_1$: it is correlated, so only fixed effects is consistent ([Hausman Test](note:hausman-test)). For a single coefficient $\\beta_k$,"
+      },
+      {
+       "t": "math",
+       "tex": "t = \\frac{b_{FE,k} - b_{RE,k}}{\\sqrt{\\widehat{\\mathrm{Var}}(b_{FE,k}) - \\widehat{\\mathrm{Var}}(b_{RE,k})}} = \\frac{b_{FE,k} - b_{RE,k}}{\\sqrt{se(b_{FE,k})^2 - se(b_{RE,k})^2}} ."
+      },
+      {
+       "t": "prose",
+       "md": "The denominator is a *difference* of variances, because of a result due to Hausman."
+      }
+     ],
+     "words": 44,
+     "symbols": [
+      "$H$",
+      "$t$",
+      "$\\beta_1$, $\\beta_2$",
+      "$e$",
+      "$u_i$",
+      "$\\beta_{1i}$, $b_{1i}$"
+     ]
+    },
+    {
+     "id": "2-the-hausman-test-2",
+     "blocks": [
+      {
+       "t": "derive",
+       "title": "Show that the variance of the FE − RE difference is a difference of variances",
+       "goal": "Write $D$ for $\\mathrm{Var}(b_{FE,k} - b_{RE,k})$, $A$ for $\\mathrm{Var}(b_{FE,k})$, $B$ for $\\mathrm{Var}(b_{RE,k})$ and $K$ for $\\mathrm{Cov}(b_{FE,k}, b_{RE,k})$. Using the variance of a difference and Hausman's result that under $H_0$ the efficient estimator's variance equals the covariance, express $D$ in $A$ and $B$. This is the denominator of the Hausman test.",
+       "objectives": [
+        2
+       ],
+       "symbols": [
+        "A",
+        "B"
+       ],
+       "inherited": [],
+       "unknowns": [
+        "$D$",
+        "$K$"
+       ],
+       "dims": [],
+       "data": [],
+       "matrices": [],
+       "define": [],
+       "given": [
+        "D = A + B - 2K",
+        "K = B"
+       ],
+       "steps": [
+        {
+         "md": "Substitute Hausman's result and simplify: $D = A - B$",
+         "tex": "D = A - B",
+         "hint": "$A + B - 2B$."
+        }
+       ],
+       "accept": [],
+       "reject": [
+        {
+         "tex": "D = A + B",
+         "md": "that treats the two estimators as independent; they use the same data and are strongly correlated"
+        },
+        {
+         "tex": "D = B - A",
+         "md": "the fixed effects estimator is the less efficient one, so its variance is the larger: $D = A - B > 0$"
+        },
+        {
+         "tex": "D = A + B - 2\\sqrt{AB}",
+         "md": "the covariance is $B$ under $H_0$, not $\\sqrt{AB}$"
+        }
+       ]
+      }
+     ],
+     "words": 19,
+     "symbols": [
+      "$H$",
+      "$D_{ji}$",
+      "$N$, $T$, $K$"
+     ]
+    },
+    {
+     "id": "2-the-hausman-test-3",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Because random effects is efficient under $H_0$, $\\widehat{\\mathrm{Var}}(b_{FE,k}) - \\widehat{\\mathrm{Var}}(b_{RE,k}) > 0$ is expected."
+      },
+      {
+       "t": "prose",
+       "md": "**Example.** For $SOUTH$ in the wage equation, $b_{FE} = -0.01632$ (se 0.03615) and $b_{RE} = -0.08181$ (se 0.02241)."
+      }
+     ],
+     "words": 21,
+     "symbols": [
+      "$H$",
+      "$N$, $T$",
+      "$\\beta_{1i}$, $b_{1i}$"
+     ]
+    },
+    {
+     "id": "2-the-hausman-test-4",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "numeric",
+       "prompt": "Compute the Hausman $t$ statistic for the $SOUTH$ coefficient.",
+       "answer": 2.31,
+       "tol": 0.01,
+       "wrong": [
+        {
+         "answer": 1.54,
+         "tol": 0.01,
+         "md": "that adds the variances in the denominator, $\\sqrt{0.03615^2 + 0.02241^2}$"
+        },
+        {
+         "answer": 4.77,
+         "tol": 0.02,
+         "md": "that subtracts the standard errors rather than the variances, $0.03615 - 0.02241$"
+        }
+       ],
+       "why": "$t = \\frac{-0.01632 + 0.08181}{\\sqrt{0.0013068 - 0.0005022}} = \\frac{0.06549}{0.02837} = 2.31 > 1.96$: the estimators differ significantly, so random effects is inconsistent; use fixed effects, or an estimator that allows the correlation ([Econ 430 L29 The Hausman-Taylor Estimator](note:econ-430-l29-the-hausman-taylor-estimator)).",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 7,
+     "symbols": [
+      "$H$",
+      "$t$",
+      "$N$, $T$"
+     ]
+    },
+    {
+     "id": "2-the-hausman-test-5",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Jointly over the six slope coefficients (experience, tenure, their squares, south and union), the $\\chi^2$ form gives $H = 36.22$ on 6 degrees of freedom, $p = 2.5 \\times 10^{-6}$ (the notebook computes it by hand in Python and with `phtest` in R, with the same result). Random effects is rejected."
+      }
+     ],
+     "words": 42,
+     "symbols": [
+      "$H$",
+      "$\\chi^2_{(J)}$"
+     ]
+    },
+    {
+     "id": "2-the-hausman-test-6",
+     "blocks": [
+      {
+       "t": "check",
+       "kind": "mcq",
+       "prompt": "The joint Hausman test for the wage panel gives $\\chi^2_{(6)} = 36.2$, $p = 2.5 \\times 10^{-6}$. Which conclusion is right?",
+       "options": [
+        {
+         "md": "Random effects is preferred, because $H_0$ is \"random effects\"",
+         "correct": false,
+         "feedback": "$H_0$ is rejected, which counts against random effects."
+        },
+        {
+         "md": "Reject $H_0$: the individual effects are correlated with the regressors, so random effects is inconsistent and fixed effects is used",
+         "correct": true
+        },
+        {
+         "md": "Both models are wrong, so use pooled OLS",
+         "correct": false,
+         "feedback": "Pooled OLS shares random effects' problem (it leaves $u_i$ in the error) and ignores the correlation over time."
+        },
+        {
+         "md": "The test shows that education is endogenous",
+         "correct": false,
+         "feedback": "Education is time-invariant and does not enter the fixed effects model; the test compares the six time-varying coefficients."
+        }
+       ],
+       "why": "A large difference between the robust and the efficient estimator is evidence against the assumption only the efficient one needs. Note what fixed effects costs here: no coefficient on education or race.",
+       "objectives": [
+        3
+       ]
+      }
+     ],
+     "words": 55,
+     "symbols": [
+      "$H$",
+      "$\\chi^2_{(J)}$",
+      "$u_i$"
+     ]
+    },
+    {
+     "id": "2-the-hausman-test-7",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**A caution.** The $t$ form and its $\\chi^2$ equivalent are not valid with cluster-robust standard errors, because the result $\\mathrm{Var}(b_{FE,k} - b_{RE,k}) = \\mathrm{Var}(b_{FE,k}) - \\mathrm{Var}(b_{RE,k})$ relies on random effects being efficient, which is not assumed when errors are clustered."
+      }
+     ],
+     "words": 31,
+     "symbols": [
+      "$\\chi^2_{(J)}$",
+      "$t$",
+      "$\\beta_{1i}$, $b_{1i}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "what-to-be-able-to-do",
+   "heading": "What to be able to do",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "what-to-be-able-to-do-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "1. List the advantages of random effects, the assumption it needs that fixed effects does not, and why fixed effects survives its failure.\n2. Derive the Hausman variance of the difference.\n3. Compute the Hausman $t$ for one coefficient, interpret the joint $\\chi^2$ test, and state its limitation with cluster-robust errors."
+      }
+     ],
+     "words": 49,
+     "symbols": [
+      "$\\chi^2_{(J)}$",
+      "$t$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "concepts-in-this-lecture",
+   "heading": "Concepts in this lecture",
+   "role": "coverage",
+   "steps": [
+    {
+     "id": "concepts-in-this-lecture-1",
+     "blocks": [
+      {
+       "t": "links",
+       "role": "concepts",
+       "items": [
+        "hausman-test",
+        "random-effects-model",
+        "fixed-effects-regression"
+       ]
+      }
+     ],
+     "words": 0,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

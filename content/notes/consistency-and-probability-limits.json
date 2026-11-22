@@ -1,0 +1,367 @@
+{
+ "slug": "consistency-and-probability-limits",
+ "notation": [
+  {
+   "tex": "$\\hat\\theta_N$",
+   "meaning": "An estimator computed from $N$ observations",
+   "kind": "Estimator",
+   "typical": "—",
+   "keys": [
+    "hat(theta)"
+   ]
+  },
+  {
+   "tex": "$\\theta$",
+   "meaning": "The parameter it estimates",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "theta"
+   ]
+  },
+  {
+   "tex": "$\\varepsilon$",
+   "meaning": "Any small positive tolerance",
+   "kind": "Constant",
+   "typical": "—",
+   "keys": [
+    "varepsilon"
+   ]
+  },
+  {
+   "tex": "$N$",
+   "meaning": "Sample size",
+   "kind": "Data",
+   "typical": "428 in the wage example",
+   "keys": [
+    "N"
+   ]
+  },
+  {
+   "tex": "$y$, $x$",
+   "meaning": "Outcome and regressor, both random under random sampling",
+   "kind": "Data",
+   "typical": "—",
+   "keys": [
+    "y",
+    "x"
+   ]
+  },
+  {
+   "tex": "$e$",
+   "meaning": "Regression error",
+   "kind": "Exogenous or not: the question",
+   "typical": "—",
+   "keys": [
+    "e"
+   ]
+  },
+  {
+   "tex": "$\\beta_1$, $\\beta_2$",
+   "meaning": "Intercept and slope",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$b_2$",
+   "meaning": "OLS slope",
+   "kind": "Estimator",
+   "typical": "0.1075 in the wage example",
+   "keys": [
+    "b"
+   ]
+  },
+  {
+   "tex": "$\\sigma^2$",
+   "meaning": "Error variance, $\\mathrm{Var}(e \\mid x)$",
+   "kind": "Parameter",
+   "typical": "—",
+   "keys": [
+    "sigma"
+   ]
+  },
+  {
+   "tex": "$t$",
+   "meaning": "Test statistic $(b_k - \\beta_k)/se(b_k)$",
+   "kind": "Statistic",
+   "typical": "≈ ±2 is the 5% threshold in large samples",
+   "keys": [
+    "t"
+   ],
+   "from": "sampling-distribution-of-ols"
+  },
+  {
+   "tex": "$\\bar{y}$, $\\bar{y}_g$",
+   "meaning": "Overall mean and mean in group $g$",
+   "kind": "Statistics",
+   "typical": "—",
+   "keys": [
+    "bar(y)"
+   ],
+   "from": "law-of-iterated-expectations"
+  },
+  {
+   "tex": "$G(\\cdot)$",
+   "meaning": "The model's solution: outcomes as a function of inputs",
+   "kind": "Function",
+   "typical": "—",
+   "keys": [
+    "G"
+   ],
+   "from": "endogenous-and-exogenous-variables"
+  },
+  {
+   "tex": "$A$, $L$, $K$",
+   "meaning": "Technology, labor and capital in the growth example",
+   "kind": "Exogenous, exogenous, endogenous",
+   "typical": "—",
+   "keys": [
+    "A",
+    "L",
+    "K"
+   ],
+   "from": "endogenous-and-exogenous-variables"
+  },
+  {
+   "tex": "$F$",
+   "meaning": "First-stage $F$ statistic for $\\theta_1 = \\cdots = \\theta_L = 0$",
+   "kind": "Statistic",
+   "typical": "55.4 in the example",
+   "keys": [
+    "F"
+   ],
+   "from": "weak-instruments"
+  },
+  {
+   "tex": "$Q$, $P$",
+   "meaning": "Equilibrium quantity and price",
+   "kind": "Endogenous",
+   "typical": "—",
+   "keys": [
+    "Q",
+    "P"
+   ],
+   "from": "simultaneous-equations-model"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "An estimate from a small sample can be off by luck. A consistent estimator is one whose luck runs out as the sample grows: with a million observations it sits almost exactly on the true value. Unbiasedness is a different promise, that the estimator is right on average across many samples of a fixed size. Consistency is the one that survives when the explanatory variable is itself random, as it is in survey data, and it is the one that fails for good when the explanatory variable is tangled up with the error. Then more data only make you more precisely wrong: a wage regression that credits schooling with the effect of ability stays too high no matter how many workers you add."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the yardstick for every estimator once the regressors are random: OLS when they are exogenous, instrumental variables when they are not.",
+       "folded": false
+      }
+     ],
+     "words": 149,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "An estimator $\\hat\\theta_N$ converges in probability to $\\theta$, written $\\operatorname{plim}\\hat\\theta_N = \\theta$, if for every $\\varepsilon > 0$"
+      },
+      {
+       "t": "math",
+       "tex": "\\lim_{N\\to\\infty} P\\left(|\\hat\\theta_N - \\theta| > \\varepsilon\\right) = 0 ."
+      },
+      {
+       "t": "prose",
+       "md": "It is then **consistent**. In the simple regression $y = \\beta_1 + \\beta_2 x + e$ with random sampling,"
+      },
+      {
+       "t": "math",
+       "tex": "\\operatorname{plim} b_2 = \\beta_2 + \\frac{\\mathrm{Cov}(x, e)}{\\mathrm{Var}(x)} ."
+      }
+     ],
+     "words": 21,
+     "symbols": [
+      "$\\hat\\theta_N$",
+      "$\\theta$",
+      "$\\varepsilon$",
+      "$y$, $x$",
+      "$e$",
+      "$\\beta_1$, $\\beta_2$",
+      "$b_2$",
+      "$Q$, $P$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "random-regressors-what-changes",
+   "heading": "Random regressors: what changes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "random-regressors-what-changes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "With random sampling the pairs $(x_i, y_i)$ are independent draws from one population (*iid*). The usual assumptions become:"
+      },
+      {
+       "t": "prose",
+       "md": "1. $y_i = \\beta_1 + \\beta_2 x_i + e_i$ in the population.\n2. The pairs $(x_i, y_i)$ are obtained by random sampling. **This is the only new assumption.**\n3. $E(e \\mid x) = 0$.\n4. $x$ takes at least two values in the sample.\n5. $\\mathrm{Var}(e \\mid x) = \\sigma^2$.\n6. $e$ is normal."
+      },
+      {
+       "t": "table",
+       "md": "| Assumptions | What OLS delivers |\n| --- | --- |\n| 1–6 | Unbiased, BLUE, normal given the $x$'s; usual $t$ and $F$ inference exact. Nothing changes from fixed $x$. |\n| 1, 2, 4, 5 and the weaker (3′) $E(e) = 0$, $\\mathrm{Cov}(x, e) = 0$ | Consistent, and approximately normal in large samples whether or not $e$ is normal; usual inference valid in large samples |\n| $\\mathrm{Cov}(x, e) \\ne 0$ | Biased **and inconsistent**; no usual test or interval is valid, however large $N$ |"
+      }
+     ],
+     "words": 108,
+     "symbols": [
+      "$N$",
+      "$y$, $x$",
+      "$e$",
+      "$\\beta_1$, $\\beta_2$",
+      "$\\sigma^2$",
+      "$t$",
+      "$F$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "derivation",
+   "heading": "Derivation",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "derivation-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "**Mean independence implies zero covariance.** If $E(e \\mid x) = 0$ then $\\mathrm{Cov}(x, e) = 0$, by the [Law of Iterated Expectations](note:law-of-iterated-expectations) (derived in [Strict Exogeneity](note:strict-exogeneity)). The converse fails: zero covariance rules out only a *linear* relation, so $E(e \\mid x) = 0$ is the stronger assumption. A regressor with $\\mathrm{Cov}(x, e) = 0$ is called **exogenous**; with $\\mathrm{Cov}(x, e) \\ne 0$, **endogenous** ([Endogenous and Exogenous Variables](note:endogenous-and-exogenous-variables))."
+      },
+      {
+       "t": "prose",
+       "md": "**The probability limit of OLS.** Substitute the model into $b_2 = \\sum (x_i - \\bar x)(y_i - \\bar y) / \\sum (x_i - \\bar x)^2$:"
+      },
+      {
+       "t": "math",
+       "tex": "b_2 = \\beta_2 + \\frac{\\frac{1}{N}\\sum (x_i - \\bar x)\\,e_i}{\\frac{1}{N}\\sum (x_i - \\bar x)^2} ."
+      },
+      {
+       "t": "prose",
+       "md": "By the law of large numbers the numerator converges to $\\mathrm{Cov}(x, e)$ and the denominator to $\\mathrm{Var}(x) > 0$; the ratio of the limits is the limit of the ratio. So the bias term vanishes only if $\\mathrm{Cov}(x, e) = 0$, and its sign is the sign of $\\mathrm{Cov}(x, e)$."
+      }
+     ],
+     "words": 93,
+     "symbols": [
+      "$N$",
+      "$y$, $x$",
+      "$e$",
+      "$\\beta_1$, $\\beta_2$",
+      "$b_2$",
+      "$\\bar{y}$, $\\bar{y}_g$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Wage data on 428 working women: $\\ln(WAGE)$ on education, experience and its square gives $b_{EDUC} = 0.1075$. If unmeasured ability raises both wages and schooling, $\\mathrm{Cov}(EDUC, e) > 0$ and the plim exceeds the true return. Instrumenting education with the parents' schooling gives 0.0614 ([Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls))."
+      }
+     ],
+     "words": 41,
+     "symbols": [
+      "$e$",
+      "$b_2$",
+      "$G(\\cdot)$",
+      "$A$, $L$, $K$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- \"The bias disappears in large samples.\" Bias from $\\mathrm{Cov}(x, e) \\ne 0$ does not: that is the meaning of inconsistent.\n- Treating unbiased and consistent as the same. IV is consistent but biased in finite samples ([Weak Instruments](note:weak-instruments)).\n- Thinking random $x$ by itself is a problem. With random sampling and exogenous $x$, nothing in the usual methods changes."
+      }
+     ],
+     "words": 54,
+     "symbols": [
+      "$y$, $x$",
+      "$e$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "where-it-is-used",
+   "heading": "Where it is used",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "where-it-is-used-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Econometrics: the case for OLS with random regressors, and the diagnosis of every endogeneity problem: [Classical Measurement Error](note:classical-measurement-error), [Omitted Variable Bias](note:omitted-variable-bias), simultaneity ([Simultaneous Equations Model](note:simultaneous-equations-model))."
+      }
+     ],
+     "words": 26,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Sampling Distribution of OLS](note:sampling-distribution-of-ols) · [Strict Exogeneity](note:strict-exogeneity) · [Law of Iterated Expectations](note:law-of-iterated-expectations) · [Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls) · [Method of Moments](note:method-of-moments)"
+      }
+     ],
+     "words": 18,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}

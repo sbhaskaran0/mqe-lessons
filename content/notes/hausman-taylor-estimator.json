@@ -1,0 +1,252 @@
+{
+ "slug": "hausman-taylor-estimator",
+ "notation": [
+  {
+   "tex": "$y_{it}$",
+   "meaning": "Outcome",
+   "kind": "Data",
+   "typical": "Log wage",
+   "keys": [
+    "y"
+   ]
+  },
+  {
+   "tex": "$x_{it,exog}$, $x_{it,endog}$",
+   "meaning": "Time-varying regressors, exogenous or endogenous",
+   "kind": "Data",
+   "typical": "Experience, tenure, union; south",
+   "keys": [
+    "x"
+   ]
+  },
+  {
+   "tex": "$w_{i,exog}$, $w_{i,endog}$",
+   "meaning": "Time-invariant regressors, exogenous or endogenous",
+   "kind": "Data",
+   "typical": "Black; education",
+   "keys": [
+    "w"
+   ]
+  },
+  {
+   "tex": "$\\beta_1, \\dots, \\beta_5$",
+   "meaning": "Coefficients",
+   "kind": "Parameter",
+   "typical": "0.1705 on education",
+   "keys": [
+    "beta"
+   ]
+  },
+  {
+   "tex": "$u_i$",
+   "meaning": "Individual effect",
+   "kind": "Random",
+   "typical": "—",
+   "keys": [
+    "u"
+   ]
+  },
+  {
+   "tex": "$e_{it}$",
+   "meaning": "Idiosyncratic error",
+   "kind": "Exogenous",
+   "typical": "—",
+   "keys": [
+    "e"
+   ]
+  },
+  {
+   "tex": "$\\alpha$",
+   "meaning": "Random-effects demeaning weight",
+   "kind": "Parameter",
+   "typical": "0.81",
+   "keys": [
+    "alpha"
+   ]
+  },
+  {
+   "tex": "$\\sigma_e^2$, $\\sigma_u^2$",
+   "meaning": "Variances of $e_{it}$ and $u_i$",
+   "kind": "Parameter",
+   "typical": "0.0380, 0.2024",
+   "keys": [
+    "sigma"
+   ]
+  },
+  {
+   "tex": "$\\bar y_i$, $\\bar x_{ki}$",
+   "meaning": "Unit means over time",
+   "kind": "Statistic",
+   "typical": "—",
+   "keys": [
+    "bar(y)",
+    "bar(x)"
+   ],
+   "from": "random-effects-model"
+  },
+  {
+   "tex": "$N$, $T$",
+   "meaning": "Units and periods",
+   "kind": "Index",
+   "typical": "716, 5",
+   "keys": [
+    "N",
+    "T"
+   ],
+   "from": "random-effects-model"
+  },
+  {
+   "tex": "$\\hat{\\sigma}$",
+   "meaning": "Estimated elasticity of substitution in the example",
+   "kind": "Statistic",
+   "typical": "2.28 (OLS), 2.58 (2SLS)",
+   "keys": [
+    "hat(sigma)"
+   ],
+   "from": "instrumental-variables-and-2sls"
+  }
+ ],
+ "sections": [
+  {
+   "id": "in-plain-english",
+   "heading": "In plain English",
+   "role": "intuition",
+   "steps": [
+    {
+     "id": "in-plain-english-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "Fixed effects protects you against permanent personal traits, like ability, that are tangled up with the explanatory variables, but it throws away every variable that never changes, such as years of schooling once working life has begun. Random effects keeps those variables but trusts that nothing is tangled up. Hausman and Taylor split the difference. You declare which variables are tangled up with the personal trait and which are not. The clean, time-varying variables then serve as instruments from inside the data: their swings over time instrument the tangled time-varying variables, and their averages instrument the tangled time-invariant ones. That way a return to education can be estimated even if education reflects ability."
+      },
+      {
+       "t": "callout",
+       "kind": "why",
+       "title": "Why it matters",
+       "md": "It is the standard way to estimate the effect of a time-invariant variable in a panel when random effects is rejected.",
+       "folded": false
+      }
+     ],
+     "words": 137,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "definition",
+   "heading": "Definition",
+   "role": "definition",
+   "steps": [
+    {
+     "id": "definition-1",
+     "blocks": [
+      {
+       "t": "math",
+       "tex": "y_{it} = \\beta_1 + \\beta_2x_{it,exog} + \\beta_3x_{it,endog} + \\beta_4w_{i,exog} + \\beta_5w_{i,endog} + u_i + e_{it}"
+      },
+      {
+       "t": "table",
+       "md": "| Variable | Varies over time | Correlated with $u_i$ |\n| --- | --- | --- |\n| $x_{it,exog}$ | Yes | No |\n| $x_{it,endog}$ | Yes | Yes |\n| $w_{i,exog}$ | No | No |\n| $w_{i,endog}$ | No | Yes |"
+      },
+      {
+       "t": "prose",
+       "md": "All are uncorrelated with $e_{it}$. Hausman-Taylor applies IV to the random-effects GLS transform ($y_{it}^* = y_{it} - \\hat\\alpha\\bar y_i$, and likewise for every variable): deviations from unit means of the time-varying variables and the means $\\bar x_{i,exog}$ of the exogenous time-varying variables, together with $w_{i,exog}$, are the instruments. Identification requires at least as many exogenous time-varying variables as endogenous time-invariant ones."
+      }
+     ],
+     "words": 68,
+     "symbols": [
+      "$y_{it}$",
+      "$x_{it,exog}$, $x_{it,endog}$",
+      "$w_{i,exog}$, $w_{i,endog}$",
+      "$\\beta_1, \\dots, \\beta_5$",
+      "$u_i$",
+      "$e_{it}$",
+      "$\\bar y_i$, $\\bar x_{ki}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worked-example",
+   "heading": "Worked example",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "worked-example-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "NLS wage panel, 716 women, $T = 5$. Exogenous time-varying: experience, tenure (with squares) and union; endogenous time-varying: south; exogenous time-invariant: black; endogenous time-invariant: education. Hausman-Taylor gives a return to education of **0.1705** (se 0.0445), with variance components $\\hat\\sigma_e^2 = 0.0380$, $\\hat\\sigma_u^2 = 0.2024$ (84% of the error variance is individual) and demeaning weight $\\hat\\alpha = 0.810$. Fixed effects could not estimate the education effect at all."
+      }
+     ],
+     "words": 57,
+     "symbols": [
+      "$N$, $T$",
+      "$\\hat{\\sigma}$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "when-to-use-it-and-when-not",
+   "heading": "When to use it, and when not",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "when-to-use-it-and-when-not-1",
+     "blocks": [
+      {
+       "t": "table",
+       "md": "| Use it when | Avoid it when |\n| --- | --- |\n| Time-invariant regressors matter for the question | You cannot justify which variables are exogenous |\n| Some regressors are plausibly correlated with $u_i$ (random effects rejected) | Within or between variation of the exogenous variables is small (weak internal instruments) |\n| The data supply enough exogenous time-varying variables | $T$ is very small |"
+      },
+      {
+       "t": "table",
+       "md": "| Estimator | Assumes | Strength | Weakness |\n| --- | --- | --- | --- |\n| Fixed effects | No regressor is exogenous with respect to $u_i$ | Consistent under correlation; no classification needed | Drops time-invariant variables |\n| Random effects | Every regressor is exogenous | Efficient; keeps time-invariant variables | Inconsistent under correlation |\n| Hausman-Taylor | Some are exogenous, as declared | Time-invariant effects despite correlation | Wrong classification or weak instruments invalidate it |"
+      }
+     ],
+     "words": 109,
+     "symbols": [
+      "$u_i$",
+      "$N$, $T$"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "common-mistakes",
+   "heading": "Common mistakes",
+   "role": "depth",
+   "steps": [
+    {
+     "id": "common-mistakes-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- Treating the classification as testable in full: it rests on judgement, though a Hausman test of Hausman-Taylor against fixed effects checks part of it.\n- Expecting it to work with weak internal variation."
+      }
+     ],
+     "words": 34,
+     "symbols": []
+    }
+   ]
+  },
+  {
+   "id": "links",
+   "heading": "Links",
+   "role": "other",
+   "steps": [
+    {
+     "id": "links-1",
+     "blocks": [
+      {
+       "t": "prose",
+       "md": "- [Random Effects Model](note:random-effects-model) · [Fixed Effects Regression](note:fixed-effects-regression) · [Instrumental Variables and 2SLS](note:instrumental-variables-and-2sls) · [Hausman Test](note:hausman-test) · [Panel Data](note:panel-data)"
+      }
+     ],
+     "words": 15,
+     "symbols": []
+    }
+   ]
+  }
+ ]
+}
